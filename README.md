@@ -60,6 +60,27 @@ npx firebase-tools login
 npx firebase-tools use lineuponline-a7eda
 ```
 
+## Catálogo de estudio (pipeline LUL)
+
+- El **catálogo** (módulos y lecciones) está en [`src/data/catalog.ts`](src/data/catalog.ts).
+- Las guías HTML completas viven en `public/lessons/` y se muestran dentro de la app con un **iframe** (`/lesson/:moduleId/:lessonId`).
+- Lecciones **publicadas**: `status: 'PUBLISHED'` + `htmlPath: '/lessons/archivo.html'`.
+- Lecciones **en construcción**: `status: 'IN_CONSTRUCTION'`; al abrirlas se muestra `/under-construction`.
+
+### Rutas
+
+- `/` — Inicio (grid de módulos)
+- `/module/:moduleId` — Lista de lecciones del módulo
+- `/lesson/:moduleId/:lessonId` — Lección (HTML embebido)
+- `/under-construction` — Placeholder para temas aún no publicados
+- `/notas` — Notas generales de la app (sync demo-user)
+
+### Añadir una nueva lección
+
+1. Copia el HTML a `public/lessons/{slug}.html`.
+2. En `catalog.ts`, pon esa lección en `PUBLISHED` y asigna `htmlPath`.
+3. `npm run build` y `npm run deploy:hosting`.
+
 ## Flujo Git recomendado (commit -> push)
 
 ```bash
