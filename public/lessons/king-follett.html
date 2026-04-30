@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Sermón de King Follett — LineUponLine</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FFFFFF; --bg2: #F7F9FC; --bg3: #EEF2F8; --bg4: #E4EAF4;
+  --border: #D0D9E8; --border2: #B8C6DC;
+  --text: #0F1E35; --text-soft: #2E4A6A; --text-muted: #6B849E;
+  --navy: #1B3A6B; --navy-light: #2A5298;
+  --navy-dim: rgba(27,58,107,0.07); --navy-border: rgba(27,58,107,0.22);
+  --gold: #B8860B; --gold-bright: #F0C040;
+  --gold-dim: rgba(184,134,11,0.08); --gold-dim2: rgba(184,134,11,0.16);
+  --gold-border: rgba(184,134,11,0.28); --gold-border2: rgba(184,134,11,0.50);
+  --green: #1A6640; --green-dim: rgba(26,102,64,0.07); --green-border: rgba(26,102,64,0.24);
+  --red: #9B2335; --red-dim: rgba(155,35,53,0.07); --red-border: rgba(155,35,53,0.24);
+  --purple: #5B3A9B; --purple-dim: rgba(91,58,155,0.07); --purple-border: rgba(91,58,155,0.24);
+  --amber: #B85C0B; --amber-dim: rgba(184,92,11,0.08); --amber-border: rgba(184,92,11,0.28);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Lora',Georgia,serif;font-size:16px;line-height:1.85;}
+
+/* ── HEADER ── */
+.page-header{background:none;border-bottom:none;padding:0;}
+.header-top{background:#0A1E3D;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+.header-top-inner{max-width:820px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;}
+.header-church-tag{font-family:'Source Sans 3',sans-serif;font-size:0.70rem;color:rgba(255,255,255,0.45);letter-spacing:0.3px;}
+.header-study-tag{font-family:'Source Sans 3',sans-serif;font-size:0.70rem;color:rgba(240,192,64,0.55);font-weight:700;letter-spacing:0.5px;text-transform:uppercase;}
+.header-hero{background:linear-gradient(160deg,#0D2147 0%,#1B3A6B 55%,#1A3560 100%);position:relative;overflow:hidden;}
+.header-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(184,134,11,0.12) 0%,transparent 70%);pointer-events:none;}
+.header-hero::after{content:'';position:absolute;bottom:80px;left:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(42,82,152,0.3) 0%,transparent 70%);pointer-events:none;}
+.header-gold-line{height:3px;background:linear-gradient(90deg,transparent 0%,var(--gold) 25%,var(--gold-bright) 50%,var(--gold) 75%,transparent 100%);}
+.header-hero-inner{max-width:820px;margin:0 auto;padding:52px 28px 48px;position:relative;z-index:1;text-align:center;}
+.header-kicker{display:inline-block;font-family:'Source Sans 3',sans-serif;font-size:0.65rem;font-weight:800;letter-spacing:4px;color:var(--gold-bright);text-transform:uppercase;background:rgba(240,192,64,0.10);border:1px solid rgba(240,192,64,0.22);border-radius:4px;padding:5px 14px;margin-bottom:24px;}
+.header-title{font-family:'Cinzel',serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:700;color:#FFF;line-height:1.15;margin-bottom:0;letter-spacing:1px;}
+.header-title-sub{font-family:'Cinzel',serif;font-size:clamp(1rem,2.5vw,1.5rem);font-weight:400;color:var(--gold-bright);letter-spacing:3px;display:block;margin-top:6px;}
+.header-desc{font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.55);margin:22px 0 20px;line-height:1.6;}
+.header-desc strong{color:rgba(255,255,255,0.80);font-weight:600;}
+.header-meta-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;}
+.header-meta-item{font-family:'Source Sans 3',sans-serif;font-size:0.75rem;color:rgba(255,255,255,0.50);font-weight:500;}
+.header-meta-dot{color:rgba(240,192,64,0.30);font-size:0.9rem;}
+
+/* ── NAV ── */
+.toc-bar{background:#FFFFFF;border-bottom:1px solid var(--border);padding:0;display:flex;gap:0;overflow-x:auto;scrollbar-width:none;position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(27,58,107,0.08);}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-bar-inner{display:flex;max-width:820px;margin:0 auto;padding:0 12px;width:100%;}
+.view-tab{font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;padding:0 16px;height:44px;border:none;background:none;color:var(--text-muted);cursor:pointer;border-bottom:3px solid transparent;transition:color 0.15s,border-color 0.15s;white-space:nowrap;flex-shrink:0;letter-spacing:0.3px;}
+.view-tab:hover{color:var(--navy);}
+.view-tab.active{color:var(--navy);border-bottom-color:var(--gold);background:rgba(184,134,11,0.04);}
+.toc-divider{width:1px;background:var(--border);margin:8px 4px;flex-shrink:0;align-self:stretch;}
+.toc-links-group{display:flex;align-items:stretch;overflow-x:auto;scrollbar-width:none;}
+.toc-links-group::-webkit-scrollbar{display:none;}
+.toc-link{font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.3px;color:var(--text-muted);text-decoration:none;padding:11px 13px;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s;flex-shrink:0;}
+.toc-link:hover{color:var(--navy);border-bottom-color:var(--navy-border);}
+.toc-link.active{color:var(--navy);border-bottom-color:var(--navy);font-weight:700;}
+
+/* ── CONTAINER ── */
+.container{max-width:820px;margin:0 auto;padding:0 24px 80px;}
+
+/* ── INTRO BLOCK ── */
+.intro-block{margin:40px 0 36px;padding:28px;background:var(--bg2);border:1px solid var(--border);border-left:4px solid var(--navy);border-radius:0 12px 12px 0;}
+.intro-lead{font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:3px;color:var(--navy);text-transform:uppercase;opacity:0.7;margin-bottom:10px;}
+.intro-block p{font-family:'Lora',serif;font-size:1rem;color:var(--text-soft);line-height:1.9;margin-bottom:12px;}
+.intro-block p:last-child{margin-bottom:0;}
+.intro-block strong{color:var(--text);}
+.intro-verse{margin-top:18px;padding:16px 20px;background:rgba(0,0,0,0.03);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;font-style:italic;color:var(--navy);font-size:0.97rem;}
+.intro-verse-ref{display:block;margin-top:8px;font-style:normal;font-size:0.75rem;color:var(--text-muted);font-family:'Source Sans 3',sans-serif;font-weight:600;}
+
+/* ── SECTION DIVIDER ── */
+.section-intro{padding:40px 0 10px;border-bottom:2px solid var(--navy);margin-bottom:26px;}
+.section-eyebrow{font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:4px;color:var(--navy);text-transform:uppercase;opacity:0.7;margin-bottom:6px;}
+.section-title{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:600;color:var(--navy);line-height:1.35;}
+.section-desc{margin-top:8px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--text-muted);line-height:1.6;}
+
+/* ── TOPIC CARDS ── */
+.topic{background:#FFF;border:1px solid var(--border);border-radius:10px;margin-bottom:14px;overflow:hidden;transition:border-color 0.2s,box-shadow 0.2s;}
+.topic:hover{border-color:var(--navy-border);box-shadow:0 2px 12px rgba(27,58,107,0.09);}
+.topic.open{border-color:var(--navy);box-shadow:0 2px 16px rgba(27,58,107,0.11);}
+.topic-summary{padding:20px 22px 16px;cursor:pointer;display:flex;align-items:flex-start;gap:14px;user-select:none;}
+.topic-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;margin-top:2px;}
+.icon-gold{background:var(--gold-dim);border:1px solid var(--gold-border);}
+.icon-blue{background:var(--navy-dim);border:1px solid var(--navy-border);}
+.icon-green{background:var(--green-dim);border:1px solid var(--green-border);}
+.icon-purple{background:var(--purple-dim);border:1px solid var(--purple-border);}
+.icon-red{background:var(--red-dim);border:1px solid var(--red-border);}
+.icon-amber{background:var(--amber-dim);border:1px solid var(--amber-border);}
+.topic-meta{flex:1;min-width:0;}
+.topic-number{font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:2.5px;color:var(--text-muted);text-transform:uppercase;margin-bottom:3px;}
+.topic-name{font-family:'Lora',serif;font-size:1.02rem;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:7px;}
+.topic-quick{font-family:'Source Sans 3',sans-serif;font-size:0.875rem;color:var(--text-soft);line-height:1.55;}
+.topic-quick strong{color:var(--text);}
+.expand-btn{display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0;padding-top:4px;}
+.expand-icon{width:26px;height:26px;border-radius:50%;background:var(--bg3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:var(--text-muted);transition:transform 0.3s,background 0.2s;}
+.topic.open .expand-icon{transform:rotate(180deg);background:var(--navy-dim);color:var(--navy);border-color:var(--navy-border);}
+.expand-label{font-family:'Source Sans 3',sans-serif;font-size:0.63rem;color:var(--text-muted);}
+.topic-detail{max-height:0;overflow:hidden;transition:max-height 0.55s cubic-bezier(0.4,0,0.2,1);}
+.topic.open .topic-detail{max-height:5000px;}
+.detail-inner{padding:0 22px 26px;border-top:1px solid var(--border);}
+
+/* ── INNER COMPONENTS ── */
+.detail-p{font-family:'Lora',serif;font-size:0.97rem;color:var(--text-soft);line-height:1.9;margin:18px 0;}
+.detail-p strong{color:var(--text);}
+.detail-p em{color:var(--navy);font-style:italic;}
+
+.scripture{margin:18px 0;padding:18px 20px;background:var(--bg3);border-left:3px solid var(--navy);border-radius:0 10px 10px 0;}
+.scripture.gold-border{border-left-color:var(--gold);}
+.scripture.green-border{border-left-color:var(--green);}
+.scripture.red-border{border-left-color:var(--red);}
+.scripture.purple-border{border-left-color:var(--purple);}
+.scripture.amber-border{border-left-color:var(--amber);}
+.scripture-text{font-family:'Lora',serif;font-style:italic;font-size:0.97rem;color:var(--text);line-height:1.8;margin-bottom:10px;}
+.scripture-ref{font-family:'Source Sans 3',sans-serif;font-size:0.75rem;color:var(--navy);font-weight:700;letter-spacing:0.3px;}
+
+.leader-quote{margin:20px 0;padding:18px 20px;background:linear-gradient(135deg,rgba(27,58,107,0.05) 0%,rgba(255,255,255,0) 100%);border-left:4px solid var(--navy);border-top:1px solid var(--navy-border);border-right:1px solid var(--navy-border);border-bottom:1px solid var(--navy-border);border-radius:0 10px 10px 0;position:relative;}
+.leader-quote::before{content:'\201C';position:absolute;top:8px;left:14px;font-size:3rem;color:var(--navy);opacity:0.12;font-family:Georgia,serif;line-height:1;}
+.quote-text{font-family:'Lora',serif;font-style:italic;font-size:0.97rem;color:var(--text);line-height:1.8;margin-bottom:10px;padding-left:8px;}
+.quote-attr{font-family:'Source Sans 3',sans-serif;font-size:0.75rem;color:var(--navy);font-weight:700;}
+
+.doctrine-box{margin:18px 0;padding:18px 20px;border-radius:10px;border:1px solid;}
+.doctrine-box.gold{background:var(--gold-dim);border-color:var(--gold-border);}
+.doctrine-box.blue{background:var(--navy-dim);border-color:var(--navy-border);}
+.doctrine-box.green{background:var(--green-dim);border-color:var(--green-border);}
+.doctrine-box.red{background:var(--red-dim);border-color:var(--red-border);}
+.doctrine-box.purple{background:var(--purple-dim);border-color:var(--purple-border);}
+.doctrine-box-title{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;font-weight:700;}
+.doctrine-box.gold .doctrine-box-title{color:var(--gold);}
+.doctrine-box.blue .doctrine-box-title{color:var(--navy);}
+.doctrine-box.green .doctrine-box-title{color:var(--green);}
+.doctrine-box.red .doctrine-box-title{color:var(--red);}
+.doctrine-box.purple .doctrine-box-title{color:var(--purple);}
+.doctrine-box p{font-family:'Source Sans 3',sans-serif;font-size:0.91rem;line-height:1.7;color:var(--text-soft);}
+.doctrine-box p strong{color:var(--text);}
+
+.key-points{display:flex;flex-direction:column;gap:12px;margin:18px 0;}
+.key-point{display:flex;gap:12px;align-items:flex-start;}
+.key-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:7px;}
+.key-text{font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:var(--text-soft);line-height:1.65;flex:1;}
+.key-text strong{color:var(--text);}
+.key-text em{color:var(--navy);}
+
+.steps{display:flex;flex-direction:column;gap:0;margin:18px 0;position:relative;}
+.steps::before{content:'';position:absolute;left:19px;top:28px;bottom:28px;width:2px;background:linear-gradient(to bottom,var(--navy),var(--border));}
+.step{display:flex;gap:16px;align-items:flex-start;padding:12px 0;position:relative;}
+.step-num{width:40px;height:40px;border-radius:50%;background:var(--navy);border:2px solid var(--navy);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:0.82rem;font-weight:700;color:#FFF;flex-shrink:0;position:relative;z-index:1;}
+.step-content{flex:1;padding-top:8px;}
+.step-title{font-family:'Lora',serif;font-weight:700;font-size:0.97rem;color:var(--text);margin-bottom:4px;}
+.step-desc{font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--text-soft);line-height:1.6;}
+.step-desc strong{color:var(--text);}
+
+.highlight-verse{margin:28px 0;padding:26px;text-align:center;background:linear-gradient(135deg,rgba(27,58,107,0.05) 0%,rgba(255,255,255,0) 80%);border:1px solid var(--navy-border);border-left:5px solid var(--gold);border-radius:0 10px 10px 0;}
+.highlight-verse-text{font-family:'Lora',serif;font-style:italic;font-size:1.15rem;color:var(--navy);line-height:1.85;margin-bottom:12px;}
+.highlight-verse-ref{font-family:'Source Sans 3',sans-serif;font-size:0.76rem;color:var(--gold);font-weight:700;letter-spacing:0.5px;}
+
+.central-quote{margin:32px 0;padding:32px 28px;text-align:center;border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);position:relative;}
+.central-quote::before,.central-quote::after{content:'✦';position:absolute;color:var(--gold);opacity:0.3;font-size:0.9rem;}
+.central-quote::before{top:12px;left:50%;transform:translateX(-50%);}
+.central-quote::after{bottom:12px;left:50%;transform:translateX(-50%);}
+.central-quote-text{font-family:'Lora',serif;font-style:italic;font-size:1.1rem;color:var(--navy);line-height:1.85;margin-bottom:14px;}
+.central-quote-attr{font-family:'Source Sans 3',sans-serif;font-size:0.76rem;color:var(--text-muted);}
+
+.ornament{text-align:center;margin:32px 0;color:var(--navy);opacity:0.2;font-size:1.1rem;letter-spacing:12px;}
+
+.reflection-block{margin:24px 0;padding:24px 26px;background:linear-gradient(135deg,rgba(27,58,107,0.05) 0%,rgba(255,255,255,0) 70%);border:1px solid var(--navy-border);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;}
+.reflection-eyebrow{font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;}
+.reflection-block p{font-family:'Lora',serif;font-style:italic;font-size:0.97rem;color:var(--text-soft);line-height:1.85;margin-bottom:10px;}
+.reflection-block p:last-child{margin-bottom:0;}
+.reflection-block strong{color:var(--navy);font-style:normal;}
+
+/* ── QUIZ ── */
+.quiz-block{margin:24px 0;padding:22px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;border-left:3px solid var(--navy);}
+.quiz-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.quiz-badge{padding:4px 12px;background:var(--navy-dim);border:1px solid var(--navy-border);border-radius:20px;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1px;}
+.quiz-title{font-family:'Lora',serif;font-size:1rem;font-weight:700;color:var(--text);}
+.quiz-question{font-family:'Lora',serif;font-size:0.97rem;color:var(--text);margin-bottom:14px;line-height:1.7;}
+.quiz-options{display:flex;flex-direction:column;gap:9px;margin-bottom:14px;}
+.quiz-option{padding:12px 15px;background:#F0EBE0;border:1px solid var(--border2);border-radius:8px;font-family:'Source Sans 3',sans-serif;font-size:0.91rem;color:var(--text-soft);cursor:pointer;transition:all 0.2s;text-align:left;}
+.quiz-option:hover{border-color:var(--navy-border);color:var(--navy);background:var(--navy-dim);}
+.quiz-option.correct{background:var(--green-dim)!important;border-color:var(--green-border)!important;color:var(--green)!important;}
+.quiz-option.wrong{background:var(--red-dim)!important;border-color:var(--red-border)!important;color:var(--red)!important;}
+.quiz-option.disabled{cursor:default;pointer-events:none;}
+.quiz-feedback{padding:13px 16px;border-radius:8px;font-family:'Source Sans 3',sans-serif;font-size:0.9rem;line-height:1.6;display:none;}
+.quiz-feedback.show{display:block;}
+.quiz-feedback.correct-fb{background:var(--green-dim);border:1px solid var(--green-border);color:var(--green);}
+.quiz-feedback.wrong-fb{background:var(--red-dim);border:1px solid var(--red-border);color:var(--red);}
+.quiz-reset{margin-top:10px;padding:7px 18px;background:var(--bg4);border:1px solid var(--border2);border-radius:6px;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--text-muted);cursor:pointer;display:none;}
+.quiz-reset.show{display:inline-block;}
+.quiz-reset:hover{color:var(--navy);border-color:var(--navy-border);}
+
+/* ── INLINE NOTES ── */
+.inline-notes{margin:26px 0 4px;border:1px solid var(--border);border-top:3px solid var(--navy);border-radius:0 0 10px 10px;overflow:hidden;background:var(--bg2);}
+.inline-notes-header{background:var(--navy);padding:13px 20px;display:flex;align-items:center;justify-content:space-between;}
+.inline-notes-title{font-family:'Source Sans 3',sans-serif;font-size:0.72rem;letter-spacing:2px;color:var(--gold-bright);text-transform:uppercase;font-weight:800;display:flex;align-items:center;gap:7px;}
+.inline-notes-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--gold);border-radius:2px;}
+.inline-notes-hint{font-family:'Source Sans 3',sans-serif;font-size:0.67rem;color:rgba(255,255,255,0.40);font-style:italic;}
+.inline-notes-body{padding:16px 18px;display:flex;flex-direction:column;gap:14px;}
+.inline-q{display:flex;flex-direction:column;gap:5px;}
+.inline-q-label{font-family:'Lora',serif;font-size:0.88rem;font-weight:700;color:var(--navy);line-height:1.45;}
+.inline-q-label span{display:inline-block;background:var(--navy);color:white;font-family:'Cinzel',serif;font-size:0.6rem;font-weight:700;letter-spacing:1px;padding:2px 7px;border-radius:4px;margin-right:6px;vertical-align:middle;}
+.inline-q-input{width:100%;min-height:68px;padding:9px 12px;background:#FFF;border:1.5px solid var(--border2);border-radius:8px;font-family:'Lora',serif;font-size:0.88rem;color:var(--text);line-height:1.65;resize:vertical;outline:none;transition:border-color 0.2s,box-shadow 0.2s;}
+.inline-q-input::placeholder{color:var(--text-muted);font-style:italic;}
+.inline-q-input:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(27,58,107,0.10);}
+.inline-notes-footer{padding:10px 18px 14px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);}
+.inline-save-btn{padding:7px 18px;background:var(--navy);color:#FFF;border:none;border-radius:7px;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;cursor:pointer;transition:background 0.15s,transform 0.1s;letter-spacing:0.3px;}
+.inline-save-btn:hover{background:var(--navy-light);transform:translateY(-1px);}
+.inline-save-status{font-family:'Source Sans 3',sans-serif;font-size:0.75rem;color:var(--green);font-weight:700;opacity:0;transition:opacity 0.3s;}
+.inline-save-status.show{opacity:1;}
+
+/* ── ORIGINAL TEXT VIEW ── */
+.view-panel{display:block;}
+.orig-header{margin:40px 0 34px;padding:30px;background:var(--bg2);border-radius:12px;border-left:5px solid var(--navy);text-align:center;}
+.orig-kicker{font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:800;letter-spacing:3px;color:var(--text-muted);text-transform:uppercase;margin-bottom:10px;}
+.orig-title{font-family:'Cinzel',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.2;}
+.orig-author{font-family:'Lora',serif;font-size:0.97rem;color:var(--text-soft);margin-bottom:8px;}
+.orig-context{font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--text-muted);line-height:1.6;margin-bottom:14px;}
+.orig-nav-hint{display:inline-block;background:rgba(184,134,11,0.08);border:1px solid var(--gold-border);border-radius:6px;padding:8px 14px;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--text-soft);line-height:1.5;}
+.orig-section{margin:32px 0 0;}
+.orig-section-link{display:block;text-decoration:none;padding:15px 18px;background:linear-gradient(135deg,rgba(27,58,107,0.05) 0%,rgba(255,255,255,0) 80%);border:1px solid var(--navy-border);border-left:5px solid var(--gold);border-radius:0 8px 8px 0;transition:background 0.18s,border-left-color 0.18s;cursor:pointer;}
+.orig-section-link:hover{background:linear-gradient(135deg,rgba(27,58,107,0.09) 0%,rgba(255,255,255,0) 80%);border-left-color:var(--navy);}
+.orig-section-tag{font-family:'Source Sans 3',sans-serif;font-size:0.64rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+.orig-section-title{font-family:'Cinzel',serif;font-size:0.97rem;font-weight:700;color:var(--navy);line-height:1.3;margin:0 0 5px 0;}
+.orig-section-arrow{font-family:'Source Sans 3',sans-serif;font-size:0.74rem;color:var(--gold);font-weight:700;}
+.orig-body{padding:0;margin:0 0 6px;}
+.orig-body p{font-family:'Lora',serif;font-size:1rem;color:var(--text-soft);line-height:1.92;margin:18px 0;}
+.orig-body p strong{color:var(--text);}
+.orig-body p em{color:var(--navy);}
+.orig-subheading{font-family:'Cinzel',serif;font-size:0.88rem;font-weight:700;color:var(--navy);letter-spacing:0.5px;margin:28px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+.orig-quote{margin:18px 0;padding:16px 20px 16px 22px;background:var(--bg2);border-left:4px solid var(--navy);border-radius:0 8px 8px 0;font-family:'Lora',serif;font-style:italic;font-size:0.97rem;color:var(--text);line-height:1.8;}
+.orig-quote cite{display:block;margin-top:10px;font-style:normal;font-family:'Source Sans 3',sans-serif;font-size:0.74rem;font-weight:700;color:var(--navy);letter-spacing:0.3px;}
+.orig-quote.orig-dialogue{background:rgba(27,58,107,0.04);border-left-color:var(--gold);}
+.orig-speaker{font-style:normal;font-weight:800;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;letter-spacing:0.5px;color:var(--navy);text-transform:uppercase;display:block;margin-bottom:6px;}
+.orig-quote.orig-climax{text-align:center;font-size:1.35rem;border-left-color:var(--gold);background:linear-gradient(135deg,rgba(184,134,11,0.07) 0%,rgba(255,255,255,0) 80%);color:var(--navy);letter-spacing:1px;padding:24px;}
+.orig-testimony{margin:32px 0 24px;padding:26px;text-align:center;background:linear-gradient(135deg,rgba(27,58,107,0.05) 0%,rgba(255,255,255,0) 80%);border:1px solid var(--navy-border);border-top:3px solid var(--navy);border-radius:0 0 12px 12px;}
+.orig-testimony-icon{font-size:1.8rem;margin-bottom:12px;display:block;}
+.orig-testimony p{font-family:'Lora',serif;font-style:italic;font-size:0.97rem;color:var(--navy);line-height:1.8;margin-bottom:10px;}
+.orig-testimony p strong{font-style:normal;}
+.orig-testimony-attr{font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;color:var(--gold);letter-spacing:0.5px;}
+.orig-cta{margin:36px 0 18px;text-align:center;}
+.orig-cta p{font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--text-muted);margin-bottom:10px;}
+.orig-cta-btn{padding:13px 28px;background:var(--navy);color:white;border:none;border-radius:8px;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.5px;cursor:pointer;text-transform:uppercase;transition:background 0.18s,transform 0.12s;}
+.orig-cta-btn:hover{background:var(--navy-light);transform:translateY(-1px);}
+
+/* ── PROGRESS TRACKER ── */
+.progress-tracker{position:fixed;top:60px;right:16px;background:var(--navy);border:none;border-radius:30px;padding:7px 14px;display:flex;align-items:center;gap:7px;box-shadow:0 4px 16px rgba(27,58,107,0.28);z-index:200;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.60);white-space:nowrap;}
+.pt-score{font-weight:800;color:var(--gold-bright);font-size:0.85rem;}
+.pt-label{font-size:0.70rem;color:rgba(255,255,255,0.55);}
+
+/* ── EXPORT BUTTON ── */
+.notes-summary-bar{position:fixed;bottom:24px;right:24px;z-index:300;}
+.notes-export-btn{padding:11px 20px;background:var(--navy);color:white;border:none;border-radius:8px;font-family:'Source Sans 3',sans-serif;font-size:0.76rem;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(27,58,107,0.35);display:flex;align-items:center;gap:9px;transition:all 0.18s;letter-spacing:0.5px;text-transform:uppercase;}
+.notes-export-btn:hover{background:#1E3F76;transform:translateY(-1px);box-shadow:0 6px 24px rgba(27,58,107,0.45);}
+.notes-answered-count{background:var(--gold-bright);color:var(--navy);font-size:0.68rem;font-weight:900;padding:2px 8px;border-radius:20px;min-width:22px;text-align:center;}
+.copy-flash{position:fixed;bottom:80px;right:24px;background:var(--navy);color:white;padding:10px 18px;border-radius:10px;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;font-weight:700;z-index:400;opacity:0;transform:translateY(8px);transition:all 0.3s;pointer-events:none;box-shadow:0 4px 16px rgba(27,58,107,0.3);}
+.copy-flash.show{opacity:1;transform:translateY(0);}
+
+/* ── READER ── */
+.reader-bar{position:fixed;bottom:0;left:0;right:0;background:#FFF;border-top:2px solid var(--navy);box-shadow:0 -4px 24px rgba(27,58,107,0.14);z-index:500;padding:10px 0;transform:translateY(100%);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);}
+.reader-bar.visible{transform:translateY(0);}
+.reader-bar-inner{max-width:820px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.reader-btn-play{width:40px;height:40px;border-radius:50%;background:var(--navy);border:none;color:white;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.15s,transform 0.1s;}
+.reader-btn-play:hover{background:#1E3F76;transform:scale(1.05);}
+.reader-btn-stop{width:34px;height:34px;border-radius:50%;background:var(--bg3);border:1px solid var(--border2);color:var(--text-soft);font-size:0.85rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.15s;}
+.reader-btn-stop:hover{background:var(--red-dim);color:var(--red);border-color:var(--red-border);}
+.reader-progress-wrap{flex:1;min-width:100px;}
+.reader-label{font-family:'Source Sans 3',sans-serif;font-size:0.68rem;color:var(--text-muted);margin-bottom:4px;letter-spacing:0.3px;}
+.reader-progress{height:4px;background:var(--bg3);border-radius:2px;overflow:hidden;}
+.reader-progress-fill{height:100%;background:linear-gradient(90deg,var(--navy) 0%,var(--gold) 100%);border-radius:2px;transition:width 0.3s;width:0%;}
+.reader-speed{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.reader-speed-label{font-family:'Source Sans 3',sans-serif;font-size:0.70rem;color:var(--text-muted);white-space:nowrap;}
+.reader-speed-select{padding:4px 8px;border:1px solid var(--border2);border-radius:6px;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;color:var(--text);background:var(--bg2);cursor:pointer;}
+.reader-ai-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;background:var(--gold-dim);border:1px solid var(--gold-border);border-radius:20px;font-family:'Source Sans 3',sans-serif;font-size:0.60rem;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1px;flex-shrink:0;}
+.reader-ai-coming{font-family:'Source Sans 3',sans-serif;font-size:0.68rem;color:var(--text-muted);font-style:italic;flex-shrink:0;}
+.reader-close{padding:4px 10px;border:1px solid var(--border2);border-radius:6px;background:none;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--text-muted);cursor:pointer;flex-shrink:0;white-space:nowrap;transition:color 0.15s,border-color 0.15s;}
+.reader-close:hover{color:var(--red);border-color:var(--red-border);}
+.reader-trigger{position:fixed;bottom:24px;left:24px;padding:10px 16px;background:white;border:1.5px solid var(--border2);border-radius:30px;font-family:'Source Sans 3',sans-serif;font-size:0.74rem;font-weight:700;color:var(--navy);cursor:pointer;box-shadow:0 4px 14px rgba(27,58,107,0.13);display:flex;align-items:center;gap:7px;transition:all 0.18s;z-index:250;letter-spacing:0.3px;}
+.reader-trigger:hover{background:var(--navy);color:white;border-color:var(--navy);transform:translateY(-1px);}
+.reader-trigger.hidden{display:none;}
+@media(max-width:540px){.reader-ai-coming{display:none;}.reader-speed-label{display:none;}.reader-bar-inner{gap:8px;}}
+
+/* ── DISCLAIMER ── */
+.disclaimer-overlay{position:fixed;inset:0;background:rgba(10,20,40,0.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:9999;display:flex;align-items:flex-start;justify-content:center;padding:16px 16px 32px;overflow-y:auto;-webkit-overflow-scrolling:touch;animation:fadeInOverlay 0.4s ease;}
+@keyframes fadeInOverlay{from{opacity:0}to{opacity:1}}
+.disclaimer-card{background:#FFF;border-radius:14px;max-width:560px;width:100%;overflow:visible;box-shadow:0 24px 64px rgba(10,20,40,0.45);animation:slideUpCard 0.4s cubic-bezier(0.4,0,0.2,1);margin:auto 0;flex-shrink:0;}
+@keyframes slideUpCard{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.disclaimer-header{background:linear-gradient(135deg,#0D2147 0%,#1B3A6B 100%);padding:22px 26px 18px;border-radius:14px 14px 0 0;}
+.disclaimer-header-kicker{font-family:'Source Sans 3',sans-serif;font-size:0.62rem;font-weight:800;letter-spacing:3px;color:rgba(240,192,64,0.70);text-transform:uppercase;margin-bottom:7px;display:flex;align-items:center;gap:8px;}
+.disclaimer-header-kicker::before{content:'';width:18px;height:2px;background:rgba(240,192,64,0.50);border-radius:2px;flex-shrink:0;}
+.disclaimer-header-title{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:700;color:#FFF;line-height:1.3;}
+.disclaimer-header-title span{color:var(--gold-bright);font-weight:400;}
+.disclaimer-body{padding:22px 26px;}
+.disclaimer-alert{display:flex;gap:12px;align-items:flex-start;background:#FFF8E6;border:1px solid rgba(184,134,11,0.25);border-left:4px solid var(--gold);border-radius:8px;padding:13px 15px;margin-bottom:18px;}
+.disclaimer-alert-icon{font-size:1.05rem;flex-shrink:0;margin-top:1px;}
+.disclaimer-alert-text{font-family:'Source Sans 3',sans-serif;font-size:0.84rem;color:#5C4200;line-height:1.6;font-weight:600;}
+.disclaimer-points{display:flex;flex-direction:column;gap:11px;margin-bottom:20px;}
+.disclaimer-point{display:flex;gap:12px;align-items:flex-start;}
+.disclaimer-point-icon{width:26px;height:26px;border-radius:50%;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.82rem;flex-shrink:0;margin-top:1px;}
+.disclaimer-point-text{font-family:'Source Sans 3',sans-serif;font-size:0.83rem;color:var(--text-soft);line-height:1.65;}
+.disclaimer-point-text strong{color:var(--text);display:block;font-size:0.81rem;margin-bottom:1px;}
+.disclaimer-divider{height:1px;background:var(--border);margin-bottom:16px;}
+.disclaimer-footer-note{font-family:'Lora',serif;font-style:italic;font-size:0.82rem;color:var(--text-muted);line-height:1.65;text-align:center;margin-bottom:18px;}
+.disclaimer-footer-note strong{font-style:normal;color:var(--navy);}
+.disclaimer-btn{width:100%;padding:13px 20px;background:var(--navy);color:#FFF;border:none;border-radius:8px;font-family:'Source Sans 3',sans-serif;font-size:0.84rem;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;cursor:pointer;transition:background 0.18s,transform 0.12s;display:flex;align-items:center;justify-content:center;gap:9px;}
+.disclaimer-btn:hover{background:#1E3F76;transform:translateY(-1px);}
+@media(max-height:700px){.disclaimer-overlay{align-items:flex-start;padding-top:12px;}.disclaimer-body{padding:15px 20px;}.disclaimer-header{padding:15px 20px 13px;}.disclaimer-points{gap:8px;}.disclaimer-point-text{font-size:0.80rem;}}
+@media(max-width:420px){.disclaimer-overlay{padding:10px 10px 22px;}.disclaimer-card{border-radius:10px;}.disclaimer-body{padding:15px 18px;}}
+
+/* ── FOOTER ── */
+footer{border-top:2px solid var(--navy);padding:28px 24px;text-align:center;font-family:'Source Sans 3',sans-serif;font-size:0.76rem;color:var(--text-muted);line-height:1.8;background:var(--bg2);}
+footer a{color:var(--navy);text-decoration:none;opacity:0.8;}
+.footer-disclaimer{margin-top:14px;padding:13px 16px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;font-size:0.75rem;color:var(--text-muted);line-height:1.65;text-align:left;}
+.footer-disclaimer strong{color:var(--text-soft);}
+@media(max-width:600px){.topic-summary{padding:16px 16px 12px;gap:10px;}.detail-inner{padding:0 16px 20px;}.header-hero-inner{padding:36px 20px 30px;}}
+</style>
+</head>
+<body>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer-overlay" id="disclaimer-overlay">
+  <div class="disclaimer-card" role="dialog" aria-modal="true">
+    <div class="disclaimer-header">
+      <div class="disclaimer-header-kicker">Nota Importante Antes de Comenzar</div>
+      <div class="disclaimer-header-title">Recurso de Estudio Personal <span>Independiente</span></div>
+    </div>
+    <div class="disclaimer-body">
+      <div class="disclaimer-alert">
+        <div class="disclaimer-alert-icon">⚠️</div>
+        <div class="disclaimer-alert-text">Este documento <u>no es material oficial</u> de La Iglesia de Jesucristo de los Santos de los Últimos Días, ni representa sus posiciones, enseñanzas o aprobación institucional.</div>
+      </div>
+      <div class="disclaimer-points">
+        <div class="disclaimer-point">
+          <div class="disclaimer-point-icon">📖</div>
+          <div class="disclaimer-point-text"><strong>No sustituye las escrituras</strong>Este estudio es una guía de referencia. La fuente primaria es siempre la Biblia, el Libro de Mormón, D&C y la Perla de Gran Precio en su versión oficial.</div>
+        </div>
+        <div class="disclaimer-point">
+          <div class="disclaimer-point-icon">🙏</div>
+          <div class="disclaimer-point-text"><strong>No reemplaza la oración ni la revelación personal</strong>El Espíritu Santo es el verdadero maestro. Su testimonio tiene más autoridad que cualquier contenido aquí.</div>
+        </div>
+        <div class="disclaimer-point">
+          <div class="disclaimer-point-icon">🏛️</div>
+          <div class="disclaimer-point-text"><strong>No reemplaza las enseñanzas del liderazgo de la Iglesia</strong>Sigue a tu obispo, líderes de estaca y Autoridades Generales.</div>
+        </div>
+        <div class="disclaimer-point">
+          <div class="disclaimer-point-icon">💡</div>
+          <div class="disclaimer-point-text"><strong>Úsalo como lo que es: una ayuda de estudio</strong>Basado en fuentes reconocidas, pero es una compilación personal. Verifica siempre en las fuentes originales.</div>
+        </div>
+      </div>
+      <div class="disclaimer-divider"></div>
+      <p class="disclaimer-footer-note">«Buscad diligentemente, enseñad el uno al otro palabras de sabiduría; buscad el conocimiento, tanto por el estudio como por la fe.»<br><strong>— D&C 88:118</strong></p>
+      <button class="disclaimer-btn" onclick="acceptDisclaimer()">Entendido — Comenzar el Estudio</button>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="header-top">
+    <div class="header-top-inner">
+      <span class="header-church-tag">⬡ La Iglesia de Jesucristo de los Santos de los Últimos Días</span>
+      <span class="header-study-tag">LineUponLine · Estudio Profundo del Evangelio</span>
+    </div>
+  </div>
+  <div class="header-hero">
+    <div class="header-hero-inner">
+      <div class="header-kicker">La Carne del Evangelio · Discurso Histórico</div>
+      <h1 class="header-title">
+        El Sermón de King Follett
+        <span class="header-title-sub">por el Profeta José Smith</span>
+      </h1>
+      <p class="header-desc">El último gran discurso doctrinal del Profeta · Nauvoo, Illinois, 7 de abril de 1844<br>
+        <strong>Menos de 3 meses antes de su martirio · Ante 20,000 santos</strong></p>
+      <div class="header-meta-row">
+        <span class="header-meta-item">📖 Texto completo en español</span>
+        <span class="header-meta-dot">·</span>
+        <span class="header-meta-item">12 Quizzes interactivos</span>
+        <span class="header-meta-dot">·</span>
+        <span class="header-meta-item">9 Secciones de estudio</span>
+        <span class="header-meta-dot">·</span>
+        <span class="header-meta-item">Notas guiadas por tema</span>
+      </div>
+    </div>
+    <div class="header-gold-line"></div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="toc-bar">
+  <div class="toc-bar-inner">
+    <button class="view-tab active" id="tab-estudio" onclick="switchView('estudio')">📚 Estudio</button>
+    <button class="view-tab" id="tab-texto" onclick="switchView('texto')">📜 Texto Original</button>
+    <div class="toc-divider"></div>
+    <div id="toc-links-study" class="toc-links-group">
+      <a href="#s1" class="toc-link active">I · Dios</a>
+      <a href="#s2" class="toc-link">II · La Naturaleza</a>
+      <a href="#s3" class="toc-link">III · Los Elementos</a>
+      <a href="#s4" class="toc-link">IV · El Espíritu</a>
+      <a href="#s5" class="toc-link">V · Relación con Dios</a>
+      <a href="#s6" class="toc-link">VI · Los Muertos</a>
+      <a href="#s7" class="toc-link">VII · El Pecado</a>
+      <a href="#s8" class="toc-link">VIII · El Bautismo</a>
+      <a href="#s9" class="toc-link">IX · El Legado</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ VISTA ESTUDIO ══ -->
+<div id="view-estudio" class="view-panel">
+<div class="container">
+
+<div class="intro-block">
+  <div class="intro-lead">Por qué este sermón importa</div>
+  <p>El 7 de abril de 1844, el Profeta José Smith se puso de pie ante 20,000 santos en Nauvoo, Illinois — la conferencia general más grande de su tiempo. Había llovido. Hacía frío. Y José sabía, en algún nivel, que el tiempo se le acababa.</p>
+  <p>Ochenta y siete días después sería martirizado en Carthage Jail. Este fue su último gran discurso doctrinal. Llamado el «Sermón de King Follett» por haberse pronunciado en el funeral del Élder King Follett, contiene algunas de las revelaciones doctrinales más profundas y únicas jamás pronunciadas en la historia de la Iglesia restaurada: <strong>la naturaleza de Dios, la eternidad de la inteligencia humana, el destino eterno del hombre, y la salvación de los muertos.</strong></p>
+  <div class="intro-verse">
+    «Este discurso puede ser uno de los más grandes sermones del Profeta debido a sus profundas enseñanzas doctrinales. Fue su último discurso durante una conferencia general, entregado menos de tres meses antes de ser martirizado.»
+    <span class="intro-verse-ref">Nota histórica · Publicado en Ensign · Historia de la Iglesia, vol. 6, pp. 302-317</span>
+  </div>
+</div>
+
+<!-- ══════════ SECCIÓN 1 ══════════ -->
+<div class="section-intro" id="s1">
+  <div class="section-eyebrow">Sección I — La Pregunta Fundamental</div>
+  <div class="section-title">¿Qué Clase de Ser es Dios?</div>
+  <div class="section-desc">José Smith comienza con lo más básico — y lo más radical: la naturaleza real de Dios. Todo lo demás en el evangelio depende de esta comprensión.</div>
+</div>
+
+<div class="topic" id="t1">
+  <div class="topic-summary" onclick="toggle('t1')">
+    <div class="topic-icon icon-gold">👁</div>
+    <div class="topic-meta">
+      <div class="topic-number">Tema 01</div>
+      <div class="topic-name">Conocer a Dios es la vida eterna — y casi nadie lo conoce</div>
+      <div class="topic-quick">José Smith abre con una provocación: <strong>la mayoría del género humano no entiende la naturaleza de Dios.</strong> Y sin ese conocimiento, no hay vida eterna. La pregunta «¿qué clase de ser es Dios?» es la más importante que puede hacerse un ser humano.</div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Abrir</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="detail-p">El Profeta no comenzó con doctrinas abstractas. Comenzó con una pregunta directa a la congregación: <em>«¿Qué clase de ser es Dios?»</em> Y luego respondió su propia pregunta con honestidad brutal: casi nadie lo sabe realmente.</div>
+    <div class="scripture">
+      <div class="scripture-text">«Esta es la vida eterna: que te conozcan a ti, el único Dios verdadero, y a Jesucristo, a quien has enviado.»</div>
+      <span class="scripture-ref">Juan 17:3 · La definición de vida eterna según Jesucristo mismo</span>
+    </div>
+    <div class="detail-p">La implicación es devastadora: <strong>si no conoces a Dios — no solo que existe, sino su naturaleza real, su carácter, su forma — entonces por definición no tienes vida eterna.</strong> La vida eterna no es simplemente durar para siempre. Es una calidad de vida que viene de conocer íntimamente a Dios.</div>
+    <div class="leader-quote">
+      <div class="quote-text">«No son sino pocos los seres en el mundo que entienden correctamente la naturaleza de Dios. La gran mayoría del género humano no comprende nada, ni lo que corresponde a lo futuro, en lo que respecta a su relación con Dios. No saben ni entienden la naturaleza de esa relación; y consiguientemente, no saben sino poco más que el animal.»</div>
+      <span class="quote-attr">Profeta José Smith · El Sermón de King Follett · Nauvoo, 7 de abril de 1844</span>
+    </div>
+    <div class="doctrine-box gold">
+      <div class="doctrine-box-title">El Primer Principio del Evangelio</div>
+      <p>José Smith declara que <strong>«el primer principio del evangelio es saber con certeza la naturaleza de Dios»</strong> — no la fe, no el arrepentimiento. Antes de todo eso, hay que saber con quién estás tratando. Esta afirmación redefine completamente la base del conocimiento religioso.</p>
+    </div>
+    <div class="detail-p">José lanza un desafío personal: si puede explicar la naturaleza de Dios de tal manera que el Espíritu lo selle en los corazones, entonces <em>«todo hombre y mujer debe guardar silencio, taparse la boca con la mano y nunca jamás volver a levantar la mano o la voz y decir algo contra el varón de Dios.»</em> Es una apuesta de todo o nada.</div>
+    <div class="quiz-block" id="q1">
+      <div class="quiz-header"><span class="quiz-badge">Quiz</span><div class="quiz-title">Comprensión del concepto</div></div>
+      <div class="quiz-question">Según Juan 17:3 y la enseñanza de José Smith, ¿qué es exactamente la «vida eterna»?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkQuiz('q1',this,false)">Vivir para siempre con un cuerpo resucitado en el reino celestial</button>
+        <button class="quiz-option" onclick="checkQuiz('q1',this,true)">Conocer íntimamente al único Dios verdadero y a Jesucristo — una calidad de vida, no solo duración</button>
+        <button class="quiz-option" onclick="checkQuiz('q1',this,false)">Obedecer todos los mandamientos y perdurar fielmente hasta el final</button>
+        <button class="quiz-option" onclick="checkQuiz('q1',this,false)">Recibir todas las ordenanzas salvadoras del evangelio en esta vida</button>
+      </div>
+      <div class="quiz-feedback correct-fb" id="q1-correct">✓ Correcto. Jesús mismo define la vida eterna como <em>conocimiento</em> de Dios — no simplemente duración eterna. Por eso José dice que el primer principio del evangelio es conocer la naturaleza de Dios. Todo lo demás — fe, arrepentimiento, ordenanzas — fluye de esa comprensión.</div>
+      <div class="quiz-feedback wrong-fb" id="q1-wrong">✗ Juan 17:3 lo define exactamente: «Esta es la vida eterna: que te conozcan a ti.» No es primariamente sobre duración o reino — es sobre conocer íntimamente a Dios. José Smith dice que el primer principio del evangelio es precisamente ese conocimiento.</div>
+      <button class="quiz-reset show" id="q1-reset" onclick="resetQuiz('q1')" style="display:none">↺ Intentar de nuevo</button>
+    </div>
+    <div class="inline-notes" id="notes_t1">
+      <div class="inline-notes-header">
+        <div class="inline-notes-title">📝 Mis Notas · Reflexión Personal</div>
+        <div class="inline-notes-hint">Se guardan automáticamente</div>
+      </div>
+      <div class="inline-notes-body">
+        <div class="inline-q">
+          <div class="inline-q-label"><span>Q1</span>¿Cómo describirías tú ahora mismo tu conocimiento de la naturaleza de Dios? ¿Es conocimiento real o principalmente fe/creencia?</div>
+          <textarea class="inline-q-input" id="note_t1_0" placeholder="Reflexiona con honestidad..." oninput="autoSaveNote('t1',0)"></textarea>
+        </div>
+        <div class="inline-q">
+          <div class="inline-q-label"><span>Q2</span>¿Qué haría diferente en tu vida si supieras con absoluta certeza la naturaleza y el carácter de Dios?</div>
+          <textarea class="inline-q-input" id="note_t1_1" placeholder="Escribe tu reflexión personal..." oninput="autoSaveNote('t1',1)"></textarea>
+        </div>
+      </div>
+      <div class="inline-notes-footer">
+        <div class="inline-save-status" id="status_t1">✓ Guardado</div>
+        <button class="inline-save-btn" onclick="saveNote('t1',2)">Guardar mis notas</button>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ══════════ SECCIÓN 2 ══════════ -->
+<div class="section-intro" id="s2">
+  <div class="section-eyebrow">Sección II — La Doctrina Más Radical</div>
+  <div class="section-title">Dios Fue una Vez Como Nosotros Somos Ahora</div>
+  <div class="section-desc">La revelación más audaz del Profeta: Dios no fue Dios por todas las eternidades. Progresó hasta llegar a ser lo que es — y nosotros podemos hacer lo mismo.</div>
+</div>
+
+<div class="topic" id="t2">
+  <div class="topic-summary" onclick="toggle('t2')">
+    <div class="topic-icon icon-blue">👑</div>
+    <div class="topic-meta">
+      <div class="topic-number">Tema 02</div>
+      <div class="topic-name">«Dios una vez fue como nosotros ahora» — La Revelación más Audaz</div>
+      <div class="topic-quick">José Smith revela algo que ningún teólogo cristiano había osado declarar: <strong>Dios mismo pasó por un proceso de progreso eterno.</strong> No fue siempre Dios. Y por eso nosotros también podemos llegar a ser como Él.</div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Abrir</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="highlight-verse">
+      <div class="highlight-verse-text">«¡Dios una vez fue como nosotros ahora; es un hombre glorificado, y está sentado sobre su trono allá en los cielos! Ese es el gran secreto.»</div>
+      <div class="highlight-verse-ref">Profeta José Smith · El Sermón de King Follett · 7 de abril de 1844</div>
+    </div>
+    <div class="detail-p">«Hemos imaginado y supuesto que Dios fue Dios por todas las eternidades», dice José. <strong>«Voy a refutar esa idea, y haré a un lado el velo para que podáis ver.»</strong> Esta no es especulación teológica — es revelación directa. Y tiene implicaciones que transforman todo.</div>
+    <div class="key-points">
+      <div class="key-point">
+        <div class="key-dot" style="background:var(--navy)"></div>
+        <div class="key-text"><strong>Dios tiene forma corporal.</strong> «Si fueseis a verlo hoy, lo veríais en la forma de un hombre, así como vosotros os halláis en toda la persona, imagen y forma misma de un hombre.» Esto no es metáfora — es doctrina literal.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:var(--gold)"></div>
+        <div class="key-text"><strong>Adán fue creado literalmente a su imagen.</strong> «Porque Adán fue creado a la misma imagen y semejanza de Dios, y de Él recibió instrucciones, y anduvo y conversó con Él, como un hombre habla y se comunica con otro.» La semejanza es física y real.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:var(--green)"></div>
+        <div class="key-text"><strong>El Padre habitó sobre una tierra.</strong> «Dios mismo, el Padre de todos nosotros, habitó sobre una tierra, como Jesucristo mismo lo hizo.» Esto significa que el Padre pasó por una experiencia mortal equivalente a la nuestra.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:var(--purple)"></div>
+        <div class="key-text"><strong>Jesús hace lo que el Padre hizo.</strong> «¿Qué hiciste tú, Jesús? Hice aquellas cosas que vi hacer a mi Padre cuando venían a su existencia los mundos.» Cristo sigue el patrón establecido por el Padre — y nosotros seguimos el patrón de Cristo.</div>
+      </div>
+    </div>
+    <div class="scripture gold-border">
+      <div class="scripture-text">«Así como el Padre tiene el poder en sí mismo, así también tiene al Hijo el poder» — ¿Para hacer qué? Pues lo que el Padre hizo. Poner su cuerpo y volverlo a levantar.</div>
+      <span class="scripture-ref">Juan 5:26 — El patrón divino según José Smith</span>
+    </div>
+    <div class="detail-p">La implicación es la promesa más grande jamás pronunciada: <em>«vosotros mismos tenéis que aprender a ser dioses, y a ser reyes y sacerdotes de Dios, como lo han hecho todos los dioses antes de vosotros, a saber, el avanzar de un grado pequeño a otro, y de una capacidad pequeña a una mayor, yendo de gracia en gracia, de exaltación en exaltación.»</em></div>
+    <div class="doctrine-box blue">
+      <div class="doctrine-box-title">La Escalera de la Exaltación</div>
+      <p>«Cuando subís por una escalera, tenéis que empezar desde abajo y ascender paso por paso hasta que llegáis a la cima; y así es con los principios del evangelio: tenéis que empezar por el primero, y seguir adelante hasta aprender todos los principios que atañen a la exaltación.» <strong>El progreso eterno no es un concepto abstracto — es el patrón del universo.</strong></p>
+    </div>
+    <div class="quiz-block" id="q2">
+      <div class="quiz-header"><span class="quiz-badge">Quiz</span><div class="quiz-title">La doctrina central del sermón</div></div>
+      <div class="quiz-question">¿Cuál es la implicación más radical de que «Dios una vez fue como nosotros somos ahora»?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkQuiz('q2',this,false)">Que Dios no es omnipotente ni omnisciente — tiene limitaciones como nosotros</button>
+        <button class="quiz-option" onclick="checkQuiz('q2',this,true)">Que el progreso eterno es el patrón universal del cosmos — y que nosotros podemos llegar a ser como Él es ahora, siguiendo el mismo camino que Él siguió</button>
+        <button class="quiz-option" onclick="checkQuiz('q2',this,false)">Que Dios es una creación de otro Dios superior, y así hasta el infinito sin principio real</button>
+        <button class="quiz-option" onclick="checkQuiz('q2',this,false)">Que Jesucristo y el Padre son la misma persona en diferentes etapas de progreso</button>
+      </div>
+      <div class="quiz-feedback correct-fb" id="q2-correct">✓ Exactamente. El «gran secreto» que José revela no es simplemente que Dios tiene cuerpo — es que el progreso eterno es el patrón fundamental del universo. Si Dios siguió ese camino, entonces el camino existe para todos. Nuestra exaltación potencial no es excepcional — es el diseño del plan.</div>
+      <div class="quiz-feedback wrong-fb" id="q2-wrong">✗ La implicación principal no es sobre las limitaciones de Dios ni sobre teología infinita. Es sobre el patrón del progreso eterno: si Dios lo siguió, el camino existe y está abierto para todos sus hijos. Eso transforma la exaltación de aspiración abstracta a destino real.</div>
+      <button class="quiz-reset" id="q2-reset" onclick="resetQuiz('q2')" style="display:none">↺ Intentar de nuevo</button>
+    </div>
+    <div class="inline-notes" id="notes_t2">
+      <div class="inline-notes-header">
+        <div class="inline-notes-title">📝 Mis Notas · Reflexión Personal</div>
+        <div class="inline-notes-hint">Se guardan automáticamente</div>
+      </div>
+      <div class="inline-notes-body">
+        <div class="inline-q">
+          <div class="inline-q-label"><span>Q1</span>¿Cómo cambia tu relación con el Padre saber que Él también pasó por una experiencia mortal — que también tuvo que elegir, sufrir y crecer?</div>
+          <textarea class="inline-q-input" id="note_t2_0" placeholder="Tu reflexión personal..." oninput="autoSaveNote('t2',0)"></textarea>
+        </div>
+        <div class="inline-q">
+          <div class="inline-q-label"><span>Q2</span>La promesa de «aprender a ser dioses» — ¿te genera esperanza o incomodidad? ¿Por qué crees que reacciones así?</div>
+          <textarea class="inline-q-input" id="note_t2_1" placeholder="Sé honesto en tu respuesta..." oninput="autoSaveNote('t2',1)"></textarea>
+        </div>
+      </div>
+      <div class="inline-notes-footer">
+        <div class="inline-save-status" id="status_t2">✓ Guardado</div>
+        <button class="inline-save-btn" onclick="saveNote('t2',2)">Guardar mis notas</button>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ══════════ SECCIÓN 3 ══════════ -->
+<div class="section-intro" id="s3">
+  <div class="section-eyebrow">Sección III — Los Fundamentos del Universo</div>
+  <div class="section-title">Los Elementos Son Eternos — Dios No Creó de la Nada</div>
+  <div class="section-desc">José Smith usa el hebreo original del Génesis para demostrar que «crear» nunca significó crear de la nada — sino organizar materia que ya existía eternamente.</div>
+</div>
+
+<div class="topic" id="t3">
+  <div class="topic-summary" onclick="toggle('t3')">
+    <div class="topic-icon icon-green">⚛️</div>
+    <div class="topic-meta">
+      <div class="topic-number">Tema 03</div>
+      <div class="topic-name">«Baurau» — Crear significa organizar, no hacer de la nada</div>
+      <div class="topic-quick">El Profeta analiza el hebreo original del Génesis y demuestra que <strong>la palabra «crear» (baurau) significa organizar materia existente</strong>, no producir algo de la nada. Esto cambia completamente la comprensión del Génesis y la naturaleza del universo.</div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Abrir</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="detail-p">José desafía directamente a los «hombres doctos que predican la salvación» y dicen que Dios creó los cielos y la tierra de la nada. Usando el hebreo original, demuestra que esta idea no solo no está en la Biblia — sino que es lo opuesto de lo que dice.</div>
+    <div class="leader-quote">
+      <div class="quote-text">«La palabra crear vino del término hebreo ‹baurau›, que no significa crear de la nada, sino manifestar, dar forma, organizar, así como un hombre organiza los materiales y construye un barco. De manera que podemos deducir que Dios tenía a su disposición los materiales para organizar el mundo de todo aquel caos, es decir materia caótica, que es elemento, y en el cual mora toda gloria.»</div>
+      <span class="quote-attr">Profeta José Smith · El Sermón de King Follett</span>
+    </div>
+    <div class="detail-p">Y va más lejos con el análisis del hebreo «Berosheit» — la primera palabra de la Biblia: en lugar de «En el principio», la traducción literal más correcta sería <strong>«La cabeza, el principal de los Dioses hizo aparecer a los Dioses»</strong> — revelando que hubo un concilio de dioses que planificaron juntos la creación.</div>
+    <div class="scripture">
+      <div class="scripture-text">«Los elementos han existido desde que nosotros tuvimos existencia. Los principios puros de los elementos son principios que jamás pueden ser destruidos; pueden ser organizados, y reorganizados, mas no destruidos. No tuvieron principio. Y no pueden tener fin.»</div>
+      <span class="scripture-ref">Profeta José Smith · El Sermón de King Follett · La eternidad de la materia</span>
+    </div>
+    <div class="doctrine-box green">
+      <div class="doctrine-box-title">El Concilio de los Dioses</div>
+      <p>«En el principio, la cabeza (el líder o el principal) de los Dioses convocó un concilio de los dioses; y se reunieron y proyectaron un plan para crear el mundo y poblarlo.» José no está inventando esto — está leyendo del hebreo original lo que la Biblia siempre dijo, pero que se perdió en la traducción. <strong>La creación fue un acto colaborativo, presidido por el Dios principal.</strong></p>
+    </div>
+    <div class="quiz-block" id="q3">
+      <div class="quiz-header"><span class="quiz-badge">Quiz</span><div class="quiz-title">El hebreo original</div></div>
+      <div class="quiz-question">¿Qué significa la palabra hebrea «baurau» que se traduce como «crear» en el Génesis?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkQuiz('q3',this,false)">Producir algo de la nada por el poder divino omnipotente</button>
+        <button class="quiz-option" onclick="checkQuiz('q3',this,false)">Pronunciar palabras que dan existencia a lo que no existe</button>
+        <button class="quiz-option" onclick="checkQuiz('q3',this,true)">Manifestar, dar forma, organizar — como un hombre que construye un barco usando materiales que ya existen</button>
+        <button class="quiz-option" onclick="checkQuiz('q3',this,false)">Transformar materia espiritual en materia física por poder divino</button>
+      </div>
+      <div class="quiz-feedback correct-fb" id="q3-correct">✓ Correcto. José Smith demostró del hebreo original que «baurau» es organización, no creación ex nihilo. Esto es consistente con D&C 93:29,33 que declara que la inteligencia y los elementos son eternos y no pueden ser destruidos. Dios organizó — no creó de la nada.</div>
+      <div class="quiz-feedback wrong-fb" id="q3-wrong">✗ «Baurau» significa organizar o dar forma a materiales existentes. José compara a Dios con un constructor de barcos — que usa madera que ya existe para construir algo nuevo. La creación ex nihilo (de la nada) no está en el hebreo original. Ver también D&C 93:29,33.</div>
+      <button class="quiz-reset" id="q3-reset" onclick="resetQuiz('q3')" style="display:none">↺ Intentar de nuevo</button>
+    </div>
+    <div class="inline-notes" id="notes_t3">
+      <div class="inline-notes-header">
+        <div class="inline-notes-title">📝 Mis Notas · Reflexión Personal</div>
+        <div class="inline-notes-hint">Se guardan automáticamente</div>
+      </div>
+      <div class="inline-notes-body">
+        <div class="inline-q">
+          <div class="inline-q-label"><span>Q1</span>¿Cómo cambia tu lectura del Génesis 1 saber que «crear» significa organizar materia eterna, no hacer de la nada?</div>
+          <textarea class="inline-q-input" id="note_t3_0" placeholder="Tu reflexión sobre el Génesis..." oninput="autoSaveNote('t3',0)"></textarea>
+        </div>
+        <div class="inline-q">
+          <div class="inline-q-label"><span>Q2</span>Si los elementos son eternos y no pueden ser destruidos, ¿qué implica eso sobre el valor de la materia física — incluyendo tu propio cuerpo?</div>
+          <textarea class="inline-q-input" id="note_t3_1" placeholder="Reflexiona sobre el cuerpo como elemento eterno..." oninput="autoSaveNote('t3',1)"></textarea>
+        </div>
+      </div>
+      <div class="inline-notes-footer">
+        <div class="inline-save-status" id="status_t3">✓ Guardado</div>
+        <button class="inline-save-btn" onclick="saveNote('t3',2)">Guardar mis notas</button>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ══════════ SECCIÓN 4 ══════════ -->
+<div class="section-intro" id="s4">
+  <div class="section-eyebrow">Sección IV — La Identidad Eterna</div>
+  <div class="section-title">El Espíritu Inmortal — La Inteligencia que Nunca Tuvo Principio</div>
+  <div class="section-desc">José Smith demuestra que la inteligencia del hombre es coeterna con Dios. No fue creada. Siempre ha existido. Y por eso no puede ser destruida.</div>
+</div>
+
+<div class="topic" id="t4">
+  <div class="topic-summary" onclick="toggle('t4')">
+    <div class="topic-icon icon-purple">✨</div>
+    <div class="topic-meta">
+      <div class="topic-number">Tema 04</div>
+      <div class="topic-name">La mente del hombre es coigual con Dios — sin principio, sin fin</div>
+      <div class="topic-quick">Una de las doctrinas más distintivas de la teología restaurada: <strong>tu inteligencia no fue creada por Dios.</strong> Siempre ha existido. Eres, en tu núcleo más profundo, una entidad eterna. Dios no te fabricó — te encontró y te guía.</div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Abrir</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="detail-p">José usa un argumento lógico brillante: <em>«¿Sería lógico decir que la inteligencia de los espíritus es inmortal, y sin embargo, que tuvo un principio? Lo que tiene principio puede tener fin.»</em> Si tu espíritu tuvo un principio, eventualmente tendrá un fin. Si es inmortal, nunca tuvo principio.</div>
+    <div class="scripture purple-border">
+      <div class="scripture-text">«La inteligencia de los espíritus no tuvo principio, ni tendrá fin. Esto es buen razonamiento. Lo que tiene principio puede tener fin. Nunca hubo tiempo en que no hubo espíritus, porque ellos y nuestro Padre Celestial son coiguales.»</div>
+      <span class="scripture-ref">Profeta José Smith · El Sermón de King Follett</span>
+    </div>
+    <div class="detail-p">El Profeta saca su anillo del dedo como ilustración: <em>«Me quito el anillo del dedo y lo comparo a la mente del hombre: a la parte inmortal, porque no tiene principio. Supongamos que lo partimos en dos; ahora tiene un principio y un fin, pero si lo volvemos a unir sigue siendo un círculo eterno. Así es con el espíritu del hombre.»</em></div>
+    <div class="leader-quote">
+      <div class="quote-text">«La inteligencia es eterna y existe sobre un principio que es existente por sí mismo. Es un espíritu, de eternidad en eternidad, y nada tiene de creado. Todas las mentes y espíritus que Dios ha enviado al mundo están capacitados para progresar.»</div>
+      <span class="quote-attr">Profeta José Smith · El Sermón de King Follett</span>
+    </div>
+    <div class="doctrine-box purple">
+      <div class="doctrine-box-title">Dios como Instructor, No como Fabricante</div>
+      <p>«Dios, hallándose en medio de espíritus y gloria, porque era más inteligente, consideró propio instituir leyes por medio de las cuales los demás podrían tener el privilegio de avanzar como Él lo había hecho.» <strong>La relación de Dios con la inteligencia humana no es la de un creador con su creación — es la de un Padre con sus hijos eternos.</strong></p>
+    </div>
+    <div class="scripture green-border">
+      <div class="scripture-text">«El hombre fue también en el principio con Dios. La inteligencia, o la luz de la verdad, no fue creada ni hecha; ni en verdad puede serlo.»</div>
+      <span class="scripture-ref">Doctrina y Convenios 93:29 · Confirmación de la enseñanza del Profeta</span>
+    </div>
+    <div class="quiz-block" id="q4">
+      <div class="quiz-header"><span class="quiz-badge">Quiz</span><div class="quiz-title">La naturaleza de la inteligencia</div></div>
+      <div class="quiz-question">Según José Smith, ¿por qué es lógicamente imposible que la inteligencia del espíritu humano haya tenido un principio?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkQuiz('q4',this,false)">Porque la Biblia lo declara explícitamente en varios versículos del Antiguo Testamento</button>
+        <button class="quiz-option" onclick="checkQuiz('q4',this,true)">Porque lo que tiene principio puede tener fin — y si la inteligencia es inmortal (sin fin), por lógica también debe ser sin principio; afirmar que tuvo inicio es afirmar la doctrina de la aniquilación</button>
+        <button class="quiz-option" onclick="checkQuiz('q4',this,false)">Porque Dios no tiene el poder de crear espíritus de la nada, solo de organizarlos</button>
+        <button class="quiz-option" onclick="checkQuiz('q4',this,false)">Porque los espíritus son parte de Dios mismo y por tanto comparten su eternidad</button>
+      </div>
+      <div class="quiz-feedback correct-fb" id="q4-correct">✓ El argumento lógico es elegante: «Lo que tiene principio puede tener fin.» Si aceptas que el espíritu es inmortal (no puede morir), entonces por la misma razón tampoco puede haber comenzado. «Vive el Señor, que si tuvo un principio, tendrá un fin.» La inmortalidad implica eternidad en ambas direcciones.</div>
+      <div class="quiz-feedback wrong-fb" id="q4-wrong">✗ El argumento es lógico, no bíblico: «Lo que tiene principio puede tener fin.» Si el espíritu es inmortal (sin fin posible), por la misma lógica tampoco tuvo inicio. «Si tuvo un principio, tendrá un fin; y si esa doctrina es verdadera, entonces la doctrina de la aniquilación es verdadera.»</div>
+      <button class="quiz-reset" id="q4-reset" onclick="resetQuiz('q4')" style="display:none">↺ Intentar de nuevo</button>
+    </div>
+    <div class="inline-notes" id="notes_t4">
+      <div class="inline-notes-header">
+        <div class="inline-notes-title">📝 Mis Notas · Reflexión Personal</div>
+        <div class="inline-notes-hint">Se guardan automáticamente</div>
+      </div>
+      <div class="inline-notes-body">
+        <div class="inline-q">
+          <div class="inline-q-label"><span>Q1</span>Si tu inteligencia nunca fue creada — siempre existió — ¿cómo cambia eso la forma en que te ves a ti mismo y tu relación con Dios?</div>
+          <textarea class="inline-q-input" id="note_t4_0" placeholder="Reflexiona en tu identidad eterna..." oninput="autoSaveNote('t4',0)"></textarea>
+        </div>
+        <div class="inline-q">
+          <div class="inline-q-label"><span>Q2</span>¿Qué significa que Dios «instituyó leyes por medio de las cuales los demás podrían tener el privilegio de avanzar como Él lo había hecho»? ¿Qué son esas leyes en tu vida?</div>
+          <textarea class="inline-q-input" id="note_t4_1" placeholder="Identifica las leyes de progreso en tu vida..." oninput="autoSaveNote('t4',1)"></textarea>
+        </div>
+      </div>
+      <div class="inline-notes-footer">
+        <div class="inline-save-status" id="status_t4">✓ Guardado</div>
+        <button class="inline-save-btn" onclick="saveNote('t4',2)">Guardar mis notas</button>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ══════════ SECCIÓN 5 ══════════ -->
+<div class="section-intro" id="s5">
+  <div class="section-eyebrow">Sección V — La Relación Eterna</div>
+  <div class="section-title">La Relación entre el Hombre y Dios</div>
+  <div class="section-desc">Dios nos revela todo lo que necesitamos saber en relación a nuestra salvación y exaltación. Y nuestra responsabilidad mayor en este mundo es procurar por nuestros muertos.</div>
+</div>
+
+<div class="topic" id="t5">
+  <div class="topic-summary" onclick="toggle('t5')">
+    <div class="topic-icon icon-amber">🔗</div>
+    <div class="topic-meta">
+      <div class="topic-number">Tema 05</div>
+      <div class="topic-name">La responsabilidad mayor — procurar por nuestros muertos</div>
+      <div class="topic-quick">José introduce el tema que motivó el sermón: la muerte de King Follett. Y revela que <strong>nuestra mayor responsabilidad en esta vida no es nuestra propia salvación — sino la de quienes murieron sin el evangelio.</strong></div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Abrir</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="detail-p">Dios «nos considera como si estuviésemos en la eternidad» — Su perspectiva trasciende el tiempo y el espacio. Por eso la revelación sobre los muertos no es solo teológica — es una responsabilidad práctica y urgente.</div>
+    <div class="scripture amber-border">
+      <div class="scripture-text">«La responsabilidad mayor que Dios ha puesto sobre nosotros en este mundo es procurar por nuestros muertos. El apóstol dice que ellos sin nosotros no pueden ser perfeccionados (Hebreos 11:40); porque es necesario que el poder de ligar esté en nuestras manos a fin de ligar a nuestros hijos y nuestros muertos.»</div>
+      <span class="scripture-ref">Profeta José Smith · El Sermón de King Follett</span>
+    </div>
+    <div class="leader-quote">
+      <div class="quote-text">«¡Qué pensamiento tan solemne, tan terrible! ¿No se puede hacer nada? ¿No hay preparación, ninguna salvación para nuestros padres y amigos que han muerto sin tener la oportunidad de obedecer los decretos del Hijo del Hombre?»</div>
+      <span class="quote-attr">Profeta José Smith · El Sermón de King Follett</span>
+    </div>
+    <div class="scripture green-border">
+      <div class="scripture-text">«Y él os enviará a Elías el profeta, antes que venga el día de Jehová grande y terrible. El convertirá el corazón de los padres a los hijos, y el corazón de los hijos a los padres.»</div>
+      <span class="scripture-ref">Malaquías 4:5-6 · La promesa que fundamenta el trabajo del templo</span>
+    </div>
+    <div class="doctrine-box amber-dim" style="background:var(--amber-dim);border-color:var(--amber-border);">
+      <div class="doctrine-box-title" style="color:var(--amber);">La Salvación como Proyecto Familiar</div>
+      <p>«Todo hombre que tenga un amigo en el mundo eterno puede salvarlo, a menos que éste haya cometido el pecado imperdonable.» <strong>La salvación no es un proyecto individual — es un proyecto de familia y de humanidad.</strong> El trabajo del templo es literalmente cumplir esta promesa del Profeta.</p>
+    </div>
+    <div class="reflection-block">
+      <div class="reflection-eyebrow">Reflexión para el Trabajo Misional</div>
+      <p>Los investigadores que enseñas hoy son también personas con antepasados que murieron sin el evangelio. <strong>Cada conversión crea una cadena hacia atrás y hacia adelante.</strong></p>
+      <p>El Sermón de King Follett no es solo doctrina abstracta — es la razón profunda por la que el trabajo misional y el trabajo del templo son inseparables. La salvación siempre se extiende en ambas direcciones.</p>
+    </div>
+    <div class="inline-notes" id="notes_t5">
+      <div class="inline-notes-header">
+        <div class="inline-notes-title">📝 Mis Notas · Reflexión Personal</div>
+        <div class="inline-notes-hint">Se guardan automáticamente</div>
+      </div>
+      <div class="inline-notes-body">
+        <div class="inline-q">
+          <div class="inline-q-label"><span>Q1</span>José dice que nuestra responsabilidad MAYOR es procurar por los muertos — no nuestra propia exaltación. ¿Cómo cambiaría tu vida si realmente operaras desde esa prioridad?</div>
+          <textarea class="inline-q-input" id="note_t5_0" placeholder="Reflexiona en el trabajo del templo y la genealogía..." oninput="autoSaveNote('t5',0)"></textarea>
+        </div>
+        <div class="inline-q">
+          <div class="inline-q-label"><span>Q2</span>¿Hay personas específicas en tu familia o tu círculo cercano por quienes sientes responsabilidad espiritual? ¿Qué puedes hacer concretamente esta semana?</div>
+          <textarea class="inline-q-input" id="note_t5_1" placeholder="Nombra personas específicas y acciones concretas..." oninput="autoSaveNote('t5',1)"></textarea>
+        </div>
+      </div>
+      <div class="inline-notes-footer">
+        <div class="inline-save-status" id="status_t5">✓ Guardado</div>
+        <button class="inline-save-btn" onclick="saveNote('t5',2)">Guardar mis notas</button>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ══════════ SECCIÓN 6 ══════════ -->
+<div class="section-intro" id="s6">
+  <div class="section-eyebrow">Sección VI — La Esperanza para los Muertos</div>
+  <div class="section-title">Una Salvación para Todos los Hombres — El Alcance de la Redención</div>
+  <div class="section-desc">José revela el extraordinario alcance de la salvación de Cristo: casi todo ser humano que ha vivido puede ser salvo — en esta vida o en la siguiente.</div>
+</div>
+
+<div class="topic" id="t6">
+  <div class="topic-summary" onclick="toggle('t6')">
+    <div class="topic-icon icon-gold">🌟</div>
+    <div class="topic-meta">
+      <div class="topic-number">Tema 06</div>
+      <div class="topic-name">Todo pecado será perdonado — excepto uno — y hay salvación en el mundo de los espíritus</div>
+      <div class="topic-quick">La visión de la salvación de José Smith es extraordinariamente generosa: <strong>prácticamente todo ser humano tiene oportunidad de salvación</strong>, ya sea en esta vida o en el mundo de los espíritus. Solo los hijos de perdición quedan fuera.</div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Abrir</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="scripture gold-border">
+      <div class="scripture-text">«Todo pecado, toda blasfemia y toda transgresión, salvo una, que el hombre pudiere cometer, serán perdonados; y habrá una salvación, sea en este mundo o en el mundo venidero, para todos los hombres que no hayan cometido el pecado imperdonable.»</div>
+      <span class="scripture-ref">Profeta José Smith · El Sermón de King Follett</span>
+    </div>
+    <div class="detail-p">José declara que <em>«Dios ha efectuado una salvación para todos los hombres, a menos que hayan cometido un cierto pecado; y todo hombre que tenga un amigo en el mundo eterno puede salvarlo»</em>. Esto es la base del bautismo por los muertos — la obra vicaria del templo no es un ritual vacío, sino el cumplimiento de esta promesa.</div>
+    <div class="key-points">
+      <div class="key-point">
+        <div class="key-dot" style="background:var(--green)"></div>
+        <div class="key-text"><strong>El conocimiento salva al hombre.</strong> «Si un hombre tiene conocimiento, se puede salvar.» Incluso en el mundo de los espíritus, una vez que alguien acepta el evangelio con conocimiento real, puede ser salvo.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:var(--gold)"></div>
+        <div class="key-text"><strong>El hombre es su propio verdugo.</strong> «El hombre es su propio verdugo y su propio juez.» La condenación no es impuesta arbitrariamente — viene de las propias decisiones de la persona ante el conocimiento recibido.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:var(--navy)"></div>
+        <div class="key-text"><strong>Todos sufrirán hasta que obedezcan a Cristo.</strong> «Todos sufrirán hasta que obedezcan a Cristo mismo.» Incluso en el mundo post-mortal, el camino es el mismo evangelio — no hay atajo.</div>
+      </div>
+    </div>
+    <div class="doctrine-box blue">
+      <div class="doctrine-box-title">El Pecado Imperdonable — Una Excepción Muy Específica</div>
+      <p>«El hombre no puede cometer el pecado imperdonable después de deshecho su cuerpo.» Y las condiciones son muy específicas: haber recibido el Espíritu Santo, habérsele manifestado los cielos, haber conocido a Dios, y aun así pecar deliberadamente contra todo eso. <strong>No es simplemente el pecado grave — es la traición consciente e informada contra la luz máxima recibida.</strong></p>
+    </div>
+    <div class="quiz-block" id="q5">
+      <div class="quiz-header"><span class="quiz-badge">Quiz</span><div class="quiz-title">El alcance de la salvación</div></div>
+      <div class="quiz-question">¿Cuáles son las condiciones específicas que José Smith menciona para que alguien cometa el pecado imperdonable?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkQuiz('q5',this,false)">Haber cometido homicidio o adulterio después del bautismo</button>
+        <button class="quiz-option" onclick="checkQuiz('q5',this,false)">Apostatar de la Iglesia y unirse activamente a sus enemigos</button>
+        <button class="quiz-option" onclick="checkQuiz('q5',this,true)">Haber recibido el Espíritu Santo, habérsele manifestado los cielos, haber conocido a Dios — y después deliberadamente pecar contra esa luz plena y completa</button>
+        <button class="quiz-option" onclick="checkQuiz('q5',this,false)">Renunciar públicamente al sacerdocio y negar la existencia de Dios</button>
+      </div>
+      <div class="quiz-feedback correct-fb" id="q5-correct">✓ Exacto. José es muy específico: «Debe haber recibido el Espíritu Santo, deben habérsele manifestado los cielos, y después de haber conocido a Dios, pecar contra Él.» No es simplemente abandonar la fe — es traicionar el conocimiento más completo posible con plena consciencia. Por eso muy pocos califican para esta categoría.</div>
+      <div class="quiz-feedback wrong-fb" id="q5-wrong">✗ Las condiciones son mucho más específicas de lo que podría pensarse. No basta con ser apóstata o cometer pecados graves. Requiere: recibir el Espíritu Santo + manifestación celestial + conocer a Dios + aun así pecar deliberadamente contra todo eso. «Tiene que decir que el sol no brilla, cuando lo está mirando.»</div>
+      <button class="quiz-reset" id="q5-reset" onclick="resetQuiz('q5')" style="display:none">↺ Intentar de nuevo</button>
+    </div>
+    <div class="inline-notes" id="notes_t6">
+      <div class="inline-notes-header">
+        <div class="inline-notes-title">📝 Mis Notas · Reflexión Personal</div>
+        <div class="inline-notes-hint">Se guardan automáticamente</div>
+      </div>
+      <div class="inline-notes-body">
+        <div class="inline-q">
+          <div class="inline-q-label"><span>Q1</span>La visión de salvación de José es extraordinariamente generosa. ¿Cómo cambia esto la forma en que ves a personas que murieron sin el evangelio — incluyendo ancestros no miembros?</div>
+          <textarea class="inline-q-input" id="note_t6_0" placeholder="Reflexiona en la esperanza para los muertos..." oninput="autoSaveNote('t6',0)"></textarea>
+        </div>
+        <div class="inline-q">
+          <div class="inline-q-label"><span>Q2</span>«El conocimiento salva al hombre.» ¿Qué conocimiento del evangelio has recibido que aún no has actuado? ¿Qué haría un Dios justo con esa responsabilidad?</div>
+          <textarea class="inline-q-input" id="note_t6_1" placeholder="Reflexiona honestamente sobre el conocimiento y la responsabilidad..." oninput="autoSaveNote('t6',1)"></textarea>
+        </div>
+      </div>
+      <div class="inline-notes-footer">
+        <div class="inline-save-status" id="status_t6">✓ Guardado</div>
+        <button class="inline-save-btn" onclick="saveNote('t6',2)">Guardar mis notas</button>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ══════════ SECCIÓN 7 ══════════ -->
+<div class="section-intro" id="s7">
+  <div class="section-eyebrow">Sección VII — El Bautismo</div>
+  <div class="section-title">El Bautismo de Agua y el de Fuego — Inseparables</div>
+  <div class="section-desc">José usa el alemán original del Nuevo Testamento para demostrar que el bautismo de agua sin el del Espíritu Santo es inválido — y desafía a toda la cristiandad sectaria.</div>
+</div>
+
+<div class="topic" id="t7">
+  <div class="topic-summary" onclick="toggle('t7')">
+    <div class="topic-icon icon-blue">🌊</div>
+    <div class="topic-meta">
+      <div class="topic-number">Tema 07</div>
+      <div class="topic-name">El bautismo de agua sin el Espíritu Santo no tiene ningún valor</div>
+      <div class="topic-quick">Usando el alemán del Nuevo Testamento, José demuestra que Juan el Bautista enseñó que <strong>su bautismo de agua era incompleto sin el bautismo de fuego y del Espíritu Santo</strong> que vendría con Jesús.</div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Abrir</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="detail-p">José cita del alemán: <em>«Yo os bautizo con agua, mas cuando venga Jesús, que tiene el poder (o llaves), él administrará el bautismo de fuego y del Espíritu Santo.»</em> Y concluye: si este testimonio es verdadero, todos los que solo practican el bautismo de agua sin el don del Espíritu Santo están condenados.</div>
+    <div class="scripture">
+      <div class="scripture-text">«El bautismo de agua, si no lo acompaña el bautismo de fuego y del Espíritu Santo, no tiene ningún valor: están unidos necesaria e inseparablemente. El individuo debe nacer del agua y del Espíritu para poder entrar en el reino de Dios.»</div>
+      <span class="scripture-ref">Profeta José Smith · El Sermón de King Follett</span>
+    </div>
+    <div class="scripture purple-border">
+      <div class="scripture-text">«Por tanto, a dejando el comienzo de la doctrina de Cristo, vamos adelante a la perfección, no echando otra vez el fundamento del arrepentimiento de obras muertas, y de la fe en Dios, de la doctrina de bautismos, y de la imposición de manos, y de la resurrección de los muertos y del juicio eterno.»</div>
+      <span class="scripture-ref">Hebreos 6:1-3 · Las ordenanzas del evangelio son el fundamento, no el techo</span>
+    </div>
+    <div class="doctrine-box green">
+      <div class="doctrine-box-title">El Don del Espíritu Santo — La Diferencia Real</div>
+      <p>La autoridad del sacerdocio para conferir el don del Espíritu Santo es lo que distingue a la Iglesia restaurada de todas las demás. <strong>Sin las llaves del sacerdocio para administrar el bautismo de fuego, el bautismo de agua es incompleto.</strong> Por eso la restauración del sacerdocio no fue opcional — fue esencial.</p>
+    </div>
+    <div class="quiz-block" id="q6">
+      <div class="quiz-header"><span class="quiz-badge">Quiz</span><div class="quiz-title">El bautismo completo</div></div>
+      <div class="quiz-question">¿Por qué José Smith dice que el bautismo de agua sin el bautismo de fuego y del Espíritu Santo «no tiene ningún valor»?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkQuiz('q6',this,false)">Porque el agua no tiene propiedades espirituales intrínsecas sin la oración correcta</button>
+        <button class="quiz-option" onclick="checkQuiz('q6',this,true)">Porque Juan el Bautista mismo enseñó que su bautismo era incompleto — que las llaves para el bautismo de fuego pertenecían a Jesús — y sin el don del Espíritu Santo la persona no puede entrar en el reino de Dios</button>
+        <button class="quiz-option" onclick="checkQuiz('q6',this,false)">Porque el sacerdocio que administra el bautismo debe ser de la Iglesia de Jesucristo de los SUD específicamente</button>
+        <button class="quiz-option" onclick="checkQuiz('q6',this,false)">Porque el bautismo debe ser por inmersión completa para ser válido espiritualmente</button>
+      </div>
+      <div class="quiz-feedback correct-fb" id="q6-correct">✓ Exacto. Juan el Bautista se reconocía a sí mismo como administrador de un bautismo preparatorio. Las llaves del bautismo de fuego — el don del Espíritu Santo — pertenecían a Cristo y a quienes Él autorizara. Sin esa segunda parte, el bautismo queda incompleto. Ver también 2 Nefi 31:17-21.</div>
+      <div class="quiz-feedback wrong-fb" id="q6-wrong">✗ El argumento de José es del propio Juan el Bautista: él mismo decía que su bautismo era incompleto. Las llaves para administrar el bautismo de fuego y del Espíritu Santo pertenecían a Jesús. Sin esa segunda parte — el don del Espíritu Santo por la imposición de manos con autoridad — el bautismo está incompleto.</div>
+      <button class="quiz-reset" id="q6-reset" onclick="resetQuiz('q6')" style="display:none">↺ Intentar de nuevo</button>
+    </div>
+    <div class="inline-notes" id="notes_t7">
+      <div class="inline-notes-header">
+        <div class="inline-notes-title">📝 Mis Notas · Reflexión Personal</div>
+        <div class="inline-notes-hint">Se guardan automáticamente</div>
+      </div>
+      <div class="inline-notes-body">
+        <div class="inline-q">
+          <div class="inline-q-label"><span>Q1</span>Como líder misional, ¿cómo usarías esta enseñanza para ayudar a alguien a entender por qué el bautismo en la Iglesia restaurada es diferente?</div>
+          <textarea class="inline-q-input" id="note_t7_0" placeholder="Piensa en cómo explicarías esto a un investigador..." oninput="autoSaveNote('t7',0)"></textarea>
+        </div>
+        <div class="inline-q">
+          <div class="inline-q-label"><span>Q2</span>¿Cuándo fue la última vez que sentiste genuinamente el «bautismo de fuego» en tu vida — la presencia del Espíritu que confirma verdad y da dirección?</div>
+          <textarea class="inline-q-input" id="note_t7_1" placeholder="Comparte una experiencia personal..." oninput="autoSaveNote('t7',1)"></textarea>
+        </div>
+      </div>
+      <div class="inline-notes-footer">
+        <div class="inline-save-status" id="status_t7">✓ Guardado</div>
+        <button class="inline-save-btn" onclick="saveNote('t7',2)">Guardar mis notas</button>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ══════════ SECCIÓN 8 ══════════ -->
+<div class="section-intro" id="s8">
+  <div class="section-eyebrow">Sección VIII — El Consuelo Eterno</div>
+  <div class="section-title">Los que Han Muerto en la Fe — Razón para Regocijarse</div>
+  <div class="section-desc">José regresa al propósito original del sermón: consolar a quienes lloran. Y lo hace con la más poderosa de las razones — el conocimiento real de lo que les espera.</div>
+</div>
+
+<div class="topic" id="t8">
+  <div class="topic-summary" onclick="toggle('t8')">
+    <div class="topic-icon icon-green">🌅</div>
+    <div class="topic-meta">
+      <div class="topic-number">Tema 08</div>
+      <div class="topic-name">«Se hallan en el espíritu, y dentro de poco nos volveremos a ver»</div>
+      <div class="topic-quick">El Profeta da el mensaje de consuelo más poderoso posible: no son palabras vacías de esperanza, sino <strong>conocimiento doctrinal específico</strong> sobre lo que les espera a quienes murieron fieles. El duelo se transforma en anticipación.</div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Abrir</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="scripture gold-border">
+      <div class="scripture-text">«Los que han muerto en la fe se hallan ahora en el reino celestial de Dios; y allí es como la gloria del sol. Vosotros que lamentáis, tenéis ocasión para regocijar, hablando de la muerte del hermano King Follett, porque vuestro esposo y padre ha ido a esperar hasta el tiempo de la resurrección de los muertos.»</div>
+      <span class="scripture-ref">Profeta José Smith · El Sermón de King Follett</span>
+    </div>
+    <div class="detail-p">José habla con autoridad del Espíritu Santo, no con mera esperanza teológica: <em>«Me siento facultado para declarar, por la autoridad del Espíritu Santo, que no tenéis razón para temer; porque él ha ido a la morada de los justos.»</em> Esta es la diferencia entre el consuelo del evangelio y el consuelo del mundo.</div>
+    <div class="leader-quote">
+      <div class="quote-text">«Tengo un padre, hermanos, hijos y amigos que han pasado al mundo de los espíritus. Se han ausentado tan sólo por un momento. Se hallan en el espíritu, y dentro de poco nos volveremos a ver. Pronto llegará el tiempo en que sonará la trompeta. Cuando salgamos de aquí, saludaremos a nuestras madres, padres, amigos y todos aquellos a quienes amamos, que han dormido en Jesús. No habrá temor de chusmas, ni persecuciones, ni litigios perversos, sino que todo será una eternidad de dicha.»</div>
+      <span class="quote-attr">Profeta José Smith · El Sermón de King Follett · Sus últimas palabras en esta sección</span>
+    </div>
+    <div class="doctrine-box green">
+      <div class="doctrine-box-title">El Consuelo que Solo el Evangelio Puede Dar</div>
+      <p>La diferencia entre el consuelo del mundo («está en un lugar mejor», «descansó») y el consuelo del evangelio es el <em>conocimiento</em>: sabemos dónde están, sabemos que pueden progresar, sabemos que el cuerpo resucitará, sabemos que los veremos de nuevo en condiciones específicas. <strong>El duelo con evangelio es profundamente diferente al duelo sin él.</strong></p>
+    </div>
+    <div class="reflection-block">
+      <div class="reflection-eyebrow">Reflexión Espiritual Personal</div>
+      <p>José habla de haber perdido a su padre, hermanos, hijos y amigos. <strong>Lo dice con paz genuina, no con resignación.</strong> «Se han ausentado tan sólo por un momento.» Desde la perspectiva de la eternidad — y el Profeta realmente operaba desde esa perspectiva — la separación de la muerte es como una habitación contigua, no como un abismo.</p>
+      <p>¿Alguien has perdido que te cuesta separar? ¿Cómo cambia este conocimiento tu duelo?</p>
+    </div>
+    <div class="inline-notes" id="notes_t8">
+      <div class="inline-notes-header">
+        <div class="inline-notes-title">📝 Mis Notas · Reflexión Personal</div>
+        <div class="inline-notes-hint">Se guardan automáticamente</div>
+      </div>
+      <div class="inline-notes-body">
+        <div class="inline-q">
+          <div class="inline-q-label"><span>Q1</span>¿Has perdido a alguien que amabas? ¿Cómo cambia este conocimiento doctrinal específico tu perspectiva de esa pérdida?</div>
+          <textarea class="inline-q-input" id="note_t8_0" placeholder="Escribe con honestidad sobre tu experiencia con la pérdida y la muerte..." oninput="autoSaveNote('t8',0)"></textarea>
+        </div>
+        <div class="inline-q">
+          <div class="inline-q-label"><span>Q2</span>José dice «dentro de poco nos volveremos a ver» con una certeza que no es esperanza vaga sino conocimiento. ¿Tienes ese nivel de certeza? ¿Qué lo fortalecería?</div>
+          <textarea class="inline-q-input" id="note_t8_1" placeholder="Reflexiona en tu certeza sobre la vida después de la muerte..." oninput="autoSaveNote('t8',1)"></textarea>
+        </div>
+      </div>
+      <div class="inline-notes-footer">
+        <div class="inline-save-status" id="status_t8">✓ Guardado</div>
+        <button class="inline-save-btn" onclick="saveNote('t8',2)">Guardar mis notas</button>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ══════════ SECCIÓN 9 ══════════ -->
+<div class="section-intro" id="s9">
+  <div class="section-eyebrow">Sección IX — El Legado</div>
+  <div class="section-title">El Hombre que Habló Este Sermón — 87 Días Antes de Morir</div>
+  <div class="section-desc">Contexto histórico y personal del sermón: quién era José, qué sabía que se acercaba, y por qué sus últimas palabras doctrinales importan más que nunca.</div>
+</div>
+
+<div class="topic" id="t9">
+  <div class="topic-summary" onclick="toggle('t9')">
+    <div class="topic-icon icon-red">🕊</div>
+    <div class="topic-meta">
+      <div class="topic-number">Tema 09</div>
+      <div class="topic-name">«Nadie conoce mi historia» — El testimonio final de José Smith</div>
+      <div class="topic-quick">José cierra el sermón de una manera que solo puede entenderse sabiendo lo que vendría después. Sus palabras finales tienen un peso que él mismo sintió. <strong>Era, en muchos sentidos, su despedida doctrinal.</strong></div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Abrir</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="detail-p">El 7 de abril de 1844, José Smith tenía 38 años. El estado de Illinois estaba emitiendo órdenes de arresto en su contra. Sus enemigos dentro y fuera de la Iglesia conspiraban activamente. Y sin embargo, se puso de pie ante 20,000 personas y proclamó algunas de las doctrinas más profundas jamás reveladas.</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">El contexto de la conferencia de abril 1844</div>
+          <div class="step-desc">Era la conferencia general más grande de la historia de la Iglesia hasta ese momento — aproximadamente 20,000 santos reunidos en Nauvoo. Habían venido de distancias enormes para escuchar al Profeta.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">El asesinato de King Follett</div>
+          <div class="step-desc">King Follett, amigo cercano del Profeta, había muerto el 9 de marzo de 1844 — aplastado por una tina llena de piedras mientras cavaba un pozo. Su familia pidió a José que hablara en su memoria.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">Los 87 días restantes</div>
+          <div class="step-desc">El 27 de junio de 1844, José Smith fue asesinado en Carthage Jail junto con su hermano Hyrum. Este sermón fue su último gran discurso doctrinal en conferencia general. <strong>Sus últimas palabras doctrinales al mundo.</strong></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-title">Cuatro escribanos tomaron notas</div>
+          <div class="step-desc">Willard Richards, Wilford Woodruff, Thomas Bullock y William Clayton tomaron notas simultáneamente. La versión publicada es una compilación cuidadosamente preparada de esas notas — con algunas imperfecciones inevitables.</div>
+        </div>
+      </div>
+    </div>
+    <div class="central-quote">
+      <div class="central-quote-text">«Nadie conoce mi historia. Yo no puedo relatarla: jamás lo he intentado. No voy a culpar a nadie por no creer mi historia. De no haber pasado por las experiencias que he conocido, también a mí mismo me sería difícil creer. Jamás he perjudicado a hombre alguno desde que nací en el mundo. Siempre he alzado mi voz a favor de la paz. No puedo morir sino hasta cuando quede terminada toda mi obra.»</div>
+      <div class="central-quote-attr">Profeta José Smith · Las últimas palabras del Sermón de King Follett · 7 de abril de 1844</div>
+    </div>
+    <div class="detail-p">«Cuando sea llamado por la trompeta del arcángel y sea pesado en la balanza, entonces todos vosotros me conoceréis. No digo más. Dios os bendiga a todos. Amén.»</div>
+    <div class="quiz-block" id="q7">
+      <div class="quiz-header"><span class="quiz-badge">Quiz Final</span><div class="quiz-title">El legado del Sermón de King Follett</div></div>
+      <div class="quiz-question">¿Por qué se considera el Sermón de King Follett uno de los documentos teológicos más importantes del evangelio restaurado?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkQuiz('q7',this,false)">Porque fue el más largo de todos los discursos del Profeta y el más aplaudido por la congregación</button>
+        <button class="quiz-option" onclick="checkQuiz('q7',this,false)">Porque contiene profecías específicas sobre el futuro de la Iglesia que se han cumplido</button>
+        <button class="quiz-option" onclick="checkQuiz('q7',this,true)">Porque en un solo discurso José revela la naturaleza real de Dios, la eternidad de la inteligencia humana, el potencial divino del hombre, y el alcance de la salvación — doctrinas únicas que solo pueden venir por revelación — y lo hace 87 días antes de su martirio</button>
+        <button class="quiz-option" onclick="checkQuiz('q7',this,false)">Porque es el único discurso del Profeta que fue tomado en taquigrafía por un escribano oficial de la Iglesia</button>
+      </div>
+      <div class="quiz-feedback correct-fb" id="q7-correct">✓ Exacto. La combinación es única: densidad doctrinal extraordinaria + exclusividad revelada (estas doctrinas no están en ninguna otra tradición cristiana) + contexto de despedida (su último gran discurso doctrinal) + verificación histórica (cuatro escribanos independientes). Es la cima del pensamiento teológico del Profeta.</div>
+      <div class="quiz-feedback wrong-fb" id="q7-wrong">✗ Su importancia está en la densidad y unicidad de las doctrinas reveladas: la naturaleza corporal de Dios, que Dios fue una vez como nosotros, la eternidad de la inteligencia, el potencial divino del hombre, la salvación de los muertos — todo en un solo discurso, todo exclusivo del evangelio restaurado, todo dado 87 días antes del martirio.</div>
+      <button class="quiz-reset" id="q7-reset" onclick="resetQuiz('q7')" style="display:none">↺ Intentar de nuevo</button>
+    </div>
+    <div class="inline-notes" id="notes_t9">
+      <div class="inline-notes-header">
+        <div class="inline-notes-title">📝 Mis Notas · Reflexión Personal</div>
+        <div class="inline-notes-hint">Se guardan automáticamente</div>
+      </div>
+      <div class="inline-notes-body">
+        <div class="inline-q">
+          <div class="inline-q-label"><span>Q1</span>José dijo «Nadie conoce mi historia» poco antes de morir. ¿Qué sientes al saber que proclamó estas doctrinas sabiendo que sus días estaban contados?</div>
+          <textarea class="inline-q-input" id="note_t9_0" placeholder="Tu reflexión sobre el martirio y el testimonio de José Smith..." oninput="autoSaveNote('t9',0)"></textarea>
+        </div>
+        <div class="inline-q">
+          <div class="inline-q-label"><span>Q2</span>De todo lo que aprendiste en este estudio del Sermón de King Follett, ¿qué único concepto transformó más tu comprensión del evangelio?</div>
+          <textarea class="inline-q-input" id="note_t9_1" placeholder="Nombra el concepto más transformador para ti..." oninput="autoSaveNote('t9',1)"></textarea>
+        </div>
+      </div>
+      <div class="inline-notes-footer">
+        <div class="inline-save-status" id="status_t9">✓ Guardado</div>
+        <button class="inline-save-btn" onclick="saveNote('t9',2)">Guardar mis notas</button>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="ornament">✦ ✦ ✦ ✦ ✦</div>
+
+<div class="central-quote">
+  <div class="central-quote-text">«Dios os bendiga a todos. Amén.»</div>
+  <div class="central-quote-attr">Profeta José Smith · Palabras finales del Sermón de King Follett · 7 de abril de 1844 · 87 días antes de su martirio</div>
+</div>
+
+</div><!-- /container estudio -->
+</div><!-- /view-estudio -->
+
+<!-- ══ VISTA TEXTO ORIGINAL ══ -->
+<div id="view-texto" class="view-panel" style="display:none;">
+<div class="container">
+
+  <div class="orig-header">
+    <div class="orig-kicker">Texto Completo · Versión Original en Español</div>
+    <h2 class="orig-title">El Sermón de King Follett</h2>
+    <p class="orig-author">por <strong>el Profeta José Smith</strong><br>Primer Presidente de la Iglesia de Jesucristo de los Santos de los Últimos Días</p>
+    <p class="orig-context">Pronunciado en Nauvoo, Illinois, el 7 de abril de 1844, durante la Conferencia General de la Iglesia, ante aproximadamente 20,000 santos. Fue el discurso conmemorativo del Élder King Follett, fallecido el 9 de marzo de 1844. Las notas fueron tomadas por Willard Richards, Wilford Woodruff, Thomas Bullock y William Clayton. Tomado de la Historia de la Iglesia, vol. 6, pp. 302-317.</p>
+    <div class="orig-nav-hint">💡 Las secciones con borde dorado enlazan directamente al tema de estudio. Tócalas para profundizar.</div>
+  </div>
+
+  <div class="orig-body">
+    <p>Amados hermanos, quisiera que esta asamblea me prestara su atención mientras os hablo sobre el tema de los muertos. El fallecimiento de nuestro querido hermano, King Follet, quien murió triturado en un pozo, al venírsele encima una tina llena de piedras, es lo que más me ha motivado a tratar este tema.</p>
+    <p>Sus amigos y parientes me han rogado que tome la palabra, pero en vista de que muchos de los de esta congregación, que viven en esta ciudad y en otras partes, también han perdido algún amigo o pariente, desearía hablar sobre el tema en general y presentaros mis ideas, hasta donde pueda, y hasta donde me inspire el Espíritu Santo para tratar este asunto.</p>
+    <p>Necesito vuestras oraciones y fe a fin de poder recibir la instrucción de Dios Todopoderoso y el don del Espíritu Santo, para que pueda declarar cosas que son verdaderas y que fácilmente podáis comprender; y que el testimonio lleve a vuestro corazón y mente la convicción de la verdad de lo que diga.</p>
+    <p>Rogad por que el Señor me fortalezca los pulmones y haga cesar el viento; y asciendan las oraciones de los santos a los oídos del Señor de los Ejércitos, porque las oraciones eficaces de los justos logran mucho.</p>
+    <p>No es mi intención halagar vuestros oídos con superfluidad de palabras, ni oratoria, ni con mucha sabiduría, sino que deseo edificaros con <strong>las verdades sencillas del cielo.</strong></p>
+  </div>
+
+  <div class="orig-section">
+    <a href="#s1" class="orig-section-link" onclick="switchView('estudio')">
+      <div class="orig-section-tag">Sección I del Estudio</div>
+      <h3 class="orig-section-title">La Naturaleza de Dios — «¿Qué Clase de Ser es Dios?»</h3>
+      <div class="orig-section-arrow">→ Ver en el Material de Estudio</div>
+    </a>
+  </div>
+
+  <div class="orig-body">
+    <p>En primer lugar, deseo retroceder hasta el principio, hasta la mañana de la creación. Allí está el punto de partida que debemos examinar, a fin de entender y conocer bien la mente, propósitos y decretos del Gran Elohím, que se sienta allá en los cielos, como lo hizo cuando fue creado este mundo. Se precisa que tengamos un entendimiento de Dios mismo en el principio.</p>
+    <p>No son sino pocos los seres en el mundo que entienden correctamente la naturaleza de Dios. La gran mayoría del género humano no comprende nada, ni lo que corresponde a lo futuro, en lo que respecta a su relación con Dios. No saben ni entienden la naturaleza de esa relación; y consiguientemente, no saben sino poco más que el animal, o poco más que comer, beber y dormir.</p>
+    <p>Deseo pedir a esta congregación, a todo hombre, mujer y niño, que cada cual conteste en su corazón:</p>
+    <blockquote class="orig-quote">¿Qué clase de ser es Dios?<br>Preguntaos; escudriñad vuestros corazones y decid si alguno de vosotros lo ha visto, oído o se ha comunicado con Él.</blockquote>
+    <blockquote class="orig-quote">«Esta es la vida eterna: que te conozcan a ti, el único Dios verdadero, y a Jesucristo, a quien has enviado.»<cite>— Juan 17:3</cite></blockquote>
+    <p>Si un hombre no conoce a Dios, y tiene que preguntar qué clase de ser Él es, si busca diligentemente en su propio corazón para saber si la declaración de Jesús y los apóstoles es cierta, comprenderá que no tiene la vida eterna; porque no puede haber vida eterna sino de acuerdo con este principio.</p>
+    <p>Mi primer objeto es conocer el carácter del único Dios sabio y verdadero, y qué clase de ser Él es; y si soy tan afortunado que llego a comprender a Dios, y explico o hago llegar los principios a vuestros corazones, de tal manera que el Espíritu los sella sobre vosotros, entonces de aquí en adelante todo hombre y mujer debe guardar silencio.</p>
+  </div>
+
+  <div class="orig-section">
+    <a href="#s2" class="orig-section-link" onclick="switchView('estudio')">
+      <div class="orig-section-tag">Sección II del Estudio</div>
+      <h3 class="orig-section-title">Dios es un Hombre Glorificado — «El Gran Secreto»</h3>
+      <div class="orig-section-arrow">→ Ver en el Material de Estudio</div>
+    </a>
+  </div>
+
+  <div class="orig-body">
+    <p>Volveré al principio, antes que el mundo fuese, para mostrar la clase de ser que Dios es. ¿Cómo era Dios en el principio?</p>
+    <blockquote class="orig-quote orig-climax">«¡Dios una vez fue como nosotros ahora; es un hombre glorificado, y está sentado sobre su trono allá en los cielos! Ese es el gran secreto.»</blockquote>
+    <p>Si el velo se partiera hoy, y el Gran Dios que conserva este mundo en su órbita y sostiene todos los mundos y todas las cosas con su poder, se manifestase a sí mismo, digo que si fueseis a verlo hoy, lo veríais en la forma de un hombre, así como vosotros os halláis en toda la persona, imagen y forma misma de un hombre; porque Adán fue creado a la misma imagen y semejanza de Dios, y de Él recibió instrucciones, y anduvo y conversó con Él, como un hombre habla y se comunica con otro.</p>
+    <p>Hemos imaginado y supuesto que Dios fue Dios por todas las eternidades. Voy a refutar esa idea, y haré a un lado el velo para que podáis ver. Para algunos éstas son ideas incomprensibles, pero son sencillas.</p>
+    <p>El primer principio del evangelio es saber con certeza la naturaleza de Dios, y saber que podemos conversar con Él como un hombre conversa con otro, y que en un tiempo fue hombre como nosotros; sí, que Dios mismo, el Padre de todos nosotros, habitó sobre una tierra, como Jesucristo mismo lo hizo.</p>
+    <blockquote class="orig-quote">«Esta pues es la vida eterna: conocer al único Dios sabio y verdadero; y vosotros mismos tenéis que aprender a ser dioses, y a ser reyes y sacerdotes de Dios, como lo han hecho todos los dioses antes de vosotros, a saber, el avanzar de un grado pequeño a otro, y de una capacidad pequeña a una mayor, yendo de gracia en gracia, de exaltación en exaltación.»</blockquote>
+    <p>¿Qué hiciste tú, Jesús? Hice aquellas cosas que vi hacer a mi Padre cuando venían a su existencia los mundos. Mi Padre labró su reino con temor y temblor, y yo debo hacer lo mismo; y cuando gane mi reino, lo presentaré a mi Padre, a fin de que Él pueda tener reino sobre reino y así aumentar en gloria.</p>
+    <p>Cuando subís por una escalera, tenéis que empezar desde abajo y ascender paso por paso hasta que llegáis a la cima; y así es con los principios del evangelio: tenéis que empezar por el primero, y seguir adelante hasta aprender todos los principios que atañen a la exaltación.</p>
+  </div>
+
+  <div class="orig-section">
+    <a href="#s3" class="orig-section-link" onclick="switchView('estudio')">
+      <div class="orig-section-tag">Sección III del Estudio</div>
+      <h3 class="orig-section-title">El Significado Hebreo — «Baurau» No Significa Crear de la Nada</h3>
+      <div class="orig-section-arrow">→ Ver en el Material de Estudio</div>
+    </a>
+  </div>
+
+  <div class="orig-body">
+    <h4 class="orig-subheading">El significado de la primera palabra hebrea del Génesis</h4>
+    <p>Voy a comentar la primera palabra hebrea que se halla en la Biblia — «Berosheit». Deseo analizar la palabra: «Baith»: en, por, mediante; «Rosh»: la cabeza; «Sheit»: terminación gramatical. Al principio decía: «La cabeza, el principal de los Dioses hizo aparecer a los Dioses.»</p>
+    <p>El Dios a la cabeza convocó a los dioses y se reunieron en concilio para crear el mundo. Estos grandes Consejeros se sentaron a la cabeza, allá en los cielos y presenciaron la creación de los mundos que fueron creados en esa época.</p>
+    <h4 class="orig-subheading">El significado de la palabra «Crear»</h4>
+    <blockquote class="orig-quote">«La palabra crear vino del término hebreo ‹baurau›, que no significa crear de la nada, sino manifestar, dar forma, organizar, así como un hombre organiza los materiales y construye un barco. De manera que podemos deducir que Dios tenía a su disposición los materiales para organizar el mundo de todo aquel caos, es decir materia caótica, que es elemento, y en el cual mora toda gloria.»</blockquote>
+    <blockquote class="orig-quote">«Los elementos han existido desde que nosotros tuvimos existencia. Los principios puros de los elementos son principios que jamás pueden ser destruidos; pueden ser organizados, y reorganizados, mas no destruidos. No tuvieron principio. Y no pueden tener fin.»</blockquote>
+  </div>
+
+  <div class="orig-section">
+    <a href="#s4" class="orig-section-link" onclick="switchView('estudio')">
+      <div class="orig-section-tag">Sección IV del Estudio</div>
+      <h3 class="orig-section-title">El Espíritu Inmortal — La Inteligencia Sin Principio Ni Fin</h3>
+      <div class="orig-section-arrow">→ Ver en el Material de Estudio</div>
+    </a>
+  </div>
+
+  <div class="orig-body">
+    <h4 class="orig-subheading">La mente del hombre es coigual con Dios</h4>
+    <p>Tengo otro asunto que tratar. Todos los sabios y los doctores de teología dicen que Dios lo creó en el principio; pero no es así. No creo en esa doctrina; tengo mejor criterio.</p>
+    <blockquote class="orig-quote">«La mente o inteligencia que el hombre posee es coigual con Dios. Yo sé que mi testimonio es verdadero.»</blockquote>
+    <p>Estoy hablando de la inmortalidad del espíritu del hombre. ¿Sería lógico decir que la inteligencia de los espíritus es inmortal, y sin embargo, que tuvo un principio? La inteligencia de los espíritus no tuvo principio, ni tendrá fin. Esto es buen razonamiento. Lo que tiene principio puede tener fin. Nunca hubo tiempo en que no hubo espíritus, porque ellos y nuestro Padre Celestial son coiguales.</p>
+    <p>Me quito el anillo del dedo y lo comparo a la mente del hombre: a la parte inmortal, porque no tiene principio. Supongamos que lo partimos en dos; ahora tiene un principio y un fin, pero si lo volvemos a unir sigue siendo un círculo eterno. Así es con el espíritu del hombre.</p>
+    <blockquote class="orig-quote">«La inteligencia es eterna y existe sobre un principio que es existente por sí mismo. Es un espíritu, de eternidad en eternidad, y nada tiene de creado. Todas las mentes y espíritus que Dios ha enviado al mundo están capacitados para progresar. Dios, hallándose en medio de espíritus y gloria, porque era más inteligente, consideró propio instituir leyes por medio de las cuales los demás podrían tener el privilegio de avanzar como Él lo había hecho.»</blockquote>
+  </div>
+
+  <div class="orig-section">
+    <a href="#s5" class="orig-section-link" onclick="switchView('estudio')">
+      <div class="orig-section-tag">Sección V del Estudio</div>
+      <h3 class="orig-section-title">La Relación con Dios y la Responsabilidad por los Muertos</h3>
+      <div class="orig-section-arrow">→ Ver en el Material de Estudio</div>
+    </a>
+  </div>
+
+  <div class="orig-body">
+    <h4 class="orig-subheading">Nuestra responsabilidad mayor</h4>
+    <p>Deseo hablar más de la relación entre el hombre y Dios. Os abriré los ojos en lo que respecta a vuestros muertos. Dios mora en la eternidad, y no ve las cosas como nosotros.</p>
+    <blockquote class="orig-quote">«La responsabilidad mayor que Dios ha puesto sobre nosotros en este mundo es procurar por nuestros muertos. El apóstol dice que ellos sin nosotros no pueden ser perfeccionados (Hebreos 11:40); porque es necesario que el poder de ligar esté en nuestras manos a fin de ligar a nuestros hijos y nuestros muertos.»</blockquote>
+    <blockquote class="orig-quote">«Yo os envío a Elías el profeta, antes que venga el día de Jehová grande y terrible. El convertirá el corazón de los padres a los hijos, y el corazón de los hijos a los padres: no sea que yo venga, y con destrucción hiera la tierra.»<cite>— Malaquías 4:5-6</cite></blockquote>
+  </div>
+
+  <div class="orig-section">
+    <a href="#s6" class="orig-section-link" onclick="switchView('estudio')">
+      <div class="orig-section-tag">Secciones VI-VII del Estudio</div>
+      <h3 class="orig-section-title">Una Salvación para Todos — El Pecado Imperdonable</h3>
+      <div class="orig-section-arrow">→ Ver en el Material de Estudio</div>
+    </a>
+  </div>
+
+  <div class="orig-body">
+    <blockquote class="orig-quote">«Todo pecado, toda blasfemia y toda transgresión, salvo una, que el hombre pudiere cometer, serán perdonados; y habrá una salvación, sea en este mundo o en el mundo venidero, para todos los hombres que no hayan cometido el pecado imperdonable.»</blockquote>
+    <p>De modo que según lo que Dios ha dispuesto, se puede buscar y salvar a todo espíritu en el mundo eterno, a menos que haya cometido ese pecado imperdonable. Y así podéis ver hasta qué punto vais a ser salvadores.</p>
+    <p>El hombre no puede cometer el pecado imperdonable después de deshecho su cuerpo. Si un hombre tiene conocimiento, se puede salvar; aunque si ha cometido pecados graves, tendrá que ser castigado por ellos. Pero cuando consiente en obedecer el evangelio, ya sea aquí o en el mundo de los espíritus, entonces puede ser salvo. El hombre es su propio verdugo y su propio juez.</p>
+    <blockquote class="orig-quote">«¿Qué debe hacer el hombre para cometer el pecado imperdonable? Debe haber recibido el Espíritu Santo, deben habérsele manifestado los cielos, y después de haber conocido a Dios, pecar contra Él. Después que un hombre ha pecado contra el Espíritu Santo, no hay arrepentimiento para él.»</blockquote>
+  </div>
+
+  <div class="orig-section">
+    <a href="#s8" class="orig-section-link" onclick="switchView('estudio')">
+      <div class="orig-section-tag">Sección VIII del Estudio</div>
+      <h3 class="orig-section-title">El Consuelo Eterno — «Dentro de Poco Nos Volveremos a Ver»</h3>
+      <div class="orig-section-arrow">→ Ver en el Material de Estudio</div>
+    </a>
+  </div>
+
+  <div class="orig-body">
+    <p>El bautismo de agua, si no lo acompaña el bautismo de fuego y del Espíritu Santo, no tiene ningún valor: están unidos necesaria e inseparablemente. El individuo debe nacer del agua y del Espíritu para poder entrar en el reino de Dios.</p>
+    <h4 class="orig-subheading">El llamado al arrepentimiento</h4>
+    <p>¡Escuchad, vosotros, los confines de la tierra: todos los que sois sacerdotes, todos los que sois pecadores y todos los hombres! ¡Arrepentíos, arrepentíos y obedeced el evangelio! ¡Volveos a Dios, porque vuestra religión no os salvará, y seréis condenados!</p>
+    <h4 class="orig-subheading">El consuelo para los que lloran</h4>
+    <blockquote class="orig-quote">«Los que han muerto en la fe se hallan ahora en el reino celestial de Dios; y allí es como la gloria del sol. Vosotros que lamentáis, tenéis ocasión para regocijar, hablando de la muerte del hermano King Follett.»</blockquote>
+    <blockquote class="orig-quote">«Me siento facultado para declarar, por la autoridad del Espíritu Santo, que no tenéis razón para temer; porque él ha ido a la morada de los justos. No lamentéis, no lloréis. Lo sé por el testimonio del Espíritu Santo que hay dentro de mí.»</blockquote>
+    <blockquote class="orig-quote">«Tengo un padre, hermanos, hijos y amigos que han pasado al mundo de los espíritus. Se han ausentado tan sólo por un momento. Se hallan en el espíritu, y dentro de poco nos volveremos a ver. Pronto llegará el tiempo en que sonará la trompeta. Cuando salgamos de aquí, saludaremos a nuestras madres, padres, amigos y todos aquellos a quienes amamos, que han dormido en Jesús. No habrá temor de chusmas, ni persecuciones, ni litigios perversos, ni arrestos, sino que todo será una eternidad de dicha.»</blockquote>
+  </div>
+
+  <div class="orig-testimony">
+    <div class="orig-testimony-icon">🕊</div>
+    <p>«Nadie conoce mi historia. Yo no puedo relatarla: jamás lo he intentado. No voy a culpar a nadie por no creer mi historia. De no haber pasado por las experiencias que he conocido, también a mí mismo me sería difícil creer. Jamás he perjudicado a hombre alguno desde que nací en el mundo. Siempre he alzado mi voz a favor de la paz. No puedo morir sino hasta cuando quede terminada toda mi obra.</p>
+    <p>Cuando sea llamado por la trompeta del arcángel y sea pesado en la balanza, entonces todos vosotros me conoceréis. No digo más. <strong>Dios os bendiga a todos. Amén.</strong>»</p>
+    <div class="orig-testimony-attr">— Profeta José Smith · 7 de abril de 1844 · Nauvoo, Illinois · 87 días antes de su martirio</div>
+  </div>
+
+  <div class="orig-cta">
+    <p>¿Listo para profundizar con el material de estudio completo?</p>
+    <button class="orig-cta-btn" onclick="switchView('estudio');window.scrollTo({top:0,behavior:'smooth'})">Ir al Material de Estudio →</button>
+  </div>
+
+</div><!-- /container texto -->
+</div><!-- /view-texto -->
+
+<!-- TRACKER -->
+<div class="progress-tracker" id="tracker">
+  <div class="pt-label">Quiz</div>
+  <div class="pt-score" id="score-display">0 / 7</div>
+</div>
+
+<!-- EXPORT BUTTON -->
+<div class="copy-flash" id="copy-flash">✓ Notas copiadas al portapapeles</div>
+<div class="notes-summary-bar">
+  <button class="notes-export-btn" onclick="exportAllNotes()">
+    📋 Exportar mis notas
+    <span class="notes-answered-count" id="answered-count">0</span>
+  </button>
+</div>
+
+<!-- READER TRIGGER -->
+<button class="reader-trigger" id="reader-trigger" onclick="openReader()">🔊 Escuchar</button>
+
+<!-- READER BAR -->
+<div class="reader-bar" id="reader-bar">
+  <div class="reader-bar-inner">
+    <button class="reader-btn-play" id="reader-play-btn" onclick="toggleReaderPlay()" title="Play / Pausa">▶</button>
+    <button class="reader-btn-stop" onclick="stopReader()" title="Detener">■</button>
+    <div class="reader-progress-wrap">
+      <div class="reader-label" id="reader-label">Listo para leer</div>
+      <div class="reader-progress"><div class="reader-progress-fill" id="reader-fill"></div></div>
+    </div>
+    <div class="reader-speed">
+      <span class="reader-speed-label">Velocidad:</span>
+      <select class="reader-speed-select" id="reader-speed" onchange="updateReaderSpeed()">
+        <option value="0.8">0.8×</option>
+        <option value="1" selected>1×</option>
+        <option value="1.2">1.2×</option>
+        <option value="1.5">1.5×</option>
+        <option value="2">2×</option>
+      </select>
+    </div>
+    <span class="reader-ai-badge">🤖 TTS</span>
+    <span class="reader-ai-coming">Voz IA · Próximamente</span>
+    <button class="reader-close" onclick="closeReader()">✕ Cerrar</button>
+  </div>
+</div>
+
+<footer>
+  El Sermón de King Follett — LineUponLine · Estudio Profundo del Evangelio<br>
+  Fuente: Historia de la Iglesia, vol. 6, pp. 302-317 · Nauvoo, Illinois, 7 de abril de 1844<br>
+  <a href="https://www.churchofjesuschrist.org" target="_blank">churchofjesuschrist.org</a>
+  <div class="footer-disclaimer">
+    <strong>Aviso legal:</strong> Este es un recurso de estudio personal independiente. <strong>No es material oficial</strong> de La Iglesia de Jesucristo de los Santos de los Últimos Días, no representa sus enseñanzas o posiciones institucionales, y no sustituye las escrituras, la oración personal, la revelación del Espíritu Santo, ni las enseñanzas de los líderes llamados y sostenidos de la Iglesia. Úsese únicamente como referencia de apoyo al estudio personal.
+  </div>
+</footer>
+
+<script>
+/* ── DISCLAIMER ── */
+function acceptDisclaimer(){
+  const o=document.getElementById('disclaimer-overlay');
+  o.style.opacity='0';o.style.transition='opacity 0.3s ease';
+  setTimeout(()=>{o.style.display='none';document.body.style.overflow='';},300);
+  sessionStorage.setItem('kf_disclaimer','1');
+}
+(function(){
+  if(!sessionStorage.getItem('kf_disclaimer'))document.body.style.overflow='hidden';
+  else document.getElementById('disclaimer-overlay').style.display='none';
+})();
+
+/* ── TOGGLE ── */
+function toggle(id){document.getElementById(id).classList.toggle('open');}
+
+/* ── VIEW SWITCHER ── */
+function switchView(v){
+  const est=document.getElementById('view-estudio');
+  const txt=document.getElementById('view-texto');
+  const te=document.getElementById('tab-estudio');
+  const tt=document.getElementById('tab-texto');
+  const tl=document.getElementById('toc-links-study');
+  if(v==='estudio'){est.style.display='block';txt.style.display='none';te.classList.add('active');tt.classList.remove('active');tl.style.display='flex';}
+  else{est.style.display='none';txt.style.display='block';te.classList.remove('active');tt.classList.add('active');tl.style.display='none';window.scrollTo({top:0,behavior:'smooth'});}
+  stopReader();
+}
+
+/* ── QUIZ ENGINE ── */
+let correctCount=0;
+const answeredQuizzes=new Set();
+function checkQuiz(qId,btn,isCorrect){
+  if(answeredQuizzes.has(qId))return;
+  answeredQuizzes.add(qId);
+  btn.parentElement.querySelectorAll('.quiz-option').forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none';});
+  if(isCorrect){btn.classList.add('correct');document.getElementById(qId+'-correct').classList.add('show');correctCount++;document.getElementById('score-display').textContent=correctCount+' / 7';}
+  else{btn.classList.add('wrong');document.getElementById(qId+'-wrong').classList.add('show');}
+  document.getElementById(qId+'-reset').style.display='inline-block';
+}
+function resetQuiz(qId){
+  answeredQuizzes.delete(qId);
+  const b=document.getElementById(qId);
+  b.querySelectorAll('.quiz-option').forEach(o=>{o.classList.remove('correct','wrong','disabled');o.style.pointerEvents='';});
+  b.querySelector('.quiz-feedback.correct-fb').classList.remove('show');
+  b.querySelector('.quiz-feedback.wrong-fb').classList.remove('show');
+  document.getElementById(qId+'-reset').style.display='none';
+}
+
+/* ── NOTES ── */
+window.addEventListener('load',()=>{
+  const ids=['t1','t2','t3','t4','t5','t6','t7','t8','t9'];
+  ids.forEach(tid=>{
+    [0,1].forEach(i=>{
+      const el=document.getElementById('note_'+tid+'_'+i);
+      if(el){const v=localStorage.getItem('kf_note_'+tid+'_'+i);if(v)el.value=v;}
+    });
+  });
+  updateAnsweredCount();
+});
+function autoSaveNote(tid,idx){
+  const el=document.getElementById('note_'+tid+'_'+idx);
+  if(el)localStorage.setItem('kf_note_'+tid+'_'+idx,el.value);
+  const s=document.getElementById('status_'+tid);
+  if(s){s.textContent='✓ Guardado automáticamente';s.classList.add('show');clearTimeout(window['t_'+tid]);window['t_'+tid]=setTimeout(()=>s.classList.remove('show'),2000);}
+  updateAnsweredCount();
+}
+function saveNote(tid,qCount){
+  for(let i=0;i<qCount;i++){const el=document.getElementById('note_'+tid+'_'+i);if(el)localStorage.setItem('kf_note_'+tid+'_'+i,el.value);}
+  const s=document.getElementById('status_'+tid);
+  if(s){s.textContent='✓ Guardado correctamente';s.classList.add('show');setTimeout(()=>s.classList.remove('show'),2500);}
+  updateAnsweredCount();
+}
+function updateAnsweredCount(){
+  let c=0;
+  for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith('kf_note_')&&(localStorage.getItem(k)||'').trim().length>10)c++;}
+  const el=document.getElementById('answered-count');if(el)el.textContent=c;
+}
+function exportAllNotes(){
+  const secs={t1:'¿Qué Clase de Ser es Dios?',t2:'Dios Fue Una Vez Como Nosotros',t3:'Los Elementos Son Eternos — Baurau',t4:'El Espíritu Inmortal',t5:'Responsabilidad por los Muertos',t6:'Una Salvación para Todos',t7:'El Bautismo Completo',t8:'El Consuelo Eterno',t9:'El Legado del Sermón'};
+  let out='═══════════════════════════════════\n';
+  out+='  EL SERMÓN DE KING FOLLETT\n  Mis Notas de Estudio — LineUponLine\n';
+  out+='  Fecha: '+new Date().toLocaleDateString('es-ES',{weekday:'long',year:'numeric',month:'long',day:'numeric'})+'\n';
+  out+='═══════════════════════════════════\n\n';
+  let any=false;
+  for(const[tid,title] of Object.entries(secs)){
+    const notes=[];
+    for(let i=0;i<2;i++){const v=localStorage.getItem('kf_note_'+tid+'_'+i);if(v&&v.trim())notes.push('  Q'+(i+1)+': '+v.trim());}
+    if(notes.length){any=true;out+='▸ '+title.toUpperCase()+'\n'+notes.join('\n\n')+'\n\n──────────────────────────────────\n\n';}
+  }
+  if(!any)out+='(Aún no tienes notas. Abre los temas y escribe en las secciones de reflexión.)\n';
+  out+='\n«Dios os bendiga a todos. Amén.»\n— Profeta José Smith · Sermón de King Follett · 7 de abril de 1844';
+  navigator.clipboard.writeText(out).then(()=>showFlash()).catch(()=>{const ta=document.createElement('textarea');ta.value=out;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showFlash();});
+}
+function showFlash(){const f=document.getElementById('copy-flash');f.classList.add('show');setTimeout(()=>f.classList.remove('show'),3000);}
+
+/* ── READER ── */
+let readerChunks=[],readerChunkIdx=0,readerRunning=false,readerPaused=false,readerUtterance=null;
+function openReader(){document.getElementById('reader-bar').classList.add('visible');document.getElementById('reader-trigger').classList.add('hidden');buildReaderChunks();}
+function closeReader(){stopReader();document.getElementById('reader-bar').classList.remove('visible');document.getElementById('reader-trigger').classList.remove('hidden');}
+function buildReaderChunks(){
+  const studyVisible=document.getElementById('view-estudio').style.display!=='none';
+  const root=studyVisible?document.getElementById('view-estudio'):document.getElementById('view-texto');
+  const nodes=root.querySelectorAll('p,.detail-p,.scripture-text,.quote-text,.orig-body p,blockquote');
+  readerChunks=[];nodes.forEach(n=>{const t=n.innerText.trim();if(t.length>20)readerChunks.push(t);});
+  readerChunkIdx=0;updateReaderLabel();
+}
+function updateReaderLabel(){
+  const l=document.getElementById('reader-label');
+  if(!readerChunks.length){l.textContent='Sin contenido';return;}
+  l.textContent=readerRunning?`Párrafo ${readerChunkIdx+1} de ${readerChunks.length}`:readerChunkIdx>0?`En pausa — párrafo ${readerChunkIdx+1}`:`${readerChunks.length} párrafos listos`;
+}
+function updateReaderFill(){const p=readerChunks.length?(readerChunkIdx/readerChunks.length)*100:0;document.getElementById('reader-fill').style.width=p+'%';}
+function toggleReaderPlay(){
+  if(!('speechSynthesis' in window)){alert('Tu navegador no soporta la lectura de voz. Prueba con Chrome o Safari.');return;}
+  if(readerRunning&&!readerPaused){speechSynthesis.pause();readerPaused=true;readerRunning=false;document.getElementById('reader-play-btn').textContent='▶';updateReaderLabel();}
+  else if(readerPaused){speechSynthesis.resume();readerPaused=false;readerRunning=true;document.getElementById('reader-play-btn').textContent='⏸';updateReaderLabel();}
+  else{if(!readerChunks.length)buildReaderChunks();readerRunning=true;readerPaused=false;document.getElementById('reader-play-btn').textContent='⏸';readNextChunk();}
+}
+function readNextChunk(){
+  if(!readerRunning||readerChunkIdx>=readerChunks.length){readerRunning=false;readerChunkIdx=0;document.getElementById('reader-play-btn').textContent='▶';document.getElementById('reader-label').textContent='✓ Lectura completada';document.getElementById('reader-fill').style.width='100%';return;}
+  const speed=parseFloat(document.getElementById('reader-speed').value)||1;
+  const u=new SpeechSynthesisUtterance(readerChunks[readerChunkIdx]);
+  u.lang='es-419';u.rate=speed;u.pitch=1.0;
+  const voices=speechSynthesis.getVoices();
+  const v=voices.find(v=>v.lang.startsWith('es')&&!v.name.includes('Google US'));
+  if(v)u.voice=v;
+  u.onstart=()=>{updateReaderLabel();updateReaderFill();};
+  u.onend=()=>{if(readerRunning){readerChunkIdx++;readNextChunk();}};
+  u.onerror=()=>{readerChunkIdx++;if(readerRunning)readNextChunk();};
+  readerUtterance=u;speechSynthesis.speak(u);
+}
+function stopReader(){readerRunning=false;readerPaused=false;readerChunkIdx=0;speechSynthesis.cancel();document.getElementById('reader-play-btn').textContent='▶';document.getElementById('reader-fill').style.width='0%';updateReaderLabel();}
+function updateReaderSpeed(){if(readerRunning){speechSynthesis.cancel();readNextChunk();}}
+window.addEventListener('beforeunload',()=>speechSynthesis.cancel());
+
+/* ── NAV HIGHLIGHT ── */
+const sections=document.querySelectorAll('.section-intro');
+const navLinks=document.querySelectorAll('.toc-link');
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){const id=e.target.id;navLinks.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+id)l.classList.add('active');});}});
+},{rootMargin:'-20% 0px -70% 0px'});
+sections.forEach(s=>observer.observe(s));
+</script>
+</body>
+</html>
