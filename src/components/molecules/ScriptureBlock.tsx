@@ -26,15 +26,20 @@ function ScriptureIcon() {
 
 export function ScriptureBlock({ citation, text }: ScriptureBlockProps) {
   return (
-    <blockquote className="rounded-r-2xl border-l-4 border-blue-accent bg-bg-surface p-5 sm:p-6">
+    <blockquote className="relative overflow-hidden rounded-r-2xl bg-bg-surface p-5 sm:p-6">
+      <span
+        className="absolute inset-y-0 left-0 w-1"
+        style={{ background: 'linear-gradient(180deg, #1B3A6B 0%, #D4AF37 100%)' }}
+        aria-hidden="true"
+      />
       <div className="mb-3 flex items-center gap-2">
         <ScriptureIcon />
         <p className="font-ui text-sm font-semibold uppercase tracking-wide text-gold-bright">
           Escritura
         </p>
       </div>
-      <p className="text-reading text-text-main">{text}</p>
-      <footer className="mt-4 font-ui text-sm font-semibold text-text-muted">
+      <p className="text-reading italic text-text-main">{text}</p>
+      <footer className="mt-4 font-ui text-xs font-semibold text-text-muted [font-variant:small-caps] tracking-wide">
         {citation}
       </footer>
     </blockquote>
