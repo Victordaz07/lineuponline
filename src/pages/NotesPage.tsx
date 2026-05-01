@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { useSyncNotes } from '../features/notes/hooks/useSyncNotes'
-import type { UserNoteInput } from '../types/firestore/userNotes'
+import { useSyncNotes } from '@/hooks/useSyncNotes'
+import type { UserNoteInput } from '@/types/userNotes'
 
 export function NotesPage() {
   const [topicId, setTopicId] = useState('reflexion-general')
