@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { LessonContentView } from '@/components/doctrinal/LessonContentView'
+import { UnderConstruction } from '@/components/doctrinal/UnderConstruction'
 import { LoadingSpinner } from '@/components/common/LoadingSpinner'
 import { useLesson } from '@/hooks/useLesson'
 import { useSyncNotes } from '@/hooks/useSyncNotes'
@@ -30,6 +31,10 @@ export default function LessonView() {
         <p className="font-ui text-sm text-amber-900">{error ?? 'No se pudo cargar la lección.'}</p>
       </div>
     )
+  }
+
+  if (lesson.status === 'IN_CONSTRUCTION') {
+    return <UnderConstruction lessonTitle={lesson.title} moduleId={moduleId} />
   }
 
   return (

@@ -64,7 +64,7 @@ export default function Dashboard() {
       <div className="flex flex-wrap gap-3">
         <button
           type="button"
-          onClick={() => markLessonComplete('doctrina-fundamental', 'la-fe-como-principio-de-poder')}
+          onClick={() => markLessonComplete('doctrina-fundamental', 'fe-principio-poder')}
           className="rounded-lg border border-dashed border-gold-main/50 px-4 py-2 font-ui text-xs font-semibold text-blue-accent hover:bg-gold-dim"
         >
           Demo: marcar &quot;La fe…&quot; como revisada (local)

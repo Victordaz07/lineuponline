@@ -7,10 +7,15 @@ import { ProgressBar } from '@/components/learning/ProgressBar'
 import { useModule } from '@/hooks/useModule'
 import { useUserProgress } from '@/hooks/useUserProgress'
 import type { DifficultyLevel } from '@/types/doctrine'
+import { DIFFICULTY_LEVELS } from '@/lib/constants'
 
 const DEMO_USER = 'demo-user'
 
-const levels: DifficultyLevel[] = ['BASIC', 'INTERMEDIATE', 'ADVANCED']
+const LEVEL_LABEL: Record<DifficultyLevel, string> = {
+  BÁSICO: 'Básico',
+  INTERMEDIO: 'Intermedio',
+  AVANZADO: 'Avanzado',
+}
 
 /**
  * Vista de un módulo con lista de lecciones y filtro por nivel.
@@ -90,7 +95,7 @@ export default function ModuleView() {
           >
             Todos
           </button>
-          {levels.map((lvl) => (
+          {DIFFICULTY_LEVELS.map((lvl) => (
             <button
               key={lvl}
               type="button"
@@ -99,7 +104,7 @@ export default function ModuleView() {
                 levelFilter === lvl ? 'bg-gold-main text-white' : 'border border-gold-main/30 bg-white text-blue-accent'
               }`}
             >
-              {lvl === 'BASIC' ? 'Básico' : lvl === 'INTERMEDIATE' ? 'Intermedio' : 'Avanzado'}
+              {LEVEL_LABEL[lvl]}
             </button>
           ))}
         </div>

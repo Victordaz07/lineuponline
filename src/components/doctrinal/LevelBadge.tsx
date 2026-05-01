@@ -4,17 +4,17 @@ const levelMeta: Record<
   DifficultyLevel,
   { label: string; emoji: string; className: string }
 > = {
-  BASIC: {
+  BÁSICO: {
     label: 'Básico',
     emoji: '🌱',
     className: 'border-emerald-600/30 bg-emerald-50 text-emerald-900',
   },
-  INTERMEDIATE: {
+  INTERMEDIO: {
     label: 'Intermedio',
     emoji: '📘',
     className: 'border-blue-accent/30 bg-blue-50 text-blue-accent',
   },
-  ADVANCED: {
+  AVANZADO: {
     label: 'Avanzado',
     emoji: '✨',
     className: 'border-purple-700/30 bg-purple-50 text-purple-900',
