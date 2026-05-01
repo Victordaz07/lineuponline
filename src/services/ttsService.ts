@@ -53,6 +53,25 @@ export function speakText(
 }
 
 /**
+ * Lee una lista de fragmentos en secuencia (p. ej. párrafos para resaltado).
+ */
+export function speakSequentialChunks(
+  chunks: string[],
+  options?: {
+    lang?: string
+    rate?: number
+    onChunkStart?: (index: number) => void
+  },
+): Promise<void> {
+  return (async () => {
+    for (let i = 0; i < chunks.length; i++) {
+      options?.onChunkStart?.(i)
+      await speakText(chunks[i] ?? '', { lang: options?.lang, rate: options?.rate })
+    }
+  })()
+}
+
+/**
  * Comprueba si hay una locución activa.
  *
  * @returns true si está hablando

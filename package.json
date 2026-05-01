@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "port-lessons": "tsx scripts/port-lesson-html.ts",
+    "port-lesson-structured": "tsx scripts/port-lesson-structured.ts",
     "deploy:hosting": "npm run build && npx firebase-tools deploy --only hosting",
     "deploy:rules": "npx firebase-tools deploy --only firestore:rules"
   },
@@ -17,7 +18,8 @@
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "react-router-dom": "^7.14.2",
-    "zod": "^4.4.1"
+    "zod": "^4.4.1",
+    "zustand": "^5.0.12"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
