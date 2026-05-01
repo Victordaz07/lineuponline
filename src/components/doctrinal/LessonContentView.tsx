@@ -79,8 +79,31 @@ export function LessonContentView({
   const isTopicVisited = useLessonProgressStore((s) => s.isTopicVisited)
   const isQuizCompleted = useLessonProgressStore((s) => s.isQuizCompleted)
 
-  const journalEntries = useStudyJournalStore((s) => s.getForLesson(lessonId))
-  const journalTopicTitles = useStudyJournalStore((s) => s.uniqueTopicTitles(lessonId))
+  /** Referencia estable hasta que el store realmente cambia (evita bucle #185 con arrays nuevos en cada selector). */
+  const journalEntriesRaw = useStudyJournalStore((s) => s.entries)
+  const journalEntries = useMemo(
+    () =>
+      journalEntriesRaw
+        .filter((e) => e.lessonId === lessonId)
+        .sort((a, b) => (a.clientUpdatedAt < b.clientUpdatedAt ? 1 : -1)),
+    [journalEntriesRaw, lessonId],
+  )
+
+  const journalTopicTitles = useMemo(() => {
+    const seen = new Set<string>()
+    const titles: string[] = []
+    for (const e of journalEntriesRaw) {
+      if (e.lessonId !== lessonId) {
+        continue
+      }
+      if (!seen.has(e.topicId)) {
+        seen.add(e.topicId)
+        titles.push(e.topicTitle)
+      }
+    }
+    return titles
+  }, [journalEntriesRaw, lessonId])
+
   const addJournalEntry = useStudyJournalStore((s) => s.addEntry)
 
   const visitedTopicsCount = useMemo(() => {
