@@ -2,7 +2,7 @@
  * Datos semilla: catálogo unificado de módulos y lecciones (sin iframes).
  */
 import { lessonKingFollett } from '@/data/lessons/king-follett'
-import { lessonLaExpiacionDelSalvador } from '@/data/lessons/la-expiacion-del-salvador'
+import { laExpiacionDelSalvador as lessonLaExpiacionDelSalvador } from '@/data/lessons/la-expiacion-del-salvador'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
