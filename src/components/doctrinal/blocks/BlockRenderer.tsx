@@ -1,6 +1,10 @@
 import type { LessonBlock } from '@/types/doctrine'
 import type { UserNoteInput } from '@/types/userNotes'
 import { CentralQuoteBlock } from '@/components/doctrinal/blocks/CentralQuoteBlock'
+import { CompareGridBlockComponent } from '@/components/doctrinal/blocks/CompareGridBlock'
+import { CrisisCardsBlockComponent } from '@/components/doctrinal/blocks/CrisisCardsBlock'
+import { DeepDiveBlockComponent } from '@/components/doctrinal/blocks/DeepDiveBlock'
+import { DialogueBlockComponent } from '@/components/doctrinal/blocks/DialogueBlock'
 import { DoctrineBoxBlock } from '@/components/doctrinal/blocks/DoctrineBoxBlock'
 import { HighlightVerseBlock } from '@/components/doctrinal/blocks/HighlightVerseBlock'
 import { KeyPointsBlock } from '@/components/doctrinal/blocks/KeyPointsBlock'
@@ -11,6 +15,7 @@ import { ParagraphBlock } from '@/components/doctrinal/blocks/ParagraphBlock'
 import { QuizBlockComponent } from '@/components/doctrinal/blocks/QuizBlock'
 import { ReflectionBlock } from '@/components/doctrinal/blocks/ReflectionBlock'
 import { StepsBlock } from '@/components/doctrinal/blocks/StepsBlock'
+import { TimelineBlockComponent } from '@/components/doctrinal/blocks/TimelineBlock'
 
 export type BlockRendererProps = {
   block: LessonBlock
@@ -84,6 +89,16 @@ export function BlockRenderer({
           onJournalSave={onJournalSave}
         />
       )
+    case 'dialogue':
+      return <DialogueBlockComponent block={block} />
+    case 'compare_grid':
+      return <CompareGridBlockComponent block={block} />
+    case 'crisis_cards':
+      return <CrisisCardsBlockComponent block={block} />
+    case 'deep_dive':
+      return <DeepDiveBlockComponent block={block} />
+    case 'timeline':
+      return <TimelineBlockComponent block={block} />
     default: {
       const exhaustive: never = block
       return exhaustive

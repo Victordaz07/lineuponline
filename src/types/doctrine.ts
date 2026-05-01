@@ -143,6 +143,35 @@ export type NotePromptsBlock = {
   prompts: NotePromptItem[]
 }
 
+export type DialogueBlock = {
+  type: 'dialogue'
+  title?: string
+  lines: { speaker: string; side: 'left' | 'right'; text: string }[]
+}
+
+export type CompareGridBlock = {
+  type: 'compare_grid'
+  left: { title: string; items: string[] }
+  right: { title: string; items: string[] }
+}
+
+export type CrisisCardsBlock = {
+  type: 'crisis_cards'
+  cards: { num: string; title: string; desc: string; color: 'purple' | 'blue' | 'red' }[]
+}
+
+export type DeepDiveBlock = {
+  type: 'deep_dive'
+  badge?: string
+  title: string
+  paragraphs: string[]
+}
+
+export type TimelineBlock = {
+  type: 'timeline'
+  items: { label: string; text: string; ref?: string; color: 'gold' | 'red' | 'blue' | 'green' }[]
+}
+
 export type LessonBlock =
   | ParagraphBlock
   | LeaderQuoteBlock
@@ -155,6 +184,11 @@ export type LessonBlock =
   | MediaSlotBlock
   | QuizBlock
   | NotePromptsBlock
+  | DialogueBlock
+  | CompareGridBlock
+  | CrisisCardsBlock
+  | DeepDiveBlock
+  | TimelineBlock
 
 /** Un tema expandible dentro de una sección. */
 export type LessonTopic = {
