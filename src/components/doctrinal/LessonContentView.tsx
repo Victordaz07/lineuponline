@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import type { Lesson } from '@/types/doctrine'
 import { ExplanationPanel } from '@/components/doctrinal/ExplanationPanel'
@@ -34,13 +34,6 @@ export type LessonContentViewProps = {
 
 type TabId = 'study' | 'original'
 
-/**
- * Vista maestra de lección: pestañas Estudio / Texto original, TTS, notas y navegación.
- * Contenido 100 % React (sin iframe).
- *
- * @param props - Identificadores, lección y callback opcional de notas
- * @returns Sección completa de lección
- */
 export function LessonContentView({
   moduleId,
   lessonId,
@@ -52,8 +45,10 @@ export function LessonContentView({
   const [tab, setTab] = useState<TabId>('study')
   const [showNotes, setShowNotes] = useState(false)
   const [journalOpen, setJournalOpen] = useState(false)
-  const [sectionIndex, setSectionIndex] = useState(0)
+  const [activeSectionId, setActiveSectionId] = useState<string>('')
   const [activeParagraphId, setActiveParagraphId] = useState<string | null>(null)
+
+  const sectionRefs = useRef<Record<string, HTMLElement | null>>({})
 
   const sections = useMemo(() => lesson.studySections ?? [], [lesson.studySections])
   const isRich = Boolean(sections.length > 0)
@@ -62,14 +57,12 @@ export function LessonContentView({
   const originalParagraphs = useMemo(() => splitPlainParagraphs(lesson.originalBodyPlain), [lesson.originalBodyPlain])
 
   const ttsText =
-    tab === 'study' ? (isRich ? lesson.studyBodyPlain : lesson.studyBodyPlain) : lesson.originalBodyPlain
+    tab === 'study' ? lesson.studyBodyPlain : lesson.originalBodyPlain
   const displayParagraphs = tab === 'study' ? studyParagraphs : originalParagraphs
 
-  const activeSection = sections[sectionIndex]
-
-  const ttsParagraphsForSection = useMemo(
-    () => (activeSection ? paragraphsForSectionTts(activeSection) : []),
-    [activeSection],
+  const ttsAllParagraphs = useMemo(
+    () => sections.flatMap((sec) => paragraphsForSectionTts(sec)),
+    [sections],
   )
 
   const totalTopics = useMemo(() => countTopicsInSections(sections), [sections])
@@ -79,7 +72,6 @@ export function LessonContentView({
   const isTopicVisited = useLessonProgressStore((s) => s.isTopicVisited)
   const isQuizCompleted = useLessonProgressStore((s) => s.isQuizCompleted)
 
-  /** Referencia estable hasta que el store realmente cambia (evita bucle #185 con arrays nuevos en cada selector). */
   const journalEntriesRaw = useStudyJournalStore((s) => s.entries)
   const journalEntries = useMemo(
     () =>
@@ -118,6 +110,38 @@ export function LessonContentView({
     return n
   }, [sections, isTopicVisited, lessonId])
 
+  // Initialize activeSectionId once sections are available
+  useEffect(() => {
+    if (sections.length > 0 && !activeSectionId) {
+      setActiveSectionId(sections[0].id)
+    }
+  }, [sections, activeSectionId])
+
+  // Track which section is in view as the user scrolls
+  useEffect(() => {
+    if (!isRich || sections.length === 0) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const topmost = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0]
+        if (topmost) {
+          const id = (topmost.target as HTMLElement).dataset.sectionId
+          if (id) setActiveSectionId(id)
+        }
+      },
+      { rootMargin: '-80px 0px -50% 0px', threshold: 0 },
+    )
+    for (const el of Object.values(sectionRefs.current)) {
+      if (el) observer.observe(el)
+    }
+    return () => observer.disconnect()
+  }, [isRich, sections])
+
+  function scrollToSection(sectionId: string) {
+    sectionRefs.current[sectionId]?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
   const handleJournalSave = useCallback(
     (payload: {
       topicId: string
@@ -149,16 +173,7 @@ export function LessonContentView({
     }
   }
 
-  const sectionTouched = useCallback(
-    (i: number) => {
-      const sec = sections[i]
-      if (!sec) {
-        return false
-      }
-      return sec.topics.some((t) => isTopicVisited(`${lessonId}:${t.id}`))
-    },
-    [sections, isTopicVisited, lessonId],
-  )
+  const activeIndex = sections.findIndex((s) => s.id === activeSectionId)
 
   return (
     <article className="mx-auto max-w-3xl space-y-6 pb-8">
@@ -239,12 +254,12 @@ export function LessonContentView({
       </div>
 
       <div className="flex flex-wrap items-center gap-3">
-        {tab === 'study' && isRich && ttsParagraphsForSection.length > 0 ? (
+        {tab === 'study' && isRich && ttsAllParagraphs.length > 0 ? (
           <TextToSpeechButton
-            text={ttsParagraphsForSection.map((p) => p.text).join('\n\n')}
-            paragraphs={ttsParagraphsForSection}
+            text={ttsAllParagraphs.map((p) => p.text).join('\n\n')}
+            paragraphs={ttsAllParagraphs}
             onParagraphActive={setActiveParagraphId}
-            label="Escuchar esta sección"
+            label="Escuchar lección"
           />
         ) : (
           <TextToSpeechButton text={ttsText} label="Escuchar" />
@@ -273,34 +288,41 @@ export function LessonContentView({
         aria-label={tab === 'study' ? 'Contenido de estudio' : 'Texto original'}
         className="space-y-6 rounded-2xl border border-blue-accent/10 bg-white/95 p-5 shadow-inner sm:p-8"
       >
-        {tab === 'study' && isRich && activeSection ? (
-          <div className="space-y-6">
+        {tab === 'study' && isRich ? (
+          <div className="space-y-10">
             <LessonSectionNav
               sections={sections}
-              activeIndex={sectionIndex}
-              sectionTouched={sectionTouched}
-              onSelect={setSectionIndex}
-              onNextSection={() => setSectionIndex((i) => Math.min(i + 1, sections.length - 1))}
+              activeIndex={activeIndex}
+              onSelect={(i) => scrollToSection(sections[i].id)}
             />
-            {activeSection.intro ? <LessonSectionHeader intro={activeSection.intro} /> : null}
-            <div className="space-y-4">
-              {activeSection.topics.map((topic) => (
-                <LessonTopicCard
-                  key={topic.id}
-                  lessonId={lessonId}
-                  moduleId={moduleId}
-                  topic={topic}
-                  activeParagraphId={activeParagraphId}
-                  isVisited={isTopicVisited(`${lessonId}:${topic.id}`)}
-                  hasQuiz={topicHasQuiz(topic)}
-                  quizCompleted={allTopicQuizzesCompleted(lessonId, topic, isQuizCompleted)}
-                  onTopicOpened={() => markTopicVisited(`${lessonId}:${topic.id}`)}
-                  onSaveNote={onSaveNote}
-                  onJournalSave={handleJournalSave}
-                  onQuizComplete={(key) => markQuizCompleted(key)}
-                />
-              ))}
-            </div>
+            {sections.map((section) => (
+              <div
+                key={section.id}
+                ref={(el) => { sectionRefs.current[section.id] = el }}
+                data-section-id={section.id}
+                className="scroll-mt-20 space-y-6"
+              >
+                {section.intro ? <LessonSectionHeader intro={section.intro} /> : null}
+                <div className="space-y-4">
+                  {section.topics.map((topic) => (
+                    <LessonTopicCard
+                      key={topic.id}
+                      lessonId={lessonId}
+                      moduleId={moduleId}
+                      topic={topic}
+                      activeParagraphId={activeParagraphId}
+                      isVisited={isTopicVisited(`${lessonId}:${topic.id}`)}
+                      hasQuiz={topicHasQuiz(topic)}
+                      quizCompleted={allTopicQuizzesCompleted(lessonId, topic, isQuizCompleted)}
+                      onTopicOpened={() => markTopicVisited(`${lessonId}:${topic.id}`)}
+                      onSaveNote={onSaveNote}
+                      onJournalSave={handleJournalSave}
+                      onQuizComplete={(key) => markQuizCompleted(key)}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         ) : null}
 
