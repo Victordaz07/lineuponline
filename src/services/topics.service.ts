@@ -1,9 +1,9 @@
 import { collection, getDocs, orderBy, query, where } from 'firebase/firestore'
-import { db } from '@/lib/firebase'
+import { getDb } from '@/lib/firebase'
 import type { Topic } from '@/types/topics'
 
 export async function getTopics(options?: { onlyPublished?: boolean }): Promise<Topic[]> {
-  const topicsRef = collection(db, 'topics')
+  const topicsRef = collection(getDb(), 'topics')
   const topicsQuery = options?.onlyPublished
     ? query(topicsRef, where('isPublished', '==', true), orderBy('title', 'asc'))
     : query(topicsRef, orderBy('title', 'asc'))

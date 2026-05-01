@@ -1,6 +1,6 @@
 import { collection, doc, getDocs, orderBy, query, serverTimestamp, setDoc, writeBatch } from 'firebase/firestore'
 import { z } from 'zod'
-import { db } from '@/lib/firebase'
+import { getDb } from '@/lib/firebase'
 import type { UserNote, UserNoteInput } from '@/types/userNotes'
 
 const noteInputSchema = z.object({
@@ -18,7 +18,7 @@ export async function saveUserNote(userId: string, input: UserNoteInput): Promis
   const validNote = noteInputSchema.parse(input)
 
   await setDoc(
-    doc(db, 'user_notes', userId, 'notes', validNote.noteId),
+    doc(getDb(), 'user_notes', userId, 'notes', validNote.noteId),
     {
       topicId: validNote.topicId,
       moduleId: validNote.moduleId,
@@ -40,11 +40,11 @@ export async function saveUserNotesBatch(userId: string, notes: UserNoteInput[])
 
   for (let start = 0; start < validatedNotes.length; start += MAX_BATCH_SIZE) {
     const chunk = validatedNotes.slice(start, start + MAX_BATCH_SIZE)
-    const batch = writeBatch(db)
+    const batch = writeBatch(getDb())
 
     for (const note of chunk) {
       batch.set(
-        doc(db, 'user_notes', userId, 'notes', note.noteId),
+        doc(getDb(), 'user_notes', userId, 'notes', note.noteId),
         {
           topicId: note.topicId,
           moduleId: note.moduleId,
@@ -62,7 +62,7 @@ export async function saveUserNotesBatch(userId: string, notes: UserNoteInput[])
 }
 
 export async function getUserNotes(userId: string): Promise<UserNote[]> {
-  const notesRef = collection(db, 'user_notes', userId, 'notes')
+  const notesRef = collection(getDb(), 'user_notes', userId, 'notes')
   const notesQuery = query(notesRef, orderBy('updatedAt', 'desc'))
   const snaps = await getDocs(notesQuery)
 

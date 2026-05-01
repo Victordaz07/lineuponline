@@ -1,6 +1,6 @@
 import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore'
 import { z } from 'zod'
-import { db } from '@/lib/firebase'
+import { getDb } from '@/lib/firebase'
 import type { UserProfile } from '@/types/users'
 
 const userProfileSchema = z.object({
@@ -16,7 +16,7 @@ export async function upsertUserProfile(input: UpsertUserProfileInput): Promise<
   const validInput = userProfileSchema.parse(input)
 
   await setDoc(
-    doc(db, 'users', validInput.userId),
+    doc(getDb(), 'users', validInput.userId),
     {
       displayName: validInput.displayName,
       email: validInput.email,
@@ -30,7 +30,7 @@ export async function upsertUserProfile(input: UpsertUserProfileInput): Promise<
 }
 
 export async function getUserProfile(userId: string): Promise<UserProfile | null> {
-  const snap = await getDoc(doc(db, 'users', userId))
+  const snap = await getDoc(doc(getDb(), 'users', userId))
   if (!snap.exists()) {
     return null
   }

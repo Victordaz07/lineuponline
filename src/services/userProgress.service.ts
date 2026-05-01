@@ -1,6 +1,6 @@
 import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore'
 import { z } from 'zod'
-import { db } from '@/lib/firebase'
+import { getDb } from '@/lib/firebase'
 import type { UserTopicProgress } from '@/types/userProgress'
 
 const progressUpdateSchema = z.object({
@@ -18,7 +18,7 @@ export async function upsertUserTopicProgress(input: ProgressUpdateInput): Promi
   const validInput = progressUpdateSchema.parse(input)
 
   await setDoc(
-    doc(db, 'user_progress', validInput.userId, 'topics', validInput.topicId),
+    doc(getDb(), 'user_progress', validInput.userId, 'topics', validInput.topicId),
     {
       ...(validInput.readModuleIds ? { readModuleIds: validInput.readModuleIds } : {}),
       ...(typeof validInput.quizScore === 'number' ? { quizScore: validInput.quizScore } : {}),
@@ -36,7 +36,7 @@ export async function getUserTopicProgress(
   userId: string,
   topicId: string,
 ): Promise<UserTopicProgress | null> {
-  const snap = await getDoc(doc(db, 'user_progress', userId, 'topics', topicId))
+  const snap = await getDoc(doc(getDb(), 'user_progress', userId, 'topics', topicId))
   if (!snap.exists()) {
     return null
   }
