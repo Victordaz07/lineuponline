@@ -1,0 +1,253 @@
+# LineUponLine v2 - Cursor Rules
+
+## REGLA 1: Convertir Contenido PDF a Componentes TypeScript React
+
+### Cuando el usuario dice:
+- "Convierte este PDF a componente"
+- "Crea una lección desde este contenido"
+- "Mete este documento a la app"
+- "Haz un componente para este discurso"
+
+### TÚ DEBES:
+
+1. **NUNCA usar iframes** ❌
+   - No: `<iframe src="pdf.pdf" />`
+   - No: Embeber HTML externo directo
+
+2. **SIEMPRE crear componentes TypeScript/React nativos** ✅
+   - Usar `LessonContentView.tsx` como base
+   - Importar desde `@/components/doctrinal/LessonContentView`
+   - Pasar props tipadas (moduleId, lessonId, title, content, etc.)
+
+3. **Estructura del componente:**
+   ```
+
+   Header (título, autor, descripción)
+   ↓
+   Imagen hero (si existe)
+   ↓
+   Tabs (Estudio | Texto Original)
+   ↓
+   Contenido (HTML o texto limpio)
+   ↓
+   Action buttons (TTS, Copiar, Notas)
+   ↓
+   Editor de notas
+   ↓
+   Navigation (anterior/siguiente)
+   ```
+
+4. **Procesar el PDF así:**
+   - Si es texto: limpiar y formatear
+   - Si es HTML: sanitizar y pasar a `dangerouslySetInnerHTML`
+   - Extraer: título, autor, descripción, contenido principal
+   - Crear estructura `Lesson` tipada (desde `@/types/doctrine.ts`)
+
+5. **Código que SIEMPRE generes:**
+   ```typescript
+   import { LessonContentView } from '@/components/doctrinal/LessonContentView';
+   import { Lesson } from '@/types/doctrine';
+   
+   // Props tipadas con Lesson
+   const lessonData: Lesson = {
+     id: "slug-de-la-leccion",
+     moduleId: "modulo-id",
+     title: "Título",
+     // ... resto de campos
+   };
+   
+   return (
+     <LessonContentView
+       moduleId={lessonData.moduleId}
+       lessonId={lessonData.id}
+       title={lessonData.title}
+       lesson={lessonData}
+       heroImageUrl={lessonData.heroImage?.url}
+     />
+   );
+   ```
+
+6. **Tipado SIEMPRE:**
+   - Usar tipos de `@/types/doctrine.ts`
+   - TypeScript strict (sin `any`)
+   - Props interfaces completas
+
+7. **Styling:**
+   - Tailwind CSS (clases predefinidas)
+   - NO CSS custom files
+   - Respetar tema Celestial Premium (azules, purples, golds)
+   - Mobile-first responsive
+
+8. **Accesibilidad:**
+   - `alt` en todas las imágenes
+   - `role` y `aria-label` en elementos interactivos
+   - Semántica HTML correcta
+
+9. **Performance:**
+   - `loading="lazy"` en imágenes
+   - Código splitting si es necesario
+   - No importar todo Firestore si no se usa
+
+10. **Testing:**
+    - El componente debe renderizar sin errores
+    - Props deben ser opcionales donde sea lógico
+    - Error boundaries alrededor
+
+---
+
+## REGLA 2: Estructura de Carpetas Inmutable
+
+Cuando generes archivos nuevos, SIEMPRE usa esta estructura:
+
+```
+src/
+├── types/
+│   └── doctrine.ts (tipos globales — NO TOCAR)
+├── services/
+│   ├── doctrineService.ts (Firestore CRUD)
+│   ├── ttsService.ts (Text to Speech)
+│   └── mediaService.ts (Imágenes/videos)
+├── hooks/
+│   ├── useLesson.ts
+│   ├── useModule.ts
+│   └── useUserProgress.ts
+├── components/
+│   ├── doctrinal/
+│   │   ├── LessonContentView.tsx ⭐ TEMPLATE BASE
+│   │   ├── ScriptureBlock.tsx
+│   │   ├── ExplanationPanel.tsx
+│   │   ├── TextToSpeechButton.tsx
+│   │   ├── NoteEditor.tsx
+│   │   └── [tus nuevos componentes específicos]
+│   └── learning/
+│       ├── ModuleGrid.tsx
+│       └── LessonList.tsx
+├── pages/
+│   ├── Dashboard.tsx
+│   ├── ModuleView.tsx
+│   └── LessonView.tsx
+├── data/
+│   └── seed-doctrine.ts
+└── lib/
+    └── firebase.ts
+```
+
+**NO crees carpetas nuevas sin permiso.**
+
+---
+
+## REGLA 3: Cuando Integres Firestore
+
+Si la lección viene de Firestore (real data):
+- Usar `useLesson(moduleId, lessonId)` hook
+- Validar que todos los campos existan
+- Fallback values si faltan campos
+- Error boundaries
+
+Si es contenido estático (para testing):
+- Crear en `src/data/` 
+- Usar TypeScript types de `doctrine.ts`
+- Documentar con JSDoc
+
+---
+
+## REGLA 4: Nombre de Archivos y Funciones
+
+- **Componentes React:** PascalCase (ej: `LessonContentView.tsx`)
+- **Funciones/variables:** camelCase (ej: `handleCopyContent`)
+- **Tipos/interfaces:** PascalCase (ej: `LessonContentViewProps`)
+- **Constantes:** UPPER_SNAKE_CASE (ej: `DEFAULT_TTS_SPEED = 1`)
+- **Carpetas:** kebab-case (ej: `doctrinal`, `learning`)
+
+---
+
+## REGLA 5: JSDoc Comments OBLIGATORIOS
+
+Cada función/componente debe tener:
+
+```typescript
+/**
+ * Breve descripción de qué hace
+ * 
+ * @param propName - Descripción del parámetro
+ * @returns Qué retorna
+ * 
+ * @example
+ * <MyComponent prop="value" />
+ */
+```
+
+---
+
+## REGLA 6: Commits y Versionado
+
+Cuando hagas cambios:
+- Un archivo = un pequeño cambio lógico
+- Commits descriptivos: "feat: add LessonContentView component"
+- NO commits enormes con 20 archivos
+
+---
+
+## REGLA 7: Testing Antes de Declarar "Listo"
+
+Antes de decir que un componente está listo:
+- ✅ Renderiza sin errores TypeScript
+- ✅ Se ve bien en móvil y desktop
+- ✅ Props son tipadas correctamente
+- ✅ No hay `any` types
+- ✅ Imports resuelven correctamente
+- ✅ Firestore rules permiten acceso (si aplica)
+
+---
+
+## CUANDO LLAMAR A CLAUDE
+
+- "Este archivo tiene un error de tipos" → Yo lo arreglo
+- "¿Cómo integro esto con Firestore?" → Yo lo explico
+- "Necesito un nuevo tipo/interfaz" → Yo lo creo
+- "¿Cómo hago X?" → Preguntas de arquitectura
+
+## CUANDO USAR CURSOR
+
+- "Convierte este PDF a componente" → Cursor lo hace directo
+- "Crea el seed data para X módulo" → Cursor genera
+- "Haz un hook para Y" → Cursor lo escribe
+- "Refactoriza esto para que sea más limpio" → Cursor lo mejora
+
+---
+
+## EJEMPLO: Flujo Completo
+
+### Tú a Cursor:
+> "Convierte este PDF de 'La Expiación del Salvador' a un componente TypeScript. 
+> Es de W. Cleon Skousen, va en el módulo 'doctrina-fundamental'."
+
+### Cursor debería:
+1. Leer el PDF
+2. Extraer contenido
+3. Crear `LessonContentView` con props
+4. Tiparlo con `Lesson` interface
+5. Ponerlo en `src/pages/lessons/ExpiacionDelSalvador.tsx`
+6. Importar y usar en rutas
+
+---
+
+## ANTI-PATRONES (NUNCA HAGAS ESTO)
+
+❌ `<iframe src="pdf.pdf" />`
+❌ `dangerouslySetInnerHTML` sin sanitizar
+❌ Componentes sin tipos
+❌ CSS inline en lugar de Tailwind
+❌ Archivos de 500+ líneas sin dividir
+❌ Imports circulares
+❌ Props sin documentación
+❌ Componentes que hacen 3 cosas a la vez
+
+---
+
+## NEXT STEPS
+
+1. Guarda esto en `.cursorrules` en la raíz
+2. Reinicia Cursor
+3. Ahora cuando digas "convierte este PDF", Cursor sabe exactamente qué hacer
+4. Si Cursor se desvía, puedes decir: "Sigue la Cursor Rule para PDF → TypeScript"
