@@ -5,6 +5,7 @@ import { lessonKingFollett } from '@/data/lessons/king-follett'
 import { laExpiacionDelSalvador as lessonLaExpiacionDelSalvador } from '@/data/lessons/la-expiacion-del-salvador'
 import { santaCena as lessonSantaCena } from '@/data/lessons/santa-cena'
 import { elBautismo as lessonElBautismo } from '@/data/lessons/el-bautismo'
+import { elDonDelEspirituSanto as lessonDonEspirituSanto } from '@/data/lessons/el-don-del-espiritu-santo'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -118,14 +119,14 @@ const LESSON_ROWS: LessonRow[] = [
   {
     id: 'don-espiritu-santo',
     moduleId: 'doctrina-fundamental',
-    title: 'El don del Espíritu Santo',
-    subtitle: 'Guía, consuelo y santificación',
-    description: 'Cómo recibir y reconocer la compañía del Espíritu.',
+    title: 'El Don del Espíritu Santo',
+    subtitle: 'El mayor don que Dios da a sus hijos en mortalidad',
+    description: 'El tercer miembro de la Divinidad, sus funciones como Consolador y Santificador, la diferencia entre su influencia y su don, y cómo cultivar su compañía constante.',
     level: 'BÁSICO',
-    icon: '✨',
-    duration: 24,
-    order: 4,
-    status: 'IN_CONSTRUCTION',
+    icon: '🕊️',
+    duration: 60,
+    order: 3,
+    status: 'PUBLISHED',
   },
   {
     id: 'fe-principio-poder',
@@ -374,6 +375,7 @@ const LESSON_ROWS: LessonRow[] = [
 const PORTED: Partial<Record<string, Lesson>> = {
   'santa-cena': lessonSantaCena,
   'bautismo': lessonElBautismo,
+  'don-espiritu-santo': lessonDonEspirituSanto,
   'la-expiacion-del-salvador': lessonLaExpiacionDelSalvador,
   'king-follett': lessonKingFollett,
 }
