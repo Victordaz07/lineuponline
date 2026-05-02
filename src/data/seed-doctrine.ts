@@ -6,6 +6,7 @@ import { laExpiacionDelSalvador as lessonLaExpiacionDelSalvador } from '@/data/l
 import { santaCena as lessonSantaCena } from '@/data/lessons/santa-cena'
 import { elBautismo as lessonElBautismo } from '@/data/lessons/el-bautismo'
 import { elDonDelEspirituSanto as lessonDonEspirituSanto } from '@/data/lessons/el-don-del-espiritu-santo'
+import { laFePrincipioDePoder as lessonFePrincipioPoder } from '@/data/lessons/la-fe-principio-de-poder'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -131,14 +132,14 @@ const LESSON_ROWS: LessonRow[] = [
   {
     id: 'fe-principio-poder',
     moduleId: 'doctrina-fundamental',
-    title: 'La fe como principio de poder',
-    subtitle: 'Confianza en Cristo que mueve a la acción',
-    description: 'La fe, las obras y el poder de Dios en nuestra vida.',
+    title: 'La Fe como Principio de Poder',
+    subtitle: 'La causa motriz de toda acción en el universo',
+    description: 'Las Lecciones de Fe como fuente principal: la fe como principio motor, las tres cosas necesarias para fe en Dios, el experimento de Alma 32, y Éter 12 sobre la fe que produce milagros.',
     level: 'BÁSICO',
     icon: '🌟',
-    duration: 25,
+    duration: 65,
     order: 5,
-    status: 'IN_CONSTRUCTION',
+    status: 'PUBLISHED',
   },
   {
     id: 'la-expiacion-del-salvador',
@@ -376,6 +377,7 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'santa-cena': lessonSantaCena,
   'bautismo': lessonElBautismo,
   'don-espiritu-santo': lessonDonEspirituSanto,
+  'fe-principio-poder': lessonFePrincipioPoder,
   'la-expiacion-del-salvador': lessonLaExpiacionDelSalvador,
   'king-follett': lessonKingFollett,
 }
