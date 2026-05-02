@@ -3,6 +3,7 @@
  */
 import { lessonKingFollett } from '@/data/lessons/king-follett'
 import { laExpiacionDelSalvador as lessonLaExpiacionDelSalvador } from '@/data/lessons/la-expiacion-del-salvador'
+import { santaCena as lessonSantaCena } from '@/data/lessons/santa-cena'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -82,12 +83,12 @@ const LESSON_ROWS: LessonRow[] = [
     moduleId: 'doctrina-fundamental',
     title: 'La Santa Cena',
     subtitle: 'Convenio y poder renovados',
-    description: 'El pan y el agua, la memoria del Salvador y nuestros convenios.',
+    description: 'El pan y el agua, la memoria del Salvador, y los convenios que renovamos cada semana.',
     level: 'BÁSICO',
     icon: '🍷',
-    duration: 20,
+    duration: 45,
     order: 1,
-    status: 'IN_CONSTRUCTION',
+    status: 'PUBLISHED',
   },
   {
     id: 'bautismo',
@@ -370,6 +371,7 @@ const LESSON_ROWS: LessonRow[] = [
 ]
 
 const PORTED: Partial<Record<string, Lesson>> = {
+  'santa-cena': lessonSantaCena,
   'la-expiacion-del-salvador': lessonLaExpiacionDelSalvador,
   'king-follett': lessonKingFollett,
 }
