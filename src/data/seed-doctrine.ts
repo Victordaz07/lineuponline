@@ -4,6 +4,7 @@
 import { lessonKingFollett } from '@/data/lessons/king-follett'
 import { laExpiacionDelSalvador as lessonLaExpiacionDelSalvador } from '@/data/lessons/la-expiacion-del-salvador'
 import { santaCena as lessonSantaCena } from '@/data/lessons/santa-cena'
+import { elBautismo as lessonElBautismo } from '@/data/lessons/el-bautismo'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -95,12 +96,12 @@ const LESSON_ROWS: LessonRow[] = [
     moduleId: 'doctrina-fundamental',
     title: 'El Bautismo',
     subtitle: 'Nacimiento de nuevo por agua y por el Espíritu',
-    description: 'La primera ordenanza del evangelio y su relación con la limpieza y el convenio.',
+    description: 'La primera ordenanza del evangelio: la puerta al camino estrecho, el convenio en las aguas, y el nacimiento espiritual que transforma al hombre viejo en hombre nuevo.',
     level: 'BÁSICO',
     icon: '💧',
-    duration: 25,
+    duration: 50,
     order: 2,
-    status: 'IN_CONSTRUCTION',
+    status: 'PUBLISHED',
   },
   {
     id: 'arrepentimiento',
@@ -372,6 +373,7 @@ const LESSON_ROWS: LessonRow[] = [
 
 const PORTED: Partial<Record<string, Lesson>> = {
   'santa-cena': lessonSantaCena,
+  'bautismo': lessonElBautismo,
   'la-expiacion-del-salvador': lessonLaExpiacionDelSalvador,
   'king-follett': lessonKingFollett,
 }
