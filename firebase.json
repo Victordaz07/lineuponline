@@ -3,6 +3,7 @@
     "rules": "firestore.rules"
   },
   "hosting": {
+    "site": "lineuponline-a7eda",
     "public": "dist",
     "ignore": [
       "firebase.json",
