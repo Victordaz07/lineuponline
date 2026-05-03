@@ -10,6 +10,7 @@ import { laFePrincipioDePoder as lessonFePrincipioPoder } from '@/data/lessons/l
 import { elArrepentimientoReal as lessonArrepentimiento } from '@/data/lessons/el-arrepentimiento-real'
 import { laResurreccionYLosReinos as lessonResurreccion } from '@/data/lessons/la-resurreccion-y-los-reinos'
 import { laProclamacionFamilia as lessonProclamacionFamilia } from '@/data/lessons/la-proclamacion-familia'
+import { laOracion as lessonOracion } from '@/data/lessons/la-oracion'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -184,14 +185,14 @@ const LESSON_ROWS: LessonRow[] = [
   {
     id: 'la-oracion',
     moduleId: 'vida-familiar-personal',
-    title: 'La oración',
-    subtitle: 'Comunicación con el Padre',
-    description: 'Oración personal, familiar y el poder de la súplica sincera.',
+    title: 'La Oración',
+    subtitle: 'El don más sublime — comunicación con el Padre',
+    description: 'Cómo orar, qué esperar, qué hacer cuando el cielo parece cerrado, y cómo vivir en oración continua. Holland, Scott, Bednar, Alma 34, 3 Nefi 18.',
     level: 'BÁSICO',
     icon: '🕯️',
-    duration: 22,
+    duration: 65,
     order: 2,
-    status: 'IN_CONSTRUCTION',
+    status: 'PUBLISHED',
   },
   {
     id: 'estudio-escrituras',
@@ -396,6 +397,7 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'arrepentimiento': lessonArrepentimiento,
   'resurreccion-tres-reinos': lessonResurreccion,
   'proclamacion-familia': lessonProclamacionFamilia,
+  'la-oracion': lessonOracion,
   'la-expiacion-del-salvador': lessonLaExpiacionDelSalvador,
   'king-follett': lessonKingFollett,
 }
