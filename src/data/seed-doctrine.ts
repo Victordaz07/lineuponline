@@ -22,6 +22,10 @@ import { laPreexistencia as lessonPreexistencia } from '@/data/lessons/la-preexi
 import { elPlanDeSalvacion as lessonPlanSalvacion } from '@/data/lessons/el-plan-de-salvacion'
 import { justiciaYMisericordia as lessonJusticiaMisericordia } from '@/data/lessons/justicia-y-misericordia'
 import { losConveniosEternos as lessonConvenios } from '@/data/lessons/los-convenios-eternos'
+import { liderazgoSegunElEvangelio as lessonLiderazgo } from '@/data/lessons/liderazgo-segun-el-evangelio'
+import { misionYTestimonio as lessonMisionTestimonio } from '@/data/lessons/mision-y-testimonio'
+import { visionDC76 as lessonVisionDC76 } from '@/data/lessons/vision-dc-76'
+import { visionTresReinos as lessonVisionTresReinos } from '@/data/lessons/vision-tres-reinos'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -340,26 +344,26 @@ const LESSON_ROWS: LessonRow[] = [
   {
     id: 'liderazgo-segun-el-evangelio',
     moduleId: 'lideres-misioneros',
-    title: 'Liderazgo según el evangelio',
+    title: 'Liderazgo según el Evangelio',
     subtitle: 'Servir, no ser servido',
-    description: 'Principios de liderazgo en barrios, estacas y hogares.',
+    description: 'DyC 121: los poderes del cielo solo se manejan sobre principios de justicia. Los siete principios del liderazgo del evangelio vs. el control y el dominio. El modelo de Cristo lavando los pies.',
     level: 'INTERMEDIO',
     icon: '🧭',
-    duration: 35,
+    duration: 65,
     order: 1,
-    status: 'IN_CONSTRUCTION',
+    status: 'PUBLISHED',
   },
   {
     id: 'mision-y-testimonio',
     moduleId: 'lideres-misioneros',
-    title: 'Misión y testimonio',
+    title: 'Misión y Testimonio',
     subtitle: 'Proclamar con claridad y amor',
-    description: 'Predicar el evangelio y fortalecer a los recién convertidos.',
+    description: 'DyC 18:15-16 sobre el valor de una sola alma. La promesa de Moroni 10:4-5. DyC 42:14 y 2 Nefi 33:1 sobre enseñar con el Espíritu.',
     level: 'INTERMEDIO',
     icon: '📣',
-    duration: 33,
+    duration: 60,
     order: 2,
-    status: 'IN_CONSTRUCTION',
+    status: 'PUBLISHED',
   },
   {
     id: 'king-follett',
@@ -377,26 +381,26 @@ const LESSON_ROWS: LessonRow[] = [
   {
     id: 'vision-dc-76',
     moduleId: 'discursos-sermones-clasicos',
-    title: 'La visión de la gloria celeste (D&C 76)',
-    subtitle: 'Con José Smith y Sidney Rigdon',
-    description: 'Grados de gloria, el plan de redención en la visión registrada en D&C 76.',
+    title: 'La Visión — Doctrina y Convenios 76',
+    subtitle: 'Hiram, Ohio, 16 de febrero de 1832',
+    description: 'Joseph Smith y Sidney Rigdon en la granja de John Johnson. Las cinco visiones, el testimonio de Philo Dibble, y la recepción de una revelación que desmontó siglos de teología cristiana sobre el cielo y el infierno.',
     level: 'AVANZADO',
     icon: '🌌',
-    duration: 55,
+    duration: 70,
     order: 2,
-    status: 'IN_CONSTRUCTION',
+    status: 'PUBLISHED',
   },
   {
     id: 'vision-tres-reinos',
     moduleId: 'discursos-sermones-clasicos',
-    title: 'Visión de los tres grados de gloria',
+    title: 'Los Tres Reinos de Gloria — Estudio Profundo',
     subtitle: 'Enseñanza complementaria al plan de salvación',
-    description: 'Profundizar en la doctrina de reinos y exaltación.',
+    description: 'Del fragmentario testimonio de Pablo (2 Cor 12, 1 Cor 15) a la revelación plena de DyC 76: quiénes entran a cada reino, qué reciben, y qué implica para la misión y la vida diaria.',
     level: 'AVANZADO',
     icon: '✨',
-    duration: 50,
+    duration: 55,
     order: 3,
-    status: 'IN_CONSTRUCTION',
+    status: 'PUBLISHED',
   },
 ]
 
@@ -420,6 +424,10 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'plan-de-salvacion': lessonPlanSalvacion,
   'justicia-y-misericordia': lessonJusticiaMisericordia,
   'convenios-eternos': lessonConvenios,
+  'liderazgo-segun-el-evangelio': lessonLiderazgo,
+  'mision-y-testimonio': lessonMisionTestimonio,
+  'vision-dc-76': lessonVisionDC76,
+  'vision-tres-reinos': lessonVisionTresReinos,
   'la-expiacion-del-salvador': lessonLaExpiacionDelSalvador,
   'king-follett': lessonKingFollett,
 }
