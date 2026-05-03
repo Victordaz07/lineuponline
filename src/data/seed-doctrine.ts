@@ -7,6 +7,8 @@ import { santaCena as lessonSantaCena } from '@/data/lessons/santa-cena'
 import { elBautismo as lessonElBautismo } from '@/data/lessons/el-bautismo'
 import { elDonDelEspirituSanto as lessonDonEspirituSanto } from '@/data/lessons/el-don-del-espiritu-santo'
 import { laFePrincipioDePoder as lessonFePrincipioPoder } from '@/data/lessons/la-fe-principio-de-poder'
+import { elArrepentimientoReal as lessonArrepentimiento } from '@/data/lessons/el-arrepentimiento-real'
+import { laResurreccionYLosReinos as lessonResurreccion } from '@/data/lessons/la-resurreccion-y-los-reinos'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -108,14 +110,14 @@ const LESSON_ROWS: LessonRow[] = [
   {
     id: 'arrepentimiento',
     moduleId: 'doctrina-fundamental',
-    title: 'El Arrepentimiento',
-    subtitle: 'Un cambio de corazón y de conducta',
-    description: 'Los arrepentimientos eterno y diario, y la misericordia del Salvador.',
+    title: 'El Arrepentimiento Real',
+    subtitle: 'Transformación real, no penitencia',
+    description: 'Diferencia entre penitencia y conversión real. DyC 19 y Alma 42 como fuentes primarias: el precio ya pagado, la justicia y la misericordia, y el camino hacia el gozo.',
     level: 'BÁSICO',
     icon: '🙏',
-    duration: 22,
+    duration: 65,
     order: 3,
-    status: 'IN_CONSTRUCTION',
+    status: 'PUBLISHED',
   },
   {
     id: 'don-espiritu-santo',
@@ -152,6 +154,18 @@ const LESSON_ROWS: LessonRow[] = [
     icon: '✝️',
     duration: 120,
     order: 6,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'resurreccion-tres-reinos',
+    moduleId: 'doctrina-fundamental',
+    title: 'La Resurrección y los Tres Reinos de Gloria',
+    subtitle: 'Lo que Dios reveló sobre la eternidad',
+    description: 'DyC 76 y 1 Corintios 15: la resurrección universal y los tres destinos eternos de gloria revelados a José Smith.',
+    level: 'AVANZADO',
+    icon: '✨',
+    duration: 80,
+    order: 7,
     status: 'PUBLISHED',
   },
   {
@@ -378,6 +392,8 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'bautismo': lessonElBautismo,
   'don-espiritu-santo': lessonDonEspirituSanto,
   'fe-principio-poder': lessonFePrincipioPoder,
+  'arrepentimiento': lessonArrepentimiento,
+  'resurreccion-tres-reinos': lessonResurreccion,
   'la-expiacion-del-salvador': lessonLaExpiacionDelSalvador,
   'king-follett': lessonKingFollett,
 }
