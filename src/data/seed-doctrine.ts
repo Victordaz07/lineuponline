@@ -9,6 +9,7 @@ import { elDonDelEspirituSanto as lessonDonEspirituSanto } from '@/data/lessons/
 import { laFePrincipioDePoder as lessonFePrincipioPoder } from '@/data/lessons/la-fe-principio-de-poder'
 import { elArrepentimientoReal as lessonArrepentimiento } from '@/data/lessons/el-arrepentimiento-real'
 import { laResurreccionYLosReinos as lessonResurreccion } from '@/data/lessons/la-resurreccion-y-los-reinos'
+import { laProclamacionFamilia as lessonProclamacionFamilia } from '@/data/lessons/la-proclamacion-familia'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -171,14 +172,14 @@ const LESSON_ROWS: LessonRow[] = [
   {
     id: 'proclamacion-familia',
     moduleId: 'vida-familiar-personal',
-    title: 'La Proclamación sobre la familia',
-    subtitle: 'El hogar y el plan eterno',
-    description: 'La familia en el plan de Dios y el papel de los padres.',
+    title: 'La Proclamación sobre la Familia',
+    subtitle: 'El hogar como centro del plan eterno',
+    description: 'El género eterno, el matrimonio como ordenanza divina, los roles del padre y la madre, y por qué la familia es la unidad fundamental de la eternidad.',
     level: 'BÁSICO',
     icon: '🏠',
-    duration: 28,
+    duration: 55,
     order: 1,
-    status: 'IN_CONSTRUCTION',
+    status: 'PUBLISHED',
   },
   {
     id: 'la-oracion',
@@ -394,6 +395,7 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'fe-principio-poder': lessonFePrincipioPoder,
   'arrepentimiento': lessonArrepentimiento,
   'resurreccion-tres-reinos': lessonResurreccion,
+  'proclamacion-familia': lessonProclamacionFamilia,
   'la-expiacion-del-salvador': lessonLaExpiacionDelSalvador,
   'king-follett': lessonKingFollett,
 }
