@@ -51,7 +51,7 @@ export const juanTresNefitasApostasia: Lesson = {
             {
               type: 'media_slot',
               kind: 'image',
-              src: undefined,
+              src: '/images/juan-tres-nefitas/juan-amado-patmos.png',
               alt: 'Juan el Amado como ser traducido — el apóstol que permaneció',
               caption: 'Juan el Amado: único apóstol que no murió mártir, preservado como ser traducido para la dispensación final. D&C 7:1–3.',
               contextCard: { year: 'c. 96 d.C. → 1829', place: 'Patmos → ríos de Susquehanna', label: 'Juan el Amado' },
@@ -202,7 +202,7 @@ export const juanTresNefitasApostasia: Lesson = {
             {
               type: 'media_slot',
               kind: 'image',
-              src: undefined,
+              src: '/images/juan-tres-nefitas/tres-nefitas-naciones.png',
               alt: 'Los Tres Nefitas ministrando entre las naciones — seres de orden terrestre con misión angelical',
               caption: 'Los Tres Nefitas: traducidos para ministrar entre las naciones dispersas, no para gobernar la Iglesia universal. 3 Nefi 28:29–30.',
               contextCard: { year: 'c. 34 d.C. — Presente', place: 'Naciones dispersas de Israel', label: 'Los Tres Nefitas' },
@@ -246,7 +246,7 @@ export const juanTresNefitasApostasia: Lesson = {
             {
               type: 'media_slot',
               kind: 'image',
-              src: undefined,
+              src: '/images/juan-tres-nefitas/restauracion-sacerdocio-melquisedec.jpg',
               alt: 'Pedro, Santiago y Juan restaurando el Sacerdocio de Melquisedec a José Smith y Oliver Cowdery, 1829',
               caption: 'La restauración del Sacerdocio de Melquisedec: Pedro, Santiago — y el Juan traducido — le confieren las llaves a José Smith en 1829. D&C 27:12.',
               contextCard: { year: 'Mayo-junio 1829', place: 'Río Susquehanna, Pennsylvania', label: 'Restauración del Sacerdocio de Melquisedec' },
