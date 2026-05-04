@@ -4,13 +4,13 @@ export const elMinisterioEnElHogar: Lesson = {
   id: 'ministerio-en-el-hogar',
   moduleId: 'vida-familiar-personal',
   title: 'El Ministerio en el Hogar',
-  subtitle: 'Cuidar como Cristo cuidó',
-  author: 'Fuentes principales: Russell M. Nelson (2018), Lucas 15, Moroni 6',
+  subtitle: 'Cómo enseñar el evangelio en casa con sencillez y Espíritu',
+  author: 'Fuentes principales: DyC 68, Deuteronomio 6, 2 Nefi 25 y 33, Come Follow Me 2019',
   description:
-    'El ministerio no es una asignación — es una forma de ser. Cómo el Señor cuida a las personas una por una, y cómo nosotros podemos hacer lo mismo por quienes el Señor ha puesto en nuestra vida.',
+    'El hogar no es el lugar donde los miembros esperan entre sesiones de Iglesia — es el centro del aprendizaje del evangelio. DyC 68 manda a los padres enseñar. Deuteronomio 6 muestra cómo. El Espíritu es el maestro real. Y la sencillez — no la complejidad — es la clave.',
   level: 'BÁSICO',
   icon: '❤️',
-  duration: 50,
+  duration: 60,
   order: 4,
   status: 'PUBLISHED',
   studyBodyPlain: '',
@@ -18,293 +18,288 @@ export const elMinisterioEnElHogar: Lesson = {
   previousLessonId: 'estudio-escrituras',
   nextLessonId: null,
   studySections: [
-    // ─── SECCIÓN I ───────────────────────────────────────────────────────────
     {
       id: 's1',
-      title: 'Qué Cambió y Por Qué',
+      title: 'El Hogar como Centro — No la Iglesia',
       intro: {
         romanNumeral: 'I',
-        title: 'Qué Cambió y Por Qué',
+        title: 'El Hogar como Centro — No la Iglesia',
         paragraphs: [
-          'En abril de 2018, el presidente Russell M. Nelson anunció el fin de la "enseñanza en el hogar" y su reemplazo por algo diferente: el ministerio. Fue un cambio de nombre — pero sobre todo fue un cambio de corazón. El mensaje era claro: el Señor quiere que nos cuidemos los unos a los otros como Él cuida, no como empleados que cumplen una cuota mensual.',
+          'Por generaciones, los miembros trataron el domingo como el principal momento del aprendizaje del evangelio — el hogar era donde descansaban entre semana. En 2018, el presidente Nelson invirtió esa estructura: el hogar es el centro del aprendizaje del evangelio. La Iglesia es el soporte. El cambio no fue administrativo — fue revelado.',
         ],
       },
       topics: [
         {
           id: 't1',
-          title: 'De la Enseñanza en el Hogar al Ministerio',
+          title: 'El Mandato Divino de Enseñar en Casa',
           blocks: [
             {
-              type: 'compare_grid',
-              left: {
-                title: 'Enseñanza en el hogar (antes)',
-                items: [
-                  'Visita mensual con un mensaje asignado',
-                  'Meta: porcentaje de visitas completadas',
-                  'Mensaje estándar para todas las familias',
-                  'Reporte mensual numérico',
-                  'Enfoque: cumplir la asignación',
-                ],
-              },
-              right: {
-                title: 'Ministerio (ahora)',
-                items: [
-                  'Cuidado genuino, personalizado, sin horario fijo',
-                  'Meta: que nadie se sienta solo o abandonado',
-                  'Atención a las necesidades reales del individuo',
-                  'Reporte cualitativo: ¿cómo están realmente?',
-                  'Enfoque: amar como Cristo ama',
-                ],
-              },
-            },
-            {
-              type: 'leader_quote',
-              quote: 'El ministerio es la antigua forma de cuidar que siempre ha sido la esencia del evangelio. No se trata de visitas ni de estadísticas. Se trata de amar a las personas — su progreso espiritual, sus necesidades temporales, su bienestar. Ministrar es seguir el patrón perfecto de Jesucristo.',
-              name: 'Russell M. Nelson',
-              role: '"Ministering with the Power and Authority of God", Conferencia General, abril 2018 (trad.)',
+              type: 'highlight_verse',
+              text: 'Y de nuevo digo a vosotros que se os manda criar a vuestros hijos en luz y verdad. [...] Y también enseñad a vuestros hijos a orar, y a andar rectamente ante el Señor.',
+              reference: 'Doctrina y Convenios 68:25, 28',
             },
             {
               type: 'paragraph',
-              text: 'El cambio no fue arbitrario. Respondía a un problema real que el Señor veía: personas que recibían visitas mensuales con un mensaje enlatado, pero cuyas verdaderas necesidades — espirituales, emocionales, prácticas — nunca eran tocadas. El ministerio dice: conócelos de verdad. Sé su amigo de verdad. Cuídalos de la manera que los cuida el Señor.',
+              text: 'DyC 68 no es una sugerencia. Es un mandato. "Se os manda" — el mismo lenguaje que el Señor usa para los mandamientos más serios. Los padres son la primera línea de enseñanza del evangelio, no el maestro de la clase de la Escuela Dominical ni el instructor de la clase de los jóvenes. El hogar es primero. La Iglesia refuerza lo que el hogar establece.',
             },
             {
               type: 'highlight_verse',
-              text: 'Y se tenía cuidado de ellos conforme a sus necesidades y sus deseos, según lo que era justo.',
-              reference: 'Alma 1:27',
+              text: 'Y estas palabras que yo te mando hoy, estarán sobre tu corazón; y las repetirás a tus hijos, y hablarás de ellas estando en tu casa, y andando por el camino, y al acostarte, y cuando te levantes.',
+              reference: 'Deuteronomio 6:6–7',
+            },
+            {
+              type: 'doctrine_box',
+              title: '¿Qué significa "centrado en el hogar, apoyado por la Iglesia"?',
+              body: 'El presidente Nelson anunció en 2018 una nueva estructura: dos horas de bloque dominical + un currículo (Come Follow Me) diseñado para estudiarse en el hogar durante la semana. El mensaje implícito es poderoso: la Iglesia puede reforzar lo que el hogar enseña, pero no puede reemplazarlo. Un hijo que solo aprende el evangelio en los 2 horas del domingo recibirá 2 horas de evangelio por semana. Un hijo que lo aprende en el hogar tiene la posibilidad de vivir rodeado de él todos los días.',
+            },
+            {
+              type: 'leader_quote',
+              quote: 'Queremos que el hogar sea el centro del aprendizaje del evangelio. La Iglesia y sus programas están diseñados para apoyar el hogar, no para reemplazarlo. El poder espiritual que necesitamos en esta época de la historia del mundo no puede obtenerse solo en dos horas el domingo — debe fluir de corazones que se nutren diariamente de la palabra de Dios en el contexto del hogar.',
+              name: 'Russell M. Nelson',
+              role: '"Becoming Exemplary Latter-day Saints", Conferencia General, octubre 2018 (trad.)',
             },
           ],
         },
       ],
     },
-
-    // ─── SECCIÓN II ──────────────────────────────────────────────────────────
     {
       id: 's2',
-      title: 'El Modelo de Cristo',
+      title: 'La Sencillez como Virtud',
       intro: {
         romanNumeral: 'II',
-        title: 'El Modelo de Cristo',
+        title: 'La Sencillez como Virtud',
         paragraphs: [
-          'Si quieres entender el ministerio, no mires el manual de Menfis. Mira a Cristo. Toda su vida fue un ejemplo de cómo tratar a las personas: una por una, donde estaban, con lo que necesitaban. Nunca procesó a la gente en masa. Nunca dio un mensaje genérico. Siempre supo exactamente qué necesitaba la persona frente a él.',
+          'El obstáculo más común para enseñar el evangelio en el hogar no es la falta de tiempo — es la convicción de que para enseñar bien se necesita saber mucho. Esa convicción es falsa. Cristo enseñó con parábolas sobre semillas y ovejas. Nefi usó las experiencias de su familia. La sencillez no es pobreza de contenido — es claridad al servicio de la verdad.',
         ],
       },
       topics: [
         {
           id: 't2',
-          title: 'La Oveja Perdida — El Principio de la Una',
+          title: 'Hablar de Cristo — El Modelo de Nefi',
           blocks: [
             {
               type: 'highlight_verse',
-              text: '¿Qué hombre de vosotros, teniendo cien ovejas, si pierde una de ellas, no deja las noventa y nueve en el desierto, y va tras la que se perdió, hasta encontrarla? Y cuando la encuentra, la pone sobre sus hombros gozoso; y al llegar a casa, reúne a sus amigos y vecinos, diciéndoles: Alegraos conmigo, porque he encontrado mi oveja que se había perdido.',
-              reference: 'Lucas 15:4–6',
+              text: 'Y hablamos de Cristo, nos regocijamos en Cristo, predicamos de Cristo, profetizamos de Cristo, y escribimos según nuestras profecías, a fin de que nuestros hijos sepan a qué fuente pueden acudir para obtener la remisión de sus pecados.',
+              reference: '2 Nefi 25:26',
             },
             {
               type: 'paragraph',
-              text: 'La parábola no dice que el pastor envía a alguien a buscar la oveja. Va él mismo. No dice que la oveja recibe un mensaje mensual pregrabado. La pone sobre sus hombros — contacto personal, esfuerzo real. No dice que cuando la encuentra reporta el número de ovejas recuperadas. Se regocija. El ministerio efectivo opera en exactamente esa misma frecuencia: personal, presente, y lleno de genuina alegría cuando hay progreso.',
+              text: 'Nefi describe la enseñanza del evangelio en el hogar en cuatro verbos: hablar, regocijarse, predicar, profetizar. Cuatro verbos que pueden ocurrir en la cena, en el camino al colegio, en una conversación antes de dormir. No requieren una pizarra, ni una guía de estudio, ni preparación de una hora. Requieren que Cristo sea el tema central de la conversación ordinaria de la familia.',
             },
             {
-              type: 'doctrine_box',
-              title: 'Los tres en Lucas 15 — el mismo principio',
-              body: 'Lucas 15 tiene tres parábolas seguidas: la oveja perdida, la moneda perdida, y el hijo pródigo. Las tres tienen el mismo patrón: algo valioso se pierde → alguien lo busca activamente → cuando se encuentra hay alegría que se comparte. Cristo no contó estas parábolas para hablar de objetos perdidos. Las contó porque los fariseos se quejaban de que Él pasaba tiempo con pecadores. Su respuesta: así es exactamente como funciona el amor del Padre. Eso es el ministerio.',
+              type: 'compare_grid',
+              left: {
+                title: 'Enseñanza complicada',
+                items: [
+                  'Necesito preparar una lección formal',
+                  'Los niños deben estar sentados y atentos',
+                  'Sigo un currículo punto por punto',
+                  'Si no salió "bien", fue un fracaso',
+                  'El padre o la madre es el experto',
+                ],
+              },
+              right: {
+                title: 'Enseñanza sencilla',
+                items: [
+                  'Una escritura, una pregunta, una historia personal',
+                  'La conversación ocurre mientras se vive',
+                  'El Espíritu guía hacia lo que la familia necesita',
+                  'Cualquier momento de conexión espiritual cuenta',
+                  'Todos enseñan y todos aprenden — incluidos los padres',
+                ],
+              },
             },
             {
-              type: 'highlight_verse',
-              text: 'Porque el Hijo del Hombre vino a buscar y a salvar lo que se había perdido.',
-              reference: 'Lucas 19:10',
+              type: 'key_points',
+              title: 'Cinco formas de hablar de Cristo en lo cotidiano',
+              points: [
+                'La cena: "¿Qué hicieron hoy que creen que le agradó al Señor?"',
+                'El viaje en coche: escuchar un himno y preguntar qué les dice',
+                'La crisis familiar: conectar lo que está pasando con una escritura o principio del evangelio',
+                'El éxito: atribuir los dones y logros a Dios — sin fingir, genuinamente',
+                'La oración en familia: orar específico, no genérico — eso enseña que Dios conoce los detalles',
+              ],
             },
             {
               type: 'leader_quote',
-              quote: 'La misión del Salvador fue ministrar a las personas — no solo a las multitudes, sino a los individuos. Zacheo. La mujer del pozo. El ciego Bartimeo. María Magdalena. Ninguna de estas personas fue un caso estadístico para Cristo. Cada una fue vista, conocida, y amada específicamente. Eso es lo que se nos pide cuando ministramos.',
+              quote: 'No necesitáis ser un experto en teología para enseñar el evangelio a vuestros hijos. Necesitáis ser honestos sobre lo que creéis y por qué lo creéis. Un padre que comparte sus dudas con fe, su testimonio imperfecto con sinceridad, y su amor a Cristo con genuinidad, enseña más que cien lecciones formales perfectamente preparadas.',
               name: 'Jeffrey R. Holland',
-              role: '"Ministerio", Conferencia General, abril 2018 (trad.)',
-            },
-          ],
-        },
-        {
-          id: 't3',
-          title: 'La Iglesia Primitiva como Modelo Vivo',
-          blocks: [
-            {
-              type: 'highlight_verse',
-              text: 'Y los que habían recibido el bautismo eran visitados y nutridos por la buena palabra de Dios, a fin de mantenerlos en el buen camino, a fin de guardarlos en la fe en lo que habían recibido, a fin de que no hubiera iniquidad entre ellos; y así se cuidaba de ellos.',
-              reference: 'Moroni 6:4',
-            },
-            {
-              type: 'paragraph',
-              text: 'Moroni describe la iglesia del Libro de Mormón como una comunidad donde todos eran "visitados y nutridos." Las dos palabras son importantes: visitar implica presencia física; nutrir implica alimentación espiritual real. No bastaba con aparecer. Era necesario realmente alimentar. El ministerio moderno recoge ese mismo mandato: presencia + nutrición real.',
-            },
-            {
-              type: 'highlight_verse',
-              text: 'Sobrellevad los unos las cargas de los otros, y cumplid así la ley de Cristo.',
-              reference: 'Gálatas 6:2',
+              role: '"A Prayer for the Children", Conferencia General, abril 2003 (trad.)',
             },
           ],
         },
       ],
     },
-
-    // ─── SECCIÓN III ─────────────────────────────────────────────────────────
     {
       id: 's3',
-      title: 'Cómo Ministrar de Verdad',
+      title: 'El Espíritu — El Maestro Real',
       intro: {
         romanNumeral: 'III',
-        title: 'Cómo Ministrar de Verdad',
+        title: 'El Espíritu — El Maestro Real',
         paragraphs: [
-          'El ministerio efectivo no es complicado — pero requiere intencionalidad. Requiere que rompas el piloto automático y realmente pienses en la persona que se te ha confiado. ¿Qué la preocupa? ¿Qué le da gozo? ¿Cuándo fue la última vez que alguien la escuchó de verdad?',
+          'La diferencia entre información religiosa y conversión real no es la calidad del maestro humano — es la presencia del Espíritu Santo. DyC 42:14 lo establece con claridad absoluta: si no hay Espíritu, no hay verdadera enseñanza. Esto se aplica al aula, al púlpito, y a la mesa de la cocina.',
+        ],
+      },
+      topics: [
+        {
+          id: 't3',
+          title: 'Cómo el Espíritu Enseña en el Hogar',
+          blocks: [
+            {
+              type: 'highlight_verse',
+              text: 'Y el Espíritu se os dará mediante la oración de la fe; y si no recibís el Espíritu, no enseñaréis.',
+              reference: 'Doctrina y Convenios 42:14',
+            },
+            {
+              type: 'highlight_verse',
+              text: 'Y yo, Nefi, no pude escribir todas las cosas que enseñé entre mi pueblo; ni soy poderoso en la escritura como en el hablar; porque cuando un hombre habla por el poder del Espíritu Santo, el poder del Espíritu Santo lleva las palabras de Cristo al corazón de los hijos de los hombres.',
+              reference: '2 Nefi 33:1',
+            },
+            {
+              type: 'paragraph',
+              text: 'Nefi distingue entre hablar y escribir, entre transmitir información y llegar al corazón. El Espíritu es quien transporta las palabras hasta el corazón del oyente. El padre o la madre más elocuente del mundo no puede producir ese efecto por sí solo. Pero un padre imperfecto, que ora con sinceridad antes de hablar con sus hijos, tiene acceso al poder que puede llevar la verdad directamente al corazón de ese hijo.',
+            },
+            {
+              type: 'deep_dive',
+              badge: 'Profundizar',
+              title: 'Los momentos espontáneos vs. la lección formal',
+              paragraphs: [
+                'Investigaciones en educación familiar religiosa consistentemente muestran que los hijos recuerdan más los momentos espontáneos de enseñanza espiritual que las lecciones formales planificadas. La noche de hogar importa — pero el momento en que tu padre se detuvo a un lado del camino y te explicó cómo el Señor lo había ayudado en un momento de crisis importa más.',
+                'El Espíritu Santo es más libre para operar en esos momentos porque no hay agenda, no hay prisa por terminar la "lección," y la vulnerabilidad del maestro es real. Cuando un padre comparte su testimonio en un momento inesperado — en el hospital esperando noticias, en el funeral de un abuelo, en una conversación tardía sobre dudas — el Espíritu puede usar esa apertura de maneras que un domingo formal raramente permite.',
+                'La implicación práctica: no esperes al lunes de noche de hogar para enseñar lo que el Señor te está mostrando hoy. El momento espontáneo, cuando el Espíritu lo impulsa, es generalmente el momento de mayor impacto.',
+              ],
+            },
+            {
+              type: 'key_points',
+              title: 'Tres pasos para invitar el Espíritu al hogar antes de enseñar',
+              points: [
+                'Oración personal del maestro — antes de la noche de hogar, antes de la conversación difícil, pedir al Señor qué necesita esta persona específica hoy',
+                'Vivir lo que enseñas — el Espíritu no puede confirmar lo que tu propio ejemplo contradice',
+                'Silencio + escucha — dejar espacio para que el Espíritu hable, no llenar cada momento con palabras',
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 's4',
+      title: 'La Noche de Hogar y Come Follow Me',
+      intro: {
+        romanNumeral: 'IV',
+        title: 'La Noche de Hogar y Come Follow Me',
+        paragraphs: [
+          'La Iglesia ha dado a las familias herramientas concretas para estructurar la enseñanza en el hogar. La Noche de Hogar lleva más de un siglo de existencia. Come Follow Me lleva desde 2019. Ninguna de las dos funciona si se trata como una obligación de reporte — ambas funcionan cuando se viven como lo que son: instrumentos de revelación familiar.',
         ],
       },
       topics: [
         {
           id: 't4',
-          title: 'Del Deber al Amor — El Cambio Interno',
+          title: 'Las Herramientas que la Iglesia Ha Dado',
           blocks: [
             {
               type: 'paragraph',
-              text: 'La diferencia entre el ministerio que transforma y el que es solo una obligación cumplida está completamente en el interior del ministro. Cuando visitas porque te sientes culpable de no haberlo hecho, la persona lo siente. Cuando visitas porque genuinamente te importa, eso también se siente. El Espíritu no acompaña al deber — acompaña al amor.',
+              text: 'La Noche de Hogar fue instituida formalmente en 1915 por el presidente Joseph F. Smith, reenfatizada por David O. McKay en 1965, y renovada en el nuevo currículo de Come Follow Me en 2019. La promesa ha sido consistente a través de presidentes: las familias que guardan la noche de hogar serán bendecidas con unidad, protección del adversario, y crecimiento espiritual. No es una actividad opcional — es una ordenanza informal del hogar.',
+            },
+            {
+              type: 'highlight_verse',
+              text: 'Y además os ordeno que os enseñéis unos a otros el evangelio de Dios, con todo su poder, con toda la inteligencia del cielo que poseáis.',
+              reference: 'Doctrina y Convenios 88:77',
             },
             {
               type: 'key_points',
-              title: 'Cinco prácticas del ministerio efectivo',
+              title: 'Cómo hacer que la noche de hogar realmente funcione',
               points: [
-                'Conoce a la persona — sus intereses, preocupaciones, familia, trabajo; no puedes cuidar a alguien que no conoces',
-                'Sintoniza el Espíritu antes de ir — pide saber qué necesitan esa día, no qué planeabas decirles',
-                'Escucha más de lo que hablas — las personas no necesitan un discurso; necesitan ser escuchadas',
-                'Actúa sobre lo que sientes — si sientes que debes llamar o ir, hazlo; el Espíritu no repite siempre',
-                'Hazlo en momentos inesperados — el ministerio más poderoso llega cuando nadie lo está esperando',
+                'Misma hora, misma noche — la consistencia vale más que la perfección de la lección',
+                'Breve cuando los niños son pequeños — 15 minutos de atención es suficiente; no tortures a los de 4 años',
+                'Deja que los hijos enseñen — un niño que prepara una lección aprende el doble que uno que la escucha',
+                'Incluir testimonio personal — qué aprendiste esta semana, qué viste que te recuerda a Dios',
+                'Cerrar con actividad familiar — la conexión emocional ancla el aprendizaje espiritual',
               ],
             },
             {
-              type: 'deep_dive',
-              badge: 'Profundizar',
-              title: 'El ministerio en los momentos de crisis',
-              paragraphs: [
-                'El ministerio más importante casi nunca ocurre en la visita mensual planificada. Ocurre cuando alguien llama a las 11 de la noche porque su matrimonio se está derrumbando. Cuando alguien pierde su trabajo y no sabe cómo decírselo a su cónyuge. Cuando un hijo se va de la Iglesia y los padres no saben a quién acudir.',
-                'Estar disponible en esos momentos requiere haber construido una relación de confianza antes de que llegue la crisis. Si la única interacción que has tenido con alguien es la visita mensual con el mensaje del Ensign, no te llamarán cuando las cosas se pongan difíciles. Llaman a las personas que conocen, que los escuchan, que les importan.',
-                'Elder Jeffrey R. Holland enseñó que el Señor necesita personas que estén disponibles para ser usadas como instrumentos en Sus manos en el momento exacto en que alguien más necesita ayuda. Eso requiere estar cerca, estar conectado, y estar sintonizado. El ministerio es el mecanismo que hace eso posible dentro de la estructura de la Iglesia.',
-              ],
+              type: 'doctrine_box',
+              title: 'Come Follow Me — El currículo del hogar',
+              body: 'El currículo Come Follow Me (2019) fue diseñado específicamente para ser estudiado en el hogar, no solo en el aula. La guía del maestro de la Escuela Dominical es un suplemento al estudio que la familia ya hizo durante la semana. La secuencia es: leer las escrituras en el hogar → reflexionar → discutir en familia → el domingo refuerza lo que el hogar ya sembró. Cuando la secuencia se invierte — se espera al domingo para que la Iglesia enseñe — la promesa del currículo no puede cumplirse.',
             },
             {
               type: 'leader_quote',
-              quote: 'El ministerio genuino significa que amamos a las personas suficientemente como para interesarnos en su vida entera: sus alegrías y sus cargas, su salud espiritual y sus necesidades temporales, su fe y sus dudas. No somos auditores. Somos compañeros en el camino.',
-              name: 'Russell M. Nelson',
-              role: '"Ministering", Ensign, mayo 2018 (trad.)',
+              quote: 'El mayor trabajo que harás jamás se hará dentro de las paredes de tu propio hogar. El mundo quiere que creas que el trabajo importante sucede afuera — en la oficina, en la capilla, en el servicio público. El Señor dice que el trabajo más eterno y transformador ocurre en la cena familiar, en las oraciones de la mañana, en las conversaciones al acostar a los hijos.',
+              name: 'Harold B. Lee',
+              role: 'Charla en Conferencia General, 1973 (trad.)',
             },
           ],
         },
       ],
     },
-
-    // ─── SECCIÓN IV ──────────────────────────────────────────────────────────
     {
-      id: 's4',
-      title: 'El Ministerio en la Familia',
+      id: 's5',
+      title: 'El Ministerio en los Momentos Ordinarios',
       intro: {
-        romanNumeral: 'IV',
-        title: 'El Ministerio en la Familia',
+        romanNumeral: 'V',
+        title: 'El Ministerio en los Momentos Ordinarios',
         paragraphs: [
-          'El ministerio no empieza en las personas que tienes asignadas en la Iglesia. Empieza en tu propia familia. El cónyuge, los hijos, los padres que envejecen — estas son las primeras personas que el Señor te ha encomendado. Antes de preguntar cómo ministrar a los de afuera, pregunta: ¿cómo estoy ministrando a los de adentro?',
+          'Deuteronomio 6:7 no dice "enseña a tus hijos el evangelio el lunes en la noche." Dice: "cuando estés en tu casa, y cuando andes por el camino, y al acostarte, y cuando te levantes." El evangelio en el hogar no es un programa — es una presencia constante en todos los momentos del día.',
         ],
       },
       topics: [
         {
           id: 't5',
-          title: 'El Hogar como la Primera Congregación',
+          title: 'Cuando te Sientes, Cuando Camines, Cuando te Acuestes',
           blocks: [
             {
               type: 'highlight_verse',
-              text: 'Y vosotros, maridos, igualmente, vivid con ellas sabiamente, dando honor a la mujer como a vaso más frágil, y como a coherederas de la gracia de la vida, para que vuestras oraciones no tengan estorbo.',
-              reference: '1 Pedro 3:7',
+              text: 'Y las repetirás a tus hijos, y hablarás de ellas estando en tu casa, y andando por el camino, y al acostarte, y cuando te levantes. Y las atarás como una señal en tu mano, y estarán como frontales entre tus ojos.',
+              reference: 'Deuteronomio 6:7–8',
             },
             {
               type: 'paragraph',
-              text: 'Pedro conecta directamente el trato al cónyuge con la efectividad de la oración. Un hombre que no ministra bien a su esposa tiene sus oraciones estorbadas. La Proclamación sobre la Familia habla de los esposos que presiden "en amor y justicia" — eso es ministerio. Las madres que nutren a sus hijos — eso es ministerio. Los hijos que honran a sus padres envejeciendo — eso es ministerio.',
-            },
-            {
-              type: 'doctrine_box',
-              title: 'La noche de hogar como ministerio familiar',
-              body: 'La noche de hogar fue revelada en 1915, reenfatizada en 1965 y 2003, y prometida por el Señor: "Si los padres de este pueblo hacen esto en el espíritu de amor... los hijos se verán bendecidos." No es solo una actividad familiar. Es el mecanismo semanal de ministerio interno: el padre y la madre ministrando a sus hijos con enseñanza del evangelio, atención personal, y tiempo protegido de las distracciones del mundo.',
-            },
-            {
-              type: 'leader_quote',
-              quote: 'El hogar es la unidad de ministerio más importante en la Iglesia. Antes de preocuparte por las familias que tienes asignadas en el ministerio, pregúntate: ¿estoy ministrando a mi propia familia como el Señor lo haría? ¿Saben mis hijos que me importan más que cualquier otra asignación de la Iglesia?',
-              name: 'Henry B. Eyring',
-              role: '"The Family", Conferencia General, octubre 1998 (trad.)',
-            },
-          ],
-        },
-      ],
-    },
-
-    // ─── SECCIÓN V ───────────────────────────────────────────────────────────
-    {
-      id: 's5',
-      title: 'El Ministerio como Estilo de Vida',
-      intro: {
-        romanNumeral: 'V',
-        title: 'El Ministerio como Estilo de Vida',
-        paragraphs: [
-          'El ministerio más poderoso no tiene horario, no tiene formulario, y no termina con un reporte al obispado. Ocurre en los intersticios de la vida ordinaria: en el estacionamiento de la capilla, en una llamada a mitad de semana, en una nota manuscrita, en una comida que alguien lleva sin que se la pidieran. Es la forma en que el amor de Cristo se filtra a través de personas ordinarias.',
-        ],
-      },
-      topics: [
-        {
-          id: 't6',
-          title: 'El Ministerio Invisible — La Forma más Poderosa',
-          blocks: [
-            {
-              type: 'highlight_verse',
-              text: 'Y el Rey les responderá y dirá: De cierto os digo que en cuanto lo hicisteis a uno de estos mis hermanos más pequeños, a mí lo hicisteis.',
-              reference: 'Mateo 25:40',
-            },
-            {
-              type: 'paragraph',
-              text: 'Los de la derecha en Mateo 25 no sabían que estaban ministrando al Señor. Preguntaron sorprendidos: "¿Cuándo te vimos hambriento y te alimentamos?" No lo hicieron para ser vistos ni reportados. Lo hicieron porque amaban. El ministerio invisible — el que nadie cuenta, nadie aplaude, nadie registra — es exactamente el que el Señor valora más.',
+              text: 'Moisés describe una forma de vida en la que la verdad de Dios no está compartimentada en una sesión semanal — está integrada en todos los momentos del día. No requiere una pizarra. Requiere padres que hablan de Dios con naturalidad, que conectan los eventos del día con principios del evangelio, que oran de manera específica y visible para que sus hijos vean cómo funciona la relación con el Padre.',
             },
             {
               type: 'timeline',
               items: [
                 {
-                  label: 'Conocer',
-                  text: 'Conocer genuinamente a la persona: su historia, sus cargas, lo que la hace reír',
-                  ref: 'Lucas 15:4',
+                  label: 'La mañana',
+                  text: 'Oración familiar y un versículo breve — establecer el tono espiritual antes de que el mundo entre',
+                  ref: 'Deut 6:7',
                   color: 'gold',
                 },
                 {
-                  label: 'Sintonizar',
-                  text: 'Pedir al Espíritu guía sobre qué necesitan — no solo asumir',
-                  ref: 'Moroni 6:4',
+                  label: 'El camino',
+                  text: 'El viaje al colegio, al trabajo — un himno, una conversación sobre gratitud, qué desafíos enfrentarán hoy',
+                  ref: '2 Nefi 25:26',
                   color: 'blue',
                 },
                 {
-                  label: 'Actuar',
-                  text: 'Hacer lo que el Espíritu indica — llamar, visitar, ayudar — cuando lo indica',
-                  ref: 'Gálatas 6:2',
+                  label: 'La mesa',
+                  text: 'La cena familiar: bendición específica, "¿dónde viste la mano de Dios hoy?", enseñanza espontánea',
+                  ref: 'DyC 88:77',
                   color: 'gold',
                 },
                 {
-                  label: 'Estar presente',
-                  text: 'En los momentos difíciles: hospital, funeral, desempleo, crisis de fe',
-                  ref: 'Mateo 25:36',
+                  label: 'La crisis',
+                  text: 'El momento difícil — convertirlo en oportunidad de mostrar cómo el evangelio responde a la vida real',
+                  ref: 'Josué 1:8',
                   color: 'blue',
                 },
                 {
-                  label: 'Celebrar',
-                  text: 'Alegrarse con ellos en sus victorias — el ministerio no es solo para la crisis',
-                  ref: 'Lucas 15:6',
+                  label: 'La noche',
+                  text: 'Oración personal con los hijos — la oración íntima antes de dormir que forma testimonios en silencio',
+                  ref: 'Deut 6:7',
                   color: 'gold',
                 },
               ],
             },
             {
               type: 'leader_quote',
-              quote: 'La Iglesia de Jesucristo no puede funcionar solo con programas. Funciona porque hay personas que aman a otras personas. Cuando el ministerio es real — cuando hay amor genuino fluyendo entre los santos — la Iglesia es lo que el Señor diseñó que fuera: una familia, no una organización.',
-              name: 'Russell M. Nelson',
-              role: '"Ministering", Conferencia General, abril 2018 (trad.)',
+              quote: 'Los hijos no necesitan padres perfectos — necesitan padres presentes. No padres que sepan todas las respuestas — padres que busquen las respuestas con ellos. No padres que finjan no tener dudas — padres que modelen cómo se vive con fe en medio de la incertidumbre. Eso es ministerio en el hogar.',
+              name: 'Henry B. Eyring',
+              role: '"The Family", Conferencia General, octubre 1998 (trad.)',
             },
             {
               type: 'reflection',
-              prompt: '¿A quién el Señor ha puesto específicamente en tu vida para que cuides de ella? ¿Sabes lo que realmente está viviendo en este momento — no lo que dice en el pasillo de la capilla, sino lo que está viviendo de verdad? ¿Qué puedes hacer esta semana que no sea una visita obligatoria, sino un acto genuino de amor?',
+              prompt: '¿En qué momento del día tiene tu familia mayor apertura espiritual — la mañana, la cena, la noche? ¿Estás usando ese momento? ¿Qué conversación sobre el evangelio has estado postergando con alguno de tus hijos o con tu cónyuge? ¿Qué pasaría si la tuvieras esta semana, simple, sin agenda, solo presente?',
             },
           ],
         },
