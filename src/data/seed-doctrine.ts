@@ -26,6 +26,7 @@ import { liderazgoSegunElEvangelio as lessonLiderazgo } from '@/data/lessons/lid
 import { misionYTestimonio as lessonMisionTestimonio } from '@/data/lessons/mision-y-testimonio'
 import { visionDC76 as lessonVisionDC76 } from '@/data/lessons/vision-dc-76'
 import { visionTresReinos as lessonVisionTresReinos } from '@/data/lessons/vision-tres-reinos'
+import { juanTresNefitasApostasia as lessonJuanTresNefitas } from '@/data/lessons/juan-tres-nefitas-apostasia'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -94,6 +95,16 @@ const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
     description: 'Estudio profundo de discursos históricos y conferencias memorables.',
     icon: '📜',
     order: 6,
+    level: 'AVANZADO',
+    usePurpleAccent: true,
+  },
+  {
+    id: 'temas-profundos',
+    title: 'Preguntas Profundas',
+    description:
+      'Doctrinas que pocas clases responden: paradojas teológicas, preguntas difíciles, y temas que los estudiantes serios necesitan enfrentar con honestidad y fe.',
+    icon: '🔭',
+    order: 7,
     level: 'AVANZADO',
     usePurpleAccent: true,
   },
@@ -402,6 +413,19 @@ const LESSON_ROWS: LessonRow[] = [
     order: 3,
     status: 'PUBLISHED',
   },
+  {
+    id: 'juan-tres-nefitas-apostasia',
+    moduleId: 'temas-profundos',
+    title: 'Juan el Amado y los Tres Nefitas durante la Apostasía',
+    subtitle: '¿Por qué no la restauraron ellos?',
+    description:
+      'Si Juan el Amado y los Tres Nefitas estaban vivos con autoridad del sacerdocio durante toda la apostasía, ¿por qué Dios declaró que no había autoridad en la tierra? La distinción entre poseer el sacerdocio y tener llaves de jurisdicción — y el giro que lo cambia todo: Juan YA participó en la Restauración.',
+    level: 'AVANZADO',
+    icon: '🔑',
+    duration: 80,
+    order: 1,
+    status: 'PUBLISHED',
+  },
 ]
 
 const PORTED: Partial<Record<string, Lesson>> = {
@@ -428,6 +452,7 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'mision-y-testimonio': lessonMisionTestimonio,
   'vision-dc-76': lessonVisionDC76,
   'vision-tres-reinos': lessonVisionTresReinos,
+  'juan-tres-nefitas-apostasia': lessonJuanTresNefitas,
   'la-expiacion-del-salvador': lessonLaExpiacionDelSalvador,
   'king-follett': lessonKingFollett,
 }
