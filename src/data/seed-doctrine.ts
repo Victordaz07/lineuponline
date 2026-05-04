@@ -13,6 +13,7 @@ import { laProclamacionFamilia as lessonProclamacionFamilia } from '@/data/lesso
 import { laOracion as lessonOracion } from '@/data/lessons/la-oracion'
 import { elEstudioEscrituras as lessonEstudioEscrituras } from '@/data/lessons/el-estudio-escrituras'
 import { elMinisterioEnElHogar as lessonMinisterio } from '@/data/lessons/el-ministerio-en-el-hogar'
+import { vestimentaSacerdocio as lessonVestimenta } from '@/data/lessons/vestimenta-sacerdocio'
 import { laPrimeraVision as lessonPrimeraVision } from '@/data/lessons/la-primera-vision'
 import { laGranApostasia as lessonGranApostasia } from '@/data/lessons/la-gran-apostasia'
 import { elLibroDeMormon as lessonLibroDeMormon } from '@/data/lessons/el-libro-de-mormon'
@@ -245,6 +246,19 @@ const LESSON_ROWS: LessonRow[] = [
     status: 'PUBLISHED',
   },
   {
+    id: 'vestimenta-sacerdocio',
+    moduleId: 'vida-familiar-personal',
+    title: 'Vestimenta y Preparación para el Sacerdocio',
+    subtitle: 'Cómo honramos al Señor en cómo nos presentamos',
+    description:
+      'La camisa blanca no es un mandamiento — es una expresión de reverencia. Por qué nos preparamos físicamente para representar al Señor, cuándo hacerlo, cómo adaptarlo al contexto, y cómo enseñarlo en el hogar.',
+    level: 'BÁSICO',
+    icon: '👔',
+    duration: 45,
+    order: 5,
+    status: 'PUBLISHED',
+  },
+  {
     id: 'primera-vision',
     moduleId: 'historia-restauracion',
     title: 'La Primera Visión',
@@ -439,6 +453,7 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'la-oracion': lessonOracion,
   'estudio-escrituras': lessonEstudioEscrituras,
   'ministerio-en-el-hogar': lessonMinisterio,
+  'vestimenta-sacerdocio': lessonVestimenta,
   'primera-vision': lessonPrimeraVision,
   'gran-apostasia': lessonGranApostasia,
   'libro-de-mormon-reliquia': lessonLibroDeMormon,
