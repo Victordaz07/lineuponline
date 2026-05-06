@@ -171,6 +171,14 @@ export const losConveniosEternos: Lesson = {
               ],
             },
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              alt: 'Panoramic sweep of covenant history: rainbow over mountains (Noah), stars over desert (Abraham), stone tablets glowing (Moses), Christ breaking bread, four scenes unified',
+              caption: 'El mismo convenio eterno — renovado en cada dispensación desde Adán hasta la Restauración',
+              contextCard: { label: 'Historia de los Convenios' },
+            },
+            {
               type: 'doctrine_box',
               title: 'Un solo convenio eterno — no muchos convenios separados',
               body: 'El apóstol Pablo llama al plan de Dios "el nuevo y sempiterno convenio" (Hebreos 13:20). Los profetas de la Restauración enseñan que los convenios a través de las dispensaciones no son tratados separados: son el mismo convenio ampliado y aplicado a nuevas circunstancias. Adán ofreció sacrificios mirando hacia Cristo. Abraham recibió la promesa de descendencia que se cumpliría en Cristo. Moisés recibió la ley que preparaba para Cristo. Jeremías profetizó del convenio que Cristo establecería. Todas las líneas convergen en la expiación — y la Restauración las recoge todas en un solo sistema de convenios progresivos que culmina en la exaltación.',
@@ -260,6 +268,14 @@ export const losConveniosEternos: Lesson = {
               ],
             },
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              alt: 'A luminous ascending staircase with five steps, each glowing with sacred golden light, labels visible on each step, ascending into bright celestial light above',
+              caption: 'La escalera de los convenios — cada peldaño abre acceso al siguiente nivel de poder divino',
+              contextCard: { label: 'La Escalera de los Convenios' },
+            },
+            {
               type: 'key_points',
               title: 'Lo que cada convenio añade que el anterior no tenía',
               points: [
@@ -345,6 +361,14 @@ export const losConveniosEternos: Lesson = {
               reference: 'Isaías 44:22',
             },
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              alt: 'Close-up of weathered hands carefully breaking white sacrament bread over a white cloth, soft natural window light, reverent and intimate',
+              caption: 'La Santa Cena — el mecanismo semanal de renovación del convenio (DyC 20:77)',
+              contextCard: { label: 'La Santa Cena — Renovación del Convenio' },
+            },
+            {
               type: 'doctrine_box',
               title: 'Por qué la Santa Cena es el acto de convenio más frecuente de un Santo de los Últimos Días',
               body: 'El bautismo ocurre una sola vez. El sacerdocio se confiere una sola vez. La investidura se recibe una sola vez. El sellamiento se realiza una sola vez. Pero la Santa Cena ocurre cada semana — y esa frecuencia no es accidental.\n\nDios sabe que la naturaleza mortal debilita los convenios. Las presiones del mundo, la tentación, el pecado cotidiano van erosionando el lazo que el bautismo estableció. Por eso diseñó un mecanismo de renovación semanal: la Santa Cena.\n\nCada vez que un miembro digno participa de la Santa Cena, renueva explícitamente las promesas del bautismo: tomar el nombre de Cristo, recordarle siempre, guardar Sus mandamientos. Y Dios, fiel a Su parte del convenio, promete: "tendrán siempre Su Espíritu consigo" (DyC 20:77).\n\nEsta es la respuesta de Dios al problema de Oseas: un sistema en el que el convenio roto puede ser renovado cada siete días, sin importar lo que haya sucedido en la semana anterior.',
@@ -419,6 +443,14 @@ export const losConveniosEternos: Lesson = {
           id: 't5',
           title: 'Vivir Como Persona del Convenio',
           blocks: [
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              alt: 'A family of four standing at the open entrance of a modern temple, backs to camera, looking toward warm golden light inside, hopeful and peaceful atmosphere',
+              caption: 'Pueblo del convenio — identidad más profunda que la membresía (Éxodo 19:6)',
+              contextCard: { label: 'Identidad como Pueblo del Convenio' },
+            },
             {
               type: 'highlight_verse',
               text: 'Seréis para mí un reino de sacerdotes, y gente santa.',

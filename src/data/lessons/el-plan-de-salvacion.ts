@@ -56,6 +56,14 @@ export const elPlanDeSalvacion: Lesson = {
               title: 'La existencia premortal: más que una idea abstracta',
               body: 'La doctrina restaurada enseña que cada ser humano vivió como espíritu con el Padre Celestial antes de nacer en la tierra. No fue una existencia breve ni insignificante — Brigham Young y otros profetas han enseñado que desarrollamos carácter, talentos, y disposición espiritual durante ese período. El hecho de que el Señor llamara a ciertos espíritus "nobles y grandes" implica diferencias reales de carácter forjadas antes de este mundo.',
             },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              alt: 'Grand celestial council: luminous spirit beings gathered in a star-filled cosmic space around a radiant center, sense of eternity, majestic and reverent painterly style',
+              caption: 'El Gran Consejo Premortal — donde se presentaron y eligieron los dos planes',
+              contextCard: { label: 'El Consejo en los Cielos' },
+            },
           ],
         },
         {
@@ -232,6 +240,14 @@ export const elPlanDeSalvacion: Lesson = {
           id: 't3-1',
           title: 'La Enseñanza de Lehi: Transgresión, No Pecado',
           blocks: [
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              alt: 'Adam and Eve standing at a crossroads in a lush garden, looking toward a distant horizon, pensive and purposeful, painterly warm light',
+              caption: 'Adán y Eva — la Caída no fue un error, fue el primer acto necesario del plan',
+              contextCard: { place: 'El Jardín del Edén', label: 'La Caída necesaria' },
+            },
             {
               type: 'highlight_verse',
               text: 'Y he aquí, si Adán no hubiese transgredido, no habría caído; mas hubiera permanecido en el Jardín del Edén. Y todas las cosas que fueron creadas habrían permanecido en el mismo estado en que se encontraban después de ser creadas; y no habrían tenido fin. Y hubieran carecido de gozo, pues no conocían la miseria; no habrían hecho el bien, pues no conocían el pecado. Pero he aquí, todas las cosas se han dado al hombre; y él es libre de escoger la libertad y la vida eterna, por la mediación de todos los hombres, o escoger la cautividad y la muerte.',
@@ -423,6 +439,14 @@ export const elPlanDeSalvacion: Lesson = {
               reference: 'DyC 19:16–19',
             },
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              alt: 'Christ kneeling in Gethsemane, suffused with golden divine light among olive trees at night, deeply reverent, painterly style, no violent imagery',
+              caption: 'Getsemaní — "temblara de dolor y sangrara por cada poro" (DyC 19:18)',
+              contextCard: { place: 'Getsemaní', label: 'La Expiación — el Eje del Plan' },
+            },
+            {
               type: 'paragraph',
               text: 'Estas palabras no tienen precedente en ninguna escritura. Cristo habla en primera persona, en tiempo pasado, describiendo lo que ocurrió en Getsemaní: tembló de dolor, sangró por cada poro, quiso retractarse. El verbo "quise" es el más íntimo — revela que la voluntad humana de Cristo consideró el retiro. Y luego el más heroico: "me glorifiqué y tomé la copa." No porque no doliera, sino a pesar de que dolía más allá de toda comprensión.',
             },
@@ -515,6 +539,14 @@ export const elPlanDeSalvacion: Lesson = {
               type: 'doctrine_box',
               title: 'El Reino Telestial — La presencia del Espíritu Santo',
               body: 'DyC 76:81–112 describe el reino telestial. Sus herederos: los que rechazaron el Evangelio, vivieron en maldad, no aceptaron la expiación. Sufrirán con el diablo en el mundo de los espíritus hasta la última resurrección (DyC 76:106), luego recibirán su gloria. Aun esta gloria, el Señor dice, "sobrepasa toda comprensión" (DyC 76:89). No es el infierno eterno de la teología tradicional — es una gloria real, solo que la menor de los tres reinos.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              alt: 'Three concentric rings or spheres of light from brightest to dimmest: celestial sun-like glow, terrestrial moon-like light, telestial star-like glow, deep space background',
+              caption: 'Los Tres Destinos Eternos — cada uno con su propia gloria (DyC 76)',
+              contextCard: { label: 'Los Destinos Eternos — DyC 76' },
             },
             {
               type: 'key_points',

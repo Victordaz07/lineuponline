@@ -90,6 +90,14 @@ export const elTemplo: Lesson = {
               body: 'El 3 de abril de 1836, José Smith y Oliver Cowdery se postraron en oración tras la cortina del templo de Kirtland. Lo que ocurrió a continuación fue la más concentrada restitución de llaves de sacerdocio en la historia moderna: el Señor Jesucristo apareció. Moisés restauró las llaves de la congregación de Israel. Elías restauró las llaves del evangelio de Abrahán. Y Elías (el profeta del Antiguo Testamento) restauró las llaves del sellamiento — el poder de sellar en la tierra y que sea sellado en el cielo.',
             },
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              alt: 'Historical collage of four temples through time: Tabernacle in the wilderness, Solomons Temple silhouette, Kirtland Temple, and a modern LDS temple, warm tones, painterly style',
+              caption: 'El templo a través de la historia — de Moisés al siglo XXI, el mismo propósito eterno',
+              contextCard: { label: 'Historia del Templo' },
+            },
+            {
               type: 'highlight_verse',
               text: 'Vimos al Señor estar de pie sobre el parapeto del púlpito, ante nosotros; y debajo de sus pies había un suelo de oro puro, de apariencia muy hermosa. [...] Sus ojos eran como llama de fuego; el cabello de su cabeza era blanco como la nieve pura; su rostro brillaba más que el sol.',
               reference: 'Doctrina y Convenios 110:2–3',
@@ -293,6 +301,14 @@ export const elTemplo: Lesson = {
               },
             },
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              alt: 'A couple kneeling at an altar in a temple sealing room, soft natural light, sacred atmosphere, faces not visible, reverent and beautiful',
+              caption: 'El Sellamiento — "por tiempo y por toda la eternidad" (DyC 132:19)',
+              contextCard: { label: 'El Sellamiento Eterno' },
+            },
+            {
               type: 'deep_dive',
               badge: 'Profundizar',
               title: '¿Qué significa teológicamente "el poder de sellar"?',
@@ -323,6 +339,14 @@ export const elTemplo: Lesson = {
           id: 't4-1',
           title: 'La Promesa de Elías — Malaquías y Kirtland',
           blocks: [
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              alt: 'Elijah the prophet appearing in radiant light at the pulpit of the Kirtland Temple interior, dramatic divine illumination, two men kneeling in awe, 1836 setting',
+              caption: 'La aparición de Elías en el Templo de Kirtland, 3 de abril de 1836 (DyC 110:13–16)',
+              contextCard: { year: '1836', place: 'Templo de Kirtland, Ohio', label: 'El Espíritu de Elías' },
+            },
             {
               type: 'highlight_verse',
               text: 'He aquí, yo os envío al profeta Elías, antes que venga el día grande y terrible del Señor. Y él hará volver el corazón de los padres hacia los hijos, y el corazón de los hijos hacia los padres, para que yo no venga a herir la tierra con maldición.',
@@ -404,6 +428,14 @@ export const elTemplo: Lesson = {
           id: 't5-1',
           title: 'La Llamada Profética de Nelson',
           blocks: [
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              alt: 'Modern LDS temple at dusk with perfect reflection in a still pool of water, warm golden windows, serene sky with soft clouds, peaceful and majestic',
+              caption: 'El templo — "el fundamento espiritual de vuestra vida" (Russell M. Nelson, oct. 2021)',
+              contextCard: { label: 'El Templo como Centro Espiritual' },
+            },
             {
               type: 'leader_quote',
               quote: 'Nuestro futuro espiritual — el vuestro y el mío — depende de nuestra relación personal con el templo. El diablo sabe esto. Por eso trabaja tan activamente para mantenernos alejados del templo, para hacernos sentir que la preparación es demasiado difícil, que el viaje es demasiado lejos, que el tiempo es demasiado escaso. Él sabe lo que perdemos cuando no vamos.',

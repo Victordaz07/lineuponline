@@ -34,6 +34,14 @@ export const justiciaYMisericordia: Lesson = {
           title: 'Por Qué Dios No Puede Simplemente Perdonar',
           blocks: [
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              alt: 'A perfectly balanced scale of justice, one pan holding warm golden light (mercy), the other a stone tablet (justice), equal weight, dramatic lighting, symbolic',
+              caption: 'El dilema divino — justicia y misericordia que reclaman igual derecho',
+              contextCard: { label: 'El Dilema Divino — Justicia y Misericordia' },
+            },
+            {
               type: 'highlight_verse',
               text: 'Porque he aquí que la justicia ejerce todos sus pedidos, y también la misericordia exige todo lo que le pertenece; y así nadie puede salvarse sino mediante la expiación y la misericordia. [...] ¿Y ahora bien, cómo podría un hombre arrepentirse si no hay ley? ¿Cómo puede pecar si no hay ley? ¿Cómo puede haber ley a no ser que haya castigo? Ahora bien, se requiere una expiación.',
               reference: 'Alma 34:16; 42:17–18',
@@ -269,6 +277,14 @@ export const justiciaYMisericordia: Lesson = {
               text: 'Pero entonces el amigo se volvió al deudor y dijo: "Ahora tú me debes a mí. Pero yo no soy el prestamista. Yo soy tu amigo. Y te propongo términos que puedes cumplir: no te pido el dinero de vuelta de una vez — te pido que cambies la forma en que vives para que esto no vuelva a ocurrir. Te pido que trabajes conmigo, que confíes en mí, que sigas mi guía. Si lo haces, la deuda quedará saldada." El deudor tenía ahora ante sí una opción que antes no existía: la posibilidad de ser libre.',
             },
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              alt: 'A mediator figure standing between a pleading debtor and a stern creditor, extending hands to both, bridging the gap, warm light emanating from the mediator, symbolic illustration',
+              caption: 'La Parábola del Mediador — Cristo entre la justicia que reclama y el pecador que suplica',
+              contextCard: { label: 'La Parábola del Mediador — Packer, 1977' },
+            },
+            {
               type: 'leader_quote',
               quote: 'En la parábola, el mediador pagó la deuda y asumió el papel del acreedor con una condición diferente: términos que el deudor podía cumplir. Así Cristo, habiéndose satisfecho las exigencias de la justicia, puede extender misericordia al penitente. La misericordia no erosiona la justicia — la cumple. Y la justicia no impide la misericordia — la hace posible.',
               name: 'Boyd K. Packer',
@@ -354,6 +370,14 @@ export const justiciaYMisericordia: Lesson = {
             {
               type: 'paragraph',
               text: 'Jacob comienza describiendo lo "monstruoso" — su propia palabra — que habría sido el destino humano sin la Resurrección y la Expiación. Los cuerpos se habrían corrompido para siempre en la tierra. Y los espíritus — eternos, incapaces de morir — habrían quedado cautivos del diablo eternamente. No aniquilados, no dormidos, no en un estado neutral: cautivos, miserables, separados de Dios para siempre. Esta es la muerte espiritual en su forma más completa. Y era el destino inevitable de toda la humanidad sin intervención divina.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              alt: 'The prophet Jacob standing on a rocky promontory with arms raised in joy and wonder, ancient Nephite clothing, sunrise breaking golden behind him, people gathered below listening',
+              caption: '¡Oh, cuán grande la bondad de nuestro Dios! — Jacob, 2 Nefi 9:10',
+              contextCard: { place: 'Tierra prometida', label: 'Jacob — 2 Nefi 9' },
             },
             {
               type: 'highlight_verse',

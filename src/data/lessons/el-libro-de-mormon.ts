@@ -81,6 +81,14 @@ export const elLibroDeMormon: Lesson = {
               text: 'José Smith tenía el equivalente a un tercer grado de educación formal cuando comenzó la traducción. Vivía en una comunidad agrícola rural en el norte del estado de Nueva York. Sus cartas personales muestran gramática deficiente y ortografía inconsistente hasta bien entrada su vida adulta. Y sin embargo dictó un texto de más de 500 páginas con más de 200 personajes nombrados, una geografía interna coherente, múltiples estilos narrativos distinguibles, y estructuras poéticas hebreas que los académicos del siglo XX no identificarían hasta más de 100 años después.',
             },
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              alt: 'Joseph Smith dictating behind a curtain while a scribe writes, humble farm setting by candlelight, 19th century period scene',
+              caption: 'José Smith dictó 531 páginas en ~65 días sin borrador ni revisión previa',
+              contextCard: { year: '1829', place: 'Nueva York', label: 'El proceso de traducción' },
+            },
+            {
               type: 'compare_grid',
               left: {
                 title: 'Lo que necesitarías para inventarlo',
@@ -102,6 +110,14 @@ export const elLibroDeMormon: Lesson = {
                   'Sin ningún borrador conocido — Emma confirmó que no usaba notas',
                 ],
               },
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              alt: 'Solemn 19th century scene of men reverently examining golden plates, period clothing, soft lamplight, reverent atmosphere',
+              caption: 'Los Once Testigos — ninguno retiró su declaración hasta el final de sus vidas',
+              contextCard: { year: '1829', place: 'Fayette, Nueva York', label: 'Los Once Testigos' },
             },
             {
               type: 'deep_dive',
@@ -142,6 +158,14 @@ export const elLibroDeMormon: Lesson = {
               type: 'doctrine_box',
               title: 'El quiasmo de Alma 36 — el más sofisticado del libro',
               body: 'Alma 36 es una narración de la conversión de Alma el Joven a su hijo Helaman. Welch identificó que el capítulo completo es un quiasmo de 20 elementos — el punto central (el clímax estructural y temático) es exactamente el versículo 18: "mientras me atormentaba así con el recuerdo de mis muchos pecados, he aquí, me vino al pensamiento también mi padre, que había hablado de la venida de un cierto Jesucristo." La estructura A-B-C...C\'-B\'-A\' hace que Cristo sea literalmente el centro matemático del texto, no solo el tema central.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              alt: 'Visual diagram of chiasmus structure, elegant A-B-C-B-A arch shape with golden Hebrew-style lettering on dark background, academic illustration style',
+              caption: 'El quiasmo de Alma 36 — Cristo es el centro matemático y temático del capítulo',
+              contextCard: { label: 'Estructura quiástica — Alma 36' },
             },
             {
               type: 'key_points',
@@ -294,6 +318,14 @@ export const elLibroDeMormon: Lesson = {
               type: 'doctrine_box',
               title: 'Las tres condiciones de la promesa — y lo que significan realmente',
               body: '"Corazón sincero" — no curiosidad intelectual sino disposición genuina de actuar sobre la respuesta que recibas. No es sincero quien pregunta queriendo que la respuesta sea no. / "Verdadera intención" — Dallin Oaks enseñó que la intención real significa que si Dios confirma que es verdad, estás dispuesto a cambiar tu vida en consecuencia. La intención no es real si el compromiso es condicional. / "Fe en Cristo" — la promesa está anclada en Cristo, no en el libro. El Espíritu Santo confirma la verdad de Cristo primero — el libro es el vehículo, no el destino.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              alt: 'Moroni writing alone by torchlight in a cave at night, last survivor of his civilization, solemn and dignified, night sky visible, ancient Nephite clothing',
+              caption: 'Moroni — escribió solo, el último de su pueblo, para lectores que no conocería',
+              contextCard: { year: 'ca. 421 d.C.', place: 'Tierra prometida', label: 'Moroni — el último testigo' },
             },
             {
               type: 'paragraph',
