@@ -27,6 +27,11 @@ import { misionYTestimonio as lessonMisionTestimonio } from '@/data/lessons/misi
 import { visionDC76 as lessonVisionDC76 } from '@/data/lessons/vision-dc-76'
 import { visionTresReinos as lessonVisionTresReinos } from '@/data/lessons/vision-tres-reinos'
 import { juanTresNefitasApostasia as lessonJuanTresNefitas } from '@/data/lessons/juan-tres-nefitas-apostasia'
+import { porQueDiosPermiteElSufrimiento as lessonSufrimiento } from '@/data/lessons/por-que-dios-permite-el-sufrimiento'
+import { laSalvacionDeLosNoBautizados as lessonNoBautizados } from '@/data/lessons/la-salvacion-de-los-no-bautizados'
+import { almaElJoven as lessonAlmaElJoven } from '@/data/lessons/alma-el-joven'
+import { joseDeEgipto as lessonJoseDeEgipto } from '@/data/lessons/jose-de-egipto'
+import { abraham as lessonAbraham } from '@/data/lessons/abraham'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -107,6 +112,16 @@ const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
     order: 7,
     level: 'AVANZADO',
     usePurpleAccent: true,
+  },
+  {
+    id: 'personajes-escrituras',
+    title: 'Personajes de las Escrituras',
+    description:
+      'Estudios de vida de los grandes personajes de la Biblia, el Libro de Mormón y DyC: sus fortalezas, sus caídas, sus conversiones, y lo que cada uno revela sobre el carácter de Dios.',
+    icon: '🧬',
+    order: 8,
+    level: 'INTERMEDIO',
+    usePurpleAccent: false,
   },
 ]
 
@@ -426,6 +441,71 @@ const LESSON_ROWS: LessonRow[] = [
     order: 1,
     status: 'PUBLISHED',
   },
+  {
+    id: 'por-que-dios-permite-el-sufrimiento',
+    moduleId: 'temas-profundos',
+    title: '¿Por qué Dios Permite el Sufrimiento?',
+    subtitle: 'La pregunta más difícil de la teología',
+    description:
+      'El sufrimiento de los inocentes es el argumento más antiguo contra la existencia de un Dios bueno y poderoso. El evangelio restaurado no esquiva la pregunta — la responde desde ángulos que el cristianismo tradicional no tenía.',
+    level: 'AVANZADO',
+    icon: '⚖️',
+    duration: 75,
+    order: 2,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'la-salvacion-de-los-no-bautizados',
+    moduleId: 'temas-profundos',
+    title: 'La Salvación de los No Bautizados',
+    subtitle: '¿Qué pasa con los que nunca oyeron el evangelio?',
+    description:
+      '100 mil millones de personas han vivido en la Tierra. La mayoría murió sin bautismo. ¿Las condena Dios? DyC 137, 138 y el trabajo vicario del templo como respuesta completa.',
+    level: 'AVANZADO',
+    icon: '🌊',
+    duration: 70,
+    order: 3,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'alma-el-joven',
+    moduleId: 'personajes-escrituras',
+    title: 'Alma el Joven',
+    subtitle: 'Del ángel destructor al apóstol del arrepentimiento',
+    description:
+      'El hijo del sumo sacerdote que se convirtió en enemigo de la Iglesia — y en su mayor defensor. Alma 36: la conversión más detallada del Libro de Mormón. Alma 32-34: la teología de la fe. Alma 42: la teodicea más rigurosa del canon.',
+    level: 'INTERMEDIO',
+    icon: '🔥',
+    duration: 65,
+    order: 1,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'jose-de-egipto',
+    moduleId: 'personajes-escrituras',
+    title: 'José de Egipto',
+    subtitle: 'Traicionado, encarcelado, exaltado — tipo de Cristo',
+    description:
+      'La vida de José de Egipto es el relato más elaborado del Antiguo Testamento como tipo de Cristo. Vendido por sus hermanos, falsamente acusado, encarcelado, exaltado. Génesis 37-50 y 2 Nefi 3: la profecía de Lehi sobre el José del final de los días.',
+    level: 'INTERMEDIO',
+    icon: '👑',
+    duration: 65,
+    order: 2,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'abraham',
+    moduleId: 'personajes-escrituras',
+    title: 'Abraham',
+    subtitle: 'El padre de la fe — y lo que esa fe costó',
+    description:
+      'El hombre al que Dios le pidió sacrificar a su hijo único. Abraham 1-3: la preordenación y la cosmología. Génesis 12-22: las pruebas acumuladas. Hebreos 11: el elogio más grande de la Biblia. DyC 132: el convenio abrahámico como fundamento de la exaltación.',
+    level: 'AVANZADO',
+    icon: '⭐',
+    duration: 70,
+    order: 3,
+    status: 'PUBLISHED',
+  },
 ]
 
 const PORTED: Partial<Record<string, Lesson>> = {
@@ -455,6 +535,11 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'juan-tres-nefitas-apostasia': lessonJuanTresNefitas,
   'la-expiacion-del-salvador': lessonLaExpiacionDelSalvador,
   'king-follett': lessonKingFollett,
+  'por-que-dios-permite-el-sufrimiento': lessonSufrimiento,
+  'la-salvacion-de-los-no-bautizados': lessonNoBautizados,
+  'alma-el-joven': lessonAlmaElJoven,
+  'jose-de-egipto': lessonJoseDeEgipto,
+  'abraham': lessonAbraham,
 }
 
 function lessonIdsForModule(moduleId: string): string[] {
