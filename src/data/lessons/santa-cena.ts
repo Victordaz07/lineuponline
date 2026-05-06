@@ -226,6 +226,56 @@ export const santaCena: Lesson = {
             },
           ],
         },
+        {
+          id: 'vestimenta-para-oficiar',
+          title: 'Vestimenta para oficiar',
+          subtitle:
+            'La apariencia del que oficia en la Santa Cena no es un detalle menor — es parte del mensaje que el sacerdocio envía a la congregación y al Señor.',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'El Manual General de la Iglesia enseña que quienes administran la Santa Cena deben vestirse de manera modesta, limpia y apropiada. La vestimenta del que oficia comunica reverencia — tanto al Señor cuya ordenanza se administra, como a los miembros que la reciben. No existe una lista rígida de prendas obligatorias, pero el principio es claro: la apariencia debe honrar la santidad del momento.',
+              blockId: 'sc-s3b-p-0',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/images/santa-cena/padre-prepara-hijo.png',
+              caption: 'La preparación comienza en casa — un padre ayuda a su hijo a vestirse con reverencia para el domingo.',
+            },
+            {
+              type: 'key_points',
+              points: [
+                '✅ Camisa blanca y corbata — estándar preferido en la mayoría de las culturas donde es accesible; comunica solemnidad y distinción de la ordenanza.',
+                '✅ Ropa limpia y modesta adaptada a la cultura local — el Señor mira el corazón, pero la apariencia externa refleja el estado interior.',
+                '⚠️ No se requiere traje completo — en muchos países un polo blanco o camisa limpia es apropiado y suficiente; el principio es la reverencia, no la marca de la ropa.',
+                '❌ Evitar ropa llamativa, rota, sucia o que distraiga la atención de la ordenanza hacia la persona.',
+              ],
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/images/santa-cena/vestimenta-apropiada.png',
+              caption: 'Traje formal con corbata (climas fríos) o camisa blanca manga corta (climas cálidos) — ambas opciones son apropiadas para oficiar.',
+            },
+            {
+              type: 'doctrine_box',
+              title: '¿Por qué importa la vestimenta al oficiar?',
+              body: 'Cuando un presbítero se arrodilla ante la mesa sacramental, representa a Jesucristo ante la congregación. La vestimenta no salva — pero sí habla. Una apariencia cuidada dice: "entiendo la seriedad de lo que hago." El Señor, que mira el corazón, también ve si el portador del sacerdocio ha tenido suficiente cuidado de su persona como señal del cuidado que tiene de su responsabilidad.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/images/santa-cena/bendiciendo-santa-cena.png',
+              caption: 'Un presbítero se arrodilla a bendecir la Santa Cena — preparado en apariencia y en espíritu para representar al Señor ante la congregación.',
+            },
+            {
+              type: 'reflection',
+              prompt:
+                '¿Cómo te vistes cuando oficias en la Santa Cena? ¿Qué mensaje envía tu apariencia a la congregación y al Señor? ¿Cómo puedes prepararte — tanto por dentro como por fuera — para que tu presencia honre la santidad de la ordenanza?',
+            },
+          ],
+        },
       ],
     },
     {
