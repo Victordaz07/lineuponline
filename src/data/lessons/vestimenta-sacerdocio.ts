@@ -58,7 +58,7 @@ export const vestimentaSacerdocio: Lesson = {
             {
               type: 'media_slot',
               kind: 'image',
-              src: undefined,
+              src: '/images/vestimenta-sacerdocio/santa-cena-oracion.jpg',
               alt: 'Joven con camisa blanca y corbata ofreciando la Santa Cena con reverencia',
               caption: 'La presentación digna al oficiar es una expresión visible de lo que hay en el corazón.',
               contextCard: { label: 'Preparación para oficiar' },
@@ -106,7 +106,7 @@ export const vestimentaSacerdocio: Lesson = {
             {
               type: 'media_slot',
               kind: 'image',
-              src: undefined,
+              src: '/images/vestimenta-sacerdocio/ocasiones-sacerdocio.jpg',
               alt: 'Collage de las seis ocasiones del sacerdocio: Santa Cena, bendición, bautismo, templo, misión, reunión',
               caption: 'Cada una de estas ocasiones representa al Señor — nuestra preparación debe reflejarlo.',
               contextCard: { label: 'Ocasiones del sacerdocio' },
@@ -178,7 +178,7 @@ export const vestimentaSacerdocio: Lesson = {
             {
               type: 'media_slot',
               kind: 'image',
-              src: undefined,
+              src: '/images/vestimenta-sacerdocio/vestimenta-contextos.jpg',
               alt: 'Comparación visual de vestimenta apropiada para oficiar en clima frío (camisa blanca + corbata + saco) versus clima tropical (camisa blanca + pantalón, manga corta)',
               caption: 'El principio es el mismo en todos los climas; la aplicación se adapta al contexto. La limpieza y la dignidad no dependen del clima.',
               contextCard: { label: 'Vestimenta apropiada por contexto' },
@@ -251,7 +251,7 @@ export const vestimentaSacerdocio: Lesson = {
             {
               type: 'media_slot',
               kind: 'image',
-              src: undefined,
+              src: '/images/vestimenta-sacerdocio/padre-hijo-preparacion.jpg',
               alt: 'Padre enseñando a su hijo adolescente a preparar su camisa blanca antes de ir a la iglesia',
               caption: 'La preparación para el sacerdocio se enseña en el hogar — con paciencia, con principios, y con el ejemplo.',
               contextCard: { label: 'Enseñar en el hogar' },
