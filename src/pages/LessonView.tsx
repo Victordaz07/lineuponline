@@ -4,6 +4,7 @@ import { UnderConstruction } from '@/components/doctrinal/UnderConstruction'
 import { LoadingSpinner } from '@/components/common/LoadingSpinner'
 import { useLesson } from '@/hooks/useLesson'
 import { useSyncNotes } from '@/hooks/useSyncNotes'
+import { useScrollMemory } from '@/hooks/useScrollMemory'
 
 const DEMO_USER = 'demo-user'
 
@@ -16,6 +17,7 @@ export default function LessonView() {
   const { moduleId, lessonId } = useParams<{ moduleId: string; lessonId: string }>()
   const { lesson, loading, error } = useLesson(moduleId, lessonId)
   const { saveNote } = useSyncNotes({ userId: DEMO_USER })
+  useScrollMemory(`lesson:${moduleId}:${lessonId}`)
 
   if (loading) {
     return (
