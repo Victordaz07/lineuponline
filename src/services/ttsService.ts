@@ -42,7 +42,7 @@ export function stopSpeaking(): void {
     currentAudio.pause()
     currentAudio = null
   }
-  if (!TTS_URL && typeof window !== 'undefined' && 'speechSynthesis' in window) {
+  if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
     window.speechSynthesis.cancel()
   }
 }
@@ -50,11 +50,31 @@ export function stopSpeaking(): void {
 export function pauseSpeaking(): void {
   _paused = true
   currentAudio?.pause()
+  if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+    const ss = window.speechSynthesis
+    if (ss.speaking) {
+      try {
+        ss.pause()
+      } catch {
+        /* algunos navegadores no aplican bien pause sobre utterances grandes */
+      }
+    }
+  }
 }
 
 export function resumeSpeaking(): void {
   _paused = false
-  currentAudio?.play().catch(() => {})
+  void currentAudio?.play?.().catch(() => {})
+  if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+    const ss = window.speechSynthesis
+    if (ss.paused) {
+      try {
+        ss.resume()
+      } catch {
+        /* noop */
+      }
+    }
+  }
   _resumeResolve?.()
   _resumeResolve = null
 }
