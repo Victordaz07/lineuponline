@@ -42,7 +42,7 @@ export function stopSpeaking(): void {
     currentAudio.pause()
     currentAudio = null
   }
-  if (!TTS_URL && typeof window !== 'undefined' && 'speechSynthesis' in window) {
+  if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
     window.speechSynthesis.cancel()
   }
 }
@@ -50,25 +50,66 @@ export function stopSpeaking(): void {
 export function pauseSpeaking(): void {
   _paused = true
   currentAudio?.pause()
+  if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+    const ss = window.speechSynthesis
+    if (ss.speaking) {
+      try {
+        ss.pause()
+      } catch {
+        /* algunos navegadores no aplican bien pause sobre utterances grandes */
+      }
+    }
+  }
 }
 
 export function resumeSpeaking(): void {
   _paused = false
-  currentAudio?.play().catch(() => {})
+  void currentAudio?.play?.().catch(() => {})
+  if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+    const ss = window.speechSynthesis
+    try {
+      ss.resume()
+      // Chrome/Safari a veces ignoran el primer resume() tras pause().
+      requestAnimationFrame(() => {
+        try {
+          if (ss.paused) ss.resume()
+        } catch {
+          /* noop */
+        }
+      })
+      window.setTimeout(() => {
+        try {
+          if (ss.paused) ss.resume()
+        } catch {
+          /* noop */
+        }
+      }, 60)
+    } catch {
+      /* noop */
+    }
+  }
   _resumeResolve?.()
   _resumeResolve = null
 }
 
 export function isSpeaking(): boolean {
-  if (TTS_URL) return currentAudio !== null && !currentAudio.paused
-  return typeof window !== 'undefined' && 'speechSynthesis' in window && window.speechSynthesis.speaking
+  if (!TTS_URL) {
+    return typeof window !== 'undefined' && 'speechSynthesis' in window && window.speechSynthesis.speaking
+  }
+  if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+    const ss = window.speechSynthesis
+    if ((ss.speaking && !ss.paused) || currentAudio !== null) {
+      return true
+    }
+  }
+  return currentAudio !== null && !currentAudio.paused
 }
 
 async function waitForResume(signal: AbortSignal): Promise<void> {
   if (!_paused) return
   return new Promise<void>((resolve) => {
     _resumeResolve = resolve
-    signal.addEventListener('abort', resolve, { once: true })
+    signal.addEventListener('abort', () => resolve(), { once: true })
   })
 }
 
@@ -97,15 +138,59 @@ async function playOpenAI(text: string, voice: string, signal: AbortSignal): Pro
   })
 }
 
-async function playBrowser(text: string, lang: string): Promise<void> {
+async function playBrowser(text: string, lang: string, signal: AbortSignal): Promise<void> {
   return new Promise((resolve) => {
+    const ss = window.speechSynthesis
     const u = new SpeechSynthesisUtterance(text)
     u.lang = lang
     u.rate = _currentRate
-    u.onend = () => resolve()
-    u.onerror = () => resolve()
-    window.speechSynthesis.speak(u)
+    const finish = () => {
+      signal.removeEventListener('abort', onAbort)
+      resolve()
+    }
+    const onAbort = () => {
+      try {
+        ss.cancel()
+      } catch {
+        /* noop */
+      }
+      finish()
+    }
+    signal.addEventListener('abort', onAbort, { once: true })
+    u.onend = finish
+    u.onerror = finish
+    ss.speak(u)
   })
+}
+
+function browserTtsAvailable(): boolean {
+  return typeof window !== 'undefined' && 'speechSynthesis' in window
+}
+
+let warnedOpenAiFallback = false
+
+/** Intenta OpenAI vía función; si la red falla, usa síntesis del navegador. */
+async function playOpenAiOrFallback(
+  text: string,
+  voice: string,
+  lang: string,
+  signal: AbortSignal,
+): Promise<void> {
+  try {
+    await playOpenAI(text, voice, signal)
+  } catch (e) {
+    if (!browserTtsAvailable()) {
+      throw e instanceof Error ? e : new Error(String(e))
+    }
+    if (!warnedOpenAiFallback) {
+      warnedOpenAiFallback = true
+      console.warn(
+        '[TTS] La función cloud no respondió (¿desplegada en Blaze?). Se usa la voz del navegador.',
+        e,
+      )
+    }
+    await playBrowser(text, lang, signal)
+  }
 }
 
 export async function speakSequentialChunks(
@@ -132,9 +217,9 @@ export async function speakSequentialChunks(
     const text = chunks[i]?.trim() ?? ''
     if (!text) continue
     if (TTS_URL) {
-      await playOpenAI(text, voice, signal)
+      await playOpenAiOrFallback(text, voice, lang, signal)
     } else {
-      await playBrowser(text, lang)
+      await playBrowser(text, lang, signal)
     }
   }
 
