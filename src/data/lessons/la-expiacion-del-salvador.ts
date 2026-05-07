@@ -654,7 +654,7 @@ export const laExpiacionDelSalvador: Lesson = {
           {
             "type": "media_slot",
             "kind": "image",
-            "src": "/images/la-expiacion-del-salvador/adán-caída.jpg",
+            "src": "/images/la-expiacion-del-salvador/adan-caida.jpg",
             "alt": "Adán y Eva saliendo del Jardín de Edén al mundo mortal",
             "caption": "La Caída no fue un accidente — fue el paso necesario que hizo posible la Expiación."
           },
