@@ -61,7 +61,7 @@ export function BlockRenderer({
     case 'steps':
       return <StepsBlock block={block} />
     case 'highlight_verse':
-      return <HighlightVerseBlock block={block} />
+      return <HighlightVerseBlock block={block} lessonId={lessonId} moduleId={moduleId} topicTitle={topicTitle} />
     case 'central_quote':
       return <CentralQuoteBlock block={block} />
     case 'reflection':

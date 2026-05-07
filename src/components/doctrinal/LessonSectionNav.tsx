@@ -9,10 +9,10 @@ export type LessonSectionNavProps = {
 export function LessonSectionNav({ sections, activeIndex, onSelect }: LessonSectionNavProps) {
   return (
     <nav
-      className="sticky top-0 z-20 -mx-4 border-b border-gold-main/20 bg-bg-surface/95 px-4 py-3 backdrop-blur-sm sm:mx-0 sm:rounded-t-xl"
+      className="sticky top-0 z-20 -mx-8 overflow-x-auto border-b border-blue-accent/10 bg-white/95 backdrop-blur-sm [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:-mx-8"
       aria-label="Secciones de la lección"
     >
-      <div className="flex flex-wrap items-center gap-2">
+      <div className="flex min-w-max gap-1 px-6 py-2">
         {sections.map((s, i) => {
           const active = i === activeIndex
           return (
@@ -20,14 +20,28 @@ export function LessonSectionNav({ sections, activeIndex, onSelect }: LessonSect
               key={s.id}
               type="button"
               onClick={() => onSelect(i)}
-              className={`inline-flex max-w-[11rem] truncate rounded-full border px-3 py-1.5 font-ui text-xs font-semibold transition sm:text-sm ${
-                active
-                  ? 'border-gold-main bg-gold-dim text-blue-accent'
-                  : 'border-blue-accent/15 bg-white text-text-muted hover:border-gold-main/40'
-              }`}
               aria-current={active ? 'true' : undefined}
+              className={`flex flex-col items-center gap-0.5 rounded-xl px-4 py-2 transition-all ${
+                active
+                  ? 'bg-gold-main/10 text-blue-accent'
+                  : 'text-text-muted hover:bg-bg-elevated hover:text-blue-accent'
+              }`}
             >
-              {s.title}
+              <span
+                className={`font-title text-xl leading-none ${
+                  active ? 'text-gold-main' : 'text-blue-accent/25'
+                }`}
+              >
+                {s.intro?.romanNumeral ?? String(i + 1)}
+              </span>
+              <span className="max-w-[8rem] truncate font-ui text-xs">
+                {s.title}
+              </span>
+              {active ? (
+                <span className="h-0.5 w-5 rounded-full bg-gold-main" aria-hidden="true" />
+              ) : (
+                <span className="h-0.5 w-5" aria-hidden="true" />
+              )}
             </button>
           )
         })}

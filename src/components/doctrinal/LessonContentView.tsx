@@ -52,6 +52,7 @@ export function LessonContentView({
 
   const sections = useMemo(() => lesson.studySections ?? [], [lesson.studySections])
   const isRich = Boolean(sections.length > 0)
+  const hasOriginal = (lesson.originalBodyPlain ?? '').trim().length > 0
 
   const studyParagraphs = useMemo(() => splitPlainParagraphs(lesson.studyBodyPlain), [lesson.studyBodyPlain])
   const originalParagraphs = useMemo(() => splitPlainParagraphs(lesson.originalBodyPlain), [lesson.originalBodyPlain])
@@ -165,14 +166,6 @@ export function LessonContentView({
     [addJournalEntry, lessonId, moduleId],
   )
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(ttsText)
-    } catch {
-      /* ignore */
-    }
-  }
-
   const activeIndex = sections.findIndex((s) => s.id === activeSectionId)
 
   return (
@@ -222,36 +215,38 @@ export function LessonContentView({
         />
       ) : null}
 
-      <div
-        role="tablist"
-        aria-label="Tipo de contenido"
-        className="flex gap-2 border-b border-blue-accent/10 pb-px"
-      >
-        <button
-          type="button"
-          role="tab"
-          aria-selected={tab === 'study'}
-          className={`rounded-t-lg px-4 py-2 font-ui text-sm font-semibold transition ${
-            tab === 'study' ? 'border-b-2 border-gold-main text-blue-accent' : 'text-text-muted hover:text-blue-accent'
-          }`}
-          onClick={() => setTab('study')}
+      {hasOriginal ? (
+        <div
+          role="tablist"
+          aria-label="Tipo de contenido"
+          className="flex gap-2 border-b border-blue-accent/10 pb-px"
         >
-          Estudio
-        </button>
-        <button
-          type="button"
-          role="tab"
-          aria-selected={tab === 'original'}
-          className={`rounded-t-lg px-4 py-2 font-ui text-sm font-semibold transition ${
-            tab === 'original'
-              ? 'border-b-2 border-gold-main text-blue-accent'
-              : 'text-text-muted hover:text-blue-accent'
-          }`}
-          onClick={() => setTab('original')}
-        >
-          Texto original
-        </button>
-      </div>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={tab === 'study'}
+            className={`rounded-t-lg px-4 py-2 font-ui text-sm font-semibold transition ${
+              tab === 'study' ? 'border-b-2 border-gold-main text-blue-accent' : 'text-text-muted hover:text-blue-accent'
+            }`}
+            onClick={() => setTab('study')}
+          >
+            Estudio
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={tab === 'original'}
+            className={`rounded-t-lg px-4 py-2 font-ui text-sm font-semibold transition ${
+              tab === 'original'
+                ? 'border-b-2 border-gold-main text-blue-accent'
+                : 'text-text-muted hover:text-blue-accent'
+            }`}
+            onClick={() => setTab('original')}
+          >
+            Texto original
+          </button>
+        </div>
+      ) : null}
 
       <div className="flex flex-wrap items-center gap-3">
         {tab === 'study' && isRich && ttsAllParagraphs.length > 0 ? (
@@ -264,13 +259,6 @@ export function LessonContentView({
         ) : (
           <TextToSpeechButton text={ttsText} label="Escuchar" />
         )}
-        <button
-          type="button"
-          onClick={() => void handleCopy()}
-          className="rounded-full border border-blue-accent/25 bg-white px-4 py-2 font-ui text-sm font-semibold text-blue-accent shadow-sm transition hover:bg-blue-accent/5"
-        >
-          Copiar texto
-        </button>
         <button
           type="button"
           onClick={() => setShowNotes((v) => !v)}
