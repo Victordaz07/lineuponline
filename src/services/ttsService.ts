@@ -1,18 +1,41 @@
 /**
- * Servicio TTS: usa OpenAI vía Firebase Cloud Function cuando VITE_TTS_FUNCTION_URL
- * está configurado; si no, cae en la Web Speech API del navegador.
+ * TTS service: uses OpenAI via Firebase Cloud Function when VITE_TTS_FUNCTION_URL
+ * is configured; falls back to the browser's Web Speech API.
  */
 
 const TTS_URL = import.meta.env.VITE_TTS_FUNCTION_URL as string | undefined
 
 let currentAudio: HTMLAudioElement | null = null
 let abortCtrl: AbortController | null = null
+let _paused = false
+let _resumeResolve: (() => void) | null = null
+let _currentRate = 1
 
 export function isSpeechSynthesisSupported(): boolean {
   return Boolean(TTS_URL) || (typeof window !== 'undefined' && 'speechSynthesis' in window)
 }
 
+export function isOpenAIMode(): boolean {
+  return Boolean(TTS_URL)
+}
+
+export function getCurrentAudio(): HTMLAudioElement | null {
+  return currentAudio
+}
+
+export function isPaused(): boolean {
+  return _paused
+}
+
+export function setPlaybackRate(rate: number): void {
+  _currentRate = rate
+  if (currentAudio) currentAudio.playbackRate = rate
+}
+
 export function stopSpeaking(): void {
+  _paused = false
+  _resumeResolve?.()
+  _resumeResolve = null
   abortCtrl?.abort()
   abortCtrl = null
   if (currentAudio) {
@@ -24,16 +47,36 @@ export function stopSpeaking(): void {
   }
 }
 
+export function pauseSpeaking(): void {
+  _paused = true
+  currentAudio?.pause()
+}
+
+export function resumeSpeaking(): void {
+  _paused = false
+  currentAudio?.play().catch(() => {})
+  _resumeResolve?.()
+  _resumeResolve = null
+}
+
 export function isSpeaking(): boolean {
   if (TTS_URL) return currentAudio !== null && !currentAudio.paused
   return typeof window !== 'undefined' && 'speechSynthesis' in window && window.speechSynthesis.speaking
 }
 
-async function playOpenAI(text: string, rate: number, signal: AbortSignal): Promise<void> {
+async function waitForResume(signal: AbortSignal): Promise<void> {
+  if (!_paused) return
+  return new Promise<void>((resolve) => {
+    _resumeResolve = resolve
+    signal.addEventListener('abort', resolve, { once: true })
+  })
+}
+
+async function playOpenAI(text: string, voice: string, signal: AbortSignal): Promise<void> {
   const res = await fetch(TTS_URL!, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ text: text.slice(0, 4096), voice: 'nova' }),
+    body: JSON.stringify({ text: text.slice(0, 4096), voice }),
     signal,
   })
   if (!res.ok) throw new Error(`TTS HTTP ${res.status}`)
@@ -42,8 +85,11 @@ async function playOpenAI(text: string, rate: number, signal: AbortSignal): Prom
   return new Promise((resolve) => {
     const audio = new Audio(url)
     currentAudio = audio
-    audio.playbackRate = rate
-    const cleanup = () => { URL.revokeObjectURL(url); currentAudio = null }
+    audio.playbackRate = _currentRate
+    const cleanup = () => {
+      URL.revokeObjectURL(url)
+      currentAudio = null
+    }
     audio.onended = () => { cleanup(); resolve() }
     audio.onerror = () => { cleanup(); resolve() }
     signal.addEventListener('abort', () => { audio.pause(); cleanup(); resolve() }, { once: true })
@@ -51,11 +97,11 @@ async function playOpenAI(text: string, rate: number, signal: AbortSignal): Prom
   })
 }
 
-async function playBrowser(text: string, lang: string, rate: number): Promise<void> {
+async function playBrowser(text: string, lang: string): Promise<void> {
   return new Promise((resolve) => {
     const u = new SpeechSynthesisUtterance(text)
     u.lang = lang
-    u.rate = rate
+    u.rate = _currentRate
     u.onend = () => resolve()
     u.onerror = () => resolve()
     window.speechSynthesis.speak(u)
@@ -64,23 +110,31 @@ async function playBrowser(text: string, lang: string, rate: number): Promise<vo
 
 export async function speakSequentialChunks(
   chunks: string[],
-  options?: { lang?: string; rate?: number; onChunkStart?: (index: number) => void },
+  options?: {
+    lang?: string
+    rate?: number
+    voice?: string
+    onChunkStart?: (index: number) => void
+  },
 ): Promise<void> {
   stopSpeaking()
   abortCtrl = new AbortController()
   const { signal } = abortCtrl
-  const rate = options?.rate ?? 1
+  _currentRate = options?.rate ?? 1
   const lang = options?.lang ?? 'es-ES'
+  const voice = options?.voice ?? 'nova'
 
   for (let i = 0; i < chunks.length; i++) {
+    if (signal.aborted) break
+    await waitForResume(signal)
     if (signal.aborted) break
     options?.onChunkStart?.(i)
     const text = chunks[i]?.trim() ?? ''
     if (!text) continue
     if (TTS_URL) {
-      await playOpenAI(text, rate, signal)
+      await playOpenAI(text, voice, signal)
     } else {
-      await playBrowser(text, lang, rate)
+      await playBrowser(text, lang)
     }
   }
 

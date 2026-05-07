@@ -8,7 +8,7 @@ import { NoteEditor } from '@/components/doctrinal/NoteEditor'
 import { QuickFacts } from '@/components/doctrinal/QuickFacts'
 import { ScriptureBlock } from '@/components/doctrinal/ScriptureBlock'
 import { StudyJournal } from '@/components/doctrinal/StudyJournal'
-import { TextToSpeechButton } from '@/components/doctrinal/TextToSpeechButton'
+import { LessonAudioPlayer } from '@/components/doctrinal/LessonAudioPlayer'
 import { LessonSectionHeader } from '@/components/doctrinal/LessonSectionHeader'
 import { LessonSectionNav } from '@/components/doctrinal/LessonSectionNav'
 import { LessonTopicCard } from '@/components/doctrinal/LessonTopicCard'
@@ -248,25 +248,26 @@ export function LessonContentView({
         </div>
       ) : null}
 
-      <div className="flex flex-wrap items-center gap-3">
-        {tab === 'study' && isRich && ttsAllParagraphs.length > 0 ? (
-          <TextToSpeechButton
-            text={ttsAllParagraphs.map((p) => p.text).join('\n\n')}
-            paragraphs={ttsAllParagraphs}
-            onParagraphActive={setActiveParagraphId}
-            label="Escuchar lección"
-          />
-        ) : (
-          <TextToSpeechButton text={ttsText} label="Escuchar" />
-        )}
-        <button
-          type="button"
-          onClick={() => setShowNotes((v) => !v)}
-          className="rounded-full border border-gold-main/40 bg-gold-dim px-4 py-2 font-ui text-sm font-semibold text-blue-accent"
-          aria-expanded={showNotes}
-        >
-          {showNotes ? 'Ocultar notas' : 'Mis notas'}
-        </button>
+      <div className="space-y-3">
+        <div className="flex flex-wrap items-center gap-3">
+          {tab === 'study' && isRich && ttsAllParagraphs.length > 0 ? (
+            <LessonAudioPlayer
+              text={ttsAllParagraphs.map((p) => p.text).join('\n\n')}
+              paragraphs={ttsAllParagraphs}
+              onParagraphActive={setActiveParagraphId}
+            />
+          ) : (
+            <LessonAudioPlayer text={ttsText} />
+          )}
+          <button
+            type="button"
+            onClick={() => setShowNotes((v) => !v)}
+            className="rounded-full border border-gold-main/40 bg-gold-dim px-4 py-2 font-ui text-sm font-semibold text-blue-accent"
+            aria-expanded={showNotes}
+          >
+            {showNotes ? 'Ocultar notas' : 'Mis notas'}
+          </button>
+        </div>
       </div>
 
       {tab === 'study' && lesson.quickFacts?.length ? <QuickFacts facts={lesson.quickFacts} /> : null}
