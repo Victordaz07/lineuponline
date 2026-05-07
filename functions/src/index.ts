@@ -4,15 +4,29 @@ import OpenAI from 'openai'
 
 const openaiKey = defineSecret('OPENAI_API_KEY')
 
+/** Orígenes del front SPA (Hosting + desarrollo local). */
+const ALLOWED_ORIGINS = [
+  'https://lineuponline-a7eda.web.app',
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
+]
+
 export const tts = onRequest(
   {
     secrets: [openaiKey],
-    cors: true,
+    cors: ALLOWED_ORIGINS,
+    // Importante: sin invoker público, Cloud Run/dev puede responder 403 al OPTIONS antes del handler → error CORS en el navegador.
+    invoker: 'public',
     region: 'us-central1',
     memory: '256MiB',
     timeoutSeconds: 30,
   },
   async (req, res) => {
+    if (req.method === 'OPTIONS') {
+      res.status(204).send('')
+      return
+    }
+
     if (req.method !== 'POST') {
       res.status(405).json({ error: 'Method not allowed' })
       return

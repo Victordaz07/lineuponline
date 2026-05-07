@@ -67,12 +67,25 @@ export function resumeSpeaking(): void {
   void currentAudio?.play?.().catch(() => {})
   if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
     const ss = window.speechSynthesis
-    if (ss.paused) {
-      try {
-        ss.resume()
-      } catch {
-        /* noop */
-      }
+    try {
+      ss.resume()
+      // Chrome/Safari a veces ignoran el primer resume() tras pause().
+      requestAnimationFrame(() => {
+        try {
+          if (ss.paused) ss.resume()
+        } catch {
+          /* noop */
+        }
+      })
+      window.setTimeout(() => {
+        try {
+          if (ss.paused) ss.resume()
+        } catch {
+          /* noop */
+        }
+      }, 60)
+    } catch {
+      /* noop */
     }
   }
   _resumeResolve?.()
@@ -80,8 +93,16 @@ export function resumeSpeaking(): void {
 }
 
 export function isSpeaking(): boolean {
-  if (TTS_URL) return currentAudio !== null && !currentAudio.paused
-  return typeof window !== 'undefined' && 'speechSynthesis' in window && window.speechSynthesis.speaking
+  if (!TTS_URL) {
+    return typeof window !== 'undefined' && 'speechSynthesis' in window && window.speechSynthesis.speaking
+  }
+  if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+    const ss = window.speechSynthesis
+    if ((ss.speaking && !ss.paused) || currentAudio !== null) {
+      return true
+    }
+  }
+  return currentAudio !== null && !currentAudio.paused
 }
 
 async function waitForResume(signal: AbortSignal): Promise<void> {
@@ -117,14 +138,28 @@ async function playOpenAI(text: string, voice: string, signal: AbortSignal): Pro
   })
 }
 
-async function playBrowser(text: string, lang: string): Promise<void> {
+async function playBrowser(text: string, lang: string, signal: AbortSignal): Promise<void> {
   return new Promise((resolve) => {
+    const ss = window.speechSynthesis
     const u = new SpeechSynthesisUtterance(text)
     u.lang = lang
     u.rate = _currentRate
-    u.onend = () => resolve()
-    u.onerror = () => resolve()
-    window.speechSynthesis.speak(u)
+    const finish = () => {
+      signal.removeEventListener('abort', onAbort)
+      resolve()
+    }
+    const onAbort = () => {
+      try {
+        ss.cancel()
+      } catch {
+        /* noop */
+      }
+      finish()
+    }
+    signal.addEventListener('abort', onAbort, { once: true })
+    u.onend = finish
+    u.onerror = finish
+    ss.speak(u)
   })
 }
 
@@ -154,7 +189,7 @@ async function playOpenAiOrFallback(
         e,
       )
     }
-    await playBrowser(text, lang)
+    await playBrowser(text, lang, signal)
   }
 }
 
@@ -184,7 +219,7 @@ export async function speakSequentialChunks(
     if (TTS_URL) {
       await playOpenAiOrFallback(text, voice, lang, signal)
     } else {
-      await playBrowser(text, lang)
+      await playBrowser(text, lang, signal)
     }
   }
 
