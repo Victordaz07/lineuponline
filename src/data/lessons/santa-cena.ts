@@ -87,6 +87,13 @@ export const santaCena: Lesson = {
               ],
             },
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/images/santa-cena/ultima-cena.jpg',
+              alt: 'Cristo instituyendo la Santa Cena en la Última Cena con sus apóstoles',
+              caption: 'La noche antes de su crucifixión, el Salvador instituyó la ordenanza que renovaríamos cada semana.',
+            },
+            {
               type: 'reflection',
               prompt:
                 '¿En qué enfocas tu mente y tu corazón durante la Santa Cena? ¿Qué cambiaría en tu semana si la recibieras con plena conciencia de los convenios que estás haciendo?',
@@ -144,6 +151,13 @@ export const santaCena: Lesson = {
               quote:
                 'La dignidad para recibir la Santa Cena no es la perfección — es la honestidad de corazón. El que viene con un espíritu contrito y un genuino propósito de enmienda puede acercarse con confianza al trono de la gracia. El que participa fingiendo un convenio que no tiene intención de guardar, ese come y bebe condenación para sí mismo.',
               name: 'Élder Dallin H. Oaks · "La Santa Cena y la Expiación" · Conferencia General, octubre 2015',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/images/santa-cena/congregacion-recibe.jpg',
+              alt: 'Una congregación recibiendo la Santa Cena en silencio y reverencia',
+              caption: 'Cada miembro se examina a sí mismo — no se trata de ser perfectos, sino de ser honestos.',
             },
             {
               type: 'reflection',
@@ -367,6 +381,13 @@ export const santaCena: Lesson = {
                   color: 'green',
                 },
               ],
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/images/santa-cena/promesa-espiritu.jpg',
+              alt: 'Luz espiritual y paz que representa la promesa del Espíritu Santo',
+              caption: '«Si siempre os acordáis de mí, tendréis mi Espíritu con vosotros.» — 3 Nefi 18:7',
             },
             {
               type: 'reflection',
