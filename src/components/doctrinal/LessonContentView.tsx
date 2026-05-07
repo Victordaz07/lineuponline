@@ -19,6 +19,7 @@ import {
   topicHasQuiz,
 } from '@/lib/lessonRichUtils'
 import { splitPlainParagraphs } from '@/lib/utils'
+import { OriginalTextRenderer } from '@/components/doctrinal/OriginalTextRenderer'
 import { useLessonProgressStore } from '@/stores/lessonProgressStore'
 import { useStudyJournalStore } from '@/stores/studyJournalStore'
 import type { UserNoteInput } from '@/types/userNotes'
@@ -327,14 +328,8 @@ export function LessonContentView({
           </ExplanationPanel>
         ) : null}
 
-        {tab === 'original' ? (
-          <div className="space-y-4">
-            {originalParagraphs.map((p, index) => (
-              <p key={`orig-${index}`} className="text-reading text-base leading-relaxed text-text-main">
-                {p}
-              </p>
-            ))}
-          </div>
+        {tab === 'original' && lesson.originalBodyPlain ? (
+          <OriginalTextRenderer text={lesson.originalBodyPlain} />
         ) : null}
 
         {lesson.scriptures?.length ? (
