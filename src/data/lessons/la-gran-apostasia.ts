@@ -20,10 +20,10 @@ export const laGranApostasia: Lesson = {
   studySections: [
     {
       id: 's1',
-      title: 'La Profecía de la Apostasía',
+      title: 'Las Profecías de la Apostasía',
       intro: {
         romanNumeral: 'I',
-        title: 'La Profecía de la Apostasía',
+        title: 'Las Profecías de la Apostasía',
         paragraphs: [
           'La apostasía no tomó a Dios por sorpresa. Fue profetizada siglos antes de que ocurriera. Los apóstoles mismos la advirtieron durante sus vidas. No fue el fracaso del plan de Dios — fue la razón por la cual una Restauración, y no simplemente una reforma, era lo que el mundo necesitaba.',
         ],
@@ -40,7 +40,8 @@ export const laGranApostasia: Lesson = {
             },
             {
               type: 'paragraph',
-              text: 'Amós profetizó una hambruna de un tipo específico: no de comida, sino de la palabra del Señor. No la falta de Biblias — había abundancia de Biblias. La falta de revelación viva, autoridad del sacerdocio, y la voz de Dios a través de profetas vivientes. Eso es exactamente lo que ocurrió durante los siglos de la Gran Apostasía.',
+              text: 'Amós profetizó una hambruna de un tipo específico: no de comida, sino de la palabra del Señor. No la falta de Biblias — habría abundancia de ellas. La falta de revelación viva, autoridad del sacerdocio, y la voz de Dios a través de profetas vivientes. Eso es exactamente lo que ocurrió durante los siglos de la Gran Apostasía.',
+              blockId: 'ap-s1-p-0',
             },
             {
               type: 'highlight_verse',
@@ -55,7 +56,14 @@ export const laGranApostasia: Lesson = {
             {
               type: 'doctrine_box',
               title: 'Pedro predijo la Restauración, no solo la Apostasía',
-              body: 'En Hechos 3, Pedro no solo describe la apostasía que vendría — describe su solución: "la restauración de todas las cosas." Esta palabra griega, apocatastasis, significa restaurar a un estado original. No una reforma del sistema existente. No un mejoramiento gradual. Una restauración — devolver lo que se había perdido completamente. Pedro sabía que eventualmente el cielo tendría que intervenir de nuevo.',
+              body: 'En Hechos 3, Pedro no solo describe la apostasía que vendría — describe su solución: "la restauración de todas las cosas." Esta palabra griega, apocatastasis, significa restaurar a un estado original. No una reforma del sistema existente, sino una restauración — devolver lo que se había perdido completamente. Pedro sabía que eventualmente el cielo tendría que intervenir de nuevo.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              caption: 'La Reforma Protestante del siglo XVI — un paso necesario, pero no suficiente para restaurar lo que se había perdido.',
+              contextCard: { year: 'Siglos II–XIX', place: 'Europa y Oriente Medio', label: 'La Gran Apostasía' },
             },
           ],
         },
@@ -68,7 +76,7 @@ export const laGranApostasia: Lesson = {
         romanNumeral: 'II',
         title: 'Qué Se Perdió Exactamente',
         paragraphs: [
-          'La apostasía no significa que los cristianos de los siglos II al XIX eran malas personas. Significa que la iglesia que Cristo estableció perdió elementos esenciales que no podían ser recuperados sin intervención divina directa. Entender qué se perdió es entender por qué las reformas de Lutero, Calvino, y otros — aunque valiosas — no eran suficientes.',
+          'La apostasía no significa que los cristianos de los siglos II al XIX eran malas personas. Significa que la iglesia que Cristo estableció perdió elementos esenciales que no podían ser recuperados sin intervención divina directa.',
         ],
       },
       topics: [
@@ -89,37 +97,99 @@ export const laGranApostasia: Lesson = {
             {
               type: 'compare_grid',
               left: {
-                title: 'Reforma (lo que podía hacer)',
+                title: 'Lo que la Reforma podía hacer',
                 items: [
                   'Corregir abusos morales del clero',
                   'Devolver la Biblia al pueblo en idiomas vernáculos',
                   'Reducir la corrupción institucional',
                   'Enfatizar la gracia sobre las obras de penitencia',
+                  'Crear nuevas denominaciones con buena fe',
                 ],
               },
               right: {
-                title: 'Restauración (lo que requería)',
+                title: 'Lo que requería la Restauración',
                 items: [
                   'Restaurar la autoridad del sacerdocio desde el cielo',
                   'Restaurar las llaves apostólicas y proféticas',
                   'Restaurar las ordenanzas con forma y autoridad correctas',
                   'Restaurar doctrinas perdidas que ningún concilio podía recuperar',
+                  'Nuevas escrituras y revelación continua',
                 ],
               },
             },
             {
+              type: 'paragraph',
+              text: 'Lutero, Calvino, Zwinglio, y los otros reformadores hicieron un bien enorme al mundo. Pero ninguno reclamó tener autoridad divina para administrar las ordenanzas del evangelio. Lutero específicamente rechazó la idea de una iglesia jerárquica con autoridad especial — su principio era que cada cristiano tenía acceso directo a Dios sin intermediarios ordenados.',
+              blockId: 'ap-s2-p-0',
+            },
+            {
+              type: 'highlight_verse',
+              text: 'He aquí que yo, el Señor, he visto el pecado y la hipocresía de vuestros obispos y ministros, y de aquellos que se llaman siervos vuestros. Porque de una verdad muchos de ellos no han buscado sabiduría, sino han buscado sus propias riquezas y la vanagloria del mundo.',
+              reference: 'Doctrina y Convenios 33:4',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 's3',
+      title: 'La Evidencia Histórica de la Apostasía',
+      intro: {
+        romanNumeral: 'III',
+        title: 'La Evidencia Histórica de la Apostasía',
+        paragraphs: [
+          'La apostasía no es solo doctrina restaurada — está documentada en la propia literatura de los Padres de la Iglesia. Los teólogos del siglo II y III ya observaban el declive que los apóstoles habían predicho.',
+        ],
+      },
+      topics: [
+        {
+          id: 't3',
+          title: 'Los Padres de la Iglesia Como Testigos',
+          blocks: [
+            {
+              type: 'timeline',
+              items: [
+                {
+                  label: 'Siglo I (d.C.)',
+                  text: 'Los apóstoles gobiernan la iglesia con revelación directa y autoridad del sacerdocio. Algunos ya advierten de falsos maestros infiltrándose.',
+                  ref: 'Gálatas 1:6-9; 2 Tim 4:3-4',
+                  color: 'gold',
+                },
+                {
+                  label: 'Siglos II-III',
+                  text: 'Los Padres de la Iglesia documentan divisiones doctrinales. Orígenes (185-254) y Clemente de Alejandría introducen filosofía griega en la teología cristiana.',
+                  color: 'blue',
+                },
+                {
+                  label: '325 d.C.',
+                  text: 'Concilio de Nicea: el Emperador Constantino convoca una asamblea para definir la naturaleza de Dios por votación política. La doctrina se decide por debate, no por revelación.',
+                  color: 'red',
+                },
+                {
+                  label: 'Siglos IV-V',
+                  text: 'La iglesia estatal de Roma establece el papado como autoridad suprema. La Biblia se reserva para el clero. Las ordenanzas originales cambian de forma.',
+                  color: 'red',
+                },
+                {
+                  label: '1517',
+                  text: 'Martín Lutero publica sus 95 Tesis. Comienza la Reforma Protestante — necesaria, pero no suficiente para restaurar lo perdido.',
+                  color: 'blue',
+                },
+              ],
+            },
+            {
               type: 'deep_dive',
-              badge: 'Profundizar',
-              title: 'Por qué la reforma no era suficiente: el problema de la autoridad',
+              badge: 'Evidencia patrística',
+              title: 'Lo que los propios Padres de la Iglesia documentaron',
               paragraphs: [
-                'Lutero, Calvino, Zwinglio, y los otros reformadores hicieron un bien enorme al mundo. Pero ninguno de ellos reclamó tener autoridad divina para administrar las ordenanzas del evangelio. Lutero específicamente rechazó la idea de una iglesia jerárquica con autoridad especial — su principio era que cada cristiano tenía acceso directo a Dios sin necesidad de intermediarios ordenados.',
-                'El problema doctrinal es este: la Biblia misma muestra que las ordenanzas del evangelio requieren autoridad específica. Juan el Bautista fue enviado del cielo para bautizar. Los apóstoles fueron llamados, no elegidos. La imposición de manos para conferir el Espíritu Santo era hecha por los apóstoles, no por cualquier creyente. Sin esa cadena de autoridad, ¿quién tenía el derecho de bautizar?',
-                'James E. Talmage, en "La Gran Apostasía" (1909), documentó extensamente cómo los mismos Padres de la Iglesia de los siglos II y III ya advertían que la revelación directa había cesado, que los dones espirituales ya no eran comunes, y que la unidad doctrinal se estaba fracturando. No fue una caída súbita — fue un declive gradual que los observadores contemporáneos reconocieron.',
+                'James E. Talmage, en "La Gran Apostasía" (1909), documentó extensamente cómo los mismos Padres de la Iglesia de los siglos II y III ya advertían que la revelación directa había cesado, que los dones espirituales ya no eran comunes, y que la unidad doctrinal se estaba fracturando.',
+                'Ireneo de Lyon (siglo II) ya documentaba más de veinte grupos gnósticos que reclamaban ser la iglesia verdadera de Cristo. Orígenes (siglo III) reconocía que la iglesia había "perdido mucho de su antigua pureza." No fue una caída súbita — fue un declive gradual que los observadores contemporáneos reconocieron.',
+                'El debate más ilustrativo es el Concilio de Nicea (325 d.C.): la naturaleza de Dios — si el Padre y el Hijo eran "de la misma sustancia" o "de sustancia similar" — fue decidida por votación de obispos, con el Emperador Constantino (no bautizado) presidiendo y determinando el resultado. Eso es exactamente lo que ocurre cuando la revelación continua ha cesado: la doctrina se decide políticamente.',
               ],
             },
             {
               type: 'leader_quote',
-              quote: 'La apostasía no fue principalmente moral — fue institucional. Las personas buenas que amaban a Cristo siguieron existiendo durante la Gran Apostasía. Lo que no existía era la autoridad restaurada del sacerdocio, las llaves de las ordenanzas, y la revelación continua para guiar a la Iglesia como un todo. Una reforma podía mejorar la moralidad — solo una restauración podía devolver lo que se había perdido.',
+              quote: 'La apostasía no fue principalmente moral — fue institucional. Las personas buenas que amaban a Cristo siguieron existiendo durante la Gran Apostasía. Lo que no existía era la autoridad restaurada del sacerdocio, las llaves de las ordenanzas, y la revelación continua para guiar a la Iglesia como un todo.',
               name: 'James E. Talmage',
               role: '"The Great Apostasy", 1909, cap. 1 (trad.)',
             },
@@ -128,18 +198,67 @@ export const laGranApostasia: Lesson = {
       ],
     },
     {
-      id: 's3',
-      title: 'La Restauración — La Única Solución',
+      id: 's4',
+      title: 'El Problema de la Autoridad',
       intro: {
-        romanNumeral: 'III',
-        title: 'La Restauración — La Única Solución',
+        romanNumeral: 'IV',
+        title: 'El Problema de la Autoridad',
         paragraphs: [
-          'Entender la Apostasía hace que la Restauración sea inevitable. Si la autoridad del sacerdocio se perdió y no puede auto-generarse, la única forma de recuperarla es que regrese del cielo. Eso es exactamente lo que ocurrió: Pedro, Santiago y Juan restauraron el sacerdocio de Melquisedec. Elías, Moisés y Elías restauraron las llaves del templo. La dispensación de la plenitud de los tiempos no fue opcional — fue necesaria.',
+          'El problema central de la apostasía — y la razón por la cual la reforma no era suficiente — es el problema de la autoridad. ¿Quién tiene el derecho de bautizar? ¿De conferir el Espíritu Santo? La Biblia misma indica que esta autoridad no puede auto-generarse.',
         ],
       },
       topics: [
         {
-          id: 't3',
+          id: 't4',
+          title: 'Por Qué la Reforma No Podía Ser Suficiente',
+          blocks: [
+            {
+              type: 'highlight_verse',
+              text: 'Y nadie toma para sí esta honra, sino el que es llamado por Dios, como lo fue Aarón. Así tampoco Cristo se glorificó a sí mismo haciéndose sumo sacerdote, sino el que le dijo: Tú eres mi Hijo, yo te he engendrado hoy.',
+              reference: 'Hebreos 5:4–5',
+            },
+            {
+              type: 'paragraph',
+              text: 'Hebreos 5:4 establece el principio: nadie puede tomar para sí la autoridad del sacerdocio — tiene que ser llamado por Dios. Aarón fue llamado por Dios, no por su propia iniciativa ni por elección popular. Jesús fue ordenado por el Padre, no por los hombres. Si la autoridad apostólica se perdió — como los propios Padres de la Iglesia documentaron — no hay manera humana de recuperarla. Tiene que volver del cielo.',
+              blockId: 'ap-s4-p-0',
+            },
+            {
+              type: 'highlight_verse',
+              text: 'Así también Cristo no se glorificó a sí mismo haciéndose sumo sacerdote, sino aquel que le dijo: Tú eres mi Hijo, yo te he engendrado hoy. Como también dice en otro lugar: Tú eres sacerdote para siempre, según el orden de Melquisedec.',
+              reference: 'Hebreos 7:21',
+            },
+            {
+              type: 'doctrine_box',
+              title: '¿Por qué los reformadores no podían restaurar la autoridad?',
+              body: 'Lutero entendió perfectamente el problema. Dijo: "Si Dios quisiera que yo bautizara, me enviaría directamente desde el cielo." Él no reclamó tener autoridad divina para las ordenanzas — simplificó la doctrina y devolvió la Biblia al pueblo, dos cosas valiosas. Pero para restaurar la autoridad del sacerdocio, se necesita que venga de alguien que la tenga. Los reformadores no la tenían, y sabían que no la tenían. La única solución era que los ángeles autorizados por Cristo mismo la restauraran — lo que ocurrió en 1829 con Juan el Bautista y con Pedro, Santiago y Juan.',
+            },
+            {
+              type: 'deep_dive',
+              badge: 'La cadena de autoridad',
+              title: 'La línea de autoridad que viene de Cristo',
+              paragraphs: [
+                'La doctrina restaurada enseña que la autoridad del sacerdocio requiere una cadena ininterrumpida de ordenación que llega hasta Cristo. No es arrogancia — es coherencia con la Biblia misma, que muestra que la autoridad siempre vino de arriba hacia abajo.',
+                'En la Iglesia restaurada, cualquier portador del sacerdocio puede trazar su cadena de ordenación hacia atrás: a través del que lo ordenó, hasta los apóstoles restauradores, hasta Pedro, Santiago y Juan, hasta Cristo mismo.',
+                'Cuando un joven de doce años es ordenado diácono en su parroquia local, está recibiendo la misma autoridad que Juan el Bautista devolvió a la tierra en 1829. La cadena es real, trazable, y significa que cada ordenanza administrada con esa autoridad es válida ante el cielo.',
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 's5',
+      title: 'La Restauración — La Única Solución',
+      intro: {
+        romanNumeral: 'V',
+        title: 'La Restauración — La Única Solución',
+        paragraphs: [
+          'Entender la Apostasía hace que la Restauración sea inevitable. Si la autoridad del sacerdocio se perdió y no puede auto-generarse, la única forma de recuperarla es que regrese del cielo. Eso es exactamente lo que ocurrió.',
+        ],
+      },
+      topics: [
+        {
+          id: 't5',
           title: 'La Dispensación de la Plenitud de los Tiempos',
           blocks: [
             {
@@ -148,48 +267,106 @@ export const laGranApostasia: Lesson = {
               reference: 'Efesios 1:10',
             },
             {
+              type: 'timeline',
+              items: [
+                {
+                  label: '1820',
+                  text: 'Primera Visión — apertura de la dispensación; Dios y Cristo se aparecen a José Smith. El Padre presenta al Hijo: la restauración comienza.',
+                  ref: 'JS-H 1:17',
+                  color: 'gold',
+                },
+                {
+                  label: 'Mayo 1829',
+                  text: 'Juan el Bautista restaura el Sacerdocio Aarónico — las llaves del bautismo, la Santa Cena, y el ministerio de ángeles.',
+                  ref: 'DyC 13',
+                  color: 'blue',
+                },
+                {
+                  label: 'Junio 1829',
+                  text: 'Pedro, Santiago y Juan restauran el Sacerdocio de Melquisedec y las llaves apostólicas.',
+                  ref: 'DyC 27:12',
+                  color: 'gold',
+                },
+                {
+                  label: '6 abr 1830',
+                  text: 'Organización formal de La Iglesia de Jesucristo de los Santos de los Últimos Días — la primera vez en siglos que la iglesia de Cristo existe en la tierra con autoridad completa.',
+                  ref: 'DyC 21',
+                  color: 'gold',
+                },
+                {
+                  label: 'Abril 1836',
+                  text: 'Dedicación del Templo de Kirtland; Moisés, Elías y Elías restauran las llaves de reunión de Israel y del templo.',
+                  ref: 'DyC 110',
+                  color: 'blue',
+                },
+              ],
+            },
+            {
               type: 'highlight_verse',
               text: 'La voz del Señor es a todos los hombres, y no hay quien pueda escapar, y no hay ojo que no vea, ni oído que no oiga, ni corazón que no sea penetrado. [...] Porque he aquí que el Señor Dios ha enviado a su ángel para revelar el evangelio sempiterno.',
               reference: 'Doctrina y Convenios 1:2, 18',
             },
             {
-              type: 'timeline',
-              items: [
-                {
-                  label: '1820',
-                  text: 'Primera Visión — apertura de la dispensación; Dios y Cristo se aparecen a José Smith',
-                  ref: 'JS—H 1:17',
-                  color: 'gold',
-                },
-                {
-                  label: '1829',
-                  text: 'Juan el Bautista restaura el Sacerdocio Aarónico; Pedro, Santiago y Juan restauran el de Melquisedec',
-                  ref: 'DyC 13; 27:12',
-                  color: 'blue',
-                },
-                {
-                  label: '1830',
-                  text: 'Organización de la Iglesia — 6 de abril; el Libro de Mormón ya publicado',
-                  ref: 'DyC 21',
-                  color: 'gold',
-                },
-                {
-                  label: '1836',
-                  text: 'Dedicación del Templo de Kirtland; Moisés, Elías y Elías restauran las llaves del templo',
-                  ref: 'DyC 110',
-                  color: 'blue',
-                },
-                {
-                  label: 'Hoy',
-                  text: 'La Iglesia con autoridad y ordenanzas completas — preparando la Segunda Venida',
-                  ref: 'DyC 1:30',
-                  color: 'gold',
-                },
-              ],
+              type: 'leader_quote',
+              quote: 'La Gran Apostasía no fue el fracaso de Dios — fue la condición que hizo necesaria la mayor dispensación de todas. Cada dispensación anterior fue preparatoria para esta: la dispensación de la plenitud de los tiempos, en la cual todas las llaves, todas las ordenanzas, y toda la doctrina restaurada apuntan a la Segunda Venida de Cristo.',
+              name: 'Gordon B. Hinckley',
+              role: '"The Marvelous Foundation of Our Faith", Conferencia General, octubre 2002 (trad.)',
             },
+          ],
+        },
+      ],
+    },
+    {
+      id: 's6',
+      title: 'Aplicación y Verificación',
+      intro: {
+        romanNumeral: 'VI',
+        title: 'Aplicación y Verificación',
+        paragraphs: [
+          'La doctrina de la apostasía y la restauración no es solo historia — es el fundamento de por qué el evangelio restaurado importa. Estas preguntas y quizzes consolidan la comprensión.',
+        ],
+      },
+      topics: [
+        {
+          id: 't6',
+          title: 'Reflexión Final',
+          blocks: [
             {
               type: 'reflection',
-              prompt: '¿Qué diferencia hace en tu vida diaria saber que perteneces a una iglesia con autoridad restaurada del sacerdocio? ¿Cómo cambia tu relación con las ordenanzas que has recibido saber que provienen de una cadena ininterrumpida que llega hasta Cristo mismo?',
+              prompt: '¿Qué diferencia hace en tu vida diaria saber que perteneces a una iglesia con autoridad restaurada del sacerdocio? ¿Cómo cambia tu relación con las ordenanzas que has recibido saber que provienen de una cadena ininterrumpida que llega hasta Cristo mismo? ¿Hay alguien en tu vida que no entiende la diferencia entre reforma y restauración?',
+            },
+            {
+              type: 'quiz',
+              id: 'ap-q1',
+              question: {
+                kind: 'fill_blank',
+                prompt: 'Amós 8:11-12 profetizó una hambruna no de pan ni de agua, sino de ___ del Señor.',
+                options: ['la presencia', 'oír las palabras', 'los templos', 'los profetas'],
+                correctIndex: 1,
+                explanation: 'Amós profetizó: "enviaré hambre a la tierra: no hambre de pan, ni sed de agua, sino de oír las palabras del Señor." Esta profecía se cumplió durante los siglos de la Gran Apostasía — no faltaban Biblias, faltaba revelación viva y autoridad del sacerdocio.',
+              },
+            },
+            {
+              type: 'quiz',
+              id: 'ap-q2',
+              question: {
+                kind: 'fill_blank',
+                prompt: 'Según Hebreos 5:4, nadie puede tomar para sí la honra del sacerdocio sino el que es ___ por Dios, como lo fue Aarón.',
+                options: ['elegido', 'llamado', 'educado', 'confirmado'],
+                correctIndex: 1,
+                explanation: 'Hebreos 5:4 establece que "nadie toma para sí esta honra, sino el que es llamado por Dios, como lo fue Aarón." Este principio bíblico es la razón por la que la Reforma no podía restaurar la autoridad — ningún reformador fue llamado del cielo.',
+              },
+            },
+            {
+              type: 'quiz',
+              id: 'ap-q3',
+              question: {
+                kind: 'fill_blank',
+                prompt: 'Pedro en Hechos 3:21 habló de "la ___ de todas las cosas" que ocurriría antes de la Segunda Venida de Cristo.',
+                options: ['purificación', 'restauración', 'revelación', 'reforma'],
+                correctIndex: 1,
+                explanation: 'Hechos 3:19-21 menciona que el cielo recibiría a Cristo "hasta los tiempos de la restauración de todas las cosas." Pedro usó la palabra griega apocatastasis — restaurar a un estado original — no reforma. Esto predijo exactamente lo que ocurrió en 1820-1836.',
+              },
             },
           ],
         },
