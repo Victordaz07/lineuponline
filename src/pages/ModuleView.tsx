@@ -1,12 +1,13 @@
 import { useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { LessonList } from '@/components/learning/LessonList'
+import { SubmoduleHeroSection } from '@/components/learning/SubmoduleHeroSection'
 import { LoadingSpinner } from '@/components/common/LoadingSpinner'
 import { MediaSlot } from '@/components/doctrinal/MediaSlot'
 import { ProgressBar } from '@/components/learning/ProgressBar'
 import { useModule } from '@/hooks/useModule'
 import { useUserProgress } from '@/hooks/useUserProgress'
-import type { DifficultyLevel } from '@/types/doctrine'
+import type { DifficultyLevel, Lesson } from '@/types/doctrine'
 import { DIFFICULTY_LEVELS } from '@/lib/constants'
 
 const DEMO_USER = 'demo-user'
@@ -34,6 +35,24 @@ export default function ModuleView() {
     }
     return lessons.filter((l) => l.level === levelFilter)
   }, [lessons, levelFilter])
+
+  const { featuredGroups, regularLessons } = useMemo(() => {
+    const groupMap = new Map<string, Lesson[]>()
+    const regular: Lesson[] = []
+    for (const l of filteredLessons) {
+      if (l.submoduleGroup) {
+        const arr = groupMap.get(l.submoduleGroup) ?? []
+        arr.push(l)
+        groupMap.set(l.submoduleGroup, arr)
+      } else {
+        regular.push(l)
+      }
+    }
+    return {
+      featuredGroups: [...groupMap.entries()].map(([group, grpLessons]) => ({ group, lessons: grpLessons })),
+      regularLessons: regular,
+    }
+  }, [filteredLessons])
 
   const progressValue = useMemo(() => {
     if (!module || lessons.length === 0) {
@@ -110,10 +129,18 @@ export default function ModuleView() {
         </div>
       </section>
 
-      <section>
-        <h2 className="mb-4 font-title text-xl text-blue-accent">Lecciones</h2>
-        <LessonList lessons={filteredLessons} moduleId={module.id} />
-      </section>
+      {featuredGroups.map(({ group, lessons: grpLessons }) => (
+        <SubmoduleHeroSection key={group} group={group} lessons={grpLessons} moduleId={module.id} />
+      ))}
+
+      {regularLessons.length > 0 ? (
+        <section>
+          <h2 className="mb-4 font-title text-xl text-blue-accent">
+            {featuredGroups.length > 0 ? 'Otros personajes' : 'Lecciones'}
+          </h2>
+          <LessonList lessons={regularLessons} moduleId={module.id} />
+        </section>
+      ) : null}
     </div>
   )
 }

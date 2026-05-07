@@ -28,6 +28,16 @@ import { misionYTestimonio as lessonMisionTestimonio } from '@/data/lessons/misi
 import { visionDC76 as lessonVisionDC76 } from '@/data/lessons/vision-dc-76'
 import { visionTresReinos as lessonVisionTresReinos } from '@/data/lessons/vision-tres-reinos'
 import { juanTresNefitasApostasia as lessonJuanTresNefitas } from '@/data/lessons/juan-tres-nefitas-apostasia'
+import { porQueDiosPermiteElSufrimiento as lessonSufrimiento } from '@/data/lessons/por-que-dios-permite-el-sufrimiento'
+import { laSalvacionDeLosNoBautizados as lessonNoBautizados } from '@/data/lessons/la-salvacion-de-los-no-bautizados'
+import { almaElJoven as lessonAlmaElJoven } from '@/data/lessons/alma-el-joven'
+import { joseDeEgipto as lessonJoseDeEgipto } from '@/data/lessons/jose-de-egipto'
+import { abraham as lessonAbraham } from '@/data/lessons/abraham'
+import { jesusElHombre as lessonJesusElHombre } from '@/data/lessons/jesus-el-hombre'
+import { jesusElCristo as lessonJesusElCristo } from '@/data/lessons/jesus-el-cristo'
+import { cristoLibroDeMormonVsBiblia as lessonCristoLdMVsBiblia } from '@/data/lessons/cristo-libro-de-mormon-vs-biblia'
+import { losYoSoyDeCristo as lessonLosYoSoy } from '@/data/lessons/los-yo-soy-de-cristo'
+import { laResurreccionDeCristo as lessonResurreccionCristo } from '@/data/lessons/la-resurreccion-de-cristo'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -41,6 +51,16 @@ type LessonRow = {
   duration: number
   order: number
   status: LessonStatus
+  submoduleGroup?: string
+}
+
+export const SUBMODULE_GROUPS: Record<string, { title: string; description: string; icon: string }> = {
+  jesucristo: {
+    title: 'Jesucristo — Centro de Todo',
+    description:
+      'El Salvador del mundo visto desde todos los ángulos: su vida mortal, su naturaleza divina, su presencia en los cuatro evangelios, en 3 Nefi y en la voz de los profetas.',
+    icon: '🌅',
+  },
 }
 
 const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
@@ -108,6 +128,16 @@ const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
     order: 7,
     level: 'AVANZADO',
     usePurpleAccent: true,
+  },
+  {
+    id: 'personajes-escrituras',
+    title: 'Personajes de las Escrituras',
+    description:
+      'Estudios de vida de los grandes personajes de la Biblia, el Libro de Mormón y DyC: sus fortalezas, sus caídas, sus conversiones, y lo que cada uno revela sobre el carácter de Dios.',
+    icon: '🧬',
+    order: 8,
+    level: 'INTERMEDIO',
+    usePurpleAccent: false,
   },
 ]
 
@@ -440,6 +470,141 @@ const LESSON_ROWS: LessonRow[] = [
     order: 1,
     status: 'PUBLISHED',
   },
+  {
+    id: 'por-que-dios-permite-el-sufrimiento',
+    moduleId: 'temas-profundos',
+    title: '¿Por qué Dios Permite el Sufrimiento?',
+    subtitle: 'La pregunta más difícil de la teología',
+    description:
+      'El sufrimiento de los inocentes es el argumento más antiguo contra la existencia de un Dios bueno y poderoso. El evangelio restaurado no esquiva la pregunta — la responde desde ángulos que el cristianismo tradicional no tenía.',
+    level: 'AVANZADO',
+    icon: '⚖️',
+    duration: 75,
+    order: 2,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'la-salvacion-de-los-no-bautizados',
+    moduleId: 'temas-profundos',
+    title: 'La Salvación de los No Bautizados',
+    subtitle: '¿Qué pasa con los que nunca oyeron el evangelio?',
+    description:
+      '100 mil millones de personas han vivido en la Tierra. La mayoría murió sin bautismo. ¿Las condena Dios? DyC 137, 138 y el trabajo vicario del templo como respuesta completa.',
+    level: 'AVANZADO',
+    icon: '🌊',
+    duration: 70,
+    order: 3,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'jesus-el-hombre',
+    moduleId: 'personajes-escrituras',
+    submoduleGroup: 'jesucristo',
+    title: 'Jesús el Hombre',
+    subtitle: 'La vida que nadie nos contó',
+    description:
+      'Antes de ser el Cristo resucitado, fue un niño en una aldea de Galilea, un τέκτων con callos en las manos, hermano de Santiago, amigo de Lázaro, el hombre que lloró.',
+    level: 'BÁSICO',
+    icon: '🪚',
+    duration: 60,
+    order: 10,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'jesus-el-cristo',
+    moduleId: 'personajes-escrituras',
+    submoduleGroup: 'jesucristo',
+    title: 'Jesús el Cristo',
+    subtitle: 'El Ser que creó los cielos',
+    description:
+      'El hombre de Nazaret era también el Jehová del Antiguo Testamento, el Creador de mundos sin número, el Logos que existía antes de Abraham.',
+    level: 'AVANZADO',
+    icon: '⭐',
+    duration: 90,
+    order: 11,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'cristo-libro-de-mormon-vs-biblia',
+    moduleId: 'personajes-escrituras',
+    submoduleGroup: 'jesucristo',
+    title: 'Cristo: Libro de Mormón vs. Biblia',
+    subtitle: 'Dos testamentos, un Salvador',
+    description:
+      'El Libro de Mormón menciona a Cristo más de 2,500 veces. Esta lección compara lo que cada escritura aporta al retrato del Salvador.',
+    level: 'INTERMEDIO',
+    icon: '📚',
+    duration: 70,
+    order: 12,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'los-yo-soy-de-cristo',
+    moduleId: 'personajes-escrituras',
+    submoduleGroup: 'jesucristo',
+    title: 'Yo Soy',
+    subtitle: 'Los siete nombres divinos de Cristo en Juan',
+    description:
+      'En el Evangelio de Juan, Jesús hace siete declaraciones "Yo soy + atributo". Cada una es un eco del nombre divino de Éxodo 3:14 y revela una dimensión diferente de quién es Cristo.',
+    level: 'AVANZADO',
+    icon: '🔆',
+    duration: 65,
+    order: 13,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'la-resurreccion-de-cristo',
+    moduleId: 'personajes-escrituras',
+    submoduleGroup: 'jesucristo',
+    title: 'La Resurrección',
+    subtitle: 'El hecho que cambia todo',
+    description:
+      'La Resurrección no es el final feliz de una historia triste — es el eje sobre el que gira toda la fe cristiana. Recorre las apariciones del Cristo resucitado: María Magdalena, Emaús, Tomás, 3 Nefi, José Smith.',
+    level: 'INTERMEDIO',
+    icon: '🌄',
+    duration: 65,
+    order: 14,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'alma-el-joven',
+    moduleId: 'personajes-escrituras',
+    title: 'Alma el Joven',
+    subtitle: 'Del ángel destructor al apóstol del arrepentimiento',
+    description:
+      'El hijo del sumo sacerdote que se convirtió en enemigo de la Iglesia — y en su mayor defensor. Alma 36: la conversión más detallada del Libro de Mormón. Alma 32-34: la teología de la fe. Alma 42: la teodicea más rigurosa del canon.',
+    level: 'INTERMEDIO',
+    icon: '🔥',
+    duration: 65,
+    order: 1,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'jose-de-egipto',
+    moduleId: 'personajes-escrituras',
+    title: 'José de Egipto',
+    subtitle: 'Traicionado, encarcelado, exaltado — tipo de Cristo',
+    description:
+      'La vida de José de Egipto es el relato más elaborado del Antiguo Testamento como tipo de Cristo. Vendido por sus hermanos, falsamente acusado, encarcelado, exaltado. Génesis 37-50 y 2 Nefi 3: la profecía de Lehi sobre el José del final de los días.',
+    level: 'INTERMEDIO',
+    icon: '👑',
+    duration: 65,
+    order: 2,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'abraham',
+    moduleId: 'personajes-escrituras',
+    title: 'Abraham',
+    subtitle: 'El padre de la fe — y lo que esa fe costó',
+    description:
+      'El hombre al que Dios le pidió sacrificar a su hijo único. Abraham 1-3: la preordenación y la cosmología. Génesis 12-22: las pruebas acumuladas. Hebreos 11: el elogio más grande de la Biblia. DyC 132: el convenio abrahámico como fundamento de la exaltación.',
+    level: 'AVANZADO',
+    icon: '⭐',
+    duration: 70,
+    order: 3,
+    status: 'PUBLISHED',
+  },
 ]
 
 const PORTED: Partial<Record<string, Lesson>> = {
@@ -470,6 +635,16 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'juan-tres-nefitas-apostasia': lessonJuanTresNefitas,
   'la-expiacion-del-salvador': lessonLaExpiacionDelSalvador,
   'king-follett': lessonKingFollett,
+  'por-que-dios-permite-el-sufrimiento': lessonSufrimiento,
+  'la-salvacion-de-los-no-bautizados': lessonNoBautizados,
+  'alma-el-joven': lessonAlmaElJoven,
+  'jose-de-egipto': lessonJoseDeEgipto,
+  'abraham': lessonAbraham,
+  'jesus-el-hombre': lessonJesusElHombre,
+  'jesus-el-cristo': lessonJesusElCristo,
+  'cristo-libro-de-mormon-vs-biblia': lessonCristoLdMVsBiblia,
+  'los-yo-soy-de-cristo': lessonLosYoSoy,
+  'la-resurreccion-de-cristo': lessonResurreccionCristo,
 }
 
 function lessonIdsForModule(moduleId: string): string[] {
@@ -503,6 +678,7 @@ function buildSeedLessons(): Record<string, Lesson> {
         ...ported,
         previousLessonId: prevId,
         nextLessonId: nextId,
+        submoduleGroup: row.submoduleGroup,
       }
     } else {
       out[row.id] = {
@@ -520,6 +696,7 @@ function buildSeedLessons(): Record<string, Lesson> {
         originalBodyPlain: '',
         previousLessonId: prevId,
         nextLessonId: nextId,
+        submoduleGroup: row.submoduleGroup,
       }
     }
   }
