@@ -68,7 +68,7 @@ async function waitForResume(signal: AbortSignal): Promise<void> {
   if (!_paused) return
   return new Promise<void>((resolve) => {
     _resumeResolve = resolve
-    signal.addEventListener('abort', resolve, { once: true })
+    signal.addEventListener('abort', () => resolve(), { once: true })
   })
 }
 
