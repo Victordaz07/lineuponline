@@ -109,6 +109,13 @@ export const laExpiacionDelSalvador: Lesson = {
             }
           },
           {
+            "type": "media_slot",
+            "kind": "image",
+            "src": "/images/la-expiacion-del-salvador/cosmos-eterno.jpg",
+            "alt": "El universo como estructura eterna de inteligencias y materia organizada por Dios",
+            "caption": "Inteligencia y materia: los dos elementos eternos con los que Dios construye reinos."
+          },
+          {
             "type": "note_prompts",
             "prompts": [
               {
@@ -354,6 +361,13 @@ export const laExpiacionDelSalvador: Lesson = {
             "type": "highlight_verse",
             "text": "«Jesús fue preordenado antes que las fundaciones de este mundo fueran construidas, y su misión se le dio en la eternidad para ser el Salvador del mundo, pero cuando Él fue en la carne se le dejó escoger o rechazar al Padre. Si él hubiera rechazado obedecer al Padre se hubiera convertido en un hijo de perdición.»",
             "reference": "Presidente Brigham Young · Diarios de Discursos, vol. 10, p. 324"
+          },
+          {
+            "type": "media_slot",
+            "kind": "image",
+            "src": "/images/la-expiacion-del-salvador/guerra-cielos.jpg",
+            "alt": "La guerra en el cielo: huestes de luz siguiendo a Jehová contra las fuerzas de Lucifer",
+            "caption": "Un tercio de los hijos del Padre siguió a Lucifer. Los que estamos aquí — ganamos esa guerra."
           },
           {
             "type": "note_prompts",
@@ -638,6 +652,13 @@ export const laExpiacionDelSalvador: Lesson = {
             ]
           },
           {
+            "type": "media_slot",
+            "kind": "image",
+            "src": "/images/la-expiacion-del-salvador/adán-caída.jpg",
+            "alt": "Adán y Eva saliendo del Jardín de Edén al mundo mortal",
+            "caption": "La Caída no fue un accidente — fue el paso necesario que hizo posible la Expiación."
+          },
+          {
             "type": "note_prompts",
             "prompts": [
               {
@@ -764,6 +785,13 @@ export const laExpiacionDelSalvador: Lesson = {
             "prompt": "Esto fue planeado antes que el mundo existiera. Jesús eligió a los judíos — su propia gente — para que lo mataran. No por venganza, sino porque los amaba. Y planeó perdonarlos. Y planeó que el evangelio les fuera presentado primero. ¿Cuánto amor hay en ese nivel de sacrificio y planeación? Jesús diseñó su propia muerte con cuidado extremo — no para sufrir innecesariamente, sino para que su sufrimiento generara el máximo impacto de misericordia en todas las inteligencias del universo."
           },
           {
+            "type": "media_slot",
+            "kind": "image",
+            "src": "/images/la-expiacion-del-salvador/justicia-misericordia.jpg",
+            "alt": "La balanza de justicia y misericordia, reconciliadas por la Expiación de Cristo",
+            "caption": "«La misericordia no puede robarle a la justicia.» — Alma 42:25. La Expiación las reconcilia."
+          },
+          {
             "type": "note_prompts",
             "prompts": [
               {
@@ -887,6 +915,13 @@ export const laExpiacionDelSalvador: Lesson = {
               "correctIndex": 1,
               "explanation": "✓ Exactamente. Getsemaní fue la crisis de la elección libre. D&C 19:16-18 describe el sufrimiento que comenzó en el jardín. Brigham Young enseñó que si Jesús hubiera rechazado, «se hubiera convertido en un hijo de perdición.» Él eligió — y por eso vivimos."
             }
+          },
+          {
+            "type": "media_slot",
+            "kind": "image",
+            "src": "/images/la-expiacion-del-salvador/getsemani-cristo.jpg",
+            "alt": "Cristo solo en Getsemaní, arrodillado en agonía suprema, sudando gotas de sangre",
+            "caption": "«Y estando en agonía, oraba más intensamente; y era su sudor como grandes gotas de sangre.» — Lucas 22:44"
           },
           {
             "type": "note_prompts",
