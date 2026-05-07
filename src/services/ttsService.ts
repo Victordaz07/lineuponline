@@ -108,6 +108,36 @@ async function playBrowser(text: string, lang: string): Promise<void> {
   })
 }
 
+function browserTtsAvailable(): boolean {
+  return typeof window !== 'undefined' && 'speechSynthesis' in window
+}
+
+let warnedOpenAiFallback = false
+
+/** Intenta OpenAI vía función; si la red falla, usa síntesis del navegador. */
+async function playOpenAiOrFallback(
+  text: string,
+  voice: string,
+  lang: string,
+  signal: AbortSignal,
+): Promise<void> {
+  try {
+    await playOpenAI(text, voice, signal)
+  } catch (e) {
+    if (!browserTtsAvailable()) {
+      throw e instanceof Error ? e : new Error(String(e))
+    }
+    if (!warnedOpenAiFallback) {
+      warnedOpenAiFallback = true
+      console.warn(
+        '[TTS] La función cloud no respondió (¿desplegada en Blaze?). Se usa la voz del navegador.',
+        e,
+      )
+    }
+    await playBrowser(text, lang)
+  }
+}
+
 export async function speakSequentialChunks(
   chunks: string[],
   options?: {
@@ -132,7 +162,7 @@ export async function speakSequentialChunks(
     const text = chunks[i]?.trim() ?? ''
     if (!text) continue
     if (TTS_URL) {
-      await playOpenAI(text, voice, signal)
+      await playOpenAiOrFallback(text, voice, lang, signal)
     } else {
       await playBrowser(text, lang)
     }
