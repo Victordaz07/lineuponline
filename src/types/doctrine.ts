@@ -245,5 +245,6 @@ export type DoctrinalModule = {
   level: DifficultyLevel
   usePurpleAccent?: boolean
   heroImageUrl?: string
+  categoryLabel?: string
   lessonIds: string[]
 }

@@ -27,6 +27,11 @@ import { misionYTestimonio as lessonMisionTestimonio } from '@/data/lessons/misi
 import { visionDC76 as lessonVisionDC76 } from '@/data/lessons/vision-dc-76'
 import { visionTresReinos as lessonVisionTresReinos } from '@/data/lessons/vision-tres-reinos'
 import { juanTresNefitasApostasia as lessonJuanTresNefitas } from '@/data/lessons/juan-tres-nefitas-apostasia'
+import { jesusElHombre as lessonJesusElHombre } from '@/data/lessons/jesus-el-hombre'
+import { jesusElCristo as lessonJesusElCristo } from '@/data/lessons/jesus-el-cristo'
+import { cristoBomVsBiblia as lessonCristoBomVsBiblia } from '@/data/lessons/cristo-bom-vs-biblia'
+import { yoSoy as lessonYoSoy } from '@/data/lessons/yo-soy'
+import { resurreccionDeCristo as lessonResurreccionDeCristo } from '@/data/lessons/resurreccion-de-cristo'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -107,6 +112,17 @@ const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
     order: 7,
     level: 'AVANZADO',
     usePurpleAccent: true,
+  },
+  {
+    id: 'jesucristo-centro-de-todo',
+    title: 'Jesucristo — Centro de Todo',
+    description:
+      'El Salvador del mundo visto desde todos los ángulos: su vida mortal, su naturaleza divina, su presencia en los cuatro evangelios, en 3 Nefi y en la voz de los profetas.',
+    icon: '🌅',
+    order: 8,
+    level: 'BÁSICO',
+    usePurpleAccent: false,
+    categoryLabel: 'PERSONAJE PRINCIPAL',
   },
 ]
 
@@ -426,6 +442,71 @@ const LESSON_ROWS: LessonRow[] = [
     order: 1,
     status: 'PUBLISHED',
   },
+  {
+    id: 'jesus-el-hombre',
+    moduleId: 'jesucristo-centro-de-todo',
+    title: 'Jesús el Hombre',
+    subtitle: 'La humanidad del que también fue Dios',
+    description:
+      'Antes de ser el Cristo resucitado, fue un niño en una aldea de Galilea, un τέκτων con callos en las manos, hermano de Santiago, amigo de Lázaro, el hombre que lloró. Esta lección recorre su vida mortal sin saltar a la doctrina — solo la humanidad de un hombre que también fue Dios.',
+    level: 'BÁSICO',
+    icon: '🧑',
+    duration: 60,
+    order: 1,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'jesus-el-cristo',
+    moduleId: 'jesucristo-centro-de-todo',
+    title: 'Jesús el Cristo',
+    subtitle: 'Su naturaleza divina revelada',
+    description:
+      'Cristo no es solo un maestro extraordinario ni un profeta elevado. Es el Creador de mundos, el Jehová del Antiguo Testamento, el Unigénito del Padre, y el único que tiene poder de dar vida eterna. Esta lección examina su naturaleza divina desde Juan 1 hasta 3 Nefi 11.',
+    level: 'AVANZADO',
+    icon: '✝️',
+    duration: 90,
+    order: 2,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'cristo-bom-vs-biblia',
+    moduleId: 'jesucristo-centro-de-todo',
+    title: 'Cristo: Libro de Mormón vs. Biblia',
+    subtitle: 'Dos testamentos del mismo Salvador',
+    description:
+      'El Libro de Mormón no contradice la Biblia sobre Cristo — la amplifica. Donde los evangelios dan fragmentos, 3 Nefi da el relato más completo que existe de una aparición de Cristo resucitado. Donde Pablo predice la apostasía, el Libro de Mormón preserva la doctrina intacta.',
+    level: 'INTERMEDIO',
+    icon: '📖',
+    duration: 75,
+    order: 3,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'yo-soy',
+    moduleId: 'jesucristo-centro-de-todo',
+    title: 'Yo Soy',
+    subtitle: 'Las siete declaraciones que revelan a Jesucristo',
+    description:
+      'Siete veces en el Evangelio de Juan, Jesús dice "Yo Soy" seguido de una imagen. Cada declaración es una ventana a su identidad divina. Y cada una conecta con el Dios que habló desde la zarza ardiente: el Yo Soy eterno, el Jehová del Éxodo que ahora habla en carne.',
+    level: 'AVANZADO',
+    icon: '🌟',
+    duration: 90,
+    order: 4,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'resurreccion-de-cristo',
+    moduleId: 'jesucristo-centro-de-todo',
+    title: 'La Resurrección',
+    subtitle: 'El evento que divide la historia en dos',
+    description:
+      'Sin la resurrección, no hay evangelio. Pablo lo dice sin rodeos: si Cristo no resucitó, vuestra fe es vana. Esta lección examina los relatos de testigos oculares, la naturaleza del cuerpo resucitado, y por qué la resurrección de Cristo garantiza la nuestra.',
+    level: 'INTERMEDIO',
+    icon: '🌅',
+    duration: 75,
+    order: 5,
+    status: 'PUBLISHED',
+  },
 ]
 
 const PORTED: Partial<Record<string, Lesson>> = {
@@ -455,6 +536,11 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'juan-tres-nefitas-apostasia': lessonJuanTresNefitas,
   'la-expiacion-del-salvador': lessonLaExpiacionDelSalvador,
   'king-follett': lessonKingFollett,
+  'jesus-el-hombre': lessonJesusElHombre,
+  'jesus-el-cristo': lessonJesusElCristo,
+  'cristo-bom-vs-biblia': lessonCristoBomVsBiblia,
+  'yo-soy': lessonYoSoy,
+  'resurreccion-de-cristo': lessonResurreccionDeCristo,
 }
 
 function lessonIdsForModule(moduleId: string): string[] {
