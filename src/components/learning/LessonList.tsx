@@ -29,31 +29,45 @@ export function LessonList({ lessons, moduleId }: LessonListProps) {
     <ul className="space-y-3" aria-label="Lista de lecciones">
       {lessons.map((lesson) => {
         const open = expandedId === lesson.id
+        const published = lesson.status === 'PUBLISHED'
         return (
-          <li key={lesson.id} className="rounded-2xl border border-blue-accent/10 bg-white shadow-sm">
+          <li
+            key={lesson.id}
+            className={`rounded-2xl border bg-white shadow-sm ${
+              published ? 'border-blue-accent/10' : 'border-dashed border-blue-accent/15 opacity-75'
+            }`}
+          >
             <div className="flex flex-wrap items-center justify-between gap-2 px-4 py-3">
               <button
                 type="button"
                 className="flex flex-1 flex-col items-start text-left"
-                onClick={() => setExpandedId(open ? null : lesson.id)}
-                aria-expanded={open}
-                aria-controls={`lesson-panel-${lesson.id}`}
+                onClick={() => published ? setExpandedId(open ? null : lesson.id) : undefined}
+                aria-expanded={published ? open : undefined}
+                aria-controls={published ? `lesson-panel-${lesson.id}` : undefined}
                 id={`lesson-trigger-${lesson.id}`}
               >
-                <span className="font-title text-lg text-blue-accent">{lesson.title}</span>
-                {lesson.author ? (
-                  <span className="font-ui text-xs text-text-muted">{lesson.author}</span>
+                <span className={`font-title text-lg ${published ? 'text-blue-accent' : 'text-text-muted'}`}>
+                  {lesson.icon ? `${lesson.icon} ` : ''}{lesson.title}
+                </span>
+                {lesson.subtitle ? (
+                  <span className="font-ui text-xs text-text-muted">{lesson.subtitle}</span>
                 ) : null}
               </button>
               <LevelBadge level={lesson.level} />
-              <Link
-                to={`/lesson/${moduleId}/${lesson.id}`}
-                className="rounded-lg bg-gold-main px-3 py-1.5 font-ui text-xs font-semibold text-white shadow-sm transition hover:brightness-95"
-              >
-                Abrir
-              </Link>
+              {published ? (
+                <Link
+                  to={`/lesson/${moduleId}/${lesson.id}`}
+                  className="rounded-lg bg-gold-main px-3 py-1.5 font-ui text-xs font-semibold text-white shadow-sm transition hover:brightness-95"
+                >
+                  Abrir
+                </Link>
+              ) : (
+                <span className="rounded-lg border border-blue-accent/15 px-3 py-1.5 font-ui text-xs font-semibold text-text-muted">
+                  Próximamente
+                </span>
+              )}
             </div>
-            {open ? (
+            {open && published ? (
               <div
                 id={`lesson-panel-${lesson.id}`}
                 role="region"

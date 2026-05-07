@@ -88,6 +88,11 @@ export default function ModuleView() {
             {module.icon ?? '📖'}
           </span>
           <div>
+            {module.categoryLabel ? (
+              <p className="font-ui text-xs font-semibold uppercase tracking-[0.2em] text-gold-main">
+                {module.categoryLabel}
+              </p>
+            ) : null}
             <h1 className="font-title text-3xl text-blue-accent">{module.title}</h1>
             <p className="mt-2 max-w-prose text-reading text-base text-text-muted">{module.description}</p>
           </div>
