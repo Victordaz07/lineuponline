@@ -32,6 +32,11 @@ import { laSalvacionDeLosNoBautizados as lessonNoBautizados } from '@/data/lesso
 import { almaElJoven as lessonAlmaElJoven } from '@/data/lessons/alma-el-joven'
 import { joseDeEgipto as lessonJoseDeEgipto } from '@/data/lessons/jose-de-egipto'
 import { abraham as lessonAbraham } from '@/data/lessons/abraham'
+import { jesusElHombre as lessonJesusElHombre } from '@/data/lessons/jesus-el-hombre'
+import { jesusElCristo as lessonJesusElCristo } from '@/data/lessons/jesus-el-cristo'
+import { cristoLibroDeMormonVsBiblia as lessonCristoLdMVsBiblia } from '@/data/lessons/cristo-libro-de-mormon-vs-biblia'
+import { losYoSoyDeCristo as lessonLosYoSoy } from '@/data/lessons/los-yo-soy-de-cristo'
+import { laResurreccionDeCristo as lessonResurreccionCristo } from '@/data/lessons/la-resurreccion-de-cristo'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -45,6 +50,16 @@ type LessonRow = {
   duration: number
   order: number
   status: LessonStatus
+  submoduleGroup?: string
+}
+
+export const SUBMODULE_GROUPS: Record<string, { title: string; description: string; icon: string }> = {
+  jesucristo: {
+    title: 'Jesucristo — Centro de Todo',
+    description:
+      'El Salvador del mundo visto desde todos los ángulos: su vida mortal, su naturaleza divina, su presencia en los cuatro evangelios, en 3 Nefi y en la voz de los profetas.',
+    icon: '🌅',
+  },
 }
 
 const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
@@ -468,6 +483,76 @@ const LESSON_ROWS: LessonRow[] = [
     status: 'PUBLISHED',
   },
   {
+    id: 'jesus-el-hombre',
+    moduleId: 'personajes-escrituras',
+    submoduleGroup: 'jesucristo',
+    title: 'Jesús el Hombre',
+    subtitle: 'La vida que nadie nos contó',
+    description:
+      'Antes de ser el Cristo resucitado, fue un niño en una aldea de Galilea, un τέκτων con callos en las manos, hermano de Santiago, amigo de Lázaro, el hombre que lloró.',
+    level: 'BÁSICO',
+    icon: '🪚',
+    duration: 60,
+    order: 10,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'jesus-el-cristo',
+    moduleId: 'personajes-escrituras',
+    submoduleGroup: 'jesucristo',
+    title: 'Jesús el Cristo',
+    subtitle: 'El Ser que creó los cielos',
+    description:
+      'El hombre de Nazaret era también el Jehová del Antiguo Testamento, el Creador de mundos sin número, el Logos que existía antes de Abraham.',
+    level: 'AVANZADO',
+    icon: '⭐',
+    duration: 90,
+    order: 11,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'cristo-libro-de-mormon-vs-biblia',
+    moduleId: 'personajes-escrituras',
+    submoduleGroup: 'jesucristo',
+    title: 'Cristo: Libro de Mormón vs. Biblia',
+    subtitle: 'Dos testamentos, un Salvador',
+    description:
+      'El Libro de Mormón menciona a Cristo más de 2,500 veces. Esta lección compara lo que cada escritura aporta al retrato del Salvador.',
+    level: 'INTERMEDIO',
+    icon: '📚',
+    duration: 70,
+    order: 12,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'los-yo-soy-de-cristo',
+    moduleId: 'personajes-escrituras',
+    submoduleGroup: 'jesucristo',
+    title: 'Yo Soy',
+    subtitle: 'Los siete nombres divinos de Cristo en Juan',
+    description:
+      'En el Evangelio de Juan, Jesús hace siete declaraciones "Yo soy + atributo". Cada una es un eco del nombre divino de Éxodo 3:14 y revela una dimensión diferente de quién es Cristo.',
+    level: 'AVANZADO',
+    icon: '🔆',
+    duration: 65,
+    order: 13,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'la-resurreccion-de-cristo',
+    moduleId: 'personajes-escrituras',
+    submoduleGroup: 'jesucristo',
+    title: 'La Resurrección',
+    subtitle: 'El hecho que cambia todo',
+    description:
+      'La Resurrección no es el final feliz de una historia triste — es el eje sobre el que gira toda la fe cristiana. Recorre las apariciones del Cristo resucitado: María Magdalena, Emaús, Tomás, 3 Nefi, José Smith.',
+    level: 'INTERMEDIO',
+    icon: '🌄',
+    duration: 65,
+    order: 14,
+    status: 'PUBLISHED',
+  },
+  {
     id: 'alma-el-joven',
     moduleId: 'personajes-escrituras',
     title: 'Alma el Joven',
@@ -540,6 +625,11 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'alma-el-joven': lessonAlmaElJoven,
   'jose-de-egipto': lessonJoseDeEgipto,
   'abraham': lessonAbraham,
+  'jesus-el-hombre': lessonJesusElHombre,
+  'jesus-el-cristo': lessonJesusElCristo,
+  'cristo-libro-de-mormon-vs-biblia': lessonCristoLdMVsBiblia,
+  'los-yo-soy-de-cristo': lessonLosYoSoy,
+  'la-resurreccion-de-cristo': lessonResurreccionCristo,
 }
 
 function lessonIdsForModule(moduleId: string): string[] {
@@ -573,6 +663,7 @@ function buildSeedLessons(): Record<string, Lesson> {
         ...ported,
         previousLessonId: prevId,
         nextLessonId: nextId,
+        submoduleGroup: row.submoduleGroup,
       }
     } else {
       out[row.id] = {
@@ -590,6 +681,7 @@ function buildSeedLessons(): Record<string, Lesson> {
         originalBodyPlain: '',
         previousLessonId: prevId,
         nextLessonId: nextId,
+        submoduleGroup: row.submoduleGroup,
       }
     }
   }

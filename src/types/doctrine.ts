@@ -233,6 +233,7 @@ export type Lesson = {
   quickFacts?: string[]
   previousLessonId?: string | null
   nextLessonId?: string | null
+  submoduleGroup?: string
 }
 
 /** Módulo doctrinal con lista ordenada de ids de lección. */
