@@ -33,6 +33,11 @@ import { laSalvacionDeLosNoBautizados as lessonNoBautizados } from '@/data/lesso
 import { almaElJoven as lessonAlmaElJoven } from '@/data/lessons/alma-el-joven'
 import { joseDeEgipto as lessonJoseDeEgipto } from '@/data/lessons/jose-de-egipto'
 import { abraham as lessonAbraham } from '@/data/lessons/abraham'
+import { adanMiguelArcangel as lessonAdanMiguelArcangel } from '@/data/lessons/adan-miguel-arcangel'
+import { adanElCreador as lessonAdanElCreador } from '@/data/lessons/adan-el-creador'
+import { laCaidaElActoMasValiente as lessonLaCaida } from '@/data/lessons/la-caida-el-acto-mas-valiente'
+import { evaLaMadreQueEntendio as lessonEvaLaMadre } from '@/data/lessons/eva-la-madre-que-entendio-primero'
+import { adanOndiAhman as lessonAdanOndiAhman } from '@/data/lessons/adan-ondi-ahman'
 import { jesusElHombre as lessonJesusElHombre } from '@/data/lessons/jesus-el-hombre'
 import { jesusElCristo as lessonJesusElCristo } from '@/data/lessons/jesus-el-cristo'
 import { cristoLibroDeMormonVsBiblia as lessonCristoLdMVsBiblia } from '@/data/lessons/cristo-libro-de-mormon-vs-biblia'
@@ -60,6 +65,12 @@ export const SUBMODULE_GROUPS: Record<string, { title: string; description: stri
     description:
       'El Salvador del mundo visto desde todos los ángulos: su vida mortal, su naturaleza divina, su presencia en los cuatro evangelios, en 3 Nefi y en la voz de los profetas.',
     icon: '🌅',
+  },
+  'adan-eva': {
+    title: 'Adán y Eva — Los Primeros Padres',
+    description:
+      'El padre y la madre de todo el género humano — Miguel el Arcángel que fue Adán, la Caída como el acto más valiente de la historia, y el papel de Eva que el mundo malentendió durante milenios.',
+    icon: '🌱',
   },
 }
 
@@ -567,6 +578,76 @@ const LESSON_ROWS: LessonRow[] = [
     status: 'PUBLISHED',
   },
   {
+    id: 'adan-miguel-arcangel',
+    moduleId: 'personajes-escrituras',
+    submoduleGroup: 'adan-eva',
+    title: 'Adán: Miguel el Arcángel',
+    subtitle: 'El héroe de la guerra en el cielo',
+    description:
+      'Antes de ser el primer hombre de la Tierra, fue el más grande espíritu creado: Miguel, el arcángel que derrotó a Lucifer, el Anciano de Días de Daniel 7, y el que aún tiene una misión pendiente.',
+    level: 'AVANZADO',
+    icon: '⚔️',
+    duration: 75,
+    order: 20,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'adan-el-creador',
+    moduleId: 'personajes-escrituras',
+    submoduleGroup: 'adan-eva',
+    title: 'Adán el Creador',
+    subtitle: 'Antes del Jardín, ayudó a crear la Tierra',
+    description:
+      'Abraham 4-5 y Moisés 2-3 revelan que Adán no solo fue creado — participó activamente en la creación. Su asignación de nombres a los animales, el diseño del Jardín, y la creación de Eva son actos de un ser con autoridad cósmica.',
+    level: 'INTERMEDIO',
+    icon: '🌍',
+    duration: 65,
+    order: 21,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'la-caida-el-acto-mas-valiente',
+    moduleId: 'personajes-escrituras',
+    submoduleGroup: 'adan-eva',
+    title: 'La Caída — El Acto más Valiente',
+    subtitle: 'Transgresión, no pecado',
+    description:
+      'La Caída no fue un accidente ni una tragedia: fue una decisión necesaria tomada con plena conciencia de sus consecuencias. Moisés 5, 2 Nefi 2 y el testimonio de Eva explican por qué sin la Caída no podría existir el gozo.',
+    level: 'INTERMEDIO',
+    icon: '🌿',
+    duration: 70,
+    order: 22,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'eva-la-madre-que-entendio-primero',
+    moduleId: 'personajes-escrituras',
+    submoduleGroup: 'adan-eva',
+    title: 'Eva — La Madre que Entendió Primero',
+    subtitle: 'No fue engañada — eligió',
+    description:
+      'Eva no fue la ingenua que arruinó el plan. Fue la primera en entender que sin la Caída no habría progreso, ni gozo, ni redención. Moisés 5:11 registra su testimonio — el primero de toda la historia humana.',
+    level: 'INTERMEDIO',
+    icon: '🌺',
+    duration: 65,
+    order: 23,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'adan-ondi-ahman',
+    moduleId: 'personajes-escrituras',
+    submoduleGroup: 'adan-eva',
+    title: 'Adán-ondi-Ahmán',
+    subtitle: 'El consejo final antes de la Segunda Venida',
+    description:
+      'DyC 116, Daniel 7 y los escritos de José Smith revelan que Adán presidirá el consejo más importante de la historia: todos los dispensadores de las llaves del sacerdocio renderán su informe ante él — y él ante Cristo.',
+    level: 'AVANZADO',
+    icon: '🏔️',
+    duration: 80,
+    order: 24,
+    status: 'PUBLISHED',
+  },
+  {
     id: 'alma-el-joven',
     moduleId: 'personajes-escrituras',
     title: 'Alma el Joven',
@@ -640,6 +721,11 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'alma-el-joven': lessonAlmaElJoven,
   'jose-de-egipto': lessonJoseDeEgipto,
   'abraham': lessonAbraham,
+  'adan-miguel-arcangel': lessonAdanMiguelArcangel,
+  'adan-el-creador': lessonAdanElCreador,
+  'la-caida-el-acto-mas-valiente': lessonLaCaida,
+  'eva-la-madre-que-entendio-primero': lessonEvaLaMadre,
+  'adan-ondi-ahman': lessonAdanOndiAhman,
   'jesus-el-hombre': lessonJesusElHombre,
   'jesus-el-cristo': lessonJesusElCristo,
   'cristo-libro-de-mormon-vs-biblia': lessonCristoLdMVsBiblia,
