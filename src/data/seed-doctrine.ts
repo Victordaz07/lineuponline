@@ -1,6 +1,13 @@
 /**
  * Datos semilla: catálogo unificado de módulos y lecciones (sin iframes).
  */
+import { sacerdocioAaonico as lessonSacerdocioAaonico } from '@/data/lessons/sacerdocio-aaonico'
+import { elDiacono as lessonElDiacono } from '@/data/lessons/el-diacono'
+import { elMaestro as lessonElMaestro } from '@/data/lessons/el-maestro'
+import { elPresbitero as lessonElPresbitero } from '@/data/lessons/el-presbitero'
+import { elElder as lessonElElder } from '@/data/lessons/el-elder'
+import { elSumoSacerdote as lessonElSumoSacerdote } from '@/data/lessons/el-sumo-sacerdote'
+import { elPatriarca as lessonElPatriarca } from '@/data/lessons/el-patriarca'
 import { lessonKingFollett } from '@/data/lessons/king-follett'
 import { laExpiacionDelSalvador as lessonLaExpiacionDelSalvador } from '@/data/lessons/la-expiacion-del-salvador'
 import { santaCena as lessonSantaCena } from '@/data/lessons/santa-cena'
@@ -152,19 +159,30 @@ const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
     usePurpleAccent: false,
     categoryLabel: 'PERSONAJE PRINCIPAL',
   },
+  {
+    id: 'sacerdocio',
+    title: 'El Sacerdocio',
+    description:
+      'Cada oficio del Sacerdocio Aarónico y de Melquisedec: su teología, su historia y su práctica en la Iglesia. Desde el Diácono de 12 años hasta el Patriarca que pronuncia bendiciones eternas.',
+    icon: '🔑',
+    order: 9,
+    level: 'INTERMEDIO',
+    usePurpleAccent: true,
+    categoryLabel: 'OFICIO',
+  },
 ]
 
 const LESSON_ROWS: LessonRow[] = [
   {
     id: 'santa-cena',
-    moduleId: 'doctrina-avanzada-carne',
+    moduleId: 'sacerdocio',
     title: 'La Santa Cena',
     subtitle: 'Convenio y poder renovados',
     description: 'El pan y el agua, la memoria del Salvador, y los convenios que renovamos cada semana. Autoridad del sacerdocio, oraciones reveladas y el orden completo de la distribución.',
     level: 'INTERMEDIO',
     icon: '🍷',
     duration: 60,
-    order: 2,
+    order: 6,
     status: 'PUBLISHED',
   },
   {
@@ -290,7 +308,7 @@ const LESSON_ROWS: LessonRow[] = [
   },
   {
     id: 'vestimenta-sacerdocio',
-    moduleId: 'vida-familiar-personal',
+    moduleId: 'sacerdocio',
     title: 'Vestimenta y Preparación para el Sacerdocio',
     subtitle: 'Cómo honramos al Señor en cómo nos presentamos',
     description:
@@ -298,7 +316,7 @@ const LESSON_ROWS: LessonRow[] = [
     level: 'BÁSICO',
     icon: '👔',
     duration: 45,
-    order: 5,
+    order: 10,
     status: 'PUBLISHED',
   },
   {
@@ -339,7 +357,7 @@ const LESSON_ROWS: LessonRow[] = [
   },
   {
     id: 'sacerdocio-autoridad-poder',
-    moduleId: 'doctrina-avanzada-carne',
+    moduleId: 'sacerdocio',
     title: 'El Sacerdocio — Autoridad y Poder',
     subtitle: 'Las dos mitades que la mayoría confunde',
     description: 'La distinción de Nelson entre autoridad (ordenación) y poder (rectitud), los dos sacerdocios y sus funciones, las llaves y quién las tiene. DyC 84, 107, 121.',
@@ -347,6 +365,98 @@ const LESSON_ROWS: LessonRow[] = [
     icon: '🔑',
     duration: 70,
     order: 1,
+    status: 'PUBLISHED',
+  },
+  // ── MÓDULO SACERDOCIO — los 7 oficios ───────────────────────────────────────
+  {
+    id: 'sacerdocio-aaonico',
+    moduleId: 'sacerdocio',
+    title: 'El Sacerdocio Aarónico',
+    subtitle: 'El sacerdocio preparatorio y sus tres oficios',
+    description:
+      'El Sacerdocio Aarónico, restaurado por Juan el Bautista, es la base del ministerio en la Iglesia. Sus tres oficios — Diácono, Maestro y Presbítero — preparan a hombres jóvenes para una vida de servicio.',
+    level: 'BÁSICO',
+    icon: '⚡',
+    duration: 40,
+    order: 2,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'el-diacono',
+    moduleId: 'sacerdocio',
+    title: 'El Diácono',
+    subtitle: 'El primero en servicio — la puerta del sacerdocio',
+    description:
+      'El diácono es el primer oficio del sacerdocio. A los 12 años, el Padre Celestial confía en un joven para administrar la ordenanza más frecuente de la Iglesia y servir a su comunidad.',
+    level: 'BÁSICO',
+    icon: '🚶',
+    duration: 35,
+    order: 3,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'el-maestro',
+    moduleId: 'sacerdocio',
+    title: 'El Maestro',
+    subtitle: 'Preparar el camino — velar sobre la Iglesia',
+    description:
+      'El Maestro es el segundo oficio del Sacerdocio Aarónico. Prepara la mesa de la Santa Cena, ministeriza a los miembros y vela activamente que no haya contención en la Iglesia.',
+    level: 'BÁSICO',
+    icon: '🛡️',
+    duration: 35,
+    order: 4,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'el-presbitero',
+    moduleId: 'sacerdocio',
+    title: 'El Presbítero',
+    subtitle: 'El oficio más alto del Sacerdocio Aarónico',
+    description:
+      'El Presbítero es la cima del Sacerdocio Aarónico. Bendice la Santa Cena, bautiza y puede ordenar a otros. Su autoridad es la de un ministro de convenios.',
+    level: 'INTERMEDIO',
+    icon: '🙏',
+    duration: 40,
+    order: 5,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'el-elder',
+    moduleId: 'sacerdocio',
+    title: 'El Élder',
+    subtitle: 'El primer oficio del Sacerdocio de Melquisedec',
+    description:
+      'El Élder recibe la plenitud del sacerdocio con autoridad para administrar todas las ordenanzas de salvación, dar bendiciones de sanación, servir misión y presidir en la Iglesia.',
+    level: 'INTERMEDIO',
+    icon: '🔑',
+    duration: 45,
+    order: 7,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'el-sumo-sacerdote',
+    moduleId: 'sacerdocio',
+    title: 'El Sumo Sacerdote',
+    subtitle: 'El oficio que preside en la Iglesia de Cristo',
+    description:
+      'El Sumo Sacerdote es el oficio más alto del sacerdocio ordinario. Preside en la Iglesia, tiene responsabilidad por las ordenanzas del templo, y lleva el tipo del Gran Sumo Sacerdote: Jesucristo.',
+    level: 'AVANZADO',
+    icon: '👑',
+    duration: 50,
+    order: 8,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'el-patriarca',
+    moduleId: 'sacerdocio',
+    title: 'El Patriarca',
+    subtitle: 'El Evangelista — Mensajero Personal de Dios',
+    description:
+      'El Patriarca es el "Evangelista" en el lenguaje del Nuevo Testamento. Su ministerio es profético y personal: pronunciar bendiciones patriarcales que declaran el linaje tribal, promesas eternas y advertencias bajo la dirección del Espíritu.',
+    level: 'AVANZADO',
+    icon: '📜',
+    duration: 40,
+    order: 9,
     status: 'PUBLISHED',
   },
   {
@@ -1207,6 +1317,13 @@ const LESSON_ROWS: LessonRow[] = [
 ]
 
 const PORTED: Partial<Record<string, Lesson>> = {
+  'sacerdocio-aaonico': lessonSacerdocioAaonico,
+  'el-diacono': lessonElDiacono,
+  'el-maestro': lessonElMaestro,
+  'el-presbitero': lessonElPresbitero,
+  'el-elder': lessonElElder,
+  'el-sumo-sacerdote': lessonElSumoSacerdote,
+  'el-patriarca': lessonElPatriarca,
   'santa-cena': lessonSantaCena,
   'bautismo': lessonElBautismo,
   'don-espiritu-santo': lessonDonEspirituSanto,
