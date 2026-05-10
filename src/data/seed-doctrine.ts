@@ -1,6 +1,7 @@
 /**
  * Datos semilla: catálogo unificado de módulos y lecciones (sin iframes).
  */
+import { elSellamiento as lessonElSellamiento } from '@/data/lessons/el-sellamiento'
 import { sacerdocioAaonico as lessonSacerdocioAaonico } from '@/data/lessons/sacerdocio-aaonico'
 import { elDiacono as lessonElDiacono } from '@/data/lessons/el-diacono'
 import { elMaestro as lessonElMaestro } from '@/data/lessons/el-maestro'
@@ -304,6 +305,19 @@ const LESSON_ROWS: LessonRow[] = [
     icon: '❤️',
     duration: 50,
     order: 4,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'el-sellamiento',
+    moduleId: 'vida-familiar-personal',
+    title: 'El Sellamiento',
+    subtitle: 'La autoridad que une las eternidades',
+    description:
+      'El sellamiento del templo no es una boda religiosa más. Es la ordenanza más alta del sacerdocio de Melquisedec — une a un hombre y una mujer por el tiempo y toda la eternidad, fue restaurada por Elías en 1836, y abre la única puerta a la exaltación en el reino celestial.',
+    level: 'AVANZADO',
+    icon: '💍',
+    duration: 90,
+    order: 5,
     status: 'PUBLISHED',
   },
   {
@@ -1317,6 +1331,7 @@ const LESSON_ROWS: LessonRow[] = [
 ]
 
 const PORTED: Partial<Record<string, Lesson>> = {
+  'el-sellamiento': lessonElSellamiento,
   'sacerdocio-aaonico': lessonSacerdocioAaonico,
   'el-diacono': lessonElDiacono,
   'el-maestro': lessonElMaestro,
