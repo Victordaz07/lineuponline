@@ -157,14 +157,14 @@ const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
 const LESSON_ROWS: LessonRow[] = [
   {
     id: 'santa-cena',
-    moduleId: 'doctrina-fundamental',
+    moduleId: 'doctrina-avanzada-carne',
     title: 'La Santa Cena',
     subtitle: 'Convenio y poder renovados',
-    description: 'El pan y el agua, la memoria del Salvador, y los convenios que renovamos cada semana.',
-    level: 'BÁSICO',
+    description: 'El pan y el agua, la memoria del Salvador, y los convenios que renovamos cada semana. Autoridad del sacerdocio, oraciones reveladas y el orden completo de la distribución.',
+    level: 'INTERMEDIO',
     icon: '🍷',
-    duration: 45,
-    order: 1,
+    duration: 60,
+    order: 2,
     status: 'PUBLISHED',
   },
   {

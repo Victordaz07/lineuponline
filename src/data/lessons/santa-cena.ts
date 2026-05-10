@@ -2,7 +2,7 @@ import type { Lesson } from '@/types/doctrine'
 
 export const santaCena: Lesson = {
   id: 'santa-cena',
-  moduleId: 'doctrina-fundamental',
+  moduleId: 'doctrina-avanzada-carne',
   title: 'La Santa Cena',
   subtitle: 'Convenio y poder renovados',
   author: 'Iglesia de Jesucristo de los Santos de los Últimos Días',
