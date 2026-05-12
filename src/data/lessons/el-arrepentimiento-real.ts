@@ -4,450 +4,681 @@ export const elArrepentimientoReal: Lesson = {
   id: 'arrepentimiento',
   moduleId: 'doctrina-fundamental',
   title: 'El Arrepentimiento Real',
-  subtitle: 'No penitencia — transformación',
-  author: 'Fuentes principales: D&C 19 y Alma 42',
+  subtitle: 'El milagro más grande disponible en la mortalidad',
+  author: 'Fuentes principales: El Milagro del Perdón — Spencer W. Kimball · D&C 19 · Alma 36 y 42',
   description:
-    'El arrepentimiento no es sufrimiento para pagar el pecado — Cristo ya lo pagó. Es el proceso de cambio que hace posible que la misericordia actúe sin destruir la justicia. Basado en D&C 19 y Alma 42.',
-  level: 'BÁSICO',
+    'El arrepentimiento no es penitencia, ni vergüenza prolongada, ni sufrimiento autoinfligido. Es la transformación más profunda que un ser humano puede experimentar en la mortalidad — y la única puerta por la que la Expiación de Cristo actúa en favor del pecador.',
+  level: 'INTERMEDIO',
   icon: '🔄',
-  duration: 65,
+  duration: 90,
   order: 4,
   status: 'PUBLISHED',
   studyBodyPlain: '',
   originalBodyPlain: '',
-  previousLessonId: 'fe-principio-poder',
-  nextLessonId: null,
   studySections: [
-    // ─── SECCIÓN I ────────────────────────────────────────────────────────────
     {
       id: 's1',
-      title: 'Lo que el arrepentimiento no es',
+      title: 'El peso que nadie describe',
       intro: {
         romanNumeral: 'I',
-        title: 'Lo que el arrepentimiento no es',
+        title: 'Lo que el pecado le hace al alma',
         paragraphs: [
-          'El mayor obstáculo para el arrepentimiento genuino no es el orgullo — es la confusión doctrinal. Millones creen que arrepentirse significa sufrir para pagar su deuda con Dios. D&C 19 destruye esa idea desde sus cimientos.',
+          'Antes de hablar del remedio, hay que entender el problema. No en términos morales abstractos — sino en términos de lo que el pecado hace concretamente al alma humana. Kimball empieza El Milagro del Perdón con una verdad incómoda: la mayoría de las personas no se arrepienten porque nunca entienden de qué se arrepienten.',
         ],
       },
       topics: [
         {
-          id: 'no-es-penitencia',
-          title: 'Cristo ya pagó — tú no tienes que hacerlo',
-          subtitle:
-            'La penitencia es la idea de que nuestro sufrimiento contribuye al pago del pecado. D&C 19 deja en claro que el precio ya fue pagado completamente — y que añadir nuestro sufrimiento al suyo sería decir que el suyo no fue suficiente.',
+          id: 't1',
+          title: 'El pecado no es solo una transgresión de reglas',
           blocks: [
             {
               type: 'paragraph',
-              text: 'La revelación conocida como D&C 19 fue dada al Profeta José Smith alrededor de 1830, dirigida a Martín Harris. En ella, el Señor hace algo inusual: describe con sus propias palabras lo que sufrió en Getsemaní, y da la razón exacta por la que lo hizo. Lo que revela cambia completamente cómo entendemos el arrepentimiento.',
-              blockId: 'arr-s1-p-0',
+              text: 'El pecado tiene tres efectos simultáneos que ocurren independientemente de si la persona los siente o no. El primero es espiritual: la distancia entre el alma y Dios aumenta. El segundo es psicológico: la capacidad de percibir lo sagrado disminuye. El tercero es relacional: los lazos con las personas que amamos se desgastan desde adentro.',
             },
             {
               type: 'highlight_verse',
-              text: '"Por tanto, te mando que te arrepientas — arrepiéntete, no sea que te hiera con la vara de mi boca, y por mi ira, y tus sufrimientos sean penosos — ¡cuán penosos tú no sabes, cuán difícil de soportar tú no conoces! Pues he aquí, yo, Dios, sufrí estas cosas por todos, para que ellos no tuviesen que sufrir si se arrepintiesen; Pero si no se arrepintiesen, necesariamente habrán de sufrir aun como yo."',
-              reference: 'Doctrina y Convenios 19:15–17 · El Señor a Martín Harris, circa 1830',
+              reference: 'Mormón 9:3–4',
+              text: 'He aquí, ¿hubierais preferido venir ante el trono de Dios con vuestros pecados, siendo conscientes de vuestra culpa? He aquí, entonces os consumiría el conocimiento de vuestra culpa; entonces rehusaríais desear habitar con vuestro Dios.',
             },
             {
               type: 'paragraph',
-              text: 'La lógica es absoluta: Cristo sufrió "para que ellos NO tuviesen que sufrir SI se arrepintiesen." El arrepentimiento es precisamente la condición que activa ese pago ya realizado — no el mecanismo para hacer un pago propio. La persona que cree que sufrir basta para limpiar su pecado está ignorando la Expiación, no honrándola.',
-              blockId: 'arr-s1-p-1',
-            },
-            {
-              type: 'highlight_verse',
-              text: '"Porque la tristeza que es según Dios produce arrepentimiento para salvación, de que no hay que arrepentirse; pero la tristeza del mundo produce muerte."',
-              reference: '2 Corintios 7:10 · Biblia (RVR) · El Apóstol Pablo',
+              text: 'Mormón describe algo devastador: el pecado no resuelto no se queda quieto. Crece. Y en el momento del juicio — o simplemente cuando la conciencia se activa plenamente — produce exactamente lo contrario de lo que el pecador esperaba. No impunidad, sino un dolor tan agudo que el alma preferiría la inexistencia a la presencia de Dios.',
             },
             {
               type: 'doctrine_box',
-              title: 'Tristeza según Dios vs. tristeza del mundo — la diferencia que salva',
-              body: 'La TRISTEZA DEL MUNDO es culpa sin dirección: se centra en uno mismo, en la vergüenza, en el "¿qué pensarán de mí?", o en el miedo al castigo. Puede durar años y no producir ningún cambio real. Produce muerte espiritual — parálisis, desesperación, o en casos extremos, abandono de toda fe. La TRISTEZA SEGÚN DIOS (o tristeza piadosa) se centra en el daño causado: a Dios, al prójimo, a uno mismo como hijo del Padre. Produce arrepentimiento — un cambio real de corazón y dirección. No busca simplemente sentirse mejor; busca ser diferente. Esta distinción es la diferencia entre penitencia (secular o religiosa) y arrepentimiento verdadero.',
+              title: 'La muerte espiritual — el efecto que nadie ve',
+              body: 'La muerte espiritual no es metáfora. Es el estado real de separación del Espíritu de Dios que produce insensibilidad espiritual progresiva. Un alma en muerte espiritual no siente el aguijón de la conciencia no porque esté bien — sino porque ha perdido la capacidad de sentirlo. Kimball: "El pecado insensibiliza el alma de la misma manera que el frío extremo insensibiliza los dedos: primero duele, luego no dueles — y ese es el peligro real."',
+            },
+            {
+              type: 'leader_quote',
+              quote: 'No hay paz en la transgresión. La paz es un producto de la justicia. El pecador que no se arrepiente quizá no sienta angustia inmediata — pero vive en un estado de deuda espiritual que se acumula con intereses. El día del cobro llega inevitablemente.',
+              name: 'Spencer W. Kimball',
+              role: 'El Milagro del Perdón, cap. 1',
+            },
+            {
+              type: 'paragraph',
+              text: 'Esta no es una descripción diseñada para aterrorizar — es una descripción diseñada para despertar. Kimball escribe El Milagro del Perdón porque creyó, hasta la médula de sus huesos, que muchas almas están perdiendo eternidades por no entender lo que les está pasando ni lo que tienen disponible para remediarlo.',
+            },
+          ],
+        },
+        {
+          id: 't2',
+          title: 'El error de pensar que el tiempo lo resuelve',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'Uno de los errores más comunes y más costosos: creer que el tiempo cura el pecado. Que con los años, la culpa se diluye, el daño sana, y el asunto queda resuelto. La doctrina del evangelio es clara en el punto contrario: el tiempo sin arrepentimiento no limpia — acumula.',
+            },
+            {
+              type: 'highlight_verse',
+              reference: 'Doctrina y Convenios 82:7',
+              text: 'Y ahora bien, en verdad os digo, yo, el Señor, no perdonaré a quien peque contra esta luz y este conocimiento, porque a él no le es posible arrepentirse; y aquel que abandone el pecado no será tentado más de lo que pueda resistir; mas a quien peque, sus pecados anteriores le serán retornados, saith el Señor tu Dios.',
+            },
+            {
+              type: 'paragraph',
+              text: 'El principio de DyC 82:7 es severo pero misericordioso en su honestidad: cuando alguien que había abandonado el pecado regresa a él, los pecados anteriores vuelven. El perdón parcial exige fidelidad continua. El tiempo sin cambio no produce ningún efecto espiritual — solo produce distancia mayor de la gracia que podría haber actuado.',
+            },
+            {
+              type: 'reflection',
+              prompt: '¿Hay algo en tu vida que llevas esperando que "se arregle solo" con el tiempo? ¿Cuánto tiempo llevas esperando? ¿Qué costaría arreglarlo activamente?',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 's2',
+      title: 'La tristeza que salva',
+      intro: {
+        romanNumeral: 'II',
+        title: 'No toda tristeza es arrepentimiento',
+        paragraphs: [
+          'El Apóstol Pablo hace la distinción más importante de toda la doctrina del arrepentimiento en dos frases. Kimball la convierte en el eje central de El Milagro del Perdón: hay una tristeza que mata, y hay una tristeza que salva. La diferencia entre las dos no es la intensidad — es el objeto.',
+        ],
+      },
+      topics: [
+        {
+          id: 't3',
+          title: '2 Corintios 7:10 — la línea que divide',
+          blocks: [
+            {
+              type: 'highlight_verse',
+              reference: '2 Corintios 7:10',
+              text: 'Porque la tristeza que es según Dios produce arrepentimiento para salvación, de que no hay que arrepentirse; pero la tristeza del mundo produce muerte.',
             },
             {
               type: 'compare_grid',
+              title: 'Tristeza del mundo vs. Tristeza según Dios',
               left: {
-                title: 'Penitencia — la distorsión',
+                title: 'Tristeza del mundo',
                 items: [
-                  'El sufrimiento del pecador contribuye al pago del pecado',
-                  'Se centra en castigar al hombre viejo',
-                  'Produce culpa como fin en sí misma',
-                  'El perdón se gana por sufrir suficiente',
-                  'Niega implícitamente que la Expiación fue suficiente',
-                  'Puede durar indefinidamente sin cambio real de vida',
+                  'Me duele porque me atraparon',
+                  'Me duele porque hay consecuencias para mí',
+                  'Me arrepiento de haber sido descubierto',
+                  'Quiero que el dolor pare — no que el pecado pare',
+                  'Prometo no volver a hacerlo... mientras duela',
+                  'Produce muerte — no cambio',
                 ],
               },
               right: {
-                title: 'Arrepentimiento real — la doctrina',
+                title: 'Tristeza según Dios',
                 items: [
-                  'Cristo ya pagó el precio — el arrepentimiento lo activa',
-                  'Se centra en transformar al hombre nuevo',
-                  'Produce tristeza piadosa como motor de cambio, no como meta',
-                  'El perdón viene de Cristo, no del nivel de sufrimiento propio',
-                  'Honra la Expiación al confiar en que fue completamente suficiente',
-                  'Tiene un fin: el cambio de vida que certifica que fue real',
+                  'Me duele porque lastimé a Dios y a personas que amo',
+                  'Me duele porque entiendo lo que es el pecado',
+                  'Me arrepiento del pecado mismo, no de sus consecuencias',
+                  'Quiero que el pecado pare — aunque nadie lo sepa',
+                  'El cambio ocurre independientemente de si el dolor para',
+                  'Produce arrepentimiento para salvación',
                 ],
               },
             },
             {
+              type: 'paragraph',
+              text: 'La tristeza del mundo es el estado emocional de alguien que está incómodo con las consecuencias de su pecado. La tristeza según Dios es el estado espiritual de alguien que ha visto el pecado tal como es — una ofensa contra el amor de Dios, un daño a su propia alma, un alejamiento del destino para el que fue creado.',
+            },
+            {
               type: 'leader_quote',
-              quote:
-                'El arrepentimiento no es un castigo — es un privilegio. Es el proceso maravilloso y misericordioso que el Señor ha dado a sus hijos para que puedan cambiar. Cuando elegimos arrepentirnos, elegimos cambiar. Permitimos que el Salvador nos transforme en la mejor versión de nosotros mismos. El arrepentimiento siempre implica acción. No es suficiente lamentarse. Debemos cambiar.',
-              name: 'Presidente Russell M. Nelson · "Podemos hacerlo mejor y ser mejores" · Conferencia General, abril 2019',
-            },
-            {
-              type: 'deep_dive',
-              badge: 'D&C 19',
-              title: '"Castigo eterno" no significa "castigo para siempre" — la revelación que cambia todo',
-              paragraphs: [
-                'D&C 19:4-12 contiene una revelación lingüística de enorme importancia: el Señor explica que "castigo eterno" y "castigo interminable" no describen la duración del sufrimiento — son nombres. "Eterno" y "Sin Fin" son nombres de Dios. Por tanto, "castigo eterno" = el castigo que pertenece a Dios, administrado por Dios.',
-                'D&C 19:10-12: "Porque he aquí que yo soy sin fin, y el castigo que se impone de mi mano es castigo eterno; porque Sin Fin es mi nombre. Por tanto — El castigo eterno es el castigo de Dios. El castigo interminable es el castigo de Dios."',
-                'Esta revelación tiene consecuencias profundas: el infierno y sus castigos no son necesariamente eternos en duración para todo pecador. El arrepentimiento genuino puede liberar a la persona del dominio de ese castigo — porque el castigo "de Dios" puede ser aplicado, pero también puede ser suspendido por el mismo Dios a través de la Expiación. Esta es la buena nueva del arrepentimiento: no hay pecado tan grande que la misericordia de Dios, activada por el arrepentimiento, no pueda cubrir.',
-              ],
-            },
-            {
-              type: 'reflection',
-              prompt:
-                '¿Hay pecados en tu pasado por los que todavía te castigas — no como arrepentimiento real, sino como penitencia — como si Cristo no hubiera sido suficiente? ¿Qué cambiaría en tu relación con Dios si creyeras completamente que D&C 19:17 aplica a TI?',
+              quote: 'El arrepentimiento genuino incluye una abominación del pecado — una profunda repugnancia hacia lo que se hizo, no solo hacia las consecuencias. Una persona que lamenta haber sido atrapada pero no lamenta el acto mismo, no se ha arrepentido. Ha experimentado incomodidad, no arrepentimiento.',
+              name: 'Spencer W. Kimball',
+              role: 'El Milagro del Perdón, cap. 7',
             },
           ],
         },
-      ],
-    },
-    // ─── SECCIÓN II ───────────────────────────────────────────────────────────
-    {
-      id: 's2',
-      title: 'El problema — justicia, misericordia y la caída',
-      intro: {
-        romanNumeral: 'II',
-        title: 'El problema — justicia, misericordia y la caída',
-        paragraphs: [
-          'Alma 42 es la explicación más lúcida del problema que el arrepentimiento debe resolver. Sin entender por qué la justicia existe y por qué no puede simplemente ignorarse, el arrepentimiento parece innecesario.',
-        ],
-      },
-      topics: [
         {
-          id: 'justicia-misericordia',
-          title: 'Por qué Dios no puede simplemente perdonar a todos sin más',
-          subtitle:
-            'Alma le explicó a su hijo Corianton algo que muchos nunca comprenden: no es que Dios no quiera perdonar — es que perdonar sin justicia destruiría el orden moral del universo y haría que Dios dejara de ser Dios.',
+          id: 't4',
+          title: 'Alma en Getsemaní de su propia alma — Alma 36',
           blocks: [
             {
               type: 'paragraph',
-              text: 'Corianton, el hijo de Alma, había cometido inmoralidad sexual en su misión y había llegado a una conclusión que muchos comparten: si Dios es tan misericordioso, ¿por qué no simplemente perdonar todos los pecados sin condición? ¿Por qué no ser indulgente con la debilidad humana? La respuesta de Alma en el capítulo 42 es la exposición más brillante de la teología de la Expiación en todo el Libro de Mormón.',
-              blockId: 'arr-s2-p-0',
+              text: 'El relato más poderoso de tristeza según Dios en las Escrituras no es el de un profeta anciano — es el de un joven que había dedicado años a destruir la Iglesia de Dios, y que en un momento de visión espiritual súbita entendió exactamente lo que había hecho. Alma el Joven vivió en tres días lo que muchos nunca viven en toda una vida de "arrepentimiento".',
             },
             {
               type: 'highlight_verse',
-              text: '"Y si no hubiera habido ley alguna dada, si los hombres no hubieran sido cortados, es decir, si no hubiera habido ningún castigo que sobreviniera por la transgresión, la misericordia no podría actuar sino que destruiría la obra de la justicia. Ahora bien, la obra de la justicia no podría ser destruida; si fuera así, Dios dejaría de ser Dios."',
-              reference: 'Alma 42:13 · Libro de Mormón · Alma a su hijo Corianton',
+              reference: 'Alma 36:12–14',
+              text: 'Mas yo era atormentado por los tormentos del infierno; vi que había pecado y transgredido las leyes de Dios, y mis pecados me atormentaban grandemente. Y ahora bien, cuando mi mente captó este pensamiento, no pude seguir abriendo mis labios, tan grande era mi asombro; y más aún, tanta era mi angustia por los tormentos de mis pecados que yo pensaba en mi corazón que ojalá pudiera llegar a ser inexistente.',
             },
             {
               type: 'paragraph',
-              text: 'La frase "Dios dejaría de ser Dios" no es hiperbólica — es la descripción exacta de lo que ocurriría si la justicia fuera violada. Un Dios que ignora el pecado no es un Dios perfecto — es un Dios corrupto. Y un universo gobernado por un Dios corrupto se derrumba moralmente. La justicia no es una restricción impuesta a Dios desde afuera — ES parte de su naturaleza perfecta, y por eso no puede negarse a sí mismo.',
-              blockId: 'arr-s2-p-1',
+              text: 'Alma deseó dejar de existir. No porque Dios lo estuviera castigando desde afuera — sino porque la visión clara del pecado era insoportable para un alma que, en ese mismo momento, comenzaba a percibir la santidad de lo que había violado. Ese es el efecto de la tristeza según Dios llevada a su punto más agudo.',
             },
             {
               type: 'highlight_verse',
-              text: '"Porque he aquí que la justicia ejerce todos sus requerimientos, y también la misericordia reclama todo lo que le es propio; y así ningún hombre puede ser salvo, excepto quienes sean los que han tenido verdadero arrepentimiento. ¿Puede ser salvado el hombre en sus pecados? Os digo que no; pues no puedo negar la justicia cuando reine."',
-              reference: 'Alma 42:24–25 · Libro de Mormón',
+              reference: 'Alma 36:17–19',
+              text: 'Y aconteció que mientras era así atormentado por los tormentos del infierno, de repente recordé también haber oído a mi padre profetizar al pueblo acerca de la venida de un Jesucristo, un Hijo de Dios, para expiar los pecados del mundo. Y al recordar esto, ya no pude acordarme más de mis dolores... y no pude acordarme de ningún dolor más.',
             },
             {
-              type: 'doctrine_box',
-              title: 'El dilema divino que la Expiación resuelve — Alma 42',
-              body: 'La justicia EXIGE: que todo pecado tenga consecuencias, que el orden moral del universo se sostenga, que Dios no sea parcial ni corrupto. La misericordia DESEA: salvar a los hijos que se arrepienten, limpiar al pecador genuinamente transformado, dar una segunda oportunidad. El problema: si la misericordia simplemente cancela la justicia, la justicia deja de existir — y Dios pierde su integridad perfecta. Si la justicia nunca cede, ningún ser humano (todos hemos pecado) puede ser salvo. La Expiación es la solución perfecta: Cristo paga a la justicia lo que ella exige, liberando a la misericordia para actuar en favor de quien se arrepiente. Ni la justicia es violada ni la misericordia es negada.',
-            },
-            {
-              type: 'highlight_verse',
-              text: '"Y así vemos que toda la humanidad estaba caída, y habría quedado en el polvo para siempre, y para siempre, sin ningún fin, si no hubiera sido por el gran y eterno plan de redención. Por tanto, Dios mismo expiará los pecados del mundo, para dar a luz el plan de la misericordia, para satisfacer las demandas de la justicia, a fin de que Dios sea un Dios perfecto, justo y misericordioso también."',
-              reference: 'Alma 42:14–15 · Libro de Mormón',
-            },
-            {
-              type: 'leader_quote',
-              quote:
-                'La ley de la justicia no fue establecida por Dios como una barrera arbitraria — es una ley eterna co-igual con Su existencia. Dios no puede simplemente decretar que el pecado no importa, así como no puede decretar que dos más dos son cinco. Lo que sí puede hacer — y lo que hace la Expiación — es satisfacer Él mismo las demandas de esa ley en favor de los que se arrepienten, de modo que la misericordia fluya sin violar la justicia.',
-              name: 'Élder D. Todd Christofferson · "El don del fruto del arrepentimiento" · Conferencia General, octubre 2011',
-            },
-            {
-              type: 'deep_dive',
-              badge: 'Alma 42',
-              title: 'El estado de prueba: por qué la mortalidad existe exactamente como es',
-              paragraphs: [
-                'Alma 42 comienza con una explicación del Estado de Prueba que muchos pasan por alto. El estado de prueba (mortalidad) fue diseñado específicamente para un propósito: dar a los hijos de Dios tiempo para arrepentirse antes del juicio final. Alma 42:4-5: "Y así vemos que había un tiempo concedido al hombre para arrepentirse, sí, un tiempo probatorio; y que había un tiempo establecido para que los hombres se arrepintieran, de no ser lo cual habrían sido cortados."',
-                'Esto significa que toda la arquitectura de la mortalidad — el velo de olvido, las pruebas, la libertad de elección, el acceso a la Expiación — fue diseñada para maximizar la probabilidad de que los hijos de Dios se arrepientan y regresen a Él.',
-                'El arrepentimiento no es entonces solo una respuesta al pecado — es el PROPÓSITO PRINCIPAL de la mortalidad. La vida en este mundo es, en su mayor parte, un proceso de aprender a arrepentirse: de confiar en Dios más que en uno mismo, de cambiar de dirección una y otra vez hasta que la dirección de la vida apunte establemente hacia el Padre.',
-              ],
-            },
-            {
-              type: 'reflection',
-              prompt:
-                'Alma explica que "Dios dejaría de ser Dios" si la justicia fuera ignorada. ¿Cómo cambia tu visión del arrepentimiento saber que Dios no puede simplemente perdonarte sin la Expiación — no por falta de amor, sino por integridad perfecta? ¿Hace el arrepentimiento más o menos urgente para ti?',
+              type: 'paragraph',
+              text: 'El momento en que Alma volteó su pensamiento al Cristo fue el momento en que la tristeza que salva hizo su obra. No desapareció porque él cambió de tema — sino porque la tristeza según Dios cumplió su propósito: preparar el corazón para recibir la misericordia de Cristo. La tristeza según Dios no es el destino — es el umbral.',
             },
           ],
         },
       ],
     },
-    // ─── SECCIÓN III ──────────────────────────────────────────────────────────
     {
       id: 's3',
-      title: 'El precio ya pagado — D&C 19',
+      title: 'El reconocimiento — ver el pecado tal como es',
       intro: {
         romanNumeral: 'III',
-        title: 'El precio ya pagado — D&C 19',
+        title: 'El primer paso que la mayoría omite',
         paragraphs: [
-          'D&C 19:16-19 es uno de los textos más sagrados de toda la Restauración: el Salvador describiendo con sus propias palabras lo que sufrió, por qué lo sufrió, y lo que espera de nosotros en respuesta.',
+          'Kimball dedica casi un tercio de El Milagro del Perdón a un problema que nadie espera: la mayoría de las personas que creen que se han arrepentido, no han empezado siquiera el proceso. No porque sean malas, sino porque nunca han visto su pecado con claridad. Han visto incomodidad. Han visto consecuencias. Pero no han visto el pecado.',
         ],
       },
       topics: [
         {
-          id: 'el-precio-pagado',
-          title: 'El Salvador describe Getsemaní — y qué significa para ti',
-          subtitle:
-            'Ninguna otra escritura describe el sufrimiento expiatorio en primera persona con esta intensidad. Y ninguna deja más clara la alternativa: arrepentirse, o sufrir como Él sufrió.',
+          id: 't5',
+          title: 'Las racionalizaciones que bloquean el arrepentimiento',
           blocks: [
             {
               type: 'paragraph',
-              text: 'En D&C 19, el Señor no habla en abstracciones teológicas. Habla en primera persona sobre la experiencia más intensa de su existencia — la noche en Getsemaní. Lo hace no para impresionar sino para que comprendamos exactamente lo que está en juego en cada decisión de arrepentirse o no:',
-              blockId: 'arr-s3-p-0',
-            },
-            {
-              type: 'highlight_verse',
-              text: '"Pues he aquí, yo, Dios, sufrí estas cosas por todos, para que ellos no tuviesen que sufrir si se arrepintiesen; Pero si no se arrepintiesen, necesariamente habrán de sufrir aun como yo; Lo cual sufrimiento me causó, a mí, incluso Dios, el más grande de todos, temblar de dolor, y sangrar de todos los poros, y sufrir tanto en el cuerpo como en el espíritu, y quisiera no beber la amarga copa, y me retraje — Sin embargo, gloria sea al Padre, y bebí, y terminé mis preparaciones para con los hijos de los hombres."',
-              reference: 'Doctrina y Convenios 19:16–19',
-            },
-            {
-              type: 'paragraph',
-              text: 'Tres detalles en este texto merecen profunda contemplación. Primero: "yo, Dios... temblar de dolor." El ser más poderoso del universo tembló. No metafóricamente — tembló. Segundo: "quisiera no beber la amarga copa, y me retraje." El Salvador mismo, en ese momento, quiso que hubiera otro camino. No había otro. Tercero: "Sin embargo, gloria sea al Padre, y bebí." La obediencia perfecta al Padre en el momento de mayor costo personal — esta es la fe hecha acción en su forma más sublime.',
-              blockId: 'arr-s3-p-1',
-            },
-            {
-              type: 'highlight_verse',
-              text: '"Por tanto, te mando que te arrepientas — arrepiéntete, no sea que yo te hiera con la vara de mi boca, y por mi ira, y tus sufrimientos sean penosos — ¡cuán penosos tú no sabes, cuán difícil de soportar tú no conoces!"',
-              reference: 'Doctrina y Convenios 19:15',
-            },
-            {
-              type: 'doctrine_box',
-              title: 'Las dos únicas opciones — D&C 19:16-17',
-              body: 'El versículo 16 establece la ecuación: Cristo sufrió en Getsemaní "para que ellos NO tuviesen que sufrir SI se arrepintiesen." El versículo 17 establece la alternativa: "si no se arrepintiesen, necesariamente habrán de sufrir AUN COMO ÉL." No hay tercera opción. No existe una vía media de "vivir con el pecado sin consecuencias." La pregunta es solo quién paga la deuda: Cristo (a través del arrepentimiento) o el pecador mismo (sin él). El arrepentimiento no es un requisito burocrático — es el mecanismo de activación de un pago ya realizado.',
-            },
-            {
-              type: 'highlight_verse',
-              text: '"Aprende de mí y escucha mis palabras; camina en la mansedumbre de mi Espíritu, y hallarás reposo para tu alma."',
-              reference: 'Doctrina y Convenios 19:23',
-            },
-            {
-              type: 'paragraph',
-              text: 'D&C 19:23 es la conclusión que el Señor da a su revelación sobre el arrepentimiento: no termina con advertencia — termina con invitación. Después de describir el peso del pecado sin arrepentimiento y la magnitud de lo que pagó, la última palabra es descanso. El arrepentimiento no es la parte pesada del evangelio — es la puerta al descanso.',
-              blockId: 'arr-s3-p-2',
-            },
-            {
-              type: 'leader_quote',
-              quote:
-                'Cuando entendemos lo que Jesucristo realmente sufrió en Getsemaní — en cuerpo y espíritu, más de lo que cualquier ser humano podría soportar — el arrepentimiento deja de ser una carga y se convierte en un regalo. Él pagó un precio que nosotros no podríamos pagar. Pedirnos que añadamos nuestro propio sufrimiento al suyo como forma de compensación sería una herejía. Lo que nos pide es que cambiemos — que la transformación que hizo posible mediante su sufrimiento ocurra realmente en nosotros.',
-              name: 'Élder Jeffrey R. Holland · "El Cristo de los Evangelios" · Conferencia General, octubre 2017',
-            },
-            {
-              type: 'deep_dive',
-              badge: 'D&C 19',
-              title: 'Por qué el Salvador sangró de todos los poros',
-              paragraphs: [
-                'D&C 19:18 describe que el Salvador "sangró de todos los poros." Lucas 22:44 confirma: "Y estando en agonía, oraba más intensamente; y era su sudor como grandes gotas de sangre que caían hasta la tierra." Esto no es solo un detalle médico — es la evidencia de un sufrimiento que trasciende lo físico.',
-                'La condición médica llamada hematidrosis (sudoración de sangre) ocurre en casos de estrés extremo. Pero la escritura no la menciona para un diagnóstico médico — la menciona para establecer la magnitud real de lo que ocurrió. La Expiación no fue un sufrimiento simbólico. Fue real, intenso, y completo. "Cuán penosos tú no sabes, cuán difícil de soportar tú no conoces" (D&C 19:15).',
-                'El Hermano McConkie enseñó que en Getsemaní, el Salvador cargó el peso de CADA pecado de CADA ser humano que viviría en la tierra — la vergüenza, el dolor, la desesperación, la separación de Dios que cada uno de esos pecados causaría — todo simultáneamente. No es teológicamente posible para la mente humana comprender esa magnitud. Solo podemos inclinar la cabeza ante ella y arrepentirnos.',
-              ],
-            },
-            {
-              type: 'reflection',
-              prompt:
-                'El Salvador dijo que "quisiera no beber la amarga copa" — pero la bebió. ¿Hay algún acto de arrepentimiento en tu vida que has estado evitando porque "no quisieras beber esa copa"? ¿Qué te daría la fortaleza de hacerlo sabiendo lo que Él hizo por ti?',
-            },
-          ],
-        },
-      ],
-    },
-    // ─── SECCIÓN IV ───────────────────────────────────────────────────────────
-    {
-      id: 's4',
-      title: 'Los elementos del arrepentimiento verdadero',
-      intro: {
-        romanNumeral: 'IV',
-        title: 'Los elementos del arrepentimiento verdadero',
-        paragraphs: [
-          'El arrepentimiento tiene componentes identificables — no como lista de trámites para satisfacer a Dios, sino como descripción de lo que ocurre naturalmente en un corazón que genuinamente quiere cambiar.',
-        ],
-      },
-      topics: [
-        {
-          id: 'elementos-del-arrepentimiento',
-          title: 'Lo que ocurre en un corazón que realmente cambia',
-          subtitle:
-            'Alma 42:29-31 da la perspectiva definitiva: que el pecado te turbe solo hasta el punto que te lleve al arrepentimiento — no más. El arrepentimiento real tiene un destino, y ese destino es la libertad.',
-          blocks: [
-            {
-              type: 'paragraph',
-              text: 'Cuando Alma terminó de explicar la doctrina de la justicia y la misericordia a Corianton, hizo algo sorprendente: le dijo que dejara de atormentarse. No porque el pecado no importara — sino porque la culpa prolongada más allá del punto de cambio no es arrepentimiento sino parálisis:',
-              blockId: 'arr-s4-p-0',
-            },
-            {
-              type: 'highlight_verse',
-              text: '"Y ahora, hijo mío, quisiera que no dejaras que estas cosas te turben más, y que solo tus pecados te turben con la turbación que te lleve al arrepentimiento."',
-              reference: 'Alma 42:29 · Libro de Mormón · Alma a Corianton',
-            },
-            {
-              type: 'paragraph',
-              text: 'Esta es una de las instrucciones más compasivas de toda la escritura: la culpa tiene un propósito específico — llevarte al arrepentimiento — y cuando ya ha cumplido ese propósito, se convierte en obstáculo. El adversario usa la culpa sin fin para hacer que las personas crean que nunca podrán ser perdonadas. El Señor dice: que te turbe solo lo suficiente para cambiar, y después suelta esa carga.',
-              blockId: 'arr-s4-p-1',
-            },
-            {
-              type: 'steps',
-              steps: [
-                'Reconocimiento — Ver el pecado tal como es: una violación de la ley de Dios y un daño real a uno mismo y al prójimo. No minimizarlo ("no es para tanto") ni exagerarlo hasta la desesperación. La honestidad exacta que produce tristeza piadosa.',
-                'Tristeza piadosa — No culpa paralizante, no vergüenza que destruye la identidad. Es el dolor genuino de saber que actuaste en contra de quien amas — Dios, el prójimo, tu mejor versión. Este dolor tiene una dirección: hacia el cambio.',
-                'Abandono del pecado — D&C 58:43: "el que confiesa y los abandona." El arrepentimiento que no termina en abandono real no es arrepentimiento — es gestión de culpa. El abandono puede ser gradual y requerir apoyo, pero la dirección debe ser clara y la intención firme.',
-                'Confesión apropiada — Al Señor siempre, en oración sincera. Al obispo cuando el pecado es serio (inmoralidad, violación de leyes del evangelio que afectan el convenio). La confesión no es para informar a Dios — es parte del proceso de traer el pecado a la luz.',
-                'Restitución en lo posible — Si el pecado causó daño a otra persona, hacer todo lo que esté al alcance de uno para repararlo. No todo puede repararse completamente — ahí entra la Expiación para cubrir lo irreparable.',
-                'Cambio de vida — La señal definitiva del arrepentimiento real: el fruto de una vida que ya no repite el mismo pecado. "Por sus frutos los conoceréis" (Mateo 7:16) aplica al arrepentimiento tanto como a los falsos profetas.',
-              ],
-            },
-            {
-              type: 'highlight_verse',
-              text: '"He aquí, el que se ha arrepentido de sus pecados es perdonado, y yo, el Señor, no los recuerdo más. Por este signo reconocerás a un hombre arrepentido de sus pecados: si los confiesa y los abandona."',
-              reference: 'Doctrina y Convenios 58:42–43',
-            },
-            {
-              type: 'highlight_verse',
-              text: '"Venid luego, dice Jehová, y estemos a cuenta: si vuestros pecados fueren como la grana, como la nieve serán emblanquecidos; si fueren rojos como el carmesí, vendrán a ser como blanca lana."',
-              reference: 'Isaías 1:18 · Biblia (RVR)',
-            },
-            {
-              type: 'leader_quote',
-              quote:
-                'El verdadero arrepentimiento implica un cambio de mente y corazón. Implica girar alejándose del pecado y girando hacia Dios. Y debemos recordar que el Señor dijo "si confiesa y los abandona" — ambos son necesarios. La confesión sin abandono no produce el fruto del arrepentimiento. El abandono sin confesión apropiada puede dejar sin resolver heridas que necesitan la intervención del obispo para sanar. El proceso completo — aunque difícil — produce libertad real.',
-              name: 'Élder Richard G. Scott · "La alegría del perdón durable" · Conferencia General, mayo 1992',
-            },
-            {
-              type: 'deep_dive',
-              badge: 'Práctica',
-              title: 'El papel del obispo en el arrepentimiento — y por qué no todos los pecados requieren confesión formal',
-              paragraphs: [
-                'Muchos miembros tienen confusión sobre cuándo involucrar al obispo en el arrepentimiento. El principio general: los pecados contra uno mismo (pensamientos impuros, debilidades personales repetidas) se resuelven entre el individuo y el Señor en oración sincera. Los pecados que violan convenios del sacerdocio o del templo, o que afectan seriamente a otras personas, requieren confesión al obispo.',
-                'El obispo no es el árbitro del perdón — el perdón viene del Señor. El obispo es un juez en Israel: puede determinar restricciones temporales de privilegios del sacerdocio o del templo cuando es necesario, y actúa como instrumento de sanación al escuchar, guiar y acompañar el proceso. El Elder Richard G. Scott enseñó que confesar pecados serios al obispo no produce más vergüenza — produce alivio, porque ya no se carga el peso solo.',
-                'Para los pecados serios que sí requieren confesión formal, la tentación de evitarla por miedo a las consecuencias es grande. Pero el costo de no hacerlo es mayor: años cargando un peso que el Señor quiere quitar, participando de las ordenanzas sin la paz que deberían producir, y viviendo en una disminución del Espíritu que hace imposible el crecimiento espiritual pleno.',
-              ],
-            },
-            {
-              type: 'reflection',
-              prompt:
-                'Alma dijo que la turbación por el pecado debe llevarte al arrepentimiento, no más allá. ¿En qué etapa del proceso de arrepentimiento te encuentras con el pecado o debilidad más presente en tu vida ahora? ¿Estás aún en reconocimiento? ¿En abandono? ¿O llevas tiempo en culpa que ya no produce cambio?',
-            },
-          ],
-        },
-      ],
-    },
-    // ─── SECCIÓN V ────────────────────────────────────────────────────────────
-    {
-      id: 's5',
-      title: 'La promesa — Dios no los recuerda más',
-      intro: {
-        romanNumeral: 'V',
-        title: 'La promesa — Dios no los recuerda más',
-        paragraphs: [
-          'El destino del arrepentimiento real no es la tolerancia divina ni la libertad condicional — es el olvido completo de Dios. D&C 58:42 hace una promesa que ningún teólogo humano se atrevería a hacer por su cuenta.',
-        ],
-      },
-      topics: [
-        {
-          id: 'la-promesa-del-perdon',
-          title: 'De la agonía al gozo — Alma 36 y la promesa de la remisión',
-          subtitle:
-            'Alma el Joven es el testimonio más poderoso en el Libro de Mormón de lo que el arrepentimiento puede hacer. Pasó de la agonía más intensa a la alegría más grande — en el mismo acto de recordar a Cristo.',
-          blocks: [
-            {
-              type: 'paragraph',
-              text: 'Alma el Joven había sido uno de los enemigos más activos de la Iglesia. Cuando fue detenido por un ángel y pasó días en inconsciencia, experimentó el peso exacto de lo que había hecho — no como castigo externo, sino como la realidad plena de sus acciones sin el filtro de la justificación personal. Y luego algo cambió:',
-              blockId: 'arr-s5-p-0',
-            },
-            {
-              type: 'highlight_verse',
-              text: '"Y aconteció que mientras era así atormentado por la memoria de mis muchos pecados, he aquí, me acordé también de haber oído a mi padre profetizar al pueblo acerca de la venida de uno Jesucristo, un Hijo de Dios, para expiar los pecados del mundo. Ahora bien, cuando mi mente se aferró a este pensamiento, clamé dentro de mi corazón: ¡Oh Jesús, tú Hijo de Dios, ten misericordia de mí, que estoy en la hiél de la amargura y estoy rodeado de los lazos eternos de la muerte! Y ahora bien, he aquí que cuando pensé esto, no pude recordar más mis dolores; sí, no me era atormentado más por la memoria de mis pecados."',
-              reference: 'Alma 36:17–19 · Libro de Mormón · Alma describiendo su conversión',
-            },
-            {
-              type: 'paragraph',
-              text: 'El movimiento es preciso: de la memoria de pecados → a la memoria de Cristo → a la desaparición del tormento. El arrepentimiento no terminó en Alma como "no tengo deudas pendientes" — terminó como gozo. "Mis dolores se convirtieron en gozo tan grande como había sido mi dolor" (Alma 36:20). Este es el destino del arrepentimiento real: no neutralidad emocional sino transformación de la experiencia misma.',
-              blockId: 'arr-s5-p-1',
-            },
-            {
-              type: 'highlight_verse',
-              text: '"He aquí, el que se ha arrepentido de sus pecados es perdonado, y yo, el Señor, no los recuerdo más."',
-              reference: 'Doctrina y Convenios 58:42',
-            },
-            {
-              type: 'highlight_verse',
-              text: '"Y también os digo que así habrá más gozo en el cielo por un pecador que se arrepiente, que por noventa y nueve justos que no necesitan de arrepentimiento."',
-              reference: 'Lucas 15:7 · Biblia (RVR) · El Salvador',
+              text: 'El ser humano es el animal más creativo del universo cuando se trata de justificar su comportamiento. Kimball cataloga en El Milagro del Perdón las racionalizaciones más comunes con precisión quirúrgica, porque conocía a fondo el alma humana después de décadas entrevistando personas en proceso de arrepentimiento.',
             },
             {
               type: 'key_points',
+              title: 'Las racionalizaciones más comunes — Kimball',
               points: [
-                '✦ "Yo, el Señor, no los recuerdo más" (D&C 58:42) — No dice "los perdono pero los recuerdo." Dice que no los recuerda. Esta es la misericordia divina en su forma más radical: el Dios omnisciente que decide no recordar.',
-                '🔄 El arrepentimiento es recurrente — no un evento de vida único. Moroni 6:8: "y tan a menudo como se arrepentiesen y buscasen perdón, con real intento, le sería perdonado." El convenio del bautismo se renueva en la Santa Cena precisamente para este propósito.',
-                '⚡ La remisión se puede SENTIR — Mosiah 4:3 describe que el pueblo del Rey Benjamín supo por el Espíritu que sus pecados les eran perdonados. El arrepentimiento genuino produce una paz y ligereza específicas que son reconocibles.',
-                '🕊️ El perdón no es condicional a recordar perfectamente todos los pecados — es condicional al esfuerzo honesto. Dios no requiere perfección de memoria; requiere honestidad de corazón.',
-              ],
-            },
-            {
-              type: 'highlight_verse',
-              text: '"Y aconteció que después que el rey Benjamín hubo terminado de hablar... el Espíritu del Señor Omnipotente había obrado un poderoso cambio en ellos, o en sus corazones, que ya no tenían disposición para hacer el mal sino para hacer el bien continuamente."',
-              reference: 'Mosiah 5:2 · Libro de Mormón',
-            },
-            {
-              type: 'timeline',
-              items: [
-                {
-                  label: 'El peso del pecado',
-                  text: 'La conciencia reconoce el alejamiento de Dios. Comienza la tristeza piadosa — motor de cambio, no destino.',
-                  color: 'red',
-                },
-                {
-                  label: 'El clamor a Cristo',
-                  text: '"Oh Jesús, ten misericordia de mí." El arrepentimiento comienza siempre como un acto de fe — creer que Él puede y quiere perdonar.',
-                  color: 'gold',
-                },
-                {
-                  label: 'El proceso de cambio',
-                  text: 'Reconocimiento, tristeza, abandono, confesión, restitución. No simultáneo — un paso a la vez, con paciencia.',
-                  color: 'blue',
-                },
-                {
-                  label: 'La remisión',
-                  text: '"No pude recordar más mis dolores." El Espíritu confirma el perdón. La paz que "sobrepasa todo entendimiento" (Filipenses 4:7).',
-                  color: 'green',
-                },
-                {
-                  label: 'El gozo',
-                  text: '"Mis dolores se convirtieron en gozo tan grande como había sido mi dolor" (Alma 36:20). El arrepentimiento termina en alegría — no solo en alivio.',
-                  color: 'gold',
-                },
+                '"Todo el mundo lo hace" — la normalización estadística del pecado no lo convierte en correcto',
+                '"No lastimé a nadie" — el pecado que parece privado siempre afecta al espíritu, a la familia, a la capacidad de servir',
+                '"No fue tan grave" — la comparación con pecados peores no es el estándar divino',
+                '"Ya pasé tiempo sin hacerlo" — la abstinencia temporal no es arrepentimiento',
+                '"Ya me lo confesé a Dios" — confesar sin cambiar no es arrepentimiento',
+                '"Soy buena persona en todo lo demás" — la bondad en un área no compensa la transgresión en otra',
+                '"Fue el ambiente / mi crianza / mis circunstancias" — la agencia moral no puede delegarse',
               ],
             },
             {
               type: 'leader_quote',
-              quote:
-                'Nunca he conocido a una persona que se haya arrepentido de haberse arrepentido. He conocido a muchas que esperaron demasiado. He conocido a muchas que sufrieron innecesariamente cargando solas el peso de pecados que el Señor estaba listo y dispuesto a quitar desde el momento en que se los pidieran. El arrepentimiento no es el precio del perdón — es la puerta hacia él. Y el Salvador lleva esperando ante esa puerta desde antes que comenzaras a pecar.',
-              name: 'Élder Jeffrey R. Holland · "El don de la memoria y el don del olvido" · Devocional BYU, enero 2015',
+              quote: 'Mientras el hombre busca razones para explicar su comportamiento en lugar de aceptar la responsabilidad de él, el arrepentimiento no ha comenzado. El primer acto del arrepentimiento genuino es mirar sin parpadear lo que se hizo, llamarlo por su nombre correcto, y asumir plena responsabilidad.',
+              name: 'Spencer W. Kimball',
+              role: 'El Milagro del Perdón, cap. 5',
             },
             {
               type: 'deep_dive',
-              badge: 'La Promesa Final',
-              title: 'El olvido divino — "yo, el Señor, no los recuerdo más"',
+              badge: 'DOCTRINA',
+              title: 'El arrepentimiento parcial — el peligro más subestimado',
               paragraphs: [
-                'D&C 58:42 hace una de las promesas más audaces de todo el canon: el Señor no solo perdona — olvida. Para un ser omnisciente, esto no significa que literalmente pierde la información del registro. Significa algo más profundo: que esos pecados ya no tienen peso en su relación contigo, que no influirán en su trato hacia ti, que no aparecerán como carga en el juicio final del alma arrepentida.',
-                'Isaías 43:25 lo confirma: "Yo, yo soy el que borro tus rebeliones por amor de mí mismo, y no me acordaré de tus pecados." Y Hebreos 8:12: "Porque seré propicio a sus injusticias, y nunca más me acordaré de sus pecados." El olvido divino no es ignorancia — es misericordia activa.',
-                'La implicación práctica es transformadora: la persona que se ha arrepentido genuinamente no necesita seguir identificándose con sus pecados pasados. El adversario quiere que llevemos esa identidad — "soy el que hizo X" — como cadena permanente. El Señor dice: ese ya no eres tú. Eres el que se arrepintió. Eres el que Él lavó. Esa es tu identidad ante Dios.',
+                'Kimball habla extensamente de lo que él llama el "arrepentimiento parcial" — el estado en que una persona ha reducido su pecado, ha modificado sus hábitos, ha sentido culpa genuina, pero no ha completado el proceso. Es el estado más peligroso de todos porque produce una falsa sensación de paz.',
+                'La persona que se ha "arrepentido parcialmente" cree que está bien. Ha hecho suficiente. Ha sufrido suficiente. Pero en la terminología del evangelio, la misericordia no puede actuar de forma completa sobre un arrepentimiento incompleto.',
+                'Kimball compara esto con una cirugía a medias: "Si el cirujano extirpa el 80% del tumor, el paciente puede sentirse mejor por un tiempo. Pero el 20% que quedó sigue creciendo." El arrepentimiento incompleto no es mejor que la ausencia de arrepentimiento — en ciertos aspectos es peor, porque anestesia la urgencia de terminar el proceso.',
               ],
+            },
+          ],
+        },
+        {
+          id: 't6',
+          title: 'Ver el pecado con los ojos del Espíritu',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'El reconocimiento genuino del pecado no viene del intelecto — viene del Espíritu Santo. Es el Espíritu quien muestra al alma la brecha entre lo que somos y lo que fuimos creados para ser. Sin su influencia, el reconocimiento es superficial. Con ella, es lo que Alma experimentó en tres días.',
+            },
+            {
+              type: 'highlight_verse',
+              reference: 'Moroni 8:26',
+              text: 'Y la remisión de pecados produce mansedumbre y humildad; y la mansedumbre y humildad traen consigo la visitación del Espíritu Santo, el cual es el Consolador lleno de esperanza y amor perfecto.',
+            },
+            {
+              type: 'paragraph',
+              text: 'El Espíritu no solo consuela al penitente — también le muestra con exactitud qué necesita cambiar. Kimball enseñó que la oración sincera pidiendo al Señor que muestre nuestros pecados tal como son es una de las oraciones más valientes — y más necesarias — que una persona puede hacer.',
             },
             {
               type: 'reflection',
-              prompt:
-                'El Señor dijo "yo, el Señor, no los recuerdo más." ¿Hay pecados de los cuales te has arrepentido genuinamente pero que todavía defines tu identidad ante Dios? ¿Qué cambiaría en tu fe si tomaras literalmente la promesa de D&C 58:42 — que Dios ya no los recuerda?',
+              prompt: '¿Has pedido alguna vez al Señor que te muestre tus pecados tal como él los ve? ¿Tienes el valor de hacerlo ahora? No para hundirte — sino para que puedas ver exactamente qué necesita ser limpiado.',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 's4',
+      title: 'La confesión — decirlo todo',
+      intro: {
+        romanNumeral: 'IV',
+        title: 'Por qué verbalizarlo importa',
+        paragraphs: [
+          'Kimball dedica un capítulo entero de El Milagro del Perdón a la confesión — porque en su experiencia pastoral, era el paso que más personas evitaban, y el que más frecuentemente bloqueaba la plenitud del arrepentimiento. La vergüenza que producía confesar era precisamente la señal de que era necesario hacerlo.',
+        ],
+      },
+      topics: [
+        {
+          id: 't7',
+          title: 'Confesión a Dios — siempre, sin excepción',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'La confesión a Dios es el fundamento de todo arrepentimiento. No como trámite, sino como acto de honestidad total ante el único que ya sabe todo — incluyendo lo que la persona está a punto de decir. El valor de la confesión a Dios no está en informarlo, sino en que el pecador se abre completamente.',
+            },
+            {
+              type: 'highlight_verse',
+              reference: 'Doctrina y Convenios 58:42–43',
+              text: 'He aquí, el que se ha arrepentido de sus pecados es perdonado; y yo, el Señor, no los recuerdo más. Por esto sabréis si un hombre se arrepiente de sus pecados: he aquí, los confesará y los abandonará.',
+            },
+            {
+              type: 'paragraph',
+              text: 'El Señor une inseparablemente dos actos: confesar y abandonar. No uno sin el otro. La confesión sin abandono es actuación. El abandono sin confesión puede ser mejora de conducta, pero no el arrepentimiento pleno que activa la Expiación. Los dos juntos constituyen el corazón del proceso.',
+            },
+          ],
+        },
+        {
+          id: 't8',
+          title: 'Confesión al obispo — cuándo, por qué y cómo',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'No todos los pecados requieren confesión formal al obispo. Pero los pecados serios — los que el Señor llama transgresiones graves — sí requieren hacerlo. El obispo no es juez moral en el sentido punitivo. Es el médico espiritual que tiene autoridad y guía para administrar el proceso de sanación.',
+            },
+            {
+              type: 'key_points',
+              title: 'Pecados que requieren confesión al obispo',
+              points: [
+                'Violación de la ley de castidad (fornicación, adulterio, pornografía grave)',
+                'Transgresiones del templo o convenios del sacerdocio',
+                'Apostasía activa o enseñanza de doctrina falsa',
+                'Crímenes civiles graves (fraude, violencia, abuso)',
+                'Participación indígna en la Santa Cena de manera prolongada',
+                'Cualquier pecado que pese tan fuerte que impida la paz espiritual',
+              ],
+            },
+            {
+              type: 'leader_quote',
+              quote: 'Muchos que cargan con el peso de pecados graves se niegan a confesar al obispo porque temen el juicio de un hombre. Pero el obispo no es su juez — es su médico. Y ningún paciente sano rehúsa ir al médico cuando está enfermo por miedo a que el médico sepa que está enfermo.',
+              name: 'Spencer W. Kimball',
+              role: 'El Milagro del Perdón, cap. 13',
+            },
+            {
+              type: 'deep_dive',
+              badge: 'DOCTRINA',
+              title: '¿Por qué el obispo tiene autoridad en este proceso?',
+              paragraphs: [
+                'El obispo es llamado como juez en Israel — una función doctrinal específica, no solo administrativa. Cuando el Señor reveló el principio de confesión al obispo (D&C 42:88-89), lo hizo porque el proceso de arrepentimiento de ciertos pecados requiere una figura con autoridad del sacerdocio para administrar el juicio misericordioso de Dios.',
+                'El obispo puede, bajo guía del Espíritu, determinar si la persona necesita un proceso de membresía formal, restricciones temporales en ciertas responsabilidades, o simplemente orientación espiritual. En todos los casos, su función es facilitar el acceso a la Expiación — no castigar.',
+                'Kimball lo expresa así: "El obispo que entiende su llamamiento no ve al pecador como un transgresor que merece castigo, sino como un enfermo que merece sanación. Su función más importante no es determinar la disciplina — es abrirle las puertas del arrepentimiento completo."',
+              ],
+            },
+            {
+              type: 'paragraph',
+              text: 'La vergüenza de la confesión es parte del proceso, no un obstáculo a él. Kimball enseña que la humildad que produce confesar ante otro ser humano — un representante de Dios con autoridad — es parte del "precio del billete" hacia la paz espiritual completa. Nadie salió de una confesión honesta sintiéndose peor de manera permanente.',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 's5',
+      title: 'El abandono total',
+      intro: {
+        romanNumeral: 'V',
+        title: 'La línea que no puede cruzarse a medias',
+        paragraphs: [
+          'Kimball es implacable en este punto. No porque sea severo por naturaleza — sino porque la lógica del arrepentimiento hace que el abandono parcial sea una contradicción en términos. No puedes arrepentirte de algo que sigues haciendo.',
+        ],
+      },
+      topics: [
+        {
+          id: 't9',
+          title: 'Arrepentirse es abandonar, no reducir',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'La cultura popular del "arrepentimiento" acepta la reducción del pecado como suficiente. Pecar menos. Pecar con menos frecuencia. Pecar con menos intensidad. El evangelio restaurado establece un estándar diferente: el abandono. No porque Dios sea inflexible, sino porque el abandono parcial no activa plenamente la Expiación.',
+            },
+            {
+              type: 'highlight_verse',
+              reference: 'Doctrina y Convenios 58:42–43',
+              text: 'He aquí, el que se ha arrepentido de sus pecados es perdonado; y yo, el Señor, no los recuerdo más. Por esto sabréis si un hombre se arrepiente de sus pecados: he aquí, los confesará y los abandonará.',
+            },
+            {
+              type: 'leader_quote',
+              quote: 'El arrepentimiento requiere una rendición total, incondicional, al programa del Señor. No es suficiente cortar el árbol del mal en la superficie — hay que sacar la raíz. El hombre que reduce su pecado pero lo retiene ha hecho un gran esfuerzo, pero no se ha arrepentido.',
+              name: 'Spencer W. Kimball',
+              role: 'El Milagro del Perdón, cap. 8',
+            },
+            {
+              type: 'paragraph',
+              text: 'Kimball usa la imagen del árbol cortado a nivel del suelo: parece que no está. Pero la raíz sigue viva bajo tierra, y en la primera temporada favorable volverá a crecer. El arrepentimiento que no llega a la raíz — a los patrones de pensamiento, a los ambientes que facilitan el pecado, a las relaciones que lo alimentan — es un árbol cortado, no arrancado.',
+            },
+            {
+              type: 'key_points',
+              title: 'Qué implica el abandono total',
+              points: [
+                'Cese completo del comportamiento pecaminoso — no reducción gradual',
+                'Eliminación de las circunstancias que facilitan el pecado (personas, lugares, dispositivos, hábitos)',
+                'Cambio de los patrones de pensamiento que preceden al acto',
+                'Construcción activa de nuevos hábitos y relaciones que fortalezcan la rectitud',
+                'Disposición a pasar incomodidad real por el cambio — no solo incomodidad emocional',
+              ],
+            },
+          ],
+        },
+        {
+          id: 't10',
+          title: 'Las recaídas — ¿significan que fallé?',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'Una de las preguntas más dolorosas y más comunes en el proceso de arrepentimiento: ¿qué significa una recaída? ¿Destruye todo el progreso anterior? ¿Significa que el arrepentimiento no fue real? Kimball responde esta pregunta con precisión y con misericordia.',
+            },
+            {
+              type: 'paragraph',
+              text: 'Hay una diferencia crucial entre tropezar y regresar. Tropezar es un fallo en el proceso de cambio que el arrepentido genuino toma como señal de que necesita más ayuda, más estructura, más apoyo. Regresar es volver conscientemente al pecado con la intención de continuar en él. El tropiezo no invalida el arrepentimiento — exige profundizarlo.',
+            },
+            {
+              type: 'highlight_verse',
+              reference: 'Moroni 6:8',
+              text: 'Pero tan frecuentemente como se arrepentían y buscaban el perdón, con verdadero arrepentimiento, les era concedido el perdón.',
+            },
+            {
+              type: 'doctrine_box',
+              title: 'La misericordia de Dios con el que sigue intentándolo',
+              body: 'Moroni 6:8 establece un principio que Kimball llama "la gracia del proceso": Dios no requiere perfección instantánea — requiere arrepentimiento genuino cada vez que se necesita. La persona que tropieza, regresa a Dios, trabaja más duro, y eventualmente triunfa, está en el camino correcto. La persona que usa las recaídas como excusa para abandonar el proceso es quien realmente está en peligro.',
+            },
+            {
+              type: 'leader_quote',
+              quote: 'Dios es infinitamente paciente con el que genuinamente intenta cambiar. No es paciente con el que usa su paciencia como licencia para no cambiar. La diferencia entre los dos está en la dirección del movimiento, no en la velocidad.',
+              name: 'Spencer W. Kimball',
+              role: 'El Milagro del Perdón, cap. 9',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 's6',
+      title: 'La restitución — reparar lo reparable',
+      intro: {
+        romanNumeral: 'VI',
+        title: 'El paso que nadie quiere dar',
+        paragraphs: [
+          'La restitución es el paso del arrepentimiento que requiere más valentía — y que Kimball insiste en llamar indispensable. No porque la restitución pague el pecado, sino porque sin ella el arrepentimiento sigue siendo incompleto. Es el acto externo que evidencia el cambio interno.',
+        ],
+      },
+      topics: [
+        {
+          id: 't11',
+          title: 'Por qué la restitución es parte del arrepentimiento',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'Kimball enseña que el arrepentimiento que no incluye un esfuerzo genuino por reparar el daño causado es arrepentimiento a medias. El penitente que está dispuesto a confesar y abandonar, pero no a restaurar lo que tomó, reparar la reputación que dañó, o pedir perdón a quien lastimó, no ha completado el proceso.',
+            },
+            {
+              type: 'steps',
+              title: 'Principios de la restitución según Kimball',
+              steps: [
+                'Devolver lo que fue tomado — bienes, dinero, objetos robados o defraudados',
+                'Reparar la reputación dañada — decir la verdad donde antes se mintió, limpiar la fama del difamado',
+                'Pedir perdón directamente a quien fue lastimado — cuando hacerlo no causaría más daño',
+                'En casos de daño irreparable: hacer todo lo posible como señal de intención genuina',
+                'Confesión pública cuando el pecado fue público — no como castigo, sino como restauración de la verdad',
+              ],
+            },
+            {
+              type: 'leader_quote',
+              quote: 'No se puede verdaderamente arrepentir quien no está dispuesto a restaurar, en la medida de lo posible, la situación al estado en que estaría si no hubiera habido transgresión. Esta es la prueba de la sinceridad del arrepentimiento.',
+              name: 'Spencer W. Kimball',
+              role: 'El Milagro del Perdón, cap. 11',
+            },
+          ],
+        },
+        {
+          id: 't12',
+          title: 'Cuando la restitución completa es imposible',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'Kimball es también honesto sobre los límites de la restitución. Hay daños que no pueden deshacerse completamente. Una vida tomada no puede devolverse. Una virginidad perdida no puede restaurarse. Una reputación destruida puede no recuperarse del todo. En estos casos, ¿qué?',
+            },
+            {
+              type: 'paragraph',
+              text: 'La respuesta de Kimball es clara: la restitución imposible de completar no exime de intentarla. El esfuerzo genuino de reparar lo que se puede, acompañado de humildad real ante lo que no se puede reparar, es lo que Dios requiere y acepta. La Expiación cubre lo que la restitución no alcanza — pero solo cuando la restitución se ha intentado de verdad.',
+            },
+            {
+              type: 'doctrine_box',
+              title: 'La Expiación cubre la brecha',
+              body: 'Cristo no solo paga el precio del pecado con respecto a Dios — también cubre la deuda que el pecador no puede pagar completamente con respecto a las personas que lastimó. Esto no significa que las víctimas no sufran consecuencias reales. Significa que Dios, en su justicia perfecta, tiene recursos para hacer completa la justicia que el penitente no pudo completar por sí solo. La restitución incompleta no bloquea el perdón — la restitución no intentada sí.',
+            },
+            {
+              type: 'reflection',
+              prompt: '¿Hay alguien a quien le debes una disculpa genuina? ¿Algo que devolver? ¿Una verdad que decir donde dijiste una mentira? ¿Qué te impide dar ese paso esta semana?',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 's7',
+      title: 'La Expiación actúa — el mecanismo del perdón',
+      intro: {
+        romanNumeral: 'VII',
+        title: 'Cómo Cristo limpia exactamente lo que tú ensuciaste',
+        paragraphs: [
+          'Llegar a este punto del proceso es llegar al corazón de todo el evangelio. El arrepentimiento no es el mecanismo del perdón — es la condición que permite que el mecanismo real actúe: la Expiación de Jesucristo.',
+        ],
+      },
+      topics: [
+        {
+          id: 't13',
+          title: 'D&C 19 — Cristo describe lo que hizo y por qué',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'Ningún texto en los anales de la teología cristiana describe la Expiación desde la perspectiva del que la sufrió con tanta precisión como D&C 19. El Salvador no lo describe para producir culpa — lo describe para que el pecador entienda exactamente a qué precio vino disponible su perdón.',
+            },
+            {
+              type: 'highlight_verse',
+              reference: 'Doctrina y Convenios 19:15–18',
+              text: 'Por tanto, te mando que te arrepientas... Pues he aquí, yo, Dios, sufrí estas cosas por todos, para que ellos no tuviesen que sufrir si se arrepintiesen; Pero si no se arrepintiesen, necesariamente habrán de sufrir aun como yo; El cual sufrimiento me causó, a mí mismo, el más grande de todos, a temblar a causa del dolor, y a sangrar de cada poro, y a sufrir tanto en el cuerpo como en el espíritu, y a desear no beber la copa amarga, y a retroceder — no obstante, me glorío en tu Padre, y no retiré la copa.',
+            },
+            {
+              type: 'paragraph',
+              text: 'La lógica es absoluta y binaria: Cristo sufrió "para que ellos NO tuviesen que sufrir SI se arrepintiesen". El arrepentimiento activa retroactivamente el pago que Cristo realizó antes de que el pecado ocurriera. Sin arrepentimiento, el pago no se aplica — y el pecador sufre lo que Cristo ya sufrió, sin ningún beneficio de haberlo sufrido.',
+            },
+            {
+              type: 'doctrine_box',
+              title: '¿Por qué Cristo tuvo que sufrir exactamente así?',
+              body: 'La justicia divina requiere que cada pecado sea pagado — ya sea por el pecador o por un sustituto calificado. Cristo, siendo el único ser que nunca pecó, fue el único que podía ofrecer un sufrimiento que no era el pago de sus propios pecados, sino un pago voluntario por los de otros. El principio de sustitución requería un sustituto sin deuda propia. Solo Cristo calificaba.',
+            },
+            {
+              type: 'highlight_verse',
+              reference: 'Isaías 1:18',
+              text: 'Venid ahora, y razonemos, dice Jehová: si vuestros pecados fueren como la grana, como la nieve serán emblanquecidos; si fueren rojos como el carmesí, vendrán a ser como blanca lana.',
+            },
+            {
+              type: 'paragraph',
+              text: 'La promesa de Isaías no tiene asteriscos. No dice "si tus pecados no son demasiado graves". No dice "si llevas suficiente tiempo siendo bueno". Dice: venid. Razonemos. El crimson — el rojo más permanente, el tinte que los antiguos usaban porque no desteñía — puede volverse blanco como nieve. Esa es la promesa de la Expiación al penitente genuino.',
+            },
+          ],
+        },
+        {
+          id: 't14',
+          title: 'El cambio poderoso — Alma 5 y Mosíah 4',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'El arrepentimiento genuino produce un cambio que Alma describe en lenguaje que no deja lugar a interpretaciones suaves. No es que la persona se mejora. Es que se convierte en una persona diferente. La misericordia no solo limpia — transforma.',
+            },
+            {
+              type: 'highlight_verse',
+              reference: 'Alma 5:12–14',
+              text: 'Y de acuerdo con su fe se obró en ellos un cambio poderoso; y según lo creo, cambiaron de corazón. Y ahora bien, yo os pregunto, hermanos míos de la iglesia: ¿habéis experimentado espiritualmente este cambio de corazón? ¿Podéis mirar hacia arriba a Dios en ese día con un corazón puro y manos limpias? ¿Ha nacido de nuevo la imagen de Dios en vuestro semblante?',
+            },
+            {
+              type: 'paragraph',
+              text: 'Alma hace estas preguntas no retóricamente — las hace porque el cambio poderoso es verificable. La persona que lo ha experimentado lo sabe. No porque tenga un documento que lo certifique, sino porque hay una diferencia cualitativa en cómo percibe lo sagrado, cómo ama a las personas, cómo reacciona ante la tentación.',
+            },
+            {
+              type: 'highlight_verse',
+              reference: 'Mosíah 4:2–3',
+              text: 'Y habían caído a tierra, pues el temor del Señor había descendido sobre ellos. Y habían visto la gran maldad de ellos; se humillaron, y clamaron en voz alta, pidiéndole al Señor que tuviera misericordia de ellos. Y el Espíritu del Señor descendió sobre ellos, y fueron llenos de gozo, habiendo recibido la remisión de sus pecados.',
+            },
+            {
+              type: 'paragraph',
+              text: 'El pueblo de Benjamín vivió el proceso completo en un solo discurso: reconocimiento (vieron su maldad), tristeza según Dios (se humillaron), petición de misericordia (clamaron), y el resultado — el Espíritu descendió y fueron llenos de gozo. La remisión de pecados no es un juicio legal abstracto. Es una experiencia espiritual que el Espíritu Santo certifica en el alma del penitente.',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 's8',
+      title: 'El gozo del perdón',
+      intro: {
+        romanNumeral: 'VIII',
+        title: 'De la agonía al gozo excelente',
+        paragraphs: [
+          'Alma lo llamó "gozo tan excelente como dolorosa había sido mi angustia". Enos lo describió como una voz del cielo que dijo: tus pecados son perdonados. El pueblo de Benjamín fue lleno de gozo. El arrepentimiento real no termina en vergüenza — termina en el gozo más puro que existe en la mortalidad.',
+        ],
+      },
+      topics: [
+        {
+          id: 't15',
+          title: 'Alma 36 — de la agonía al gozo excelente',
+          blocks: [
+            {
+              type: 'highlight_verse',
+              reference: 'Alma 36:19–21',
+              text: 'Y aconteció que mientras era así atormentado... de repente recordé haber oído a mi padre profetizar al pueblo acerca de la venida de un Jesucristo... Y mi alma anheló estar con Dios. Oh, me dije, ¡si pudiera ir adonde está mi alma para tener paz! Pero he aquí, mis miembros recibieron su fortaleza de nuevo, y yo me incorporé... y yo pude ver con mis ojos; y comencé a regocijarme con tanto gozo, que tan dolorosa había sido mi angustia.',
+            },
+            {
+              type: 'paragraph',
+              text: 'La proporción es exacta y deliberada: el gozo fue tan grande como había sido el dolor. No levemente mayor. No moderadamente consolador. Igual de intenso. Kimball enseña que esta proporción es una ley espiritual: la profundidad del arrepentimiento genuino determina la altura del gozo que sigue. El que nunca sintió la agonía del pecado en toda su gravedad, nunca siente el gozo del perdón en toda su plenitud.',
+            },
+            {
+              type: 'leader_quote',
+              quote: 'El milagro del perdón es real. Yo lo he visto obrar en cientos de vidas. He visto a hombres y mujeres que cargaban el peso de años de transgresión, quienes finalmente pasaron por el proceso completo del arrepentimiento, levantarse de sus rodillas con un rostro que solo puede describirse con una palabra: transformados. El gozo que producía en ellos no era alivio. Era gozo.',
+              name: 'Spencer W. Kimball',
+              role: 'El Milagro del Perdón, Introducción',
+            },
+          ],
+        },
+        {
+          id: 't16',
+          title: 'Enos — la voz que dice: eres perdonado',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'El relato de Enos es uno de los más cortos y más poderosos de todo el Libro de Mormón. En nueve versículos captura el arco completo del arrepentimiento genuino: desde el hambre espiritual hasta la certificación divina del perdón.',
+            },
+            {
+              type: 'highlight_verse',
+              reference: 'Enos 1:2–8',
+              text: 'Y he aquí, fui a cazar bestias en los bosques; y las palabras que a menudo había oído a mi padre concernientes a la vida eterna y el gozo de los santos se me grabaron profundamente en el corazón. Y mi alma tenía hambre; y me arrodillé ante mi Hacedor, y le clamé con fervor... Y hubo una voz que llegó a mi mente, diciendo: Enos, tus pecados te son perdonados, y serás bendito.',
+            },
+            {
+              type: 'paragraph',
+              text: 'Enos no había caído en transgresiones dramáticas. Era un hombre ordinario con un hambre espiritual genuina. Y Dios respondió a esa hambre de la manera más directa: con una voz a su mente que decía su nombre y le daba la noticia más grande de su vida. El perdón tiene un sonido. No siempre es audible — pero el Espíritu Santo lo certifica de maneras que el penitente reconoce.',
+            },
+            {
+              type: 'dialogue',
+              title: 'La pregunta de Enos y la respuesta del Señor',
+              lines: [
+                {
+                  speaker: 'Enos',
+                  side: 'left',
+                  text: '¿Señor, cómo se hace esto? ¿Cómo me perdonas a mí?',
+                },
+                {
+                  speaker: 'El Señor',
+                  side: 'right',
+                  text: 'Por tu fe en Cristo, a quien nunca has visto. Y porque tu fe te ha traído aquí, de rodillas, con hambre genuina — tus pecados te son perdonados.',
+                },
+              ],
+            },
+            {
+              type: 'highlight_verse',
+              reference: 'Enos 1:8',
+              text: 'Y yo dije: Señor, ¿cómo se hace esto? Y él dijo: Por tu fe en Cristo, a quien nunca has visto ni oído. Y muchos años pasarán antes de que él se manifieste en la carne; por tanto, ve, tu fe te ha hecho íntegro.',
+            },
+          ],
+        },
+        {
+          id: 't17',
+          title: 'D&C 58:42 — Dios no los recuerda más',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'La promesa final del arrepentimiento genuino es la más extraordinaria de toda la teología cristiana. No que los pecados sean minimizados. No que sean archivados en un expediente divino sellado. Sino que Dios mismo — el omnisciente — elige no recordarlos.',
+            },
+            {
+              type: 'highlight_verse',
+              reference: 'Doctrina y Convenios 58:42',
+              text: 'He aquí, el que se ha arrepentido de sus pecados es perdonado; y yo, el Señor, no los recuerdo más.',
+            },
+            {
+              type: 'doctrine_box',
+              title: '¿Cómo puede un ser omnisciente "no recordar"?',
+              body: 'Esta no es una limitación de la omnisciencia de Dios — es una declaración de su voluntad. Dios puede recordar — pero elige no hacerlo. El perdón divino no es amnesia; es una decisión activa y eterna de no tomar en cuenta una transgresión que fue cubierta por la Expiación. El pecado perdonado no define al penitente en la eternidad — fue borrado del registro por el precio que Cristo pagó.',
+            },
+            {
+              type: 'paragraph',
+              text: 'Esta promesa tiene una implicación práctica devastadora para el pecador que no puede perdonarse a sí mismo: si Dios no lo recuerda más, ¿con qué derecho lo recuerdas tú? El auto-castigo prolongado después del arrepentimiento genuino no es humildad — es desconfianza en la Expiación. Es decirle a Cristo: tu sacrificio no fue suficiente para este pecado específico.',
+            },
+            {
+              type: 'leader_quote',
+              quote: 'Uno de los problemas más comunes que encontré en mi ministerio fue el de personas que habían completado el proceso del arrepentimiento y recibido el perdón del Señor, pero que se negaban a perdonarse a sí mismas. Estas personas no necesitaban más arrepentimiento — necesitaban más fe. Fe en que el sacrificio de Cristo era suficiente. También para ellas.',
+              name: 'Spencer W. Kimball',
+              role: 'El Milagro del Perdón, cap. 15',
+            },
+          ],
+        },
+        {
+          id: 't18',
+          title: 'La invitación final — el milagro está disponible para ti',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'Kimball cierra El Milagro del Perdón con una invitación que no tiene condiciones de severidad — solo condiciones de honestidad. El milagro está disponible. No para los que nunca cayeron — esos no lo necesitan. Sino para los que sí cayeron, y que están dispuestos a pasar por el proceso completo, sin atajos.',
+            },
+            {
+              type: 'paragraph',
+              text: 'El proceso es real. La tristeza es real. El abandono es difícil. La confesión es humillante. La restitución es costosa. Pero el gozo al final de ese proceso es tan real, tan profundo y tan permanente que Alma, Enos, el pueblo de Benjamín, y millones de personas en los últimos dos siglos han testificado que valió cada gramo de esfuerzo que costó.',
+            },
+            {
+              type: 'highlight_verse',
+              reference: 'Isaías 55:7',
+              text: 'Deje el impío su camino, y el hombre inicuo sus pensamientos, y vuélvase al Señor, el cual tendrá misericordia de él, y al Dios nuestro, el cual será amplio en perdonar.',
+            },
+            {
+              type: 'leader_quote',
+              quote: 'El milagro del perdón está disponible para todos los que realmente lo quieren. "Realmente" es la palabra que importa. No para los que quieren el perdón sin el proceso. No para los que quieren la paz sin el cambio. Sino para los que están dispuestos a hacer lo que sea necesario para estar limpios delante de Dios. Para esos, el milagro es cierto.',
+              name: 'Spencer W. Kimball',
+              role: 'El Milagro del Perdón, cap. final',
+            },
+            {
+              type: 'reflection',
+              prompt: '¿Hay algo en tu vida que has estado posponiendo porque el proceso parece demasiado costoso? ¿Qué perderías si lo pospones indefinidamente? ¿Qué ganarías si comienzas hoy?',
+            },
+            {
+              type: 'key_points',
+              title: 'Los pasos del arrepentimiento genuino — resumen',
+              points: [
+                '1. RECONOCIMIENTO — ver el pecado tal como es, sin racionalizar ni minimizar',
+                '2. TRISTEZA SEGÚN DIOS — dolor genuino por el pecado mismo, no solo por sus consecuencias',
+                '3. ABANDONO — cese completo del comportamiento, incluyendo las circunstancias que lo facilitan',
+                '4. CONFESIÓN — a Dios siempre; al obispo cuando la gravedad del pecado lo requiere',
+                '5. RESTITUCIÓN — reparar el daño causado en la medida de lo posible',
+                '6. FE EN CRISTO — creer que la Expiación es suficiente, recibir el perdón y no volver a cargarlo',
+              ],
             },
           ],
         },
