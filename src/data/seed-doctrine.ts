@@ -52,6 +52,7 @@ import { jesusElCristo as lessonJesusElCristo } from '@/data/lessons/jesus-el-cr
 import { cristoLibroDeMormonVsBiblia as lessonCristoLdMVsBiblia } from '@/data/lessons/cristo-libro-de-mormon-vs-biblia'
 import { losYoSoyDeCristo as lessonLosYoSoy } from '@/data/lessons/los-yo-soy-de-cristo'
 import { laResurreccionDeCristo as lessonResurreccionCristo } from '@/data/lessons/la-resurreccion-de-cristo'
+import { suGraciaEsSuficiente as lessonSuGracia } from '@/data/lessons/su-gracia-es-suficiente'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -592,6 +593,18 @@ const LESSON_ROWS: LessonRow[] = [
     icon: '✨',
     duration: 55,
     order: 3,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'su-gracia-es-suficiente',
+    moduleId: 'discursos-sermones-clasicos',
+    title: 'Su Gracia es Suficiente',
+    subtitle: 'Brad Wilcox · Devocional BYU, 12 de julio de 2011',
+    description: 'El discurso que cambió la manera en que millones entienden la gracia: análisis profundo de la analogía del piano, la diferencia entre ser salvado DE vs PARA el pecado, y por qué la gracia no es un cheque en blanco sino una transformación activa.',
+    level: 'BÁSICO',
+    icon: '🎹',
+    duration: 75,
+    order: 4,
     status: 'PUBLISHED',
   },
   {
@@ -1366,6 +1379,7 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'juan-tres-nefitas-apostasia': lessonJuanTresNefitas,
   'la-expiacion-del-salvador': lessonLaExpiacionDelSalvador,
   'king-follett': lessonKingFollett,
+  'su-gracia-es-suficiente': lessonSuGracia,
   'por-que-dios-permite-el-sufrimiento': lessonSufrimiento,
   'la-salvacion-de-los-no-bautizados': lessonNoBautizados,
   'alma-el-joven': lessonAlmaElJoven,
