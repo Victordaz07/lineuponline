@@ -244,9 +244,7 @@ export const yoSoy: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'yos-q1',
-              question: {
-                kind: 'fill_blank',
+              id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'En Éxodo 3:14, Dios le dice a Moisés que su nombre es ___',
                 options: [
                   'Yo Soy el que Soy',
@@ -261,8 +259,7 @@ export const yoSoy: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'yos-q2',
-              question: {
+              id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'En Juan 8:58, Jesús dijo "Antes que Abraham fuese, ___"',
                 options: ['yo soy', 'yo era', 'yo existía', 'yo reinaba'],
@@ -273,8 +270,7 @@ export const yoSoy: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'yos-q3',
-              question: {
+              id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: '¿Cuántas declaraciones "Yo Soy + imagen" hay en el Evangelio de Juan?',
                 options: ['siete', 'tres', 'doce', 'cinco'],

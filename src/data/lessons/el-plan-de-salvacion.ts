@@ -505,9 +505,7 @@ export const elPlanDeSalvacion: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'ps-q1',
-              question: {
-                kind: 'fill_blank',
+              id: 'q-1', question: { kind: 'fill_blank',
                 prompt: '¿Cuál de los siguientes NO es uno de los nombres del plan de salvación que aparece en Alma 42?',
                 options: [
                   'Plan de felicidad',
@@ -521,8 +519,7 @@ export const elPlanDeSalvacion: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'ps-q2',
-              question: {
+              id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'Según DyC 88:22-23, ¿qué determina en cuál reino de gloria habitará un alma?',
                 options: [
@@ -537,8 +534,7 @@ export const elPlanDeSalvacion: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'ps-q3',
-              question: {
+              id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: '¿Cuál es la distinción entre el don UNIVERSAL y el don CONDICIONAL de la Expiación de Cristo?',
                 options: [

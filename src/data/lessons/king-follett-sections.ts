@@ -40,9 +40,7 @@ export const kingFollettStudySections: LessonSection[] = [
           },
           {
             type: 'quiz',
-            id: 'qf-ctx-1',
-            question: {
-              kind: 'true_false',
+            id: 'q-1', question: { kind: 'true_false',
               statement: 'El Sermón de King Follett se dio en Nauvoo, Illinois.',
               correctAnswer: true,
               explanation: 'Se pronunció el 7 de abril de 1844 durante la conferencia general en Nauvoo.',
@@ -85,8 +83,7 @@ export const kingFollettStudySections: LessonSection[] = [
           },
           {
             type: 'quiz',
-            id: 'qf-dios-1',
-            question: {
+            id: 'q-2', question: {
               kind: 'true_false',
               statement: 'Según el discurso, la vida eterna puede ser solo “durar mucho tiempo” sin conocer a Dios verdaderamente.',
               correctAnswer: false,
@@ -165,8 +162,7 @@ export const kingFollettStudySections: LessonSection[] = [
           },
           {
             type: 'quiz',
-            id: 'qf-cre-1',
-            question: {
+            id: 'q-3', question: {
               kind: 'fill_blank',
               prompt: 'Según el sermón, crear en ciertos usos hebreos implica principalmente…',
               options: ['Aniquilar la materia', 'Organizar y dar forma', 'Ignorar la física'],
@@ -205,8 +201,7 @@ export const kingFollettStudySections: LessonSection[] = [
           },
           {
             type: 'quiz',
-            id: 'qf-int-sort',
-            question: {
+            id: 'q-4', question: {
               kind: 'sort_items',
               items: [
                 'Las leyes divinas ofrecen camino de progreso',
@@ -300,8 +295,7 @@ export const kingFollettStudySections: LessonSection[] = [
           },
           {
             type: 'quiz',
-            id: 'qf-sal-1',
-            question: {
+            id: 'q-5', question: {
               kind: 'true_false',
               statement: 'El sermón enseña que, en general, quienes no cometieron el pecado imperdonable pueden ser alcanzados por la salvación en esta vida o la venidera.',
               correctAnswer: true,

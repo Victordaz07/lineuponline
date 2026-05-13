@@ -236,9 +236,7 @@ export const cristoBomVsBiblia: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'cbv-q1',
-              question: {
-                kind: 'fill_blank',
+              id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'Alma 7:11 dice que Cristo sufrió dolores, enfermedades, ___ de todo género',
                 options: ['tentaciones', 'pruebas', 'tribulaciones', 'dudas'],
                 correctIndex: 0,
@@ -247,8 +245,7 @@ export const cristoBomVsBiblia: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'cbv-q2',
-              question: {
+              id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'En 3 Nefi 11, aproximadamente ___ personas metieron sus manos en las heridas de Cristo',
                 options: ['2.500', '12', '500', '70'],
@@ -258,8 +255,7 @@ export const cristoBomVsBiblia: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'cbv-q3',
-              question: {
+              id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: 'El propósito central del Libro de Mormón según 2 Nefi 25:26 es ___',
                 options: [

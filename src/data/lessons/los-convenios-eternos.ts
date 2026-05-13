@@ -221,8 +221,7 @@ export const losConveniosEternos: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'ce-q1',
-              question: {
+              id: 'q-1', question: {
                 kind: 'fill_blank',
                 prompt: 'Según Mosiah 18:8-10, ¿cuál de los siguientes NO forma parte de los convenios del bautismo que Alma describe?',
                 options: [
@@ -360,9 +359,7 @@ export const losConveniosEternos: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'ce-q2',
-              question: {
-                kind: 'fill_blank',
+              id: 'q-2', question: { kind: 'fill_blank',
                 prompt: 'Según DyC 82:10, ¿cuándo está el Señor "obligado" a cumplir Sus promesas?',
                 options: [
                   'Cuando los miembros pagan su diezmo completo',

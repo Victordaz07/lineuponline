@@ -385,9 +385,7 @@ export const elTemplo: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'et-q1',
-              question: {
-                kind: 'fill_blank',
+              id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'Según DyC 131:1-4, ¿qué es imposible sin haber recibido la ordenanza del matrimonio eterno en el más alto grado del reino celestial?',
                 options: [
                   'Vivir en la presencia de Dios el Padre',
@@ -401,8 +399,7 @@ export const elTemplo: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'et-q2',
-              question: {
+              id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: '¿Qué ocurrió el 3 de abril de 1836 en el Templo de Kirtland según DyC 110?',
                 options: [

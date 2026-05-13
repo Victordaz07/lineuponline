@@ -6,7 +6,7 @@ const openaiKey = defineSecret('OPENAI_API_KEY')
 
 /** Orígenes del front SPA (Hosting + desarrollo local). */
 const ALLOWED_ORIGINS = [
-  'https://lineuponline-a7eda.web.app',
+  'https://lineuponline-17a81.web.app',
   'http://localhost:5173',
   'http://127.0.0.1:5173',
 ]

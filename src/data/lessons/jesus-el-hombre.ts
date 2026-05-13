@@ -273,9 +273,7 @@ export const jesusElHombre: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'jeh-q1',
-              question: {
-                kind: 'fill_blank',
+              id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'Marcos 6:3 llama a Jesús τέκτων, que significa ___.',
                 options: [
                   'carpintero o artesano de la construcción',
@@ -290,8 +288,7 @@ export const jesusElHombre: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'jeh-q2',
-              question: {
+              id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'Hebreos 4:15 enseña que Jesús fue tentado ___ según nuestra semejanza.',
                 options: [
@@ -307,8 +304,7 @@ export const jesusElHombre: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'jeh-q3',
-              question: {
+              id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: 'En Juan 11, antes de resucitar a Lázaro, Jesús ___.',
                 options: [

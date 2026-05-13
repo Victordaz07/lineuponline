@@ -303,9 +303,7 @@ export const elLibroDeMormon: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'bm-q1',
-              question: {
-                kind: 'fill_blank',
+              id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'Los Tres Testigos declararon haber visto las planchas con un ___ y haber escuchado la voz de Dios confirmando la autenticidad del libro.',
                 options: ['profeta', 'ángel', 'espíritu', 'sueño'],
                 correctIndex: 1,
@@ -314,8 +312,7 @@ export const elLibroDeMormon: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'bm-q2',
-              question: {
+              id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'Según Alma 32:27, para iniciar el experimento de fe solo necesitas tener "deseo de ___" — ese deseo es suficiente para comenzar.',
                 options: ['saber', 'creer', 'ver', 'entender'],
@@ -325,8 +322,7 @@ export const elLibroDeMormon: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'bm-q3',
-              question: {
+              id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: 'Moroni 10:4 identifica tres condiciones para recibir la promesa: corazón sincero, verdadera intención, y ___ en Cristo.',
                 options: ['obediencia', 'fe', 'conocimiento', 'bautismo'],

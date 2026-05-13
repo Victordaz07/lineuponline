@@ -317,9 +317,7 @@ export const laPreexistencia: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'px-q1',
-              question: {
-                kind: 'fill_blank',
+              id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'Según Abraham 3:22–23, Dios vio a las inteligencias organizadas antes del mundo y afirmó que muchas eran ___.',
                 options: ['idénticas entre sí', 'grandes y nobles', 'pequeñas e ignorantes', 'recién creadas'],
                 correctIndex: 1,
@@ -328,8 +326,7 @@ export const laPreexistencia: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'px-q2',
-              question: {
+              id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'El plan de Satanás fue rechazado principalmente porque eliminaría la ___ humana.',
                 options: ['memoria', 'agencia', 'fe', 'inteligencia'],
@@ -339,8 +336,7 @@ export const laPreexistencia: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'px-q3',
-              question: {
+              id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: 'DyC 138 revela que los profetas de la Restauración fueron ___ desde la fundación del mundo para su ministerio.',
                 options: ['entrenados', 'llamados y preparados', 'asignados aleatoriamente', 'elegidos por méritos terrenales'],

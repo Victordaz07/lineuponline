@@ -303,9 +303,7 @@ export const misionYTestimonio: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'mt-q1',
-              question: {
-                kind: 'fill_blank',
+              id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'Según Alma 17:2–3, el secreto del poder misionero de los hijos de Mosías fue que "habían escudriñado diligentemente las ___ a fin de conocer la palabra de Dios."',
                 options: ['enseñanzas de los profetas', 'escrituras', 'revelaciones modernas', 'crónicas de guerra'],
                 correctIndex: 1,
@@ -314,8 +312,7 @@ export const misionYTestimonio: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'mt-q2',
-              question: {
+              id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'DyC 42:14 enseña que si no recibes el ___, no debes enseñar.',
                 options: ['llamamiento', 'Espíritu', 'permiso', 'conocimiento completo'],
@@ -325,8 +322,7 @@ export const misionYTestimonio: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'mt-q3',
-              question: {
+              id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: 'Según 2 Nefi 33:1, cuando un hombre habla por el poder del Espíritu Santo, ese poder lleva las palabras de Cristo al ___ de los hijos de los hombres.',
                 options: ['entendimiento', 'corazón', 'recuerdo', 'juicio'],

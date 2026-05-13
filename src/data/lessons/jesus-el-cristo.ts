@@ -273,9 +273,7 @@ export const jesusElCristo: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'jec-q1',
-              question: {
-                kind: 'fill_blank',
+              id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'Juan 1:1 declara que en el principio era ___ .',
                 options: [
                   'el Verbo',
@@ -290,8 +288,7 @@ export const jesusElCristo: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'jec-q2',
-              question: {
+              id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'Colosenses 1:16 enseña que todas las cosas fueron creadas ___ .',
                 options: [
@@ -307,8 +304,7 @@ export const jesusElCristo: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'jec-q3',
-              question: {
+              id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: 'En 3 Nefi 11, los aproximadamente 2,500 presentes ___ .',
                 options: [

@@ -321,9 +321,7 @@ export const visionTresReinos: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'tr-q1',
-              question: {
-                kind: 'fill_blank',
+              id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'Según DyC 131:1-4, para obtener el grado más alto del reino celestial, se debe entrar en el convenio del ___.',
                 options: ['bautismo', 'matrimonio eterno', 'sacerdocio', 'diezmo'],
                 correctIndex: 1,
@@ -332,8 +330,7 @@ export const visionTresReinos: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'tr-q2',
-              question: {
+              id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'DyC 137:10 enseña que todos los niños que mueren antes de los años de responsabilidad son salvos en el reino ___ de los cielos.',
                 options: ['telestial', 'terrestre', 'celestial', 'espiritual'],
@@ -343,8 +340,7 @@ export const visionTresReinos: Lesson = {
             },
             {
               type: 'quiz',
-              id: 'tr-q3',
-              question: {
+              id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: 'Según DyC 76:89-90, la gloria del reino ___ "supera todo entendimiento" — incluyendo el destino de quienes vivieron en pecado.',
                 options: ['celestial', 'terrestre', 'telestial', 'perdición'],

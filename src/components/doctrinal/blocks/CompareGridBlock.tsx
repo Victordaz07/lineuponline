@@ -9,10 +9,33 @@ function columnBullets(column: CompareGridColumn): string[] {
 }
 
 export function CompareGridBlockComponent({ block }: { block: CompareGridBlock }) {
-  const leftHeading = columnHeading(block.left)
-  const rightHeading = columnHeading(block.right)
-  const leftItems = columnBullets(block.left)
-  const rightItems = columnBullets(block.right)
+  if (block.rows && block.rows.length > 0) {
+    return (
+      <div className="my-5 overflow-x-auto">
+        {block.title ? (
+          <p className="mb-3 font-ui text-sm font-semibold text-text-main">{block.title}</p>
+        ) : null}
+        <table className="w-full border-collapse text-sm">
+          <tbody>
+            {block.rows.map((row, i) => (
+              <tr key={i} className={i % 2 === 0 ? 'bg-white/60' : 'bg-blue-50/40'}>
+                <td className="border border-blue-accent/15 px-3 py-2 font-ui font-semibold text-text-main">{row.label}</td>
+                <td className="border border-blue-accent/15 px-3 py-2 text-emerald-800">{row.a}</td>
+                <td className="border border-blue-accent/15 px-3 py-2 text-red-800">{row.b}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    )
+  }
+
+  const left = block.left ?? { label: '', points: [] }
+  const right = block.right ?? { label: '', points: [] }
+  const leftHeading = columnHeading(left)
+  const rightHeading = columnHeading(right)
+  const leftItems = columnBullets(left)
+  const rightItems = columnBullets(right)
 
   return (
     <div className="my-5">
