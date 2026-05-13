@@ -36,37 +36,16 @@ export const elLibroDeMormon: Lesson = {
             {
               type: 'timeline',
               items: [
-                {
-                  label: '421 d.C.',
-                  text: 'Moroni, último profeta nefita, sella las planchas de oro y las entierra en el monte Cumorah, en la actual Nueva York.',
-                  color: 'gold',
-                },
-                {
-                  label: '1823',
-                  text: 'El ángel Moroni se aparece a José Smith y le revela la existencia de las planchas. José las ve pero no las puede tomar aún.',
-                  ref: 'JS-H 1:30–34',
-                  color: 'blue',
-                },
-                {
-                  label: '1827',
-                  text: 'José recibe físicamente las planchas. Inicia la traducción con la asistencia del Urim y Tumim.',
-                  color: 'gold',
-                },
-                {
-                  label: '1829',
-                  text: 'Oliver Cowdery se convierte en escriba principal. En 65 días de trabajo activo se completa la traducción de 531 páginas.',
-                  color: 'blue',
-                },
-                {
-                  label: '1830',
-                  text: 'Se publican 5,000 copias del Libro de Mormón en Palmyra, Nueva York. La Iglesia se organiza el 6 de abril.',
-                  color: 'green',
-                },
+                { label: '421 d.C.', text: 'Moroni, último profeta nefita, sella las planchas de oro y las entierra en el monte Cumorah, en la actual Nueva York.', color: 'gold' },
+                { label: '1823', text: 'El ángel Moroni se aparece a José Smith y le revela la existencia de las planchas. José las ve pero no las puede tomar aún.', ref: 'JS-H 1:30–34', color: 'blue' },
+                { label: '1827', text: 'José recibe físicamente las planchas. Inicia la traducción con la asistencia del Urim y Tumim.', color: 'gold' },
+                { label: '1829', text: 'Oliver Cowdery se convierte en escriba principal. En 65 días de trabajo activo se completa la traducción de 531 páginas.', color: 'blue' },
+                { label: '1830', text: 'Se publican 5,000 copias del Libro de Mormón en Palmyra, Nueva York. La Iglesia se organiza el 6 de abril.', color: 'green' },
               ],
             },
             {
               type: 'highlight_verse',
-              text: 'Y de acuerdo con las cosas que estaban grabadas en las planchas, así fue la traducción, por mi Espíritu. Y diste gracias a Dios el Gran Rey Yo Soy, por su bondad y misericordia al declararte las cosas del presente y del pasado; sí, las llaves del misterio de aquellas cosas que han existido antes, incluso las cosas del Cielo.',
+              text: 'Y de acuerdo con las cosas que estaban grabadas en las planchas, así fue la traducción, por mi Espíritu.',
               reference: 'Doctrina y Convenios 20:8',
             },
             {
@@ -117,7 +96,7 @@ export const elLibroDeMormon: Lesson = {
             },
             {
               type: 'leader_quote',
-              quote: 'Declaro que tengo un testimonio absolutamente indestructible de la verdad del Libro de Mormón. He buscado por años cualquier razón académica, histórica, o lingüística para dudar de él — y en cambio, he encontrado evidencia acumulada de su autenticidad. Testificaré de él hasta el día de mi muerte.',
+              quote: 'Declaro que tengo un testimonio absolutamente indestructible de la verdad del Libro de Mormón. He buscado por años cualquier razón académica, histórica, o lingüística para dudar de él — y en cambio, he encontrado evidencia acumulada de su autenticidad.',
               name: 'Jeffrey R. Holland',
               role: '"Safety for the Soul", Conferencia General, octubre 2009 (trad.)',
             },
@@ -132,7 +111,7 @@ export const elLibroDeMormon: Lesson = {
         romanNumeral: 'III',
         title: 'El Contenido Doctrinal Central',
         paragraphs: [
-          'El subtítulo del Libro de Mormón lo dice todo: "Otro Testamento de Jesucristo." No es un libro de arqueología ni de historia americana. Es un testamento de Cristo — su misión, su expiación, su ministerio entre otras naciones. Leído como eso, revela doctrinas que complementan y profundizan las de la Biblia.',
+          'El subtítulo del Libro de Mormón lo dice todo: "Otro Testamento de Jesucristo." No es un libro de arqueología ni de historia americana. Es un testamento de Cristo — su misión, su expiación, su ministerio entre otras naciones.',
         ],
       },
       topics: [
@@ -147,7 +126,7 @@ export const elLibroDeMormon: Lesson = {
             },
             {
               type: 'highlight_verse',
-              text: 'Y él irá a sufrir dolores y aflicciones y tentaciones de toda clase; y esto para que se cumpla la palabra que dice que tomará sobre sí los dolores y las enfermedades de su pueblo. Y tomará sobre sí la muerte, a fin de poder soltar los lazos de la muerte que atan a su pueblo; y tomará sobre sí sus flaquezas, para que su interior se llene de misericordia.',
+              text: 'Y él irá a sufrir dolores y aflicciones y tentaciones de toda clase; y esto para que se cumpla la palabra que dice que tomará sobre sí los dolores y las enfermedades de su pueblo.',
               reference: 'Alma 7:11–12',
             },
             {
@@ -174,13 +153,8 @@ export const elLibroDeMormon: Lesson = {
               },
             },
             {
-              type: 'highlight_verse',
-              text: 'He aquí, yo os digo que estas cosas os las enseñé porque Padre me las mandó; y las cosas que no habéis visto ni oído, no se os transmitirán excepto por el Espíritu. Y ahora os he dicho estas cosas para que podáis saber que este es mi evangelio, y que yo también lo soy.',
-              reference: '3 Nefi 27:20–21',
-            },
-            {
               type: 'leader_quote',
-              quote: 'El Libro de Mormón lleva al hombre más cerca de Dios mediante la observancia de sus preceptos que cualquier otro libro. Esto no es una afirmación arrogante sobre otros libros sagrados. Es una afirmación sobre función: este libro fue diseñado y preparado específicamente para nuestra época, con nuestros problemas.',
+              quote: 'El Libro de Mormón lleva al hombre más cerca de Dios mediante la observancia de sus preceptos que cualquier otro libro.',
               name: 'Ezra Taft Benson',
               role: '"The Keystone of Our Religion", Conferencia General, octubre 1986 (trad.)',
             },
@@ -195,7 +169,7 @@ export const elLibroDeMormon: Lesson = {
         romanNumeral: 'IV',
         title: 'La Fe Como Experimento',
         paragraphs: [
-          'Alma 32 contiene una de las enseñanzas más sofisticadas sobre la epistemología de la fe que existe en cualquier tradición religiosa. Alma no pide fe ciega — pide un experimento. Una diferencia fundamental.',
+          'Alma 32 contiene una de las enseñanzas más sofisticadas sobre la epistemología de la fe que existe en cualquier tradición religiosa. Alma no pide fe ciega — pide un experimento.',
         ],
       },
       topics: [
@@ -205,7 +179,7 @@ export const elLibroDeMormon: Lesson = {
           blocks: [
             {
               type: 'highlight_verse',
-              text: 'Pero he aquí, si despertáis y agudizáis vuestras facultades, siquiera hasta el punto de experimentar con mis palabras, y ejercéis un poquito de fe, sí, siquiera si no podéis hacer más que desear creer, dejad que este deseo obre en vosotros, sí, hasta el punto de dar lugar a una porción de mis palabras.',
+              text: 'Pero he aquí, si despertáis y agudizáis vuestras facultades, siquiera hasta el punto de experimentar con mis palabras, y ejercéis un poquito de fe, sí, siquiera si no podéis hacer más que desear creer, dejad que este deseo obre en vosotros.',
               reference: 'Alma 32:27',
             },
             {
@@ -222,12 +196,7 @@ export const elLibroDeMormon: Lesson = {
             {
               type: 'doctrine_box',
               title: 'Fe no es lo opuesto del conocimiento — es el camino hacia él',
-              body: 'Alma 32:18 aclara: "Si un hombre sabe una cosa, no tiene razón de creerla, porque ya la sabe." La fe opera en el espacio antes del conocimiento pleno. No es irracional — es racional bajo condiciones de incertidumbre. El experimento de Alma es genuinamente empírico: planta, observa, evalúa el resultado. La diferencia con la ciencia experimental es que el "laboratorio" es el alma humana y los instrumentos de medición son internos.',
-            },
-            {
-              type: 'paragraph',
-              text: 'El presidente Russell M. Nelson ha enseñado que su testimonio no llegó de una vez sino que fue creciendo a lo largo de décadas de estudio y aplicación. No había un momento dramático — había un árbol que fue creciendo. Alma predijo exactamente eso.',
-              blockId: 'bm-s4-p-0',
+              body: 'Alma 32:18 aclara: "Si un hombre sabe una cosa, no tiene razón de creerla, porque ya la sabe." La fe opera en el espacio antes del conocimiento pleno. No es irracional — es racional bajo condiciones de incertidumbre. El experimento de Alma es genuinamente empírico: planta, observa, evalúa el resultado.',
             },
           ],
         },
@@ -240,7 +209,7 @@ export const elLibroDeMormon: Lesson = {
         romanNumeral: 'V',
         title: 'La Promesa de Moroni',
         paragraphs: [
-          'El último capítulo del Libro de Mormón contiene una de las promesas más audaces de la literatura religiosa: si lees este libro y preguntas a Dios con sinceridad real, Él te responderá. La promesa es específica en sus condiciones y universal en su oferta.',
+          'El último capítulo del Libro de Mormón contiene una de las promesas más audaces de la literatura religiosa: si lees este libro y preguntas a Dios con sinceridad real, Él te responderá.',
         ],
       },
       topics: [
@@ -269,7 +238,7 @@ export const elLibroDeMormon: Lesson = {
             },
             {
               type: 'leader_quote',
-              quote: 'Cada persona que ha vivido sobre la tierra merece saber si el Libro de Mormón es verdadero. Dios promete responder esa pregunta. He testificado de este libro en todos los continentes y ante millones de personas — y testificaré mientras viva que es la palabra de Dios.',
+              quote: 'Cada persona que ha vivido sobre la tierra merece saber si el Libro de Mormón es verdadero. Dios promete responder esa pregunta.',
               name: 'Russell M. Nelson',
               role: '"El Libro de Mormón: Lo que mi vida es", Conferencia General, octubre 2017 (trad.)',
             },
@@ -292,11 +261,6 @@ export const elLibroDeMormon: Lesson = {
           id: 't6',
           title: 'Reflexión y Verificación',
           blocks: [
-            {
-              type: 'highlight_verse',
-              text: 'E igualmente, a todos os digo: Velad y orad, no sea que el adversario os tiente; pues Satanás desea tamizaros como a trigo. Por tanto, debéis siempre orar al Padre en mi nombre; y lo que sea que pidáis al Padre en mi nombre, que sea justo, en fe creyendo que recibiréis, he aquí, os será dado.',
-              reference: '3 Nefi 18:18–20',
-            },
             {
               type: 'reflection',
               prompt: '¿Has cumplido la promesa de Moroni 10:4 con sinceridad real — no como ejercicio religioso sino como pregunta genuina? Si ya tienes un testimonio, ¿cuándo fue la última vez que lo renovaste estudiando el Libro de Mormón con la misma apertura que la primera vez?',
