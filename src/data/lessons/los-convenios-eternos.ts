@@ -5,12 +5,12 @@ export const losConveniosEternos: Lesson = {
   moduleId: 'doctrina-avanzada-carne',
   title: 'Los Convenios Eternos',
   subtitle: 'Los lazos que nos atan a Cristo',
-  author: 'Fuentes principales: DyC 82, 84, 132; Oseas 2, Jeremías 31',
+  author: 'Fuentes principales: DyC 82, 84, 132; Génesis 12, 17; Jeremías 31; Mosiah 18; Oseas 2',
   description:
-    'Los convenios no son contratos religiosos — son lazos de amor entre Dios y Sus hijos. Qué es un convenio, por qué los convenios rotos importan tanto, cómo se renuevan, y por qué los convenios del templo son la forma más alta de unión entre lo humano y lo divino.',
+    'Los convenios no son contratos religiosos — son lazos de amor entre Dios y Sus hijos. Qué es un convenio, la historia de los grandes convenios en las Escrituras, la escalera de convenios del evangelio restaurado, por qué los convenios rotos importan tanto, cómo se renuevan, y por qué vivir en el convenio es la identidad más profunda de un Santo.',
   level: 'AVANZADO',
   icon: '🔗',
-  duration: 65,
+  duration: 80,
   order: 6,
   status: 'PUBLISHED',
   studyBodyPlain: '',
@@ -18,523 +18,372 @@ export const losConveniosEternos: Lesson = {
   previousLessonId: 'justicia-y-misericordia',
   nextLessonId: null,
   studySections: [
-    // ─────────────────────────────────────────────────────────────────────────
-    // SECCIÓN I: Convenio vs. Contrato
-    // ─────────────────────────────────────────────────────────────────────────
     {
       id: 's1',
-      title: 'Convenio vs. Contrato',
+      title: '¿Qué es un Convenio? — La Distinción Fundamental',
       intro: {
         romanNumeral: 'I',
-        title: 'Convenio vs. Contrato — La Naturaleza del Lazo Divino',
+        title: '¿Qué es un Convenio? — La Distinción Fundamental',
         paragraphs: [
-          'La palabra "convenio" aparece cientos de veces en las Escrituras, pero rara vez se define con precisión. Muchos santos la usan como sinónimo de "promesa" o "regla." Es mucho más que eso. Un convenio es un lazo sagrado entre Dios y un ser humano — un compromiso bilateral que, cuando ambas partes lo cumplen, produce bendiciones que ningún esfuerzo individual puede obtener.',
-          'Para entender verdaderamente lo que hacemos cada vez que participamos de la Santa Cena, cada vez que entramos al templo, cada vez que recibimos una ordenanza — primero hay que entender la diferencia radical entre un convenio divino y cualquier otro tipo de acuerdo humano.',
+          'La palabra "convenio" aparece cientos de veces en las Escrituras, pero rara vez se define con precisión. Muchos santos la usan como sinónimo de "promesa" o "regla." Es mucho más que eso. Un convenio es un lazo sagrado entre Dios y un ser humano — un compromiso bilateral que, cuando ambas partes lo cumplen, produce bendiciones que ningún esfuerzo individual puede obtener por sí solo.',
         ],
       },
       topics: [
         {
           id: 't1',
-          title: 'La Naturaleza del Convenio Divino',
+          title: 'La Naturaleza del Convenio Divino — Más que un Contrato',
+          subtitle:
+            'Entender la diferencia entre un contrato humano y un convenio divino cambia completamente la forma en que se experimenta el evangelio.',
           blocks: [
             {
               type: 'highlight_verse',
-              text: 'Estoy obligado cuando vosotros hacéis lo que yo digo; mas cuando no hacéis lo que yo digo, no tenéis ninguna promesa.',
+              text: 'Y cuando obtenemos cualquier bendición de Dios, es en obediencia a esa ley sobre la cual está basada. Estoy obligado cuando vosotros hacéis lo que yo digo; mas cuando no hacéis lo que yo digo, no tenéis ninguna promesa.',
               reference: 'Doctrina y Convenios 82:10',
             },
             {
               type: 'paragraph',
-              text: 'Esta declaración del Señor en DyC 82:10 es una de las más audaces de toda la Restauración: Dios se declara a Sí mismo obligado. No condicionalmente, no provisionalmente — obligado. Cuando nosotros cumplimos nuestra parte del convenio, Dios no puede dejar de cumplir la Suya. No porque sea forzado, sino porque Su naturaleza perfecta garantiza que Sus promesas son absolutas. El convenio convierte las promesas de Dios en compromisos ejecutables.',
-            },
-            {
-              type: 'highlight_verse',
-              text: 'Y cuando obtenemos cualquier bendición de Dios, es en obediencia a esa ley sobre la cual está basada.',
-              reference: 'Doctrina y Convenios 130:20–21',
-            },
-            {
-              type: 'paragraph',
-              text: 'DyC 130:20–21 establece el principio universal: las bendiciones no son arbitrarias, son estructurales. Están atadas a leyes, y las leyes se activan a través de los convenios. No es que Dios sea mecánico o burocrático — es que el universo opera bajo leyes eternas que ni siquiera Dios viola. Los convenios son el mecanismo por el cual las leyes celestiales se conectan con la vida mortal. Cuando un mortal guarda un convenio, invoca una ley celestial — y esa ley produce bendiciones que exceden lo que cualquier esfuerzo humano aislado podría obtener.',
-            },
-            {
-              type: 'doctrine_box',
-              title: 'Cinco diferencias entre un convenio y un contrato',
-              body: '1. PARTES: Un contrato es entre iguales con poder de negociación. Un convenio divino es entre el Creador omnipotente y un mortal dependiente — las partes son radicalmente desiguales.\n\n2. TÉRMINOS: En un contrato, los términos se negocian. En un convenio divino, los términos los establece Dios completamente — Él decide qué requiere y qué promete. Aceptamos Sus condiciones tal como son.\n\n3. BENEFICIOS: En un contrato, cada parte busca su propio beneficio equilibrado. En un convenio, las bendiciones prometidas por Dios exceden infinitamente lo que el mortal podría aportar o merecer por sus propios méritos.\n\n4. CONSECUENCIAS: Un contrato roto produce consecuencias legales entre iguales. Un convenio roto no produce castigo legal de parte de Dios — produce pérdida del acceso a las bendiciones prometidas, que solo se restaura a través del arrepentimiento.\n\n5. RENOVACIÓN: Un contrato roto generalmente termina la relación. Un convenio roto puede renovarse a través del arrepentimiento — Dios siempre está dispuesto a restablecer el lazo.',
-            },
-            {
-              type: 'paragraph',
-              text: 'Entonces ¿por qué Dios usa convenios en lugar de simplemente dar bendiciones a todos Sus hijos? La respuesta está en la naturaleza del crecimiento eterno. Dios no quiere hijos dependientes — quiere coherederos. Las bendiciones que da en el contexto de los convenios son exactamente aquellas que requieren que el receptor haya desarrollado la capacidad de recibirlas. Un convenio no es solo el canal para una bendición — es el proceso formativo que nos hace aptos para ella.',
-            },
-            {
-              type: 'leader_quote',
-              quote: 'Los convenios que hacemos con Dios no son restricciones de nuestra libertad — son los lazos que nos conectan con el poder de Dios. Cuando una persona entiende que un convenio es una alianza con el ser más poderoso del universo, la perspectiva de la obediencia cambia completamente. No obedecemos por miedo ni por costumbre. Obedecemos porque hemos prometido, y porque sabemos que cada promesa guardada nos convierte en algo más cercano a lo que fuimos destinados a ser.',
-              name: 'D. Todd Christofferson',
-              role: '"El beneficio del convenio", Conferencia General, octubre 2009 (trad.)',
+              text: 'DyC 82:10 establece el principio universal: las bendiciones están atadas a leyes, y las leyes se activan a través de los convenios. No es que Dios sea mecánico o burocrático — es que el universo opera bajo principios que ni siquiera Dios viola, porque Él mismo los instituyó. Los convenios son el mecanismo por el cual las leyes celestiales se conectan con la vida mortal y producen bendiciones eternas.',
+              blockId: 'ce-s1-p-0',
             },
             {
               type: 'compare_grid',
               left: {
-                title: 'Contrato humano',
+                title: 'Un contrato humano',
                 items: [
-                  'Partes iguales con poder de negociación',
-                  'Términos mutuamente acordados',
-                  'Motivo: beneficio personal equivalente',
-                  'Ruptura: consecuencias legales',
-                  'Fin del contrato = fin de la relación',
-                  'Duración: temporal y circunstancial',
+                  'Acuerdo entre partes aproximadamente iguales',
+                  'Condiciones negociadas por ambas partes',
+                  'Las consecuencias del incumplimiento son legales o financieras',
+                  'Se cancela cuando una parte incumple',
+                  'El objetivo es proteger los intereses de ambas partes',
                 ],
               },
               right: {
-                title: 'Convenio divino',
+                title: 'Un convenio divino',
                 items: [
-                  'Dios omnipotente y mortal dependiente',
-                  'Términos establecidos completamente por Dios',
-                  'Motivo: amor de Dios y crecimiento del hijo',
-                  'Ruptura: pérdida de acceso a las bendiciones',
-                  'Ruptura renovable a través del arrepentimiento',
-                  'Duración: eterna cuando sellado por el Espíritu',
+                  'Acuerdo entre partes radicalmente desiguales: Dios y un mortal',
+                  'Las condiciones las establece completamente Dios — Son Sus términos',
+                  'El incumplimiento produce pérdida de acceso a las bendiciones prometidas',
+                  'Puede ser renovado a través del arrepentimiento — Dios nunca abandona',
+                  'El objetivo es elevar al mortal a la condición del Padre',
                 ],
               },
             },
             {
-              type: 'reflection',
-              prompt: '¿Cuándo fue la última vez que pensaste en la Santa Cena como la renovación de un lazo sagrado con el Creador del universo, en lugar de simplemente como un ritual semanal? ¿Cómo cambiaría tu preparación si recordaras que Dios se declara "obligado" cuando tú cumples tu parte?',
+              type: 'doctrine_box',
+              title: 'Por qué Dios hace convenios en lugar de simplemente dar bendiciones',
+              body: 'Un padre sabio no simplemente da regalos a sus hijos sin condiciones — los involucra activamente en el proceso de su propio desarrollo. Dios hace convenios porque las bendiciones que quiere dar requieren que Sus hijos desarrollen el carácter capaz de recibirlas y sostenerlas. La obediencia que se requiere en los convenios no es arbitraria — es la misma obediencia que produce el carácter divino. Los convenios no son el precio de las bendiciones; son el proceso de convertirse en alguien capaz de tenerlas eternamente.',
+            },
+            {
+              type: 'highlight_verse',
+              text: 'He aquí, yo soy el Señor vuestro Dios, y os daré a vosotros esta tierra, y os haré conocer mi ley, y yo seré vuestro Dios, y vosotros seréis mi pueblo.',
+              reference: 'Doctrina y Convenios 42:9',
+            },
+            {
+              type: 'leader_quote',
+              quote: 'Un convenio con Dios no es un contrato de seguro. Es una relación. Es la declaración de que tú y Dios están comprometidos el uno con el otro — que Él promete darte todo lo que tiene, y tú prometes darte completamente a Él. No existe ninguna relación más íntima ni más elevada que puedas tener en esta vida o en la eternidad.',
+              name: 'Élder David A. Bednar',
+              role: '"Exceeding Great and Precious Promises", Conferencia General, octubre 2017 · Liahona, noviembre 2017 (trad.)',
             },
           ],
         },
       ],
     },
-
-    // ─────────────────────────────────────────────────────────────────────────
-    // SECCIÓN II: Historia Completa de los Convenios
-    // ─────────────────────────────────────────────────────────────────────────
     {
       id: 's2',
-      title: 'Historia de los Convenios',
+      title: 'La Historia de los Convenios — De Noé a Cristo',
       intro: {
         romanNumeral: 'II',
-        title: 'Historia Completa de los Convenios — Un Solo Hilo a Través de las Dispensaciones',
+        title: 'La Historia de los Convenios — De Noé a Cristo',
         paragraphs: [
-          'Una de las perspectivas más poderosas sobre las Escrituras es esta: los convenios de Dios no son múltiples y separados. Son un solo convenio eterno, revelado progresivamente a través de las dispensaciones. Cada vez que Dios establece un convenio con un profeta, no reemplaza el anterior — lo amplía, lo enriquece y lo acerca a su forma final.',
-          'Comprender esta línea continua transforma la manera en que leemos el Antiguo Testamento, el Libro de Mormón y la Doctrina y Convenios. Todo apunta hacia el mismo destino: la exaltación de los hijos e hijas de Dios.',
+          'Los convenios de Dios con la humanidad no comenzaron con la Restauración. Tienen una historia que se extiende desde Adán hasta nuestros días — una historia de promesas hechas, de convenios rotos, y de un Dios que consistentemente busca a Sus hijos para restaurar el lazo. Entender esa historia ilumina por qué los convenios del evangelio restaurado son el cumplimiento de todo lo que vino antes.',
         ],
       },
       topics: [
         {
           id: 't2',
-          title: 'El Hilo del Convenio a Través de la Historia',
+          title: 'Los Grandes Convenios de la Historia Sagrada',
+          subtitle:
+            'Desde Noé hasta Cristo, cada convenio reveló un aspecto nuevo de la relación entre Dios y la humanidad.',
           blocks: [
             {
               type: 'timeline',
               items: [
                 {
-                  label: 'Adán — Ley de Sacrificio',
-                  text: 'El primer convenio después de la caída: ofrecer sacrificios como tipo y sombra del sacrificio del Mesías. La obediencia sin entender el porqué es la prueba primaria de la fe.',
-                  ref: 'Moisés 5:5-8; DyC 138:38-39',
+                  label: 'El Convenio de Adán',
+                  text: 'El primero: Dios presenta el evangelio a Adán y Eva tras la Caída — sacrificio, arrepentimiento y bautismo como el camino de regreso a Su presencia. La base de todos los convenios posteriores.',
+                  ref: 'Moisés 5:5-9; 6:50-68',
                   color: 'gold',
                 },
                 {
-                  label: 'Noé — El Arco Iris',
-                  text: 'Primer convenio de preservación universal: "Estableceré mi convenio con vosotros... no será más destruida toda carne con aguas de diluvio." La señal visible de una promesa invisible.',
-                  ref: 'Génesis 9:11-13',
+                  label: 'El Convenio de Noé',
+                  text: 'Después del diluvio, Dios promete no destruir la tierra con agua. La señal del arco iris. El primer convenio universal — entre Dios y toda la humanidad y toda criatura viviente.',
+                  ref: 'Génesis 9:8-17',
                   color: 'blue',
                 },
                 {
-                  label: 'Abraham — Descendencia y Tierra',
-                  text: 'El convenio más amplio del Antiguo Testamento: descendencia innumerable, tierra prometida, y la promesa de que en Abraham serán benditas todas las naciones. La circuncisión como señal del convenio.',
-                  ref: 'Génesis 17:1-8; Abraham 2:9-11',
+                  label: 'El Convenio Abrahámico (~2000 a.C.)',
+                  text: 'El más importante de los convenios del Antiguo Testamento. A Abraham, Dios promete: (1) posteridad innumerable, (2) tierra como heredad, (3) sacerdocio eterno, (4) que en él serán bendecidas "todas las familias de la tierra." Pablo llama a este convenio el "evangelio" (Gálatas 3:8).',
+                  ref: 'Génesis 12:1-3; 17:1-7; Abraham 2:9-11',
                   color: 'gold',
                 },
                 {
-                  label: 'Moisés — El Sinaí',
-                  text: 'El convenio nacional: "Seréis mi especial tesoro sobre todos los pueblos." La ley de Moisés como tutor preparatorio hacia Cristo. Los Diez Mandamientos como columna del convenio.',
-                  ref: 'Éxodo 19:5-6; 20:1-17',
+                  label: 'El Convenio Mosaico (~1440 a.C.)',
+                  text: 'La ley de Moisés — convenio entre Dios e Israel como nación. Un sistema de ordenanzas temporales diseñado para "apuntar hacia Cristo" (2 Nefi 25:25). No era la plenitud — era el preparatorio, como un tutor hasta que llegara Cristo.',
+                  ref: 'Éxodo 19:5-6; Gálatas 3:24',
                   color: 'blue',
                 },
                 {
-                  label: 'Jeremías — El Nuevo Convenio Prometido',
-                  text: '"He aquí que vienen días... en que haré nuevo convenio... pondré mi ley en su mente, y la escribiré en su corazón." La profecía del convenio interiorizado, cumplida en Cristo.',
-                  ref: 'Jeremías 31:31-33',
+                  label: 'El Nuevo y Sempiterno Convenio — Cristo',
+                  text: 'Jeremías profetizó un "nuevo convenio" que no sería escrito en tablas de piedra sino en el corazón. Cristo lo instituyó. No abolió los anteriores — los cumplió y los elevó. El bautismo, la Santa Cena, el sacerdocio y el sellamiento son sus ordenanzas.',
+                  ref: 'Jeremías 31:31-33; DyC 22:1; Mateo 26:27-28',
                   color: 'gold',
                 },
                 {
-                  label: 'Cristo — Cumplimiento y Nuevo Convenio',
-                  text: 'La expiación cumple y trasciende todos los convenios anteriores. La Santa Cena establece el "nuevo convenio" sellado con sangre. La ley de Moisés se cumple; el evangelio pleno se restaura.',
-                  ref: '3 Nefi 15:4-5; Lucas 22:20',
+                  label: 'La Restauración (1830–hoy)',
+                  text: 'El ángel Moroni citó Malaquías 3-4 a José Smith en 1823. La Restauración no es un nuevo convenio — es la plenitud del convenio abrahámico, restaurado con toda su autoridad, ordenanzas y poder de sellamiento. "Los tiempos de la restauración de todas las cosas" (Hechos 3:21).',
+                  ref: 'DyC 110; DyC 128:18; Abraham 2:11',
                   color: 'blue',
-                },
-                {
-                  label: 'Restauración — Los Convenios Completos',
-                  text: 'José Smith restaura el poder sellador, los convenios del templo, el convenio del matrimonio eterno. Por primera vez desde los tiempos del Nuevo Testamento, el convenio completo está disponible en la tierra.',
-                  ref: 'DyC 132:18-20; DyC 84:33-41',
-                  color: 'gold',
                 },
               ],
             },
             {
-              type: 'media_slot',
-              kind: 'image',
-              src: undefined,
-              alt: 'Panoramic sweep of covenant history: rainbow over mountains (Noah), stars over desert (Abraham), stone tablets glowing (Moses), Christ breaking bread, four scenes unified',
-              caption: 'El mismo convenio eterno — renovado en cada dispensación desde Adán hasta la Restauración',
-              contextCard: { label: 'Historia de los Convenios' },
-            },
-            {
-              type: 'doctrine_box',
-              title: 'Un solo convenio eterno — no muchos convenios separados',
-              body: 'El apóstol Pablo llama al plan de Dios "el nuevo y sempiterno convenio" (Hebreos 13:20). Los profetas de la Restauración enseñan que los convenios a través de las dispensaciones no son tratados separados: son el mismo convenio ampliado y aplicado a nuevas circunstancias. Adán ofreció sacrificios mirando hacia Cristo. Abraham recibió la promesa de descendencia que se cumpliría en Cristo. Moisés recibió la ley que preparaba para Cristo. Jeremías profetizó del convenio que Cristo establecería. Todas las líneas convergen en la expiación — y la Restauración las recoge todas en un solo sistema de convenios progresivos que culmina en la exaltación.',
-            },
-            {
               type: 'highlight_verse',
-              text: 'He aquí que vienen días, dice el Señor, en los cuales haré nuevo convenio con la casa de Israel y con la casa de Judá... pondré mi ley en su mente, y la escribiré en su corazón; y yo seré a ellos por Dios, y ellos me serán a mí por pueblo.',
-              reference: 'Jeremías 31:31–33',
+              text: 'He aquí, vienen días, dice Jehová, en los cuales haré un nuevo pacto con la casa de Israel y con la casa de Judá. No como el pacto que hice con sus padres el día que tomé su mano para sacarlos de la tierra de Egipto. Sino que este es el pacto que haré con la casa de Israel después de aquellos días, dice Jehová: Daré mi ley en su mente, y la escribiré en su corazón; y yo seré a ellos por Dios, y ellos me serán por pueblo.',
+              reference: 'Jeremías 31:31–33 · Biblia (RVR)',
             },
             {
-              type: 'paragraph',
-              text: 'La profecía de Jeremías es notable porque anticipa el problema central de los convenios externos: una ley grabada en piedra puede conocerse intelectualmente sin transformar el corazón. El nuevo convenio que Dios promete en Jeremías — y que se cumple primero en Cristo y luego en plenitud en la Restauración — es un convenio que opera desde adentro. La diferencia entre guardar los mandamientos por obligación y guardarlos porque están "escritos en el corazón" es exactamente la diferencia entre religión cultural y discipulado real.',
+              type: 'deep_dive',
+              badge: 'Contexto',
+              title: 'El Convenio Abrahámico — Por qué Pablo lo llama "el evangelio"',
+              paragraphs: [
+                'En Gálatas 3:8, Pablo escribe algo que parece paradójico al principio: "Y la escritura, previendo que Dios había de justificar por la fe a los gentiles, dio de antemano la buena nueva a Abraham, diciendo: En ti serán benditas todas las naciones." Pablo llama al convenio de Abraham "la buena nueva" — el evangelio.',
+                'La razón es que las promesas del convenio abrahámico son precisamente las promesas del evangelio restaurado: (1) Un Redentor — que Cristo vendría a través de la línea de Abraham. (2) El sacerdocio eterno — que la autoridad para administrar las ordenanzas de salvación sería restaurada. (3) Bendición universal — que todas las familias de la tierra tendrían acceso a las bendiciones del evangelio, incluyendo las ordenanzas vicarias del templo por los muertos.',
+                'Abraham 2:10-11 añade la dimensión misionera: "Y yo te bendeciré a ti... y en tu simiente... serán bendecidas todas las familias de la tierra con las bendiciones del evangelio, que son las bendiciones de la salvación, es decir, la vida eterna." Los miembros de la Iglesia que tienen el evangelio son literalmente la "simiente de Abraham" que tiene la responsabilidad de llevar esas bendiciones al mundo.',
+              ],
             },
             {
               type: 'leader_quote',
-              quote: 'Somos el pueblo del convenio. Eso no es solo un título honorífico — es una descripción de nuestra relación con el Padre Celestial. Abraham, Isaac y Jacob son nuestros padres del convenio. Sus promesas son nuestras promesas. Su fe es el fundamento sobre el que edificamos. Cuando hacemos convenios en la tierra, nos conectamos con una cadena de fe que se extiende a través de todas las dispensaciones hasta el principio mismo de la historia humana.',
-              name: 'Henry B. Eyring',
-              role: '"Siempre retened la remisión de vuestros pecados", Conferencia General, octubre 2016 (trad.)',
-            },
-            {
-              type: 'quiz',
-              id: 'q-historia-convenios',
-              question: {
-                kind: 'true_false',
-                statement: 'Cada dispensación introduce un convenio completamente nuevo y distinto que reemplaza al anterior.',
-                correctAnswer: false,
-                explanation: 'Los convenios de Dios a través de las dispensaciones no se reemplazan entre sí. Son el mismo convenio eterno ampliado y aplicado progresivamente — cada uno añade comprensión y ordenanzas hasta el plan completo restaurado por José Smith.',
-              },
+              quote: 'El convenio que Dios hizo con Abraham es el mismo convenio que tenemos hoy. Somos literalmente la simiente de Abraham — sus herederos espirituales y frecuentemente también sus herederos de sangre. Nuestro llamamiento misional, nuestra responsabilidad de hacer trabajo de templo por los muertos, nuestra obligación de construir familias eternas — todo está contenido en las palabras que Dios le dijo a Abraham hace cuatro mil años.',
+              name: 'Élder Russell M. Nelson',
+              role: '"The Covenant of Abraham", Ensign, febrero 1999 (trad.) · BYU Devotional, 1998',
             },
           ],
         },
       ],
     },
-
-    // ─────────────────────────────────────────────────────────────────────────
-    // SECCIÓN III: La Escalera de los Convenios
-    // ─────────────────────────────────────────────────────────────────────────
     {
       id: 's3',
-      title: 'La Escalera de los Convenios',
+      title: 'La Escalera de los Convenios del Evangelio',
       intro: {
         romanNumeral: 'III',
-        title: 'La Escalera de los Convenios — Progresión Ordenada hacia Dios',
+        title: 'La Escalera de los Convenios del Evangelio',
         paragraphs: [
-          'El evangelio restaurado no ofrece un solo convenio genérico — ofrece un sistema progresivo de convenios, cada uno construyendo sobre el anterior, cada uno introduciendo nuevas obligaciones y nuevas bendiciones. Elder Bruce R. McConkie llamó a esto "la escalera del convenio eterno."',
-          'No se puede saltear peldaños. El bautismo es el portal de entrada — sin él, las ordenanzas posteriores no tienen validez convenantal. La Santa Cena mantiene vivo el bautismo semana tras semana. El sacerdocio abre la puerta al servicio sagrado. La investidura introduce al creyente en las realidades celestiales. El sellamiento une familias para la eternidad. Cada peldaño es necesario; ninguno es suficiente solo.',
+          'El evangelio restaurado es un sistema de convenios progresivos. Cada ordenanza introduce un convenio diferente, cada uno más profundo que el anterior. Juntos forman lo que las escrituras llaman el "nuevo y sempiterno convenio" — la alianza que Dios ofrece a Sus hijos para unirlos a Él eternamente y habilitarlos para la exaltación.',
         ],
       },
       topics: [
         {
           id: 't3',
-          title: 'Los Cinco Peldaños del Convenio',
+          title: 'Los Convenios desde el Bautismo hasta el Sellamiento',
+          subtitle:
+            'Cada ordenanza es una puerta — y cada puerta lleva a un nivel más profundo de compromiso y de poder divino.',
           blocks: [
             {
-              type: 'timeline',
-              items: [
-                {
-                  label: 'Bautismo',
-                  text: 'Tomar el nombre de Cristo, guardar Sus mandamientos, llevar cargas de otros, dar testimonio de Dios en todo tiempo y lugar. Entrada al reino de Dios.',
-                  ref: 'Mosiah 18:8-10; DyC 20:37',
-                  color: 'blue',
-                },
-                {
-                  label: 'Santa Cena',
-                  text: 'Renovación semanal del convenio bautismal — recordar el cuerpo y la sangre de Cristo, tomar Su nombre, guardar Sus mandamientos. El acto de convenio más frecuente de un Santo de los Últimos Días.',
-                  ref: 'DyC 20:77-79; 3 Nefi 18:7',
-                  color: 'gold',
-                },
-                {
-                  label: 'Sacerdocio',
-                  text: 'Convenio de actuar fielmente en el nombre de Dios, magnificar el llamamiento, enseñar el evangelio y administrar las ordenanzas salvadoras. Acceso al poder de Dios en la tierra.',
-                  ref: 'DyC 84:33-40',
-                  color: 'blue',
-                },
-                {
-                  label: 'Investidura (Endowment)',
-                  text: 'Convenios de obediencia, castidad, consagración y dedicación al reino de Dios. Dotación de conocimiento y poder espiritual para la vida mortal y la exaltación eterna.',
-                  ref: 'DyC 84:19-22; 105:12',
-                  color: 'gold',
-                },
-                {
-                  label: 'Sellamiento',
-                  text: 'El nuevo y sempiterno convenio del matrimonio — familia unida por tiempo y toda la eternidad. El convenio más alto disponible en la tierra mortal.',
-                  ref: 'DyC 132:18-20',
-                  color: 'gold',
-                },
-              ],
-            },
-            {
-              type: 'media_slot',
-              kind: 'image',
-              src: undefined,
-              alt: 'A luminous ascending staircase with five steps, each glowing with sacred golden light, labels visible on each step, ascending into bright celestial light above',
-              caption: 'La escalera de los convenios — cada peldaño abre acceso al siguiente nivel de poder divino',
-              contextCard: { label: 'La Escalera de los Convenios' },
-            },
-            {
-              type: 'key_points',
-              title: 'Lo que cada convenio añade que el anterior no tenía',
-              points: [
-                'Bautismo: da acceso a la remisión de pecados y al don del Espíritu Santo. Sin él, ninguna otra ordenanza es válida.',
-                'Santa Cena: mantiene el convenio bautismal activo a lo largo de toda la vida mortal. Es la renovación, no el inicio.',
-                'Sacerdocio: añade autoridad para actuar en nombre de Dios, no solo para recibir Sus bendiciones. Transforma al receptor en un agente del poder divino.',
-                'Investidura: añade conocimiento de las verdades eternas del plan de salvación y promesas específicas de protección espiritual. Abre el camino para regresar a la presencia de Dios.',
-                'Sellamiento: añade la dimensión familiar a la exaltación. Un individuo puede ser exaltado solo hasta cierto punto — la plenitud del Padre requiere la unidad matrimonial y familiar (DyC 131:1-4).',
+              type: 'steps',
+              steps: [
+                'BAUTISMO — El convenio de entrada. Alma describe sus términos en Mosiah 18:8-10: llevar las cargas de los demás, consolar a los que necesitan consuelo, dar testimonio de Dios "en todo tiempo, lugar y circunstancia." A cambio, Dios promete derramar Su Espíritu más abundantemente y la vida eterna. Es el primer acto de identidad: ya no eres solo tú — eres de Cristo.',
+                'SANTA CENA — El convenio de renovación semanal. No se trata de renovar el bautismo en sí, sino de renovar la disposición del corazón que hizo posible el bautismo: acordarse del Salvador, guardar Sus mandamientos, estar siempre dispuesto a tomar Su nombre. La promesa de Dios es constante: "siempre tendréis su Espíritu con vosotros" (DyC 20:77-79). Es el acceso semanal a la misericordia de Cristo.',
+                'SACERDOCIO — El convenio del ministerio. DyC 84:33-40 describe el "juramento y convenio del sacerdocio": quien lo recibe y lo magnifica se convierte en "hijo de Moisés y de Aarón, y de la simiente de Abraham." A cambio, el Padre promete "todo lo que él tiene." Este convenio compromete no solo la conducta privada sino el servicio activo en el reino de Dios.',
+                'ENDOWMENT (INVESTIDURA) — El convenio de la consagración. Convenios de obediencia completa a Dios, castidad (fidelidad a los lazos del matrimonio eterno), y consagración de tiempo, talentos y recursos al reino de Dios. A cambio, Dios dota al receptor de instrucción divina, vestidura sagrada y el conocimiento necesario para regresar a Su presencia.',
+                'SELLAMIENTO — El convenio eterno del matrimonio. "Por tiempo y por toda la eternidad" (DyC 132:19). No es solo la unión de dos personas — es el establecimiento de una unidad familiar eterna con potencial de aumento ilimitado. Es el convenio que hace posible la exaltación en el sentido más pleno: llegar a ser como el Padre y la Madre Celestiales.',
               ],
             },
             {
               type: 'highlight_verse',
-              text: 'Por lo cual, si guardáis mis mandamientos y permanecéis en mi convenio, iréis adelante eternamente; porque el camino eterno está preparado ante vosotros.',
+              text: 'Y todos los que reciben este sacerdocio reciben yo, dice el Señor; porque el que recibe a mis siervos, me recibe a mí; y el que me recibe, recibe a mi Padre; y el que recibe a mi Padre, recibe el reino de mi Padre; por tanto, todas las cosas que mi Padre tiene se le darán a él.',
+              reference: 'Doctrina y Convenios 84:35–38',
+            },
+            {
+              type: 'doctrine_box',
+              title: 'Los convenios y la identidad — "Pueblo del convenio"',
+              body: 'El presidente Nelson enseñó que entender nuestra identidad como "pueblo del convenio" cambia fundamentalmente cómo enfrentamos las tentaciones del mundo. No es una identidad religiosa superficial — es la descripción de quiénes somos realmente: hijos e hijas del Padre Celestial que han establecido lazos formales y eternos con Él. Cuando somos tentados, la pregunta correcta no es "¿puedo salirme con la mía?" sino "¿es esto consistente con quién soy?" Los convenios definen la identidad antes de definir la conducta.',
+            },
+            {
+              type: 'highlight_verse',
+              text: 'Y por consiguiente, si guardáis mis mandamientos y permanecéis firmes en mi convenio, iréis adelante eternamente; porque el camino eterno está preparado ante vosotros.',
               reference: 'Moisés 6:59',
             },
             {
+              type: 'leader_quote',
+              quote: 'Los convenios que hacemos con Dios nos atan a Él con lazos más fuertes que los del matrimonio humano, más fuertes que los de la sangre, más fuertes que cualquier lealtad terrenal. Cuando entendemos eso, entendemos por qué romper un convenio es algo tan serio — y por qué renovarlo a través del arrepentimiento es uno de los mayores privilegios de la mortalidad.',
+              name: 'Élder David A. Bednar',
+              role: '"Exceeding Great and Precious Promises", Conferencia General, octubre 2017 · Liahona, noviembre 2017 (trad.)',
+            },
+            {
               type: 'quiz',
-              id: 'q-escalera-convenios',
+              id: 'ce-q1',
               question: {
                 kind: 'fill_blank',
-                prompt: 'La ordenanza que renueva el convenio bautismal cada semana es...',
-                options: ['El bautismo', 'La Santa Cena', 'El endowment'],
-                correctIndex: 1,
-                explanation: 'La Santa Cena es el acto de convenio más frecuente de un Santo de los Últimos Días. No reemplaza el bautismo — lo renueva. Cada domingo es una oportunidad de reafirmar las promesas hechas al ser bautizados.',
+                prompt: 'Según Mosiah 18:8-10, ¿cuál de los siguientes NO forma parte de los convenios del bautismo que Alma describe?',
+                options: [
+                  'Llevar las cargas de los demás',
+                  'Llorar con los que lloran y consolar a los que necesitan consuelo',
+                  'Guardar la ley del diezmo completo',
+                  'Ser testigo de Dios en todo tiempo, lugar y circunstancia',
+                ],
+                correctIndex: 2,
+                explanation: 'Mosiah 18:8-10 describe los convenios del bautismo como: llevar las cargas de los demás, llorar con los que lloran, consolar a los afligidos, y ser testigos de Dios en todo tiempo, lugar y circunstancia. La ley del diezmo no es mencionada en el convenio bautismal — es parte de los convenios del endowment en el templo.',
               },
-            },
-            {
-              type: 'deep_dive',
-              badge: 'Doctrina profunda',
-              title: 'El poder del sacerdocio como convenio',
-              paragraphs: [
-                'DyC 84:33–40 enseña una de las doctrinas más elevadas de la Restauración: quienes obtienen el sacerdocio de Melquisedec y magnifican su llamamiento entran en el "convenio del sacerdocio" — y a través de ese convenio reciben "todo lo que tiene el Padre."',
-                'Esto no es retórica. Es una declaración literal sobre la exaltación. El convenio del sacerdocio conecta al portador con "la línea de la autoridad" que regresa a Jesucristo y, a través de Él, al Padre Eterno. Cuando un portador del sacerdocio actúa en esa autoridad con rectitud, no actúa solo — actúa como representante oficial del Dios que creó el universo.',
-                'Elder McConkie escribió que el convenio del sacerdocio es el convenio más alto que un hombre puede hacer en la mortalidad fuera del templo — porque incluye la promesa de "toda la luz y conocimiento que el Padre tiene." La clave es "magnificar el llamamiento" — no simplemente poseer el sacerdocio, sino ejercerlo activamente en el servicio y la enseñanza.',
-              ],
-            },
-            {
-              type: 'leader_quote',
-              quote: 'Los convenios que hacemos con Dios nos atan a Él con lazos más fuertes que los del matrimonio, más fuertes que los de la sangre, más fuertes que cualquier lealtad humana. Cuando entendemos eso, entendemos por qué romper un convenio es algo tan serio — y por qué renovarlo a través del arrepentimiento es uno de los mayores privilegios de la mortalidad.',
-              name: 'David A. Bednar',
-              role: '"Exceeding Great and Precious Promises", Conferencia General, octubre 2017 (trad.)',
             },
           ],
         },
       ],
     },
-
-    // ─────────────────────────────────────────────────────────────────────────
-    // SECCIÓN IV: Oseas — El Convenio Roto y la Santa Cena
-    // ─────────────────────────────────────────────────────────────────────────
     {
       id: 's4',
-      title: 'Oseas y la Santa Cena',
+      title: 'Cuando los Convenios se Rompen — y Cómo se Renuevan',
       intro: {
         romanNumeral: 'IV',
-        title: 'Oseas — El Convenio Roto y la Santa Cena como Renovación',
+        title: 'Cuando los Convenios se Rompen — y Cómo se Renuevan',
         paragraphs: [
-          'El libro de Oseas es uno de los textos proféticos más personales y desgarradores de toda la Biblia. En él, un profeta vive en carne propia la tragedia del convenio roto: Dios le ordena casarse con una mujer que lo será infiel, para que el profeta comprenda — desde adentro — lo que Dios siente cuando Israel rompe su convenio.',
-          'Pero el libro de Oseas no termina en el abandono. Termina en la restauración. Y esa restauración es exactamente lo que la Santa Cena promete a cada miembro cada domingo.',
+          'El profeta Oseas vivió la parábola más poderosa de los convenios rotos: su propio matrimonio con una mujer infiel fue diseñado por Dios para ilustrar la relación entre el Señor e Israel. Cuando Israel rompe el convenio, Dios no lo abandona. Lo busca, lo llama, lo invita a renovar el lazo. "Te desposaré conmigo para siempre." Esta es la doctrina del arrepentimiento en el lenguaje del convenio: Dios siempre está dispuesto a renovar si nosotros nos volvemos.',
         ],
       },
       topics: [
         {
           id: 't4',
-          title: 'El Matrimonio de Oseas como Metáfora del Convenio',
+          title: 'El Convenio Roto y el Dios que No Abandona',
+          subtitle:
+            'Oseas, Jeremías y la doctrina de la Santa Cena revelan que el sistema de convenios del Señor incluye mecanismos de renovación precisamente porque el Señor conoce la fragilidad de los mortales.',
           blocks: [
             {
-              type: 'paragraph',
-              text: 'El Señor ordena a Oseas: "Ve, toma para ti una mujer fornicaria" (Oseas 1:2). Esta es una de las órdenes más extrañas de toda la Escritura. Pero el propósito es pedagógico: Dios quiere que Oseas experimente desde adentro lo que significa amar a alguien que te abandona repetidamente. Gomer, la esposa de Oseas, es infiel. La abandona. Cae en esclavitud. Y aun así, el Señor ordena a Oseas que la recupere: "Ve, ama a una mujer amada de su amigo y adúltera" (Oseas 3:1). Oseas paga el precio de su rescate y la trae de vuelta.',
-            },
-            {
               type: 'highlight_verse',
-              text: 'Y te desposaré conmigo para siempre; te desposaré conmigo en justicia, juicio, benignidad y misericordia. Y te desposaré conmigo en fidelidad, y conocerás al Señor.',
-              reference: 'Oseas 2:19–20',
+              text: 'Y yo te desposará conmigo para siempre; te desposará conmigo en justicia, juicio, benignidad y misericordia. Y te desposará conmigo en fidelidad, y conocerás a Jehová.',
+              reference: 'Oseas 2:19–20 · Biblia (RVR)',
             },
             {
               type: 'paragraph',
-              text: 'Estas palabras — "te desposaré conmigo para siempre" — son pronunciadas por Dios a Israel después de que Israel ha roto repetidamente el convenio. No es una promesa de primer matrimonio. Es una promesa de restauración. Dios no dice "te olvidaré" ni "te buscaré un reemplazo." Dice: te vuelvo a desposaré. El convenio roto puede ser restaurado. El amor que lo sostuvo no ha disminuido. Y las condiciones del nuevo desposamiento son aún más ricas: justicia, juicio, benignidad, misericordia, fidelidad.',
+              text: 'Oseas es el profeta del convenio roto y restaurado. Su matrimonio con Gomer — una mujer que lo dejó para seguir a otros — fue ordenado por Dios como una metáfora viva. Cuando Israel rompió el convenio yendo tras dioses falsos, Dios no declaró nulo el convenio. Lo buscó. "No me desposé con vosotros? — y lo volvería a hacer." Ese es el carácter de Dios en el contexto del convenio: persistente, paciente, y siempre dispuesto a renovar.',
+              blockId: 'ce-s4-p-0',
             },
             {
               type: 'highlight_verse',
-              text: 'He aquí, borré como a nube tus rebeliones, y como a niebla tus pecados; vuélvete a mí, porque yo te redimí.',
-              reference: 'Isaías 44:22',
-            },
-            {
-              type: 'media_slot',
-              kind: 'image',
-              src: undefined,
-              alt: 'Close-up of weathered hands carefully breaking white sacrament bread over a white cloth, soft natural window light, reverent and intimate',
-              caption: 'La Santa Cena — el mecanismo semanal de renovación del convenio (DyC 20:77)',
-              contextCard: { label: 'La Santa Cena — Renovación del Convenio' },
-            },
-            {
-              type: 'doctrine_box',
-              title: 'Por qué la Santa Cena es el acto de convenio más frecuente de un Santo de los Últimos Días',
-              body: 'El bautismo ocurre una sola vez. El sacerdocio se confiere una sola vez. La investidura se recibe una sola vez. El sellamiento se realiza una sola vez. Pero la Santa Cena ocurre cada semana — y esa frecuencia no es accidental.\n\nDios sabe que la naturaleza mortal debilita los convenios. Las presiones del mundo, la tentación, el pecado cotidiano van erosionando el lazo que el bautismo estableció. Por eso diseñó un mecanismo de renovación semanal: la Santa Cena.\n\nCada vez que un miembro digno participa de la Santa Cena, renueva explícitamente las promesas del bautismo: tomar el nombre de Cristo, recordarle siempre, guardar Sus mandamientos. Y Dios, fiel a Su parte del convenio, promete: "tendrán siempre Su Espíritu consigo" (DyC 20:77).\n\nEsta es la respuesta de Dios al problema de Oseas: un sistema en el que el convenio roto puede ser renovado cada siete días, sin importar lo que haya sucedido en la semana anterior.',
-            },
-            {
-              type: 'highlight_verse',
-              text: 'Y esto haréis en memoria de mí; y he aquí, yo os digo que tan a menudo como hagáis esto, recordaréis mi cuerpo, el cual os he mostrado a vosotros. Y será un testimonio al Padre de que siempre me recordáis.',
-              reference: '3 Nefi 18:7',
-            },
-            {
-              type: 'highlight_verse',
-              text: 'He aquí, el que se ha arrepentido de sus pecados es perdonado, y yo, el Señor, no los recuerdo más.',
-              reference: 'Doctrina y Convenios 58:42–43',
-            },
-            {
-              type: 'paragraph',
-              text: 'DyC 58:42 es quizás el versículo más importante sobre el arrepentimiento en toda la Restauración. Cuando Dios dice que "no recuerda más" los pecados perdonados, no está describiendo un olvido involuntario. Está describiendo una decisión deliberada de misericordia: una vez que el arrepentimiento es genuino, Dios elige tratar al pecador como si ese pecado nunca hubiera ocurrido. El convenio que el pecado suspendió se reactiva. La relación que el pecado dañó se restaura. Las bendiciones que el convenio prometía se vuelven disponibles de nuevo.',
+              text: 'He aquí, el que ha arrepentido de sus pecados es perdonado, y yo, el Señor, no los recuerdo más.',
+              reference: 'Doctrina y Convenios 58:42',
             },
             {
               type: 'key_points',
-              title: 'Cómo se renuevan los convenios rotos',
               points: [
-                'El bautismo no se repite — pero el convenio bautismal se renueva cada semana en la Santa Cena (DyC 20:77-79)',
-                'El arrepentimiento sincero restaura el acceso a las bendiciones del convenio — el Señor "no recuerda más" el pecado perdonado (DyC 58:42)',
-                'Las ordenanzas del templo se pueden restaurar para quienes las perdieron por transgresión grave — a través del proceso de consejo con el obispo y el presidente de estaca',
-                'El sellamiento no se pierde automáticamente por pecado — pero sus bendiciones plenas están condicionadas a la fidelidad continuada hasta el final',
-                'La Santa Cena como "nuevo convenio" (Lucas 22:20) — cada participación digna es un acto formal de renovación del lazo con Cristo',
+                '① EL BAUTISMO NO SE REPITE — pero el convenio bautismal se renueva cada semana en la Santa Cena. La Santa Cena es el mecanismo de misericordia que el Señor instituyó precisamente para la fragilidad mortal.',
+                '② EL ARREPENTIMIENTO RESTAURA EL ACCESO — DyC 58:42 es explícito: "yo, el Señor, no los recuerdo más." El convenio roto puede ser restaurado. Las bendiciones que el pecado suspendió vuelven cuando el arrepentimiento es sincero.',
+                '③ LAS ORDENANZAS DEL TEMPLO PUEDEN RESTAURARSE — Para quienes las perdieron por transgresión grave, el proceso de consejo con el obispo y el presidente de estaca abre el camino a la restauración. No es fácil, pero es posible.',
+                '④ EL SELLAMIENTO SOBREVIVE AL PECADO — El sellamiento no se pierde automáticamente por el pecado. Sus bendiciones están condicionadas a la fidelidad, pero el lazo puede ser restaurado a través del arrepentimiento. El Señor diseñó el sistema para que el regreso siempre sea posible.',
+              ],
+            },
+            {
+              type: 'deep_dive',
+              badge: 'Doctrina',
+              title: 'La Santa Cena como mecanismo de renovación del convenio',
+              paragraphs: [
+                'Una de las doctrinas más prácticas y hermosas de la Restauración es la función de la Santa Cena como renovación del convenio. No se trata de repetir el bautismo — el bautismo fue una sola vez. Se trata de renovar la disposición del corazón que hizo posible el bautismo.',
+                'El élder Oaks enseñó: "La Santa Cena es una renovación de los convenios bautismales. Cada semana nos presentamos ante el Señor con un corazón dispuesto a acordarnos de Él, a guardar Sus mandamientos, y a llevar Su nombre. Si ese es el estado de nuestro corazón, la promesa es constante: tendréis Su Espíritu con vosotros." (Conferencia General, abril 2008)',
+                'Esta doctrina tiene una implicación poderosa: ningún Santo que tome la Santa Cena semanalmente con sinceridad necesita esperar meses o años para saber que ha sido perdonado. El acceso a la misericordia de Cristo se renueva cada domingo. La Santa Cena es el mecanismo de gracia más frecuente que el Señor puso a disposición de Sus hijos en la mortalidad.',
+                'El élder David A. Bednar añadió: "Guardar correctamente la ordenanza de la Santa Cena es uno de los principales medios por los cuales obtenemos y siempre retenemos una remisión de nuestros pecados." ("Siempre retener una remisión de vuestros pecados", Conferencia General, abril 2016)',
               ],
             },
             {
               type: 'leader_quote',
-              quote: 'Una de las verdades más hermosas del evangelio es esta: los convenios no se pierden por debilidad. Se pueden renovar. El Señor diseñó un sistema en el que la caída no tiene que ser permanente, en el que el regreso siempre es posible, en el que el arrepentimiento activa nuevamente las promesas que el pecado había suspendido. Los convenios de Dios son promesas eternas — y Su paciencia para esperarnos también lo es.',
-              name: 'Russell M. Nelson',
-              role: '"Welcome Message", Conferencia General, abril 2018 (trad.)',
+              quote: 'Una de las verdades más hermosas del evangelio es esta: los convenios no se pierden por debilidad mortal. Pueden renovarse. El Señor diseñó un sistema en el que la caída no tiene que ser permanente, en el que el regreso siempre es posible, en el que el arrepentimiento activa nuevamente las promesas que el pecado había suspendido. Los convenios de Dios son promesas eternas — y Su paciencia para esperarnos también lo es.',
+              name: 'Presidente Russell M. Nelson',
+              role: '"Welcome Message", Conferencia General, abril 2018 · Liahona, mayo 2018 (trad.)',
             },
             {
-              type: 'quiz',
-              id: 'q-santa-cena-convenio',
-              question: {
-                kind: 'fill_blank',
-                prompt: 'Según DyC 20:77, la promesa específica que Dios hace a quienes participan dignamente de la Santa Cena es que...',
-                options: [
-                  'Serán perdonados de todos sus pecados cometidos esa semana',
-                  'Tendrán siempre Su Espíritu consigo',
-                  'Sus convenios del templo permanecerán activos',
-                ],
-                correctIndex: 1,
-                explanation: 'La promesa del convenio de la Santa Cena es específica: "tendrán siempre Su Espíritu consigo." No es una promesa de perdón automático, sino de la presencia constante del Espíritu Santo — el guía, consolador y santificador.',
-              },
+              type: 'reflection',
+              prompt:
+                '¿Qué convenios has hecho con el Señor? ¿Cuáles de ellos estás cumpliendo con fidelidad hoy? ¿Hay alguno que sientes que has guardado superficialmente o que has roto? La Santa Cena de este domingo es una oportunidad de renovación. ¿Qué llevarás a esa mesa esta semana?',
             },
           ],
         },
       ],
     },
-
-    // ─────────────────────────────────────────────────────────────────────────
-    // SECCIÓN V: Identidad como Pueblo del Convenio
-    // ─────────────────────────────────────────────────────────────────────────
     {
       id: 's5',
-      title: 'Pueblo del Convenio',
+      title: 'Vivir en el Convenio — Identidad, Protección y Poder',
       intro: {
         romanNumeral: 'V',
-        title: 'Identidad como Pueblo del Convenio — Quiénes Somos Porque Prometimos',
+        title: 'Vivir en el Convenio — Identidad, Protección y Poder',
         paragraphs: [
-          'Los convenios no son solo compromisos que hacemos en momentos especiales — son el fundamento de quiénes somos. Un "pueblo del convenio" no es simplemente gente que va a la iglesia o que sigue una tradición cultural. Es gente cuya identidad más profunda está definida por los lazos que ha establecido con Dios.',
-          'Esta distinción tiene implicaciones prácticas en cada área de la vida: en las decisiones de carrera, en el matrimonio, en el uso del tiempo y el dinero, en la manera de tratar a otras personas. Cuando se entiende la identidad convenantal, la vida ordinaria se convierte en una serie continua de oportunidades de fidelidad.',
+          'Hacer un convenio es un momento. Vivir en el convenio es una forma de vida. El presidente Nelson ha enseñado repetidamente que la identidad más profunda de un Santo no es su profesión, su nación, ni su familia — es ser "pueblo del convenio." Entender esa identidad transforma la manera en que se toman las decisiones, se enfrentan las tentaciones y se experimenta la vida diaria.',
         ],
       },
       topics: [
         {
           id: 't5',
-          title: 'Vivir Como Persona del Convenio',
+          title: 'La Identidad del Pueblo del Convenio',
+          subtitle:
+            'Lo que significa en la práctica diaria haber hecho convenios con Dios — y por qué esa identidad es la mayor protección disponible.',
           blocks: [
             {
-              type: 'media_slot',
-              kind: 'image',
-              src: undefined,
-              alt: 'A family of four standing at the open entrance of a modern temple, backs to camera, looking toward warm golden light inside, hopeful and peaceful atmosphere',
-              caption: 'Pueblo del convenio — identidad más profunda que la membresía (Éxodo 19:6)',
-              contextCard: { label: 'Identidad como Pueblo del Convenio' },
-            },
-            {
               type: 'highlight_verse',
-              text: 'Seréis para mí un reino de sacerdotes, y gente santa.',
-              reference: 'Éxodo 19:6',
+              text: 'Y aquellos que guardan sus convenios con Dios Omnipotente, a aquellos él los justificará. Mas en lo que toca a los que no guardan sus convenios, he aquí, son malditos.',
+              reference: 'Doctrina y Convenios 54:6',
             },
             {
               type: 'paragraph',
-              text: 'Esta descripción de Israel en el Sinaí — "reino de sacerdotes, gente santa" — no era solo para el pueblo del Antiguo Testamento. El apóstol Pedro la reutiliza para los santos del Nuevo Testamento (1 Pedro 2:9). Y en la Restauración, la Iglesia está constituida sobre exactamente ese mismo principio: todos los miembros que guardan sus convenios son, en sentido convenantal, un pueblo sacerdotal. No se trata de título eclesiástico — se trata de identidad.',
+              text: 'El presidente Nelson enseñó en 2019: "¿Cómo nos ayudan los convenios durante los momentos difíciles? Nuestra disposición de hacer y guardar convenios con el Señor determina si tenemos acceso al poder del sacerdocio para ayudarnos. La cadena de convenios que hemos hecho con Dios nos ata a Él con lazos de amor y de poder que el adversario no puede romper, excepto si nosotros mismos los abandonamos." ("Nuestra Bendición del Sacerdocio", Conferencia General, octubre 2019)',
+              blockId: 'ce-s5-p-0',
             },
             {
               type: 'key_points',
-              title: 'Cinco dimensiones prácticas de vivir como persona del convenio',
               points: [
-                'Decisiones filtradas por el convenio: antes de una decisión mayor, preguntarse "¿esta decisión honra los convenios que hice?" — no como restricción, sino como brújula.',
-                'Identidad antes que membresía: la diferencia entre decir "soy miembro de la Iglesia" y "soy persona del convenio" no es semántica. Una es membresía institucional; la otra es relación personal con Dios.',
-                'Responsabilidad recíproca: el convenio crea responsabilidad no solo con Dios sino con la comunidad. "Llevar cargas de otros" (Mosiah 18:8) es un compromiso convenantal, no una sugerencia opcional.',
-                'Perspectiva temporal expandida: una persona del convenio piensa en términos eternos, no solo inmediatos. Las bendiciones prometidas en los convenios trascienden la mortalidad — lo que cambia cómo se valoran las pérdidas y ganancias terrenales.',
-                'Fuente de fortaleza en la adversidad: los convenios son promesas de Dios que permanecen activas incluso en tiempos difíciles. Cuando la vida es dura, el convenio recuerda que Dios está "obligado" (DyC 82:10) — Su compromiso no depende de nuestras circunstancias.',
-              ],
-            },
-            {
-              type: 'compare_grid',
-              left: {
-                title: 'Membresía cultural',
-                items: [
-                  'Definida por tradición familiar o social',
-                  'Activada por nacimiento o costumbre',
-                  'Se evalúa por asistencia y actividad visible',
-                  'Puede coexistir con falta de compromiso real',
-                  'Se pierde por inactividad gradual sin gran crisis',
-                  'La fuente de motivación es la pertenencia social',
-                ],
-              },
-              right: {
-                title: 'Identidad del convenio',
-                items: [
-                  'Definida por promesas hechas deliberadamente a Dios',
-                  'Activada por elección personal y ordenanzas',
-                  'Se evalúa por fidelidad a los compromisos específicos',
-                  'Requiere coherencia entre lo prometido y lo vivido',
-                  'Se renueva activamente cada semana en la Santa Cena',
-                  'La fuente de motivación es el amor a Dios y las promesas',
-                ],
-              },
-            },
-            {
-              type: 'deep_dive',
-              badge: 'Aplicación práctica',
-              title: 'Cómo los convenios informan las decisiones mayores de la vida',
-              paragraphs: [
-                'Carrera y vocación: el convenio de consagración — hacer en la tierra lo que edifica el reino de Dios — no significa que todos debamos trabajar en organizaciones religiosas. Significa que la habilidad profesional de cada persona puede y debe ser ofrecida al Señor. Un médico, un maestro, un ingeniero, un artista que vive su convenio de consagración encuentra oportunidades de servicio en su campo que otro no vería.',
-                'Matrimonio: la decisión de con quién casarse es la más directamente convenantal de la vida mortal. No se trata solo de compatibilidad emocional o atractivo — se trata de encontrar a alguien con quien quieras guardar convenios eternamente. Las preguntas relevantes no son solo "¿me hace feliz?" sino "¿nos ayudaremos mutuamente a guardar nuestros convenios? ¿Tiene esta persona el carácter para ser sellada y fiel a esa promesa?"',
-                'Finanzas: el diezmo es el convenio financiero más visible — pero la consagración va más lejos. Una persona del convenio pregunta no solo "¿pago mi diezmo?" sino "¿uso mis recursos de maneras que honren lo que prometí a Dios?" Eso puede implicar generosidad con los necesitados, moderación en el lujo, y disposición a redirigir recursos cuando el Señor lo pida.',
-                'Tiempo: el día de reposo es el convenio del tiempo. No se guarda porque la ley lo requiera — se guarda porque es la manera convenantal de decir que el tiempo pertenece a Dios antes que a nosotros. Una persona del convenio estructura su semana de manera que el Señor siempre tiene el primer día y, en sentido más amplio, que la oración, el estudio y el servicio tengan espacio garantizado.',
+                '① IDENTIDAD ANTES QUE CONDUCTA — Los convenios no son principalmente reglas de conducta. Son declaraciones de identidad. "Soy de Cristo" — eso es lo que dice un bautismo. "Esta familia es eterna" — eso es lo que dice un sellamiento. La conducta fluye naturalmente de la identidad.',
+                '② PROTECCIÓN ESPIRITUAL ACTIVA — Helamán 5:12 enseña que quien edifica su vida sobre Cristo como roca no puede ser arrastrado por las tormentas. Los convenios son la manera formal en que alguien decide edificar sobre esa roca — y esa decisión activa una protección que no está disponible fuera del convenio.',
+                '③ ACCESO AL PODER DIVINO — DyC 82:10 enseña que Dios "está obligado" cuando Sus hijos hacen lo que Él dice. No se trata de obligar a Dios mecánicamente — se trata de que los convenios activan el flujo de poder divino hacia la vida del mortal que los honra.',
+                '④ COMUNIDAD ETERNA — Los convenios no son solo entre el individuo y Dios. Son el tejido que une a la comunidad de los Santos. La Iglesia no es una organización — es una red de convenios. Los miembros no son compañeros de club — son hermanos y hermanas de convenio.',
+                '⑤ PERSPECTIVA ETERNA — Quien vive en el convenio ve cada decisión con ojos eternos. La pregunta no es "¿qué quiero ahora?" sino "¿qué quiero para siempre, y qué he prometido?". Esa perspectiva es la más poderosa protección contra la mediocridad espiritual.',
               ],
             },
             {
               type: 'highlight_verse',
-              text: 'Porque yo os digo: el que recibe mis siervos me recibe a mí; y el que me recibe a mí, recibe a mi Padre; y el que recibe a mi Padre, recibe el reino de mi Padre.',
-              reference: 'Doctrina y Convenios 84:36–38',
+              text: 'Por tanto, ¡oh vosotros gentiles, es necesario que os arrepintáis y vengáis a Cristo, y seáis injertados en el verdadero olivo, para que seáis partícipes de la raíz y de la grosura del olivo! Y no seáis arrogantes contra los de la raíz; mas temed.',
+              reference: 'Romanos 11:17–20 · Biblia (RVR) · Pablo sobre el convenio abrahámico',
             },
             {
-              type: 'paragraph',
-              text: 'Esta cadena de recepción en DyC 84:36-38 ilustra algo profundo sobre la identidad del convenio: cuando una persona honra sus convenios, no solo cumple una regla. Se inserta en una red de relaciones divinas que conecta directamente con el Padre Celestial. El convenio no es un contrato administrativo — es el lazo que nos hace parte de la familia de Dios en el sentido más literal y eterno posible.',
-            },
-            {
-              type: 'leader_quote',
-              quote: 'Ser una persona del convenio significa que nunca enfrentas la vida solo. Cada desafío, cada tentación, cada momento de debilidad es enfrentado con el poder de un convenio activo — la promesa de que el Espíritu Santo estará contigo, que las bendiciones del sacerdocio están disponibles, que el sellamiento une tu alma a quienes amas. Los convenios no son la carga del evangelio — son la fortaleza del evangelio.',
-              name: 'D. Todd Christofferson',
-              role: '"El poder de los convenios", Conferencia General, abril 2009 (trad.)',
-            },
-            {
-              type: 'reflection',
-              prompt: '¿Qué convenios has hecho con el Señor? ¿Cuáles de ellos estás cumpliendo con fidelidad, y cuáles guardas de manera más superficial? Piensa en una decisión importante que tienes por delante — ¿cómo cambiaría esa decisión si la pasaras primero por el filtro de tus convenios? La Santa Cena de este domingo es una oportunidad de renovación. ¿Qué llevarás a esa mesa, y con qué saldrás de ella?',
+              type: 'deep_dive',
+              badge: 'Aplicación',
+              title: 'Cómo el convenio cambia la forma de tomar decisiones',
+              paragraphs: [
+                'El presidente Nelson compartió este principio práctico: "Cuando se enfrenta a una decisión, te animo a preguntar: ¿Esta decisión me acercará al templo o me alejará del templo? Y luego haz la decisión que te acerque." Esta pregunta es más poderosa que cualquier lista de reglas porque va al origen: ¿quién quiero ser?',
+                'Un miembro que vive en el convenio no necesita una lista de cosas prohibidas pegada en la pared. Su brújula interior — formada por los convenios hechos con Dios — le indica la dirección antes de que la situación se complique. La obediencia deja de ser una carga y se convierte en la expresión natural de quién es.',
+                'El élder Bednar enseñó que una de las señales de que alguien está realmente viviendo en el convenio es que ya no piensa en los mandamientos como restricciones externas, sino como "expresiones de quién soy." No es "tengo que ir al templo" — es "voy al templo porque eso es lo que hace alguien como yo." Esa transformación de la motivación es el fruto del convenio vivido de adentro hacia afuera.',
+              ],
             },
             {
               type: 'quiz',
-              id: 'q-renovacion-convenios',
+              id: 'ce-q2',
               question: {
-                kind: 'true_false',
-                statement: 'Los convenios que se han roto por transgresión pueden ser renovados a través del arrepentimiento sincero.',
-                correctAnswer: true,
-                explanation: 'Este es uno de los principios más hermosos del evangelio. El Señor declaró: "el que se ha arrepentido de sus pecados es perdonado, y yo, el Señor, no los recuerdo más" (DyC 58:42). A través del arrepentimiento genuino, el convenio roto puede ser renovado y las bendiciones prometidas se vuelven disponibles nuevamente.',
+                kind: 'fill_blank',
+                prompt: 'Según DyC 82:10, ¿cuándo está el Señor "obligado" a cumplir Sus promesas?',
+                options: [
+                  'Cuando los miembros pagan su diezmo completo',
+                  'Cuando vosotros hacéis lo que Él dice — cuando guardan los convenios',
+                  'Cuando la Iglesia alcanza cierto número de miembros bautizados',
+                  'Cuando los Apóstoles aprueban la conducta de un miembro específico',
+                ],
+                correctIndex: 1,
+                explanation: 'DyC 82:10 dice exactamente: "Estoy obligado cuando vosotros hacéis lo que yo digo; mas cuando no hacéis lo que yo digo, no tenéis ninguna promesa." El principio es claro: el cumplimiento de los convenios activa las promesas de Dios. No es mecánico — es la lógica del universo que Dios mismo estableció y respeta.',
               },
+            },
+            {
+              type: 'leader_quote',
+              quote: 'El día que entiendas que eres literalmente hijo o hija de Dios, con quien Él ha establecido convenios específicos y eternos — ese día cambia todo. Tus decisiones cambian. Tu perspectiva sobre las pruebas cambia. Tu relación con las demás personas cambia. Porque ya no eres solo un ser humano navegando la mortalidad. Eres pueblo del convenio — y eso tiene consecuencias eternas.',
+              name: 'Presidente Russell M. Nelson',
+              role: '"Nuestra Bendición del Sacerdocio", Conferencia General, octubre 2019 · Liahona, noviembre 2019 (trad.)',
+            },
+            {
+              type: 'reflection',
+              prompt:
+                'El presidente Nelson dice que entender nuestra identidad como "pueblo del convenio" cambia la forma en que tomamos decisiones. Piensa en una decisión difícil que enfrentas ahora mismo. ¿Cómo cambiaría el marco de esa decisión si la pregunta fuera "¿qué haría alguien que ha hecho estos convenios con Dios?" en lugar de "¿qué me conviene ahora?" ¿En qué área de tu vida sientes que necesitas vivir tu convenio con más conciencia?',
             },
           ],
         },

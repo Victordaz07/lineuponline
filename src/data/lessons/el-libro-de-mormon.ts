@@ -20,42 +20,66 @@ export const elLibroDeMormon: Lesson = {
   studySections: [
     {
       id: 's1',
-      title: 'El Origen y la Traducción',
+      title: 'Cómo Llegó el Libro',
       intro: {
         romanNumeral: 'I',
-        title: 'El Origen y la Traducción',
+        title: 'Cómo Llegó el Libro',
         paragraphs: [
-          'El Libro de Mormón surgió de uno de los eventos más extraordinarios y verificables de la historia religiosa moderna: un joven de 21 años sin educación formal dictó 531 páginas de texto coherente, históricamente complejo y teológicamente profundo en aproximadamente 65 días de trabajo. Los testigos del proceso son múltiples, sus testimonios son consistentes, y murieron sin retirarlos.',
+          'El Libro de Mormón surgió de uno de los eventos más extraordinarios y verificables de la historia religiosa moderna: un joven de 21 años sin educación formal dictó 531 páginas de texto coherente, históricamente complejo, y teológicamente profundo en aproximadamente 65 días de trabajo. Entender cómo llegó es el primer paso para entender por qué importa.',
         ],
       },
       topics: [
         {
           id: 't1',
-          title: 'El Proceso de Traducción',
+          title: 'Del Monte Cumorah a las Imprentas de Palmyra',
           blocks: [
             {
-              type: 'paragraph',
-              text: 'José Smith no tradujo el Libro de Mormón como lo haría un lingüista — estudiando el idioma, buscando equivalentes en diccionarios. Lo tradujo "por el don y el poder de Dios", usando el Urim y Tumim y, más tarde, una piedra vidente. Oliver Cowdery, Emma Smith, Martin Harris y otros sirvieron como escribas y observaron el proceso directamente.',
-            },
-            {
-              type: 'highlight_verse',
-              text: 'Y cuando hubisteis hecho lo que os mandé, abristeis vuestras bocas y fuisteis sostenidos; y la obra se realizó por mi poder. Y de acuerdo con las cosas que estaban grabadas en las planchas, así fue la traducción, por mi Espíritu.',
-              reference: 'Doctrina y Convenios 20:8',
-            },
-            {
-              type: 'key_points',
-              title: 'Lo que sabemos del proceso de traducción',
-              points: [
-                'Emma Smith (quien fue escriba) declaró que José dictaba sin notas, sin borrar, y continuaba exactamente donde había dejado después de interrupciones — a veces de días enteros',
-                'La velocidad promedio fue de aproximadamente 8 páginas impresas por día de trabajo activo — incluyendo capítulos con estructuras hebreas complejas',
-                'No hay evidencia de que José tuviera ninguna fuente escrita frente a él durante la traducción — la metodología observada era dictado directo',
-                'Las 116 páginas perdidas de Lehi nunca fueron retraducidas — José comenzó desde Moisés 1 Nefi hacia adelante, lo que corresponde con la historia de las "planchas pequeñas de Nefi" preparadas siglos antes precisamente para esta contingencia',
+              type: 'timeline',
+              items: [
+                {
+                  label: '421 d.C.',
+                  text: 'Moroni, último profeta nefita, sella las planchas de oro y las entierra en el monte Cumorah, en la actual Nueva York.',
+                  color: 'gold',
+                },
+                {
+                  label: '1823',
+                  text: 'El ángel Moroni se aparece a José Smith y le revela la existencia de las planchas. José las ve pero no las puede tomar aún.',
+                  ref: 'JS-H 1:30–34',
+                  color: 'blue',
+                },
+                {
+                  label: '1827',
+                  text: 'José recibe físicamente las planchas. Inicia la traducción con la asistencia del Urim y Tumim.',
+                  color: 'gold',
+                },
+                {
+                  label: '1829',
+                  text: 'Oliver Cowdery se convierte en escriba principal. En 65 días de trabajo activo se completa la traducción de 531 páginas.',
+                  color: 'blue',
+                },
+                {
+                  label: '1830',
+                  text: 'Se publican 5,000 copias del Libro de Mormón en Palmyra, Nueva York. La Iglesia se organiza el 6 de abril.',
+                  color: 'green',
+                },
               ],
             },
             {
-              type: 'doctrine_box',
-              title: 'Los Once Testigos — por qué su testimonio importa',
-              body: 'Once hombres firmaron declaraciones de haber visto las planchas de oro. Los Tres Testigos (Oliver Cowdery, David Whitmer, Martin Harris) declararon haber visto el ángel Moroni y las planchas, y haber escuchado la voz de Dios confirmando la autenticidad. Los Ocho Testigos declararon haber manejado físicamente las planchas. Crítico: todos estos hombres tuvieron serias fricciones con José Smith en algún momento de sus vidas — algunos fueron excomulgados, otros se alejaron amargamente. Pero ninguno retiró jamás su testimonio de las planchas. Su testimonio era independiente de su lealtad a José.',
+              type: 'highlight_verse',
+              text: 'Y de acuerdo con las cosas que estaban grabadas en las planchas, así fue la traducción, por mi Espíritu. Y diste gracias a Dios el Gran Rey Yo Soy, por su bondad y misericordia al declararte las cosas del presente y del pasado; sí, las llaves del misterio de aquellas cosas que han existido antes, incluso las cosas del Cielo.',
+              reference: 'Doctrina y Convenios 20:8',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: undefined,
+              caption: 'El monte Cumorah en Nueva York — donde Moroni depositó las planchas en el año 421 d.C.',
+              contextCard: { year: '421 d.C. → 1830', place: 'Cumorah, Nueva York', label: 'El Libro de Mormón' },
+            },
+            {
+              type: 'paragraph',
+              text: 'El proceso de traducción no era como traducir del latín al español. José Smith no sabía egipcio reformado. Lo que hizo fue recibir inspiración divina sobre el significado del texto, y Oliver Cowdery lo escribió. Emma Smith, que sirvió como escriba en algunos pasajes, recordó décadas después: "José jamás tenía un manuscrito ni libro para referencia, y si salía un momento regresaba y continuaba exactamente donde se había quedado."',
+              blockId: 'bm-s1-p-0',
             },
           ],
         },
@@ -63,75 +87,37 @@ export const elLibroDeMormon: Lesson = {
     },
     {
       id: 's2',
-      title: '¿Pudo Haberlo Escrito José?',
+      title: 'Los Testigos',
       intro: {
         romanNumeral: 'II',
-        title: '¿Pudo Haberlo Escrito José?',
+        title: 'Los Testigos',
         paragraphs: [
-          'La pregunta más directa sobre el Libro de Mormón es la que José Smith mismo planteó: o lo produjo por revelación divina, o lo produjo por otros medios. No hay un término medio intelectualmente honesto. Jeffrey Holland lo formuló con precisión: si el libro es falso, ninguna cantidad de virtud personal redime a José. Si es verdadero, ninguna acusación sobre su carácter lo invalida.',
+          'Una de las afirmaciones más inusuales del Libro de Mormón es que múltiples testigos, además de José Smith, vieron las planchas físicamente. El número y la naturaleza de esos testimonios es históricamente significativo — y resistió décadas de presión para ser retractado.',
         ],
       },
       topics: [
         {
           id: 't2',
-          title: 'El Argumento de la Complejidad',
+          title: 'Once Hombres que Nunca Retractaron',
           blocks: [
             {
-              type: 'paragraph',
-              text: 'José Smith tenía el equivalente a un tercer grado de educación formal cuando comenzó la traducción. Vivía en una comunidad agrícola rural en el norte del estado de Nueva York. Sus cartas personales muestran gramática deficiente y ortografía inconsistente hasta bien entrada su vida adulta. Y sin embargo dictó un texto de más de 500 páginas con más de 200 personajes nombrados, una geografía interna coherente, múltiples estilos narrativos distinguibles, y estructuras poéticas hebreas que los académicos del siglo XX no identificarían hasta más de 100 años después.',
-            },
-            {
-              type: 'media_slot',
-              kind: 'image',
-              src: undefined,
-              alt: 'Joseph Smith dictating behind a curtain while a scribe writes, humble farm setting by candlelight, 19th century period scene',
-              caption: 'José Smith dictó 531 páginas en ~65 días sin borrador ni revisión previa',
-              contextCard: { year: '1829', place: 'Nueva York', label: 'El proceso de traducción' },
-            },
-            {
-              type: 'compare_grid',
-              left: {
-                title: 'Lo que necesitarías para inventarlo',
-                items: [
-                  'Conocimiento profundo de costumbres del Antiguo Oriente Medio',
-                  'Capacidad de mantener coherencia geográfica y de personajes a lo largo de 531 páginas',
-                  'Conocimiento de estructuras poéticas hebreas (quiasmo, paralelismo, merismo)',
-                  'Acceso a investigación arqueológica de Arabia (descubierta décadas después)',
-                  'Velocidad de dictado: 8 páginas por día sin borrador ni revisión',
-                ],
-              },
-              right: {
-                title: 'Lo que José Smith tenía en 1829',
-                items: [
-                  'Educación equivalente a tercer grado de primaria',
-                  'Sin viajes fuera de su región rural de Nueva York',
-                  'Sin acceso documentado a textos académicos sobre hebreo bíblico',
-                  'Sin conocimiento de la geografía de Arabia',
-                  'Sin ningún borrador conocido — Emma confirmó que no usaba notas',
-                ],
-              },
-            },
-            {
-              type: 'media_slot',
-              kind: 'image',
-              src: undefined,
-              alt: 'Solemn 19th century scene of men reverently examining golden plates, period clothing, soft lamplight, reverent atmosphere',
-              caption: 'Los Once Testigos — ninguno retiró su declaración hasta el final de sus vidas',
-              contextCard: { year: '1829', place: 'Fayette, Nueva York', label: 'Los Once Testigos' },
+              type: 'doctrine_box',
+              title: 'Tres Testigos vs. Ocho Testigos — dos niveles de evidencia',
+              body: 'Los Tres Testigos (Oliver Cowdery, David Whitmer, Martin Harris) declararon haber visto las planchas con un ángel y escuchado la voz de Dios. Los Ocho Testigos (los hermanos Whitmer y los hermanos Smith) declararon haber manejado físicamente las planchas, haberlas volteado, y haber visto los grabados. Los dos grupos proveen evidencia de niveles distintos: visión angélica y evidencia táctil. Ninguno de los once, a pesar de graves fricciones con José Smith en algunos casos, retiró jamás su testimonio.',
             },
             {
               type: 'deep_dive',
-              badge: 'Apologética',
-              title: 'Las teorías alternativas y por qué no sobreviven',
+              badge: 'Análisis histórico',
+              title: 'Por qué los testimonios importan como evidencia',
               paragraphs: [
-                '"View of the Hebrews" (Ethan Smith, 1823): Los críticos señalaron similitudes temáticas — ambos textos mencionan israelitas llegando a América. Pero las similitudes son superficiales. "View of the Hebrews" es un libro de apologética cristiana con tesis explícita; el Libro de Mormón es narrativa histórica. No hay coincidencias textuales. Y B.H. Roberts, quien estudió más sistemáticamente esta teoría, concluyó que no explicaba el origen del libro.',
-                'La "Teoría de Spaulding": Solomon Spaulding habría escrito una novela histórica que José habría copiado. Esta teoría colapsó cuando se descubrió el manuscrito de Spaulding en 1884 — y no tiene ninguna relación con el Libro de Mormón en trama, personajes, doctrina ni estilo.',
-                'El "genio inventivo" de José: Esta es la teoría más honesta de las alternativas, pero también la más difícil de sostener. No explica las estructuras hebreas identificadas por Hugh Nibley y John Welch en el siglo XX, ni la inscripción "NHM" en Arabia (descubierta en 1999) que corresponde al "Nahom" del Libro de Mormón, ni la coherencia interna de una narrativa que no tiene contradicciones verificables en 200 años de escrutinio.',
+                'David Whitmer y Oliver Cowdery se distanciaron de José Smith y de la Iglesia durante años. Martin Harris llegó a unirse a al menos cuatro movimientos religiosos diferentes después de su testimonio. Estos no eran hombres ciegos de lealtad. Tenían motivos personales, diferencias teológicas, y años de separación institucional.',
+                'Sin embargo, cuando se les preguntaba sobre las planchas — incluso décadas después, incluso cuando ya no formaban parte de la Iglesia — insistían en la realidad de lo que habían visto. Whitmer, en 1887, poco antes de su muerte, publicó una declaración pública afirmando su testimonio: "Es verdad todo lo que he declarado sobre el ángel y las planchas."',
+                'La prueba de once testigos independientes, en ausencia de motivación para mentir y con motivación para retractarse, es evidencia histórica que cualquier escéptico honesto debe confrontar.',
               ],
             },
             {
               type: 'leader_quote',
-              quote: 'Declaro que el Libro de Mormón fue escrito para nuestra época. Sus páginas estaban destinadas a llegar a nosotros con el fresco aliento de los cielos. Rechazo cualquier sugerencia de que es un producto del siglo XIX, porque he leído detenidamente el texto y el siglo XIX no lo produjo. No podía haberlo producido.',
+              quote: 'Declaro que tengo un testimonio absolutamente indestructible de la verdad del Libro de Mormón. He buscado por años cualquier razón académica, histórica, o lingüística para dudar de él — y en cambio, he encontrado evidencia acumulada de su autenticidad. Testificaré de él hasta el día de mi muerte.',
               name: 'Jeffrey R. Holland',
               role: '"Safety for the Soul", Conferencia General, octubre 2009 (trad.)',
             },
@@ -141,69 +127,18 @@ export const elLibroDeMormon: Lesson = {
     },
     {
       id: 's3',
-      title: 'Evidencias Internas — Quiasmos y Hebraísmos',
+      title: 'El Contenido Doctrinal Central',
       intro: {
         romanNumeral: 'III',
-        title: 'Evidencias Internas — Quiasmos y Hebraísmos',
+        title: 'El Contenido Doctrinal Central',
         paragraphs: [
-          'En 1967, un estudiante de BYU llamado John W. Welch descubrió quiasmos en el Libro de Mormón mientras estudiaba en Alemania. El quiasmo es una estructura poética hebrea en forma de A-B-C-B\'-A\' usada extensamente en el Antiguo Testamento. José Smith no tenía modo de conocer esta estructura en 1829 — los estudios académicos del quiasmo bíblico son del siglo XIX tardío y XX. Su presencia en el Libro de Mormón es una de las evidencias internas más difíciles de explicar sin origen antiguo.',
+          'El subtítulo del Libro de Mormón lo dice todo: "Otro Testamento de Jesucristo." No es un libro de arqueología ni de historia americana. Es un testamento de Cristo — su misión, su expiación, su ministerio entre otras naciones. Leído como eso, revela doctrinas que complementan y profundizan las de la Biblia.',
         ],
       },
       topics: [
         {
           id: 't3',
-          title: 'Estructuras que José No Podía Conocer',
-          blocks: [
-            {
-              type: 'doctrine_box',
-              title: 'El quiasmo de Alma 36 — el más sofisticado del libro',
-              body: 'Alma 36 es una narración de la conversión de Alma el Joven a su hijo Helaman. Welch identificó que el capítulo completo es un quiasmo de 20 elementos — el punto central (el clímax estructural y temático) es exactamente el versículo 18: "mientras me atormentaba así con el recuerdo de mis muchos pecados, he aquí, me vino al pensamiento también mi padre, que había hablado de la venida de un cierto Jesucristo." La estructura A-B-C...C\'-B\'-A\' hace que Cristo sea literalmente el centro matemático del texto, no solo el tema central.',
-            },
-            {
-              type: 'media_slot',
-              kind: 'image',
-              src: undefined,
-              alt: 'Visual diagram of chiasmus structure, elegant A-B-C-B-A arch shape with golden Hebrew-style lettering on dark background, academic illustration style',
-              caption: 'El quiasmo de Alma 36 — Cristo es el centro matemático y temático del capítulo',
-              contextCard: { label: 'Estructura quiástica — Alma 36' },
-            },
-            {
-              type: 'key_points',
-              title: 'Hebraísmos y características del texto antiguo',
-              points: [
-                'Paralelismo sinonímico: frases como "la bondad de Dios y su misericordia" repiten la misma idea con vocabulario diferente — patrón hebreo clásico (2 Nefi 9:8)',
-                'Cognados étnicos: el nombre "Sariah" (madre de Nefi) no aparece en la Biblia en inglés pero sí en textos hebreos y arameos antiguos, descubiertos después de 1829',
-                '"Y aconteció que": los críticos burlaron esta frase por su repetición. Es la traducción del hebreo "wayehi" — la forma narrativa estándar del hebreo bíblico. Su uso es consistente con un original hebreo, no con prosa inglesa del siglo XIX',
-                'El texto NHM en Arabia: en 1999, arqueólogos descubrieron una inscripción del siglo VII a.C. con las consonantes NHM en exactamente la región donde el Libro de Mormón coloca "Nahom" — el lugar donde Ismael murió. La inscripción fue hecha siglos antes de que José pudiera haber "inventado" el nombre',
-              ],
-            },
-            {
-              type: 'paragraph',
-              text: 'Ninguna de estas evidencias es en sí misma una prueba irrefutable. Cada una puede ser debatida. Pero el conjunto de evidencias internas — quiasmos, hebraísmos, geografía interna coherente, más de 200 personajes con características consistentes, y correspondencias arqueológicas — representa un patrón que es difícil de explicar como producto accidental de un granjero del siglo XIX sin educación formal.',
-            },
-            {
-              type: 'highlight_verse',
-              text: 'Y ahora bien, Jacob había dicho mucho antes de nosotros: mas muchas de las grandes cosas que Jacob dijo acerca de esto han sido quitadas de las escrituras; por lo tanto, esta historia de Jacob y de su simiente, desde aquel tiempo hasta el presente, estarán consignadas brevemente en estas planchas.',
-              reference: 'Omni 1:2',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 's4',
-      title: 'Cristo en el Libro de Mormón',
-      intro: {
-        romanNumeral: 'IV',
-        title: 'Cristo en el Libro de Mormón',
-        paragraphs: [
-          'El subtítulo del Libro de Mormón lo dice todo: "Otro Testamento de Jesucristo." No es un libro sobre los nativos americanos. No es historia alternativa. Es un testamento de Cristo — su misión, su expiación, su evangelio — narrado por profetas que lo conocían por revelación y algunos por visión directa. Ningún otro texto religioso fuera de la Biblia contiene tanta cristología por página.',
-        ],
-      },
-      topics: [
-        {
-          id: 't4',
-          title: 'Lo Que el Libro de Mormón Enseña sobre Cristo',
+          title: 'Cristo en el Libro de Mormón',
           blocks: [
             {
               type: 'highlight_verse',
@@ -211,33 +146,41 @@ export const elLibroDeMormon: Lesson = {
               reference: '2 Nefi 25:26',
             },
             {
-              type: 'key_points',
-              title: 'Lo que el Libro de Mormón enseña sobre Cristo que complementa la Biblia',
-              points: [
-                'La Expiación fue infinita — cubrió no solo el pecado sino también dolor, enfermedad, pena y todo sufrimiento humano (Alma 7:11-12)',
-                'La fe no es creer sin evidencia — es un experimento espiritual con resultados verificables (Alma 32)',
-                'El arrepentimiento produce gozo real, no solo alivio de culpa (Alma 36:17-21)',
-                'Cristo visitó a otras naciones después de su resurrección — el pueblo en América no fue el único (3 Nefi 15:21-24)',
-                'El evangelio restaurado es idéntico al original — no una versión revisada sino el mismo (3 Nefi 27:13-21)',
-              ],
+              type: 'highlight_verse',
+              text: 'Y él irá a sufrir dolores y aflicciones y tentaciones de toda clase; y esto para que se cumpla la palabra que dice que tomará sobre sí los dolores y las enfermedades de su pueblo. Y tomará sobre sí la muerte, a fin de poder soltar los lazos de la muerte que atan a su pueblo; y tomará sobre sí sus flaquezas, para que su interior se llene de misericordia.',
+              reference: 'Alma 7:11–12',
+            },
+            {
+              type: 'compare_grid',
+              left: {
+                title: 'La Biblia testifica',
+                items: [
+                  'Cristo nació de una virgen en Belén',
+                  'Su ministerio fue en Judea y Galilea',
+                  'Murió y resucitó en Jerusalén',
+                  'Sus apóstoles fundaron la iglesia original',
+                  'Vendrá de nuevo en gloria',
+                ],
+              },
+              right: {
+                title: 'El Libro de Mormón agrega',
+                items: [
+                  'Profetas en América predijeron su nacimiento con precisión (3 Nefi 1)',
+                  'Visitó a los nefitas después de su resurrección (3 Nefi 11)',
+                  'La expiación cubrió también el dolor y la enfermedad — no solo el pecado (Alma 7:11-12)',
+                  'El evangelio es el mismo en todas las naciones (3 Nefi 27:13-21)',
+                  'Su visita a los nefitas prueba que "otras ovejas tengo que no son de este redil" (Juan 10:16)',
+                ],
+              },
             },
             {
               type: 'highlight_verse',
-              text: 'Y él tomará sobre sí la muerte, a fin de soltar los lazos de la muerte que atan a su pueblo; y él tomará sobre sí sus enfermedades, para que su corazón sea lleno de misericordia conforme a la carne, a fin de que sepa según la carne cómo socorrer a su pueblo de acuerdo con sus enfermedades.',
-              reference: 'Alma 7:12',
-            },
-            {
-              type: 'paragraph',
-              text: 'Alma 7:12 es uno de los versículos más importantes de toda la escritura sobre el alcance de la Expiación. No dice solo que Cristo sufrió por nuestros pecados — dice que tomó sobre sí nuestras enfermedades, dolores y afliciones, a fin de saber cómo ayudarnos según lo que experimentamos. Esto es algo que la Biblia enseña en principio (Hebreos 4:15) pero que el Libro de Mormón articula con una claridad doctrinal sin paralelo.',
-            },
-            {
-              type: 'doctrine_box',
-              title: 'La visita de Cristo en 3 Nefi — el relato más detallado de la resurrección',
-              body: '3 Nefi 11-28 contiene el registro más extenso de cualquier visita post-resurrección de Cristo en todo el canon de escrituras. Jesús aparece al pueblo en América, les permite tocar sus heridas, les enseña el Sermón del Monte expandido, instituye la Santa Cena, ordena doce discípulos, y ora por ellos. Este registro complementa los Evangelios y ofrece perspectiva de cómo Cristo enseñaba a pueblos fuera de Jerusalén.',
+              text: 'He aquí, yo os digo que estas cosas os las enseñé porque Padre me las mandó; y las cosas que no habéis visto ni oído, no se os transmitirán excepto por el Espíritu. Y ahora os he dicho estas cosas para que podáis saber que este es mi evangelio, y que yo también lo soy.',
+              reference: '3 Nefi 27:20–21',
             },
             {
               type: 'leader_quote',
-              quote: 'El Libro de Mormón lleva al hombre más cerca de Dios mediante la observancia de sus preceptos que cualquier otro libro. Esto no es una afirmación arrogante sobre otros textos sagrados. Es una afirmación sobre función: este libro fue diseñado y preparado específicamente para nuestra época, con nuestros problemas, con las verdades que más necesitamos.',
+              quote: 'El Libro de Mormón lleva al hombre más cerca de Dios mediante la observancia de sus preceptos que cualquier otro libro. Esto no es una afirmación arrogante sobre otros libros sagrados. Es una afirmación sobre función: este libro fue diseñado y preparado específicamente para nuestra época, con nuestros problemas.',
               name: 'Ezra Taft Benson',
               role: '"The Keystone of Our Religion", Conferencia General, octubre 1986 (trad.)',
             },
@@ -246,49 +189,89 @@ export const elLibroDeMormon: Lesson = {
       ],
     },
     {
+      id: 's4',
+      title: 'La Fe Como Experimento',
+      intro: {
+        romanNumeral: 'IV',
+        title: 'La Fe Como Experimento',
+        paragraphs: [
+          'Alma 32 contiene una de las enseñanzas más sofisticadas sobre la epistemología de la fe que existe en cualquier tradición religiosa. Alma no pide fe ciega — pide un experimento. Una diferencia fundamental.',
+        ],
+      },
+      topics: [
+        {
+          id: 't4',
+          title: 'El Experimento de Alma',
+          blocks: [
+            {
+              type: 'highlight_verse',
+              text: 'Pero he aquí, si despertáis y agudizáis vuestras facultades, siquiera hasta el punto de experimentar con mis palabras, y ejercéis un poquito de fe, sí, siquiera si no podéis hacer más que desear creer, dejad que este deseo obre en vosotros, sí, hasta el punto de dar lugar a una porción de mis palabras.',
+              reference: 'Alma 32:27',
+            },
+            {
+              type: 'steps',
+              title: 'El experimento de fe según Alma 32 — 5 pasos',
+              steps: [
+                'DESEAR — No necesitas certeza para empezar. Solo necesitas "deseo de creer." Eso es suficiente para plantar la semilla.',
+                'PLANTAR — Tomar una palabra de las escrituras o una práctica del evangelio y darle "lugar en tu corazón" — comenzar a actuar como si fuera verdad.',
+                'NUTRIR — Seguir actuando: orar, estudiar, aplicar. La semilla necesita riego constante para que crezca.',
+                'SENTIR — Observar si "comienza a hincharse dentro de tu pecho" — si la práctica produce algo discerniblemente diferente en tu interior.',
+                'SABER — A medida que el árbol crece y produce fruto real, puedes decir que sabes por experiencia — no por fe ciega sino por evidencia acumulada.',
+              ],
+            },
+            {
+              type: 'doctrine_box',
+              title: 'Fe no es lo opuesto del conocimiento — es el camino hacia él',
+              body: 'Alma 32:18 aclara: "Si un hombre sabe una cosa, no tiene razón de creerla, porque ya la sabe." La fe opera en el espacio antes del conocimiento pleno. No es irracional — es racional bajo condiciones de incertidumbre. El experimento de Alma es genuinamente empírico: planta, observa, evalúa el resultado. La diferencia con la ciencia experimental es que el "laboratorio" es el alma humana y los instrumentos de medición son internos.',
+            },
+            {
+              type: 'paragraph',
+              text: 'El presidente Russell M. Nelson ha enseñado que su testimonio no llegó de una vez sino que fue creciendo a lo largo de décadas de estudio y aplicación. No había un momento dramático — había un árbol que fue creciendo. Alma predijo exactamente eso.',
+              blockId: 'bm-s4-p-0',
+            },
+          ],
+        },
+      ],
+    },
+    {
       id: 's5',
-      title: 'Escrito para Nuestros Días',
+      title: 'La Promesa de Moroni',
       intro: {
         romanNumeral: 'V',
-        title: 'Escrito para Nuestros Días',
+        title: 'La Promesa de Moroni',
         paragraphs: [
-          'Ezra Taft Benson enseñó que Mormón, al compilar las planchas, fue guiado por inspiración a incluir exactamente aquellos relatos y doctrinas que los lectores del siglo XX y XXI necesitarían más. No es una antología histórica aleatoria. Es un texto editado por un profeta que vio nuestros días y eligió específicamente qué preservar.',
+          'El último capítulo del Libro de Mormón contiene una de las promesas más audaces de la literatura religiosa: si lees este libro y preguntas a Dios con sinceridad real, Él te responderá. La promesa es específica en sus condiciones y universal en su oferta.',
         ],
       },
       topics: [
         {
           id: 't5',
-          title: 'Los Mensajes que Mormón Preservó para Nosotros',
+          title: 'Tres Condiciones, Una Promesa',
           blocks: [
             {
               type: 'highlight_verse',
-              text: 'He aquí, el Señor me ha mostrado grandes cosas acerca de lo que ha de venir, y que habrá grandes guerras y tribulaciones entre este pueblo. Y yo, siendo un discípulo de Jesucristo, el Hijo de Dios, he sido llamado por él para declarar su palabra entre su pueblo, a fin de que tuviesen vida eterna.',
-              reference: 'Mormon 8:35',
-            },
-            {
-              type: 'paragraph',
-              text: 'Moroni, escribiendo siglos antes de nuestro tiempo, dice directamente: "he aquí, el Señor me ha mostrado vuestro tiempo." Él conocía nuestros días. Eso significa que el libro no es solo un registro del pasado — es un mensaje dirigido específicamente a nosotros. Cada historia que Mormón eligió incluir tiene una razón.',
+              text: 'Y cuando recibáis estas cosas, quisiera exhortaros a que preguntéis a Dios el Eterno Padre, en el nombre de Cristo, si no son verdaderas estas cosas; y si pedís con un corazón sincero, con verdadera intención, teniendo fe en Cristo, él os manifestará la verdad de ello por el poder del Espíritu Santo.',
+              reference: 'Moroni 10:4–5',
             },
             {
               type: 'key_points',
-              title: 'Los temas que Benson identificó como mensajes para hoy',
+              title: 'Las tres condiciones de Moroni 10:4',
               points: [
-                'El ciclo del orgullo — el patrón de prosperidad → soberbia → caída → humildad → bendición se repite 14 veces en el libro. Es un diagnóstico de civilizaciones, incluyendo la nuestra',
-                'Las combinaciones secretas (Helamán 6, Éter 8) — Moroni advirtió explícitamente que estas organizaciones existirían en nuestros días y buscarían controlar gobiernos y destruir libertades',
-                'La Roca de Cristo (Helamán 5:12) — cuando todo lo demás se derrumbe, el fundamento sobre Cristo es lo único que permanece. Helaman lo dijo a sus hijos antes de que fueran capturados',
-                'Los Anti-Nephi-Lehies (Alma 23-24) — el modelo más poderoso de conversión completa: enterraron sus espadas y juraron no volver a pecar. Benson los citó como ejemplo de conversión total, no superficial',
+                'Corazón sincero — no curiosidad intelectual sino disposición real a cambiar si la respuesta es sí',
+                'Verdadera intención — la pregunta es genuina, no para probar que el libro es falso ni para confirmar lo que ya crees',
+                'Fe en Cristo — creer que Dios existe y que puede responder preguntas — que la comunicación divina es posible',
               ],
             },
             {
-              type: 'highlight_verse',
-              text: 'Y ahora, he aquí os digo que deberíais buscar en este libro; y cuando lo hayáis leído, pido a Dios el Eterno Padre que os bendiga con la comprensión de las cosas que son de él. Y si en algún defecto hay, es el error de hombres; por tanto, no condenéis las cosas de Dios.',
-              reference: 'Título de la página del Libro de Mormón',
+              type: 'paragraph',
+              text: 'Moroni escribió estas palabras en soledad. Era el último sobreviviente de su civilización. No tenía nada que ganar con una mentira — nadie lo iba a leer en vida. Lo que escribió fue la convicción más profunda de alguien que había visto el fin de todo lo que amaba y aun así creía que el libro que guardaba cambiaría el mundo.',
+              blockId: 'bm-s5-p-0',
             },
             {
               type: 'leader_quote',
-              quote: 'El Libro de Mormón no solo habla de gente que vivió hace mucho tiempo en tierras lejanas. Habla de ti. Habla del orgullo que destruye familias hoy. Habla de la fe que mueve montañas hoy. Habla del Salvador que quiere rescatarte hoy. Mormón lo vio todo. Y lo escribió para ti.',
-              name: 'Ezra Taft Benson',
-              role: '"The Book of Mormon — Keystone of Our Religion", Ensign, noviembre 1986 (trad.)',
+              quote: 'Cada persona que ha vivido sobre la tierra merece saber si el Libro de Mormón es verdadero. Dios promete responder esa pregunta. He testificado de este libro en todos los continentes y ante millones de personas — y testificaré mientras viva que es la palabra de Dios.',
+              name: 'Russell M. Nelson',
+              role: '"El Libro de Mormón: Lo que mi vida es", Conferencia General, octubre 2017 (trad.)',
             },
           ],
         },
@@ -296,74 +279,60 @@ export const elLibroDeMormon: Lesson = {
     },
     {
       id: 's6',
-      title: 'La Promesa de Moroni',
+      title: 'El Libro en Tu Vida',
       intro: {
         romanNumeral: 'VI',
-        title: 'La Promesa de Moroni',
+        title: 'El Libro en Tu Vida',
         paragraphs: [
-          'Moroni escribe las últimas palabras del Libro de Mormón solo, siglos después de la destrucción de su civilización, sabiendo que nadie leerá su registro en su tiempo. Lo que le importa en ese momento final es simple: que quien lea el libro en el futuro pueda saber que es verdadero. Y ofrece un método. No un argumento académico. Un experimento espiritual con una promesa específica.',
+          'El presidente Benson enseñó que la Iglesia en su conjunto está "bajo condenación" cuando no hace uso pleno del Libro de Mormón. No como decoración en el estante, sino como herramienta de transformación espiritual diaria.',
         ],
       },
       topics: [
         {
           id: 't6',
-          title: 'El Experimento Espiritual con Resultado Garantizado',
+          title: 'Reflexión y Verificación',
           blocks: [
             {
               type: 'highlight_verse',
-              text: 'Y cuando recibáis estas cosas, quisiera exhortaros a que preguntéis a Dios el Eterno Padre, en el nombre de Cristo, si no son verdaderas estas cosas; y si pedís con un corazón sincero, con verdadera intención, teniendo fe en Cristo, él os manifestará la verdad de ello por el poder del Espíritu Santo. Y por el poder del Espíritu Santo podréis conocer la verdad de todas las cosas.',
-              reference: 'Moroni 10:4–5',
-            },
-            {
-              type: 'doctrine_box',
-              title: 'Las tres condiciones de la promesa — y lo que significan realmente',
-              body: '"Corazón sincero" — no curiosidad intelectual sino disposición genuina de actuar sobre la respuesta que recibas. No es sincero quien pregunta queriendo que la respuesta sea no. / "Verdadera intención" — Dallin Oaks enseñó que la intención real significa que si Dios confirma que es verdad, estás dispuesto a cambiar tu vida en consecuencia. La intención no es real si el compromiso es condicional. / "Fe en Cristo" — la promesa está anclada en Cristo, no en el libro. El Espíritu Santo confirma la verdad de Cristo primero — el libro es el vehículo, no el destino.',
-            },
-            {
-              type: 'media_slot',
-              kind: 'image',
-              src: undefined,
-              alt: 'Moroni writing alone by torchlight in a cave at night, last survivor of his civilization, solemn and dignified, night sky visible, ancient Nephite clothing',
-              caption: 'Moroni — escribió solo, el último de su pueblo, para lectores que no conocería',
-              contextCard: { year: 'ca. 421 d.C.', place: 'Tierra prometida', label: 'Moroni — el último testigo' },
-            },
-            {
-              type: 'paragraph',
-              text: 'Moroni escribe estas palabras al final de su registro — sabiendo que es el último en su civilización, que está solo, que no hay nadie más. Lo que le importa en ese momento final es que quienes lean el libro en el futuro tengan una manera de saber que es verdadero. La promesa es real porque el libro es real.',
-            },
-            {
-              type: 'leader_quote',
-              quote: 'Declaro que el Libro de Mormón es verdadero — lo declaro con toda la solemnidad que poseo. Sé que este libro sagrado fue traducido por el don y el poder de Dios. Sé que sus páginas contienen la plenitud del evangelio de Jesucristo para este tiempo. Y sé que quienes lo lean con sinceridad recibirán del Espíritu Santo una confirmación que cambiará su vida para siempre.',
-              name: 'Jeffrey R. Holland',
-              role: '"Safety for the Soul", Conferencia General, octubre 2009 (trad.)',
-            },
-            {
-              type: 'quiz',
-              id: 'q-ldm-testigos',
-              question: {
-                kind: 'true_false',
-                statement: 'Todos los Once Testigos del Libro de Mormón mantuvieron su testimonio de las planchas hasta el final de sus vidas, incluso aquellos que se alejaron de la Iglesia.',
-                correctAnswer: true,
-                explanation: 'Ninguno de los Once Testigos —ni los que fueron excomulgados ni los que se alejaron amargamente de José Smith— retiró jamás su declaración de haber visto o tocado las planchas de oro. Su testimonio era independiente de su relación con José.',
-              },
-            },
-            {
-              type: 'quiz',
-              id: 'q-ldm-quiasmo',
-              question: {
-                kind: 'fill_blank',
-                prompt: 'El quiasmo de Alma 36 tiene como punto central — el clímax estructural y temático del capítulo — el recuerdo de...',
-                options: [
-                  'La muerte de su padre Alma el Mayor',
-                  'El nombre de Jesucristo',
-                  'Su bautismo en las aguas de Mormón',
-                ],
-                correctIndex: 1,
-              },
+              text: 'E igualmente, a todos os digo: Velad y orad, no sea que el adversario os tiente; pues Satanás desea tamizaros como a trigo. Por tanto, debéis siempre orar al Padre en mi nombre; y lo que sea que pidáis al Padre en mi nombre, que sea justo, en fe creyendo que recibiréis, he aquí, os será dado.',
+              reference: '3 Nefi 18:18–20',
             },
             {
               type: 'reflection',
-              prompt: '¿Has cumplido la promesa de Moroni 10:4 con sinceridad real — no como ejercicio religioso sino como pregunta genuina? ¿Tenías "verdadera intención" — es decir, estabas dispuesto a cambiar tu vida si la respuesta era sí? Si ya tienes un testimonio, ¿cuándo fue la última vez que lo renovaste estudiando el Libro de Mormón con la misma sinceridad que la primera vez?',
+              prompt: '¿Has cumplido la promesa de Moroni 10:4 con sinceridad real — no como ejercicio religioso sino como pregunta genuina? Si ya tienes un testimonio, ¿cuándo fue la última vez que lo renovaste estudiando el Libro de Mormón con la misma apertura que la primera vez?',
+            },
+            {
+              type: 'quiz',
+              id: 'bm-q1',
+              question: {
+                kind: 'fill_blank',
+                prompt: 'Los Tres Testigos declararon haber visto las planchas con un ___ y haber escuchado la voz de Dios confirmando la autenticidad del libro.',
+                options: ['profeta', 'ángel', 'espíritu', 'sueño'],
+                correctIndex: 1,
+                explanation: 'Oliver Cowdery, David Whitmer, y Martin Harris declararon que el ángel Moroni les mostró las planchas y que la voz de Dios confirmó su autenticidad. Ninguno retractó este testimonio.',
+              },
+            },
+            {
+              type: 'quiz',
+              id: 'bm-q2',
+              question: {
+                kind: 'fill_blank',
+                prompt: 'Según Alma 32:27, para iniciar el experimento de fe solo necesitas tener "deseo de ___" — ese deseo es suficiente para comenzar.',
+                options: ['saber', 'creer', 'ver', 'entender'],
+                correctIndex: 1,
+                explanation: 'Alma 32:27 enseña: "siquiera si no podéis hacer más que desear creer, dejad que este deseo obre en vosotros." El punto de partida no es certeza sino deseo genuino.',
+              },
+            },
+            {
+              type: 'quiz',
+              id: 'bm-q3',
+              question: {
+                kind: 'fill_blank',
+                prompt: 'Moroni 10:4 identifica tres condiciones para recibir la promesa: corazón sincero, verdadera intención, y ___ en Cristo.',
+                options: ['obediencia', 'fe', 'conocimiento', 'bautismo'],
+                correctIndex: 1,
+                explanation: 'Las tres condiciones son: corazón sincero, verdadera intención, y fe en Cristo. La fe en Cristo implica creer que Dios existe y que puede responder preguntas a través del Espíritu Santo.',
+              },
             },
           ],
         },
