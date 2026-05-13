@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useShallow } from 'zustand/react/shallow'
+import type { ReactNode } from 'react'
 import type { ParagraphBlock as ParagraphBlockType } from '@/types/doctrine'
 import { useHighlightsStore, type HighlightColor } from '@/stores/highlightsStore'
 
@@ -44,7 +45,6 @@ export function ParagraphBlock({ block, highlightId, blockKey, lessonId, topicId
   const [sel, setSel] = useState<SelectionState | null>(null)
   const toolbarRef = useRef<HTMLDivElement>(null)
 
-  /* Dismiss toolbar when clicking outside it */
   useEffect(() => {
     if (!sel) return
     function onDown(e: MouseEvent) {
@@ -96,7 +96,7 @@ export function ParagraphBlock({ block, highlightId, blockKey, lessonId, topicId
 
     if (spans.length === 0) return text
 
-    const nodes: React.ReactNode[] = []
+    const nodes: ReactNode[] = []
     let last = 0
     for (const span of spans) {
       if (span.start < last) continue
@@ -119,7 +119,6 @@ export function ParagraphBlock({ block, highlightId, blockKey, lessonId, topicId
 
   return (
     <div className="relative">
-      {/* Floating color picker toolbar */}
       {sel && (
         <div
           ref={toolbarRef}
