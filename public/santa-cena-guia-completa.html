@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Santa Cena — Guía Completa</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #0F1419;
+    --bg2:      #141B24;
+    --bg3:      #1A2335;
+    --bg4:      #1E2A3E;
+    --border:   #253245;
+    --text:     #E2E8F0;
+    --text-soft:#8A9BB0;
+    --text-muted:#5A6A7E;
+    --gold:     #C9A84C;
+    --gold-light:#E8CC7A;
+    --gold-dim: rgba(201,168,76,0.12);
+    --gold-border:rgba(201,168,76,0.30);
+    --blue:     #4A8AB8;
+    --blue-light:#7AB0D4;
+    --blue-dim: rgba(74,138,184,0.10);
+    --green:    #5BAD7A;
+    --green-dim:rgba(91,173,122,0.10);
+    --red:      #E85D5D;
+    --red-dim:  rgba(232,93,93,0.10);
+    --purple:   #9B7BD4;
+    --purple-dim:rgba(155,123,212,0.10);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Lora',Georgia,serif;
+    font-size:16px;
+    line-height:1.8;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header{
+    background:linear-gradient(160deg,#060C10 0%,#0F1825 55%,#141F2E 100%);
+    border-bottom:1px solid var(--border);
+    padding:52px 24px 44px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .page-header::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,0.09) 0%,transparent 65%);
+  }
+  .page-header::after{
+    content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  }
+  .eyebrow{
+    font-family:'Cinzel',serif;font-size:9px;letter-spacing:4.5px;
+    color:var(--gold);text-transform:uppercase;opacity:.7;margin-bottom:14px;
+  }
+  .page-header h1{
+    font-family:'Cinzel',serif;
+    font-size:clamp(1.8rem,5vw,2.8rem);font-weight:700;
+    color:#F0E8D0;line-height:1.2;margin-bottom:10px;
+  }
+  .page-header h1 span{color:var(--gold-light);}
+  .header-sub{
+    font-family:'Source Sans 3',sans-serif;font-size:.9rem;
+    color:var(--text-soft);margin-bottom:22px;
+    max-width:560px;margin-left:auto;margin-right:auto;line-height:1.6;
+  }
+  .badges{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;}
+  .badge{
+    padding:4px 14px;border-radius:20px;
+    font-family:'Source Sans 3',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.5px;
+  }
+  .badge-gold{background:var(--gold-dim);border:1px solid var(--gold-border);color:var(--gold-light);}
+  .badge-blue{background:var(--blue-dim);border:1px solid rgba(74,138,184,.3);color:var(--blue-light);}
+  .badge-green{background:var(--green-dim);border:1px solid rgba(91,173,122,.3);color:#7BC47B;}
+
+  /* ── CONTAINER ── */
+  .container{max-width:820px;margin:0 auto;padding:0 22px 80px;}
+
+  /* ── SECTION INTRO ── */
+  .section-intro{
+    padding:44px 0 12px;border-bottom:1px solid var(--border);margin-bottom:28px;
+  }
+  .section-eyebrow{
+    font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:4px;
+    color:var(--gold);text-transform:uppercase;opacity:.7;margin-bottom:6px;
+  }
+  .section-title{
+    font-family:'Cinzel',serif;font-size:1.25rem;font-weight:600;
+    color:var(--gold-light);line-height:1.3;
+  }
+  .section-sub{
+    font-family:'Source Sans 3',sans-serif;font-size:.87rem;
+    color:var(--text-muted);margin-top:5px;line-height:1.55;
+  }
+
+  /* ── TOPIC CARD (accordion) ── */
+  .topic{
+    background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+    margin-bottom:18px;overflow:hidden;transition:border-color .2s;
+  }
+  .topic:hover{border-color:var(--gold-border);}
+  .topic-summary{
+    padding:20px 22px 16px;cursor:pointer;
+    display:flex;align-items:flex-start;gap:14px;user-select:none;
+  }
+  .topic-icon{
+    width:40px;height:40px;border-radius:10px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.25rem;flex-shrink:0;margin-top:2px;
+  }
+  .icon-gold{background:var(--gold-dim);border:1px solid var(--gold-border);}
+  .icon-blue{background:var(--blue-dim);border:1px solid rgba(74,138,184,.25);}
+  .icon-green{background:var(--green-dim);border:1px solid rgba(91,173,122,.25);}
+  .icon-purple{background:var(--purple-dim);border:1px solid rgba(155,123,212,.25);}
+  .icon-red{background:var(--red-dim);border:1px solid rgba(232,93,93,.25);}
+
+  .topic-meta{flex:1;}
+  .topic-num{
+    font-family:'Source Sans 3',sans-serif;font-size:.7rem;font-weight:700;
+    letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:3px;
+  }
+  .topic-name{
+    font-family:'Lora',serif;font-size:1.06rem;font-weight:700;
+    color:var(--text);line-height:1.3;margin-bottom:7px;
+  }
+  .topic-quick{
+    font-family:'Source Sans 3',sans-serif;font-size:.87rem;
+    color:var(--text-soft);line-height:1.55;
+  }
+  .topic-quick strong{color:var(--text);}
+
+  .expand-btn{display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0;margin-top:4px;}
+  .expand-icon{
+    width:26px;height:26px;border-radius:50%;background:var(--bg3);
+    border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+    font-size:.8rem;color:var(--text-soft);transition:all .25s;
+  }
+  .expand-label{font-family:'Source Sans 3',sans-serif;font-size:.62rem;color:var(--text-muted);letter-spacing:.5px;text-transform:uppercase;}
+  .topic.open .expand-icon{background:var(--gold-dim);border-color:var(--gold-border);color:var(--gold-light);transform:rotate(180deg);}
+
+  .topic-detail{display:none;border-top:1px solid var(--border);background:var(--bg3);}
+  .topic.open .topic-detail{display:block;}
+  .detail-inner{padding:26px 26px 22px;}
+
+  /* ── CONTENT BLOCKS ── */
+  .detail-p{
+    font-family:'Lora',serif;font-size:.97rem;color:#B8C8D8;
+    line-height:1.85;margin-bottom:18px;
+  }
+
+  /* Scripture */
+  .scripture{
+    background:rgba(201,168,76,.07);border-left:3px solid var(--gold);
+    border-radius:0 8px 8px 0;padding:14px 18px;margin:16px 0;
+  }
+  .scripture.blue{background:var(--blue-dim);border-left-color:var(--blue);}
+  .scripture.green{background:var(--green-dim);border-left-color:var(--green);}
+  .scripture.red{background:var(--red-dim);border-left-color:var(--red);}
+  .scripture-text{
+    font-family:'Lora',serif;font-style:italic;font-size:.96rem;
+    color:#C8B888;line-height:1.8;
+  }
+  .scripture.blue .scripture-text{color:#88B8D8;}
+  .scripture.green .scripture-text{color:#88C8A0;}
+  .scripture-ref{
+    font-family:'Source Sans 3',sans-serif;font-size:.7rem;font-weight:700;
+    letter-spacing:.8px;color:var(--gold);text-transform:uppercase;
+    margin-top:8px;display:block;
+  }
+  .scripture.blue .scripture-ref{color:var(--blue-light);}
+  .scripture.green .scripture-ref{color:var(--green);}
+
+  /* Leader quote */
+  .leader-quote{
+    background:var(--bg4);border:1px solid var(--border);border-radius:10px;
+    padding:18px 20px 14px 28px;margin:16px 0;position:relative;
+  }
+  .leader-quote::before{
+    content:'\201C';position:absolute;top:4px;left:9px;
+    font-size:3rem;color:var(--gold);opacity:.2;line-height:1;font-family:Georgia,serif;
+  }
+  .quote-text{font-family:'Lora',serif;font-style:italic;font-size:.94rem;color:#A8B8C8;line-height:1.8;}
+  .quote-attr{
+    font-family:'Source Sans 3',sans-serif;font-size:.7rem;font-weight:700;
+    color:var(--gold);margin-top:10px;display:block;text-transform:uppercase;letter-spacing:.5px;
+  }
+
+  /* Doctrine box */
+  .doctrine-box{
+    background:linear-gradient(135deg,rgba(201,168,76,.07),rgba(201,168,76,.03));
+    border:1px solid var(--gold-border);border-radius:10px;
+    padding:18px 20px;margin:16px 0;
+  }
+  .doctrine-title{
+    font-family:'Cinzel',serif;font-size:.82rem;letter-spacing:.8px;
+    color:var(--gold-light);margin-bottom:10px;font-weight:600;
+  }
+  .doctrine-body{
+    font-family:'Source Sans 3',sans-serif;font-size:.88rem;
+    color:var(--text-soft);line-height:1.65;
+  }
+  .doctrine-body strong{color:var(--text);}
+
+  /* Key points */
+  .key-points{display:flex;flex-direction:column;gap:9px;margin:16px 0;}
+  .key-point{
+    display:flex;gap:11px;align-items:flex-start;
+    background:var(--bg4);border-radius:8px;padding:11px 13px;border:1px solid var(--border);
+  }
+  .key-dot{width:8px;height:8px;border-radius:50%;margin-top:7px;flex-shrink:0;}
+  .key-text{font-family:'Source Sans 3',sans-serif;font-size:.87rem;color:var(--text-soft);line-height:1.55;}
+  .key-text strong{color:var(--text);}
+  .key-points-title{
+    font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:1px;
+    color:var(--gold);text-transform:uppercase;margin-bottom:10px;opacity:.8;
+  }
+
+  /* Steps */
+  .steps-block{margin:16px 0;}
+  .steps-title{
+    font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:1px;
+    color:var(--blue-light);text-transform:uppercase;margin-bottom:12px;opacity:.85;
+  }
+  .step-item{
+    display:flex;gap:13px;align-items:flex-start;
+    background:var(--bg4);border-radius:8px;padding:12px 14px;
+    border:1px solid var(--border);margin-bottom:8px;
+    border-left:3px solid var(--blue);
+  }
+  .step-num{
+    font-family:'Cinzel',serif;font-size:.8rem;font-weight:700;
+    color:var(--blue-light);flex-shrink:0;min-width:20px;margin-top:2px;
+  }
+  .step-text{font-family:'Source Sans 3',sans-serif;font-size:.87rem;color:var(--text-soft);line-height:1.55;}
+  .step-text strong{color:var(--text);}
+
+  /* Authority table */
+  .auth-table{width:100%;border-collapse:collapse;margin:16px 0;font-family:'Source Sans 3',sans-serif;font-size:.84rem;}
+  .auth-table th{
+    background:var(--bg4);color:var(--text-soft);font-weight:700;
+    letter-spacing:.4px;text-transform:uppercase;font-size:.72rem;
+    padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);
+  }
+  .auth-table td{padding:9px 12px;border-bottom:1px solid var(--border);color:var(--text-soft);vertical-align:middle;}
+  .auth-table tr:last-child td{border-bottom:none;}
+  .auth-table td:first-child{color:var(--text);font-weight:600;}
+  .check{color:#5BAD7A;font-size:1.1rem;}
+  .cross{color:#4A5A6A;font-size:1.1rem;}
+
+  /* Prayer block */
+  .prayer-block{
+    background:linear-gradient(135deg,#0A1520,#12202E);
+    border:1px solid var(--gold-border);border-radius:12px;
+    padding:26px 24px;margin:18px 0;position:relative;
+  }
+  .prayer-block::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+    border-radius:12px 12px 0 0;
+  }
+  .prayer-label{
+    font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:3px;
+    color:var(--gold);text-transform:uppercase;opacity:.75;margin-bottom:12px;
+  }
+  .prayer-text{
+    font-family:'Lora',serif;font-size:1rem;color:#D0E0F0;line-height:1.9;
+  }
+  .prayer-text .hl{
+    background:rgba(201,168,76,.15);border-bottom:1px solid rgba(201,168,76,.4);
+    padding:0 2px;border-radius:2px;
+  }
+  .prayer-text .hl-blue{
+    background:rgba(74,138,184,.15);border-bottom:1px solid rgba(74,138,184,.4);
+    padding:0 2px;border-radius:2px;
+  }
+  .prayer-source{
+    font-family:'Source Sans 3',sans-serif;font-size:.72rem;color:var(--gold);
+    letter-spacing:.5px;margin-top:14px;display:block;text-transform:uppercase;font-weight:700;
+  }
+  .prayer-annotation{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);}
+  .ann-item{
+    display:flex;gap:9px;margin-bottom:7px;
+    font-family:'Source Sans 3',sans-serif;font-size:.82rem;color:var(--text-soft);
+  }
+  .ann-key{
+    background:rgba(201,168,76,.15);color:var(--gold-light);font-size:.7rem;font-weight:700;
+    padding:1px 7px;border-radius:4px;flex-shrink:0;align-self:flex-start;margin-top:1px;letter-spacing:.3px;
+  }
+  .ann-key.blue{background:rgba(74,138,184,.15);color:var(--blue-light);}
+
+  /* Deep dive */
+  .deep-dive{
+    background:var(--bg4);border:1px solid var(--border);border-radius:10px;
+    padding:18px 20px;margin:16px 0;border-left:3px solid var(--purple);
+  }
+  .deep-badge{
+    display:inline-block;background:var(--purple-dim);border:1px solid rgba(155,123,212,.3);
+    color:var(--purple);font-family:'Source Sans 3',sans-serif;font-size:.7rem;
+    font-weight:700;letter-spacing:.5px;padding:2px 10px;border-radius:12px;
+    text-transform:uppercase;margin-bottom:10px;
+  }
+  .deep-title{
+    font-family:'Lora',serif;font-size:1rem;font-weight:700;
+    color:var(--text);margin-bottom:12px;
+  }
+  .deep-p{
+    font-family:'Lora',serif;font-size:.93rem;color:#B0C0D0;
+    line-height:1.8;margin-bottom:10px;
+  }
+  .deep-p:last-child{margin-bottom:0;}
+
+  /* Timeline */
+  .timeline{margin:16px 0;}
+  .tl-item{
+    display:flex;gap:14px;margin-bottom:0;position:relative;
+  }
+  .tl-item:not(:last-child) .tl-line{
+    position:absolute;left:10px;top:22px;bottom:-14px;width:1px;
+    background:linear-gradient(to bottom,var(--border),transparent);
+  }
+  .tl-dot{
+    width:20px;height:20px;border-radius:50%;flex-shrink:0;margin-top:4px;
+    border:2px solid;display:flex;align-items:center;justify-content:center;
+  }
+  .tl-dot.gold{border-color:var(--gold);background:rgba(201,168,76,.15);}
+  .tl-dot.blue{border-color:var(--blue);background:var(--blue-dim);}
+  .tl-dot.red{border-color:var(--red);background:var(--red-dim);}
+  .tl-dot.green{border-color:var(--green);background:var(--green-dim);}
+  .tl-body{flex:1;padding-bottom:22px;}
+  .tl-label{
+    font-family:'Source Sans 3',sans-serif;font-size:.78rem;font-weight:700;
+    color:var(--text);text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px;
+  }
+  .tl-text{font-family:'Source Sans 3',sans-serif;font-size:.86rem;color:var(--text-soft);line-height:1.5;}
+
+  /* Manual ref chip */
+  .manual-ref{
+    display:inline-flex;align-items:center;gap:7px;
+    background:rgba(74,138,184,.08);border:1px solid rgba(74,138,184,.2);
+    border-radius:6px;padding:5px 12px;
+    font-family:'Source Sans 3',sans-serif;font-size:.72rem;font-weight:600;
+    color:var(--blue-light);letter-spacing:.5px;margin-bottom:16px;
+  }
+
+  /* Reflection */
+  .reflection{
+    background:linear-gradient(135deg,rgba(91,173,122,.06),rgba(91,173,122,.02));
+    border:1px solid rgba(91,173,122,.25);border-radius:10px;
+    padding:16px 18px;margin:16px 0;
+  }
+  .reflection-label{
+    font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--green);
+    text-transform:uppercase;opacity:.8;margin-bottom:7px;
+  }
+  .reflection-text{
+    font-family:'Lora',serif;font-style:italic;font-size:.93rem;
+    color:#88C8A0;line-height:1.75;
+  }
+
+  /* ── FOOTER ── */
+  footer{
+    text-align:center;padding:28px 22px;border-top:1px solid var(--border);
+    font-family:'Source Sans 3',sans-serif;font-size:.72rem;
+    color:var(--text-muted);letter-spacing:.3px;line-height:1.7;
+  }
+  footer a{color:var(--gold);text-decoration:none;}
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:600px){
+    .page-header{padding:36px 18px 30px;}
+    .detail-inner{padding:20px 18px 16px;}
+    .auth-table{font-size:.78rem;}
+    .auth-table th,.auth-table td{padding:7px 8px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<div class="page-header">
+  <div class="eyebrow">Cuórum de Élderes · Sacerdocio de Melquisedec</div>
+  <h1>La Santa Cena<br><span>Guía Completa</span></h1>
+  <div class="header-sub">Convenio, poder, autoridad y el orden sagrado de la ordenanza más frecuente de la Iglesia.</div>
+  <div class="badges">
+    <span class="badge badge-gold">Manual General §18.9</span>
+    <span class="badge badge-blue">D&C 20 · D&C 27</span>
+    <span class="badge badge-green">7 Secciones · Fuentes Verificadas</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ══════════════════════════════════════
+     I. LA ORDENANZA DE CONVENIO
+══════════════════════════════════════ -->
+<div class="section-intro">
+  <div class="section-eyebrow">Sección I</div>
+  <div class="section-title">La ordenanza de convenio</div>
+  <div class="section-sub">La Santa Cena es el punto de acceso semanal a la Expiación de Jesucristo.</div>
+</div>
+
+<div class="topic" id="t1">
+  <div class="topic-summary" onclick="toggle('t1')">
+    <div class="topic-icon icon-gold">🍞</div>
+    <div class="topic-meta">
+      <div class="topic-num">Tema 01</div>
+      <div class="topic-name">La Santa Cena: una ordenanza de convenio</div>
+      <div class="topic-quick">No es un ritual simbólico vacío. Es un acto sagrado en el que <strong>renovamos los convenios bautismales</strong> y nos comprometemos de nuevo con el Salvador — cada semana.</div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Leer</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="detail-p">La Santa Cena fue instituida por Jesucristo en la noche de la Última Cena, antes de su crucifixión. En el Antiguo Testamento, la Pascua conmemoraba la liberación de Egipto una vez al año. El Señor instituyó la Santa Cena como su cumplimiento — pero <em>semanal</em>, porque nuestra necesidad de renovar nuestra relación con Cristo no puede esperar un año.</div>
+    <div class="scripture">
+      <div class="scripture-text">«Y mientras comían, Jesús tomó el pan, y bendijo, y lo partió, y dio a sus discípulos, y dijo: Tomad, comed; esto es mi cuerpo. Y tomando la copa, y habiendo dado gracias, les dio, diciendo: Bebed de ella todos; porque esto es mi sangre del nuevo pacto, que por muchos es derramada para remisión de los pecados.»</div>
+      <span class="scripture-ref">Mateo 26:26–28</span>
+    </div>
+    <div class="detail-p">Después de su resurrección, el Salvador visitó el continente americano y estableció la misma ordenanza entre los nefitas. Esto confirma que la Santa Cena no era solo para Palestina — es un mandamiento universal para toda su Iglesia restaurada:</div>
+    <div class="scripture">
+      <div class="scripture-text">«Y esto haréis en memoria de mi cuerpo, el cual os he mostrado. Y será un testimonio ante el Padre de que siempre os acordáis de mí. Y si siempre os acordáis de mí, tendréis mi Espíritu con vosotros.»</div>
+      <span class="scripture-ref">3 Nefi 18:6–7 · Libro de Mormón</span>
+    </div>
+    <div class="doctrine-box">
+      <div class="doctrine-title">¿Qué representan los emblemas?</div>
+      <div class="doctrine-body">El <strong>pan</strong> representa el cuerpo de Cristo, sacrificado por nosotros. El <strong>agua</strong> representa la sangre de Cristo, derramada en expiación de nuestros pecados. Juntos simbolizan la renovación de los convenios bautismales cada semana — no como un memorial pasivo, sino como un compromiso activo y renovado.</div>
+    </div>
+    <div class="leader-quote">
+      <div class="quote-text">Cada semana el Salvador nos extiende su mano y nos invita a volver. La Santa Cena no es un rito de membresía — es el mecanismo más poderoso que el Señor ha dado a su pueblo para acceder semanalmente a los méritos de su Expiación.</div>
+      <span class="quote-attr">Élder Jeffrey R. Holland · «Esto haced en memoria de mí» · Conferencia General, octubre 1995</span>
+    </div>
+    <div class="deep-dive">
+      <div class="deep-badge">Contexto Histórico</div>
+      <div class="deep-title">Del cordero pascual al Cordero de Dios</div>
+      <div class="deep-p">La Pascua judía conmemoraba la liberación física de Egipto. La sangre del cordero en los dinteles protegía de la muerte temporal; se celebraba una vez al año mirando hacia atrás.</div>
+      <div class="deep-p">El Señor instituyó la Santa Cena en esa misma noche para mirar hacia adelante — hacia la Expiación que se consumaría en Getsemaní y el Gólgota. Cristo es el Cordero de Dios (Juan 1:29): su sangre no nos protege de la muerte temporal, sino de la muerte espiritual.</div>
+      <div class="deep-p">Por eso la Santa Cena es semanal: la liberación espiritual no es un evento anual — es una necesidad continua que el Señor, en su misericordia, renovó con una frecuencia que coincide con nuestro ciclo de tentación y caída.</div>
+    </div>
+    <div class="reflection">
+      <div class="reflection-label">Reflexión</div>
+      <div class="reflection-text">¿En qué enfocas tu mente y tu corazón durante la Santa Cena? ¿Qué cambiaría en tu semana si la recibieras con plena conciencia de los convenios que estás haciendo?</div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     II. ¿QUIÉNES DEBEN PARTICIPAR?
+══════════════════════════════════════ -->
+<div class="section-intro">
+  <div class="section-eyebrow">Sección II</div>
+  <div class="section-title">¿Quiénes deben participar?</div>
+  <div class="section-sub">El Señor fue preciso: la Santa Cena es para corazones honestos, no para perfectos.</div>
+</div>
+
+<div class="topic" id="t2">
+  <div class="topic-summary" onclick="toggle('t2')">
+    <div class="topic-icon icon-blue">❤️</div>
+    <div class="topic-meta">
+      <div class="topic-num">Tema 02</div>
+      <div class="topic-name">Dignidad e indignidad: ¿quién debe recibir la Santa Cena?</div>
+      <div class="topic-quick">No se trata de ser perfectos. Se trata de ser honestos, con un <strong>corazón arrepentido</strong> y un deseo real de renovar el convenio.</div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Leer</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="scripture">
+      <div class="scripture-text">«Y he aquí, este es el mandamiento que yo os doy, que no permitáis que ninguno a sabiendas participe indignamente de mi carne y de mi sangre, cuando las administréis; porque quien come mi carne y bebe mi sangre indignamente, come y bebe condenación para su alma.»</div>
+      <span class="scripture-ref">3 Nefi 18:28–29 · Libro de Mormón</span>
+    </div>
+    <div class="scripture blue">
+      <div class="scripture-text">«Por tanto, pruébese cada uno a sí mismo, y coma así del pan, y beba de la copa. Porque el que come y bebe indignamente, sin discernir el cuerpo del Señor, juicio come y bebe para sí.»</div>
+      <span class="scripture-ref">1 Corintios 11:28–29</span>
+    </div>
+    <div class="key-points">
+      <div class="key-point">
+        <div class="key-dot" style="background:#5BAD7A"></div>
+        <div class="key-text"><strong>✅ Deben recibirla:</strong> Miembros bautizados con un espíritu sincero de arrepentimiento y deseo de renovar sus convenios. No se requiere ser perfectos — se requiere ser honestos.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#E85D5D"></div>
+        <div class="key-text"><strong>⚠️ Cuándo abstenerse:</strong> El obispo puede restringir formalmente en casos de transgresiones graves, o el miembro puede auto-abstenerse si no puede hacer un convenio sincero. En caso de duda, habla con tu obispo.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#4A8AB8"></div>
+        <div class="key-text"><strong>Los que buscan el reino:</strong> D&C 46:5 — «No desecharéis de vuestros servicios sacramentales a nadie que sinceramente esté buscando el reino.» Los no miembros no están excluidos de asistir a la reunión.</div>
+      </div>
+    </div>
+    <div class="leader-quote">
+      <div class="quote-text">La dignidad para recibir la Santa Cena no es la perfección — es la honestidad de corazón. El que viene con un espíritu contrito y un genuino propósito de enmienda puede acercarse con confianza al trono de la gracia.</div>
+      <span class="quote-attr">Élder Dallin H. Oaks · «La Santa Cena y la Expiación» · Conferencia General, octubre 2015</span>
+    </div>
+    <div class="reflection">
+      <div class="reflection-label">Reflexión</div>
+      <div class="reflection-text">Pablo dice «pruébese cada uno a sí mismo». ¿Cómo puedes prepararte durante la semana — no solo el domingo — para recibir la Santa Cena con plena honestidad de corazón?</div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     III. CÓMO SE ADMINISTRA
+══════════════════════════════════════ -->
+<div class="section-intro">
+  <div class="section-eyebrow">Sección III</div>
+  <div class="section-title">Cómo se administra</div>
+  <div class="section-sub">Las oraciones reveladas, la vestimenta y el orden del sacerdocio.</div>
+</div>
+
+<div class="topic" id="t3">
+  <div class="topic-summary" onclick="toggle('t3')">
+    <div class="topic-icon icon-gold">📜</div>
+    <div class="topic-meta">
+      <div class="topic-num">Tema 03</div>
+      <div class="topic-name">Las oraciones sacramentales — las palabras del convenio</div>
+      <div class="topic-quick">Las oraciones no son improvisadas. Fueron <strong>reveladas directamente por el Señor</strong> y deben pronunciarse con exactitud. Son el lenguaje del convenio.</div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Leer</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="doctrine-box">
+      <div class="doctrine-title">Los tres convenios que hacemos</div>
+      <div class="doctrine-body">
+        <strong>(1) Tomar el nombre de Cristo</strong> — identificarnos con Él y con su Iglesia en todo momento.<br>
+        <strong>(2) Siempre acordarnos de Él</strong> — no solo el domingo, sino en cada decisión de la semana.<br>
+        <strong>(3) Guardar sus mandamientos</strong> — compromiso activo, no solo de intención.
+      </div>
+    </div>
+    <div class="prayer-block">
+      <div class="prayer-label">Oración del pan — D&C 20:77</div>
+      <div class="prayer-text">
+        «Oh Dios, Padre Eterno, en el nombre de Jesucristo, tu Hijo, te pedimos que bendigas y santifiques este pan para las almas de todos los que participen de él,<br><br>
+        para que lo coman <span class="hl">en memoria del cuerpo de tu Hijo</span>,<br><br>
+        y testifiquen ante ti, oh Dios, Padre Eterno, que están <span class="hl">dispuestos a tomar sobre sí el nombre de tu Hijo</span>, y a <span class="hl">recordarle siempre</span>, y a <span class="hl">guardar sus mandamientos que él les ha dado</span>,<br><br>
+        para que <span class="hl-blue">siempre puedan tener su Espíritu consigo</span>. Amén.»
+      </div>
+      <span class="prayer-source">Doctrina y Convenios 20:77</span>
+      <div class="prayer-annotation">
+        <div class="ann-item"><div class="ann-key">NOSOTROS</div><div>Prometemos 3 cosas al Padre.</div></div>
+        <div class="ann-item"><div class="ann-key blue">DIOS</div><div>Promete 1 cosa: que siempre podamos tener Su Espíritu con nosotros.</div></div>
+      </div>
+    </div>
+    <div class="prayer-block">
+      <div class="prayer-label">Oración del agua — D&C 20:79</div>
+      <div class="prayer-text">
+        «Oh Dios, Padre Eterno, en el nombre de Jesucristo, tu Hijo, te pedimos que bendigas y santifiques <span class="hl">esta agua</span> para las almas de todos los que la beban,<br><br>
+        para que la beban <span class="hl">en memoria de la sangre de tu Hijo</span>, que por ellos se derramó;<br><br>
+        para que testifiquen ante ti, oh Dios, Padre Eterno, que <span class="hl">siempre se acuerdan de él</span>,<br><br>
+        para que <span class="hl-blue">puedan tener su Espíritu consigo</span>. Amén.»
+      </div>
+      <span class="prayer-source">Doctrina y Convenios 20:79 · Se dice «esta agua» en lugar de «este vino»</span>
+    </div>
+  </div></div>
+</div>
+
+<div class="topic" id="t3b">
+  <div class="topic-summary" onclick="toggle('t3b')">
+    <div class="topic-icon icon-blue">👔</div>
+    <div class="topic-meta">
+      <div class="topic-num">Tema 04</div>
+      <div class="topic-name">Vestimenta para oficiar</div>
+      <div class="topic-quick">La apariencia del que oficia no es un detalle menor. <strong>Es parte del mensaje que el sacerdocio envía</strong> a la congregación y al Señor.</div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Leer</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="detail-p">El Manual General enseña que quienes administran la Santa Cena deben vestirse de manera modesta, limpia y apropiada. La vestimenta comunica reverencia — tanto al Señor cuya ordenanza se administra, como a los miembros que la reciben.</div>
+    <div class="key-points">
+      <div class="key-point">
+        <div class="key-dot" style="background:#5BAD7A"></div>
+        <div class="key-text"><strong>✅ Camisa blanca y corbata</strong> — estándar preferido donde es accesible; comunica solemnidad y distinción de la ordenanza.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#5BAD7A"></div>
+        <div class="key-text"><strong>✅ Ropa limpia y modesta</strong> — el Señor mira el corazón, pero la apariencia externa refleja el estado interior. En muchos países un polo blanco o camisa limpia es apropiado.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#E85D5D"></div>
+        <div class="key-text"><strong>❌ Evitar</strong> ropa llamativa, rota, sucia o que distraiga la atención de la ordenanza hacia la persona.</div>
+      </div>
+    </div>
+    <div class="doctrine-box">
+      <div class="doctrine-title">¿Por qué importa la vestimenta al oficiar?</div>
+      <div class="doctrine-body">Cuando un presbítero se arrodilla ante la mesa sacramental, <strong>representa a Jesucristo ante la congregación</strong>. La vestimenta no salva — pero sí habla. Una apariencia cuidada dice: «entiendo la seriedad de lo que hago.»</div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     IV. AUTORIDAD: ¿QUIÉN HACE QUÉ?
+══════════════════════════════════════ -->
+<div class="section-intro">
+  <div class="section-eyebrow">Sección IV — Sacerdocio</div>
+  <div class="section-title">Autoridad: ¿quién puede hacer qué?</div>
+  <div class="section-sub">Tres funciones distintas, tres niveles de autoridad. El Señor estableció un orden específico.</div>
+</div>
+
+<div class="topic" id="t4">
+  <div class="topic-summary" onclick="toggle('t4')">
+    <div class="topic-icon icon-gold">⚖️</div>
+    <div class="topic-meta">
+      <div class="topic-num">Tema 05</div>
+      <div class="topic-name">Preparar, bendecir y repartir — la tabla de autoridad</div>
+      <div class="topic-quick">No cualquier poseedor del sacerdocio puede hacer todo. <strong>El Manual General §18.9.2 es preciso</strong> sobre qué oficio corresponde a cada función.</div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Leer</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="manual-ref">📖 Manual General §18.9.2 — Texto oficial verificado</div>
+    <div style="overflow-x:auto">
+      <table class="auth-table">
+        <thead>
+          <tr>
+            <th>Función</th>
+            <th>Diácono</th>
+            <th>Maestro</th>
+            <th>Presbítero</th>
+            <th>Élder / SM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🍞 Preparar</td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>🙏 Bendecir</td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>🚶 Repartir</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="key-points">
+      <div class="key-point">
+        <div class="key-dot" style="background:#C9A84C"></div>
+        <div class="key-text"><strong>¿Por qué los presbíteros bendicen?</strong> El sacerdocio de los presbíteros incluye el deber de «administrar» la Santa Cena (D&C 20:46). Es una de sus responsabilidades principales.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#4A8AB8"></div>
+        <div class="key-text"><strong>¿Por qué los diáconos reparten pero no bendicen?</strong> Su oficio tiene autoridad para repartir, pero bendecir requiere el oficio de presbítero o superior.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#5BAD7A"></div>
+        <div class="key-text"><strong>Dignidad requerida.</strong> Quien tenga pecados graves sin resolver no debe preparar, bendecir ni repartir hasta haberse arrepentido y reconciliado con el obispo.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#9B7BD4"></div>
+        <div class="key-text"><strong>El Sacerdocio de Melquisedec puede suplir.</strong> Cuando no hay suficientes jóvenes, los élderes y sumos sacerdotes pueden cubrir cualquier función.</div>
+      </div>
+    </div>
+    <div class="scripture">
+      <div class="scripture-text">«La misión de los presbíteros es… administrar la Santa Cena.»</div>
+      <span class="scripture-ref">Doctrina y Convenios 20:46</span>
+    </div>
+    <div class="leader-quote">
+      <div class="quote-text">Cuando un poseedor del sacerdocio extiende el brazo para ofrecernos los emblemas sagrados, es como si el Salvador mismo estuviera extendiendo Su brazo de misericordia hacia nosotros.</div>
+      <span class="quote-attr">Hermana Cheryl A. Esplin · Presidencia General de la Primaria</span>
+    </div>
+  </div></div>
+</div>
+
+<div class="topic" id="t4b">
+  <div class="topic-summary" onclick="toggle('t4b')">
+    <div class="topic-icon icon-blue">👑</div>
+    <div class="topic-meta">
+      <div class="topic-num">Tema 06</div>
+      <div class="topic-name">¿Por qué el obispo recibe la Santa Cena primero?</div>
+      <div class="topic-quick">El Manual es explícito: <strong>«El líder que preside es el primero que la recibe.»</strong> No es protocolo cultural — tiene fundamento doctrinal directo.</div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Leer</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="manual-ref">📖 Manual General §18.9.4 — Instrucciones oficiales</div>
+    <div class="detail-p">El Manual General establece literalmente: <em>«El líder que preside es el primero que la recibe, y después de él no se sigue ningún orden específico.»</em> Esta instrucción se repite dos veces — una para el pan y otra para el agua.</div>
+    <div class="key-points">
+      <div class="key-point">
+        <div class="key-dot" style="background:#C9A84C"></div>
+        <div class="key-text"><strong>El obispo tiene las llaves.</strong> §18.9.1 indica que «el obispo posee las llaves del sacerdocio para preparar, bendecir y repartir la Santa Cena en el barrio». Él es el responsable final.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#4A8AB8"></div>
+        <div class="key-text"><strong>Quien preside, no necesariamente el obispo.</strong> Si un miembro de la presidencia de estaca preside la reunión, él recibe primero.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#5BAD7A"></div>
+        <div class="key-text"><strong>Después no hay orden específico.</strong> Una vez que el que preside ha recibido, los demás miembros del estrado y la congregación reciben sin orden jerárquico particular.</div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     V. LOS EMBLEMAS Y LAS ORACIONES
+══════════════════════════════════════ -->
+<div class="section-intro">
+  <div class="section-eyebrow">Sección V — Los Emblemas</div>
+  <div class="section-title">¿Por qué agua? ¿Por qué la mano derecha?</div>
+  <div class="section-sub">Cada detalle de la ordenanza tiene una respuesta revelada.</div>
+</div>
+
+<div class="topic" id="t5">
+  <div class="topic-summary" onclick="toggle('t5')">
+    <div class="topic-icon icon-green">💧</div>
+    <div class="topic-meta">
+      <div class="topic-num">Tema 07</div>
+      <div class="topic-name">¿Por qué usamos agua y no vino?</div>
+      <div class="topic-quick">Jesús usó vino en la Última Cena. ¿Por qué la Iglesia usa agua? Hay una <strong>revelación directa del Señor</strong> con un contexto histórico fascinante.</div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Leer</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="manual-ref">📖 D&C 27:1–4 — Revelación al Profeta José Smith, agosto 1830</div>
+    <div class="detail-p">En agosto de 1830, el Profeta José Smith se disponía a comprar vino para administrar la Santa Cena. Un mensajero celestial se le apareció y le entregó esta revelación:</div>
+    <div class="scripture">
+      <div class="scripture-text">«Porque he aquí, te digo que no importa lo que comáis o bebáis al tomar el sacramento, si es que lo hacéis con la mira puesta únicamente en mi gloria, recordando ante el Padre mi cuerpo que fue sacrificado por vosotros, y mi sangre que se derramó para la remisión de vuestros pecados.»</div>
+      <span class="scripture-ref">Doctrina y Convenios 27:2</span>
+    </div>
+    <div class="key-points">
+      <div class="key-point">
+        <div class="key-dot" style="background:#5BAD7A"></div>
+        <div class="key-text"><strong>El elemento no es lo sagrado.</strong> Lo sagrado es la intención del corazón y lo que los emblemas representan — el cuerpo y la sangre de Cristo.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#C9A84C"></div>
+        <div class="key-text"><strong>La oración dice «esta agua».</strong> Según §18.9.4, quien bendice el agua debe usar «esta agua» en lugar de «este vino» como aparece en D&C 20:79.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#4A8AB8"></div>
+        <div class="key-text"><strong>Revelada antes de la Palabra de Sabiduría.</strong> Esta instrucción llegó más de dos años antes de D&C 89. El Señor ya guiaba hacia emblemas más puros.</div>
+      </div>
+    </div>
+    <div class="leader-quote">
+      <div class="quote-text">No es el tipo de elemento lo que es esencial, sino el espíritu con el que participamos del sacramento.</div>
+      <span class="quote-attr">Presidente Joseph Fielding Smith · Doctrina de Salvación</span>
+    </div>
+  </div></div>
+</div>
+
+<div class="topic" id="t5b">
+  <div class="topic-summary" onclick="toggle('t5b')">
+    <div class="topic-icon icon-gold">🤝</div>
+    <div class="topic-meta">
+      <div class="topic-num">Tema 08</div>
+      <div class="topic-name">¿Por qué tomamos la Santa Cena con la mano derecha?</div>
+      <div class="topic-quick">El Manual dice «cuando sea posible». El Presidente Nelson explicó el significado: <strong>es la misma mano con la que hacemos convenios sagrados.</strong></div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Leer</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="detail-p">El Manual General indica: <em>«Los miembros toman la Santa Cena con la mano derecha, cuando sea posible.»</em> No es una regla absoluta, pero tiene un simbolismo profundo.</div>
+    <div class="leader-quote">
+      <div class="quote-text">La mano utilizada al participar del sacramento sería lógicamente la misma mano utilizada al hacer cualquier otro convenio sagrado. Puesto que tengo una mano derecha, la ofrezco al participar del sacramento como juramento de que siempre recordaré su sacrificio expiatorio, tomaré su nombre sobre mí y guardaré los mandamientos de Dios.</div>
+      <span class="quote-attr">Presidente Russell M. Nelson</span>
+    </div>
+    <div class="key-points">
+      <div class="key-point">
+        <div class="key-dot" style="background:#C9A84C"></div>
+        <div class="key-text"><strong>La mano derecha en las escrituras.</strong> Aparece 166 veces en la Biblia en contextos de fidelidad, fuerza y poder. Se usaba al hacer convenios desde los tiempos de Abram (Génesis 14:22).</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#4A8AB8"></div>
+        <div class="key-text"><strong>Cristo está a la diestra del Padre.</strong> Jesús declaró que estaría «sentado a la diestra del poder de Dios» (Mateo 26:64). Extender la mano derecha es una alusión a esa posición.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#5BAD7A"></div>
+        <div class="key-text"><strong>No es obligatorio.</strong> Quien no puede usar la mano derecha por discapacidad puede tomar la Santa Cena con la mano izquierda sin ningún problema. El corazón importa más que el gesto.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#9B7BD4"></div>
+        <div class="key-text"><strong>No se pueden requerir ciertas acciones.</strong> El Manual indica expresamente: «no se deben requerir ciertas acciones (como colocar la mano izquierda detrás de la espalda).» La reverencia no se fuerza.</div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="topic" id="t5c">
+  <div class="topic-summary" onclick="toggle('t5c')">
+    <div class="topic-icon icon-red">⚡</div>
+    <div class="topic-meta">
+      <div class="topic-num">Tema 09</div>
+      <div class="topic-name">¿Qué pasa si el que bendice comete un error en la oración?</div>
+      <div class="topic-quick">Uno de los momentos más delicados. El Manual es <strong>claro y específico</strong> sobre cuándo se repite y cómo se pide — con discreción, sin avergonzar.</div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Leer</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="manual-ref">📖 Manual General §18.9.4, punto 5 — Instrucción oficial</div>
+    <div class="key-points">
+      <div class="key-point">
+        <div class="key-dot" style="background:#5BAD7A"></div>
+        <div class="key-text"><strong>✅ Si se corrige a sí mismo → no se repite.</strong> «Si alguien comete un error en las palabras, pero se corrige a sí mismo, no es necesario hacer otra corrección.»</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#E85D5D"></div>
+        <div class="key-text"><strong>⚠️ Si no corrige el error → el obispo interviene.</strong> «Mas si no corrige el error, el obispo le pide con amabilidad que repita la oración.»</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#C9A84C"></div>
+        <div class="key-text"><strong>Con discreción.</strong> «El obispo debe ser discreto al pedir que la oración se repita y se asegura de que al hacerlo no avergüenza a nadie ni perturba la ordenanza.»</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#4A8AB8"></div>
+        <div class="key-text"><strong>El otro puede ayudar.</strong> «La otra persona en la mesa sacramental puede prestar ayuda, según sea necesario.» El que no está bendiciendo puede ayudar a recordar las palabras.</div>
+      </div>
+    </div>
+    <div class="scripture blue">
+      <div class="scripture-text">Las palabras exactas de las oraciones sacramentales están dadas por revelación. No son sugerencias — son el texto preciso del convenio que se está haciendo con el Padre Celestial.</div>
+      <span class="scripture-ref">Principio basado en D&C 20:77 y 20:79</span>
+    </div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     VI. EL ORDEN DE LA DISTRIBUCIÓN
+══════════════════════════════════════ -->
+<div class="section-intro">
+  <div class="section-eyebrow">Sección VI — El Proceso</div>
+  <div class="section-title">El orden completo de la distribución</div>
+  <div class="section-sub">Desde el himno sacramental hasta el manto blanco — paso a paso.</div>
+</div>
+
+<div class="topic" id="t6">
+  <div class="topic-summary" onclick="toggle('t6')">
+    <div class="topic-icon icon-blue">🍞</div>
+    <div class="topic-meta">
+      <div class="topic-num">Tema 10</div>
+      <div class="topic-name">Fase 1 — El Pan: 7 pasos</div>
+      <div class="topic-quick">El proceso comienza con el himno y termina cuando los repartidores regresan en fila y el bendecidor come primero.</div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Leer</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="steps-block">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Durante el himno sacramental</strong> — Los bendecidores (B1 y B2) se adelantan a la mesa y cortan el pan, colocándolo en las bandejas. Los seis repartidores permanecen sentados en su banca.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Al terminar el himno</strong> — Los seis repartidores se levantan y se colocan en fila frente a la mesa sacramental, en el mismo orden en que estaban sentados (D1 al extremo derecho, D6 al extremo izquierdo).</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Bendición del pan</strong> — B1 se arrodilla detrás de la mesa frente al micrófono y pronuncia la oración de D&C 20:77 con exactitud. Toda la congregación inclina la cabeza.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-text"><strong>D1 sube al estrado</strong> — B2 pasa la primera bandeja a D1 (extremo derecho). D1 sube y entrega al obispo (o quien presida) primero, luego a los consejeros. Simultáneamente D2–D6 se dirigen a sus filas.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">5</div>
+        <div class="step-text"><strong>D1 entrega a los músicos</strong> — Después del obispado, D1 avanza al área de música (director y pianista) y luego baja por la fila del extremo izquierdo hasta el fondo y el área de overflow.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">6</div>
+        <div class="step-text"><strong>D2–D6 reparten sus filas</strong> — D2 → fila derecha; D3 → centro-derecha; D4 → centro-izquierda; D5 → fila izquierda; D6 → overflow. Todo simultáneo, de frente a atrás.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">7</div>
+        <div class="step-text"><strong>Regreso a la mesa</strong> — Los repartidores regresan en fila ordenada, entregan las bandejas. B1 y B2 comen primero (los que bendijeron), luego los repartidores D1–D6 comen del pan.</div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="topic" id="t6b">
+  <div class="topic-summary" onclick="toggle('t6b')">
+    <div class="topic-icon icon-blue">💧</div>
+    <div class="topic-meta">
+      <div class="topic-num">Tema 11</div>
+      <div class="topic-name">Fase 2 — El Agua y Cierre: 4 pasos</div>
+      <div class="topic-quick">El proceso del agua es <strong>idéntico al del pan</strong>. El cierre incluye el manto blanco y el regreso ordenado de todos.</div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Leer</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="steps-block">
+      <div class="steps-title">Fase del Agua</div>
+      <div class="step-item">
+        <div class="step-num">8</div>
+        <div class="step-text"><strong>Bendición del agua</strong> — D1–D6 de pie frente a la mesa. B1 (o B2) se arrodilla y pronuncia la oración de D&C 20:79. Se dice «<em>esta agua</em>» en lugar de «este vino».</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">9</div>
+        <div class="step-text"><strong>Distribución del agua</strong> — Proceso idéntico al pan: D1 al obispado y músicos, D2–D6 a sus filas correspondientes, todo simultáneo de frente a atrás.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">10</div>
+        <div class="step-text"><strong>Regreso y quienes comen</strong> — Los repartidores regresan en orden. B1 y B2 comen primero del agua, luego D1–D6. Todo en reverencia y sin prisa.</div>
+      </div>
+    </div>
+    <div class="steps-block">
+      <div class="steps-title" style="color:#7BC47B">Cierre de la Ordenanza</div>
+      <div class="step-item" style="border-left-color:#5BAD7A">
+        <div class="step-num" style="color:#7BC47B">11</div>
+        <div class="step-text"><strong>El manto blanco</strong> — Los bendecidores cubren las bandejas con el manto blanco. Este gesto representa reverencia y el cierre formal de la ordenanza. Todos regresan ordenadamente a sus asientos.</div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<div class="topic" id="t6c">
+  <div class="topic-summary" onclick="toggle('t6c')">
+    <div class="topic-icon icon-purple">📋</div>
+    <div class="topic-meta">
+      <div class="topic-num">Tema 12</div>
+      <div class="topic-name">Pautas del Manual General sobre la administración</div>
+      <div class="topic-quick">El manual es específico: <strong>manteles blancos, lavado de manos, silencio durante la distribución</strong>, himno no reemplazable.</div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Leer</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="manual-ref">📖 Manual General §18.9.3 y §18.9.4 — Pautas oficiales</div>
+    <div class="key-points">
+      <div class="key-point">
+        <div class="key-dot" style="background:#C9A84C"></div>
+        <div class="key-text"><strong>🧼 Lavado de manos.</strong> «Quienes preparan, bendicen o reparten la Santa Cena deben lavarse las manos primeramente con jabón u otro limpiador.» (§18.9.4, punto 1)</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#4A8AB8"></div>
+        <div class="key-text"><strong>🤍 Manteles blancos.</strong> «Los manteles de la Santa Cena deben ser blancos, y estar limpios y planchados.» Simbolizan pureza y el sagrado carácter de la ordenanza.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#E85D5D"></div>
+        <div class="key-text"><strong>🔇 Sin música al repartir.</strong> «No se debe tocar música mientras se reparte la Santa Cena ni inmediatamente después.» El silencio es parte de la reverencia.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#5BAD7A"></div>
+        <div class="key-text"><strong>🎵 El himno no puede reemplazarse.</strong> «Se parte el pan mientras la congregación canta el himno sacramental. No se puede reemplazar ese himno con solos cantados ni con música instrumental.»</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#9B7BD4"></div>
+        <div class="key-text"><strong>🚶 Reparto natural, no rígido.</strong> «El reparto de la Santa Cena debe hacerse de forma natural y no excesivamente formal.» No se requieren posturas o acciones específicas al recibirla.</div>
+      </div>
+    </div>
+    <div class="leader-quote">
+      <div class="quote-text">Esta ordenanza siempre se debe llevar a cabo con reverencia y dignidad. Los presbíteros que ofrecen las oraciones en nombre de la congregación deben pronunciar las palabras lenta y claramente, expresando los términos de los convenios y de las bendiciones prometidas. Éste es un acto sumamente sagrado.</div>
+      <span class="quote-attr">Presidente Dallin H. Oaks · «La reunión sacramental y la Santa Cena» · Conferencia General, octubre 2008</span>
+    </div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     VII. LAS BENDICIONES
+══════════════════════════════════════ -->
+<div class="section-intro">
+  <div class="section-eyebrow">Sección VII</div>
+  <div class="section-title">Las bendiciones de la Santa Cena</div>
+  <div class="section-sub">La promesa del Espíritu Santo como compañero constante es la mayor bendición que recibimos cada semana.</div>
+</div>
+
+<div class="topic" id="t7">
+  <div class="topic-summary" onclick="toggle('t7')">
+    <div class="topic-icon icon-gold">✨</div>
+    <div class="topic-meta">
+      <div class="topic-num">Tema 13</div>
+      <div class="topic-name">Lo que la Santa Cena nos da</div>
+      <div class="topic-quick">La promesa central no es para el domingo solamente. La compañía del Espíritu Santo cubre <strong>toda la semana</strong> — cada tentación, cada decisión, cada momento difícil.</div>
+    </div>
+    <div class="expand-btn"><div class="expand-icon">▼</div><div class="expand-label">Leer</div></div>
+  </div>
+  <div class="topic-detail"><div class="detail-inner">
+    <div class="scripture">
+      <div class="scripture-text">«Y si siempre os acordáis de mí, tendréis mi Espíritu con vosotros.»</div>
+      <span class="scripture-ref">3 Nefi 18:7 · Libro de Mormón</span>
+    </div>
+    <div class="key-points">
+      <div class="key-point">
+        <div class="key-dot" style="background:#C9A84C"></div>
+        <div class="key-text"><strong>Para quien la administra:</strong> Actúa en nombre de Cristo ante la congregación. Fortalece su testimonio al pronunciar palabras reveladas. Renueva su propio convenio al hacerlo.</div>
+      </div>
+      <div class="key-point">
+        <div class="key-dot" style="background:#4A8AB8"></div>
+        <div class="key-text"><strong>Para quien la recibe:</strong> Renovación del convenio bautismal. Acceso a la remisión de pecados mediante el arrepentimiento. La promesa del Espíritu Santo como compañero constante.</div>
+      </div>
+    </div>
+    <div class="scripture blue">
+      <div class="scripture-text">«De cierto, de cierto os digo: Si no coméis la carne del Hijo del Hombre ni bebéis su sangre, no tenéis vida en vosotros. El que come mi carne y bebe mi sangre tiene vida eterna, y yo le resucitaré en el día postrero.»</div>
+      <span class="scripture-ref">Juan 6:53–54</span>
+    </div>
+    <div class="doctrine-box">
+      <div class="doctrine-title">Verdades adicionales sobre la Santa Cena</div>
+      <div class="doctrine-body">
+        Es el <strong>momento más sagrado de la semana</strong> — una oportunidad de expiación renovada cada domingo.<br>
+        Al tomarla somos testigos ante el Padre — no solo ante nosotros mismos.<br>
+        No la tomamos solos: es un acto de comunidad de convenio.<br>
+        Comemos y bebemos <em>antes</em> de recibir la promesa del Espíritu — es un ejercicio de fe, no de mérito.
+      </div>
+    </div>
+    <div class="leader-quote">
+      <div class="quote-text">Si participamos de la Santa Cena semanalmente con un corazón verdaderamente arrepentido y un sincero propósito de guardar los mandamientos, no necesitamos esperar años para saber que los pecados nos son perdonados. La remisión de pecados puede ser renovada cada domingo. Esa es la majestad de esta ordenanza.</div>
+      <span class="quote-attr">Élder David A. Bednar · «Siempre retener una remisión de vuestros pecados» · Conferencia General, abril 2016</span>
+    </div>
+
+    <!-- TIMELINE -->
+    <div style="margin:20px 0 10px">
+      <div class="key-points-title">El ciclo semanal del convenio</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-body">
+            <div class="tl-label">Sábado — Preparación</div>
+            <div class="tl-text">Autoexamen, oración y propósito de enmienda. El convenio comienza antes del domingo.</div>
+          </div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot blue"></div>
+          <div class="tl-body">
+            <div class="tl-label">Himno Sacramental</div>
+            <div class="tl-text">La congregación se aquieta; el corazón anticipa el momento del convenio.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot red"></div>
+          <div class="tl-body">
+            <div class="tl-label">Bendición del Sacerdocio</div>
+            <div class="tl-text">El presbítero se arrodilla. Los tres convenios se pronuncian ante el Padre Celestial.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-body">
+            <div class="tl-label">Participación Silenciosa</div>
+            <div class="tl-text">Memoria del Salvador, renovación interior, acceso al poder de la Expiación.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot green"></div>
+          <div class="tl-body">
+            <div class="tl-label">La Promesa se Cumple</div>
+            <div class="tl-text">«Tendréis mi Espíritu con vosotros» — toda la semana comienza aquí.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reflection">
+      <div class="reflection-label">Reflexión Final</div>
+      <div class="reflection-text">La promesa dice «si siempre os acordáis de mí». ¿Qué haces actualmente para acordarte del Salvador durante la semana, no solo el domingo? ¿Qué podrías cambiar esta semana?</div>
+    </div>
+  </div></div>
+</div>
+
+</div><!-- /container -->
+
+<footer>
+  La Santa Cena — Guía Completa · LineUponLine<br>
+  Fuentes: Manual General §18.9 · D&C 20:46,77,79 · D&C 27:2 · Moroni 4–5 · Conferencias Generales<br>
+  Textos verificados en <a href="https://www.churchofjesuschrist.org" target="_blank">churchofjesuschrist.org</a>
+</footer>
+
+<script>
+function toggle(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+// Expand first topic by default
+document.getElementById('t1').classList.add('open');
+</script>
+
+</body>
+</html>
