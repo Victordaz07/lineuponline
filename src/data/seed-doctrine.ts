@@ -60,6 +60,12 @@ import { elDomingoLlegara as lessonElDomingoLlegara } from '@/data/lessons/el-do
 import { elGranPlanDeLaFelicidad as lessonGranPlan } from '@/data/lessons/el-gran-plan-de-la-felicidad'
 import { sacerdocioPoderMujer as lessonSacerdocioPoderMujer } from '@/data/lessons/sacerdocio-poder-mujer'
 import { fechandoLaMuerteDeCristo as lessonFechandoMuerte } from '@/data/lessons/fechando-la-muerte-de-cristo'
+import { elObispo as lessonElObispo } from '@/data/lessons/el-obispo'
+import { elApostol as lessonElApostol } from '@/data/lessons/el-apostol'
+import { elPresidenteDeLaIglesia as lessonElPresidente } from '@/data/lessons/el-presidente-de-la-iglesia'
+import { elohimElPadreCelestial as lessonElohim } from '@/data/lessons/elohim-el-padre-celestial'
+import { laDivinidad as lessonLaDivinidad } from '@/data/lessons/la-divinidad'
+import { cristoElGranSumoSacerdote as lessonCristoSumoSacerdote } from '@/data/lessons/cristo-el-gran-sumo-sacerdote'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -1428,7 +1434,7 @@ const LESSON_ROWS: LessonRow[] = [
     order: 5,
     status: 'PUBLISHED',
   },
-  // ── SACERDOCIO ADICIONAL (order 11) ──────────────────────────────────────────
+  // ── SACERDOCIO ADICIONAL (orders 11-15) ──────────────────────────────────────
   {
     id: 'sacerdocio-poder-mujer',
     moduleId: 'sacerdocio',
@@ -1440,6 +1446,85 @@ const LESSON_ROWS: LessonRow[] = [
     icon: '👑',
     duration: 75,
     order: 11,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'el-obispo',
+    moduleId: 'sacerdocio',
+    title: 'El Obispo',
+    subtitle: 'Pastor, juez y padre espiritual del rebaño local',
+    description:
+      'El Obispo preside el barrio, tiene las llaves del sacerdocio aarónico, y actúa como juez en Israel. Pedro llamó a Cristo "el Obispo de vuestras almas" — y en Él encontramos el patrón de todo lo que un obispo debe ser.',
+    level: 'INTERMEDIO',
+    icon: '🏛️',
+    duration: 50,
+    order: 12,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'el-apostol',
+    moduleId: 'sacerdocio',
+    title: 'El Apóstol',
+    subtitle: 'Testigo especial del nombre de Cristo en todo el mundo',
+    description:
+      'El Apóstol no es simplemente un líder senior — es un testigo especial del nombre de Cristo con autoridad mundial. El Quórum de los Doce sostiene todas las llaves del reino en reserva, listo para ejercerlas cuando sea necesario.',
+    level: 'AVANZADO',
+    icon: '🕊️',
+    duration: 60,
+    order: 13,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'el-presidente-de-la-iglesia',
+    moduleId: 'sacerdocio',
+    title: 'El Presidente de la Iglesia',
+    subtitle: 'Profeta, Vidente y Revelador — el único que ejerce todas las llaves',
+    description:
+      'El Presidente de la Iglesia es el único ser en la tierra que ejerce simultáneamente todas las llaves del sacerdocio. No es un administrador — es el portavoz viviente de Cristo ante Su Iglesia y el mundo.',
+    level: 'AVANZADO',
+    icon: '🔱',
+    duration: 55,
+    order: 14,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'cristo-el-gran-sumo-sacerdote',
+    moduleId: 'sacerdocio',
+    title: 'Cristo — El Gran Sumo Sacerdote',
+    subtitle: 'Cada oficio del sacerdocio es un tipo de Él',
+    description:
+      'El Sacerdocio de Melquisedec se llama así para evitar repetir el nombre del Hijo de Dios. Hebreos 4-9 es el tratado más profundo del NT sobre el sacerdocio — y Jesucristo es su conclusión y capstone. Cada oficio que has estudiado apunta a Él.',
+    level: 'AVANZADO',
+    icon: '⚜️',
+    duration: 70,
+    order: 15,
+    status: 'PUBLISHED',
+  },
+  // ── TEMAS PROFUNDOS ADICIONALES (orders 6-7) ─────────────────────────────────
+  {
+    id: 'elohim-el-padre-celestial',
+    moduleId: 'temas-profundos',
+    title: 'Elohim — El Padre Celestial',
+    subtitle: 'La doctrina más radical de la Restauración: Dios es un Ser personal',
+    description:
+      'El Padre Celestial no es una fuerza abstracta. Es un Ser glorificado, con cuerpo de carne y huesos resucitado. Somos literalmente Sus hijos. Esta es la doctrina que más separa a la Restauración del mundo cristiano — y la que más cambia todo lo demás.',
+    level: 'AVANZADO',
+    icon: '✨',
+    duration: 65,
+    order: 6,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'la-divinidad',
+    moduleId: 'temas-profundos',
+    title: 'La Divinidad',
+    subtitle: 'Tres Seres distintos — no la Trinidad de Nicea',
+    description:
+      'El Concilio de Nicea (325 d.C.) redefinió a Dios como una sustancia trinitaria incognoscible. La Primera Visión de José Smith revirtió 1,500 años de teología en treinta segundos: el Padre y el Hijo son dos Seres distintos, y el Espíritu Santo es un tercero.',
+    level: 'AVANZADO',
+    icon: '🌟',
+    duration: 70,
+    order: 7,
     status: 'PUBLISHED',
   },
 ]
@@ -1488,6 +1573,12 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'el-gran-plan-de-la-felicidad': lessonGranPlan,
   'sacerdocio-poder-mujer': lessonSacerdocioPoderMujer,
   'fechando-la-muerte-de-cristo': lessonFechandoMuerte,
+  'el-obispo': lessonElObispo,
+  'el-apostol': lessonElApostol,
+  'el-presidente-de-la-iglesia': lessonElPresidente,
+  'elohim-el-padre-celestial': lessonElohim,
+  'la-divinidad': lessonLaDivinidad,
+  'cristo-el-gran-sumo-sacerdote': lessonCristoSumoSacerdote,
   'por-que-dios-permite-el-sufrimiento': lessonSufrimiento,
   'la-salvacion-de-los-no-bautizados': lessonNoBautizados,
   'alma-el-joven': lessonAlmaElJoven,
