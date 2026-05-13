@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { useShallow } from 'zustand/react/shallow'
 import { useMarginNotesStore } from '@/stores/marginNotesStore'
 
 function relativeTime(iso: string): string {
@@ -22,7 +23,9 @@ type BlockWrapperProps = {
 }
 
 export function BlockWrapper({ children, blockKey, lessonId, topicId, blockType }: BlockWrapperProps) {
-  const notes = useMarginNotesStore((s) => s.getForBlock(blockKey))
+  const notes = useMarginNotesStore(
+    useShallow((s) => s.notes.filter((n) => n.blockKey === blockKey)),
+  )
   const addNote = useMarginNotesStore((s) => s.addNote)
   const updateNote = useMarginNotesStore((s) => s.updateNote)
   const removeNote = useMarginNotesStore((s) => s.removeNote)
