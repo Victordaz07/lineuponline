@@ -17,7 +17,7 @@ export const capitanMoroni: Lesson = {
     {
       id: 's1',
       title: 'El Título de Libertad',
-      intro: { romanNumeral: 'I', heading: 'Alma 46 — El Estandarte de la Fe', subheading: 'Guerra espiritual antes que guerra militar' },
+      intro: { romanNumeral: 'I', title: 'Alma 46 — El Estandarte de la Fe', paragraphs: ['Guerra espiritual antes que guerra militar'] },
       topics: [
         {
           id: 't1',
@@ -32,7 +32,7 @@ export const capitanMoroni: Lesson = {
     {
       id: 's2',
       title: '"Si Todos los Hombres Fueran Como Moroni"',
-      intro: { romanNumeral: 'II', heading: 'Alma 48:17 — El Elogio de Mormón', subheading: 'El verdadero retrato del hombre' },
+      intro: { romanNumeral: 'II', title: 'Alma 48:17 — El Elogio de Mormón', paragraphs: ['El verdadero retrato del hombre'] },
       topics: [
         {
           id: 't2',
@@ -47,7 +47,7 @@ export const capitanMoroni: Lesson = {
     {
       id: 's3',
       title: 'Las Ciudades Fuertes',
-      intro: { romanNumeral: 'III', heading: 'Alma 49-50 — La Preparación como Virtud', subheading: '"Si estáis preparados no temeréis"' },
+      intro: { romanNumeral: 'III', title: 'Alma 49-50 — La Preparación como Virtud', paragraphs: ['"Si estáis preparados no temeréis"'] },
       topics: [
         {
           id: 't3',
@@ -61,7 +61,7 @@ export const capitanMoroni: Lesson = {
     {
       id: 's4',
       title: 'La Carta a Pahoran',
-      intro: { romanNumeral: 'IV', heading: 'Alma 59-61 — El Error que Se Corrigió', subheading: 'Cuando Moroni juzgó mal — y reconoció su error' },
+      intro: { romanNumeral: 'IV', title: 'Alma 59-61 — El Error que Se Corrigió', paragraphs: ['Cuando Moroni juzgó mal — y reconoció su error'] },
       topics: [
         {
           id: 't4',

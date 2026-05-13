@@ -17,14 +17,14 @@ export const ammon: Lesson = {
     {
       id: 's1',
       title: 'La Elección del Servicio',
-      intro: { romanNumeral: 'I', heading: 'Alma 17 — "Iré al Rey Lamoni"', subheading: 'Un príncipe que eligió ser siervo' },
+      intro: { romanNumeral: 'I', title: 'Alma 17 — "Iré al Rey Lamoni"', paragraphs: ['Un príncipe que eligió ser siervo'] },
       topics: [
         {
           id: 't1',
           title: 'El método misionero de Ammón',
           blocks: [
             { type: 'paragraph', id: 'p1', text: 'Cuando los hijos de Mosíah llegaron a la tierra de los lamanitas, el rey les preguntó qué querían. Alma 17:24-25: Ammón dijo que quería vivir entre ellos "quizá hasta el día de mi muerte." El rey le ofreció una de sus hijas como esposa. Ammón declinó y pidió ser su siervo. Fue asignado a cuidar los rebaños. La estrategia misionera no fue empezar con doctrina — fue empezar con servicio.' },
-            { type: 'doctrine_box', id: 'db1', title: 'El Servicio como Lenguaje del Amor', content: 'Alma 17:29 explica el pensamiento de Ammón: "Y pensó esto en su corazón: Iré a él con mi poder, y le mostraré el poder que hay en mí." No el poder de las armas ni de la elocuencia — el poder del servicio fiel. Cuando el rey Lamoni preguntó más tarde por qué Ammón no quería recompensa, Ammón respondió que lo único que quería era que el rey escuchara las palabras de Cristo (Alma 18:23). El servicio desinteresado abrió la puerta que la predicación sola no hubiera abierto.' },
+            { type: 'doctrine_box', id: 'db1', title: 'El Servicio como Lenguaje del Amor', body: 'Alma 17:29 explica el pensamiento de Ammón: "Y pensó esto en su corazón: Iré a él con mi poder, y le mostraré el poder que hay en mí." No el poder de las armas ni de la elocuencia — el poder del servicio fiel. Cuando el rey Lamoni preguntó más tarde por qué Ammón no quería recompensa, Ammón respondió que lo único que quería era que el rey escuchara las palabras de Cristo (Alma 18:23). El servicio desinteresado abrió la puerta que la predicación sola no hubiera abierto.' },
           ],
         },
       ],
@@ -32,7 +32,7 @@ export const ammon: Lesson = {
     {
       id: 's2',
       title: 'Los Brazos en el Tesoro',
-      intro: { romanNumeral: 'II', heading: 'Alma 17:36-39 — El Aguaje de Sebus', subheading: 'Fuerza al servicio del amor' },
+      intro: { romanNumeral: 'II', title: 'Alma 17:36-39 — El Aguaje de Sebus', paragraphs: ['Fuerza al servicio del amor'] },
       topics: [
         {
           id: 't2',
@@ -47,7 +47,7 @@ export const ammon: Lesson = {
     {
       id: 's3',
       title: 'La Conversión del Rey Lamoni',
-      intro: { romanNumeral: 'III', heading: 'Alma 18-19 — El Corazón del Rey', subheading: 'La preparación que precedió a la revelación' },
+      intro: { romanNumeral: 'III', title: 'Alma 18-19 — El Corazón del Rey', paragraphs: ['La preparación que precedió a la revelación'] },
       topics: [
         {
           id: 't3',
@@ -61,7 +61,7 @@ export const ammon: Lesson = {
     {
       id: 's4',
       title: 'El Gozo Desbordante',
-      intro: { romanNumeral: 'IV', heading: 'Alma 26 — El Cántico de Ammón', subheading: 'El regocijo que escandalizó a su hermano' },
+      intro: { romanNumeral: 'IV', title: 'Alma 26 — El Cántico de Ammón', paragraphs: ['El regocijo que escandalizó a su hermano'] },
       topics: [
         {
           id: 't4',

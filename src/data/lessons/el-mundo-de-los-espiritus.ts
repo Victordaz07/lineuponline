@@ -19,8 +19,8 @@ export const elMundoDeLoEspiritus: Lesson = {
       title: 'La Geografía del Reino Intermedio',
       intro: {
         romanNumeral: 'I',
-        heading: 'Paraíso y Prisión Espiritual — Un Solo Mundo, Dos Condiciones',
-        subheading: 'La arquitectura del espacio entre la muerte y la resurrección',
+        title: 'Paraíso y Prisión Espiritual — Un Solo Mundo, Dos Condiciones',
+        paragraphs: ['La arquitectura del espacio entre la muerte y la resurrección'],
       },
       topics: [
         {
@@ -47,7 +47,7 @@ export const elMundoDeLoEspiritus: Lesson = {
               type: 'doctrine_box',
               id: 'db1',
               title: '¿Cuándo Ocurre la Separación?',
-              content: 'Alma 40:21 especifica que la separación entre los justos y los inicuos ocurre en el momento de la muerte. El espíritu no vagabundea ni "elige" hacia dónde ir. Es recibido — recogido — por seres que esperan. Los justos son "recibidos en un estado de felicidad." Los inicuos son "echados afuera en tinieblas exteriores." La imagen es de una recepción activa, no de un viaje individual solitario.',
+              body: 'Alma 40:21 especifica que la separación entre los justos y los inicuos ocurre en el momento de la muerte. El espíritu no vagabundea ni "elige" hacia dónde ir. Es recibido — recogido — por seres que esperan. Los justos son "recibidos en un estado de felicidad." Los inicuos son "echados afuera en tinieblas exteriores." La imagen es de una recepción activa, no de un viaje individual solitario.',
             },
             {
               type: 'paragraph',
@@ -97,8 +97,8 @@ export const elMundoDeLoEspiritus: Lesson = {
       title: 'DyC 138 — La Gran Visión de José F. Smith',
       intro: {
         romanNumeral: 'II',
-        heading: '3 de Octubre de 1918 — El Velo Más Transparente',
-        subheading: 'La revelación más completa sobre el mundo de los espíritus en las escrituras modernas',
+        title: '3 de Octubre de 1918 — El Velo Más Transparente',
+        paragraphs: ['La revelación más completa sobre el mundo de los espíritus en las escrituras modernas'],
       },
       topics: [
         {
@@ -147,7 +147,7 @@ export const elMundoDeLoEspiritus: Lesson = {
               type: 'doctrine_box',
               id: 'db2',
               title: '¿Por Qué Cristo No Fue a la Prisión Directamente?',
-              content: 'DyC 138:29-37 explica que Cristo "no fue en persona entre los inicuos y los desobedientes que habían rechazado la verdad, sino que designó mensajeros, revestidos de poder y autoridad, y los comisionó para ir... para enseñar los principios del evangelio." La razón implícita es la misma por la que Dios usa a hombres mortales para predicar en lugar de aparecerse personalmente: la fe, el libre albedrío, y el tipo de conversión que resulta de elegir creer basado en el testimonio de otro, no solo en la presencia directa de la divinidad. El diseño de la salvación es consistente en todos los reinos.',
+              body: 'DyC 138:29-37 explica que Cristo "no fue en persona entre los inicuos y los desobedientes que habían rechazado la verdad, sino que designó mensajeros, revestidos de poder y autoridad, y los comisionó para ir... para enseñar los principios del evangelio." La razón implícita es la misma por la que Dios usa a hombres mortales para predicar en lugar de aparecerse personalmente: la fe, el libre albedrío, y el tipo de conversión que resulta de elegir creer basado en el testimonio de otro, no solo en la presencia directa de la divinidad. El diseño de la salvación es consistente en todos los reinos.',
             },
             {
               type: 'paragraph',
@@ -163,8 +163,8 @@ export const elMundoDeLoEspiritus: Lesson = {
       title: 'El Estado de los Espíritus — Memoria, Conciencia y Carácter',
       intro: {
         romanNumeral: 'III',
-        heading: '¿Quiénes Son los Muertos? — La Continuidad del Yo',
-        subheading: 'La revelación restaurada sobre la conciencia después de la muerte',
+        title: '¿Quiénes Son los Muertos? — La Continuidad del Yo',
+        paragraphs: ['La revelación restaurada sobre la conciencia después de la muerte'],
       },
       topics: [
         {
@@ -191,7 +191,7 @@ export const elMundoDeLoEspiritus: Lesson = {
               type: 'doctrine_box',
               id: 'db3',
               title: 'Alma 34:34 — La Advertencia más Directa',
-              content: '"No os procrastinéis el día de vuestro arrepentimiento hasta el fin; porque después de este día de vida, que se nos ha dado para prepararnos para la eternidad, he aquí, si no nos mejoramos en este tiempo, entonces viene la noche de la oscuridad, en la cual no puede hacerse ninguna labor." Esta no es una declaración de que no hay esperanza después de la muerte. Es una advertencia de que el carácter que desarrollamos en vida es el carácter con que entramos al mundo de los espíritus. Cambiar ese carácter ahí será más difícil, no más fácil — exactamente como es más difícil cambiar hábitos profundos a los 70 que a los 30.',
+              body: '"No os procrastinéis el día de vuestro arrepentimiento hasta el fin; porque después de este día de vida, que se nos ha dado para prepararnos para la eternidad, he aquí, si no nos mejoramos en este tiempo, entonces viene la noche de la oscuridad, en la cual no puede hacerse ninguna labor." Esta no es una declaración de que no hay esperanza después de la muerte. Es una advertencia de que el carácter que desarrollamos en vida es el carácter con que entramos al mundo de los espíritus. Cambiar ese carácter ahí será más difícil, no más fácil — exactamente como es más difícil cambiar hábitos profundos a los 70 que a los 30.',
             },
             {
               type: 'paragraph',
@@ -228,8 +228,8 @@ export const elMundoDeLoEspiritus: Lesson = {
       title: 'La Misión en el Mundo de los Espíritus',
       intro: {
         romanNumeral: 'IV',
-        heading: 'La Obra Misional Más Grande de la Historia',
-        subheading: 'Predicar el evangelio a los que murieron sin oírlo — el corazón de la obra de salvación',
+        title: 'La Obra Misional Más Grande de la Historia',
+        paragraphs: ['Predicar el evangelio a los que murieron sin oírlo — el corazón de la obra de salvación'],
       },
       topics: [
         {
@@ -256,7 +256,7 @@ export const elMundoDeLoEspiritus: Lesson = {
               type: 'doctrine_box',
               id: 'db4',
               title: '¿Tienen Libre Albedrío los Espíritus?',
-              content: 'Sí. La predicación del evangelio en el mundo de los espíritus no garantiza la aceptación. Los espíritus retienen su agencia exactamente como los mortales. Pueden aceptar o rechazar el evangelio cuando se les enseña. Esta es la razón por la cual el trabajo por los muertos en los templos no "salva automáticamente" a nadie: la ordenanza vicaria (el bautismo por los muertos, por ejemplo) otorga a la persona muerta la opción de aceptar o rechazar. La decisión es de ellos. Los muertos no son forzados a ningún convenio.',
+              body: 'Sí. La predicación del evangelio en el mundo de los espíritus no garantiza la aceptación. Los espíritus retienen su agencia exactamente como los mortales. Pueden aceptar o rechazar el evangelio cuando se les enseña. Esta es la razón por la cual el trabajo por los muertos en los templos no "salva automáticamente" a nadie: la ordenanza vicaria (el bautismo por los muertos, por ejemplo) otorga a la persona muerta la opción de aceptar o rechazar. La decisión es de ellos. Los muertos no son forzados a ningún convenio.',
             },
             {
               type: 'paragraph',
@@ -307,8 +307,8 @@ export const elMundoDeLoEspiritus: Lesson = {
       title: 'Casos Especiales — Niños, Paganos y los Sin Ley',
       intro: {
         romanNumeral: 'V',
-        heading: 'La Justicia de Dios ante los que Nunca Pudieron Elegir',
-        subheading: 'Cómo responde la Restauración a las preguntas más difíciles sobre la salvación',
+        title: 'La Justicia de Dios ante los que Nunca Pudieron Elegir',
+        paragraphs: ['Cómo responde la Restauración a las preguntas más difíciles sobre la salvación'],
       },
       topics: [
         {
@@ -335,7 +335,7 @@ export const elMundoDeLoEspiritus: Lesson = {
               type: 'doctrine_box',
               id: 'db5',
               title: '¿Qué es la "Edad de Responsabilidad"?',
-              content: 'DyC 68:25 establece que los niños deben ser bautizados a los ocho años. La edad de ocho años es entendida en la doctrina restaurada como el umbral de responsabilidad moral — no porque tenga magia inherente, sino porque fue revelada como la edad en que comienza la capacidad del niño para entender y ejercer arrepentimiento genuino. Moroni 8 argumenta que bautizar bebés es innecesario e incorrecto: "los pequeñitos son redimidos por medio de mí." La extensión de esta doctrina al mundo de los espíritus es que los niños no necesitan ningún trabajo de templo adicional — están cubiertos por la expiación de Cristo.',
+              body: 'DyC 68:25 establece que los niños deben ser bautizados a los ocho años. La edad de ocho años es entendida en la doctrina restaurada como el umbral de responsabilidad moral — no porque tenga magia inherente, sino porque fue revelada como la edad en que comienza la capacidad del niño para entender y ejercer arrepentimiento genuino. Moroni 8 argumenta que bautizar bebés es innecesario e incorrecto: "los pequeñitos son redimidos por medio de mí." La extensión de esta doctrina al mundo de los espíritus es que los niños no necesitan ningún trabajo de templo adicional — están cubiertos por la expiación de Cristo.',
             },
           ],
         },
@@ -407,8 +407,8 @@ export const elMundoDeLoEspiritus: Lesson = {
       title: 'Testimonios Modernos — El Velo que se Adelgaza',
       intro: {
         romanNumeral: 'VI',
-        heading: 'Revelaciones, Visiones y Relatos de los Profetas',
-        subheading: 'El peso del testimonio sobre el mundo de los espíritus en la era de la Restauración',
+        title: 'Revelaciones, Visiones y Relatos de los Profetas',
+        paragraphs: ['El peso del testimonio sobre el mundo de los espíritus en la era de la Restauración'],
       },
       topics: [
         {
@@ -424,7 +424,7 @@ export const elMundoDeLoEspiritus: Lesson = {
               type: 'leader_quote',
               id: 'lq1',
               quote: 'Los espíritus de los justos están exaltados a un lugar de mayor felicidad y paz cuando mueren... Los que han muerto en la fe están felices; y los que están felices, [están] más en el gozo ahora que lo que estaban antes de morir.',
-              attribution: 'José Smith, Diario de Andrew Ehat y Lyndon Cook, p. 196',
+              name: 'José Smith, Diario de Andrew Ehat y Lyndon Cook, p. 196',
             },
             {
               type: 'paragraph',
@@ -451,7 +451,7 @@ export const elMundoDeLoEspiritus: Lesson = {
               type: 'leader_quote',
               id: 'lq2',
               quote: '¿Creéis que los espíritus de los muertos están separados de nosotros? Hay simplemente un velo entre ellos y nosotros... Nuestros difuntos están aquí. Son más numerosos que nosotros.',
-              attribution: 'Brigham Young, Diario de Discursos 3:369',
+              name: 'Brigham Young, Diario de Discursos 3:369',
             },
             {
               type: 'paragraph',
@@ -491,9 +491,11 @@ export const elMundoDeLoEspiritus: Lesson = {
             },
             {
               type: 'deep_dive',
-              id: 'dd1',
               title: 'La Pregunta que No Tiene Respuesta Completa: ¿Cuánto Tiempo Se Pasa Ahí?',
-              content: 'Nadie sabe con certeza cuánto tiempo — en términos de experiencia subjetiva — pasan los espíritus en el mundo de los espíritus. La resurrección de los justos ocurre al inicio del Milenio; la resurrección del resto ocurre al final del Milenio (DyC 76:64-65, 76:85). Eso significa que los que mueren hoy y son relativamente justos esperarán — en algún sentido — hasta el comienzo del Milenio. Los que son menos justos esperarán hasta el final. Pero si el tiempo funciona de manera diferente en ese reino, mil años de espera pueden sentirse de manera muy diferente. Las escrituras no resuelven esto. Sí establecen que el mundo de los espíritus no es un lugar de aburrimiento — es un lugar de actividad, aprendizaje y misión.',
+              paragraphs: [
+                'Nadie sabe con certeza cuánto tiempo — en términos de experiencia subjetiva — pasan los espíritus en el mundo de los espíritus. La resurrección de los justos ocurre al inicio del Milenio; la resurrección del resto ocurre al final del Milenio (DyC 76:64-65, 76:85). Eso significa que los que mueren hoy y son relativamente justos esperarán — en algún sentido — hasta el comienzo del Milenio. Los que son menos justos esperarán hasta el final.',
+                'Pero si el tiempo funciona de manera diferente en ese reino, mil años de espera pueden sentirse de manera muy diferente. Las escrituras no resuelven esto. Sí establecen que el mundo de los espíritus no es un lugar de aburrimiento — es un lugar de actividad, aprendizaje y misión.',
+              ],
             },
           ],
         },
@@ -504,8 +506,8 @@ export const elMundoDeLoEspiritus: Lesson = {
       title: 'Resurrección — El Final del Mundo de los Espíritus',
       intro: {
         romanNumeral: 'VII',
-        heading: 'Cuando el Velo Se Rompe para Siempre',
-        subheading: 'La resurrección como culminación — no inicio — del plan de salvación',
+        title: 'Cuando el Velo Se Rompe para Siempre',
+        paragraphs: ['La resurrección como culminación — no inicio — del plan de salvación'],
       },
       topics: [
         {

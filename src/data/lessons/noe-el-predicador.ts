@@ -18,7 +18,7 @@ export const noeElPredicador: Lesson = {
     {
       id: 's1',
       title: '120 Años de Predicación Sin Fruto',
-      intro: { romanNumeral: 'I', heading: 'El Profeta que Nadie Escuchó', subheading: 'La misión más solitaria de la historia' },
+      intro: { romanNumeral: 'I', title: 'El Profeta que Nadie Escuchó', paragraphs: ['La misión más solitaria de la historia'] },
       topics: [
         {
           id: 't1',

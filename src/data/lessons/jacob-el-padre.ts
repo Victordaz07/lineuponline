@@ -18,7 +18,7 @@ export const jacobElPadre: Lesson = {
     {
       id: 's4',
       title: 'Las 12 Tribus — El Legado de Israel',
-      intro: { romanNumeral: 'IV', heading: 'Un Hombre que se Convirtió en Nación', subheading: 'El pacto abrahámico continúa' },
+      intro: { romanNumeral: 'IV', title: 'Un Hombre que se Convirtió en Nación', paragraphs: ['El pacto abrahámico continúa'] },
       topics: [
         {
           id: 't4',

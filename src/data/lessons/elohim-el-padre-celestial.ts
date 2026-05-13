@@ -20,8 +20,8 @@ export const elohimElPadreCelestial: Lesson = {
       title: 'El Problema con el Dios de Nicea',
       intro: {
         romanNumeral: 'I',
-        heading: 'El Dios que el Concilio Inventó',
-        subheading: 'Lo que se perdió en el siglo IV',
+        title: 'El Dios que el Concilio Inventó',
+        paragraphs: ['Lo que se perdió en el siglo IV'],
       },
       topics: [
         {
@@ -54,8 +54,8 @@ export const elohimElPadreCelestial: Lesson = {
       title: 'DyC 130:22 — El Versículo que Cambió Todo',
       intro: {
         romanNumeral: 'II',
-        heading: 'Cuerpo de Carne y Huesos',
-        subheading: 'La revelación más radical de José Smith',
+        title: 'Cuerpo de Carne y Huesos',
+        paragraphs: ['La revelación más radical de José Smith'],
       },
       topics: [
         {
@@ -77,7 +77,7 @@ export const elohimElPadreCelestial: Lesson = {
               type: 'doctrine_box',
               id: 'db1',
               title: '¿Cuerpo glorificado significa limitado?',
-              content: 'Un argumento teológico común contra esta doctrina: si Dios tiene cuerpo, es limitado y no puede estar en todas partes. La respuesta de la Restauración: el Espíritu Santo — un personaje de espíritu — puede estar en todo lugar simultáneamente. El Padre y el Hijo obran su omnipresencia a través del Espíritu Santo, que actúa como su mensajero universal. Esto es una solución más elegante que la "sustancia impersonal" de Nicea.',
+              body: 'Un argumento teológico común contra esta doctrina: si Dios tiene cuerpo, es limitado y no puede estar en todas partes. La respuesta de la Restauración: el Espíritu Santo — un personaje de espíritu — puede estar en todo lugar simultáneamente. El Padre y el Hijo obran su omnipresencia a través del Espíritu Santo, que actúa como su mensajero universal. Esto es una solución más elegante que la "sustancia impersonal" de Nicea.',
             },
           ],
         },
@@ -105,8 +105,8 @@ export const elohimElPadreCelestial: Lesson = {
       title: 'Somos Sus Hijos Literales',
       intro: {
         romanNumeral: 'III',
-        heading: 'No una Metáfora — Una Realidad Eterna',
-        subheading: 'La paternidad de Dios restaurada',
+        title: 'No una Metáfora — Una Realidad Eterna',
+        paragraphs: ['La paternidad de Dios restaurada'],
       },
       topics: [
         {
@@ -144,7 +144,7 @@ export const elohimElPadreCelestial: Lesson = {
               type: 'doctrine_box',
               id: 'db2',
               title: 'Lo que Sabemos y lo que no Sabemos',
-              content: 'SABEMOS: El Padre tiene cuerpo glorificado. Somos Sus hijos literales. La exaltación significa llegar a ser como Él. La doctrina apunta hacia una Madre Celestial. NO SABEMOS: Exactamente cómo es la vida eterna del Padre. Los detalles de la existencia preterrenal. La naturaleza exacta de la Madre Celestial. La razón del silencio revelado sobre Ella. La reverencia ante lo que no se nos ha revelado es también doctrina.',
+              body: 'SABEMOS: El Padre tiene cuerpo glorificado. Somos Sus hijos literales. La exaltación significa llegar a ser como Él. La doctrina apunta hacia una Madre Celestial. NO SABEMOS: Exactamente cómo es la vida eterna del Padre. Los detalles de la existencia preterrenal. La naturaleza exacta de la Madre Celestial. La razón del silencio revelado sobre Ella. La reverencia ante lo que no se nos ha revelado es también doctrina.',
             },
           ],
         },
@@ -155,8 +155,8 @@ export const elohimElPadreCelestial: Lesson = {
       title: 'El Nombre "Elohim"',
       intro: {
         romanNumeral: 'IV',
-        heading: 'La Gramática que Revela',
-        subheading: 'El plural hebreo y lo que significa',
+        title: 'La Gramática que Revela',
+        paragraphs: ['El plural hebreo y lo que significa'],
       },
       topics: [
         {
@@ -193,8 +193,8 @@ export const elohimElPadreCelestial: Lesson = {
       title: 'Como Dios Es, el Hombre Puede Llegar a Ser',
       intro: {
         romanNumeral: 'V',
-        heading: 'La Doctrina que Cambia Todo',
-        subheading: 'El destino eterno de los hijos de Dios',
+        title: 'La Doctrina que Cambia Todo',
+        paragraphs: ['El destino eterno de los hijos de Dios'],
       },
       topics: [
         {

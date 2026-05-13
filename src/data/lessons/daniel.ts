@@ -17,7 +17,7 @@ export const daniel: Lesson = {
     {
       id: 's1',
       title: 'Fidelidad en el Corazón del Enemigo',
-      intro: { romanNumeral: 'I', heading: 'Babilonia no Pudo Cambiarle', subheading: 'La comida del rey y los límites de la asimilación' },
+      intro: { romanNumeral: 'I', title: 'Babilonia no Pudo Cambiarle', paragraphs: ['La comida del rey y los límites de la asimilación'] },
       topics: [
         {
           id: 't1',
@@ -25,7 +25,7 @@ export const daniel: Lesson = {
           blocks: [
             { type: 'paragraph', id: 'p1', text: 'Daniel 1: Los jóvenes hebreos más prometedores fueron seleccionados para un programa de adoctrinamiento en la corte babilónica — nuevo idioma, nueva cultura, nuevos nombres. Nabucodonosor quería borrar su identidad israelita. Daniel aceptó la educación y los nombres babilónicos, pero en lo que concernía a la ley de Dios (las leyes de alimentos) se negó. Propuso un experimento de 10 días con vegetales y agua. Resultado: eran más sanos que todos los demás.' },
             { type: 'highlight_verse', id: 'v1', reference: 'Daniel 1:8', text: 'Y Daniel propuso en su corazón no contaminarse con la porción de la comida del rey, ni con el vino que él bebía; pidió, por tanto, al jefe de los eunucos que no se le obligase a contaminarse.' },
-            { type: 'doctrine_box', id: 'db1', title: 'La Ley de la Salud como Principio de Fidelidad', content: 'La decisión de Daniel no era simplemente sobre dieta — era sobre hasta dónde podía llegar la asimilación. El principio: hay cosas sobre las que se puede negociar (idioma, nombre, educación) y cosas sobre las que no (fidelidad a las leyes de Dios). Daniel aprendió a distinguir entre adaptación cultural y compromiso espiritual. Esta distinción es relevante para cualquier Santo en una cultura secular.' },
+            { type: 'doctrine_box', id: 'db1', title: 'La Ley de la Salud como Principio de Fidelidad', body: 'La decisión de Daniel no era simplemente sobre dieta — era sobre hasta dónde podía llegar la asimilación. El principio: hay cosas sobre las que se puede negociar (idioma, nombre, educación) y cosas sobre las que no (fidelidad a las leyes de Dios). Daniel aprendió a distinguir entre adaptación cultural y compromiso espiritual. Esta distinción es relevante para cualquier Santo en una cultura secular.' },
           ],
         },
       ],
@@ -33,7 +33,7 @@ export const daniel: Lesson = {
     {
       id: 's2',
       title: 'La Estatua de Nabucodonosor',
-      intro: { romanNumeral: 'II', heading: 'Daniel 2 — La Piedra sin Manos', subheading: 'La profecía más directa sobre la Restauración' },
+      intro: { romanNumeral: 'II', title: 'Daniel 2 — La Piedra sin Manos', paragraphs: ['La profecía más directa sobre la Restauración'] },
       topics: [
         {
           id: 't2',
@@ -48,7 +48,7 @@ export const daniel: Lesson = {
     {
       id: 's3',
       title: 'Daniel 7 y Adán-ondi-Ahmán',
-      intro: { romanNumeral: 'III', heading: 'El Anciano de Días', subheading: 'La visión que DyC 116 conecta con Adán' },
+      intro: { romanNumeral: 'III', title: 'El Anciano de Días', paragraphs: ['La visión que DyC 116 conecta con Adán'] },
       topics: [
         {
           id: 't3',
@@ -63,7 +63,7 @@ export const daniel: Lesson = {
     {
       id: 's4',
       title: 'El Foso y la Confianza',
-      intro: { romanNumeral: 'IV', heading: 'Las Tres Veces al Día que lo Pusieron en Riesgo', subheading: 'La oración como acto de resistencia' },
+      intro: { romanNumeral: 'IV', title: 'Las Tres Veces al Día que lo Pusieron en Riesgo', paragraphs: ['La oración como acto de resistencia'] },
       topics: [
         {
           id: 't4',

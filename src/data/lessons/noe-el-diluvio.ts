@@ -18,7 +18,7 @@ export const noeElDiluvio: Lesson = {
     {
       id: 's3',
       title: '¿Global o Local? El Debate del Diluvio',
-      intro: { romanNumeral: 'III', heading: 'La Pregunta que Importa', subheading: 'Evidencia y perspectiva restaurada' },
+      intro: { romanNumeral: 'III', title: 'La Pregunta que Importa', paragraphs: ['Evidencia y perspectiva restaurada'] },
       topics: [
         {
           id: 't3',

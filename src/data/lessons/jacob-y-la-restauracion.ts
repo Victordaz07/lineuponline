@@ -18,7 +18,7 @@ export const jacobYLaRestauracion: Lesson = {
     {
       id: 's5',
       title: 'El Nombre de Israel en la Restauración',
-      intro: { romanNumeral: 'V', heading: 'El Nombre de Israel en la Restauración', subheading: 'DyC 110 — las llaves de la reunión de Israel' },
+      intro: { romanNumeral: 'V', title: 'El Nombre de Israel en la Restauración', paragraphs: ['DyC 110 — las llaves de la reunión de Israel'] },
       topics: [
         {
           id: 't5',

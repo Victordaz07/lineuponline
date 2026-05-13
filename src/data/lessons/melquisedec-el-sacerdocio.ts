@@ -18,7 +18,7 @@ export const melquisedecElSacerdocio: Lesson = {
     {
       id: 's4',
       title: 'Melquisedec como Tipo de Cristo',
-      intro: { romanNumeral: 'IV', heading: 'El Modelo del Sumo Sacerdote Eterno', subheading: 'Hebreos 5:6 — "Tú eres sacerdote para siempre"' },
+      intro: { romanNumeral: 'IV', title: 'El Modelo del Sumo Sacerdote Eterno', paragraphs: ['Hebreos 5:6 — "Tú eres sacerdote para siempre"'] },
       topics: [
         {
           id: 't4',

@@ -20,8 +20,8 @@ export const laDivinidad: Lesson = {
       title: 'El Concilio de Nicea y lo que Se Perdió',
       intro: {
         romanNumeral: 'I',
-        heading: '325 d.C. — El Año que Redefinió a Dios',
-        subheading: 'La herejía que se convirtió en ortodoxia',
+        title: '325 d.C. — El Año que Redefinió a Dios',
+        paragraphs: ['La herejía que se convirtió en ortodoxia'],
       },
       topics: [
         {
@@ -42,7 +42,7 @@ export const laDivinidad: Lesson = {
               type: 'doctrine_box',
               id: 'db1',
               title: 'El Credo Atanasiano — en sus propias palabras',
-              content: '"Veneramos un Dios en la Trinidad, y la Trinidad en Unidad; no confundiendo las Personas, ni dividiendo la Sustancia. Pues la Persona del Padre es una; la del Hijo, otra; la del Espíritu Santo, otra. Pero la divinidad del Padre, del Hijo y del Espíritu Santo es toda una, igual la gloria, co-eterna la majestad." (Siglo V-VI d.C.) — Nótese: ninguna de estas palabras ni conceptos aparece en las Escrituras.',
+              body: '"Veneramos un Dios en la Trinidad, y la Trinidad en Unidad; no confundiendo las Personas, ni dividiendo la Sustancia. Pues la Persona del Padre es una; la del Hijo, otra; la del Espíritu Santo, otra. Pero la divinidad del Padre, del Hijo y del Espíritu Santo es toda una, igual la gloria, co-eterna la majestad." (Siglo V-VI d.C.) — Nótese: ninguna de estas palabras ni conceptos aparece en las Escrituras.',
             },
           ],
         },
@@ -71,8 +71,8 @@ export const laDivinidad: Lesson = {
       title: 'La Biblia y los Tres',
       intro: {
         romanNumeral: 'II',
-        heading: 'Lo que las Escrituras Dicen',
-        subheading: 'Evidencia bíblica de tres Seres distintos',
+        title: 'Lo que las Escrituras Dicen',
+        paragraphs: ['Evidencia bíblica de tres Seres distintos'],
       },
       topics: [
         {
@@ -133,8 +133,8 @@ export const laDivinidad: Lesson = {
       title: 'La Primera Visión como Respuesta Definitiva',
       intro: {
         romanNumeral: 'III',
-        heading: 'La Primavera de 1820',
-        subheading: 'Treinta segundos que revirtieron quince siglos',
+        title: 'La Primavera de 1820',
+        paragraphs: ['Treinta segundos que revirtieron quince siglos'],
       },
       topics: [
         {
@@ -162,8 +162,8 @@ export const laDivinidad: Lesson = {
       title: 'Los Tres — Sus Roles Distintos',
       intro: {
         romanNumeral: 'IV',
-        heading: 'Elohim, Jehová y el Espíritu Santo',
-        subheading: 'Tres Seres, tres funciones, una misión',
+        title: 'Elohim, Jehová y el Espíritu Santo',
+        paragraphs: ['Tres Seres, tres funciones, una misión'],
       },
       topics: [
         {
@@ -223,8 +223,8 @@ export const laDivinidad: Lesson = {
       title: 'La Unidad Real de la Divinidad',
       intro: {
         romanNumeral: 'V',
-        heading: 'Unidos en Todo Excepto en Sustancia',
-        subheading: 'La unidad que realmente importa',
+        title: 'Unidos en Todo Excepto en Sustancia',
+        paragraphs: ['La unidad que realmente importa'],
       },
       topics: [
         {
@@ -240,7 +240,7 @@ export const laDivinidad: Lesson = {
               type: 'doctrine_box',
               id: 'db2',
               title: 'Por qué Esto Importa para tu Vida',
-              content: 'Si Dios es una sustancia abstracta, solo puedes admirarlo de lejos. Si es un Padre personal, puedes tener una relación real con Él. Si el Hijo tomó un cuerpo real, la encarnación tiene peso. Si el Espíritu Santo es un personaje de espíritu real, su presencia en ti es un visitante, no un estado mental. La naturaleza de Dios determina la naturaleza de tu relación con Él. La Restauración te da acceso a tres Seres reales — no a un concepto.',
+              body: 'Si Dios es una sustancia abstracta, solo puedes admirarlo de lejos. Si es un Padre personal, puedes tener una relación real con Él. Si el Hijo tomó un cuerpo real, la encarnación tiene peso. Si el Espíritu Santo es un personaje de espíritu real, su presencia en ti es un visitante, no un estado mental. La naturaleza de Dios determina la naturaleza de tu relación con Él. La Restauración te da acceso a tres Seres reales — no a un concepto.',
             },
             {
               type: 'reflection',

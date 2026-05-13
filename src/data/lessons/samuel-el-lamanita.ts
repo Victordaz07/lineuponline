@@ -17,14 +17,14 @@ export const samuelElLamanita: Lesson = {
     {
       id: 's1',
       title: 'El Profeta Rechazado y Enviado de Vuelta',
-      intro: { romanNumeral: 'I', heading: 'Helamán 13 — "El Señor me Envió"', subheading: 'Obediencia contra la resistencia del pueblo' },
+      intro: { romanNumeral: 'I', title: 'Helamán 13 — "El Señor me Envió"', paragraphs: ['Obediencia contra la resistencia del pueblo'] },
       topics: [
         {
           id: 't1',
           title: 'Volver cuando te echaron',
           blocks: [
             { type: 'paragraph', id: 'p1', text: 'Helamán 13:2-4: Samuel fue a Zarahemla a predicar. El pueblo lo rechazó y "estaban a punto de echarlo." Comenzó a regresar. El Señor le dijo que volviera y proclamara lo que le fuera puesto en el corazón. Cuando no pudo entrar a la ciudad, "subió sobre el muro... y extendió su mano y clamó con voz fuerte." La obediencia de Samuel no fue cómoda ni exitosa inicialmente — fue persistente en contra de la resistencia.' },
-            { type: 'doctrine_box', id: 'db1', title: 'Un Lamanita Profetizando a Nefitas', content: 'El contexto cultural de este texto es importante: los nefitas generalmente consideraban a los lamanitas inferiores espiritualmente. Helamán 13 invierte esa jerarquía. El mensajero con la palabra de Dios es el lamanita. El pueblo endurecido que lo rechaza son los nefitas. El Libro de Mormón repite este patrón de inversión — Ammón entre los lamanitas, la fe de los 2000 guerreros jóvenes — para subvertir el etnocentrismo religioso.' },
+            { type: 'doctrine_box', id: 'db1', title: 'Un Lamanita Profetizando a Nefitas', body: 'El contexto cultural de este texto es importante: los nefitas generalmente consideraban a los lamanitas inferiores espiritualmente. Helamán 13 invierte esa jerarquía. El mensajero con la palabra de Dios es el lamanita. El pueblo endurecido que lo rechaza son los nefitas. El Libro de Mormón repite este patrón de inversión — Ammón entre los lamanitas, la fe de los 2000 guerreros jóvenes — para subvertir el etnocentrismo religioso.' },
           ],
         },
       ],
@@ -32,7 +32,7 @@ export const samuelElLamanita: Lesson = {
     {
       id: 's2',
       title: 'Las Señales del Nacimiento de Cristo',
-      intro: { romanNumeral: 'II', heading: 'Helamán 14 — Las Profecías de Navidad', subheading: 'Precisión profética cinco años antes' },
+      intro: { romanNumeral: 'II', title: 'Helamán 14 — Las Profecías de Navidad', paragraphs: ['Precisión profética cinco años antes'] },
       topics: [
         {
           id: 't2',
@@ -47,7 +47,7 @@ export const samuelElLamanita: Lesson = {
     {
       id: 's3',
       title: 'Las Señales de la Muerte de Cristo',
-      intro: { romanNumeral: 'III', heading: 'Helamán 14:20-27 — Las Tres Horas de Oscuridad', subheading: 'Destrucción y resurrección en señales anticipadas' },
+      intro: { romanNumeral: 'III', title: 'Helamán 14:20-27 — Las Tres Horas de Oscuridad', paragraphs: ['Destrucción y resurrección en señales anticipadas'] },
       topics: [
         {
           id: 't3',
@@ -61,7 +61,7 @@ export const samuelElLamanita: Lesson = {
     {
       id: 's4',
       title: 'La Protección Divina sobre el Muro',
-      intro: { romanNumeral: 'IV', heading: 'Helamán 16 — Las Piedras y las Flechas no lo Alcanzaron', subheading: 'La protección como confirmación del llamado' },
+      intro: { romanNumeral: 'IV', title: 'Helamán 16 — Las Piedras y las Flechas no lo Alcanzaron', paragraphs: ['La protección como confirmación del llamado'] },
       topics: [
         {
           id: 't4',

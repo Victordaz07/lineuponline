@@ -18,7 +18,7 @@ export const melquisedecTipoDeCristo: Lesson = {
     {
       id: 's3',
       title: 'Alma 13 — Lo que el Libro de Mormón Añade',
-      intro: { romanNumeral: 'III', heading: 'Preordenado antes de Nacer', subheading: 'El origen eterno del sacerdocio' },
+      intro: { romanNumeral: 'III', title: 'Preordenado antes de Nacer', paragraphs: ['El origen eterno del sacerdocio'] },
       topics: [
         {
           id: 't3',

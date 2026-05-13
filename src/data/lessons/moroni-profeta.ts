@@ -17,7 +17,7 @@ export const moroniProfeta: Lesson = {
     {
       id: 's1',
       title: 'El Sobreviviente',
-      intro: { romanNumeral: 'I', heading: 'Mormón 8 — La Voz desde el Polvo', subheading: 'El único nefita que quedó' },
+      intro: { romanNumeral: 'I', title: 'Mormón 8 — La Voz desde el Polvo', paragraphs: ['El único nefita que quedó'] },
       topics: [
         {
           id: 't1',
@@ -32,7 +32,7 @@ export const moroniProfeta: Lesson = {
     {
       id: 's2',
       title: 'La Profecía para Nuestra Época',
-      intro: { romanNumeral: 'II', heading: 'Mormón 8:26-41 — "A Vosotros Hablo"', subheading: 'Moroni vio nuestro tiempo con especificidad asombrosa' },
+      intro: { romanNumeral: 'II', title: 'Mormón 8:26-41 — "A Vosotros Hablo"', paragraphs: ['Moroni vio nuestro tiempo con especificidad asombrosa'] },
       topics: [
         {
           id: 't2',
@@ -47,7 +47,7 @@ export const moroniProfeta: Lesson = {
     {
       id: 's3',
       title: 'La Promesa de Moroni',
-      intro: { romanNumeral: 'III', heading: 'Moroni 10:3-5 — El Versículo que Prueba el Libro', subheading: 'La invitación a la verificación personal' },
+      intro: { romanNumeral: 'III', title: 'Moroni 10:3-5 — El Versículo que Prueba el Libro', paragraphs: ['La invitación a la verificación personal'] },
       topics: [
         {
           id: 't3',
@@ -62,7 +62,7 @@ export const moroniProfeta: Lesson = {
     {
       id: 's4',
       title: 'El Ángel que Entregó las Planchas',
-      intro: { romanNumeral: 'IV', heading: 'De las Planchas a Joseph — 1,400 Años', subheading: 'El guardián que cumplió su misión' },
+      intro: { romanNumeral: 'IV', title: 'De las Planchas a Joseph — 1,400 Años', paragraphs: ['El guardián que cumplió su misión'] },
       topics: [
         {
           id: 't4',

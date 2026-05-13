@@ -17,14 +17,14 @@ export const santiagoElJusto: Lesson = {
     {
       id: 's1',
       title: 'El Hermano que No Creyó',
-      intro: { romanNumeral: 'I', heading: 'Juan 7 — La Familia de Jesús', subheading: 'Lo más difícil de creer en tu propio hermano' },
+      intro: { romanNumeral: 'I', title: 'Juan 7 — La Familia de Jesús', paragraphs: ['Lo más difícil de creer en tu propio hermano'] },
       topics: [
         {
           id: 't1',
           title: 'Escepticismo familiar',
           blocks: [
             { type: 'paragraph', id: 'p1', text: 'Juan 7:5 registra un hecho impactante: "Porque ni aun sus hermanos creían en él." Los hermanos de Jesús — Santiago, José, Simón, Judas — crecieron en la misma casa, comieron en la misma mesa, y no creyeron. Marcos 3:21 registra que la familia de Jesús intentó llevárselo porque decían "está fuera de sí." Esta es la razón por la que el testimonio de Santiago es tan poderoso: su conversión no fue por entusiasmo religioso sino a pesar del conocimiento íntimo.' },
-            { type: 'doctrine_box', id: 'db1', title: 'Por qué la Conversión de Santiago Importa Históricamente', content: '1 Corintios 15:7 menciona que Cristo resucitado se apareció específicamente a Santiago. El historiador Josefo — judío no cristiano — registra la muerte de "Santiago, hermano de Jesús el llamado Cristo." Este es uno de los dos únicos textos no cristianos del siglo primero que mencionan a Jesús por nombre. La conversión de alguien que convivió con Jesús toda su vida y luego murió por creer en su resurrección es una evidencia de peso extraordinario.' },
+            { type: 'doctrine_box', id: 'db1', title: 'Por qué la Conversión de Santiago Importa Históricamente', body: '1 Corintios 15:7 menciona que Cristo resucitado se apareció específicamente a Santiago. El historiador Josefo — judío no cristiano — registra la muerte de "Santiago, hermano de Jesús el llamado Cristo." Este es uno de los dos únicos textos no cristianos del siglo primero que mencionan a Jesús por nombre. La conversión de alguien que convivió con Jesús toda su vida y luego murió por creer en su resurrección es una evidencia de peso extraordinario.' },
           ],
         },
       ],
@@ -32,7 +32,7 @@ export const santiagoElJusto: Lesson = {
     {
       id: 's2',
       title: 'El Concilio de Jerusalén',
-      intro: { romanNumeral: 'II', heading: 'Hechos 15 — ¿Deben Circuncidarse los Gentiles?', subheading: 'La primera gran crisis doctrinal de la Iglesia' },
+      intro: { romanNumeral: 'II', title: 'Hechos 15 — ¿Deben Circuncidarse los Gentiles?', paragraphs: ['La primera gran crisis doctrinal de la Iglesia'] },
       topics: [
         {
           id: 't2',
@@ -47,7 +47,7 @@ export const santiagoElJusto: Lesson = {
     {
       id: 's3',
       title: 'La Epístola de Santiago',
-      intro: { romanNumeral: 'III', heading: 'La Fe sin Obras está Muerta', subheading: 'El texto que Lutero quería quitar del canon' },
+      intro: { romanNumeral: 'III', title: 'La Fe sin Obras está Muerta', paragraphs: ['El texto que Lutero quería quitar del canon'] },
       topics: [
         {
           id: 't3',
@@ -62,7 +62,7 @@ export const santiagoElJusto: Lesson = {
     {
       id: 's4',
       title: 'El Mártir de Jerusalén',
-      intro: { romanNumeral: 'IV', heading: '62 d.C. — La Muerte que Conmovió a los Judíos', subheading: 'El testimonio final' },
+      intro: { romanNumeral: 'IV', title: '62 d.C. — La Muerte que Conmovió a los Judíos', paragraphs: ['El testimonio final'] },
       topics: [
         {
           id: 't4',

@@ -18,7 +18,7 @@ export const isaacElPatriarca: Lesson = {
     {
       id: 's4',
       title: 'Las Bendiciones de Isaac',
-      intro: { romanNumeral: 'IV', heading: 'El Poder de las Palabras Proféticas', subheading: 'Génesis 27 — una bendición que no se puede revocar' },
+      intro: { romanNumeral: 'IV', title: 'El Poder de las Palabras Proféticas', paragraphs: ['Génesis 27 — una bendición que no se puede revocar'] },
       topics: [
         {
           id: 't4',

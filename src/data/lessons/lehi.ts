@@ -17,7 +17,7 @@ export const lehi: Lesson = {
     {
       id: 's1',
       title: 'El Llamado en Jerusalén',
-      intro: { romanNumeral: 'I', heading: '1 Nefi 1 — El Profeta en la Ciudad Condenada', subheading: 'Profetizó a Jerusalén y nadie lo escuchó' },
+      intro: { romanNumeral: 'I', title: '1 Nefi 1 — El Profeta en la Ciudad Condenada', paragraphs: ['Profetizó a Jerusalén y nadie lo escuchó'] },
       topics: [
         {
           id: 't1',
@@ -32,14 +32,14 @@ export const lehi: Lesson = {
     {
       id: 's2',
       title: 'La Visión del Árbol de la Vida',
-      intro: { romanNumeral: 'II', heading: '1 Nefi 8 — La Alegoría más Rica del Libro de Mormón', subheading: 'Un sueño que es un mapa espiritual' },
+      intro: { romanNumeral: 'II', title: '1 Nefi 8 — La Alegoría más Rica del Libro de Mormón', paragraphs: ['Un sueño que es un mapa espiritual'] },
       topics: [
         {
           id: 't2',
           title: 'El árbol, la barra, la niebla y el edificio',
           blocks: [
             { type: 'paragraph', id: 'p2', text: 'La visión de Lehi en 1 Nefi 8 es la alegoría central del Libro de Mormón. El árbol de fruto blanco y dulcísimo = el amor de Dios. La barra de hierro = la palabra de Dios. La niebla de oscuridad = las tentaciones del diablo. El edificio grande y espacioso = el orgullo del mundo. Los caminos que llevan al edificio. Las personas que se aferran a la barra y llegan al árbol. Las que llegan y luego se avergüenzan por las burlas desde el edificio. Lehi vio a algunos de sus hijos llegar al árbol — y a otros alejarse.' },
-            { type: 'doctrine_box', id: 'db1', title: 'El Corazón de un Padre', content: '1 Nefi 8:37-38 es uno de los pasajes más emotivos del Libro de Mormón: "Y Lehi los exhortó con toda la energía de su alma, y con todas las palabras que podía decir, para que se acercaran y comieran del fruto. Y después que les hubo dicho estas cosas, exhaló su espíritu con estas palabras." Lehi usó sus últimas energías en llamar a sus hijos. La paternidad espiritual al precio máximo.' },
+            { type: 'doctrine_box', id: 'db1', title: 'El Corazón de un Padre', body: '1 Nefi 8:37-38 es uno de los pasajes más emotivos del Libro de Mormón: "Y Lehi los exhortó con toda la energía de su alma, y con todas las palabras que podía decir, para que se acercaran y comieran del fruto. Y después que les hubo dicho estas cosas, exhaló su espíritu con estas palabras." Lehi usó sus últimas energías en llamar a sus hijos. La paternidad espiritual al precio máximo.' },
           ],
         },
       ],
@@ -47,7 +47,7 @@ export const lehi: Lesson = {
     {
       id: 's3',
       title: 'Las Bendiciones Patriarcales',
-      intro: { romanNumeral: 'III', heading: '2 Nefi 1-4 — Las Palabras Finales de Lehi', subheading: 'Un padre que bendice a cada hijo' },
+      intro: { romanNumeral: 'III', title: '2 Nefi 1-4 — Las Palabras Finales de Lehi', paragraphs: ['Un padre que bendice a cada hijo'] },
       topics: [
         {
           id: 't3',
@@ -62,7 +62,7 @@ export const lehi: Lesson = {
     {
       id: 's4',
       title: 'El Legado de Lehi',
-      intro: { romanNumeral: 'IV', heading: 'El Padre que Creó un Pueblo', subheading: 'Todo el Libro de Mormón nace de su obediencia' },
+      intro: { romanNumeral: 'IV', title: 'El Padre que Creó un Pueblo', paragraphs: ['Todo el Libro de Mormón nace de su obediencia'] },
       topics: [
         {
           id: 't4',

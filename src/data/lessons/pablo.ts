@@ -17,7 +17,7 @@ export const pablo: Lesson = {
     {
       id: 's1',
       title: 'El Camino a Damasco',
-      intro: { romanNumeral: 'I', heading: 'Hechos 9 — La Conversión más Dramática de la Biblia', subheading: 'El enemigo de Cristo se convierte en su mayor defensor' },
+      intro: { romanNumeral: 'I', title: 'Hechos 9 — La Conversión más Dramática de la Biblia', paragraphs: ['El enemigo de Cristo se convierte en su mayor defensor'] },
       topics: [
         {
           id: 't1',
@@ -32,14 +32,14 @@ export const pablo: Lesson = {
     {
       id: 's2',
       title: 'La Teología de la Gracia',
-      intro: { romanNumeral: 'II', heading: 'Romanos y Gálatas — La Justificación por la Fe', subheading: 'La revelación que cambió la historia del pensamiento cristiano' },
+      intro: { romanNumeral: 'II', title: 'Romanos y Gálatas — La Justificación por la Fe', paragraphs: ['La revelación que cambió la historia del pensamiento cristiano'] },
       topics: [
         {
           id: 't2',
           title: 'Gracia, fe y obras',
           blocks: [
             { type: 'paragraph', id: 'p2', text: 'La contribución teológica central de Pablo es la doctrina de la justificación por la fe. Romanos 3:28: "Concluimos, pues, que el hombre es justificado por fe sin las obras de la ley." Esto no elimina las obras — Pablo insiste en Efesios 2:10 que "somos hechura suya, creados en Cristo Jesús para buenas obras." El punto es que las obras no compran la salvación; la gracia de Cristo la dona, y las obras son la respuesta a esa gracia, no el precio.' },
-            { type: 'doctrine_box', id: 'db1', title: 'Pablo y la Doctrina Restaurada', content: 'La Restauración reconcilia la tensión entre la gracia de Pablo y las obras de Santiago: ambas son necesarias pero en su lugar correcto. La gracia es la fuente; las ordenanzas y la obediencia son el canal de la gracia. 2 Nefi 25:23 — "es por la gracia que somos salvos, después de todo lo que podemos hacer" — no contradice a Pablo sino que los integra.' },
+            { type: 'doctrine_box', id: 'db1', title: 'Pablo y la Doctrina Restaurada', body: 'La Restauración reconcilia la tensión entre la gracia de Pablo y las obras de Santiago: ambas son necesarias pero en su lugar correcto. La gracia es la fuente; las ordenanzas y la obediencia son el canal de la gracia. 2 Nefi 25:23 — "es por la gracia que somos salvos, después de todo lo que podemos hacer" — no contradice a Pablo sino que los integra.' },
           ],
         },
       ],
@@ -47,7 +47,7 @@ export const pablo: Lesson = {
     {
       id: 's3',
       title: 'El Cuerpo de Cristo',
-      intro: { romanNumeral: 'III', heading: '1 Corintios 12 — La Eclesiología de Pablo', subheading: 'Una sola Iglesia con muchos miembros y dones' },
+      intro: { romanNumeral: 'III', title: '1 Corintios 12 — La Eclesiología de Pablo', paragraphs: ['Una sola Iglesia con muchos miembros y dones'] },
       topics: [
         {
           id: 't3',
@@ -62,7 +62,7 @@ export const pablo: Lesson = {
     {
       id: 's4',
       title: 'El Sufrimiento del Apóstol',
-      intro: { romanNumeral: 'IV', heading: '2 Corintios 11 — El Catálogo del Dolor', subheading: 'Lo que costó predicar el evangelio' },
+      intro: { romanNumeral: 'IV', title: '2 Corintios 11 — El Catálogo del Dolor', paragraphs: ['Lo que costó predicar el evangelio'] },
       topics: [
         {
           id: 't4',

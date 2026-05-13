@@ -18,7 +18,7 @@ export const enocElLlamamiento: Lesson = {
     {
       id: 's1',
       title: 'El Llamamiento de un Hombre Inseguro',
-      intro: { romanNumeral: 'I', heading: '"Soy Tardo en el Habla"', subheading: 'Moisés 6:31' },
+      intro: { romanNumeral: 'I', title: '"Soy Tardo en el Habla"', paragraphs: ['Moisés 6:31'] },
       topics: [
         {
           id: 't1',

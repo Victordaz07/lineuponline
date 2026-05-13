@@ -17,14 +17,14 @@ export const tomas: Lesson = {
     {
       id: 's1',
       title: 'Tomás Antes de la Resurrección',
-      intro: { romanNumeral: 'I', heading: 'El Discípulo que Amaba y Seguía', subheading: 'No solo el que dudó' },
+      intro: { romanNumeral: 'I', title: 'El Discípulo que Amaba y Seguía', paragraphs: ['No solo el que dudó'] },
       topics: [
         {
           id: 't1',
           title: 'El Tomás que los Evangelios no recuerdan',
           blocks: [
             { type: 'paragraph', id: 'p1', text: 'Tomás aparece en tres episodios antes de la crucifixión. En Juan 11:16, cuando Jesús decide ir a Judea pese al peligro, Tomás dice a los otros discípulos: "Vamos también nosotros, para que muramos con él." No es duda — es valentía. En Juan 14:5, cuando Jesús habla del camino al Padre, Tomás pregunta honestamente: "Señor, no sabemos a dónde vas; ¿cómo, pues, podemos saber el camino?" Esta pregunta motivó la respuesta "Yo soy el camino, la verdad y la vida."' },
-            { type: 'doctrine_box', id: 'db1', title: 'Las preguntas que generan revelación', content: 'Las grandes declaraciones de Cristo en el Evangelio de Juan frecuentemente son respuestas a preguntas honestas. "Yo soy el pan de vida" (Juan 6) responde al hambre de la multitud. "Yo soy la resurrección" (Juan 11) responde a Marta. "Yo soy el camino" (Juan 14) responde a Tomás. La duda honesta, cuando se lleva a Cristo, produce revelación. La diferencia entre la duda destructiva y la constructiva es hacia dónde se dirige.' },
+            { type: 'doctrine_box', id: 'db1', title: 'Las preguntas que generan revelación', body: 'Las grandes declaraciones de Cristo en el Evangelio de Juan frecuentemente son respuestas a preguntas honestas. "Yo soy el pan de vida" (Juan 6) responde al hambre de la multitud. "Yo soy la resurrección" (Juan 11) responde a Marta. "Yo soy el camino" (Juan 14) responde a Tomás. La duda honesta, cuando se lleva a Cristo, produce revelación. La diferencia entre la duda destructiva y la constructiva es hacia dónde se dirige.' },
           ],
         },
       ],
@@ -32,7 +32,7 @@ export const tomas: Lesson = {
     {
       id: 's2',
       title: 'La Semana que No Estaba',
-      intro: { romanNumeral: 'II', heading: 'Juan 20:24-25 — La Exigencia de Evidencia', subheading: 'Lo que quería ver y por qué' },
+      intro: { romanNumeral: 'II', title: 'Juan 20:24-25 — La Exigencia de Evidencia', paragraphs: ['Lo que quería ver y por qué'] },
       topics: [
         {
           id: 't2',
@@ -47,7 +47,7 @@ export const tomas: Lesson = {
     {
       id: 's3',
       title: 'La Aparición al Octavo Día',
-      intro: { romanNumeral: 'III', heading: '"Pon aquí tu Dedo"', subheading: 'Cristo llegó para Tomás específicamente' },
+      intro: { romanNumeral: 'III', title: '"Pon aquí tu Dedo"', paragraphs: ['Cristo llegó para Tomás específicamente'] },
       topics: [
         {
           id: 't3',
@@ -62,7 +62,7 @@ export const tomas: Lesson = {
     {
       id: 's4',
       title: 'La Fe Después de la Duda',
-      intro: { romanNumeral: 'IV', heading: 'Lo que Tomás Hizo Después', subheading: 'India y el martirio del escéptico' },
+      intro: { romanNumeral: 'IV', title: 'Lo que Tomás Hizo Después', paragraphs: ['India y el martirio del escéptico'] },
       topics: [
         {
           id: 't4',

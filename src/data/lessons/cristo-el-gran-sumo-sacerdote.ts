@@ -20,8 +20,8 @@ export const cristoElGranSumoSacerdote: Lesson = {
       title: 'El Sacerdocio que Lleva Su Nombre',
       intro: {
         romanNumeral: 'I',
-        heading: '"El Orden del Hijo de Dios"',
-        subheading: 'Por qué se llama de Melquisedec',
+        title: '"El Orden del Hijo de Dios"',
+        paragraphs: ['Por qué se llama de Melquisedec'],
       },
       topics: [
         {
@@ -53,8 +53,8 @@ export const cristoElGranSumoSacerdote: Lesson = {
       title: 'Hebreos — El Tratado del Sacerdocio',
       intro: {
         romanNumeral: 'II',
-        heading: 'El Argumento de Pablo',
-        subheading: 'Capítulos 4 al 9: la obra maestra teológica',
+        title: 'El Argumento de Pablo',
+        paragraphs: ['Capítulos 4 al 9: la obra maestra teológica'],
       },
       topics: [
         {
@@ -119,8 +119,8 @@ export const cristoElGranSumoSacerdote: Lesson = {
       title: 'Melquisedec como Tipo de Cristo',
       intro: {
         romanNumeral: 'III',
-        heading: 'Sin Padre, Sin Madre, Sin Genealogía',
-        subheading: 'Hebreos 7 y Alma 13',
+        title: 'Sin Padre, Sin Madre, Sin Genealogía',
+        paragraphs: ['Hebreos 7 y Alma 13'],
       },
       topics: [
         {
@@ -152,8 +152,8 @@ export const cristoElGranSumoSacerdote: Lesson = {
       title: 'Cristo — El Tipo Supremo de Cada Oficio',
       intro: {
         romanNumeral: 'IV',
-        heading: 'Cada Oficio, Una Faceta de Él',
-        subheading: 'El sacerdocio como teología de Cristo',
+        title: 'Cada Oficio, Una Faceta de Él',
+        paragraphs: ['El sacerdocio como teología de Cristo'],
       },
       topics: [
         {
@@ -190,8 +190,8 @@ export const cristoElGranSumoSacerdote: Lesson = {
       title: 'El Intercesor Eterno',
       intro: {
         romanNumeral: 'V',
-        heading: 'Vive Siempre para Interceder',
-        subheading: 'Hebreos 7:25 — la promesa más grande del sacerdocio',
+        title: 'Vive Siempre para Interceder',
+        paragraphs: ['Hebreos 7:25 — la promesa más grande del sacerdocio'],
       },
       topics: [
         {
@@ -231,7 +231,7 @@ export const cristoElGranSumoSacerdote: Lesson = {
               type: 'doctrine_box',
               id: 'db1',
               title: 'El Sacerdocio como Participación en Cristo',
-              content: 'D&C 84:35-38 establece que quien recibe el sacerdocio recibe al que lo confirió, y que quien recibe a los siervos de Dios recibe a Dios mismo. La cadena es directa: sostener el sacerdocio es estar en la cadena que conecta con Cristo. Ejercerlo rectamente es ejercer la autoridad de Cristo. Abusar de él es abusar de la confianza de Cristo mismo.',
+              body: 'D&C 84:35-38 establece que quien recibe el sacerdocio recibe al que lo confirió, y que quien recibe a los siervos de Dios recibe a Dios mismo. La cadena es directa: sostener el sacerdocio es estar en la cadena que conecta con Cristo. Ejercerlo rectamente es ejercer la autoridad de Cristo. Abusar de él es abusar de la confianza de Cristo mismo.',
             },
             {
               type: 'reflection',
@@ -247,8 +247,8 @@ export const cristoElGranSumoSacerdote: Lesson = {
       title: 'Epílogo — El Módulo Completo como Cristología',
       intro: {
         romanNumeral: 'VI',
-        heading: 'Todo el Sacerdocio es una Revelación de Cristo',
-        subheading: 'La conclusión del módulo',
+        title: 'Todo el Sacerdocio es una Revelación de Cristo',
+        paragraphs: ['La conclusión del módulo'],
       },
       topics: [
         {

@@ -17,14 +17,14 @@ export const ester: Lesson = {
     {
       id: 's1',
       title: 'La Huérfana que Se Convirtió en Reina',
-      intro: { romanNumeral: 'I', heading: 'Ester 2 — Providencia Encubierta', subheading: 'El libro de Dios que no nombra a Dios' },
+      intro: { romanNumeral: 'I', title: 'Ester 2 — Providencia Encubierta', paragraphs: ['El libro de Dios que no nombra a Dios'] },
       topics: [
         {
           id: 't1',
           title: 'El único libro bíblico sin el nombre de Dios',
           blocks: [
             { type: 'paragraph', id: 'p1', text: 'El libro de Ester es notable por lo que no contiene: nunca menciona el nombre de Dios. No hay oración directa, ni profecías, ni milagros obvios. Sin embargo, es uno de los libros más leídos en el canon judío — celebrado en Purim. La providencia divina opera entera y completamente a través de circunstancias naturales: un concurso de belleza, la indignación de un eunuco, una noche de insomnio del rey, el orgullo de Amán. Dios actúa sin anunciarse.' },
-            { type: 'doctrine_box', id: 'db1', title: 'Providencia vs. Milagro', content: 'La mayoría de la historia sagrada — y la mayor parte de la vida de los creyentes — no ocurre a través de milagros dramáticos. Ocurre a través de circunstancias que, vistas en retrospectiva, revelan la mano de Dios trabajando silenciosamente. El libro de Ester enseña a reconocer esa providencia: el hecho de que Dios no firme su nombre no significa que no esté presente.' },
+            { type: 'doctrine_box', id: 'db1', title: 'Providencia vs. Milagro', body: 'La mayoría de la historia sagrada — y la mayor parte de la vida de los creyentes — no ocurre a través de milagros dramáticos. Ocurre a través de circunstancias que, vistas en retrospectiva, revelan la mano de Dios trabajando silenciosamente. El libro de Ester enseña a reconocer esa providencia: el hecho de que Dios no firme su nombre no significa que no esté presente.' },
           ],
         },
       ],
@@ -32,7 +32,7 @@ export const ester: Lesson = {
     {
       id: 's2',
       title: '"¿Y Quién Sabe?"',
-      intro: { romanNumeral: 'II', heading: 'Ester 4 — La Pregunta de Mardoqueo', subheading: 'El versículo más citado del libro' },
+      intro: { romanNumeral: 'II', title: 'Ester 4 — La Pregunta de Mardoqueo', paragraphs: ['El versículo más citado del libro'] },
       topics: [
         {
           id: 't2',
@@ -47,7 +47,7 @@ export const ester: Lesson = {
     {
       id: 's3',
       title: 'Iré al Rey — Aunque Muera',
-      intro: { romanNumeral: 'III', heading: 'Ester 4:16 — La Decisión', subheading: 'El costo de la obediencia providencial' },
+      intro: { romanNumeral: 'III', title: 'Ester 4:16 — La Decisión', paragraphs: ['El costo de la obediencia providencial'] },
       topics: [
         {
           id: 't3',
@@ -62,7 +62,7 @@ export const ester: Lesson = {
     {
       id: 's4',
       title: 'La Caída de Amán y la Salvación del Pueblo',
-      intro: { romanNumeral: 'IV', heading: 'Ester 7-9 — La Inversión', subheading: 'El que construyó la horca murió en ella' },
+      intro: { romanNumeral: 'IV', title: 'Ester 7-9 — La Inversión', paragraphs: ['El que construyó la horca murió en ella'] },
       topics: [
         {
           id: 't4',

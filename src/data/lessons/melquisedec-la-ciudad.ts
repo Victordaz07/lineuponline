@@ -18,7 +18,7 @@ export const melquisedecLaCiudad: Lesson = {
     {
       id: 's2',
       title: 'Hebreos 7 — El Argumento de Pablo',
-      intro: { romanNumeral: 'II', heading: 'Superior al Levítico', subheading: 'Por qué el sacerdocio de Melquisedec supera al de Aarón' },
+      intro: { romanNumeral: 'II', title: 'Superior al Levítico', paragraphs: ['Por qué el sacerdocio de Melquisedec supera al de Aarón'] },
       topics: [
         {
           id: 't2',

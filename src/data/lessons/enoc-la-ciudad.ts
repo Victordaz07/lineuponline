@@ -18,7 +18,7 @@ export const enocLaCiudad: Lesson = {
     {
       id: 's3',
       title: 'La Ciudad de Sión',
-      intro: { romanNumeral: 'III', heading: 'Un Solo Corazón y Una Sola Mente', subheading: 'El logro más grande de la historia humana' },
+      intro: { romanNumeral: 'III', title: 'Un Solo Corazón y Una Sola Mente', paragraphs: ['El logro más grande de la historia humana'] },
       topics: [
         {
           id: 't3',

@@ -20,8 +20,8 @@ export const elApostol: Lesson = {
       title: '¿Qué hace único al Apóstol?',
       intro: {
         romanNumeral: 'I',
-        heading: 'Testigo Especial del Nombre',
-        subheading: 'No solo del Resucitado — del Nombre de Cristo',
+        title: 'Testigo Especial del Nombre',
+        paragraphs: ['No solo del Resucitado — del Nombre de Cristo'],
       },
       topics: [
         {
@@ -93,8 +93,8 @@ export const elApostol: Lesson = {
       title: 'Restauración del Apostolado',
       intro: {
         romanNumeral: 'II',
-        heading: 'Pedro, Santiago y Juan',
-        subheading: 'Mayo de 1829',
+        title: 'Pedro, Santiago y Juan',
+        paragraphs: ['Mayo de 1829'],
       },
       topics: [
         {
@@ -148,8 +148,8 @@ export const elApostol: Lesson = {
       title: 'Las Llaves del Reino',
       intro: {
         romanNumeral: 'III',
-        heading: 'Todas las Llaves, No Todas Activas',
-        subheading: 'La distinción que pocos comprenden',
+        title: 'Todas las Llaves, No Todas Activas',
+        paragraphs: ['La distinción que pocos comprenden'],
       },
       topics: [
         {
@@ -171,7 +171,7 @@ export const elApostol: Lesson = {
               type: 'doctrine_box',
               id: 'db1',
               title: 'La Sucesión Apostólica en la Restauración',
-              content: 'Cuando José Smith murió en 1844, varios hombres reclamaron el liderazgo. El argumento teológico decisivo de Brigham Young fue simple: el Quórum de los Doce, como cuerpo, sostenía todas las llaves del reino. El presidente de ese quórum era el sucesor natural. Este principio se ha seguido desde entonces: el presidente del Quórum de los Doce se convierte en Presidente de la Iglesia.',
+              body: 'Cuando José Smith murió en 1844, varios hombres reclamaron el liderazgo. El argumento teológico decisivo de Brigham Young fue simple: el Quórum de los Doce, como cuerpo, sostenía todas las llaves del reino. El presidente de ese quórum era el sucesor natural. Este principio se ha seguido desde entonces: el presidente del Quórum de los Doce se convierte en Presidente de la Iglesia.',
             },
           ],
         },
@@ -182,8 +182,8 @@ export const elApostol: Lesson = {
       title: 'El Apóstol como Tipo de Cristo',
       intro: {
         romanNumeral: 'IV',
-        heading: 'Enviado como Cristo fue Enviado',
-        subheading: 'La etimología revela la misión',
+        title: 'Enviado como Cristo fue Enviado',
+        paragraphs: ['La etimología revela la misión'],
       },
       topics: [
         {
@@ -231,8 +231,8 @@ export const elApostol: Lesson = {
       title: 'El Quórum de los Doce',
       intro: {
         romanNumeral: 'V',
-        heading: 'Igual Autoridad como Quórum',
-        subheading: 'DyC 107:23-24',
+        title: 'Igual Autoridad como Quórum',
+        paragraphs: ['DyC 107:23-24'],
       },
       topics: [
         {

@@ -18,7 +18,7 @@ export const jacobElFugitivo: Lesson = {
     {
       id: 's2',
       title: 'El Amor que Esperó 14 Años',
-      intro: { romanNumeral: 'II', heading: 'Raquel — La Lección del Tiempo', subheading: 'Génesis 29 — el amor que cuesta' },
+      intro: { romanNumeral: 'II', title: 'Raquel — La Lección del Tiempo', paragraphs: ['Génesis 29 — el amor que cuesta'] },
       topics: [
         {
           id: 't2',

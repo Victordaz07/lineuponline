@@ -18,7 +18,7 @@ export const isaacElSacrificio: Lesson = {
     {
       id: 's2',
       title: 'Génesis 22 — El Tipo más Perfecto de Cristo',
-      intro: { romanNumeral: 'II', heading: 'La Prueba más Grande de Abraham', subheading: 'Y el silencio de Isaac' },
+      intro: { romanNumeral: 'II', title: 'La Prueba más Grande de Abraham', paragraphs: ['Y el silencio de Isaac'] },
       topics: [
         {
           id: 't2',

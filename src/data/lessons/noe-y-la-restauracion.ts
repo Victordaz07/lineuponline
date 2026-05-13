@@ -18,7 +18,7 @@ export const noeYLaRestauracion: Lesson = {
     {
       id: 's5',
       title: 'Noé Como Tipo de la Restauración',
-      intro: { romanNumeral: 'V', heading: 'Noé Como Tipo de la Restauración', subheading: 'Preservación a través del caos para una nueva era' },
+      intro: { romanNumeral: 'V', title: 'Noé Como Tipo de la Restauración', paragraphs: ['Preservación a través del caos para una nueva era'] },
       topics: [
         {
           id: 't5',

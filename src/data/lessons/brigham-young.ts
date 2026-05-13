@@ -17,14 +17,14 @@ export const brighamYoung: Lesson = {
     {
       id: 's1',
       title: 'La Conversión Deliberada',
-      intro: { romanNumeral: 'I', heading: '1830-1832 — Dos Años de Investigación', subheading: 'El hombre que no creyó de inmediato' },
+      intro: { romanNumeral: 'I', title: '1830-1832 — Dos Años de Investigación', paragraphs: ['El hombre que no creyó de inmediato'] },
       topics: [
         {
           id: 't1',
           title: 'La fe que se construyó lentamente',
           blocks: [
             { type: 'paragraph', id: 'p1', text: 'Brigham Young obtuvo una copia del Libro de Mormón en 1830, recién publicado. Tardó dos años en bautizarse — en 1832. No fue conversión emocional impulsiva. Brigham era carpintero y pintor, hombre práctico, con poca educación formal. Estudió el libro. Investigó. Observó a los Santos. Cuando se convenció, no dudó más. Esta deliberación caracterizó todo su liderazgo: considerado en la decisión, total en la ejecución.' },
-            { type: 'doctrine_box', id: 'db1', title: 'El Tipo de Converso que Brigham Representaba', content: 'Brigham no convirtió en una gran asamblea ni bajo la predicación emocional. Convirtió en silencio, durante meses, en su mente práctica y sus rodillas. Este patrón — investigación seria y conversión deliberada — es el que la Iglesia ha promovido: fe basada en evidencia personal y espiritual, no en emoción colectiva. Mormón 9:21 — "Preguntad y recibiréis" — fue literalmente el proceso de Brigham.' },
+            { type: 'doctrine_box', id: 'db1', title: 'El Tipo de Converso que Brigham Representaba', body: 'Brigham no convirtió en una gran asamblea ni bajo la predicación emocional. Convirtió en silencio, durante meses, en su mente práctica y sus rodillas. Este patrón — investigación seria y conversión deliberada — es el que la Iglesia ha promovido: fe basada en evidencia personal y espiritual, no en emoción colectiva. Mormón 9:21 — "Preguntad y recibiréis" — fue literalmente el proceso de Brigham.' },
           ],
         },
       ],
@@ -32,7 +32,7 @@ export const brighamYoung: Lesson = {
     {
       id: 's2',
       title: 'La Sucesión tras el Martirio',
-      intro: { romanNumeral: 'II', heading: 'Agosto de 1844 — "La Voz y el Mantle de Joseph"', subheading: 'El momento que definió la sucesión apostólica' },
+      intro: { romanNumeral: 'II', title: 'Agosto de 1844 — "La Voz y el Mantle de Joseph"', paragraphs: ['El momento que definió la sucesión apostólica'] },
       topics: [
         {
           id: 't2',
@@ -47,7 +47,7 @@ export const brighamYoung: Lesson = {
     {
       id: 's3',
       title: 'El Éxodo a Utah',
-      intro: { romanNumeral: 'III', heading: '1846-1847 — El Valle del Lago Salado', subheading: 'El mayor éxodo de la historia americana' },
+      intro: { romanNumeral: 'III', title: '1846-1847 — El Valle del Lago Salado', paragraphs: ['El mayor éxodo de la historia americana'] },
       topics: [
         {
           id: 't3',
@@ -61,7 +61,7 @@ export const brighamYoung: Lesson = {
     {
       id: 's4',
       title: 'El Constructor de Zión',
-      intro: { romanNumeral: 'IV', heading: 'Salt Lake City y el Templo', subheading: 'Transformar el desierto en tierra habitada' },
+      intro: { romanNumeral: 'IV', title: 'Salt Lake City y el Templo', paragraphs: ['Transformar el desierto en tierra habitada'] },
       topics: [
         {
           id: 't4',

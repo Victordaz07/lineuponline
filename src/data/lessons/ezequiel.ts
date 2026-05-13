@@ -17,7 +17,7 @@ export const ezequiel: Lesson = {
     {
       id: 's1',
       title: 'La Merkavá — El Carro de Dios',
-      intro: { romanNumeral: 'I', heading: 'Ezequiel 1 — La Visión más Intensa de la Biblia', subheading: 'Lo que los rabinos prohibían estudiar antes de los 30 años' },
+      intro: { romanNumeral: 'I', title: 'Ezequiel 1 — La Visión más Intensa de la Biblia', paragraphs: ['Lo que los rabinos prohibían estudiar antes de los 30 años'] },
       topics: [
         {
           id: 't1',
@@ -33,7 +33,7 @@ export const ezequiel: Lesson = {
     {
       id: 's2',
       title: 'El Profeta como Actor',
-      intro: { romanNumeral: 'II', heading: 'Actuando lo que Profetiza', subheading: 'Los gestos proféticos más extremos de la Biblia' },
+      intro: { romanNumeral: 'II', title: 'Actuando lo que Profetiza', paragraphs: ['Los gestos proféticos más extremos de la Biblia'] },
       topics: [
         {
           id: 't2',
@@ -53,7 +53,7 @@ export const ezequiel: Lesson = {
     {
       id: 's3',
       title: 'El Valle de los Huesos Secos',
-      intro: { romanNumeral: 'III', heading: 'Ezequiel 37 — La Resurrección y la Restauración', subheading: 'Una de las visiones más poderosas de toda la Escritura' },
+      intro: { romanNumeral: 'III', title: 'Ezequiel 37 — La Resurrección y la Restauración', paragraphs: ['Una de las visiones más poderosas de toda la Escritura'] },
       topics: [
         {
           id: 't3',
@@ -68,7 +68,7 @@ export const ezequiel: Lesson = {
     {
       id: 's4',
       title: 'Los Dos Palos — Ezequiel 37:16-19',
-      intro: { romanNumeral: 'IV', heading: 'El Palo de Judá y el Palo de José', subheading: 'La profecía más directa del Libro de Mormón en el AT' },
+      intro: { romanNumeral: 'IV', title: 'El Palo de Judá y el Palo de José', paragraphs: ['La profecía más directa del Libro de Mormón en el AT'] },
       topics: [
         {
           id: 't4',

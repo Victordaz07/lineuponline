@@ -17,7 +17,7 @@ export const job: Lesson = {
     {
       id: 's1',
       title: 'El Juego en el Cielo',
-      intro: { romanNumeral: 'I', heading: 'Job 1-2 — La Escena que Job nunca Vio', subheading: 'El drama detrás del sufrimiento' },
+      intro: { romanNumeral: 'I', title: 'Job 1-2 — La Escena que Job nunca Vio', paragraphs: ['El drama detrás del sufrimiento'] },
       topics: [
         {
           id: 't1',
@@ -25,7 +25,7 @@ export const job: Lesson = {
           blocks: [
             { type: 'paragraph', id: 'p1', text: 'Job 1-2 revela al lector algo que Job nunca supo: su sufrimiento fue el resultado de un desafío de Satanás ante la corte celestial. "¿Acaso teme Job a Dios de balde?" La tesis de Satanás: Job solo es fiel porque le va bien. Quita las bendiciones y maldecirá a Dios. La respuesta de Dios fue permitir que Satanás lo probara — con límites. Esta estructura narrativa es perturbadora: el hombre más recto de la tierra sufre como experimento teológico.' },
             { type: 'highlight_verse', id: 'v1', reference: 'Job 1:21', text: 'Y dijo: Desnudo salí del vientre de mi madre, y desnudo volveré allá. Jehová dio, y Jehová quitó; sea el nombre de Jehová bendito.' },
-            { type: 'doctrine_box', id: 'db1', title: 'Lo que Job no Sabía', content: 'El libro de Job es único porque el lector sabe desde el principio lo que Job ignora: la razón de su sufrimiento. Esto crea una ironía profunda: cuando los amigos de Job argumentan que sufre por sus pecados, el lector sabe que están equivocados. Cuando Job insiste en su inocencia, el lector sabe que tiene razón. La estructura del libro enseña que no siempre podemos conocer la razón del sufrimiento — pero podemos conocer el carácter de quien lo permite.' },
+            { type: 'doctrine_box', id: 'db1', title: 'Lo que Job no Sabía', body: 'El libro de Job es único porque el lector sabe desde el principio lo que Job ignora: la razón de su sufrimiento. Esto crea una ironía profunda: cuando los amigos de Job argumentan que sufre por sus pecados, el lector sabe que están equivocados. Cuando Job insiste en su inocencia, el lector sabe que tiene razón. La estructura del libro enseña que no siempre podemos conocer la razón del sufrimiento — pero podemos conocer el carácter de quien lo permite.' },
           ],
         },
       ],
@@ -33,7 +33,7 @@ export const job: Lesson = {
     {
       id: 's2',
       title: 'Los Tres Amigos — Teología Incorrecta',
-      intro: { romanNumeral: 'II', heading: '"Pecaste, Por Eso Sufres"', subheading: 'El error teológico que Dios corrigió al final' },
+      intro: { romanNumeral: 'II', title: '"Pecaste, Por Eso Sufres"', paragraphs: ['El error teológico que Dios corrigió al final'] },
       topics: [
         {
           id: 't2',
@@ -53,7 +53,7 @@ export const job: Lesson = {
     {
       id: 's3',
       title: 'Job 19 — La Fe más Audaz del AT',
-      intro: { romanNumeral: 'III', heading: '"Yo Sé que Mi Redentor Vive"', subheading: 'La declaración de fe en la resurrección' },
+      intro: { romanNumeral: 'III', title: '"Yo Sé que Mi Redentor Vive"', paragraphs: ['La declaración de fe en la resurrección'] },
       topics: [
         {
           id: 't3',
@@ -68,7 +68,7 @@ export const job: Lesson = {
     {
       id: 's4',
       title: 'Dios Habla desde el Torbellino',
-      intro: { romanNumeral: 'IV', heading: 'Job 38-41 — Las Preguntas más Inesperadas', subheading: 'La respuesta de Dios que no es una respuesta' },
+      intro: { romanNumeral: 'IV', title: 'Job 38-41 — Las Preguntas más Inesperadas', paragraphs: ['La respuesta de Dios que no es una respuesta'] },
       topics: [
         {
           id: 't4',

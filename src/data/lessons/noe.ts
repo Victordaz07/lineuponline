@@ -17,7 +17,7 @@ export const noe: Lesson = {
     {
       id: 's1',
       title: '120 Años de Predicación Sin Fruto',
-      intro: { romanNumeral: 'I', heading: 'El Profeta que Nadie Escuchó', subheading: 'La misión más solitaria de la historia' },
+      intro: { romanNumeral: 'I', title: 'El Profeta que Nadie Escuchó', paragraphs: ['La misión más solitaria de la historia'] },
       topics: [
         {
           id: 't1',
@@ -33,7 +33,7 @@ export const noe: Lesson = {
     {
       id: 's2',
       title: 'El Arca — Una Obra de Fe',
-      intro: { romanNumeral: 'II', heading: 'Construir sin Ver la Lluvia', subheading: 'Hebreos 11:7' },
+      intro: { romanNumeral: 'II', title: 'Construir sin Ver la Lluvia', paragraphs: ['Hebreos 11:7'] },
       topics: [
         {
           id: 't2',
@@ -48,7 +48,7 @@ export const noe: Lesson = {
     {
       id: 's3',
       title: '¿Global o Local? El Debate del Diluvio',
-      intro: { romanNumeral: 'III', heading: 'La Pregunta que Importa', subheading: 'Evidencia y perspectiva restaurada' },
+      intro: { romanNumeral: 'III', title: 'La Pregunta que Importa', paragraphs: ['Evidencia y perspectiva restaurada'] },
       topics: [
         {
           id: 't3',
@@ -68,7 +68,7 @@ export const noe: Lesson = {
     {
       id: 's4',
       title: 'El Pacto del Arco Iris',
-      intro: { romanNumeral: 'IV', heading: 'Un Pacto para Siempre', subheading: 'DyC 133:54-56 — la señal que siempre veremos' },
+      intro: { romanNumeral: 'IV', title: 'Un Pacto para Siempre', paragraphs: ['DyC 133:54-56 — la señal que siempre veremos'] },
       topics: [
         {
           id: 't4',

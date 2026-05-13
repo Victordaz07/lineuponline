@@ -17,7 +17,7 @@ export const nefi: Lesson = {
     {
       id: 's1',
       title: '"Iré y Haré"',
-      intro: { romanNumeral: 'I', heading: '1 Nefi 3:7 — El Versículo más Citado del Libro de Mormón', subheading: 'Obediencia sin hoja de ruta' },
+      intro: { romanNumeral: 'I', title: '1 Nefi 3:7 — El Versículo más Citado del Libro de Mormón', paragraphs: ['Obediencia sin hoja de ruta'] },
       topics: [
         {
           id: 't1',
@@ -32,14 +32,14 @@ export const nefi: Lesson = {
     {
       id: 's2',
       title: 'La Visión del Árbol de la Vida',
-      intro: { romanNumeral: 'II', heading: '1 Nefi 11-14 — La Expansión de la Visión de Lehi', subheading: 'El joven que quiso entender, no solo recibir' },
+      intro: { romanNumeral: 'II', title: '1 Nefi 11-14 — La Expansión de la Visión de Lehi', paragraphs: ['El joven que quiso entender, no solo recibir'] },
       topics: [
         {
           id: 't2',
           title: 'Creer para ver',
           blocks: [
             { type: 'paragraph', id: 'p2', text: 'Después de escuchar la visión del árbol de la vida de su padre, Nefi quiso ver y entender las mismas cosas. 1 Nefi 11:1: "Y aconteció que después que yo, Nefi, hubiera deseado esto en mi corazón, he aquí que fui arrebatado en el Espíritu del Señor, sí, a un monte muy alto." La condición para la visión fue desear comprenderla. El Espíritu preguntó primero: "¿Crees tú que tu padre vio el árbol del que habló?" La respuesta: "Sí, lo creo." El creer precedió al ver.' },
-            { type: 'doctrine_box', id: 'db1', title: 'La Expansión de la Visión', content: 'La visión de Nefi en 1 Nefi 11-14 toma la visión de su padre y la expande con explicación interpretativa: el árbol = el amor de Dios y María que da a luz al Hijo de Dios; la barra de hierro = la palabra de Cristo; el edificio = el orgullo del mundo; los ríos de agua sucia = la inmundicia del infierno. Nefi recibe no solo la visión sino la hermenéutica para interpretar cada símbolo.' },
+            { type: 'doctrine_box', id: 'db1', title: 'La Expansión de la Visión', body: 'La visión de Nefi en 1 Nefi 11-14 toma la visión de su padre y la expande con explicación interpretativa: el árbol = el amor de Dios y María que da a luz al Hijo de Dios; la barra de hierro = la palabra de Cristo; el edificio = el orgullo del mundo; los ríos de agua sucia = la inmundicia del infierno. Nefi recibe no solo la visión sino la hermenéutica para interpretar cada símbolo.' },
           ],
         },
       ],
@@ -47,7 +47,7 @@ export const nefi: Lesson = {
     {
       id: 's3',
       title: 'El Lamento de Nefi',
-      intro: { romanNumeral: 'III', heading: '2 Nefi 4:17-35 — "Oh Alma Miserable"', subheading: 'El pasaje más humano del más heroico de los profetas' },
+      intro: { romanNumeral: 'III', title: '2 Nefi 4:17-35 — "Oh Alma Miserable"', paragraphs: ['El pasaje más humano del más heroico de los profetas'] },
       topics: [
         {
           id: 't3',
@@ -62,7 +62,7 @@ export const nefi: Lesson = {
     {
       id: 's4',
       title: 'El Constructor de Naciones',
-      intro: { romanNumeral: 'IV', heading: 'Nefi como Fundador de Civilización', subheading: 'Del desierto al templo' },
+      intro: { romanNumeral: 'IV', title: 'Nefi como Fundador de Civilización', paragraphs: ['Del desierto al templo'] },
       topics: [
         {
           id: 't4',

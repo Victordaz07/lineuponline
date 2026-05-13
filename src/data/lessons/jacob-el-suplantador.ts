@@ -18,7 +18,7 @@ export const jacobElSuplantador: Lesson = {
     {
       id: 's1',
       title: 'El Suplantador',
-      intro: { romanNumeral: 'I', heading: '"Yaaqov" — El que Agarra el Talón', subheading: 'Un nombre que define un carácter' },
+      intro: { romanNumeral: 'I', title: '"Yaaqov" — El que Agarra el Talón', paragraphs: ['Un nombre que define un carácter'] },
       topics: [
         {
           id: 't1',

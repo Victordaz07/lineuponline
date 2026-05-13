@@ -17,7 +17,7 @@ export const elHermanoDeJared: Lesson = {
     {
       id: 's1',
       title: 'El Problema de la Oscuridad',
-      intro: { romanNumeral: 'I', heading: 'Éter 2-3 — Barcazas sin Luz', subheading: 'La oración más creativa del Libro de Mormón' },
+      intro: { romanNumeral: 'I', title: 'Éter 2-3 — Barcazas sin Luz', paragraphs: ['La oración más creativa del Libro de Mormón'] },
       topics: [
         {
           id: 't1',
@@ -32,14 +32,14 @@ export const elHermanoDeJared: Lesson = {
     {
       id: 's2',
       title: 'El Dedo de Dios',
-      intro: { romanNumeral: 'II', heading: 'Éter 3:4-6 — La Fe que No Dejó Lugar a la Duda', subheading: 'La oración más directa de cualquier profeta' },
+      intro: { romanNumeral: 'II', title: 'Éter 3:4-6 — La Fe que No Dejó Lugar a la Duda', paragraphs: ['La oración más directa de cualquier profeta'] },
       topics: [
         {
           id: 't2',
           title: 'La confianza que traspasó el velo',
           blocks: [
             { type: 'paragraph', id: 'p2', text: 'La oración del hermano de Jared en Éter 3:2-5 es extraordinaria por su franqueza: reconoce la falta de fe del pueblo jaredita, admite que no ha orado con fervor, y luego hace una petición directa basada no en su merecimiento sino en la misericordia de Dios. Éter 3:4: "Señor mío, no te enojes con tu siervo a causa de su debilidad ante ti; porque sabemos que eres santo y moras en los cielos... Y ahora, oh Señor, por amor de Cristo, toca estas piedras con tu dedo."' },
-            { type: 'doctrine_box', id: 'db1', title: 'Por Qué se Rasgó el Velo', content: 'Éter 3:9: "El Señor extendió su mano y tocó las piedras una por una... Y cuando el Señor extendió su dedo, el hermano de Jared vio el dedo del Señor; y era como el de un hombre, de carne y hueso." El Señor explica (3:19): "Por cuanto sabes estas cosas, sois redimidos de la caída; por ende, vosotros sois llevados de nuevo a mi presencia; por tanto, os mostraré." La fe perfecta elimina el velo — no como premio sino como consecuencia natural de la fe que no deja lugar para la duda.' },
+            { type: 'doctrine_box', id: 'db1', title: 'Por Qué se Rasgó el Velo', body: 'Éter 3:9: "El Señor extendió su mano y tocó las piedras una por una... Y cuando el Señor extendió su dedo, el hermano de Jared vio el dedo del Señor; y era como el de un hombre, de carne y hueso." El Señor explica (3:19): "Por cuanto sabes estas cosas, sois redimidos de la caída; por ende, vosotros sois llevados de nuevo a mi presencia; por tanto, os mostraré." La fe perfecta elimina el velo — no como premio sino como consecuencia natural de la fe que no deja lugar para la duda.' },
           ],
         },
       ],
@@ -47,7 +47,7 @@ export const elHermanoDeJared: Lesson = {
     {
       id: 's3',
       title: 'La Visión del Cristo Premortal',
-      intro: { romanNumeral: 'III', heading: 'Éter 3:14-16 — Cara a Cara', subheading: 'Cristo se reveló antes de la Encarnación' },
+      intro: { romanNumeral: 'III', title: 'Éter 3:14-16 — Cara a Cara', paragraphs: ['Cristo se reveló antes de la Encarnación'] },
       topics: [
         {
           id: 't3',
@@ -62,7 +62,7 @@ export const elHermanoDeJared: Lesson = {
     {
       id: 's4',
       title: 'Los Registros Sellados',
-      intro: { romanNumeral: 'IV', heading: 'Éter 3-4 — Lo que Moroni Selló', subheading: 'La visión que el mundo aún no ha leído' },
+      intro: { romanNumeral: 'IV', title: 'Éter 3-4 — Lo que Moroni Selló', paragraphs: ['La visión que el mundo aún no ha leído'] },
       topics: [
         {
           id: 't4',

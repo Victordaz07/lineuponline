@@ -17,7 +17,7 @@ export const oliverCowdery: Lesson = {
     {
       id: 's1',
       title: 'El Escriba del Libro de Mormón',
-      intro: { romanNumeral: 'I', heading: 'Primavera-Verano de 1829 — La Traducción', subheading: 'El hombre que transcribió el libro sagrado' },
+      intro: { romanNumeral: 'I', title: 'Primavera-Verano de 1829 — La Traducción', paragraphs: ['El hombre que transcribió el libro sagrado'] },
       topics: [
         {
           id: 't1',
@@ -32,7 +32,7 @@ export const oliverCowdery: Lesson = {
     {
       id: 's2',
       title: 'El Sacerdocio y los Tres Testigos',
-      intro: { romanNumeral: 'II', heading: 'Mayo de 1829 — Juan el Bautista en el Río Susquehanna', subheading: 'Ordenado por un ser resucitado' },
+      intro: { romanNumeral: 'II', title: 'Mayo de 1829 — Juan el Bautista en el Río Susquehanna', paragraphs: ['Ordenado por un ser resucitado'] },
       topics: [
         {
           id: 't2',
@@ -46,7 +46,7 @@ export const oliverCowdery: Lesson = {
     {
       id: 's3',
       title: 'La Apostasía y el Regreso',
-      intro: { romanNumeral: 'III', heading: '1838-1848 — Fuera y Vuelto', subheading: 'El testigo que se fue y no pudo negar' },
+      intro: { romanNumeral: 'III', title: '1838-1848 — Fuera y Vuelto', paragraphs: ['El testigo que se fue y no pudo negar'] },
       topics: [
         {
           id: 't3',
@@ -60,7 +60,7 @@ export const oliverCowdery: Lesson = {
     {
       id: 's4',
       title: 'La Muerte con Fe',
-      intro: { romanNumeral: 'IV', heading: 'Marzo de 1850 — El Testimonio Final', subheading: 'Murió como testigo' },
+      intro: { romanNumeral: 'IV', title: 'Marzo de 1850 — El Testimonio Final', paragraphs: ['Murió como testigo'] },
       topics: [
         {
           id: 't4',

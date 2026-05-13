@@ -17,14 +17,14 @@ export const debora: Lesson = {
     {
       id: 's1',
       title: 'La Única Jueza de Israel',
-      intro: { romanNumeral: 'I', heading: 'Jueces 4 — La Palma de Débora', subheading: 'La mujer que gobernó toda la nación' },
+      intro: { romanNumeral: 'I', title: 'Jueces 4 — La Palma de Débora', paragraphs: ['La mujer que gobernó toda la nación'] },
       topics: [
         {
           id: 't1',
           title: 'Jueza, profetisa y madre en Israel',
           blocks: [
             { type: 'paragraph', id: 'p1', text: 'Jueces 4:4-5 describe a Débora con tres títulos distintos: profetisa (neviá), mujer de Lapidot, y jueza de Israel. "Y ella juzgaba a Israel en aquel tiempo... y los hijos de Israel subían a ella a juicio." No hay narrativa de cómo llegó al cargo, sin justificación, sin debate. Simplemente era la jueza — y todo Israel la reconocía como tal. Ningún otro juez en el libro es descrito ejerciendo la justicia de manera tan directa y cotidiana.' },
-            { type: 'doctrine_box', id: 'db1', title: '"Madre en Israel"', content: 'En su cántico (Jueces 5:7), Débora se describe a sí misma como "madre en Israel." Este título no es diminutivo — es uno de los más altos de liderazgo en la cultura hebrea. Una "madre en Israel" era fundadora de familia, protectora de la comunidad, fuente de sabiduría y refugio para los vulnerables. Débora combinó autoridad judicial, don profético y maternidad espiritual de toda una nación.' },
+            { type: 'doctrine_box', id: 'db1', title: '"Madre en Israel"', body: 'En su cántico (Jueces 5:7), Débora se describe a sí misma como "madre en Israel." Este título no es diminutivo — es uno de los más altos de liderazgo en la cultura hebrea. Una "madre en Israel" era fundadora de familia, protectora de la comunidad, fuente de sabiduría y refugio para los vulnerables. Débora combinó autoridad judicial, don profético y maternidad espiritual de toda una nación.' },
           ],
         },
       ],
@@ -32,7 +32,7 @@ export const debora: Lesson = {
     {
       id: 's2',
       title: 'El General que Necesitaba a una Mujer',
-      intro: { romanNumeral: 'II', heading: 'Barac y Débora — La Colaboración', subheading: 'El comandante que no iría sin la profetisa' },
+      intro: { romanNumeral: 'II', title: 'Barac y Débora — La Colaboración', paragraphs: ['El comandante que no iría sin la profetisa'] },
       topics: [
         {
           id: 't2',
@@ -47,7 +47,7 @@ export const debora: Lesson = {
     {
       id: 's3',
       title: 'La Victoria y el Cántico',
-      intro: { romanNumeral: 'III', heading: 'Jueces 5 — Uno de los Textos más Antiguos de la Biblia', subheading: 'La celebración de la liberación en verso' },
+      intro: { romanNumeral: 'III', title: 'Jueces 5 — Uno de los Textos más Antiguos de la Biblia', paragraphs: ['La celebración de la liberación en verso'] },
       topics: [
         {
           id: 't3',
@@ -62,7 +62,7 @@ export const debora: Lesson = {
     {
       id: 's4',
       title: 'Débora y el Liderazgo Femenino',
-      intro: { romanNumeral: 'IV', heading: 'La Teología de un Texto Incómodo', subheading: 'Lo que no puede ignorarse en el texto' },
+      intro: { romanNumeral: 'IV', title: 'La Teología de un Texto Incómodo', paragraphs: ['Lo que no puede ignorarse en el texto'] },
       topics: [
         {
           id: 't4',

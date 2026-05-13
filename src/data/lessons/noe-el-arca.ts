@@ -18,7 +18,7 @@ export const noeElArca: Lesson = {
     {
       id: 's2',
       title: 'El Arca — Una Obra de Fe',
-      intro: { romanNumeral: 'II', heading: 'Construir sin Ver la Lluvia', subheading: 'Hebreos 11:7' },
+      intro: { romanNumeral: 'II', title: 'Construir sin Ver la Lluvia', paragraphs: ['Hebreos 11:7'] },
       topics: [
         {
           id: 't2',

@@ -17,7 +17,7 @@ export const aaron: Lesson = {
     {
       id: 's1',
       title: 'La Voz de Moisés',
-      intro: { romanNumeral: 'I', heading: 'El Primer Portavoz', subheading: 'Éxodo 4 — cuando Dios elige a dos' },
+      intro: { romanNumeral: 'I', title: 'El Primer Portavoz', paragraphs: ['Éxodo 4 — cuando Dios elige a dos'] },
       topics: [
         {
           id: 't1',
@@ -32,7 +32,7 @@ export const aaron: Lesson = {
     {
       id: 's2',
       title: 'El Sumo Sacerdote Consagrado',
-      intro: { romanNumeral: 'II', heading: 'Levítico 8 — La Consagración más Elaborada de la Biblia', subheading: 'El primer sumo sacerdote de Israel' },
+      intro: { romanNumeral: 'II', title: 'Levítico 8 — La Consagración más Elaborada de la Biblia', paragraphs: ['El primer sumo sacerdote de Israel'] },
       topics: [
         {
           id: 't2',
@@ -52,7 +52,7 @@ export const aaron: Lesson = {
     {
       id: 's3',
       title: 'El Becerro de Oro — La Caída',
-      intro: { romanNumeral: 'III', heading: 'Éxodo 32 — Cuando la Presión Ganó', subheading: 'El momento más oscuro de Aarón' },
+      intro: { romanNumeral: 'III', title: 'Éxodo 32 — Cuando la Presión Ganó', paragraphs: ['El momento más oscuro de Aarón'] },
       topics: [
         {
           id: 't3',
@@ -60,7 +60,7 @@ export const aaron: Lesson = {
           blocks: [
             { type: 'highlight_verse', id: 'v2', reference: 'Éxodo 32:22-24', text: 'Y Aarón les respondió: No se enoje mi señor; tú conoces al pueblo, que es inclinado a mal. Porque me dijeron: Haznos dioses que vayan delante de nosotros... Y les dije: ¿Quién tiene oro? Apartadlo. Y me lo dieron, y lo eché en el fuego, y salió este becerro.' },
             { type: 'paragraph', id: 'p3', text: 'La excusa de Aarón es famosa por su absurdidad: "lo eché en el fuego, y salió este becerro" — como si el ídolo se hubiera formado solo. Es la historia de alguien cediando bajo presión social extrema y luego racionalizando su falla. El pueblo amenazaba con rebelarse; Aarón capituló. La lección no es que Aarón era un hombre malo — es que era un hombre bueno que fallóen el momento más importante por no tener el valor de resistir a la multitud.' },
-            { type: 'doctrine_box', id: 'db1', title: 'La Diferencia entre Moisés y Aarón', content: 'Moisés, al bajar del monte y ver el becerro, no negoció. Rompió las tablas, destruyó el ídolo, confrontó a Aarón, y convocó a quienes estaban con Jehová. La diferencia entre los dos no era de inteligencia ni de experiencia — era de disposición a aguantar el costo personal de la fidelidad. El coraje de la fidelidad es lo que separa al profeta del portavoz.' },
+            { type: 'doctrine_box', id: 'db1', title: 'La Diferencia entre Moisés y Aarón', body: 'Moisés, al bajar del monte y ver el becerro, no negoció. Rompió las tablas, destruyó el ídolo, confrontó a Aarón, y convocó a quienes estaban con Jehová. La diferencia entre los dos no era de inteligencia ni de experiencia — era de disposición a aguantar el costo personal de la fidelidad. El coraje de la fidelidad es lo que separa al profeta del portavoz.' },
           ],
         },
       ],
@@ -68,7 +68,7 @@ export const aaron: Lesson = {
     {
       id: 's4',
       title: 'La Redención del Servicio Fiel',
-      intro: { romanNumeral: 'IV', heading: 'Un Ministerio de 40 Años', subheading: 'El sacerdocio como segunda oportunidad' },
+      intro: { romanNumeral: 'IV', title: 'Un Ministerio de 40 Años', paragraphs: ['El sacerdocio como segunda oportunidad'] },
       topics: [
         {
           id: 't4',

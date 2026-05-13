@@ -19,8 +19,8 @@ export const lucifer: Lesson = {
       title: 'El Hijo de la Mañana — Quién Era Antes de Caer',
       intro: {
         romanNumeral: 'I',
-        heading: 'Isaías 14:12 — "¡Cómo Caíste del Cielo, Oh Lucero!"',
-        subheading: 'Un ser de autoridad y brillo antes de la rebelión',
+        title: 'Isaías 14:12 — "¡Cómo Caíste del Cielo, Oh Lucero!"',
+        paragraphs: ['Un ser de autoridad y brillo antes de la rebelión'],
       },
       topics: [
         {
@@ -47,7 +47,7 @@ export const lucifer: Lesson = {
               type: 'doctrine_box',
               id: 'db1',
               title: 'El Nombre "Lucifer" — Solo en la Restauración',
-              content: 'La Biblia Reina-Valera traduce Isaías 14:12 como "Lucero, hijo de la mañana." La KJV inglesa usa "Lucifer." En el texto hebreo original, la palabra es "Helel ben Shachar" — "estrella brillante, hijo del amanecer." La mayoría de los biblistas modernos aplican Isaías 14 al rey de Babilonia, no a Satanás. La Restauración, sin embargo, a través de Moisés 4, DyC 76:26-28, y José Smith, es la que conecta explícitamente a Lucifer con Satanás y revela su nombre preterrenal. Esta es información única que la Restauración preservó.',
+              body: 'La Biblia Reina-Valera traduce Isaías 14:12 como "Lucero, hijo de la mañana." La KJV inglesa usa "Lucifer." En el texto hebreo original, la palabra es "Helel ben Shachar" — "estrella brillante, hijo del amanecer." La mayoría de los biblistas modernos aplican Isaías 14 al rey de Babilonia, no a Satanás. La Restauración, sin embargo, a través de Moisés 4, DyC 76:26-28, y José Smith, es la que conecta explícitamente a Lucifer con Satanás y revela su nombre preterrenal. Esta es información única que la Restauración preservó.',
             },
             {
               type: 'highlight_verse',
@@ -93,8 +93,8 @@ export const lucifer: Lesson = {
       title: 'El Gran Concilio — El Plan que lo Condenó',
       intro: {
         romanNumeral: 'II',
-        heading: 'Moisés 4:1-4 — Dos Planes, Un Voto',
-        subheading: 'Por qué su plan era imposible aunque sonaba convincente',
+        title: 'Moisés 4:1-4 — Dos Planes, Un Voto',
+        paragraphs: ['Por qué su plan era imposible aunque sonaba convincente'],
       },
       topics: [
         {
@@ -121,7 +121,7 @@ export const lucifer: Lesson = {
               type: 'doctrine_box',
               id: 'db2',
               title: '¿Por qué el Plan de Lucifer Era Imposible?',
-              content: 'El plan de Lucifer requería destruir la agencia — el único medio por el cual el carácter genuino puede desarrollarse. Sin elección libre, la bondad no es bondad: es programación. Sin la posibilidad real de caer, el aumento espiritual es imposible. Además, su plan no podía "salvar" a nadie en el sentido eterno, porque la salvación requiere transformación del carácter, no solo rescate externo. 2 Nefi 2:11-13 explica que sin oposición, la existencia misma sería imposible. El plan de Lucifer era, en el sentido más profundo, un plan de anniquilación del propósito eterno — disfrazado de misericordia.',
+              body: 'El plan de Lucifer requería destruir la agencia — el único medio por el cual el carácter genuino puede desarrollarse. Sin elección libre, la bondad no es bondad: es programación. Sin la posibilidad real de caer, el aumento espiritual es imposible. Además, su plan no podía "salvar" a nadie en el sentido eterno, porque la salvación requiere transformación del carácter, no solo rescate externo. 2 Nefi 2:11-13 explica que sin oposición, la existencia misma sería imposible. El plan de Lucifer era, en el sentido más profundo, un plan de anniquilación del propósito eterno — disfrazado de misericordia.',
             },
             {
               type: 'highlight_verse',
@@ -165,8 +165,8 @@ export const lucifer: Lesson = {
       title: 'La Guerra en el Cielo — La Batalla y sus Consecuencias',
       intro: {
         romanNumeral: 'III',
-        heading: 'Apocalipsis 12:7-9 — Miguel y el Dragón',
-        subheading: 'La batalla que determinó quiénes vivirían en este mundo',
+        title: 'Apocalipsis 12:7-9 — Miguel y el Dragón',
+        paragraphs: ['La batalla que determinó quiénes vivirían en este mundo'],
       },
       topics: [
         {
@@ -188,7 +188,7 @@ export const lucifer: Lesson = {
               type: 'doctrine_box',
               id: 'db3',
               title: 'Miguel = Adán',
-              content: 'DyC 107:54 y DyC 27:11 identifican explícitamente a Miguel con Adán. "Miguel o Adán, el padre de todos, el príncipe de todos, el anciano de todos." El comandante celestial que expulsó a Lucifer en la guerra preterrenal es el mismo Adán que luego vino a la Tierra como el primer hombre, que luego es el "Anciano de Días" de Daniel 7, y que presidirá el concilio de Adán-ondi-Ahmán. La historia de Adán es mucho más grande que el Jardín del Edén.',
+              body: 'DyC 107:54 y DyC 27:11 identifican explícitamente a Miguel con Adán. "Miguel o Adán, el padre de todos, el príncipe de todos, el anciano de todos." El comandante celestial que expulsó a Lucifer en la guerra preterrenal es el mismo Adán que luego vino a la Tierra como el primer hombre, que luego es el "Anciano de Días" de Daniel 7, y que presidirá el concilio de Adán-ondi-Ahmán. La historia de Adán es mucho más grande que el Jardín del Edén.',
             },
             {
               type: 'highlight_verse',
@@ -231,8 +231,8 @@ export const lucifer: Lesson = {
       title: 'Las Estrategias de Satanás — Cómo Opera Hoy',
       intro: {
         romanNumeral: 'IV',
-        heading: '2 Nefi 28 — El Manual de Operaciones',
-        subheading: 'El profeta Nefi vio las tácticas específicas para nuestro tiempo',
+        title: '2 Nefi 28 — El Manual de Operaciones',
+        paragraphs: ['El profeta Nefi vio las tácticas específicas para nuestro tiempo'],
       },
       topics: [
         {
@@ -284,7 +284,7 @@ export const lucifer: Lesson = {
               type: 'doctrine_box',
               id: 'db4',
               title: 'Satanás No Es Omnisciente',
-              content: 'Una de las revelaciones más liberadoras de la Restauración: Satanás no puede leer la mente. No sabe lo que piensas — solo lo que dices y haces. Sus tentaciones se basan en patrones observados, no en conocimiento sobrenatural de tus pensamientos. Esto significa que la oración mental, el deseo del corazón, la intención privada — todo esto está fuera de su acceso. Esta es la razón por la que la escritura enfatiza tanto "el deseo del corazón" — es el refugio que Satanás no puede penetrar.',
+              body: 'Una de las revelaciones más liberadoras de la Restauración: Satanás no puede leer la mente. No sabe lo que piensas — solo lo que dices y haces. Sus tentaciones se basan en patrones observados, no en conocimiento sobrenatural de tus pensamientos. Esto significa que la oración mental, el deseo del corazón, la intención privada — todo esto está fuera de su acceso. Esta es la razón por la que la escritura enfatiza tanto "el deseo del corazón" — es el refugio que Satanás no puede penetrar.',
             },
             {
               type: 'paragraph',
@@ -305,8 +305,8 @@ export const lucifer: Lesson = {
       title: 'El Destino Final de Lucifer',
       intro: {
         romanNumeral: 'V',
-        heading: 'DyC 76:44 — Las Tinieblas de Afuera',
-        subheading: 'La segunda muerte y la perdición eterna',
+        title: 'DyC 76:44 — Las Tinieblas de Afuera',
+        paragraphs: ['La segunda muerte y la perdición eterna'],
       },
       topics: [
         {
@@ -333,7 +333,7 @@ export const lucifer: Lesson = {
               type: 'doctrine_box',
               id: 'db5',
               title: 'La Derrota Final de Satanás y Sus Implicaciones para Hoy',
-              content: 'El hecho de que el destino de Satanás ya esté determinado tiene implicaciones profundas para cómo navegamos la vida mortal. No estamos en la mitad de una guerra cuyo resultado es incierto. Cristo ya venció (Juan 16:33: "yo he vencido al mundo"). La guerra mortal es la aplicación personal de una victoria ya ganada. Esto no elimina el peligro real del adversario — pero cambia fundamentalmente la postura espiritual. No somos prisioneros esperando ser rescatados. Somos soldados implementando la victoria de su Comandante.',
+              body: 'El hecho de que el destino de Satanás ya esté determinado tiene implicaciones profundas para cómo navegamos la vida mortal. No estamos en la mitad de una guerra cuyo resultado es incierto. Cristo ya venció (Juan 16:33: "yo he vencido al mundo"). La guerra mortal es la aplicación personal de una victoria ya ganada. Esto no elimina el peligro real del adversario — pero cambia fundamentalmente la postura espiritual. No somos prisioneros esperando ser rescatados. Somos soldados implementando la victoria de su Comandante.',
             },
             {
               type: 'paragraph',
@@ -376,8 +376,8 @@ export const lucifer: Lesson = {
       title: 'Satanás en el Libro de Mormón y la Restauración',
       intro: {
         romanNumeral: 'VI',
-        heading: 'Lo que Solo la Restauración Reveló sobre el Adversario',
-        subheading: 'Las doctrinas únicas que cambian cómo entendemos la oposición',
+        title: 'Lo que Solo la Restauración Reveló sobre el Adversario',
+        paragraphs: ['Las doctrinas únicas que cambian cómo entendemos la oposición'],
       },
       topics: [
         {
@@ -409,7 +409,7 @@ export const lucifer: Lesson = {
               type: 'doctrine_box',
               id: 'db6',
               title: 'La Postura Correcta ante Satanás: Ni Obsesión Ni Ignorancia',
-              content: 'La Restauración nos da una postura teológica matizada sobre Satanás: (1) Es real — no es un símbolo del mal abstracto sino un ser con agencia y estrategia. (2) Es limitado — no es igual a Dios, no es omnisciente, opera dentro de límites. (3) Ha sido derrotado — la expiación de Cristo ya garantizó su derrota final. (4) Puede ser resistido — Santiago 4:7: "Resistid al diablo, y huirá de vosotros." La obsesión con Satanás es contraproducente — pone el foco en el adversario en lugar de en Cristo. La ignorancia es peligrosa — deja sin herramientas de defensa. La postura correcta es la conciencia vigilante con el foco en Cristo.',
+              body: 'La Restauración nos da una postura teológica matizada sobre Satanás: (1) Es real — no es un símbolo del mal abstracto sino un ser con agencia y estrategia. (2) Es limitado — no es igual a Dios, no es omnisciente, opera dentro de límites. (3) Ha sido derrotado — la expiación de Cristo ya garantizó su derrota final. (4) Puede ser resistido — Santiago 4:7: "Resistid al diablo, y huirá de vosotros." La obsesión con Satanás es contraproducente — pone el foco en el adversario en lugar de en Cristo. La ignorancia es peligrosa — deja sin herramientas de defensa. La postura correcta es la conciencia vigilante con el foco en Cristo.',
             },
             {
               type: 'reflection',

@@ -17,7 +17,7 @@ export const elias: Lesson = {
     {
       id: 's1',
       title: 'Elías vs. 450 Profetas de Baal',
-      intro: { romanNumeral: 'I', heading: 'El Monte Carmelo — El Gran Duelo', subheading: '1 Reyes 18 — el momento más dramático del AT' },
+      intro: { romanNumeral: 'I', title: 'El Monte Carmelo — El Gran Duelo', paragraphs: ['1 Reyes 18 — el momento más dramático del AT'] },
       topics: [
         {
           id: 't1',
@@ -32,7 +32,7 @@ export const elias: Lesson = {
     {
       id: 's2',
       title: 'El Profeta que Huyó',
-      intro: { romanNumeral: 'II', heading: 'La Depresión del Hombre más Valiente', subheading: '1 Reyes 19 — la humanidad detrás del milagro' },
+      intro: { romanNumeral: 'II', title: 'La Depresión del Hombre más Valiente', paragraphs: ['1 Reyes 19 — la humanidad detrás del milagro'] },
       topics: [
         {
           id: 't2',
@@ -40,7 +40,7 @@ export const elias: Lesson = {
           blocks: [
             { type: 'highlight_verse', id: 'v2', reference: '1 Reyes 19:4', text: 'Y él se fue por el desierto un día de camino, y vino y se sentó debajo de un enebro; y deseando morirse, dijo: Basta ya, oh Jehová, quítame la vida, pues no soy yo mejor que mis padres.' },
             { type: 'paragraph', id: 'p2', text: 'El día después de su mayor triunfo, Elías quería morir. La reina Jezabel lo amenazó y huyó. Este pasaje es uno de los más honestos de toda la Biblia sobre la psicología del profeta: el agotamiento emocional que sigue a la crisis espiritual intensa. La respuesta de Dios no fue un sermón — fue comida y descanso. "Levántate y come, porque largo camino te resta." El ángel le dio de comer dos veces antes de pedirle algo.' },
-            { type: 'doctrine_box', id: 'db1', title: 'La Voz Apacible y Delicada', content: '1 Reyes 19:11-12: Dios pasó. Vino un gran viento, un terremoto, y fuego — y Dios no estaba en ninguno de ellos. Después del fuego vino una "voz apacible y delicada" (en hebreo: qol demamah daqah — literalmente "la voz del silencio fino"). Elías, que acababa de ver el fuego del cielo, encontró a Dios en el susurro. Esta es la lección más profunda de su historia: los grandes milagros demuestran poder, pero Dios habla en el silencio.' },
+            { type: 'doctrine_box', id: 'db1', title: 'La Voz Apacible y Delicada', body: '1 Reyes 19:11-12: Dios pasó. Vino un gran viento, un terremoto, y fuego — y Dios no estaba en ninguno de ellos. Después del fuego vino una "voz apacible y delicada" (en hebreo: qol demamah daqah — literalmente "la voz del silencio fino"). Elías, que acababa de ver el fuego del cielo, encontró a Dios en el susurro. Esta es la lección más profunda de su historia: los grandes milagros demuestran poder, pero Dios habla en el silencio.' },
           ],
         },
       ],
@@ -48,7 +48,7 @@ export const elias: Lesson = {
     {
       id: 's3',
       title: 'Elías en la Transfiguración y en Kirtland',
-      intro: { romanNumeral: 'III', heading: 'El Profeta que Nunca Murió', subheading: 'Apariciones que definen la historia' },
+      intro: { romanNumeral: 'III', title: 'El Profeta que Nunca Murió', paragraphs: ['Apariciones que definen la historia'] },
       topics: [
         {
           id: 't3',
@@ -64,7 +64,7 @@ export const elias: Lesson = {
     {
       id: 's4',
       title: 'Malaquías 4 — La Promesa Pendiente',
-      intro: { romanNumeral: 'IV', heading: 'Volver el Corazón de los Padres', subheading: 'La misión que define los últimos días' },
+      intro: { romanNumeral: 'IV', title: 'Volver el Corazón de los Padres', paragraphs: ['La misión que define los últimos días'] },
       topics: [
         {
           id: 't4',

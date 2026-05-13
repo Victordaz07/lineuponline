@@ -18,7 +18,7 @@ export const isaacElEsposo: Lesson = {
     {
       id: 's3',
       title: 'La Vida Silenciosa de Isaac',
-      intro: { romanNumeral: 'III', heading: 'El Patriarca Quieto', subheading: 'Su carácter en las pocas escenas que tenemos' },
+      intro: { romanNumeral: 'III', title: 'El Patriarca Quieto', paragraphs: ['Su carácter en las pocas escenas que tenemos'] },
       topics: [
         {
           id: 't3',

@@ -18,7 +18,7 @@ export const enocLaTraslacion: Lesson = {
     {
       id: 's4',
       title: 'El Regreso de Enoc',
-      intro: { romanNumeral: 'IV', heading: 'DyC 45 — La Promesa del Milenio', subheading: 'Sión vuelve' },
+      intro: { romanNumeral: 'IV', title: 'DyC 45 — La Promesa del Milenio', paragraphs: ['Sión vuelve'] },
       topics: [
         {
           id: 't4',

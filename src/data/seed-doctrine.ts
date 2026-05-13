@@ -131,6 +131,31 @@ import { jacobElFugitivo as lessonJacobElFugitivo } from '@/data/lessons/jacob-e
 import { jacobLaLucha as lessonJacobLaLucha } from '@/data/lessons/jacob-la-lucha'
 import { jacobElPadre as lessonJacobElPadre } from '@/data/lessons/jacob-el-padre'
 import { jacobYLaRestauracion as lessonJacobYLaRestauracion } from '@/data/lessons/jacob-y-la-restauracion'
+import { lehiElProfeta as lessonLehiElProfeta } from '@/data/lessons/lehi-el-profeta'
+import { lehiElArbol as lessonLehiElArbol } from '@/data/lessons/lehi-el-arbol'
+import { lehiLasBendiciones as lessonLehiLasBendiciones } from '@/data/lessons/lehi-las-bendiciones'
+import { lehiElLegado as lessonLehiElLegado } from '@/data/lessons/lehi-el-legado'
+import { lehiYLaRestauracion as lessonLehiYLaRestauracion } from '@/data/lessons/lehi-y-la-restauracion'
+import { nefiIreYHare as lessonNefiIreYHare } from '@/data/lessons/nefi-ire-y-hare'
+import { nefiLaVision as lessonNefiLaVision } from '@/data/lessons/nefi-la-vision'
+import { nefiElLamento as lessonNefiElLamento } from '@/data/lessons/nefi-el-lamento'
+import { nefiElConstructor as lessonNefiElConstructor } from '@/data/lessons/nefi-el-constructor'
+import { nefiYLaRestauracion as lessonNefiYLaRestauracion } from '@/data/lessons/nefi-y-la-restauracion'
+import { reyBenjaminElReySiervo as lessonReyBenjaminElReySiervo } from '@/data/lessons/rey-benjamin-el-rey-siervo'
+import { reyBenjaminLaDeuda as lessonReyBenjaminLaDeuda } from '@/data/lessons/rey-benjamin-la-deuda'
+import { reyBenjaminElNombre as lessonReyBenjaminElNombre } from '@/data/lessons/rey-benjamin-el-nombre'
+import { reyBenjaminElProjimo as lessonReyBenjaminElProjimo } from '@/data/lessons/rey-benjamin-el-projimo'
+import { reyBenjaminYLaRestauracion as lessonReyBenjaminYLaRestauracion } from '@/data/lessons/rey-benjamin-y-la-restauracion'
+import { moroniElSobreviviente as lessonMoroniElSobreviviente } from '@/data/lessons/moroni-el-sobreviviente'
+import { moroniLaProfecia as lessonMoroniLaProfecia } from '@/data/lessons/moroni-la-profecia'
+import { moroniLaPromesa as lessonMoroniLaPromesa } from '@/data/lessons/moroni-la-promesa'
+import { moroniLasPlanchas as lessonMoroniLasPlanchas } from '@/data/lessons/moroni-las-planchas'
+import { moroniYLaRestauracion as lessonMoroniYLaRestauracion } from '@/data/lessons/moroni-y-la-restauracion'
+import { mormonElGeneral as lessonMormonElGeneral } from '@/data/lessons/mormon-el-general'
+import { mormonElCompilador as lessonMormonElCompilador } from '@/data/lessons/mormon-el-compilador'
+import { mormonElProfeta as lessonMormonElProfeta } from '@/data/lessons/mormon-el-profeta'
+import { mormonElPadre as lessonMormonElPadre } from '@/data/lessons/mormon-el-padre'
+import { mormonYLaRestauracion as lessonMormonYLaRestauracion } from '@/data/lessons/mormon-y-la-restauracion'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -189,6 +214,36 @@ export const SUBMODULE_GROUPS: Record<string, { title: string; description: stri
     description:
       'De suplantador a príncipe. Jacob compró la primogenitura, engañó a su padre, amó 14 años por Raquel, y una noche luchó con Dios hasta el amanecer. Su nombre cambió. El nuestro también puede.',
     icon: '🤼',
+  },
+  lehi: {
+    title: 'Lehi — El Patriarca que Dejó Todo',
+    description:
+      'Un hombre rico de Jerusalén que lo abandonó todo por obediencia. Sus visiones fundaron una civilización. Su árbol de la vida es la alegoría central del Libro de Mormón. Sus bendiciones a sus hijos son profecía para naciones.',
+    icon: '🌳',
+  },
+  nefi: {
+    title: 'Nefi — "Iré y Haré"',
+    description:
+      'El joven que obedeció sin saber de antemano cómo. Mató a un hombre, construyó un barco sin instrucción, escribió escritura sagrada y lamentó su propia debilidad. La fe de Nefi es la que la Restauración llama al mundo a imitar.',
+    icon: '⚔️',
+  },
+  'rey-benjamin': {
+    title: 'Rey Benjamín — El Rey que Sirvió',
+    description:
+      'Gobernó sin cobrar tributo y trabajó con sus propias manos. Su discurso desde la torre produjo una conversión colectiva completa. "Cuando estáis al servicio de vuestros semejantes, solamente estáis al servicio de vuestro Dios."',
+    icon: '🛡️',
+  },
+  'moroni-profeta': {
+    title: 'Moroni — El Último Profeta del Libro de Mormón',
+    description:
+      'Sobreviviente de una civilización destruida. Solo, errante, escribió los últimos capítulos del Libro de Mormón durante décadas. Enterró las planchas. Y 1,400 años después apareció como ángel a José Smith para entregarlas.',
+    icon: '📯',
+  },
+  mormon: {
+    title: 'Mormon — El Profeta-Compilador',
+    description:
+      'Nombrado general a los 15 años. Compiló el Libro de Mormón de registros milenarios. Fue profeta sin audiencia, padre que entrenó a Moroni, y testigo del colapso final de su pueblo. El libro que lleva su nombre es su legado eterno.',
+    icon: '📚',
   },
 }
 
@@ -1203,32 +1258,18 @@ const LESSON_ROWS: LessonRow[] = [
     status: 'IN_CONSTRUCTION',
   },
   // ── LIBRO DE MORMÓN (orders 70-79) ───────────────────────────────────────
-  {
-    id: 'lehi',
-    moduleId: 'personajes-escrituras',
-    title: 'Lehi — El Padre que Lo Dejó Todo',
-    subtitle: 'El profeta rechazado que fundó un pueblo',
-    description:
-      'Lehi era un hombre rico de Jerusalén. Dios le pidió que lo dejara todo — su casa, su tierra, sus posesiones — y llevara a su familia al desierto. Sus hijos lo obedecieron y lo resistieron. Murió en tierra prometida sin ver la nación que fundó. 1 Nefi 1-18 y 2 Nefi 1-4.',
-    level: 'BÁSICO',
-    icon: '🏕️',
-    duration: 60,
-    order: 70,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'nefi',
-    moduleId: 'personajes-escrituras',
-    title: 'Nefi — El Que Obedeció cuando Era Imposible',
-    subtitle: '"Iré y haré las cosas que el Señor ha mandado"',
-    description:
-      'Nefi mató a un hombre borracho porque era "mejor que perezca un hombre que una nación" (1 Nefi 4:13). Construyó un barco sin instrucción previa. Obtuvo el Libro de Bronce. Y en su vejez escribió sus memorias con una tristeza que contrasta con toda su obediencia (2 Nefi 4:17-35).',
-    level: 'BÁSICO',
-    icon: '🚢',
-    duration: 65,
-    order: 71,
-    status: 'IN_CONSTRUCTION',
-  },
+  // ── LEHI (submodule, orders 7010-7014) ───────────────────────────────────
+  { id: 'lehi-el-profeta', moduleId: 'personajes-escrituras', title: 'El Profeta', subtitle: 'El llamamiento en Jerusalén', description: 'Lehi era un hombre rico de Jerusalén. Tuvo visiones, predicó, fue rechazado y huyó al desierto con su familia. El profeta que lo abandonó todo antes de que alguien más lo hiciera.', level: 'INTERMEDIO', icon: '🔥', duration: 30, order: 7010, status: 'PUBLISHED', submoduleGroup: 'lehi' },
+  { id: 'lehi-el-arbol', moduleId: 'personajes-escrituras', title: 'El Árbol de la Vida', subtitle: 'La alegoría central del Libro de Mormón', description: 'La visión de Lehi en 1 Nefi 8 — el árbol de fruto blanco, la barra de hierro, la niebla de oscuridad y el gran edificio — es la alegoría más citada de toda la escritura restaurada.', level: 'AVANZADO', icon: '🌳', duration: 35, order: 7011, status: 'PUBLISHED', submoduleGroup: 'lehi' },
+  { id: 'lehi-las-bendiciones', moduleId: 'personajes-escrituras', title: 'Las Bendiciones Patriarcales', subtitle: 'Las últimas palabras como herencia profética', description: 'Lehi reunió a sus hijos antes de morir y pronunció una bendición profética individual para cada uno. 2 Nefi 1-4 son algunas de las palabras más emotivas y teológicamente densas del Libro de Mormón.', level: 'INTERMEDIO', icon: '📜', duration: 30, order: 7012, status: 'PUBLISHED', submoduleGroup: 'lehi' },
+  { id: 'lehi-el-legado', moduleId: 'personajes-escrituras', title: 'El Legado', subtitle: 'Una decisión que cambió una civilización', description: 'La decisión de Lehi de abandonar Jerusalén dio origen a dos naciones que durarían mil años y recibirían la visita personal de Cristo resucitado. El impacto de una familia obediente en la escala de la historia.', level: 'AVANZADO', icon: '🌎', duration: 30, order: 7013, status: 'PUBLISHED', submoduleGroup: 'lehi' },
+  { id: 'lehi-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Lehi y la Restauración', subtitle: 'La cadena de custodia de las planchas de oro', description: 'Los descendientes de Lehi preservaron las planchas durante mil años. Sus profecías de 1 Nefi 13-14 sobre la Restauración se cumplieron con precisión. El árbol de la vida tiene conexión directa con la teología del templo restaurado.', level: 'INTERMEDIO', icon: '✨', duration: 25, order: 7014, status: 'PUBLISHED', submoduleGroup: 'lehi' },
+  // ── NEFI (submodule, orders 7110-7114) ───────────────────────────────────
+  { id: 'nefi-ire-y-hare', moduleId: 'personajes-escrituras', title: '"Iré y Haré"', subtitle: 'La promesa antes del plan', description: 'Nefi prometió obedecer antes de saber cómo. Intentó tres veces obtener las planchas de Labán. La tercera, fue conducido por el Espíritu "sin saber de antemano las cosas que haría."', level: 'INTERMEDIO', icon: '⚔️', duration: 30, order: 7110, status: 'PUBLISHED', submoduleGroup: 'nefi' },
+  { id: 'nefi-la-vision', moduleId: 'personajes-escrituras', title: 'La Visión', subtitle: 'Creer para ver', description: 'Nefi quiso ver lo mismo que su padre. El Espíritu le preguntó primero: "¿Crees que tu padre vio el árbol?" Su visión en 1 Nefi 11-14 expandió la de Lehi con interpretación profética completa.', level: 'AVANZADO', icon: '👁️', duration: 35, order: 7111, status: 'PUBLISHED', submoduleGroup: 'nefi' },
+  { id: 'nefi-el-lamento', moduleId: 'personajes-escrituras', title: 'El Salmo de Nefi', subtitle: 'La fe que coexiste con la debilidad', description: 'En 2 Nefi 4, Nefi llora su propia imperfección con una honestidad que contrasta con toda su fortaleza. El Salmo de Nefi es uno de los textos de vida interior más auténticos de la escritura sagrada.', level: 'INTERMEDIO', icon: '😢', duration: 30, order: 7112, status: 'PUBLISHED', submoduleGroup: 'nefi' },
+  { id: 'nefi-el-constructor', moduleId: 'personajes-escrituras', title: 'El Constructor', subtitle: 'El barco, el templo, la nación', description: 'Nefi construyó un barco sin saber cómo. Cruzó el océano. Fundó la Ciudad de Nefi y construyó un templo semejante al de Salomón. El obediente también construye — a escala de civilización.', level: 'INTERMEDIO', icon: '🚢', duration: 30, order: 7113, status: 'PUBLISHED', submoduleGroup: 'nefi' },
+  { id: 'nefi-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Nefi y la Restauración', subtitle: 'El profeta que más nos habla directamente', description: '2 Nefi 25-29 son profecías directas sobre la Restauración: la apostasía, el Libro de Mormón, la objeción "ya tenemos Biblia," y la invitación universal. Nefi escribió estos capítulos para nosotros.', level: 'AVANZADO', icon: '📖', duration: 25, order: 7114, status: 'PUBLISHED', submoduleGroup: 'nefi' },
   {
     id: 'el-hermano-de-jared',
     moduleId: 'personajes-escrituras',
@@ -1255,19 +1296,12 @@ const LESSON_ROWS: LessonRow[] = [
     order: 73,
     status: 'IN_CONSTRUCTION',
   },
-  {
-    id: 'rey-benjamin',
-    moduleId: 'personajes-escrituras',
-    title: 'Rey Benjamín — El Rey Siervo',
-    subtitle: 'El discurso que transformó a toda una nación en un solo día',
-    description:
-      'Benjamín era rey pero trabajaba con sus propias manos para no ser una carga. Su discurso desde la torre (Mosíah 2-5) produjo una conversión colectiva tan completa que el pueblo declaró no tener más deseo de hacer el mal. Incluye la profecía del nombre de Cristo 124 años antes de su nacimiento.',
-    level: 'BÁSICO',
-    icon: '🏰',
-    duration: 60,
-    order: 74,
-    status: 'IN_CONSTRUCTION',
-  },
+  // ── REY BENJAMÍN (submodule, orders 7410-7414) ───────────────────────────
+  { id: 'rey-benjamin-el-rey-siervo', moduleId: 'personajes-escrituras', title: 'El Rey Siervo', subtitle: 'Gobernó sin cobrar tributo', description: 'Benjamín era rey pero trabajaba con sus propias manos. Fue guerrero, gobernante y servidor. Su liderazgo invierte el modelo antiguo: la autoridad que sirve es la autoridad legítima.', level: 'INTERMEDIO', icon: '🛡️', duration: 30, order: 7410, status: 'PUBLISHED', submoduleGroup: 'rey-benjamin' },
+  { id: 'rey-benjamin-la-deuda', moduleId: 'personajes-escrituras', title: 'La Deuda Impagable', subtitle: 'El argumento más poderoso sobre la gracia', description: 'Mosíah 2:20-25 demuestra que no podemos saldar nuestra deuda con Dios — cada capacidad de servirle viene de Él. La única respuesta posible a la gracia es gratitud, no pago.', level: 'AVANZADO', icon: '⚖️', duration: 35, order: 7411, status: 'PUBLISHED', submoduleGroup: 'rey-benjamin' },
+  { id: 'rey-benjamin-el-nombre', moduleId: 'personajes-escrituras', title: 'El Nombre de Cristo', subtitle: 'Tomar el nombre como convenio', description: 'Mosíah 5:7-15 describe el convenio del pueblo de tomar sobre sí el nombre de Cristo. La conversión colectiva que siguió al discurso es única en la escritura: todos, sin excepción, experimentaron un cambio de corazón.', level: 'AVANZADO', icon: '✝️', duration: 35, order: 7412, status: 'PUBLISHED', submoduleGroup: 'rey-benjamin' },
+  { id: 'rey-benjamin-el-projimo', moduleId: 'personajes-escrituras', title: 'El Prójimo como Dios', subtitle: '"Al servicio de vuestros semejantes..."', description: 'Mosíah 2:17 es el versículo más citado de Rey Benjamín: servir a los demás ES servir a Dios. La teología del servicio como identidad — no como deber — es el legado práctico de su reinado.', level: 'INTERMEDIO', icon: '🤝', duration: 30, order: 7413, status: 'PUBLISHED', submoduleGroup: 'rey-benjamin' },
+  { id: 'rey-benjamin-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Rey Benjamín y la Restauración', subtitle: 'El sermón más completo sobre la Expiación antes de Cristo', description: 'El discurso de Rey Benjamín en Mosíah 3-5 es el tratado pre-cristiano más completo sobre la Expiación en la escritura. Su ceremonia de renovación de convenio anticipa la estructura del templo restaurado.', level: 'AVANZADO', icon: '✨', duration: 25, order: 7414, status: 'PUBLISHED', submoduleGroup: 'rey-benjamin' },
   {
     id: 'capitan-moroni',
     moduleId: 'personajes-escrituras',
@@ -1294,19 +1328,18 @@ const LESSON_ROWS: LessonRow[] = [
     order: 76,
     status: 'IN_CONSTRUCTION',
   },
-  {
-    id: 'moroni-profeta',
-    moduleId: 'personajes-escrituras',
-    title: 'Moroni — El Último Guardián',
-    subtitle: 'El último nefita, el primer ángel de la restauración',
-    description:
-      'Moroni sobrevivió al genocidio de su pueblo. Solo, errante, escribió los últimos capítulos del Libro de Mormón durante décadas. Enterró las planchas. Y 1,400 años después, apareció como ángel al joven José Smith en 1823. Moroni 10:4-5 contiene la promesa que ha transformado millones de vidas.',
-    level: 'INTERMEDIO',
-    icon: '📯',
-    duration: 65,
-    order: 77,
-    status: 'IN_CONSTRUCTION',
-  },
+  // ── MORONI PROFETA (submodule, orders 7710-7714) ─────────────────────────
+  { id: 'moroni-el-sobreviviente', moduleId: 'personajes-escrituras', title: 'El Sobreviviente', subtitle: 'Solo después de Cumorah', description: 'Moroni sobrevivió al genocidio de 230,000 nefitas incluyendo a su padre Mormon. Solo, errante, sin familia ni comunidad, escribió para una audiencia que no conocería nunca.', level: 'AVANZADO', icon: '🗡️', duration: 35, order: 7710, status: 'PUBLISHED', submoduleGroup: 'moroni-profeta' },
+  { id: 'moroni-la-profecia', moduleId: 'personajes-escrituras', title: 'La Profecía', subtitle: 'El diagnóstico de nuestra época', description: 'Mormón 8:35-41: Moroni describe con precisión la época en que el Libro de Mormón sería traducido. Orgullo, ropa de lujo, abandono de los pobres, contaminación de la iglesia. Nos habla directamente.', level: 'AVANZADO', icon: '🔭', duration: 35, order: 7711, status: 'PUBLISHED', submoduleGroup: 'moroni-profeta' },
+  { id: 'moroni-la-promesa', moduleId: 'personajes-escrituras', title: 'La Promesa', subtitle: 'Cómo saber que el libro es verdadero', description: 'Moroni 10:3-5 ofrece la promesa más conocida del Libro de Mormón: ponder, pray with sincere heart and real intent, and God will manifest the truth by the Holy Ghost. El mecanismo de confirmación espiritual.', level: 'INTERMEDIO', icon: '🙏', duration: 30, order: 7712, status: 'PUBLISHED', submoduleGroup: 'moroni-profeta' },
+  { id: 'moroni-las-planchas', moduleId: 'personajes-escrituras', title: 'El Ángel', subtitle: 'De guardián a mensajero de la Restauración', description: 'Moroni como ser resucitado visitó a José Smith a partir del 21 de septiembre de 1823. Cuatro años de preparación antes de la entrega de las planchas. Apocalipsis 14:6 lo profetizó 1,700 años antes.', level: 'AVANZADO', icon: '📿', duration: 30, order: 7713, status: 'PUBLISHED', submoduleGroup: 'moroni-profeta' },
+  { id: 'moroni-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Moroni y la Restauración', subtitle: 'La figura en la cima del templo', description: 'Moroni corona los templos del mundo con su trompeta — el heraldo de la Restauración. DyC 27:5 lo identifica. Sus palabras a José Smith cruzaron 1,400 años de silencio para inaugurar la última dispensación.', level: 'AVANZADO', icon: '📯', duration: 25, order: 7714, status: 'PUBLISHED', submoduleGroup: 'moroni-profeta' },
+  // ── MORMON EL PROFETA (submodule, orders 7810-7814) ──────────────────────
+  { id: 'mormon-el-general', moduleId: 'personajes-escrituras', title: 'El General', subtitle: 'Nombrado comandante a los 15 años', description: 'Mormon dirigió los ejércitos nefitas durante 60 años en guerras cada vez más desesperadas. Un general justo al servicio de un pueblo injusto. Cuando el pueblo atacó por venganza, se negó a liderarlos.', level: 'AVANZADO', icon: '⚔️', duration: 35, order: 7810, status: 'PUBLISHED', submoduleGroup: 'mormon' },
+  { id: 'mormon-el-compilador', moduleId: 'personajes-escrituras', title: 'El Compilador', subtitle: 'El editor más importante de la historia sagrada', description: 'Mormon tuvo acceso a milenios de registros nefitas. Eligió qué incluir, qué omitir, y por qué. Su voz editorial ("y así vemos") aparece en todo el libro. Es uno de los narradores más conscientes de sí mismos en la literatura antigua.', level: 'AVANZADO', icon: '📚', duration: 35, order: 7811, status: 'PUBLISHED', submoduleGroup: 'mormon' },
+  { id: 'mormon-el-profeta', moduleId: 'personajes-escrituras', title: 'El Profeta', subtitle: 'Visitado por el Señor a los 15 años', description: 'A los 10, Ammoró lo preparó para la misión de los registros. A los 15 fue visitado del Señor. A los 15 también tomó el mando del ejército. Mormon fue profeta y general simultáneamente, en un pueblo que rechazaba ambas cosas.', level: 'AVANZADO', icon: '🌟', duration: 30, order: 7812, status: 'PUBLISHED', submoduleGroup: 'mormon' },
+  { id: 'mormon-el-padre', moduleId: 'personajes-escrituras', title: 'El Padre', subtitle: 'Las cartas de un padre a su hijo durante el apocalipsis', description: 'Las cartas de Mormon a Moroni sobre el bautismo infantil (Moroni 8) muestran un teólogo preciso escribiendo en medio de la guerra. Entrenó a Moroni militarmente y espiritualmente. Le entregó las planchas y la misión.', level: 'INTERMEDIO', icon: '👨‍👦', duration: 30, order: 7813, status: 'PUBLISHED', submoduleGroup: 'mormon' },
+  { id: 'mormon-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Mormon y la Restauración', subtitle: 'El libro que lleva su nombre', description: 'Mormon nunca supo que el registro que compiló en los últimos días de una civilización colapsada sería traducido 1,400 años después y cambiaría el mundo. Sus palabras directas a los futuros lectores son una carta abierta para nosotros.', level: 'AVANZADO', icon: '📖', duration: 25, order: 7814, status: 'PUBLISHED', submoduleGroup: 'mormon' },
   // ── RESTAURACIÓN (orders 80-89) ───────────────────────────────────────────
   {
     id: 'jose-smith',
@@ -1682,6 +1715,31 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'el-circulo-de-jesus': lessonElCirculoDeJesus,
   'lucifer': lessonLucifer,
   'el-mundo-de-los-espiritus': lessonMundoEspiritus,
+  'lehi-el-profeta': lessonLehiElProfeta,
+  'lehi-el-arbol': lessonLehiElArbol,
+  'lehi-las-bendiciones': lessonLehiLasBendiciones,
+  'lehi-el-legado': lessonLehiElLegado,
+  'lehi-y-la-restauracion': lessonLehiYLaRestauracion,
+  'nefi-ire-y-hare': lessonNefiIreYHare,
+  'nefi-la-vision': lessonNefiLaVision,
+  'nefi-el-lamento': lessonNefiElLamento,
+  'nefi-el-constructor': lessonNefiElConstructor,
+  'nefi-y-la-restauracion': lessonNefiYLaRestauracion,
+  'rey-benjamin-el-rey-siervo': lessonReyBenjaminElReySiervo,
+  'rey-benjamin-la-deuda': lessonReyBenjaminLaDeuda,
+  'rey-benjamin-el-nombre': lessonReyBenjaminElNombre,
+  'rey-benjamin-el-projimo': lessonReyBenjaminElProjimo,
+  'rey-benjamin-y-la-restauracion': lessonReyBenjaminYLaRestauracion,
+  'moroni-el-sobreviviente': lessonMoroniElSobreviviente,
+  'moroni-la-profecia': lessonMoroniLaProfecia,
+  'moroni-la-promesa': lessonMoroniLaPromesa,
+  'moroni-las-planchas': lessonMoroniLasPlanchas,
+  'moroni-y-la-restauracion': lessonMoroniYLaRestauracion,
+  'mormon-el-general': lessonMormonElGeneral,
+  'mormon-el-compilador': lessonMormonElCompilador,
+  'mormon-el-profeta': lessonMormonElProfeta,
+  'mormon-el-padre': lessonMormonElPadre,
+  'mormon-y-la-restauracion': lessonMormonYLaRestauracion,
   'enoc-el-llamamiento': lessonEnocElLlamamiento,
   'enoc-el-vidente': lessonEnocElVidente,
   'enoc-la-ciudad': lessonEnocLaCiudad,
@@ -1727,14 +1785,10 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'ester': lessonEster,
   'debora': lessonDebora,
   'maria-la-madre': lessonMariaLaMadre,
-  'lehi': lessonLehi,
-  'nefi': lessonNefi,
   'el-hermano-de-jared': lessonHermanoDeJared,
   'ammon': lessonAmmon,
-  'rey-benjamin': lessonReyBenjamin,
   'capitan-moroni': lessonCapitanMoroni,
   'samuel-el-lamanita': lessonSamuelElLamanita,
-  'moroni-profeta': lessonMoroniProfeta,
   'jose-smith': lessonJoseSmith,
   'emma-smith': lessonEmmaSmith,
   'hyrum-smith': lessonHyrumSmith,

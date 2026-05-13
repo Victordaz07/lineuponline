@@ -18,7 +18,7 @@ export const isaacElHijo: Lesson = {
     {
       id: 's1',
       title: 'El Hijo de la Promesa Imposible',
-      intro: { romanNumeral: 'I', heading: '"Risa" — El Nombre lo Dice Todo', subheading: 'Sara se rió; Dios cumplió' },
+      intro: { romanNumeral: 'I', title: '"Risa" — El Nombre lo Dice Todo', paragraphs: ['Sara se rió; Dios cumplió'] },
       topics: [
         {
           id: 't1',

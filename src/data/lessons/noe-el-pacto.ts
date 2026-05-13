@@ -18,7 +18,7 @@ export const noeElPacto: Lesson = {
     {
       id: 's4',
       title: 'El Pacto del Arco Iris',
-      intro: { romanNumeral: 'IV', heading: 'Un Pacto para Siempre', subheading: 'DyC 133:54-56 — la señal que siempre veremos' },
+      intro: { romanNumeral: 'IV', title: 'Un Pacto para Siempre', paragraphs: ['DyC 133:54-56 — la señal que siempre veremos'] },
       topics: [
         {
           id: 't4',

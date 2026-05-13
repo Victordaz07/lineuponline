@@ -18,7 +18,7 @@ export const melquisedecYLaRestauracion: Lesson = {
     {
       id: 's5',
       title: 'Un Nombre que Honra a un Hombre',
-      intro: { romanNumeral: 'V', heading: 'Un Nombre que Honra a un Hombre', subheading: 'DyC 107:2-4 — La razón del nombre' },
+      intro: { romanNumeral: 'V', title: 'Un Nombre que Honra a un Hombre', paragraphs: ['DyC 107:2-4 — La razón del nombre'] },
       topics: [
         {
           id: 't5',
