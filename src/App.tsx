@@ -1,5 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Layout } from '@/components/layout/Layout'
+import { ErrorBoundary } from '@/components/ErrorBoundary'
 import Dashboard from '@/pages/Dashboard'
 import ModuleView from '@/pages/ModuleView'
 import LessonView from '@/pages/LessonView'
@@ -15,6 +16,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Layout>
+        <ErrorBoundary>
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/module/:moduleId" element={<ModuleView />} />
@@ -24,6 +26,7 @@ export default function App() {
           <Route path="/notas" element={<Navigate to="/my-notes" replace />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
+        </ErrorBoundary>
       </Layout>
     </BrowserRouter>
   )

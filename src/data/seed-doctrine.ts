@@ -53,6 +53,57 @@ import { cristoLibroDeMormonVsBiblia as lessonCristoLdMVsBiblia } from '@/data/l
 import { losYoSoyDeCristo as lessonLosYoSoy } from '@/data/lessons/los-yo-soy-de-cristo'
 import { laResurreccionDeCristo as lessonResurreccionCristo } from '@/data/lessons/la-resurreccion-de-cristo'
 import { suGraciaEsSuficiente as lessonSuGracia } from '@/data/lessons/su-gracia-es-suficiente'
+import { permanecerParaSiempre as lessonPermanecerParaSiempre } from '@/data/lessons/permanecer-para-siempre'
+import { pensarDeManeraCelestial as lessonPensarCelestial } from '@/data/lessons/pensar-de-manera-celestial'
+import { sumoSacerdoteBienesVenideros as lessonSumoSacerdoteHolland } from '@/data/lessons/sumo-sacerdote-bienes-venideros'
+import { elDomingoLlegara as lessonElDomingoLlegara } from '@/data/lessons/el-domingo-llegara'
+import { elGranPlanDeLaFelicidad as lessonGranPlan } from '@/data/lessons/el-gran-plan-de-la-felicidad'
+import { sacerdocioPoderMujer as lessonSacerdocioPoderMujer } from '@/data/lessons/sacerdocio-poder-mujer'
+import { fechandoLaMuerteDeCristo as lessonFechandoMuerte } from '@/data/lessons/fechando-la-muerte-de-cristo'
+import { elObispo as lessonElObispo } from '@/data/lessons/el-obispo'
+import { elApostol as lessonElApostol } from '@/data/lessons/el-apostol'
+import { elPresidenteDeLaIglesia as lessonElPresidente } from '@/data/lessons/el-presidente-de-la-iglesia'
+import { elohimElPadreCelestial as lessonElohim } from '@/data/lessons/elohim-el-padre-celestial'
+import { laDivinidad as lessonLaDivinidad } from '@/data/lessons/la-divinidad'
+import { cristoElGranSumoSacerdote as lessonCristoSumoSacerdote } from '@/data/lessons/cristo-el-gran-sumo-sacerdote'
+import { enoc as lessonEnoc } from '@/data/lessons/enoc'
+import { noe as lessonNoe } from '@/data/lessons/noe'
+import { melquisedec as lessonMelquisedec } from '@/data/lessons/melquisedec'
+import { isaac as lessonIsaac } from '@/data/lessons/isaac'
+import { jacobIsrael as lessonJacobIsrael } from '@/data/lessons/jacob-israel'
+import { moises as lessonMoises } from '@/data/lessons/moises'
+import { aaron as lessonAaron } from '@/data/lessons/aaron'
+import { isaias as lessonIsaias } from '@/data/lessons/isaias'
+import { elias as lessonElias } from '@/data/lessons/elias'
+import { david as lessonDavid } from '@/data/lessons/david'
+import { jeremias as lessonJeremias } from '@/data/lessons/jeremias'
+import { daniel as lessonDaniel } from '@/data/lessons/daniel'
+import { job as lessonJob } from '@/data/lessons/job'
+import { ezequiel as lessonEzequiel } from '@/data/lessons/ezequiel'
+import { pedro as lessonPedro } from '@/data/lessons/pedro'
+import { pablo as lessonPablo } from '@/data/lessons/pablo'
+import { juanElBautista as lessonJuanElBautista } from '@/data/lessons/juan-el-bautista'
+import { mariaMagdalena as lessonMariaMagdalena } from '@/data/lessons/maria-magdalena'
+import { tomas as lessonTomas } from '@/data/lessons/tomas'
+import { santiagoElJusto as lessonSantiagoElJusto } from '@/data/lessons/santiago-el-justo'
+import { sara as lessonSara } from '@/data/lessons/sara'
+import { rut as lessonRut } from '@/data/lessons/rut'
+import { ester as lessonEster } from '@/data/lessons/ester'
+import { debora as lessonDebora } from '@/data/lessons/debora'
+import { mariaLaMadre as lessonMariaLaMadre } from '@/data/lessons/maria-la-madre'
+import { lehi as lessonLehi } from '@/data/lessons/lehi'
+import { nefi as lessonNefi } from '@/data/lessons/nefi'
+import { elHermanoDeJared as lessonHermanoDeJared } from '@/data/lessons/el-hermano-de-jared'
+import { ammon as lessonAmmon } from '@/data/lessons/ammon'
+import { reyBenjamin as lessonReyBenjamin } from '@/data/lessons/rey-benjamin'
+import { capitanMoroni as lessonCapitanMoroni } from '@/data/lessons/capitan-moroni'
+import { samuelElLamanita as lessonSamuelElLamanita } from '@/data/lessons/samuel-el-lamanita'
+import { moroniProfeta as lessonMoroniProfeta } from '@/data/lessons/moroni-profeta'
+import { joseSmith as lessonJoseSmith } from '@/data/lessons/jose-smith'
+import { emmaSmith as lessonEmmaSmith } from '@/data/lessons/emma-smith'
+import { hyrumSmith as lessonHyrumSmith } from '@/data/lessons/hyrum-smith'
+import { oliverCowdery as lessonOliverCowdery } from '@/data/lessons/oliver-cowdery'
+import { brighamYoung as lessonBrighamYoung } from '@/data/lessons/brigham-young'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -1197,7 +1248,7 @@ const LESSON_ROWS: LessonRow[] = [
     status: 'IN_CONSTRUCTION',
   },
   {
-    id: 'capitán-moroni',
+    id: 'capitan-moroni',
     moduleId: 'personajes-escrituras',
     title: 'Capitán Moroni — La Bandera de la Libertad',
     subtitle: '"Si todos los hombres fueran como Moroni..."',
@@ -1341,6 +1392,179 @@ const LESSON_ROWS: LessonRow[] = [
     order: 3,
     status: 'PUBLISHED',
   },
+  // ── DISCURSOS CLÁSICOS ADICIONALES (orders 5-8) ──────────────────────────────
+  {
+    id: 'permanecer-para-siempre',
+    moduleId: 'discursos-sermones-clasicos',
+    title: 'Permanecer Para Siempre',
+    subtitle: 'Lawrence E. Corbridge · BYU Devotional, 2019',
+    description:
+      'Cómo responder al antagonismo intelectual contra la Iglesia: el método científico aplicado a la fe según Alma 32, la diferencia entre dudas y preguntas, y las cuatro preguntas que toda crítica debe responder antes de descartarse.',
+    level: 'INTERMEDIO',
+    icon: '🔍',
+    duration: 65,
+    order: 5,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'pensar-de-manera-celestial',
+    moduleId: 'discursos-sermones-clasicos',
+    title: 'Pensar de Manera Celestial',
+    subtitle: 'Russell M. Nelson · Conferencia General, Oct 2023',
+    description:
+      'El profeta a sus 99 años revela que la manera en que pensamos determina nuestra felicidad eterna. D&C 88:28-32 y D&C 132:19: las tres consecuencias eternas del pensamiento, y la invitación práctica a elevar nuestra mente al nivel celestial.',
+    level: 'BÁSICO',
+    icon: '⭐',
+    duration: 55,
+    order: 6,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'sumo-sacerdote-bienes-venideros',
+    moduleId: 'discursos-sermones-clasicos',
+    title: 'El Sumo Sacerdote de los Bienes Venideros',
+    subtitle: 'Jeffrey R. Holland · Conferencia General, Oct 1999',
+    description:
+      'Los primeros pasos son los más difíciles de cualquier camino de fe. Holland explora Hebreos 8:6, el patrón de Abraham, y el Salvador que también esperó — para darnos certeza de que las bendiciones prometidas, aunque tardías, siempre llegan.',
+    level: 'BÁSICO',
+    icon: '⚓',
+    duration: 45,
+    order: 7,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'el-domingo-llegara',
+    moduleId: 'discursos-sermones-clasicos',
+    title: 'El Domingo Llegará',
+    subtitle: 'Joseph B. Wirthlin · Conferencia General, Oct 2006',
+    description:
+      'Hermano Wirthlin perdió a su esposa de 56 años, a su madre a los 98, y a su hija Elisa repentinamente. Su mensaje es simple y eterno: así como al Viernes Santo siguió el Domingo de Resurrección, toda noche oscura del alma tiene su amanecer.',
+    level: 'BÁSICO',
+    icon: '🌅',
+    duration: 45,
+    order: 8,
+    status: 'PUBLISHED',
+  },
+  // ── TEMAS PROFUNDOS ADICIONALES (orders 4-5) ──────────────────────────────────
+  {
+    id: 'el-gran-plan-de-la-felicidad',
+    moduleId: 'temas-profundos',
+    title: 'El Gran Plan de la Felicidad',
+    subtitle: 'Tyler J. Griffin y Donald B. Anderson · BYU Religious Education',
+    description:
+      '¿Por qué los diagramas tradicionales del plan de salvación fallan? Un análisis académico de los seis estados de la existencia humana, la distinción entre redención incondicional y salvación condicional, y cómo Cristo aparece en cada etapa del plan.',
+    level: 'INTERMEDIO',
+    icon: '🗺️',
+    duration: 70,
+    order: 4,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'fechando-la-muerte-de-cristo',
+    moduleId: 'temas-profundos',
+    title: 'Fechando la Muerte de Cristo',
+    subtitle: 'Jeffrey R. Chadwick (BYU Studies) · Scripture Central KnoWhy #300',
+    description:
+      'Evidencia astronómica, el calendario judío y el Libro de Mormón convergen en una misma fecha: Nisan 14, jueves 6 de abril del año 30 d.C. — exactamente 1,800 años antes de la organización de la Iglesia. Un análisis académico riguroso con implicaciones profundas para la fe.',
+    level: 'AVANZADO',
+    icon: '📅',
+    duration: 65,
+    order: 5,
+    status: 'PUBLISHED',
+  },
+  // ── SACERDOCIO ADICIONAL (orders 11-15) ──────────────────────────────────────
+  {
+    id: 'sacerdocio-poder-mujer',
+    moduleId: 'sacerdocio',
+    title: 'Sacerdocio, Poder y la Mujer',
+    subtitle: 'Barbara Morgan Gardner · BYU Religious Education, 2021',
+    description:
+      'Russell M. Nelson preguntó en 2019: "¿Cuánto poder del sacerdocio tienen las mujeres en la Iglesia?" La respuesta cambia todo. Estudio del sacerdocio patriarcal vs. administrativo, lo que se perdió en la apostasía, lo que Elías restauró en 1836, y la autoridad plena de la mujer en sus llamamientos.',
+    level: 'AVANZADO',
+    icon: '👑',
+    duration: 75,
+    order: 11,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'el-obispo',
+    moduleId: 'sacerdocio',
+    title: 'El Obispo',
+    subtitle: 'Pastor, juez y padre espiritual del rebaño local',
+    description:
+      'El Obispo preside el barrio, tiene las llaves del sacerdocio aarónico, y actúa como juez en Israel. Pedro llamó a Cristo "el Obispo de vuestras almas" — y en Él encontramos el patrón de todo lo que un obispo debe ser.',
+    level: 'INTERMEDIO',
+    icon: '🏛️',
+    duration: 50,
+    order: 12,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'el-apostol',
+    moduleId: 'sacerdocio',
+    title: 'El Apóstol',
+    subtitle: 'Testigo especial del nombre de Cristo en todo el mundo',
+    description:
+      'El Apóstol no es simplemente un líder senior — es un testigo especial del nombre de Cristo con autoridad mundial. El Quórum de los Doce sostiene todas las llaves del reino en reserva, listo para ejercerlas cuando sea necesario.',
+    level: 'AVANZADO',
+    icon: '🕊️',
+    duration: 60,
+    order: 13,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'el-presidente-de-la-iglesia',
+    moduleId: 'sacerdocio',
+    title: 'El Presidente de la Iglesia',
+    subtitle: 'Profeta, Vidente y Revelador — el único que ejerce todas las llaves',
+    description:
+      'El Presidente de la Iglesia es el único ser en la tierra que ejerce simultáneamente todas las llaves del sacerdocio. No es un administrador — es el portavoz viviente de Cristo ante Su Iglesia y el mundo.',
+    level: 'AVANZADO',
+    icon: '🔱',
+    duration: 55,
+    order: 14,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'cristo-el-gran-sumo-sacerdote',
+    moduleId: 'sacerdocio',
+    title: 'Cristo — El Gran Sumo Sacerdote',
+    subtitle: 'Cada oficio del sacerdocio es un tipo de Él',
+    description:
+      'El Sacerdocio de Melquisedec se llama así para evitar repetir el nombre del Hijo de Dios. Hebreos 4-9 es el tratado más profundo del NT sobre el sacerdocio — y Jesucristo es su conclusión y capstone. Cada oficio que has estudiado apunta a Él.',
+    level: 'AVANZADO',
+    icon: '⚜️',
+    duration: 70,
+    order: 15,
+    status: 'PUBLISHED',
+  },
+  // ── TEMAS PROFUNDOS ADICIONALES (orders 6-7) ─────────────────────────────────
+  {
+    id: 'elohim-el-padre-celestial',
+    moduleId: 'temas-profundos',
+    title: 'Elohim — El Padre Celestial',
+    subtitle: 'La doctrina más radical de la Restauración: Dios es un Ser personal',
+    description:
+      'El Padre Celestial no es una fuerza abstracta. Es un Ser glorificado, con cuerpo de carne y huesos resucitado. Somos literalmente Sus hijos. Esta es la doctrina que más separa a la Restauración del mundo cristiano — y la que más cambia todo lo demás.',
+    level: 'AVANZADO',
+    icon: '✨',
+    duration: 65,
+    order: 6,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'la-divinidad',
+    moduleId: 'temas-profundos',
+    title: 'La Divinidad',
+    subtitle: 'Tres Seres distintos — no la Trinidad de Nicea',
+    description:
+      'El Concilio de Nicea (325 d.C.) redefinió a Dios como una sustancia trinitaria incognoscible. La Primera Visión de José Smith revirtió 1,500 años de teología en treinta segundos: el Padre y el Hijo son dos Seres distintos, y el Espíritu Santo es un tercero.',
+    level: 'AVANZADO',
+    icon: '🌟',
+    duration: 70,
+    order: 7,
+    status: 'PUBLISHED',
+  },
 ]
 
 const PORTED: Partial<Record<string, Lesson>> = {
@@ -1380,6 +1604,19 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'la-expiacion-del-salvador': lessonLaExpiacionDelSalvador,
   'king-follett': lessonKingFollett,
   'su-gracia-es-suficiente': lessonSuGracia,
+  'permanecer-para-siempre': lessonPermanecerParaSiempre,
+  'pensar-de-manera-celestial': lessonPensarCelestial,
+  'sumo-sacerdote-bienes-venideros': lessonSumoSacerdoteHolland,
+  'el-domingo-llegara': lessonElDomingoLlegara,
+  'el-gran-plan-de-la-felicidad': lessonGranPlan,
+  'sacerdocio-poder-mujer': lessonSacerdocioPoderMujer,
+  'fechando-la-muerte-de-cristo': lessonFechandoMuerte,
+  'el-obispo': lessonElObispo,
+  'el-apostol': lessonElApostol,
+  'el-presidente-de-la-iglesia': lessonElPresidente,
+  'elohim-el-padre-celestial': lessonElohim,
+  'la-divinidad': lessonLaDivinidad,
+  'cristo-el-gran-sumo-sacerdote': lessonCristoSumoSacerdote,
   'por-que-dios-permite-el-sufrimiento': lessonSufrimiento,
   'la-salvacion-de-los-no-bautizados': lessonNoBautizados,
   'alma-el-joven': lessonAlmaElJoven,
@@ -1396,6 +1633,44 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'los-yo-soy-de-cristo': lessonLosYoSoy,
   'la-resurreccion-de-cristo': lessonResurreccionCristo,
   'el-circulo-de-jesus': lessonElCirculoDeJesus,
+  'enoc': lessonEnoc,
+  'noe': lessonNoe,
+  'melquisedec': lessonMelquisedec,
+  'isaac': lessonIsaac,
+  'jacob-israel': lessonJacobIsrael,
+  'moises': lessonMoises,
+  'aaron': lessonAaron,
+  'isaias': lessonIsaias,
+  'elias': lessonElias,
+  'david': lessonDavid,
+  'jeremias': lessonJeremias,
+  'daniel': lessonDaniel,
+  'job': lessonJob,
+  'ezequiel': lessonEzequiel,
+  'pedro': lessonPedro,
+  'pablo': lessonPablo,
+  'juan-el-bautista': lessonJuanElBautista,
+  'maria-magdalena': lessonMariaMagdalena,
+  'tomas': lessonTomas,
+  'santiago-el-justo': lessonSantiagoElJusto,
+  'sara': lessonSara,
+  'rut': lessonRut,
+  'ester': lessonEster,
+  'debora': lessonDebora,
+  'maria-la-madre': lessonMariaLaMadre,
+  'lehi': lessonLehi,
+  'nefi': lessonNefi,
+  'el-hermano-de-jared': lessonHermanoDeJared,
+  'ammon': lessonAmmon,
+  'rey-benjamin': lessonReyBenjamin,
+  'capitan-moroni': lessonCapitanMoroni,
+  'samuel-el-lamanita': lessonSamuelElLamanita,
+  'moroni-profeta': lessonMoroniProfeta,
+  'jose-smith': lessonJoseSmith,
+  'emma-smith': lessonEmmaSmith,
+  'hyrum-smith': lessonHyrumSmith,
+  'oliver-cowdery': lessonOliverCowdery,
+  'brigham-young': lessonBrighamYoung,
 }
 
 function lessonIdsForModule(moduleId: string): string[] {
