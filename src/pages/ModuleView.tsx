@@ -1,13 +1,14 @@
 import { useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { LessonList } from '@/components/learning/LessonList'
+import { SubmoduleHeroSection } from '@/components/learning/SubmoduleHeroSection'
 import { LoadingSpinner } from '@/components/common/LoadingSpinner'
 import { MediaSlot } from '@/components/doctrinal/MediaSlot'
 import { ProgressBar } from '@/components/learning/ProgressBar'
 import { useModule } from '@/hooks/useModule'
 import { useUserProgress } from '@/hooks/useUserProgress'
 import { useAuth } from '@/hooks/useAuth'
-import type { DifficultyLevel } from '@/types/doctrine'
+import type { DifficultyLevel, Lesson } from '@/types/doctrine'
 import { DIFFICULTY_LEVELS } from '@/lib/constants'
 
 const LEVEL_LABEL: Record<DifficultyLevel, string> = {
@@ -16,11 +17,6 @@ const LEVEL_LABEL: Record<DifficultyLevel, string> = {
   AVANZADO: 'Avanzado',
 }
 
-/**
- * Vista de un módulo con lista de lecciones y filtro por nivel.
- *
- * @returns Página de módulo
- */
 export default function ModuleView() {
   const { moduleId } = useParams<{ moduleId: string }>()
   const { module, lessons, loading, error } = useModule(moduleId)
@@ -29,11 +25,27 @@ export default function ModuleView() {
   const [levelFilter, setLevelFilter] = useState<DifficultyLevel | 'ALL'>('ALL')
 
   const filteredLessons = useMemo(() => {
-    if (levelFilter === 'ALL') {
-      return lessons
-    }
+    if (levelFilter === 'ALL') return lessons
     return lessons.filter((l) => l.level === levelFilter)
   }, [lessons, levelFilter])
+
+  // Group by submoduleGroup preserving lesson order
+  const { groupedMap, ungrouped } = useMemo(() => {
+    const map = new Map<string, Lesson[]>()
+    const rest: Lesson[] = []
+    for (const lesson of filteredLessons) {
+      if (lesson.submoduleGroup) {
+        const arr = map.get(lesson.submoduleGroup) ?? []
+        arr.push(lesson)
+        map.set(lesson.submoduleGroup, arr)
+      } else {
+        rest.push(lesson)
+      }
+    }
+    return { groupedMap: map, ungrouped: rest }
+  }, [filteredLessons])
+
+  const hasGroups = groupedMap.size > 0
 
   const progressValue = useMemo(() => {
     if (!module || lessons.length === 0) {
@@ -115,9 +127,27 @@ export default function ModuleView() {
         </div>
       </section>
 
-      <section>
-        <h2 className="mb-4 font-title text-xl text-blue-accent">Lecciones</h2>
-        <LessonList lessons={filteredLessons} moduleId={module.id} />
+      <section aria-label="Lecciones del módulo">
+        {hasGroups ? (
+          <div className="space-y-8">
+            {[...groupedMap.entries()].map(([groupKey, groupLessons]) => (
+              <SubmoduleHeroSection
+                key={groupKey}
+                group={groupKey}
+                lessons={groupLessons}
+                moduleId={module.id}
+              />
+            ))}
+            {ungrouped.length > 0 && (
+              <LessonList lessons={ungrouped} moduleId={module.id} />
+            )}
+          </div>
+        ) : (
+          <>
+            <h2 className="mb-4 font-title text-xl text-blue-accent">Lecciones</h2>
+            <LessonList lessons={filteredLessons} moduleId={module.id} />
+          </>
+        )}
       </section>
     </div>
   )
