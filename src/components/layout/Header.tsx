@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 import { signOut } from '@/services/authService'
-import { isFirebaseConfigured } from '@/lib/firebase'
 
 function BackButton() {
   const navigate = useNavigate()
@@ -39,7 +38,6 @@ function UserMenu() {
   }
 
   if (!isLoggedIn) {
-    if (!isFirebaseConfigured()) return null
     return (
       <Link
         to="/login"
