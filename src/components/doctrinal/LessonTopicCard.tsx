@@ -84,6 +84,7 @@ export function LessonTopicCard({
             moduleId={moduleId}
             topicId={topic.id}
             topicTitle={topic.title}
+            blockIndex={index}
             activeParagraphId={activeParagraphId}
             onSaveNote={onSaveNote}
             onJournalSave={onJournalSave}
