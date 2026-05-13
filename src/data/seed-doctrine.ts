@@ -66,6 +66,44 @@ import { elPresidenteDeLaIglesia as lessonElPresidente } from '@/data/lessons/el
 import { elohimElPadreCelestial as lessonElohim } from '@/data/lessons/elohim-el-padre-celestial'
 import { laDivinidad as lessonLaDivinidad } from '@/data/lessons/la-divinidad'
 import { cristoElGranSumoSacerdote as lessonCristoSumoSacerdote } from '@/data/lessons/cristo-el-gran-sumo-sacerdote'
+import { enoc as lessonEnoc } from '@/data/lessons/enoc'
+import { noe as lessonNoe } from '@/data/lessons/noe'
+import { melquisedec as lessonMelquisedec } from '@/data/lessons/melquisedec'
+import { isaac as lessonIsaac } from '@/data/lessons/isaac'
+import { jacobIsrael as lessonJacobIsrael } from '@/data/lessons/jacob-israel'
+import { moises as lessonMoises } from '@/data/lessons/moises'
+import { aaron as lessonAaron } from '@/data/lessons/aaron'
+import { isaias as lessonIsaias } from '@/data/lessons/isaias'
+import { elias as lessonElias } from '@/data/lessons/elias'
+import { david as lessonDavid } from '@/data/lessons/david'
+import { jeremias as lessonJeremias } from '@/data/lessons/jeremias'
+import { daniel as lessonDaniel } from '@/data/lessons/daniel'
+import { job as lessonJob } from '@/data/lessons/job'
+import { ezequiel as lessonEzequiel } from '@/data/lessons/ezequiel'
+import { pedro as lessonPedro } from '@/data/lessons/pedro'
+import { pablo as lessonPablo } from '@/data/lessons/pablo'
+import { juanElBautista as lessonJuanElBautista } from '@/data/lessons/juan-el-bautista'
+import { mariaMagdalena as lessonMariaMagdalena } from '@/data/lessons/maria-magdalena'
+import { tomas as lessonTomas } from '@/data/lessons/tomas'
+import { santiagoElJusto as lessonSantiagoElJusto } from '@/data/lessons/santiago-el-justo'
+import { sara as lessonSara } from '@/data/lessons/sara'
+import { rut as lessonRut } from '@/data/lessons/rut'
+import { ester as lessonEster } from '@/data/lessons/ester'
+import { debora as lessonDebora } from '@/data/lessons/debora'
+import { mariaLaMadre as lessonMariaLaMadre } from '@/data/lessons/maria-la-madre'
+import { lehi as lessonLehi } from '@/data/lessons/lehi'
+import { nefi as lessonNefi } from '@/data/lessons/nefi'
+import { elHermanoDeJared as lessonHermanoDeJared } from '@/data/lessons/el-hermano-de-jared'
+import { ammon as lessonAmmon } from '@/data/lessons/ammon'
+import { reyBenjamin as lessonReyBenjamin } from '@/data/lessons/rey-benjamin'
+import { capitanMoroni as lessonCapitanMoroni } from '@/data/lessons/capitan-moroni'
+import { samuelElLamanita as lessonSamuelElLamanita } from '@/data/lessons/samuel-el-lamanita'
+import { moroniProfeta as lessonMoroniProfeta } from '@/data/lessons/moroni-profeta'
+import { joseSmith as lessonJoseSmith } from '@/data/lessons/jose-smith'
+import { emmaSmith as lessonEmmaSmith } from '@/data/lessons/emma-smith'
+import { hyrumSmith as lessonHyrumSmith } from '@/data/lessons/hyrum-smith'
+import { oliverCowdery as lessonOliverCowdery } from '@/data/lessons/oliver-cowdery'
+import { brighamYoung as lessonBrighamYoung } from '@/data/lessons/brigham-young'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -1210,7 +1248,7 @@ const LESSON_ROWS: LessonRow[] = [
     status: 'IN_CONSTRUCTION',
   },
   {
-    id: 'capitán-moroni',
+    id: 'capitan-moroni',
     moduleId: 'personajes-escrituras',
     title: 'Capitán Moroni — La Bandera de la Libertad',
     subtitle: '"Si todos los hombres fueran como Moroni..."',
@@ -1595,6 +1633,44 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'los-yo-soy-de-cristo': lessonLosYoSoy,
   'la-resurreccion-de-cristo': lessonResurreccionCristo,
   'el-circulo-de-jesus': lessonElCirculoDeJesus,
+  'enoc': lessonEnoc,
+  'noe': lessonNoe,
+  'melquisedec': lessonMelquisedec,
+  'isaac': lessonIsaac,
+  'jacob-israel': lessonJacobIsrael,
+  'moises': lessonMoises,
+  'aaron': lessonAaron,
+  'isaias': lessonIsaias,
+  'elias': lessonElias,
+  'david': lessonDavid,
+  'jeremias': lessonJeremias,
+  'daniel': lessonDaniel,
+  'job': lessonJob,
+  'ezequiel': lessonEzequiel,
+  'pedro': lessonPedro,
+  'pablo': lessonPablo,
+  'juan-el-bautista': lessonJuanElBautista,
+  'maria-magdalena': lessonMariaMagdalena,
+  'tomas': lessonTomas,
+  'santiago-el-justo': lessonSantiagoElJusto,
+  'sara': lessonSara,
+  'rut': lessonRut,
+  'ester': lessonEster,
+  'debora': lessonDebora,
+  'maria-la-madre': lessonMariaLaMadre,
+  'lehi': lessonLehi,
+  'nefi': lessonNefi,
+  'el-hermano-de-jared': lessonHermanoDeJared,
+  'ammon': lessonAmmon,
+  'rey-benjamin': lessonReyBenjamin,
+  'capitan-moroni': lessonCapitanMoroni,
+  'samuel-el-lamanita': lessonSamuelElLamanita,
+  'moroni-profeta': lessonMoroniProfeta,
+  'jose-smith': lessonJoseSmith,
+  'emma-smith': lessonEmmaSmith,
+  'hyrum-smith': lessonHyrumSmith,
+  'oliver-cowdery': lessonOliverCowdery,
+  'brigham-young': lessonBrighamYoung,
 }
 
 function lessonIdsForModule(moduleId: string): string[] {
