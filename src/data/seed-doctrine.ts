@@ -104,6 +104,33 @@ import { emmaSmith as lessonEmmaSmith } from '@/data/lessons/emma-smith'
 import { hyrumSmith as lessonHyrumSmith } from '@/data/lessons/hyrum-smith'
 import { oliverCowdery as lessonOliverCowdery } from '@/data/lessons/oliver-cowdery'
 import { brighamYoung as lessonBrighamYoung } from '@/data/lessons/brigham-young'
+import { lucifer as lessonLucifer } from '@/data/lessons/lucifer'
+import { elMundoDeLoEspiritus as lessonMundoEspiritus } from '@/data/lessons/el-mundo-de-los-espiritus'
+import { enocElLlamamiento as lessonEnocElLlamamiento } from '@/data/lessons/enoc-el-llamamiento'
+import { enocElVidente as lessonEnocElVidente } from '@/data/lessons/enoc-el-vidente'
+import { enocLaCiudad as lessonEnocLaCiudad } from '@/data/lessons/enoc-la-ciudad'
+import { enocLaTraslacion as lessonEnocLaTraslacion } from '@/data/lessons/enoc-la-traslacion'
+import { enocYLaRestauracion as lessonEnocYLaRestauracion } from '@/data/lessons/enoc-y-la-restauracion'
+import { noeElPredicador as lessonNoeElPredicador } from '@/data/lessons/noe-el-predicador'
+import { noeElArca as lessonNoeElArca } from '@/data/lessons/noe-el-arca'
+import { noeElDiluvio as lessonNoeElDiluvio } from '@/data/lessons/noe-el-diluvio'
+import { noeElPacto as lessonNoeElPacto } from '@/data/lessons/noe-el-pacto'
+import { noeYLaRestauracion as lessonNoeYLaRestauracion } from '@/data/lessons/noe-y-la-restauracion'
+import { melquisedecElRey as lessonMelquisedecElRey } from '@/data/lessons/melquisedec-el-rey'
+import { melquisedecLaCiudad as lessonMelquisedecLaCiudad } from '@/data/lessons/melquisedec-la-ciudad'
+import { melquisedecTipoDeCristo as lessonMelquisedecTipoDeCristo } from '@/data/lessons/melquisedec-tipo-de-cristo'
+import { melquisedecElSacerdocio as lessonMelquisedecElSacerdocio } from '@/data/lessons/melquisedec-el-sacerdocio'
+import { melquisedecYLaRestauracion as lessonMelquisedecYLaRestauracion } from '@/data/lessons/melquisedec-y-la-restauracion'
+import { isaacElHijo as lessonIsaacElHijo } from '@/data/lessons/isaac-el-hijo'
+import { isaacElSacrificio as lessonIsaacElSacrificio } from '@/data/lessons/isaac-el-sacrificio'
+import { isaacElEsposo as lessonIsaacElEsposo } from '@/data/lessons/isaac-el-esposo'
+import { isaacElPatriarca as lessonIsaacElPatriarca } from '@/data/lessons/isaac-el-patriarca'
+import { isaacYLaRestauracion as lessonIsaacYLaRestauracion } from '@/data/lessons/isaac-y-la-restauracion'
+import { jacobElSuplantador as lessonJacobElSuplantador } from '@/data/lessons/jacob-el-suplantador'
+import { jacobElFugitivo as lessonJacobElFugitivo } from '@/data/lessons/jacob-el-fugitivo'
+import { jacobLaLucha as lessonJacobLaLucha } from '@/data/lessons/jacob-la-lucha'
+import { jacobElPadre as lessonJacobElPadre } from '@/data/lessons/jacob-el-padre'
+import { jacobYLaRestauracion as lessonJacobYLaRestauracion } from '@/data/lessons/jacob-y-la-restauracion'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -132,6 +159,36 @@ export const SUBMODULE_GROUPS: Record<string, { title: string; description: stri
     description:
       'El padre y la madre de todo el género humano — Miguel el Arcángel que fue Adán, la Caída como el acto más valiente de la historia, y el papel de Eva que el mundo malentendió durante milenios.',
     icon: '🌱',
+  },
+  enoc: {
+    title: 'Enoc — El Hombre que Caminó con Dios',
+    description:
+      'De profeta tardo en el habla a constructor de Sión. Enoc edificó la ciudad más justa de la historia y Dios la arrebató de la tierra. Moisés 6-7 revela lo que la Biblia oculta.',
+    icon: '🏙️',
+  },
+  noe: {
+    title: 'Noé — El Justo en el Diluvio',
+    description:
+      'Predicó 120 años sin convertir a nadie. Construyó el arca. El diluvio llegó. Y el pacto del arco iris cambió para siempre la relación de Dios con la humanidad.',
+    icon: '🌈',
+  },
+  melquisedec: {
+    title: 'Melquisedec — El Rey-Sacerdote Eterno',
+    description:
+      'El sacerdocio más alto lleva su nombre. Hebreos 7 lo describe sin padre, sin madre, sin genealogía. Alma 13 revela su conversión y la ciudad que convirtió de pecadores a santos.',
+    icon: '👑',
+  },
+  isaac: {
+    title: 'Isaac — El Hijo de la Promesa',
+    description:
+      'El personaje más silencioso de los patriarcas. Cargó la leña de su propio sacrificio, fue atado sobre el altar, y fue "resucitado en figura." El tipo más completo de Cristo en el Antiguo Testamento.',
+    icon: '🪵',
+  },
+  'jacob-israel': {
+    title: 'Jacob-Israel — El que Luchó con Dios',
+    description:
+      'De suplantador a príncipe. Jacob compró la primogenitura, engañó a su padre, amó 14 años por Raquel, y una noche luchó con Dios hasta el amanecer. Su nombre cambió. El nuestro también puede.',
+    icon: '🤼',
   },
 }
 
@@ -852,72 +909,36 @@ const LESSON_ROWS: LessonRow[] = [
     order: 24,
     status: 'PUBLISHED',
   },
-  // ── PATRIARCAS FUNDADORES (orders 30-39) ─────────────────────────────────
-  {
-    id: 'enoc',
-    moduleId: 'personajes-escrituras',
-    title: 'Enoc — La Ciudad que Dios Arrebató',
-    subtitle: 'El hombre que construyó Sión',
-    description:
-      'Enoc era "tardo en el habla" cuando Dios lo llamó. Construyó la ciudad más justa que jamás existió — y Dios la arrebató de la Tierra. Moisés 6-7 y DyC 45 revelan detalles que la Biblia no tiene.',
-    level: 'AVANZADO',
-    icon: '🏙️',
-    duration: 70,
-    order: 30,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'noe',
-    moduleId: 'personajes-escrituras',
-    title: 'Noé — El Diluvio y el Pacto del Arco Iris',
-    subtitle: '¿Fue el diluvio global o local?',
-    description:
-      'Noé predicó durante 120 años sin convertir a nadie. Construyó el arca. Sobrevivió. Y el pacto con el arco iris cambió para siempre la relación de Dios con la humanidad. Con análisis del alcance del diluvio y la perspectiva restaurada.',
-    level: 'INTERMEDIO',
-    icon: '🌈',
-    duration: 65,
-    order: 31,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'melquisedec',
-    moduleId: 'personajes-escrituras',
-    title: 'Melquisedec — El Rey-Sacerdote Eterno',
-    subtitle: 'Sin padre, sin madre, sin genealogía',
-    description:
-      'Hebreos 7 lo describe como "sin padre, sin madre, sin genealogía, sin principio de días ni fin de vida". El sacerdocio más alto lleva su nombre. Alma 13 en el Libro de Mormón revela datos que la Biblia omite sobre su conversión y su ciudad.',
-    level: 'AVANZADO',
-    icon: '👑',
-    duration: 65,
-    order: 32,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'isaac',
-    moduleId: 'personajes-escrituras',
-    title: 'Isaac — El Hijo de la Promesa',
-    subtitle: 'El que cargó la leña de su propio sacrificio',
-    description:
-      'Isaac es el personaje más silencioso de los patriarcas, pero también el más profundo tipo de Cristo: cargó la leña para su propio sacrificio, fue "muerto" para la fe de su padre y resucitó — en figura. Génesis 22 e interpretaciones de Josefo y Hebreos 11.',
-    level: 'INTERMEDIO',
-    icon: '🪵',
-    duration: 60,
-    order: 33,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'jacob-israel',
-    moduleId: 'personajes-escrituras',
-    title: 'Jacob/Israel — La Lucha con el Ángel',
-    subtitle: 'De suplantador a príncipe de Dios',
-    description:
-      'Jacob compró la primogenitura, engañó a su padre, huyó, amó en vano durante 14 años, y una noche luchó con Dios hasta el amanecer. Su nombre cambió. El nuestro también puede. Génesis 25-49 y la profecía sobre los 12 hijos.',
-    level: 'INTERMEDIO',
-    icon: '🤼',
-    duration: 70,
-    order: 34,
-    status: 'IN_CONSTRUCTION',
-  },
+  // ── PATRIARCAS FUNDADORES — ENOC (submodule, orders 3010-3014) ───────────
+  { id: 'enoc-el-llamamiento', moduleId: 'personajes-escrituras', title: 'El Llamamiento', subtitle: 'El profeta tardo en el habla', description: 'Enoc era joven y "tardo en el habla" cuando Dios lo llamó. Su historia comienza con una negación y termina con una ciudad arrebatada al cielo.', level: 'INTERMEDIO', icon: '📢', duration: 30, order: 3010, status: 'PUBLISHED', submoduleGroup: 'enoc' },
+  { id: 'enoc-el-vidente', moduleId: 'personajes-escrituras', title: 'El Vidente', subtitle: 'Las visiones del futuro de la humanidad', description: 'Enoc vio el futuro completo de la humanidad — el Diluvio, la venida de Cristo, la Restauración, la Segunda Venida. Sus visiones en Moisés 7 son las más extensas de cualquier patriarca antiguo.', level: 'AVANZADO', icon: '👁️', duration: 35, order: 3011, status: 'PUBLISHED', submoduleGroup: 'enoc' },
+  { id: 'enoc-la-ciudad', moduleId: 'personajes-escrituras', title: 'La Ciudad de Sión', subtitle: 'Un pueblo de un solo corazón', description: 'Enoc construyó Sión — la única comunidad en la historia bíblica descrita como "de un solo corazón y una sola mente." No había pobres entre ellos. Y Dios la arrebató de la tierra.', level: 'AVANZADO', icon: '🏙️', duration: 35, order: 3012, status: 'PUBLISHED', submoduleGroup: 'enoc' },
+  { id: 'enoc-la-traslacion', moduleId: 'personajes-escrituras', title: 'La Traslación', subtitle: 'Tomado sin probar la muerte', description: 'Enoc y toda su ciudad fueron trasladados — tomados por Dios sin morir. ¿Qué significa la traslación? ¿Qué ocurre con un ser trasladado? La doctrina restaurada tiene respuestas únicas.', level: 'AVANZADO', icon: '✨', duration: 30, order: 3013, status: 'PUBLISHED', submoduleGroup: 'enoc' },
+  { id: 'enoc-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Enoc y la Restauración', subtitle: 'Lo que la Biblia no dice pero Moisés sí', description: 'El libro de Moisés en la Perla de Gran Precio revela capítulos enteros sobre Enoc que la Biblia omite. Cómo la Restauración devolvió al profeta más misterioso del Antiguo Testamento.', level: 'INTERMEDIO', icon: '📖', duration: 25, order: 3014, status: 'PUBLISHED', submoduleGroup: 'enoc' },
+  // ── NOÉ (submodule, orders 3110-3114) ────────────────────────────────────
+  { id: 'noe-el-predicador', moduleId: 'personajes-escrituras', title: 'El Predicador', subtitle: '120 años sin un solo converso', description: 'Noé predicó durante 120 años. No convirtió a nadie fuera de su familia. ¿Fue un fracaso? La fidelidad sin resultados visibles es una de las formas más puras de la fe.', level: 'INTERMEDIO', icon: '🗣️', duration: 30, order: 3110, status: 'PUBLISHED', submoduleGroup: 'noe' },
+  { id: 'noe-el-arca', moduleId: 'personajes-escrituras', title: 'El Arca', subtitle: 'La logística de la obediencia', description: 'Construir el arca fue un acto de fe pública — visible para todos, ridiculizado por todos. Las dimensiones del arca, la logística real, y lo que significó construirla durante décadas ante un mundo incrédulo.', level: 'INTERMEDIO', icon: '🚢', duration: 30, order: 3111, status: 'PUBLISHED', submoduleGroup: 'noe' },
+  { id: 'noe-el-diluvio', moduleId: 'personajes-escrituras', title: 'El Diluvio', subtitle: '¿Global o local? La perspectiva restaurada', description: '¿Fue el diluvio de Noé global o local? La ciencia, la arqueología, la teología y las revelaciones restauradas convergen en una respuesta más matizada de lo que la tradición sugiere.', level: 'AVANZADO', icon: '🌊', duration: 35, order: 3112, status: 'PUBLISHED', submoduleGroup: 'noe' },
+  { id: 'noe-el-pacto', moduleId: 'personajes-escrituras', title: 'El Pacto del Arco Iris', subtitle: 'La primera alianza con toda la humanidad', description: 'El arco iris no es solo un símbolo de esperanza — es el sello de un pacto. El primer pacto que Dios hizo con toda la humanidad, no solo con Israel. Su alcance universal anticipa el evangelio eterno.', level: 'INTERMEDIO', icon: '🌈', duration: 30, order: 3113, status: 'PUBLISHED', submoduleGroup: 'noe' },
+  { id: 'noe-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Noé y la Restauración', subtitle: 'El ángel Gabriel y las llaves del diluvio', description: 'En la Restauración, Noé es identificado como el ángel Gabriel. Visitó a María para anunciar el nacimiento de Cristo. Sus llaves del sacerdocio siguen activas. La historia de Noé no terminó en el arco.', level: 'AVANZADO', icon: '👼', duration: 25, order: 3114, status: 'PUBLISHED', submoduleGroup: 'noe' },
+  // ── MELQUISEDEC (submodule, orders 3210-3214) ─────────────────────────────
+  { id: 'melquisedec-el-rey', moduleId: 'personajes-escrituras', title: 'El Rey de Salem', subtitle: 'Sin padre, sin madre, sin genealogía', description: 'Hebreos 7 describe a Melquisedec con palabras que no se aplican a ningún otro ser humano en la Biblia: sin padre, sin madre, sin genealogía, sin principio de días ni fin de vida.', level: 'AVANZADO', icon: '👑', duration: 35, order: 3210, status: 'PUBLISHED', submoduleGroup: 'melquisedec' },
+  { id: 'melquisedec-la-ciudad', moduleId: 'personajes-escrituras', title: 'La Ciudad de Paz', subtitle: 'Salem — antecedente de Sión', description: 'Alma 13 revela que Melquisedec gobernó una ciudad de "inicuos" que se convirtió en ciudad de paz. Como Enoc antes que él, transformó una comunidad entera mediante el sacerdocio y la fe.', level: 'AVANZADO', icon: '🕊️', duration: 30, order: 3211, status: 'PUBLISHED', submoduleGroup: 'melquisedec' },
+  { id: 'melquisedec-tipo-de-cristo', moduleId: 'personajes-escrituras', title: 'Tipo de Cristo', subtitle: 'El sacerdocio eterno como imagen del Salvador', description: 'Hebreos 4-7 argumenta que Cristo es el sumo sacerdote "según el orden de Melquisedec." ¿Qué significa eso exactamente? La relación entre el hombre Melquisedec y el papel que prefigura es teológicamente rica.', level: 'AVANZADO', icon: '✝️', duration: 35, order: 3212, status: 'PUBLISHED', submoduleGroup: 'melquisedec' },
+  { id: 'melquisedec-el-sacerdocio', moduleId: 'personajes-escrituras', title: 'El Sacerdocio', subtitle: 'Por qué lleva su nombre', description: 'El sacerdocio más alto de la Iglesia lleva el nombre de Melquisedec para evitar repetir el nombre del Hijo de Dios. DyC 107 explica el principio. La historia del sacerdocio desde Abraham hasta la Restauración.', level: 'AVANZADO', icon: '🔑', duration: 30, order: 3213, status: 'PUBLISHED', submoduleGroup: 'melquisedec' },
+  { id: 'melquisedec-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Melquisedec y la Restauración', subtitle: 'Las llaves que nunca se perdieron', description: 'DyC 107:2-4 y las enseñanzas de José Smith sobre Melquisedec revelan un sacerdote que no solo existió en el pasado — cuyas llaves y ordenanza siguen activas en la Restauración.', level: 'AVANZADO', icon: '📖', duration: 25, order: 3214, status: 'PUBLISHED', submoduleGroup: 'melquisedec' },
+  // ── ISAAC (submodule, orders 3310-3314) ──────────────────────────────────
+  { id: 'isaac-el-hijo', moduleId: 'personajes-escrituras', title: 'El Hijo de la Promesa', subtitle: 'Nacido cuando era humanamente imposible', description: 'Abraham tenía 100 años. Sara tenía 90. Isaac nació cuando era biológicamente imposible — como señal de que el poder de Dios trasciende la naturaleza. El hijo prometido que llegó después de décadas de espera.', level: 'INTERMEDIO', icon: '👶', duration: 30, order: 3310, status: 'PUBLISHED', submoduleGroup: 'isaac' },
+  { id: 'isaac-el-sacrificio', moduleId: 'personajes-escrituras', title: 'El Sacrificio en el Moriah', subtitle: 'El tipo más completo de Cristo en el AT', description: 'Isaac cargó la leña de su propio sacrificio. Fue atado sobre el altar. Y fue "resucitado en figura" cuando el ángel detuvo la mano de Abraham. Hebreos 11 lo llama el tipo más explícito de la resurrección de Cristo.', level: 'AVANZADO', icon: '🔥', duration: 35, order: 3311, status: 'PUBLISHED', submoduleGroup: 'isaac' },
+  { id: 'isaac-el-esposo', moduleId: 'personajes-escrituras', title: 'El Esposo', subtitle: 'El amor que esperó al mensajero', description: 'La historia de cómo Abraham mandó a su siervo a buscar esposa para Isaac es una de las más tiernas de la Biblia. Rebeca vio al mensajero desde lejos y bajó del camello. Isaac la amó desde el primer momento.', level: 'INTERMEDIO', icon: '💍', duration: 25, order: 3312, status: 'PUBLISHED', submoduleGroup: 'isaac' },
+  { id: 'isaac-el-patriarca', moduleId: 'personajes-escrituras', title: 'El Patriarca', subtitle: 'La bendición que no se puede revocar', description: 'Cuando Isaac bendijo a Jacob creyendo que era Esaú, y descubrió el engaño, no pudo revocar la bendición ya dada. ¿Por qué? Porque las bendiciones patriarcales, una vez pronunciadas con el Espíritu, son proféticas e irrevocables.', level: 'INTERMEDIO', icon: '📜', duration: 30, order: 3313, status: 'PUBLISHED', submoduleGroup: 'isaac' },
+  { id: 'isaac-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Isaac y la Restauración', subtitle: '"El Dios de Abraham, Isaac y Jacob"', description: 'El nombre de Isaac está unido para siempre al nombre de Dios. "El Dios de Abraham, Isaac y Jacob" aparece más de 20 veces en las escrituras. La Restauración revela por qué este orden de nombres es inalterable.', level: 'INTERMEDIO', icon: '✨', duration: 25, order: 3314, status: 'PUBLISHED', submoduleGroup: 'isaac' },
+  // ── JACOB-ISRAEL (submodule, orders 3410-3414) ───────────────────────────
+  { id: 'jacob-el-suplantador', moduleId: 'personajes-escrituras', title: 'El Suplantador', subtitle: 'La primogenitura comprada con lentejas', description: 'Jacob compró la primogenitura de Esaú con un plato de lentejas. Luego engañó a su padre ciego para robar la bendición. ¿Es Jacob un héroe o un villano? La respuesta complica cualquier lectura simple.', level: 'INTERMEDIO', icon: '🍲', duration: 30, order: 3410, status: 'PUBLISHED', submoduleGroup: 'jacob-israel' },
+  { id: 'jacob-el-fugitivo', moduleId: 'personajes-escrituras', title: 'El Fugitivo', subtitle: '14 años de servicio por amor', description: 'Huyendo de Esaú, Jacob llegó a Labán y se enamoró de Raquel. Trabajó 7 años por ella. Lo engañaron con Lea. Trabajó 7 más. La historia del amor más costoso del Antiguo Testamento.', level: 'INTERMEDIO', icon: '🏃', duration: 30, order: 3411, status: 'PUBLISHED', submoduleGroup: 'jacob-israel' },
+  { id: 'jacob-la-lucha', moduleId: 'personajes-escrituras', title: 'La Lucha con Dios', subtitle: 'Peniel — "He visto a Dios cara a cara"', description: 'Una noche, antes de enfrentar a Esaú, Jacob luchó con un ser desconocido hasta el amanecer. Al final el ser le cambió el nombre: ya no Jacob, sino Israel. "El que lucha con Dios y prevalece."', level: 'AVANZADO', icon: '⚡', duration: 35, order: 3412, status: 'PUBLISHED', submoduleGroup: 'jacob-israel' },
+  { id: 'jacob-el-padre', moduleId: 'personajes-escrituras', title: 'El Padre de las Doce Tribus', subtitle: 'La profecía sobre cada hijo', description: 'Al final de su vida, Jacob reunió a sus 12 hijos y pronunció una profecía individual para cada uno. Génesis 49 es uno de los textos proféticos más densos de la Biblia — cada bendición anticipa el destino de una tribu.', level: 'AVANZADO', icon: '👨‍👩‍👧‍👦', duration: 35, order: 3413, status: 'PUBLISHED', submoduleGroup: 'jacob-israel' },
+  { id: 'jacob-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Jacob y la Restauración', subtitle: 'La reunión de Israel en los últimos días', description: 'DyC 110 registra la aparición de Elías quien trajo las llaves de la reunión de Israel. Los convenios abrahámicos con Jacob siguen activos. La "reunión de Israel" es la misión central de la Iglesia restaurada.', level: 'AVANZADO', icon: '🌐', duration: 25, order: 3414, status: 'PUBLISHED', submoduleGroup: 'jacob-israel' },
   {
     id: 'moises',
     moduleId: 'personajes-escrituras',
@@ -1540,6 +1561,32 @@ const LESSON_ROWS: LessonRow[] = [
   },
   // ── TEMAS PROFUNDOS ADICIONALES (orders 6-7) ─────────────────────────────────
   {
+    id: 'lucifer',
+    moduleId: 'temas-profundos',
+    title: 'Lucifer — El Hijo de la Mañana',
+    subtitle: 'De estrella premortal a adversario eterno',
+    description:
+      'Lucifer fue uno de los espíritus más prominentes del mundo premortal. Su plan alternativo en el Gran Concilio, la Guerra en el Cielo, sus estrategias contra la humanidad, y su destino final. La doctrina restaurada revela más sobre Satanás que cualquier otra tradición cristiana.',
+    level: 'AVANZADO',
+    icon: '🌑',
+    duration: 90,
+    order: 20,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'el-mundo-de-los-espiritus',
+    moduleId: 'temas-profundos',
+    title: 'El Mundo de los Espíritus',
+    subtitle: 'El reino intermedio entre la muerte y la resurrección',
+    description:
+      'Entre la muerte y la resurrección existe un reino real, habitado por espíritus conscientes que recuerdan quiénes son, aprenden el evangelio, y esperan la resurrección. DyC 138 revela su organización. La Restauración lo ha descrito con más detalle que ninguna otra tradición.',
+    level: 'AVANZADO',
+    icon: '🌌',
+    duration: 95,
+    order: 21,
+    status: 'PUBLISHED',
+  },
+  {
     id: 'elohim-el-padre-celestial',
     moduleId: 'temas-profundos',
     title: 'Elohim — El Padre Celestial',
@@ -1633,11 +1680,33 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'los-yo-soy-de-cristo': lessonLosYoSoy,
   'la-resurreccion-de-cristo': lessonResurreccionCristo,
   'el-circulo-de-jesus': lessonElCirculoDeJesus,
-  'enoc': lessonEnoc,
-  'noe': lessonNoe,
-  'melquisedec': lessonMelquisedec,
-  'isaac': lessonIsaac,
-  'jacob-israel': lessonJacobIsrael,
+  'lucifer': lessonLucifer,
+  'el-mundo-de-los-espiritus': lessonMundoEspiritus,
+  'enoc-el-llamamiento': lessonEnocElLlamamiento,
+  'enoc-el-vidente': lessonEnocElVidente,
+  'enoc-la-ciudad': lessonEnocLaCiudad,
+  'enoc-la-traslacion': lessonEnocLaTraslacion,
+  'enoc-y-la-restauracion': lessonEnocYLaRestauracion,
+  'noe-el-predicador': lessonNoeElPredicador,
+  'noe-el-arca': lessonNoeElArca,
+  'noe-el-diluvio': lessonNoeElDiluvio,
+  'noe-el-pacto': lessonNoeElPacto,
+  'noe-y-la-restauracion': lessonNoeYLaRestauracion,
+  'melquisedec-el-rey': lessonMelquisedecElRey,
+  'melquisedec-la-ciudad': lessonMelquisedecLaCiudad,
+  'melquisedec-tipo-de-cristo': lessonMelquisedecTipoDeCristo,
+  'melquisedec-el-sacerdocio': lessonMelquisedecElSacerdocio,
+  'melquisedec-y-la-restauracion': lessonMelquisedecYLaRestauracion,
+  'isaac-el-hijo': lessonIsaacElHijo,
+  'isaac-el-sacrificio': lessonIsaacElSacrificio,
+  'isaac-el-esposo': lessonIsaacElEsposo,
+  'isaac-el-patriarca': lessonIsaacElPatriarca,
+  'isaac-y-la-restauracion': lessonIsaacYLaRestauracion,
+  'jacob-el-suplantador': lessonJacobElSuplantador,
+  'jacob-el-fugitivo': lessonJacobElFugitivo,
+  'jacob-la-lucha': lessonJacobLaLucha,
+  'jacob-el-padre': lessonJacobElPadre,
+  'jacob-y-la-restauracion': lessonJacobYLaRestauracion,
   'moises': lessonMoises,
   'aaron': lessonAaron,
   'isaias': lessonIsaias,
