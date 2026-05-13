@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useShallow } from 'zustand/react/shallow'
 import type { ParagraphBlock as ParagraphBlockType } from '@/types/doctrine'
 import { useHighlightsStore, type HighlightColor } from '@/stores/highlightsStore'
 
@@ -36,8 +37,8 @@ export function ParagraphBlock({ block, highlightId, blockKey, lessonId, topicId
 
   const addHighlight = useHighlightsStore((s) => s.addHighlight)
   const removeHighlight = useHighlightsStore((s) => s.removeHighlight)
-  const blockHighlights = useHighlightsStore((s) =>
-    blockKey ? s.getForBlock(blockKey) : [],
+  const blockHighlights = useHighlightsStore(
+    useShallow((s) => (blockKey ? s.highlights.filter((h) => h.blockKey === blockKey) : [])),
   )
 
   const [sel, setSel] = useState<SelectionState | null>(null)
