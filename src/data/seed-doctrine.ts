@@ -433,7 +433,7 @@ const LESSON_ROWS: LessonRow[] = [
     level: 'BÁSICO',
     icon: '🕊️',
     duration: 60,
-    order: 3,
+    order: 4,
     status: 'PUBLISHED',
   },
   {
