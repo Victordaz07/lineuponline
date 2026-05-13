@@ -6,10 +6,9 @@ import { MediaSlot } from '@/components/doctrinal/MediaSlot'
 import { ProgressBar } from '@/components/learning/ProgressBar'
 import { useModule } from '@/hooks/useModule'
 import { useUserProgress } from '@/hooks/useUserProgress'
+import { useAuth } from '@/hooks/useAuth'
 import type { DifficultyLevel } from '@/types/doctrine'
 import { DIFFICULTY_LEVELS } from '@/lib/constants'
-
-const DEMO_USER = 'demo-user'
 
 const LEVEL_LABEL: Record<DifficultyLevel, string> = {
   BÁSICO: 'Básico',
@@ -25,7 +24,8 @@ const LEVEL_LABEL: Record<DifficultyLevel, string> = {
 export default function ModuleView() {
   const { moduleId } = useParams<{ moduleId: string }>()
   const { module, lessons, loading, error } = useModule(moduleId)
-  const { completedLessonKeys } = useUserProgress(DEMO_USER)
+  const { userId } = useAuth()
+  const { completedLessonKeys } = useUserProgress(userId)
   const [levelFilter, setLevelFilter] = useState<DifficultyLevel | 'ALL'>('ALL')
 
   const filteredLessons = useMemo(() => {

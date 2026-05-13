@@ -9,15 +9,15 @@ import { useUserProgress } from '@/hooks/useUserProgress'
 import { useLessonProgressStore } from '@/stores/lessonProgressStore'
 import { useStudyJournalStore } from '@/stores/studyJournalStore'
 import { seedLessons, seedModules } from '@/data/seed-doctrine'
-
-const DEMO_USER = 'demo-user'
+import { useAuth } from '@/hooks/useAuth'
 
 export default function Dashboard() {
   const [modules, setModules] = useState<DoctrinalModule[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  const { completedCount, completedLessonKeys, isLessonComplete } = useUserProgress(DEMO_USER)
+  const { userId } = useAuth()
+  const { completedCount, completedLessonKeys, isLessonComplete } = useUserProgress(userId)
   const visitedTopics = useLessonProgressStore((s) => s.visitedTopics)
   const completedQuizzes = useLessonProgressStore((s) => s.completedQuizzes)
   const journalEntries = useStudyJournalStore((s) => s.entries)

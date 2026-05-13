@@ -25,5 +25,22 @@ service cloud.firestore {
     match /user_notes/{userId}/notes/{noteId} {
       allow read, write: if isOwner(userId);
     }
+
+    // Datos de personalización (resaltados, notas, favoritos, diario)
+    match /user_favorites/{userId}/verses/{id} {
+      allow read, write: if isOwner(userId);
+    }
+
+    match /user_highlights/{userId}/items/{id} {
+      allow read, write: if isOwner(userId);
+    }
+
+    match /user_margin_notes/{userId}/items/{id} {
+      allow read, write: if isOwner(userId);
+    }
+
+    match /user_journal/{userId}/entries/{id} {
+      allow read, write: if isOwner(userId);
+    }
   }
 }
