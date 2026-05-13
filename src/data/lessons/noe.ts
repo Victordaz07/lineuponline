@@ -23,9 +23,9 @@ export const noe: Lesson = {
           id: 't1',
           title: 'El contexto de la maldad',
           blocks: [
-            { type: 'paragraph', id: 'p1', text: 'Génesis 6:5 describe la condición humana en tiempos de Noé: "vio Jehová que la maldad de los hombres era mucha en la tierra, y que todo designio de los pensamientos del corazón de ellos era de continuo solamente el mal." El texto hebreo es enfático: no solo actos malos, sino pensamientos completamente corrompidos. Noé predicó en ese contexto durante más de un siglo.' },
-            { type: 'highlight_verse', id: 'v1', reference: 'Génesis 6:8-9', text: 'Pero Noé halló gracia ante los ojos de Jehová. Estas son las generaciones de Noé: Noé, varón justo, era perfecto en sus generaciones; con Dios caminó Noé.' },
-            { type: 'paragraph', id: 'p2', text: 'La frase "perfecto en sus generaciones" en hebreo (tamim be-dorotav) tiene doble lectura: (1) intachable en su conducta ética, (2) sin mezcla con las generaciones corrompidas. La Restauración añade que Noé fue Gabriel antes de nacer — el mismo ángel que visitó a María. Su papel en la historia divina es mucho más grande de lo que Génesis revela.' },
+            { type: 'paragraph', text: 'Génesis 6:5 describe la condición humana en tiempos de Noé: "vio Jehová que la maldad de los hombres era mucha en la tierra, y que todo designio de los pensamientos del corazón de ellos era de continuo solamente el mal." El texto hebreo es enfático: no solo actos malos, sino pensamientos completamente corrompidos. Noé predicó en ese contexto durante más de un siglo.' },
+            { type: 'highlight_verse', reference: 'Génesis 6:8-9', text: 'Pero Noé halló gracia ante los ojos de Jehová. Estas son las generaciones de Noé: Noé, varón justo, era perfecto en sus generaciones; con Dios caminó Noé.' },
+            { type: 'paragraph', text: 'La frase "perfecto en sus generaciones" en hebreo (tamim be-dorotav) tiene doble lectura: (1) intachable en su conducta ética, (2) sin mezcla con las generaciones corrompidas. La Restauración añade que Noé fue Gabriel antes de nacer — el mismo ángel que visitó a María. Su papel en la historia divina es mucho más grande de lo que Génesis revela.' },
           ],
         },
       ],
@@ -39,8 +39,8 @@ export const noe: Lesson = {
           id: 't2',
           title: 'La fe que construye lo que no ve',
           blocks: [
-            { type: 'highlight_verse', id: 'v2', reference: 'Hebreos 11:7', text: 'Por la fe Noé, cuando fue advertido por Dios acerca de cosas que aún no se veían, con temor preparó el arca en que su casa se salvase; y por esa fe condenó al mundo, y fue hecho heredero de la justicia que es según la fe.' },
-            { type: 'paragraph', id: 'p3', text: 'Pablo incluye a Noé en su galería de héroes de la fe (Hebreos 11) con una observación sorprendente: al preparar el arca, Noé "condenó al mundo". No con palabras de juicio — con su acción. Cuando un hombre actúa en fe sobre lo que Dios le dijo, su obediencia es un testigo tácito contra quienes no creyeron.' },
+            { type: 'highlight_verse', reference: 'Hebreos 11:7', text: 'Por la fe Noé, cuando fue advertido por Dios acerca de cosas que aún no se veían, con temor preparó el arca en que su casa se salvase; y por esa fe condenó al mundo, y fue hecho heredero de la justicia que es según la fe.' },
+            { type: 'paragraph', text: 'Pablo incluye a Noé en su galería de héroes de la fe (Hebreos 11) con una observación sorprendente: al preparar el arca, Noé "condenó al mundo". No con palabras de juicio — con su acción. Cuando un hombre actúa en fe sobre lo que Dios le dijo, su obediencia es un testigo tácito contra quienes no creyeron.' },
           ],
         },
       ],
@@ -54,13 +54,13 @@ export const noe: Lesson = {
           id: 't3',
           title: 'Las dos posiciones y la evidencia',
           blocks: [
-            { type: 'compare_grid', id: 'cg1', title: 'Diluvio Global vs. Local', rows: [
+            { type: 'compare_grid', title: 'Diluvio Global vs. Local', rows: [
               { label: 'Extensión', a: 'Cubre toda la tierra habitable conocida por Noé', b: 'Cubre todo el mundo geológico literal' },
               { label: 'Evidencia geológica', a: 'Estratos locales del Mar Negro (Ryan/Pitman)', b: 'Difícil de reconciliar con geología moderna' },
               { label: 'Texto hebreo', a: '"Eretz" = tierra/región, no necesariamente globo', b: '"Kol" (todo) puede ser hipérbole hebrea' },
               { label: 'Propósito teológico', a: 'Juzgar a toda la humanidad conocida del momento', b: 'Demostrar poder absoluto de Dios sobre la creación' },
             ]},
-            { type: 'paragraph', id: 'p4', text: 'La Iglesia no toma posición oficial sobre la extensión geológica del diluvio. Lo que sí es claro doctrinalmente: el diluvio fue un evento real, histórico, de escala suficiente para justificar el arca, y es un tipo del bautismo (1 Pedro 3:20-21 — las aguas del diluvio como tipo del bautismo que "ahora nos salva").' },
+            { type: 'paragraph', text: 'La Iglesia no toma posición oficial sobre la extensión geológica del diluvio. Lo que sí es claro doctrinalmente: el diluvio fue un evento real, histórico, de escala suficiente para justificar el arca, y es un tipo del bautismo (1 Pedro 3:20-21 — las aguas del diluvio como tipo del bautismo que "ahora nos salva").' },
           ],
         },
       ],
@@ -74,9 +74,9 @@ export const noe: Lesson = {
           id: 't4',
           title: 'El primer pacto con toda la humanidad',
           blocks: [
-            { type: 'highlight_verse', id: 'v3', reference: 'Génesis 9:13-15', text: 'Mi arco he puesto en las nubes, el cual será por señal del pacto entre mí y la tierra. Y sucederá que cuando haga venir nubes sobre la tierra, se dejará ver entonces mi arco en las nubes. Y me acordaré del pacto mío.' },
-            { type: 'paragraph', id: 'p5', text: 'El arco iris es el primer símbolo de pacto de la Biblia — y es unilateral: Dios no pide nada a cambio. Solo promete. Este pacto precede al abrahámico, al mosaico, y al nuevo pacto de Cristo. DyC 133:54-56 confirma que este pacto seguirá vigente en el milenio. Noé es el patriarca del nuevo comienzo — un segundo Adán después del diluvio.' },
-            { type: 'reflection', id: 'r1', prompt: '¿En qué momento de tu vida has sentido que Dios te daba una promesa no por lo que merecías sino por pura gracia, como el pacto del arco iris? ¿Cómo respondiste a esa promesa?' },
+            { type: 'highlight_verse', reference: 'Génesis 9:13-15', text: 'Mi arco he puesto en las nubes, el cual será por señal del pacto entre mí y la tierra. Y sucederá que cuando haga venir nubes sobre la tierra, se dejará ver entonces mi arco en las nubes. Y me acordaré del pacto mío.' },
+            { type: 'paragraph', text: 'El arco iris es el primer símbolo de pacto de la Biblia — y es unilateral: Dios no pide nada a cambio. Solo promete. Este pacto precede al abrahámico, al mosaico, y al nuevo pacto de Cristo. DyC 133:54-56 confirma que este pacto seguirá vigente en el milenio. Noé es el patriarca del nuevo comienzo — un segundo Adán después del diluvio.' },
+            { type: 'reflection', prompt: '¿En qué momento de tu vida has sentido que Dios te daba una promesa no por lo que merecías sino por pura gracia, como el pacto del arco iris? ¿Cómo respondiste a esa promesa?' },
           ],
         },
       ],

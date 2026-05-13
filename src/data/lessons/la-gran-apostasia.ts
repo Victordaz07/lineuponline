@@ -336,8 +336,7 @@ export const laGranApostasia: Lesson = {
               prompt: '¿Qué diferencia hace en tu vida diaria saber que perteneces a una iglesia con autoridad restaurada del sacerdocio? ¿Cómo cambia tu relación con las ordenanzas que has recibido saber que provienen de una cadena ininterrumpida que llega hasta Cristo mismo? ¿Hay alguien en tu vida que no entiende la diferencia entre reforma y restauración?',
             },
             {
-              type: 'quiz',
-              id: 'q-1', question: { kind: 'fill_blank',
+              type: 'quiz', id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'Amós 8:11-12 profetizó una hambruna no de pan ni de agua, sino de ___ del Señor.',
                 options: ['la presencia', 'oír las palabras', 'los templos', 'los profetas'],
                 correctIndex: 1,
@@ -345,8 +344,7 @@ export const laGranApostasia: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-2', question: {
+              type: 'quiz', id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'Según Hebreos 5:4, nadie puede tomar para sí la honra del sacerdocio sino el que es ___ por Dios, como lo fue Aarón.',
                 options: ['elegido', 'llamado', 'educado', 'confirmado'],
@@ -355,8 +353,7 @@ export const laGranApostasia: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-3', question: {
+              type: 'quiz', id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: 'Pedro en Hechos 3:21 habló de "la ___ de todas las cosas" que ocurriría antes de la Segunda Venida de Cristo.',
                 options: ['purificación', 'restauración', 'revelación', 'reforma'],

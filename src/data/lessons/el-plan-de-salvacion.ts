@@ -504,8 +504,7 @@ export const elPlanDeSalvacion: Lesson = {
               role: '"This Is the Work of the Master", Conferencia General, abril 1995 (trad.) · Liahona, julio 1995',
             },
             {
-              type: 'quiz',
-              id: 'q-1', question: { kind: 'fill_blank',
+              type: 'quiz', id: 'q-1', question: { kind: 'fill_blank',
                 prompt: '¿Cuál de los siguientes NO es uno de los nombres del plan de salvación que aparece en Alma 42?',
                 options: [
                   'Plan de felicidad',
@@ -518,8 +517,7 @@ export const elPlanDeSalvacion: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-2', question: {
+              type: 'quiz', id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'Según DyC 88:22-23, ¿qué determina en cuál reino de gloria habitará un alma?',
                 options: [
@@ -533,8 +531,7 @@ export const elPlanDeSalvacion: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-3', question: {
+              type: 'quiz', id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: '¿Cuál es la distinción entre el don UNIVERSAL y el don CONDICIONAL de la Expiación de Cristo?',
                 options: [

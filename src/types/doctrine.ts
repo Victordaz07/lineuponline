@@ -87,9 +87,10 @@ export type KeyPointsBlock = {
 }
 
 export type StepItem = {
-  step: string
+  step: string | number
   title: string
-  body: string
+  body?: string
+  description?: string
 }
 
 export type StepsBlock = {
@@ -141,16 +142,15 @@ export type CompareGridColumn = {
   points?: string[]
 }
 
-export type CompareGridRow = {
-  label: string
-  a: string
-  b: string
-}
+export type CompareGridRow =
+  | { label: string; a: string; b: string }
+  | [string, string, string]
 
 export type CompareGridBlock = {
   type: 'compare_grid'
   /** Encabezado opcional sobre las dos columnas. */
   title?: string
+  columns?: [string, string, string]
   left?: CompareGridColumn
   right?: CompareGridColumn
   rows?: CompareGridRow[]

@@ -243,8 +243,7 @@ export const yoSoy: Lesson = {
               prompt: '¿Cuál de las siete declaraciones "Yo Soy" tiene más significado personal para ti en este momento de tu vida, y por qué? ¿Cómo cambia tu relación con Cristo saber que él no solo da pan, luz, vida y camino — sino que él los es?',
             },
             {
-              type: 'quiz',
-              id: 'q-1', question: { kind: 'fill_blank',
+              type: 'quiz', id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'En Éxodo 3:14, Dios le dice a Moisés que su nombre es ___',
                 options: [
                   'Yo Soy el que Soy',
@@ -258,8 +257,7 @@ export const yoSoy: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-2', question: {
+              type: 'quiz', id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'En Juan 8:58, Jesús dijo "Antes que Abraham fuese, ___"',
                 options: ['yo soy', 'yo era', 'yo existía', 'yo reinaba'],
@@ -269,8 +267,7 @@ export const yoSoy: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-3', question: {
+              type: 'quiz', id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: '¿Cuántas declaraciones "Yo Soy + imagen" hay en el Evangelio de Juan?',
                 options: ['siete', 'tres', 'doce', 'cinco'],

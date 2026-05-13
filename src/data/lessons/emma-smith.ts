@@ -23,8 +23,8 @@ export const emmaSmith: Lesson = {
           id: 't1',
           title: 'El llamamiento específico de Emma',
           blocks: [
-            { type: 'highlight_verse', id: 'v1', reference: 'DyC 25:3', text: 'He aquí, y oyelo, tú eres un alma elegida y preciosa para mí, porque así lo he determinado; y tus días serán gastados en su servicio, en la obra de la iglesia, y no te aflijarás, porque Dios te ampara.' },
-            { type: 'paragraph', id: 'p1', text: 'DyC 25 es la única revelación en el canon dirigida personalmente a una mujer. Emma recibió instrucciones directas: ser ayudante de José, escribir y aprender, seleccionar himnos para la Iglesia, y no afligirse en las pruebas. El versículo 14 es la instrucción más exigente: "Continúa en el espíritu de mansedumbre... guárdate de soberbia." Emma enfrentaría pruebas que pondrían a prueba exactamente esas virtudes.' },
+            { type: 'highlight_verse', reference: 'DyC 25:3', text: 'He aquí, y oyelo, tú eres un alma elegida y preciosa para mí, porque así lo he determinado; y tus días serán gastados en su servicio, en la obra de la iglesia, y no te aflijarás, porque Dios te ampara.' },
+            { type: 'paragraph', text: 'DyC 25 es la única revelación en el canon dirigida personalmente a una mujer. Emma recibió instrucciones directas: ser ayudante de José, escribir y aprender, seleccionar himnos para la Iglesia, y no afligirse en las pruebas. El versículo 14 es la instrucción más exigente: "Continúa en el espíritu de mansedumbre... guárdate de soberbia." Emma enfrentaría pruebas que pondrían a prueba exactamente esas virtudes.' },
           ],
         },
       ],
@@ -38,7 +38,7 @@ export const emmaSmith: Lesson = {
           id: 't2',
           title: 'El testimonio de la escriba',
           blocks: [
-            { type: 'paragraph', id: 'p2', text: 'Emma fue una de las escribas principales del Libro de Mormón. En una entrevista de 1879 describió el proceso: "José Smith... no tenía ante él ni manuscritos ni libros mientras dictaba, y cuando empezaba a dictar cada mañana, comenzaba donde había dejado la noche anterior, sin que yo le leyera lo que habíamos recogido el día anterior." También testificó: "Fui testigo cercana... si el libro fuera mentira, habría sabido que lo era." Su testimonio es el de alguien que no podía ser engañada por el proceso.' },
+            { type: 'paragraph', text: 'Emma fue una de las escribas principales del Libro de Mormón. En una entrevista de 1879 describió el proceso: "José Smith... no tenía ante él ni manuscritos ni libros mientras dictaba, y cuando empezaba a dictar cada mañana, comenzaba donde había dejado la noche anterior, sin que yo le leyera lo que habíamos recogido el día anterior." También testificó: "Fui testigo cercana... si el libro fuera mentira, habría sabido que lo era." Su testimonio es el de alguien que no podía ser engañada por el proceso.' },
           ],
         },
       ],
@@ -52,7 +52,7 @@ export const emmaSmith: Lesson = {
           id: 't3',
           title: 'Fundadora de dos instituciones',
           blocks: [
-            { type: 'paragraph', id: 'p3', text: 'DyC 25:11 asignó a Emma "hacer una selección de himnos sagrados que sea aceptable a mí para mi iglesia." La primera himnología de la Iglesia, publicada en 1835, fue compilada por Emma. El 17 de marzo de 1842, José Smith organizó la Sociedad de Socorro con Emma como primera presidenta. En el discurso fundacional, José dijo que la organizaba "de acuerdo con el orden del sacerdocio." Emma fue la primera presidenta de una organización que hoy tiene millones de miembros.' },
+            { type: 'paragraph', text: 'DyC 25:11 asignó a Emma "hacer una selección de himnos sagrados que sea aceptable a mí para mi iglesia." La primera himnología de la Iglesia, publicada en 1835, fue compilada por Emma. El 17 de marzo de 1842, José Smith organizó la Sociedad de Socorro con Emma como primera presidenta. En el discurso fundacional, José dijo que la organizaba "de acuerdo con el orden del sacerdocio." Emma fue la primera presidenta de una organización que hoy tiene millones de miembros.' },
           ],
         },
       ],
@@ -66,8 +66,8 @@ export const emmaSmith: Lesson = {
           id: 't4',
           title: 'La fe que sobrevivió lo indecible',
           blocks: [
-            { type: 'paragraph', id: 'p4', text: 'Emma enterró cuatro hijos. Fue expulsada de Missouri en el invierno con sus hijos mientras José estaba en prisión. Vio a su esposo morir en Carthage. Nunca emigró a Utah con el resto de los Santos y sus razones fueron complejas y dolorosas. DyC 122:7 — la revelación a José en Liberty Jail — podría aplicarse igualmente a Emma: "Todo esto te dará experiencia y será para tu bien." Su historia no tiene final fácil. Tiene profundidad.' },
-            { type: 'reflection', id: 'r1', prompt: '¿Qué te enseña la historia de Emma sobre lo que Dios puede pedir a las personas que ama? ¿Cómo reconcilias el llamamiento "elegida y preciosa" con la magnitud de lo que Emma sufrió?' },
+            { type: 'paragraph', text: 'Emma enterró cuatro hijos. Fue expulsada de Missouri en el invierno con sus hijos mientras José estaba en prisión. Vio a su esposo morir en Carthage. Nunca emigró a Utah con el resto de los Santos y sus razones fueron complejas y dolorosas. DyC 122:7 — la revelación a José en Liberty Jail — podría aplicarse igualmente a Emma: "Todo esto te dará experiencia y será para tu bien." Su historia no tiene final fácil. Tiene profundidad.' },
+            { type: 'reflection', prompt: '¿Qué te enseña la historia de Emma sobre lo que Dios puede pedir a las personas que ama? ¿Cómo reconcilias el llamamiento "elegida y preciosa" con la magnitud de lo que Emma sufrió?' },
           ],
         },
       ],

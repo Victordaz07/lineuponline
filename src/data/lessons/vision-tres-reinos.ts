@@ -320,8 +320,7 @@ export const visionTresReinos: Lesson = {
               prompt: '¿Cómo cambia tu forma de ver a las personas fuera de la Iglesia saber que Dios tiene un destino proporcional para cada una? ¿Te motiva más el amor a la exaltación o el miedo a las consecuencias del pecado? ¿Hay alguna persona en tu familia que ya falleció por quien sientes la urgencia de hacer trabajo vicario?',
             },
             {
-              type: 'quiz',
-              id: 'q-1', question: { kind: 'fill_blank',
+              type: 'quiz', id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'Según DyC 131:1-4, para obtener el grado más alto del reino celestial, se debe entrar en el convenio del ___.',
                 options: ['bautismo', 'matrimonio eterno', 'sacerdocio', 'diezmo'],
                 correctIndex: 1,
@@ -329,8 +328,7 @@ export const visionTresReinos: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-2', question: {
+              type: 'quiz', id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'DyC 137:10 enseña que todos los niños que mueren antes de los años de responsabilidad son salvos en el reino ___ de los cielos.',
                 options: ['telestial', 'terrestre', 'celestial', 'espiritual'],
@@ -339,8 +337,7 @@ export const visionTresReinos: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-3', question: {
+              type: 'quiz', id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: 'Según DyC 76:89-90, la gloria del reino ___ "supera todo entendimiento" — incluyendo el destino de quienes vivieron en pecado.',
                 options: ['celestial', 'terrestre', 'telestial', 'perdición'],

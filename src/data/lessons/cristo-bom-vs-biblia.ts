@@ -235,8 +235,7 @@ export const cristoBomVsBiblia: Lesson = {
               prompt: '¿Qué pasaje del Libro de Mormón sobre Cristo te ha impactado más en esta lección, y por qué? ¿Cómo cambia tu comprensión de la Expiación el hecho de que Alma 7:11 incluya dolores y enfermedades, no solo pecados?',
             },
             {
-              type: 'quiz',
-              id: 'q-1', question: { kind: 'fill_blank',
+              type: 'quiz', id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'Alma 7:11 dice que Cristo sufrió dolores, enfermedades, ___ de todo género',
                 options: ['tentaciones', 'pruebas', 'tribulaciones', 'dudas'],
                 correctIndex: 0,
@@ -244,8 +243,7 @@ export const cristoBomVsBiblia: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-2', question: {
+              type: 'quiz', id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'En 3 Nefi 11, aproximadamente ___ personas metieron sus manos en las heridas de Cristo',
                 options: ['2.500', '12', '500', '70'],
@@ -254,8 +252,7 @@ export const cristoBomVsBiblia: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-3', question: {
+              type: 'quiz', id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: 'El propósito central del Libro de Mormón según 2 Nefi 25:26 es ___',
                 options: [

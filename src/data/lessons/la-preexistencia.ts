@@ -316,8 +316,7 @@ export const laPreexistencia: Lesson = {
               prompt: '¿Cómo cambia la forma en que te ves a ti mismo saber que existías antes de nacer y que elegiste venir a la mortalidad? ¿Hay algo en tu vida — un talento, una inclinación, una relación — que ahora tiene sentido a la luz de la premortalidad?',
             },
             {
-              type: 'quiz',
-              id: 'q-1', question: { kind: 'fill_blank',
+              type: 'quiz', id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'Según Abraham 3:22–23, Dios vio a las inteligencias organizadas antes del mundo y afirmó que muchas eran ___.',
                 options: ['idénticas entre sí', 'grandes y nobles', 'pequeñas e ignorantes', 'recién creadas'],
                 correctIndex: 1,
@@ -325,8 +324,7 @@ export const laPreexistencia: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-2', question: {
+              type: 'quiz', id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'El plan de Satanás fue rechazado principalmente porque eliminaría la ___ humana.',
                 options: ['memoria', 'agencia', 'fe', 'inteligencia'],
@@ -335,8 +333,7 @@ export const laPreexistencia: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-3', question: {
+              type: 'quiz', id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: 'DyC 138 revela que los profetas de la Restauración fueron ___ desde la fundación del mundo para su ministerio.',
                 options: ['entrenados', 'llamados y preparados', 'asignados aleatoriamente', 'elegidos por méritos terrenales'],

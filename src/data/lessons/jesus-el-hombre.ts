@@ -272,8 +272,7 @@ export const jesusElHombre: Lesson = {
               prompt: '¿Cuál de los aspectos de la humanidad de Jesús — su infancia en Nazaret, su trabajo como τέκτων, su llanto por Lázaro, o su angustia en Getsemaní — te resulta más significativo personalmente, y por qué?',
             },
             {
-              type: 'quiz',
-              id: 'q-1', question: { kind: 'fill_blank',
+              type: 'quiz', id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'Marcos 6:3 llama a Jesús τέκτων, que significa ___.',
                 options: [
                   'carpintero o artesano de la construcción',
@@ -287,8 +286,7 @@ export const jesusElHombre: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-2', question: {
+              type: 'quiz', id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'Hebreos 4:15 enseña que Jesús fue tentado ___ según nuestra semejanza.',
                 options: [
@@ -303,8 +301,7 @@ export const jesusElHombre: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-3', question: {
+              type: 'quiz', id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: 'En Juan 11, antes de resucitar a Lázaro, Jesús ___.',
                 options: [

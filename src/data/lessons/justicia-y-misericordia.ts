@@ -418,8 +418,7 @@ export const justiciaYMisericordia: Lesson = {
               reference: 'Doctrina y Convenios 58:42–43',
             },
             {
-              type: 'quiz',
-              id: 'q-1', question: { kind: 'fill_blank',
+              type: 'quiz', id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'Según Alma 42:25, ¿qué ocurriría si la misericordia simplemente cancelara las demandas de la justicia sin que Cristo pagara el precio?',
                 options: [
                   'El arrepentimiento se volvería innecesario y la Expiación quedaría sin efecto',
@@ -432,8 +431,7 @@ export const justiciaYMisericordia: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-2', question: {
+              type: 'quiz', id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: '¿Cuál es la diferencia precisa entre cómo la Expiación resuelve la muerte física vs. el pecado personal?',
                 options: [
@@ -447,8 +445,7 @@ export const justiciaYMisericordia: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-3', question: {
+              type: 'quiz', id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: 'En la parábola del Mediador de Boyd K. Packer, ¿qué significa que el amigo dice al deudor "mis condiciones son diferentes"?',
                 options: [
@@ -731,8 +728,7 @@ export const justiciaYMisericordia: Lesson = {
               ],
             },
             {
-              type: 'quiz',
-              id: 'q-4', question: { kind: 'true_false',
+              type: 'quiz', id: 'q-4', question: { kind: 'true_false',
                 statement: 'Según 2 Nefi 9, sin la Expiación las almas serían cautivas del diablo para siempre.',
                 correctAnswer: true,
                 explanation: 'Correcto. Jacob enseña en 2 Nefi 9:8–9 que sin la Resurrección y la Expiación, los espíritus habrían quedado "sujetos a aquel ángel que cayó... el diablo, para que se levantara para siempre jamás." La Expiación rompe esa cautividad, haciendo posible la resurrección del cuerpo y la libertad del espíritu para regresar a la presencia de Dios.',

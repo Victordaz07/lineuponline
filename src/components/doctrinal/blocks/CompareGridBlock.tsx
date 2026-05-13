@@ -16,14 +16,26 @@ export function CompareGridBlockComponent({ block }: { block: CompareGridBlock }
           <p className="mb-3 font-ui text-sm font-semibold text-text-main">{block.title}</p>
         ) : null}
         <table className="w-full border-collapse text-sm">
-          <tbody>
-            {block.rows.map((row, i) => (
-              <tr key={i} className={i % 2 === 0 ? 'bg-white/60' : 'bg-blue-50/40'}>
-                <td className="border border-blue-accent/15 px-3 py-2 font-ui font-semibold text-text-main">{row.label}</td>
-                <td className="border border-blue-accent/15 px-3 py-2 text-emerald-800">{row.a}</td>
-                <td className="border border-blue-accent/15 px-3 py-2 text-red-800">{row.b}</td>
+          {block.columns ? (
+            <thead>
+              <tr className="bg-blue-accent/10">
+                {block.columns.map((col, i) => (
+                  <th key={i} className="border border-blue-accent/15 px-3 py-2 font-ui font-bold text-text-main text-left">{col}</th>
+                ))}
               </tr>
-            ))}
+            </thead>
+          ) : null}
+          <tbody>
+            {block.rows.map((row, i) => {
+              const cells = Array.isArray(row) ? row : [row.label, row.a, row.b]
+              return (
+                <tr key={i} className={i % 2 === 0 ? 'bg-white/60' : 'bg-blue-50/40'}>
+                  <td className="border border-blue-accent/15 px-3 py-2 font-ui font-semibold text-text-main">{cells[0]}</td>
+                  <td className="border border-blue-accent/15 px-3 py-2 text-emerald-800">{cells[1]}</td>
+                  <td className="border border-blue-accent/15 px-3 py-2 text-red-800">{cells[2]}</td>
+                </tr>
+              )
+            })}
           </tbody>
         </table>
       </div>

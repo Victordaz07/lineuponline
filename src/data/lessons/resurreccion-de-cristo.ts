@@ -237,8 +237,7 @@ export const resurreccionDeCristo: Lesson = {
               prompt: '¿Cómo cambia tu vida diaria saber que la resurrección es un hecho real y físico — que tu cuerpo actual, perfeccionado, será eterno? ¿Cambia cómo cuidas tu cuerpo, cómo lo valoras, cómo ves el sufrimiento físico?',
             },
             {
-              type: 'quiz',
-              id: 'q-1', question: { kind: 'fill_blank',
+              type: 'quiz', id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'Pablo dice en 1 Corintios 15 que si Cristo no resucitó, vuestra fe ___.',
                 options: ['es vana', 'es débil', 'es suficiente', 'necesita más obras'],
                 correctIndex: 0,
@@ -247,8 +246,7 @@ export const resurreccionDeCristo: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-2', question: {
+              type: 'quiz', id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'En Lucas 24:39, el Cristo resucitado dice que su cuerpo tiene ___.',
                 options: ['carne y huesos', 'solo espíritu', 'luz y gloria', 'sangre y agua'],
@@ -258,8 +256,7 @@ export const resurreccionDeCristo: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-3', question: {
+              type: 'quiz', id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: 'En DyC 76:22, Joseph Smith y Sidney Rigdon testifican que ___.',
                 options: [

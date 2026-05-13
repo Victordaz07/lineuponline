@@ -302,8 +302,7 @@ export const misionYTestimonio: Lesson = {
               prompt: '¿Cuándo fue la última vez que compartiste tu testimonio con alguien fuera de la Iglesia? ¿Hay alguien en tu vida ahora mismo que podría beneficiarse de conocer lo que tú has encontrado? ¿Qué específicamente te detiene?',
             },
             {
-              type: 'quiz',
-              id: 'q-1', question: { kind: 'fill_blank',
+              type: 'quiz', id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'Según Alma 17:2–3, el secreto del poder misionero de los hijos de Mosías fue que "habían escudriñado diligentemente las ___ a fin de conocer la palabra de Dios."',
                 options: ['enseñanzas de los profetas', 'escrituras', 'revelaciones modernas', 'crónicas de guerra'],
                 correctIndex: 1,
@@ -311,8 +310,7 @@ export const misionYTestimonio: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-2', question: {
+              type: 'quiz', id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'DyC 42:14 enseña que si no recibes el ___, no debes enseñar.',
                 options: ['llamamiento', 'Espíritu', 'permiso', 'conocimiento completo'],
@@ -321,8 +319,7 @@ export const misionYTestimonio: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-3', question: {
+              type: 'quiz', id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: 'Según 2 Nefi 33:1, cuando un hombre habla por el poder del Espíritu Santo, ese poder lleva las palabras de Cristo al ___ de los hijos de los hombres.',
                 options: ['entendimiento', 'corazón', 'recuerdo', 'juicio'],

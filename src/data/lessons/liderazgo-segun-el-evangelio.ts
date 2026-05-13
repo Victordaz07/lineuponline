@@ -322,8 +322,7 @@ export const liderazgoSegunElEvangelio: Lesson = {
               prompt: '¿Qué llamamiento tienes actualmente — en la Iglesia, en tu hogar, en tu trabajo? ¿Cuál de los principios de DyC 121 (persuasión, paciencia, mansedumbre, amor no fingido, bondad, puro conocimiento) te cuesta más aplicar? ¿Qué cambiaría en cómo lideras si adoptaras completamente el modelo de Jesús lavando los pies de sus discípulos?',
             },
             {
-              type: 'quiz',
-              id: 'q-1', question: { kind: 'fill_blank',
+              type: 'quiz', id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'Según DyC 121:37, cuando un líder ejerce "control, dominio o compulsión" en cualquier grado de injusticia, ___.',
                 options: [
                   'pierde su llamamiento formalmente',
@@ -336,8 +335,7 @@ export const liderazgoSegunElEvangelio: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-2', question: {
+              type: 'quiz', id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'DyC 121:41-42 lista siete principios del liderazgo del evangelio. El primero es la persuasión, el segundo es la paciencia, el tercero es la ___.',
                 options: ['obediencia', 'mansedumbre', 'templanza', 'autoridad'],
@@ -346,8 +344,7 @@ export const liderazgoSegunElEvangelio: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-3', question: {
+              type: 'quiz', id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: 'Según DyC 121:43, el líder debe reprend er "cuando sea movido por ___" y después mostrar un aumento de amor.',
                 options: ['la necesidad', 'el Espíritu Santo', 'la autoridad', 'la situación'],

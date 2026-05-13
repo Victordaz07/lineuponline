@@ -272,8 +272,7 @@ export const jesusElCristo: Lesson = {
               prompt: '¿Qué cambia en tu relación personal con Cristo cuando lo comprendes no solo como el Redentor que murió por tus pecados, sino también como el Creador que te hizo — que diseñó este mundo sabiendo de antemano que tendría que redimirte?',
             },
             {
-              type: 'quiz',
-              id: 'q-1', question: { kind: 'fill_blank',
+              type: 'quiz', id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'Juan 1:1 declara que en el principio era ___ .',
                 options: [
                   'el Verbo',
@@ -287,8 +286,7 @@ export const jesusElCristo: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-2', question: {
+              type: 'quiz', id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'Colosenses 1:16 enseña que todas las cosas fueron creadas ___ .',
                 options: [
@@ -303,8 +301,7 @@ export const jesusElCristo: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-3', question: {
+              type: 'quiz', id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: 'En 3 Nefi 11, los aproximadamente 2,500 presentes ___ .',
                 options: [

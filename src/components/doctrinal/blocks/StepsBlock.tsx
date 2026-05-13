@@ -25,7 +25,7 @@ export function StepsBlock({ block }: StepsBlockProps) {
             ) : (
               <div>
                 <p className="font-ui text-sm font-semibold text-blue-accent">{step.title}</p>
-                <p className="text-reading text-base leading-relaxed text-text-main">{step.body}</p>
+                <p className="text-reading text-base leading-relaxed text-text-main">{step.body ?? step.description}</p>
               </div>
             )}
           </li>

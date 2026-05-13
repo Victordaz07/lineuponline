@@ -335,8 +335,7 @@ export const visionDC76: Lesson = {
               prompt: '¿Cómo cambia DyC 76 tu imagen de Dios? ¿Y cómo cambia cómo ves a personas que no son miembros de la Iglesia — sabiendo que Dios tiene un destino apropiado para cada uno según su rectitud y conocimiento?',
             },
             {
-              type: 'quiz',
-              id: 'q-1', question: { kind: 'fill_blank',
+              type: 'quiz', id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'DyC 76 comenzó mientras Joseph Smith y Sidney Rigdon meditaban en ___ 5:29, sobre la resurrección de vida y la resurrección de condenación.',
                 options: ['Mateo', 'Juan', 'Romanos', 'Apocalipsis'],
                 correctIndex: 1,
@@ -344,8 +343,7 @@ export const visionDC76: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-2', question: {
+              type: 'quiz', id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'Según DyC 76:31-35, para ser hijo de perdición una persona debe haber recibido el Espíritu Santo y luego ___ al Hijo después de haberlo recibido.',
                 options: ['olvidado', 'negado', 'cuestionado', 'desobedecido temporalmente'],
@@ -354,8 +352,7 @@ export const visionDC76: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-3', question: {
+              type: 'quiz', id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: 'DyC 76:89-90 afirma que la gloria del reino ___ "supera todo entendimiento" — incluso la del destino más bajo de gloria.',
                 options: ['celestial', 'telestial', 'terrestre', 'perdición'],

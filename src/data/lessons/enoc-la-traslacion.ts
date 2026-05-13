@@ -24,9 +24,9 @@ export const enocLaTraslacion: Lesson = {
           id: 't4',
           title: 'La promesa pendiente',
           blocks: [
-            { type: 'highlight_verse', id: 'v4', reference: 'DyC 45:11-12', text: 'Y con Enoc y su pueblo, que se aguardarán hasta una temporada; y la tierra descansará. Y luego será levantada y coronada con gloria, incluso con la presencia de Dios el Padre.' },
-            { type: 'paragraph', id: 'p5', text: 'La historia de Enoc no terminó cuando su ciudad fue arrebatada. DyC 45 revela que Enoc y su pueblo están esperando — preservados — hasta el día en que la nueva Sión terrenal esté lista para recibirlos. El proyecto de Sión que Enoc comenzó es el mismo que los Santos de los Últimos Días están construyendo hoy.' },
-            { type: 'reflection', id: 'r1', prompt: '¿Qué haría falta en tu comunidad local para que fuera una Sión? ¿Qué cambio comenzaría en ti?' },
+            { type: 'highlight_verse', reference: 'DyC 45:11-12', text: 'Y con Enoc y su pueblo, que se aguardarán hasta una temporada; y la tierra descansará. Y luego será levantada y coronada con gloria, incluso con la presencia de Dios el Padre.' },
+            { type: 'paragraph', text: 'La historia de Enoc no terminó cuando su ciudad fue arrebatada. DyC 45 revela que Enoc y su pueblo están esperando — preservados — hasta el día en que la nueva Sión terrenal esté lista para recibirlos. El proyecto de Sión que Enoc comenzó es el mismo que los Santos de los Últimos Días están construyendo hoy.' },
+            { type: 'reflection', prompt: '¿Qué haría falta en tu comunidad local para que fuera una Sión? ¿Qué cambio comenzaría en ti?' },
           ],
         },
       ],

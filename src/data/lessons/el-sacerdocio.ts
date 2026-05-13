@@ -312,8 +312,7 @@ export const elSacerdocio: Lesson = {
               prompt: '¿Cómo cambia tu relación con tu obispo, tu presidente de estaca, y el Presidente de la Iglesia cuando entiendes el principio de las llaves? ¿De qué manera práctica puedes desarrollar más poder en el sacerdocio (o alinearte con su poder) en tu vida diaria?',
             },
             {
-              type: 'quiz',
-              id: 'q-1', question: { kind: 'fill_blank',
+              type: 'quiz', id: 'q-1', question: { kind: 'fill_blank',
                 prompt: 'Según el presidente Nelson, la autoridad del sacerdocio se recibe mediante la ___, pero el poder del sacerdocio se obtiene mediante la rectitud personal.',
                 options: ['fe', 'ordenación', 'oración', 'confirmación'],
                 correctIndex: 1,
@@ -321,8 +320,7 @@ export const elSacerdocio: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-2', question: {
+              type: 'quiz', id: 'q-2', question: {
                 kind: 'fill_blank',
                 prompt: 'DyC 84:19-20 enseña que en las ordenanzas del Sacerdocio de Melquisedec "se manifiesta el poder de ___."',
                 options: ['la autoridad', 'la divinidad', 'la Iglesia', 'los convenios'],
@@ -331,8 +329,7 @@ export const elSacerdocio: Lesson = {
               },
             },
             {
-              type: 'quiz',
-              id: 'q-3', question: {
+              type: 'quiz', id: 'q-3', question: {
                 kind: 'fill_blank',
                 prompt: 'Según Alma 13:3, el sumo sacerdocio fue establecido ___, antes de la fundación del mundo.',
                 options: [

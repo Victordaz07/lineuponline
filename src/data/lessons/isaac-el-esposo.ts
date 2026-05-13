@@ -24,8 +24,8 @@ export const isaacElEsposo: Lesson = {
           id: 't3',
           title: 'Isaac, el hombre de la meditación',
           blocks: [
-            { type: 'paragraph', id: 'p3', text: 'Isaac aparece pocas veces en la narrativa pero cada aparición es significativa. En Génesis 24:63, cuando sale a meditar al campo y ve venir a Rebeca, el texto usa el hebreo "lasuach" — un término de meditación o reflexión tranquila. En Génesis 26, cuando los filisteos tapan sus pozos, Isaac no responde con violencia sino que cava nuevos pozos repetidamente hasta encontrar uno donde no hay disputa. Su carácter es de mansedumbre notable.' },
-            { type: 'highlight_verse', id: 'v3', reference: 'Génesis 26:22', text: 'Y se apartó de allí, y abrió otro pozo, y no disputaron por él; y lo llamó Rehobot, y dijo: Porque ahora Jehová nos ha dado anchura, y fructificaremos en la tierra.' },
+            { type: 'paragraph', text: 'Isaac aparece pocas veces en la narrativa pero cada aparición es significativa. En Génesis 24:63, cuando sale a meditar al campo y ve venir a Rebeca, el texto usa el hebreo "lasuach" — un término de meditación o reflexión tranquila. En Génesis 26, cuando los filisteos tapan sus pozos, Isaac no responde con violencia sino que cava nuevos pozos repetidamente hasta encontrar uno donde no hay disputa. Su carácter es de mansedumbre notable.' },
+            { type: 'highlight_verse', reference: 'Génesis 26:22', text: 'Y se apartó de allí, y abrió otro pozo, y no disputaron por él; y lo llamó Rehobot, y dijo: Porque ahora Jehová nos ha dado anchura, y fructificaremos en la tierra.' },
           ],
         },
       ],

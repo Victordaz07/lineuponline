@@ -23,8 +23,8 @@ export const ester: Lesson = {
           id: 't1',
           title: 'El único libro bíblico sin el nombre de Dios',
           blocks: [
-            { type: 'paragraph', id: 'p1', text: 'El libro de Ester es notable por lo que no contiene: nunca menciona el nombre de Dios. No hay oración directa, ni profecías, ni milagros obvios. Sin embargo, es uno de los libros más leídos en el canon judío — celebrado en Purim. La providencia divina opera entera y completamente a través de circunstancias naturales: un concurso de belleza, la indignación de un eunuco, una noche de insomnio del rey, el orgullo de Amán. Dios actúa sin anunciarse.' },
-            { type: 'doctrine_box', id: 'db1', title: 'Providencia vs. Milagro', body: 'La mayoría de la historia sagrada — y la mayor parte de la vida de los creyentes — no ocurre a través de milagros dramáticos. Ocurre a través de circunstancias que, vistas en retrospectiva, revelan la mano de Dios trabajando silenciosamente. El libro de Ester enseña a reconocer esa providencia: el hecho de que Dios no firme su nombre no significa que no esté presente.' },
+            { type: 'paragraph', text: 'El libro de Ester es notable por lo que no contiene: nunca menciona el nombre de Dios. No hay oración directa, ni profecías, ni milagros obvios. Sin embargo, es uno de los libros más leídos en el canon judío — celebrado en Purim. La providencia divina opera entera y completamente a través de circunstancias naturales: un concurso de belleza, la indignación de un eunuco, una noche de insomnio del rey, el orgullo de Amán. Dios actúa sin anunciarse.' },
+            { type: 'doctrine_box', title: 'Providencia vs. Milagro', body: 'La mayoría de la historia sagrada — y la mayor parte de la vida de los creyentes — no ocurre a través de milagros dramáticos. Ocurre a través de circunstancias que, vistas en retrospectiva, revelan la mano de Dios trabajando silenciosamente. El libro de Ester enseña a reconocer esa providencia: el hecho de que Dios no firme su nombre no significa que no esté presente.' },
           ],
         },
       ],
@@ -38,8 +38,8 @@ export const ester: Lesson = {
           id: 't2',
           title: 'Para esta hora',
           blocks: [
-            { type: 'highlight_verse', id: 'v1', reference: 'Ester 4:13-14', text: 'Entonces Mardoqueo dijo que respondiesen a Ester: No pienses que escaparás en la casa del rey más que cualquier otro judío. Porque si callas absolutamente en este tiempo, respiro y liberación vendrá de alguna otra parte para los judíos; mas tú y la casa de tu padre pereceréis. ¿Y quién sabe si para esta hora has llegado al reino?' },
-            { type: 'paragraph', id: 'p2', text: 'La pregunta de Mardoqueo no es una afirmación — es una pregunta genuina. "¿Y quién sabe?" No hay certeza revelada. Solo la posibilidad: quizás tu posición única, en este momento único, para este problema único, no es accidental. Esta es la teología de la vocación providencial: no todos los llamamientos se anuncian con ángeles. Algunos llegan como circunstancias que preguntan en voz baja: ¿para qué estás aquí?' },
+            { type: 'highlight_verse', reference: 'Ester 4:13-14', text: 'Entonces Mardoqueo dijo que respondiesen a Ester: No pienses que escaparás en la casa del rey más que cualquier otro judío. Porque si callas absolutamente en este tiempo, respiro y liberación vendrá de alguna otra parte para los judíos; mas tú y la casa de tu padre pereceréis. ¿Y quién sabe si para esta hora has llegado al reino?' },
+            { type: 'paragraph', text: 'La pregunta de Mardoqueo no es una afirmación — es una pregunta genuina. "¿Y quién sabe?" No hay certeza revelada. Solo la posibilidad: quizás tu posición única, en este momento único, para este problema único, no es accidental. Esta es la teología de la vocación providencial: no todos los llamamientos se anuncian con ángeles. Algunos llegan como circunstancias que preguntan en voz baja: ¿para qué estás aquí?' },
           ],
         },
       ],
@@ -53,8 +53,8 @@ export const ester: Lesson = {
           id: 't3',
           title: 'Valor sin garantías',
           blocks: [
-            { type: 'highlight_verse', id: 'v2', reference: 'Ester 4:16', text: 'Ve y reúne a todos los judíos que se hallan en Susa, y ayunad por mí, y no comáis ni bebáis en tres días, noche y día; yo también con mis doncellas ayunaré igualmente, y entonces entraré a ver al rey, aunque no sea conforme a la ley; y si perezco, que perezca.' },
-            { type: 'paragraph', id: 'p3', text: 'La ley persa era clara: quien se acercara al rey sin ser convocado moría, a menos que el rey extendiera su cetro de oro. Ester no tenía garantías. La respuesta de Ester es una de las más valientes del canon: "si perezco, que perezca." No hay bravuconería — hay resolución sobria. Pide ayuno colectivo (la forma más cercana a oración que el libro narra), y actúa.' },
+            { type: 'highlight_verse', reference: 'Ester 4:16', text: 'Ve y reúne a todos los judíos que se hallan en Susa, y ayunad por mí, y no comáis ni bebáis en tres días, noche y día; yo también con mis doncellas ayunaré igualmente, y entonces entraré a ver al rey, aunque no sea conforme a la ley; y si perezco, que perezca.' },
+            { type: 'paragraph', text: 'La ley persa era clara: quien se acercara al rey sin ser convocado moría, a menos que el rey extendiera su cetro de oro. Ester no tenía garantías. La respuesta de Ester es una de las más valientes del canon: "si perezco, que perezca." No hay bravuconería — hay resolución sobria. Pide ayuno colectivo (la forma más cercana a oración que el libro narra), y actúa.' },
           ],
         },
       ],
@@ -68,8 +68,8 @@ export const ester: Lesson = {
           id: 't4',
           title: 'La inversión providencial',
           blocks: [
-            { type: 'paragraph', id: 'p4', text: 'Amán construyó una horca de cincuenta codos para colgar a Mardoqueo. El rey, que había pasado una noche insomne leyendo los anales del reino, había descubierto que Mardoqueo le había salvado la vida en un complot y nunca había sido recompensado. Cuando Amán llegó al palacio a pedir permiso para ejecutar a Mardoqueo, el rey preguntó qué debería hacerse con un hombre a quien el rey quería honrar. Amán pensó que hablaba de él mismo. La providencia había trabajado silenciosamente toda la noche.' },
-            { type: 'reflection', id: 'r1', prompt: '¿Hay un "¿quién sabe si para esta hora?" en tu vida ahora — una posición, relación o conjunto de habilidades que quizás no son accidentales en relación con una necesidad que conoces? ¿Qué te retiene de entrar "aunque perezca"?' },
+            { type: 'paragraph', text: 'Amán construyó una horca de cincuenta codos para colgar a Mardoqueo. El rey, que había pasado una noche insomne leyendo los anales del reino, había descubierto que Mardoqueo le había salvado la vida en un complot y nunca había sido recompensado. Cuando Amán llegó al palacio a pedir permiso para ejecutar a Mardoqueo, el rey preguntó qué debería hacerse con un hombre a quien el rey quería honrar. Amán pensó que hablaba de él mismo. La providencia había trabajado silenciosamente toda la noche.' },
+            { type: 'reflection', prompt: '¿Hay un "¿quién sabe si para esta hora?" en tu vida ahora — una posición, relación o conjunto de habilidades que quizás no son accidentales en relación con una necesidad que conoces? ¿Qué te retiene de entrar "aunque perezca"?' },
           ],
         },
       ],

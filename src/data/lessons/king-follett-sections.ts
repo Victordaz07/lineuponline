@@ -39,8 +39,7 @@ export const kingFollettStudySections: LessonSection[] = [
             prompt: '¿Qué significa para ti que este discurso fuera uno de los últimos que dio el Profeta en público?',
           },
           {
-            type: 'quiz',
-            id: 'q-1', question: { kind: 'true_false',
+            type: 'quiz', id: 'q-1', question: { kind: 'true_false',
               statement: 'El Sermón de King Follett se dio en Nauvoo, Illinois.',
               correctAnswer: true,
               explanation: 'Se pronunció el 7 de abril de 1844 durante la conferencia general en Nauvoo.',
@@ -82,8 +81,7 @@ export const kingFollettStudySections: LessonSection[] = [
             body: 'Conocer la naturaleza de Dios es la base sobre la que se construyen fe, arrepentimiento y progreso — debemos saber con quién tratamos.',
           },
           {
-            type: 'quiz',
-            id: 'q-2', question: {
+            type: 'quiz', id: 'q-2', question: {
               kind: 'true_false',
               statement: 'Según el discurso, la vida eterna puede ser solo “durar mucho tiempo” sin conocer a Dios verdaderamente.',
               correctAnswer: false,
@@ -161,8 +159,7 @@ export const kingFollettStudySections: LessonSection[] = [
             text: 'Los principios puros de los elementos son principios que jamás pueden ser destruidos; pueden ser organizados, y reorganizados, mas no destruidos.',
           },
           {
-            type: 'quiz',
-            id: 'q-3', question: {
+            type: 'quiz', id: 'q-3', question: {
               kind: 'fill_blank',
               prompt: 'Según el sermón, crear en ciertos usos hebreos implica principalmente…',
               options: ['Aniquilar la materia', 'Organizar y dar forma', 'Ignorar la física'],
@@ -200,8 +197,7 @@ export const kingFollettStudySections: LessonSection[] = [
             ],
           },
           {
-            type: 'quiz',
-            id: 'q-4', question: {
+            type: 'quiz', id: 'q-4', question: {
               kind: 'sort_items',
               items: [
                 'Las leyes divinas ofrecen camino de progreso',
@@ -294,8 +290,7 @@ export const kingFollettStudySections: LessonSection[] = [
             text: 'Se enseña una salvación posible para casi todas las transgresiones, salvo el pecado imperdonable en condiciones muy definidas: conocimiento pleno, luz recibida y rebeldía contra el Espíritu Santo.',
           },
           {
-            type: 'quiz',
-            id: 'q-5', question: {
+            type: 'quiz', id: 'q-5', question: {
               kind: 'true_false',
               statement: 'El sermón enseña que, en general, quienes no cometieron el pecado imperdonable pueden ser alcanzados por la salvación en esta vida o la venidera.',
               correctAnswer: true,

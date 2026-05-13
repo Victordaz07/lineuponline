@@ -24,14 +24,14 @@ export const jacobElPadre: Lesson = {
           id: 't4',
           title: 'Sus hijos son nuestros padres',
           blocks: [
-            { type: 'paragraph', id: 'p5', text: 'Los 12 hijos de Jacob/Israel — de cuatro mujeres distintas — se convirtieron en las 12 tribus de Israel. Cada tribu lleva en su nombre y en su historia el carácter de su padre: Rubén el primogénito inestable, Leví el sacerdotal, Judá el de quien desciende Cristo, José el visionario, Benjamín el más amado. La profecía de Jacob sobre sus hijos en Génesis 49 es una de las profecías mesiánicas más tempranas de la Biblia.' },
-            { type: 'key_points', id: 'kp1', title: 'El Convenio Abrahámico a través de Jacob', points: [
+            { type: 'paragraph', text: 'Los 12 hijos de Jacob/Israel — de cuatro mujeres distintas — se convirtieron en las 12 tribus de Israel. Cada tribu lleva en su nombre y en su historia el carácter de su padre: Rubén el primogénito inestable, Leví el sacerdotal, Judá el de quien desciende Cristo, José el visionario, Benjamín el más amado. La profecía de Jacob sobre sus hijos en Génesis 49 es una de las profecías mesiánicas más tempranas de la Biblia.' },
+            { type: 'key_points', title: 'El Convenio Abrahámico a través de Jacob', points: [
               'Dios confirmó el convenio de Abraham a Jacob en Betel (Génesis 28:13-15)',
               'Las 12 tribus son el cumplimiento de "una gran nación"',
               'Judá lleva el linaje mesiánico — de él desciende Cristo (Génesis 49:10)',
               'El trabajo de unir los palos de Efraín y Judá (Ezequiel 37:16) es literal en la obra restaurada',
             ]},
-            { type: 'reflection', id: 'r1', prompt: '¿Qué aspecto de tu carácter necesita el mismo cambio de nombre que Jacob/Israel experimentó? ¿Hay algo en ti que Dios quiere renombrar de "suplantador" a "príncipe"?' },
+            { type: 'reflection', prompt: '¿Qué aspecto de tu carácter necesita el mismo cambio de nombre que Jacob/Israel experimentó? ¿Hay algo en ti que Dios quiere renombrar de "suplantador" a "príncipe"?' },
           ],
         },
       ],
