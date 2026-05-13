@@ -53,6 +53,13 @@ import { cristoLibroDeMormonVsBiblia as lessonCristoLdMVsBiblia } from '@/data/l
 import { losYoSoyDeCristo as lessonLosYoSoy } from '@/data/lessons/los-yo-soy-de-cristo'
 import { laResurreccionDeCristo as lessonResurreccionCristo } from '@/data/lessons/la-resurreccion-de-cristo'
 import { suGraciaEsSuficiente as lessonSuGracia } from '@/data/lessons/su-gracia-es-suficiente'
+import { permanecerParaSiempre as lessonPermanecerParaSiempre } from '@/data/lessons/permanecer-para-siempre'
+import { pensarDeManeraCelestial as lessonPensarCelestial } from '@/data/lessons/pensar-de-manera-celestial'
+import { sumoSacerdoteBienesVenideros as lessonSumoSacerdoteHolland } from '@/data/lessons/sumo-sacerdote-bienes-venideros'
+import { elDomingoLlegara as lessonElDomingoLlegara } from '@/data/lessons/el-domingo-llegara'
+import { elGranPlanDeLaFelicidad as lessonGranPlan } from '@/data/lessons/el-gran-plan-de-la-felicidad'
+import { sacerdocioPoderMujer as lessonSacerdocioPoderMujer } from '@/data/lessons/sacerdocio-poder-mujer'
+import { fechandoLaMuerteDeCristo as lessonFechandoMuerte } from '@/data/lessons/fechando-la-muerte-de-cristo'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -1341,6 +1348,100 @@ const LESSON_ROWS: LessonRow[] = [
     order: 3,
     status: 'PUBLISHED',
   },
+  // ── DISCURSOS CLÁSICOS ADICIONALES (orders 5-8) ──────────────────────────────
+  {
+    id: 'permanecer-para-siempre',
+    moduleId: 'discursos-sermones-clasicos',
+    title: 'Permanecer Para Siempre',
+    subtitle: 'Lawrence E. Corbridge · BYU Devotional, 2019',
+    description:
+      'Cómo responder al antagonismo intelectual contra la Iglesia: el método científico aplicado a la fe según Alma 32, la diferencia entre dudas y preguntas, y las cuatro preguntas que toda crítica debe responder antes de descartarse.',
+    level: 'INTERMEDIO',
+    icon: '🔍',
+    duration: 65,
+    order: 5,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'pensar-de-manera-celestial',
+    moduleId: 'discursos-sermones-clasicos',
+    title: 'Pensar de Manera Celestial',
+    subtitle: 'Russell M. Nelson · Conferencia General, Oct 2023',
+    description:
+      'El profeta a sus 99 años revela que la manera en que pensamos determina nuestra felicidad eterna. D&C 88:28-32 y D&C 132:19: las tres consecuencias eternas del pensamiento, y la invitación práctica a elevar nuestra mente al nivel celestial.',
+    level: 'BÁSICO',
+    icon: '⭐',
+    duration: 55,
+    order: 6,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'sumo-sacerdote-bienes-venideros',
+    moduleId: 'discursos-sermones-clasicos',
+    title: 'El Sumo Sacerdote de los Bienes Venideros',
+    subtitle: 'Jeffrey R. Holland · Conferencia General, Oct 1999',
+    description:
+      'Los primeros pasos son los más difíciles de cualquier camino de fe. Holland explora Hebreos 8:6, el patrón de Abraham, y el Salvador que también esperó — para darnos certeza de que las bendiciones prometidas, aunque tardías, siempre llegan.',
+    level: 'BÁSICO',
+    icon: '⚓',
+    duration: 45,
+    order: 7,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'el-domingo-llegara',
+    moduleId: 'discursos-sermones-clasicos',
+    title: 'El Domingo Llegará',
+    subtitle: 'Joseph B. Wirthlin · Conferencia General, Oct 2006',
+    description:
+      'Hermano Wirthlin perdió a su esposa de 56 años, a su madre a los 98, y a su hija Elisa repentinamente. Su mensaje es simple y eterno: así como al Viernes Santo siguió el Domingo de Resurrección, toda noche oscura del alma tiene su amanecer.',
+    level: 'BÁSICO',
+    icon: '🌅',
+    duration: 45,
+    order: 8,
+    status: 'PUBLISHED',
+  },
+  // ── TEMAS PROFUNDOS ADICIONALES (orders 4-5) ──────────────────────────────────
+  {
+    id: 'el-gran-plan-de-la-felicidad',
+    moduleId: 'temas-profundos',
+    title: 'El Gran Plan de la Felicidad',
+    subtitle: 'Tyler J. Griffin y Donald B. Anderson · BYU Religious Education',
+    description:
+      '¿Por qué los diagramas tradicionales del plan de salvación fallan? Un análisis académico de los seis estados de la existencia humana, la distinción entre redención incondicional y salvación condicional, y cómo Cristo aparece en cada etapa del plan.',
+    level: 'INTERMEDIO',
+    icon: '🗺️',
+    duration: 70,
+    order: 4,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'fechando-la-muerte-de-cristo',
+    moduleId: 'temas-profundos',
+    title: 'Fechando la Muerte de Cristo',
+    subtitle: 'Jeffrey R. Chadwick (BYU Studies) · Scripture Central KnoWhy #300',
+    description:
+      'Evidencia astronómica, el calendario judío y el Libro de Mormón convergen en una misma fecha: Nisan 14, jueves 6 de abril del año 30 d.C. — exactamente 1,800 años antes de la organización de la Iglesia. Un análisis académico riguroso con implicaciones profundas para la fe.',
+    level: 'AVANZADO',
+    icon: '📅',
+    duration: 65,
+    order: 5,
+    status: 'PUBLISHED',
+  },
+  // ── SACERDOCIO ADICIONAL (order 11) ──────────────────────────────────────────
+  {
+    id: 'sacerdocio-poder-mujer',
+    moduleId: 'sacerdocio',
+    title: 'Sacerdocio, Poder y la Mujer',
+    subtitle: 'Barbara Morgan Gardner · BYU Religious Education, 2021',
+    description:
+      'Russell M. Nelson preguntó en 2019: "¿Cuánto poder del sacerdocio tienen las mujeres en la Iglesia?" La respuesta cambia todo. Estudio del sacerdocio patriarcal vs. administrativo, lo que se perdió en la apostasía, lo que Elías restauró en 1836, y la autoridad plena de la mujer en sus llamamientos.',
+    level: 'AVANZADO',
+    icon: '👑',
+    duration: 75,
+    order: 11,
+    status: 'PUBLISHED',
+  },
 ]
 
 const PORTED: Partial<Record<string, Lesson>> = {
@@ -1380,6 +1481,13 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'la-expiacion-del-salvador': lessonLaExpiacionDelSalvador,
   'king-follett': lessonKingFollett,
   'su-gracia-es-suficiente': lessonSuGracia,
+  'permanecer-para-siempre': lessonPermanecerParaSiempre,
+  'pensar-de-manera-celestial': lessonPensarCelestial,
+  'sumo-sacerdote-bienes-venideros': lessonSumoSacerdoteHolland,
+  'el-domingo-llegara': lessonElDomingoLlegara,
+  'el-gran-plan-de-la-felicidad': lessonGranPlan,
+  'sacerdocio-poder-mujer': lessonSacerdocioPoderMujer,
+  'fechando-la-muerte-de-cristo': lessonFechandoMuerte,
   'por-que-dios-permite-el-sufrimiento': lessonSufrimiento,
   'la-salvacion-de-los-no-bautizados': lessonNoBautizados,
   'alma-el-joven': lessonAlmaElJoven,
