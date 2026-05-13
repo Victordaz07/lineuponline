@@ -17,7 +17,7 @@ export const emmaSmith: Lesson = {
     {
       id: 's1',
       title: '"Elegida y Preciosa"',
-      intro: { romanNumeral: 'I', heading: 'DyC 25 — La Revelación de Emma', subheading: 'La única revelación personal a una mujer en DyC' },
+      intro: { romanNumeral: 'I', title: 'DyC 25 — La Revelación de Emma', paragraphs: ['La única revelación personal a una mujer en DyC'] },
       topics: [
         {
           id: 't1',
@@ -32,7 +32,7 @@ export const emmaSmith: Lesson = {
     {
       id: 's2',
       title: 'Escriba de la Traducción',
-      intro: { romanNumeral: 'II', heading: '1828-1829 — El Proceso que Emma Presenció', subheading: 'La testigo más cercana de la traducción' },
+      intro: { romanNumeral: 'II', title: '1828-1829 — El Proceso que Emma Presenció', paragraphs: ['La testigo más cercana de la traducción'] },
       topics: [
         {
           id: 't2',
@@ -46,7 +46,7 @@ export const emmaSmith: Lesson = {
     {
       id: 's3',
       title: 'Los Himnos y la Sociedad de Socorro',
-      intro: { romanNumeral: 'III', heading: 'Las Dos Tareas que Definieron su Ministerio', subheading: 'La música sagrada y la organización de las mujeres' },
+      intro: { romanNumeral: 'III', title: 'Las Dos Tareas que Definieron su Ministerio', paragraphs: ['La música sagrada y la organización de las mujeres'] },
       topics: [
         {
           id: 't3',
@@ -60,7 +60,7 @@ export const emmaSmith: Lesson = {
     {
       id: 's4',
       title: 'El Costo de Ser Emma Smith',
-      intro: { romanNumeral: 'IV', heading: 'La Fe en el Fuego', subheading: 'Cuatro hijos enterrados, un marido martirizado' },
+      intro: { romanNumeral: 'IV', title: 'La Fe en el Fuego', paragraphs: ['Cuatro hijos enterrados, un marido martirizado'] },
       topics: [
         {
           id: 't4',

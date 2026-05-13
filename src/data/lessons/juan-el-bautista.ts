@@ -17,7 +17,7 @@ export const juanElBautista: Lesson = {
     {
       id: 's1',
       title: 'Nacido para Este Momento',
-      intro: { romanNumeral: 'I', heading: 'Lucas 1 — El Precursor Anunciado', subheading: 'Gabriel, Zacarías, y el niño que saltó en el vientre' },
+      intro: { romanNumeral: 'I', title: 'Lucas 1 — El Precursor Anunciado', paragraphs: ['Gabriel, Zacarías, y el niño que saltó en el vientre'] },
       topics: [
         {
           id: 't1',
@@ -32,14 +32,14 @@ export const juanElBautista: Lesson = {
     {
       id: 's2',
       title: 'El Bautismo de Jesús',
-      intro: { romanNumeral: 'II', heading: 'Mateo 3 — En el Jordán', subheading: 'El momento en que la Trinidad se manifestó simultáneamente' },
+      intro: { romanNumeral: 'II', title: 'Mateo 3 — En el Jordán', paragraphs: ['El momento en que la Trinidad se manifestó simultáneamente'] },
       topics: [
         {
           id: 't2',
           title: 'Por qué Juan dudó',
           blocks: [
             { type: 'paragraph', id: 'p2', text: 'Cuando Jesús llegó para ser bautizado, Juan protestó: "Yo necesito ser bautizado por ti, ¿y tú vienes a mí?" (Mateo 3:14). Juan reconocía la superioridad absoluta de Cristo. La respuesta de Jesús es teológicamente crucial: "Así conviene que cumplamos toda justicia." El bautismo no era para remisión de pecados en el caso de Cristo — era para "cumplir toda justicia" y establecer el ejemplo perfecto del pacto bautismal.' },
-            { type: 'doctrine_box', id: 'db1', title: 'La Trinidad en el Jordán', content: 'Mateo 3:16-17 describe el momento más revelador sobre la naturaleza de la Divinidad en toda la Biblia: el Hijo siendo bautizado en el agua, el Espíritu descendiendo visiblemente en forma de paloma, y el Padre hablando desde los cielos. Tres personas separadas, simultáneamente presentes, cada una en su lugar. La Restauración enseña que este texto es evidencia directa contra el Credo de Nicea.' },
+            { type: 'doctrine_box', id: 'db1', title: 'La Trinidad en el Jordán', body: 'Mateo 3:16-17 describe el momento más revelador sobre la naturaleza de la Divinidad en toda la Biblia: el Hijo siendo bautizado en el agua, el Espíritu descendiendo visiblemente en forma de paloma, y el Padre hablando desde los cielos. Tres personas separadas, simultáneamente presentes, cada una en su lugar. La Restauración enseña que este texto es evidencia directa contra el Credo de Nicea.' },
           ],
         },
       ],
@@ -47,7 +47,7 @@ export const juanElBautista: Lesson = {
     {
       id: 's3',
       title: 'Entre los Nacidos de Mujer',
-      intro: { romanNumeral: 'III', heading: '"No ha Levantado Mayor"', subheading: 'Mateo 11 — el juicio de Cristo sobre Juan' },
+      intro: { romanNumeral: 'III', title: '"No ha Levantado Mayor"', paragraphs: ['Mateo 11 — el juicio de Cristo sobre Juan'] },
       topics: [
         {
           id: 't3',
@@ -62,7 +62,7 @@ export const juanElBautista: Lesson = {
     {
       id: 's4',
       title: 'El Sacerdocio Aarónico Restaurado',
-      intro: { romanNumeral: 'IV', heading: 'Mayo de 1829 — A Orillas del Río Susquehanna', subheading: 'Juan impuso las manos sobre José Smith y Oliver Cowdery' },
+      intro: { romanNumeral: 'IV', title: 'Mayo de 1829 — A Orillas del Río Susquehanna', paragraphs: ['Juan impuso las manos sobre José Smith y Oliver Cowdery'] },
       topics: [
         {
           id: 't4',

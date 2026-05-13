@@ -17,7 +17,7 @@ export const isaac: Lesson = {
     {
       id: 's1',
       title: 'El Hijo de la Promesa Imposible',
-      intro: { romanNumeral: 'I', heading: '"Risa" — El Nombre lo Dice Todo', subheading: 'Sara se rió; Dios cumplió' },
+      intro: { romanNumeral: 'I', title: '"Risa" — El Nombre lo Dice Todo', paragraphs: ['Sara se rió; Dios cumplió'] },
       topics: [
         {
           id: 't1',
@@ -32,7 +32,7 @@ export const isaac: Lesson = {
     {
       id: 's2',
       title: 'Génesis 22 — El Tipo más Perfecto de Cristo',
-      intro: { romanNumeral: 'II', heading: 'La Prueba más Grande de Abraham', subheading: 'Y el silencio de Isaac' },
+      intro: { romanNumeral: 'II', title: 'La Prueba más Grande de Abraham', paragraphs: ['Y el silencio de Isaac'] },
       topics: [
         {
           id: 't2',
@@ -55,7 +55,7 @@ export const isaac: Lesson = {
     {
       id: 's3',
       title: 'La Vida Silenciosa de Isaac',
-      intro: { romanNumeral: 'III', heading: 'El Patriarca Quieto', subheading: 'Su carácter en las pocas escenas que tenemos' },
+      intro: { romanNumeral: 'III', title: 'El Patriarca Quieto', paragraphs: ['Su carácter en las pocas escenas que tenemos'] },
       topics: [
         {
           id: 't3',
@@ -70,7 +70,7 @@ export const isaac: Lesson = {
     {
       id: 's4',
       title: 'Las Bendiciones de Isaac',
-      intro: { romanNumeral: 'IV', heading: 'El Poder de las Palabras Proféticas', subheading: 'Génesis 27 — una bendición que no se puede revocar' },
+      intro: { romanNumeral: 'IV', title: 'El Poder de las Palabras Proféticas', paragraphs: ['Génesis 27 — una bendición que no se puede revocar'] },
       topics: [
         {
           id: 't4',

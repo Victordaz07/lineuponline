@@ -17,7 +17,7 @@ export const rut: Lesson = {
     {
       id: 's1',
       title: 'La Elección en el Camino',
-      intro: { romanNumeral: 'I', heading: 'Rut 1 — "No Me Ruegues que te Deje"', subheading: 'La declaración de lealtad más bella de las Escrituras' },
+      intro: { romanNumeral: 'I', title: 'Rut 1 — "No Me Ruegues que te Deje"', paragraphs: ['La declaración de lealtad más bella de las Escrituras'] },
       topics: [
         {
           id: 't1',
@@ -32,14 +32,14 @@ export const rut: Lesson = {
     {
       id: 's2',
       title: 'Hesed — La Lealtad Inmerecida',
-      intro: { romanNumeral: 'II', heading: 'La palabra más importante del libro', subheading: 'El amor que no cede ante la circunstancia' },
+      intro: { romanNumeral: 'II', title: 'La palabra más importante del libro', paragraphs: ['El amor que no cede ante la circunstancia'] },
       topics: [
         {
           id: 't2',
           title: 'La teología del hesed',
           blocks: [
             { type: 'paragraph', id: 'p2', text: 'La palabra hebrea hesed aparece tres veces en el libro de Rut y es la clave teológica. Generalmente traducida como "misericordia" o "bondad amorosa," significa fidelidad de alianza que va más allá de la obligación — lealtad que se mantiene cuando no tiene que mantenerse. Booz lo dice de Rut (2:20), Noemí lo dice de Dios (1:8), y Booz lo dice de nuevo al final (3:10). El hesed de Rut refleja el hesed de Dios: fidelidad que trasciende circunstancias y obligaciones.' },
-            { type: 'doctrine_box', id: 'db1', title: 'Una Extranjera en la Genealogía de Cristo', content: 'Mateo 1 enumera la genealogía de Jesucristo. Menciona solo cinco mujeres: Tamar, Rahab, Rut, la mujer de Urías (Betsabé), y María. Las cinco tienen historias complicadas. Rut era moabita — de una nación que la ley prohibía que entrara a la congregación de Israel hasta la décima generación (Deuteronomio 23:3). Sin embargo, Dios la puso directamente en la línea genealógica del Salvador. La gracia no opera dentro de los límites étnicos o jurídicos.' },
+            { type: 'doctrine_box', id: 'db1', title: 'Una Extranjera en la Genealogía de Cristo', body: 'Mateo 1 enumera la genealogía de Jesucristo. Menciona solo cinco mujeres: Tamar, Rahab, Rut, la mujer de Urías (Betsabé), y María. Las cinco tienen historias complicadas. Rut era moabita — de una nación que la ley prohibía que entrara a la congregación de Israel hasta la décima generación (Deuteronomio 23:3). Sin embargo, Dios la puso directamente en la línea genealógica del Salvador. La gracia no opera dentro de los límites étnicos o jurídicos.' },
           ],
         },
       ],
@@ -47,7 +47,7 @@ export const rut: Lesson = {
     {
       id: 's3',
       title: 'Booz — El Redentor',
-      intro: { romanNumeral: 'III', heading: 'Rut 2-4 — El Pariente Redentor', subheading: 'El tipo de Cristo más claro del AT' },
+      intro: { romanNumeral: 'III', title: 'Rut 2-4 — El Pariente Redentor', paragraphs: ['El tipo de Cristo más claro del AT'] },
       topics: [
         {
           id: 't3',
@@ -62,7 +62,7 @@ export const rut: Lesson = {
     {
       id: 's4',
       title: 'Noemí — La Amargura que Se Transformó',
-      intro: { romanNumeral: 'IV', heading: '"Llamadme Mara" — Amarga', subheading: 'Y cómo Dios transformó esa amargura' },
+      intro: { romanNumeral: 'IV', title: '"Llamadme Mara" — Amarga', paragraphs: ['Y cómo Dios transformó esa amargura'] },
       topics: [
         {
           id: 't4',

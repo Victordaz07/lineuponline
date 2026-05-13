@@ -17,7 +17,7 @@ export const moises: Lesson = {
     {
       id: 's1',
       title: 'El Hombre de Dos Mundos',
-      intro: { romanNumeral: 'I', heading: 'Príncipe de Egipto, Hijo de Israel', subheading: 'La identidad dividida que lo preparó para todo' },
+      intro: { romanNumeral: 'I', title: 'Príncipe de Egipto, Hijo de Israel', paragraphs: ['La identidad dividida que lo preparó para todo'] },
       topics: [
         {
           id: 't1',
@@ -33,7 +33,7 @@ export const moises: Lesson = {
     {
       id: 's2',
       title: 'Moisés 1 — Lo que la Biblia no Tiene',
-      intro: { romanNumeral: 'II', heading: 'La Revelación Restaurada', subheading: 'El encuentro con Satanás y la identidad de Moisés' },
+      intro: { romanNumeral: 'II', title: 'La Revelación Restaurada', paragraphs: ['El encuentro con Satanás y la identidad de Moisés'] },
       topics: [
         {
           id: 't2',
@@ -41,7 +41,7 @@ export const moises: Lesson = {
           blocks: [
             { type: 'highlight_verse', id: 'v2', reference: 'Moisés 1:3-4', text: 'Y Dios habló a Moisés, cara a cara, como un hombre habla con otro hombre; y el Señor le dijo: He aquí, yo soy el Señor Dios Todopoderoso, y Sin Fin es mi nombre, pues soy sin principio de días ni fin de años... y mira, tú eres mi hijo.' },
             { type: 'paragraph', id: 'p3', text: 'Moisés 1 revela lo que ocurrió cuando Moisés subió al monte ANTES de recibir los Diez Mandamientos: una visión del universo entero, la declaración de su identidad divina ("tú eres mi hijo"), y luego — el elemento más único — el intento de Satanás de engañarlo. Satanás se le apareció cuando la visión terminó y Moisés estaba débil, llamándole "hijo del hombre". La respuesta de Moisés es una de las declaraciones de identidad más poderosas de toda la escritura.' },
-            { type: 'doctrine_box', id: 'db1', title: 'La Identidad como Arma Espiritual', content: '"¿Quién eres tú? Porque, he aquí, yo soy un hijo de Dios, en semejanza de su Unigénito; ¿y dónde está tu gloria para que yo deba adorarte?" (Moisés 1:13). Moisés rechazó a Satanás no con argumento teológico ni con poder propio — sino con identidad claramente conocida. Esta es la lección más profunda de Moisés 1: saber quién eres ante Dios te hace invulnerable a quien te pide que olvides esa identidad.' },
+            { type: 'doctrine_box', id: 'db1', title: 'La Identidad como Arma Espiritual', body: '"¿Quién eres tú? Porque, he aquí, yo soy un hijo de Dios, en semejanza de su Unigénito; ¿y dónde está tu gloria para que yo deba adorarte?" (Moisés 1:13). Moisés rechazó a Satanás no con argumento teológico ni con poder propio — sino con identidad claramente conocida. Esta es la lección más profunda de Moisés 1: saber quién eres ante Dios te hace invulnerable a quien te pide que olvides esa identidad.' },
           ],
         },
       ],
@@ -49,7 +49,7 @@ export const moises: Lesson = {
     {
       id: 's3',
       title: 'La Zarza Ardiente y el Gran YO SOY',
-      intro: { romanNumeral: 'III', heading: 'Éxodo 3 — El Nombre que Todo lo Cambia', subheading: 'Dios se revela como "EL QUE ES"' },
+      intro: { romanNumeral: 'III', title: 'Éxodo 3 — El Nombre que Todo lo Cambia', paragraphs: ['Dios se revela como "EL QUE ES"'] },
       topics: [
         {
           id: 't3',
@@ -64,7 +64,7 @@ export const moises: Lesson = {
     {
       id: 's4',
       title: 'Cara a Cara — pero Solo Vio Su Espalda',
-      intro: { romanNumeral: 'IV', heading: 'La Paradoja de Éxodo 33', subheading: 'La tensión entre la intimidad y la trascendencia divina' },
+      intro: { romanNumeral: 'IV', title: 'La Paradoja de Éxodo 33', paragraphs: ['La tensión entre la intimidad y la trascendencia divina'] },
       topics: [
         {
           id: 't4',

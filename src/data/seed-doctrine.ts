@@ -71,11 +71,6 @@ import { noe as lessonNoe } from '@/data/lessons/noe'
 import { melquisedec as lessonMelquisedec } from '@/data/lessons/melquisedec'
 import { isaac as lessonIsaac } from '@/data/lessons/isaac'
 import { jacobIsrael as lessonJacobIsrael } from '@/data/lessons/jacob-israel'
-import { moises as lessonMoises } from '@/data/lessons/moises'
-import { aaron as lessonAaron } from '@/data/lessons/aaron'
-import { isaias as lessonIsaias } from '@/data/lessons/isaias'
-import { elias as lessonElias } from '@/data/lessons/elias'
-import { david as lessonDavid } from '@/data/lessons/david'
 import { jeremias as lessonJeremias } from '@/data/lessons/jeremias'
 import { daniel as lessonDaniel } from '@/data/lessons/daniel'
 import { job as lessonJob } from '@/data/lessons/job'
@@ -104,6 +99,83 @@ import { emmaSmith as lessonEmmaSmith } from '@/data/lessons/emma-smith'
 import { hyrumSmith as lessonHyrumSmith } from '@/data/lessons/hyrum-smith'
 import { oliverCowdery as lessonOliverCowdery } from '@/data/lessons/oliver-cowdery'
 import { brighamYoung as lessonBrighamYoung } from '@/data/lessons/brigham-young'
+import { lucifer as lessonLucifer } from '@/data/lessons/lucifer'
+import { elMundoDeLoEspiritus as lessonMundoEspiritus } from '@/data/lessons/el-mundo-de-los-espiritus'
+import { enocElLlamamiento as lessonEnocElLlamamiento } from '@/data/lessons/enoc-el-llamamiento'
+import { enocElVidente as lessonEnocElVidente } from '@/data/lessons/enoc-el-vidente'
+import { enocLaCiudad as lessonEnocLaCiudad } from '@/data/lessons/enoc-la-ciudad'
+import { enocLaTraslacion as lessonEnocLaTraslacion } from '@/data/lessons/enoc-la-traslacion'
+import { enocYLaRestauracion as lessonEnocYLaRestauracion } from '@/data/lessons/enoc-y-la-restauracion'
+import { noeElPredicador as lessonNoeElPredicador } from '@/data/lessons/noe-el-predicador'
+import { noeElArca as lessonNoeElArca } from '@/data/lessons/noe-el-arca'
+import { noeElDiluvio as lessonNoeElDiluvio } from '@/data/lessons/noe-el-diluvio'
+import { noeElPacto as lessonNoeElPacto } from '@/data/lessons/noe-el-pacto'
+import { noeYLaRestauracion as lessonNoeYLaRestauracion } from '@/data/lessons/noe-y-la-restauracion'
+import { melquisedecElRey as lessonMelquisedecElRey } from '@/data/lessons/melquisedec-el-rey'
+import { melquisedecLaCiudad as lessonMelquisedecLaCiudad } from '@/data/lessons/melquisedec-la-ciudad'
+import { melquisedecTipoDeCristo as lessonMelquisedecTipoDeCristo } from '@/data/lessons/melquisedec-tipo-de-cristo'
+import { melquisedecElSacerdocio as lessonMelquisedecElSacerdocio } from '@/data/lessons/melquisedec-el-sacerdocio'
+import { melquisedecYLaRestauracion as lessonMelquisedecYLaRestauracion } from '@/data/lessons/melquisedec-y-la-restauracion'
+import { isaacElHijo as lessonIsaacElHijo } from '@/data/lessons/isaac-el-hijo'
+import { isaacElSacrificio as lessonIsaacElSacrificio } from '@/data/lessons/isaac-el-sacrificio'
+import { isaacElEsposo as lessonIsaacElEsposo } from '@/data/lessons/isaac-el-esposo'
+import { isaacElPatriarca as lessonIsaacElPatriarca } from '@/data/lessons/isaac-el-patriarca'
+import { isaacYLaRestauracion as lessonIsaacYLaRestauracion } from '@/data/lessons/isaac-y-la-restauracion'
+import { jacobElSuplantador as lessonJacobElSuplantador } from '@/data/lessons/jacob-el-suplantador'
+import { jacobElFugitivo as lessonJacobElFugitivo } from '@/data/lessons/jacob-el-fugitivo'
+import { jacobLaLucha as lessonJacobLaLucha } from '@/data/lessons/jacob-la-lucha'
+import { jacobElPadre as lessonJacobElPadre } from '@/data/lessons/jacob-el-padre'
+import { jacobYLaRestauracion as lessonJacobYLaRestauracion } from '@/data/lessons/jacob-y-la-restauracion'
+import { lehiElProfeta as lessonLehiElProfeta } from '@/data/lessons/lehi-el-profeta'
+import { lehiElArbol as lessonLehiElArbol } from '@/data/lessons/lehi-el-arbol'
+import { lehiLasBendiciones as lessonLehiLasBendiciones } from '@/data/lessons/lehi-las-bendiciones'
+import { lehiElLegado as lessonLehiElLegado } from '@/data/lessons/lehi-el-legado'
+import { lehiYLaRestauracion as lessonLehiYLaRestauracion } from '@/data/lessons/lehi-y-la-restauracion'
+import { nefiIreYHare as lessonNefiIreYHare } from '@/data/lessons/nefi-ire-y-hare'
+import { nefiLaVision as lessonNefiLaVision } from '@/data/lessons/nefi-la-vision'
+import { nefiElLamento as lessonNefiElLamento } from '@/data/lessons/nefi-el-lamento'
+import { nefiElConstructor as lessonNefiElConstructor } from '@/data/lessons/nefi-el-constructor'
+import { nefiYLaRestauracion as lessonNefiYLaRestauracion } from '@/data/lessons/nefi-y-la-restauracion'
+import { reyBenjaminElReySiervo as lessonReyBenjaminElReySiervo } from '@/data/lessons/rey-benjamin-el-rey-siervo'
+import { reyBenjaminLaDeuda as lessonReyBenjaminLaDeuda } from '@/data/lessons/rey-benjamin-la-deuda'
+import { reyBenjaminElNombre as lessonReyBenjaminElNombre } from '@/data/lessons/rey-benjamin-el-nombre'
+import { reyBenjaminElProjimo as lessonReyBenjaminElProjimo } from '@/data/lessons/rey-benjamin-el-projimo'
+import { reyBenjaminYLaRestauracion as lessonReyBenjaminYLaRestauracion } from '@/data/lessons/rey-benjamin-y-la-restauracion'
+import { moroniElSobreviviente as lessonMoroniElSobreviviente } from '@/data/lessons/moroni-el-sobreviviente'
+import { moroniLaProfecia as lessonMoroniLaProfecia } from '@/data/lessons/moroni-la-profecia'
+import { moroniLaPromesa as lessonMoroniLaPromesa } from '@/data/lessons/moroni-la-promesa'
+import { moroniLasPlanchas as lessonMoroniLasPlanchas } from '@/data/lessons/moroni-las-planchas'
+import { moroniYLaRestauracion as lessonMoroniYLaRestauracion } from '@/data/lessons/moroni-y-la-restauracion'
+import { mormonElGeneral as lessonMormonElGeneral } from '@/data/lessons/mormon-el-general'
+import { mormonElCompilador as lessonMormonElCompilador } from '@/data/lessons/mormon-el-compilador'
+import { mormonElProfeta as lessonMormonElProfeta } from '@/data/lessons/mormon-el-profeta'
+import { mormonElPadre as lessonMormonElPadre } from '@/data/lessons/mormon-el-padre'
+import { mormonYLaRestauracion as lessonMormonYLaRestauracion } from '@/data/lessons/mormon-y-la-restauracion'
+import { moisesElPrincipe as lessonMoisesElPrincipe } from '@/data/lessons/moises-el-principe'
+import { moisesLaRevelacion as lessonMoisesLaRevelacion } from '@/data/lessons/moises-la-revelacion'
+import { moisesElLibertador as lessonMoisesElLibertador } from '@/data/lessons/moises-el-libertador'
+import { moisesElLegislador as lessonMoisesElLegislador } from '@/data/lessons/moises-el-legislador'
+import { moisesYLaRestauracion as lessonMoisesYLaRestauracion } from '@/data/lessons/moises-y-la-restauracion'
+import { aaronLaVoz as lessonAaronLaVoz } from '@/data/lessons/aaron-la-voz'
+import { aaronElSumoSacerdote as lessonAaronElSumoSacerdote } from '@/data/lessons/aaron-el-sumo-sacerdote'
+import { aaronElBecerro as lessonAaronElBecerro } from '@/data/lessons/aaron-el-becerro'
+import { aaronElSacerdocio as lessonAaronElSacerdocio } from '@/data/lessons/aaron-el-sacerdocio'
+import { aaronYLaRestauracion as lessonAaronYLaRestauracion } from '@/data/lessons/aaron-y-la-restauracion'
+import { isaiasElProfeta as lessonIsaiasElProfeta } from '@/data/lessons/isaias-el-profeta'
+import { isaiasElMesianico as lessonIsaiasElMesianico } from '@/data/lessons/isaias-el-mesianico'
+import { isaiasLosUltimosDias as lessonIsaiasLosUltimosDias } from '@/data/lessons/isaias-los-ultimos-dias'
+import { isaiasEnElLibroDeMormon as lessonIsaiasEnElLibroDeMormon } from '@/data/lessons/isaias-en-el-libro-de-mormon'
+import { isaiasYLaRestauracion as lessonIsaiasYLaRestauracion } from '@/data/lessons/isaias-y-la-restauracion'
+import { eliasElCelo as lessonEliasElCelo } from '@/data/lessons/elias-el-celo'
+import { eliasElAgotado as lessonEliasElAgotado } from '@/data/lessons/elias-el-agotado'
+import { eliasLaTraslacion as lessonEliasLaTraslacion } from '@/data/lessons/elias-la-traslacion'
+import { eliasLasLlaves as lessonEliasLasLlaves } from '@/data/lessons/elias-las-llaves'
+import { eliasYLaRestauracion as lessonEliasYLaRestauracion } from '@/data/lessons/elias-y-la-restauracion'
+import { davidElElegido as lessonDavidElElegido } from '@/data/lessons/david-el-elegido'
+import { davidYGoliat as lessonDavidYGoliat } from '@/data/lessons/david-y-goliat'
+import { davidElPoeta as lessonDavidElPoeta } from '@/data/lessons/david-el-poeta'
+import { davidLaCaida as lessonDavidLaCaida } from '@/data/lessons/david-la-caida'
+import { davidYLaRestauracion as lessonDavidYLaRestauracion } from '@/data/lessons/david-y-la-restauracion'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -132,6 +204,96 @@ export const SUBMODULE_GROUPS: Record<string, { title: string; description: stri
     description:
       'El padre y la madre de todo el género humano — Miguel el Arcángel que fue Adán, la Caída como el acto más valiente de la historia, y el papel de Eva que el mundo malentendió durante milenios.',
     icon: '🌱',
+  },
+  enoc: {
+    title: 'Enoc — El Hombre que Caminó con Dios',
+    description:
+      'De profeta tardo en el habla a constructor de Sión. Enoc edificó la ciudad más justa de la historia y Dios la arrebató de la tierra. Moisés 6-7 revela lo que la Biblia oculta.',
+    icon: '🏙️',
+  },
+  noe: {
+    title: 'Noé — El Justo en el Diluvio',
+    description:
+      'Predicó 120 años sin convertir a nadie. Construyó el arca. El diluvio llegó. Y el pacto del arco iris cambió para siempre la relación de Dios con la humanidad.',
+    icon: '🌈',
+  },
+  melquisedec: {
+    title: 'Melquisedec — El Rey-Sacerdote Eterno',
+    description:
+      'El sacerdocio más alto lleva su nombre. Hebreos 7 lo describe sin padre, sin madre, sin genealogía. Alma 13 revela su conversión y la ciudad que convirtió de pecadores a santos.',
+    icon: '👑',
+  },
+  isaac: {
+    title: 'Isaac — El Hijo de la Promesa',
+    description:
+      'El personaje más silencioso de los patriarcas. Cargó la leña de su propio sacrificio, fue atado sobre el altar, y fue "resucitado en figura." El tipo más completo de Cristo en el Antiguo Testamento.',
+    icon: '🪵',
+  },
+  'jacob-israel': {
+    title: 'Jacob-Israel — El que Luchó con Dios',
+    description:
+      'De suplantador a príncipe. Jacob compró la primogenitura, engañó a su padre, amó 14 años por Raquel, y una noche luchó con Dios hasta el amanecer. Su nombre cambió. El nuestro también puede.',
+    icon: '🤼',
+  },
+  lehi: {
+    title: 'Lehi — El Patriarca que Dejó Todo',
+    description:
+      'Un hombre rico de Jerusalén que lo abandonó todo por obediencia. Sus visiones fundaron una civilización. Su árbol de la vida es la alegoría central del Libro de Mormón. Sus bendiciones a sus hijos son profecía para naciones.',
+    icon: '🌳',
+  },
+  nefi: {
+    title: 'Nefi — "Iré y Haré"',
+    description:
+      'El joven que obedeció sin saber de antemano cómo. Mató a un hombre, construyó un barco sin instrucción, escribió escritura sagrada y lamentó su propia debilidad. La fe de Nefi es la que la Restauración llama al mundo a imitar.',
+    icon: '⚔️',
+  },
+  'rey-benjamin': {
+    title: 'Rey Benjamín — El Rey que Sirvió',
+    description:
+      'Gobernó sin cobrar tributo y trabajó con sus propias manos. Su discurso desde la torre produjo una conversión colectiva completa. "Cuando estáis al servicio de vuestros semejantes, solamente estáis al servicio de vuestro Dios."',
+    icon: '🛡️',
+  },
+  'moroni-profeta': {
+    title: 'Moroni — El Último Profeta del Libro de Mormón',
+    description:
+      'Sobreviviente de una civilización destruida. Solo, errante, escribió los últimos capítulos del Libro de Mormón durante décadas. Enterró las planchas. Y 1,400 años después apareció como ángel a José Smith para entregarlas.',
+    icon: '📯',
+  },
+  mormon: {
+    title: 'Mormon — El Profeta-Compilador',
+    description:
+      'Nombrado general a los 15 años. Compiló el Libro de Mormón de registros milenarios. Fue profeta sin audiencia, padre que entrenó a Moroni, y testigo del colapso final de su pueblo. El libro que lleva su nombre es su legado eterno.',
+    icon: '📚',
+  },
+  moises: {
+    title: 'Moisés — El Libertador de Israel',
+    description:
+      'Criado como príncipe egipcio, exiliado como fugitivo, llamado desde una zarza ardiente. Habló cara a cara con Dios y recibió la ley en el Sinaí. La Restauración añade un encuentro con Satanás que la Biblia no tiene.',
+    icon: '🔥',
+  },
+  aaron: {
+    title: 'Aarón — El Sumo Sacerdote',
+    description:
+      'Hermano y portavoz de Moisés. Realizó señales ante el Faraón, sostuvo los brazos de Moisés en la batalla — y también construyó el becerro de oro. El sacerdocio aarónico lleva su nombre por razones que la Restauración ilumina.',
+    icon: '⚗️',
+  },
+  isaias: {
+    title: 'Isaías — El Profeta de Todos los Tiempos',
+    description:
+      'Nefi ordenó a sus hijos estudiar las palabras de Isaías. Sus profecías mesiánicas, sobre los últimos días y sobre la Restauración son las más citadas de toda la escritura. El profeta que habla al pasado, al presente y al futuro.',
+    icon: '📜',
+  },
+  elias: {
+    title: 'Elías — El Fuego del Cielo',
+    description:
+      'Convocó fuego del cielo, derrotó a 450 profetas de Baal, y luego huyó de Jezabel. DyC 110 registra su aparición en el Templo de Kirtland. Malaquías prometió su regreso antes del gran día del Señor.',
+    icon: '⚡',
+  },
+  david: {
+    title: 'David — El Rey-Poeta',
+    description:
+      'Mató a Goliat a los 17 años, escribió los Salmos más profundos de la historia, y a los 50 destruyó su legado con Betsabé y Urías. DyC 132:39 da el veredicto eterno. Un estudio de la fe, la caída y la gracia.',
+    icon: '🎵',
   },
 }
 
@@ -852,138 +1014,67 @@ const LESSON_ROWS: LessonRow[] = [
     order: 24,
     status: 'PUBLISHED',
   },
-  // ── PATRIARCAS FUNDADORES (orders 30-39) ─────────────────────────────────
-  {
-    id: 'enoc',
-    moduleId: 'personajes-escrituras',
-    title: 'Enoc — La Ciudad que Dios Arrebató',
-    subtitle: 'El hombre que construyó Sión',
-    description:
-      'Enoc era "tardo en el habla" cuando Dios lo llamó. Construyó la ciudad más justa que jamás existió — y Dios la arrebató de la Tierra. Moisés 6-7 y DyC 45 revelan detalles que la Biblia no tiene.',
-    level: 'AVANZADO',
-    icon: '🏙️',
-    duration: 70,
-    order: 30,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'noe',
-    moduleId: 'personajes-escrituras',
-    title: 'Noé — El Diluvio y el Pacto del Arco Iris',
-    subtitle: '¿Fue el diluvio global o local?',
-    description:
-      'Noé predicó durante 120 años sin convertir a nadie. Construyó el arca. Sobrevivió. Y el pacto con el arco iris cambió para siempre la relación de Dios con la humanidad. Con análisis del alcance del diluvio y la perspectiva restaurada.',
-    level: 'INTERMEDIO',
-    icon: '🌈',
-    duration: 65,
-    order: 31,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'melquisedec',
-    moduleId: 'personajes-escrituras',
-    title: 'Melquisedec — El Rey-Sacerdote Eterno',
-    subtitle: 'Sin padre, sin madre, sin genealogía',
-    description:
-      'Hebreos 7 lo describe como "sin padre, sin madre, sin genealogía, sin principio de días ni fin de vida". El sacerdocio más alto lleva su nombre. Alma 13 en el Libro de Mormón revela datos que la Biblia omite sobre su conversión y su ciudad.',
-    level: 'AVANZADO',
-    icon: '👑',
-    duration: 65,
-    order: 32,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'isaac',
-    moduleId: 'personajes-escrituras',
-    title: 'Isaac — El Hijo de la Promesa',
-    subtitle: 'El que cargó la leña de su propio sacrificio',
-    description:
-      'Isaac es el personaje más silencioso de los patriarcas, pero también el más profundo tipo de Cristo: cargó la leña para su propio sacrificio, fue "muerto" para la fe de su padre y resucitó — en figura. Génesis 22 e interpretaciones de Josefo y Hebreos 11.',
-    level: 'INTERMEDIO',
-    icon: '🪵',
-    duration: 60,
-    order: 33,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'jacob-israel',
-    moduleId: 'personajes-escrituras',
-    title: 'Jacob/Israel — La Lucha con el Ángel',
-    subtitle: 'De suplantador a príncipe de Dios',
-    description:
-      'Jacob compró la primogenitura, engañó a su padre, huyó, amó en vano durante 14 años, y una noche luchó con Dios hasta el amanecer. Su nombre cambió. El nuestro también puede. Génesis 25-49 y la profecía sobre los 12 hijos.',
-    level: 'INTERMEDIO',
-    icon: '🤼',
-    duration: 70,
-    order: 34,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'moises',
-    moduleId: 'personajes-escrituras',
-    title: 'Moisés — El Libertador de Israel',
-    subtitle: 'Profeta, legislador, hombre de dos mundos',
-    description:
-      'Criado como príncipe egipcio, exiliado como fugitivo, llamado desde una zarza ardiente. Moisés habló cara a cara con Dios (Éxodo 33:11), pero solo vio su espalda. La restauración (Moisés 1) añade un encuentro con Satanás que la Biblia no tiene.',
-    level: 'INTERMEDIO',
-    icon: '🔥',
-    duration: 80,
-    order: 35,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'aaron',
-    moduleId: 'personajes-escrituras',
-    title: 'Aarón — El Sumo Sacerdote',
-    subtitle: 'El hermano que estuvo a la sombra y falló',
-    description:
-      'Aarón habló por Moisés, realizó las plagas, sostuvo sus brazos en la batalla de Amalec — y también construyó el becerro de oro cuando el pueblo lo presionó. El sacerdocio aarónico lleva su nombre. ¿Por qué?',
-    level: 'BÁSICO',
-    icon: '⚗️',
-    duration: 55,
-    order: 36,
-    status: 'IN_CONSTRUCTION',
-  },
+  // ── PATRIARCAS FUNDADORES — ENOC (submodule, orders 3010-3014) ───────────
+  { id: 'enoc-el-llamamiento', moduleId: 'personajes-escrituras', title: 'El Llamamiento', subtitle: 'El profeta tardo en el habla', description: 'Enoc era joven y "tardo en el habla" cuando Dios lo llamó. Su historia comienza con una negación y termina con una ciudad arrebatada al cielo.', level: 'INTERMEDIO', icon: '📢', duration: 30, order: 3010, status: 'PUBLISHED', submoduleGroup: 'enoc' },
+  { id: 'enoc-el-vidente', moduleId: 'personajes-escrituras', title: 'El Vidente', subtitle: 'Las visiones del futuro de la humanidad', description: 'Enoc vio el futuro completo de la humanidad — el Diluvio, la venida de Cristo, la Restauración, la Segunda Venida. Sus visiones en Moisés 7 son las más extensas de cualquier patriarca antiguo.', level: 'AVANZADO', icon: '👁️', duration: 35, order: 3011, status: 'PUBLISHED', submoduleGroup: 'enoc' },
+  { id: 'enoc-la-ciudad', moduleId: 'personajes-escrituras', title: 'La Ciudad de Sión', subtitle: 'Un pueblo de un solo corazón', description: 'Enoc construyó Sión — la única comunidad en la historia bíblica descrita como "de un solo corazón y una sola mente." No había pobres entre ellos. Y Dios la arrebató de la tierra.', level: 'AVANZADO', icon: '🏙️', duration: 35, order: 3012, status: 'PUBLISHED', submoduleGroup: 'enoc' },
+  { id: 'enoc-la-traslacion', moduleId: 'personajes-escrituras', title: 'La Traslación', subtitle: 'Tomado sin probar la muerte', description: 'Enoc y toda su ciudad fueron trasladados — tomados por Dios sin morir. ¿Qué significa la traslación? ¿Qué ocurre con un ser trasladado? La doctrina restaurada tiene respuestas únicas.', level: 'AVANZADO', icon: '✨', duration: 30, order: 3013, status: 'PUBLISHED', submoduleGroup: 'enoc' },
+  { id: 'enoc-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Enoc y la Restauración', subtitle: 'Lo que la Biblia no dice pero Moisés sí', description: 'El libro de Moisés en la Perla de Gran Precio revela capítulos enteros sobre Enoc que la Biblia omite. Cómo la Restauración devolvió al profeta más misterioso del Antiguo Testamento.', level: 'INTERMEDIO', icon: '📖', duration: 25, order: 3014, status: 'PUBLISHED', submoduleGroup: 'enoc' },
+  // ── NOÉ (submodule, orders 3110-3114) ────────────────────────────────────
+  { id: 'noe-el-predicador', moduleId: 'personajes-escrituras', title: 'El Predicador', subtitle: '120 años sin un solo converso', description: 'Noé predicó durante 120 años. No convirtió a nadie fuera de su familia. ¿Fue un fracaso? La fidelidad sin resultados visibles es una de las formas más puras de la fe.', level: 'INTERMEDIO', icon: '🗣️', duration: 30, order: 3110, status: 'PUBLISHED', submoduleGroup: 'noe' },
+  { id: 'noe-el-arca', moduleId: 'personajes-escrituras', title: 'El Arca', subtitle: 'La logística de la obediencia', description: 'Construir el arca fue un acto de fe pública — visible para todos, ridiculizado por todos. Las dimensiones del arca, la logística real, y lo que significó construirla durante décadas ante un mundo incrédulo.', level: 'INTERMEDIO', icon: '🚢', duration: 30, order: 3111, status: 'PUBLISHED', submoduleGroup: 'noe' },
+  { id: 'noe-el-diluvio', moduleId: 'personajes-escrituras', title: 'El Diluvio', subtitle: '¿Global o local? La perspectiva restaurada', description: '¿Fue el diluvio de Noé global o local? La ciencia, la arqueología, la teología y las revelaciones restauradas convergen en una respuesta más matizada de lo que la tradición sugiere.', level: 'AVANZADO', icon: '🌊', duration: 35, order: 3112, status: 'PUBLISHED', submoduleGroup: 'noe' },
+  { id: 'noe-el-pacto', moduleId: 'personajes-escrituras', title: 'El Pacto del Arco Iris', subtitle: 'La primera alianza con toda la humanidad', description: 'El arco iris no es solo un símbolo de esperanza — es el sello de un pacto. El primer pacto que Dios hizo con toda la humanidad, no solo con Israel. Su alcance universal anticipa el evangelio eterno.', level: 'INTERMEDIO', icon: '🌈', duration: 30, order: 3113, status: 'PUBLISHED', submoduleGroup: 'noe' },
+  { id: 'noe-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Noé y la Restauración', subtitle: 'El ángel Gabriel y las llaves del diluvio', description: 'En la Restauración, Noé es identificado como el ángel Gabriel. Visitó a María para anunciar el nacimiento de Cristo. Sus llaves del sacerdocio siguen activas. La historia de Noé no terminó en el arco.', level: 'AVANZADO', icon: '👼', duration: 25, order: 3114, status: 'PUBLISHED', submoduleGroup: 'noe' },
+  // ── MELQUISEDEC (submodule, orders 3210-3214) ─────────────────────────────
+  { id: 'melquisedec-el-rey', moduleId: 'personajes-escrituras', title: 'El Rey de Salem', subtitle: 'Sin padre, sin madre, sin genealogía', description: 'Hebreos 7 describe a Melquisedec con palabras que no se aplican a ningún otro ser humano en la Biblia: sin padre, sin madre, sin genealogía, sin principio de días ni fin de vida.', level: 'AVANZADO', icon: '👑', duration: 35, order: 3210, status: 'PUBLISHED', submoduleGroup: 'melquisedec' },
+  { id: 'melquisedec-la-ciudad', moduleId: 'personajes-escrituras', title: 'La Ciudad de Paz', subtitle: 'Salem — antecedente de Sión', description: 'Alma 13 revela que Melquisedec gobernó una ciudad de "inicuos" que se convirtió en ciudad de paz. Como Enoc antes que él, transformó una comunidad entera mediante el sacerdocio y la fe.', level: 'AVANZADO', icon: '🕊️', duration: 30, order: 3211, status: 'PUBLISHED', submoduleGroup: 'melquisedec' },
+  { id: 'melquisedec-tipo-de-cristo', moduleId: 'personajes-escrituras', title: 'Tipo de Cristo', subtitle: 'El sacerdocio eterno como imagen del Salvador', description: 'Hebreos 4-7 argumenta que Cristo es el sumo sacerdote "según el orden de Melquisedec." ¿Qué significa eso exactamente? La relación entre el hombre Melquisedec y el papel que prefigura es teológicamente rica.', level: 'AVANZADO', icon: '✝️', duration: 35, order: 3212, status: 'PUBLISHED', submoduleGroup: 'melquisedec' },
+  { id: 'melquisedec-el-sacerdocio', moduleId: 'personajes-escrituras', title: 'El Sacerdocio', subtitle: 'Por qué lleva su nombre', description: 'El sacerdocio más alto de la Iglesia lleva el nombre de Melquisedec para evitar repetir el nombre del Hijo de Dios. DyC 107 explica el principio. La historia del sacerdocio desde Abraham hasta la Restauración.', level: 'AVANZADO', icon: '🔑', duration: 30, order: 3213, status: 'PUBLISHED', submoduleGroup: 'melquisedec' },
+  { id: 'melquisedec-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Melquisedec y la Restauración', subtitle: 'Las llaves que nunca se perdieron', description: 'DyC 107:2-4 y las enseñanzas de José Smith sobre Melquisedec revelan un sacerdote que no solo existió en el pasado — cuyas llaves y ordenanza siguen activas en la Restauración.', level: 'AVANZADO', icon: '📖', duration: 25, order: 3214, status: 'PUBLISHED', submoduleGroup: 'melquisedec' },
+  // ── ISAAC (submodule, orders 3310-3314) ──────────────────────────────────
+  { id: 'isaac-el-hijo', moduleId: 'personajes-escrituras', title: 'El Hijo de la Promesa', subtitle: 'Nacido cuando era humanamente imposible', description: 'Abraham tenía 100 años. Sara tenía 90. Isaac nació cuando era biológicamente imposible — como señal de que el poder de Dios trasciende la naturaleza. El hijo prometido que llegó después de décadas de espera.', level: 'INTERMEDIO', icon: '👶', duration: 30, order: 3310, status: 'PUBLISHED', submoduleGroup: 'isaac' },
+  { id: 'isaac-el-sacrificio', moduleId: 'personajes-escrituras', title: 'El Sacrificio en el Moriah', subtitle: 'El tipo más completo de Cristo en el AT', description: 'Isaac cargó la leña de su propio sacrificio. Fue atado sobre el altar. Y fue "resucitado en figura" cuando el ángel detuvo la mano de Abraham. Hebreos 11 lo llama el tipo más explícito de la resurrección de Cristo.', level: 'AVANZADO', icon: '🔥', duration: 35, order: 3311, status: 'PUBLISHED', submoduleGroup: 'isaac' },
+  { id: 'isaac-el-esposo', moduleId: 'personajes-escrituras', title: 'El Esposo', subtitle: 'El amor que esperó al mensajero', description: 'La historia de cómo Abraham mandó a su siervo a buscar esposa para Isaac es una de las más tiernas de la Biblia. Rebeca vio al mensajero desde lejos y bajó del camello. Isaac la amó desde el primer momento.', level: 'INTERMEDIO', icon: '💍', duration: 25, order: 3312, status: 'PUBLISHED', submoduleGroup: 'isaac' },
+  { id: 'isaac-el-patriarca', moduleId: 'personajes-escrituras', title: 'El Patriarca', subtitle: 'La bendición que no se puede revocar', description: 'Cuando Isaac bendijo a Jacob creyendo que era Esaú, y descubrió el engaño, no pudo revocar la bendición ya dada. ¿Por qué? Porque las bendiciones patriarcales, una vez pronunciadas con el Espíritu, son proféticas e irrevocables.', level: 'INTERMEDIO', icon: '📜', duration: 30, order: 3313, status: 'PUBLISHED', submoduleGroup: 'isaac' },
+  { id: 'isaac-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Isaac y la Restauración', subtitle: '"El Dios de Abraham, Isaac y Jacob"', description: 'El nombre de Isaac está unido para siempre al nombre de Dios. "El Dios de Abraham, Isaac y Jacob" aparece más de 20 veces en las escrituras. La Restauración revela por qué este orden de nombres es inalterable.', level: 'INTERMEDIO', icon: '✨', duration: 25, order: 3314, status: 'PUBLISHED', submoduleGroup: 'isaac' },
+  // ── JACOB-ISRAEL (submodule, orders 3410-3414) ───────────────────────────
+  { id: 'jacob-el-suplantador', moduleId: 'personajes-escrituras', title: 'El Suplantador', subtitle: 'La primogenitura comprada con lentejas', description: 'Jacob compró la primogenitura de Esaú con un plato de lentejas. Luego engañó a su padre ciego para robar la bendición. ¿Es Jacob un héroe o un villano? La respuesta complica cualquier lectura simple.', level: 'INTERMEDIO', icon: '🍲', duration: 30, order: 3410, status: 'PUBLISHED', submoduleGroup: 'jacob-israel' },
+  { id: 'jacob-el-fugitivo', moduleId: 'personajes-escrituras', title: 'El Fugitivo', subtitle: '14 años de servicio por amor', description: 'Huyendo de Esaú, Jacob llegó a Labán y se enamoró de Raquel. Trabajó 7 años por ella. Lo engañaron con Lea. Trabajó 7 más. La historia del amor más costoso del Antiguo Testamento.', level: 'INTERMEDIO', icon: '🏃', duration: 30, order: 3411, status: 'PUBLISHED', submoduleGroup: 'jacob-israel' },
+  { id: 'jacob-la-lucha', moduleId: 'personajes-escrituras', title: 'La Lucha con Dios', subtitle: 'Peniel — "He visto a Dios cara a cara"', description: 'Una noche, antes de enfrentar a Esaú, Jacob luchó con un ser desconocido hasta el amanecer. Al final el ser le cambió el nombre: ya no Jacob, sino Israel. "El que lucha con Dios y prevalece."', level: 'AVANZADO', icon: '⚡', duration: 35, order: 3412, status: 'PUBLISHED', submoduleGroup: 'jacob-israel' },
+  { id: 'jacob-el-padre', moduleId: 'personajes-escrituras', title: 'El Padre de las Doce Tribus', subtitle: 'La profecía sobre cada hijo', description: 'Al final de su vida, Jacob reunió a sus 12 hijos y pronunció una profecía individual para cada uno. Génesis 49 es uno de los textos proféticos más densos de la Biblia — cada bendición anticipa el destino de una tribu.', level: 'AVANZADO', icon: '👨‍👩‍👧‍👦', duration: 35, order: 3413, status: 'PUBLISHED', submoduleGroup: 'jacob-israel' },
+  { id: 'jacob-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Jacob y la Restauración', subtitle: 'La reunión de Israel en los últimos días', description: 'DyC 110 registra la aparición de Elías quien trajo las llaves de la reunión de Israel. Los convenios abrahámicos con Jacob siguen activos. La "reunión de Israel" es la misión central de la Iglesia restaurada.', level: 'AVANZADO', icon: '🌐', duration: 25, order: 3414, status: 'PUBLISHED', submoduleGroup: 'jacob-israel' },
+  // ── MOISÉS (submodule, orders 3510-3514) ────────────────────────────────
+  { id: 'moises-el-principe', moduleId: 'personajes-escrituras', title: 'El Príncipe de Egipto', subtitle: 'Criado en el palacio, llamado en el desierto', description: 'Moisés fue adoptado por la hija del Faraón y criado en la corte más poderosa del mundo. Pero Dios lo formó en el desierto de Madián durante 40 años antes de llamarlo. La preparación invisible que precede al llamamiento visible.', level: 'INTERMEDIO', icon: '🏛️', duration: 30, order: 3510, status: 'PUBLISHED', submoduleGroup: 'moises' },
+  { id: 'moises-la-revelacion', moduleId: 'personajes-escrituras', title: 'La Zarza y Moisés 1', subtitle: 'El encuentro cara a cara que la Biblia amplía', description: 'Éxodo 3 registra el llamamiento en la zarza ardiente. Pero Moisés 1 (revelado en 1830) añade un encuentro previo con Satanás y la visión del cosmos entero. La Restauración devuelve lo que los manuscritos bíblicos perdieron.', level: 'AVANZADO', icon: '🔥', duration: 35, order: 3511, status: 'PUBLISHED', submoduleGroup: 'moises' },
+  { id: 'moises-el-libertador', moduleId: 'personajes-escrituras', title: 'El Libertador', subtitle: 'Las 10 plagas, el Éxodo y el Mar Rojo', description: 'Moisés confrontó al Faraón diez veces. El endurecimiento del corazón de Faraón, la Pascua como tipo de la Expiación y la travesía del Mar Rojo como tipo del bautismo son los tres grandes tipos de Cristo en el Éxodo.', level: 'INTERMEDIO', icon: '🌊', duration: 35, order: 3512, status: 'PUBLISHED', submoduleGroup: 'moises' },
+  { id: 'moises-el-legislador', moduleId: 'personajes-escrituras', title: 'El Legislador', subtitle: 'La ley de Moisés como evangelio preparatorio', description: 'Moisés recibió la ley de Dios en el Sinaí después de que Israel rechazara la ley mayor. Pablo llama a la ley "ayo" — tutor que guía a Cristo. Cada sacrificio, cada rito y cada fiesta señalaba al Mesías que vendría.', level: 'AVANZADO', icon: '📜', duration: 35, order: 3513, status: 'PUBLISHED', submoduleGroup: 'moises' },
+  { id: 'moises-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Moisés y la Restauración', subtitle: 'Las llaves de la reunión de Israel', description: 'DyC 110 registra la aparición de Moisés en el Templo de Kirtland el 3 de abril de 1836. Entregó las llaves de la reunión de Israel — la misión central de la Iglesia restaurada. El Éxodo de entonces prefigura el Éxodo de los últimos días.', level: 'INTERMEDIO', icon: '✨', duration: 25, order: 3514, status: 'PUBLISHED', submoduleGroup: 'moises' },
+  // ── AARÓN (submodule, orders 3610-3614) ─────────────────────────────────
+  { id: 'aaron-la-voz', moduleId: 'personajes-escrituras', title: 'La Voz de Moisés', subtitle: 'El portavoz que habló ante el Faraón', description: 'Cuando Moisés dijo "soy tardo en el habla", Dios designó a Aarón como su portavoz. Aarón convirtió su vara en serpiente, realizó las primeras tres plagas y habló ante el Faraón más poderoso del mundo.', level: 'BÁSICO', icon: '🗣️', duration: 25, order: 3610, status: 'PUBLISHED', submoduleGroup: 'aaron' },
+  { id: 'aaron-el-sumo-sacerdote', moduleId: 'personajes-escrituras', title: 'El Sumo Sacerdote', subtitle: 'El primero en ser ungido para el servicio del tabernáculo', description: 'Dios designó a Aarón y sus hijos para el sacerdocio levítico. Levítico 8-9 describe su unción, sus vestimentas sagradas y sus responsabilidades en el tabernáculo. El Sumo Sacerdote era el único que podía entrar al Lugar Santísimo.', level: 'INTERMEDIO', icon: '⚗️', duration: 35, order: 3611, status: 'PUBLISHED', submoduleGroup: 'aaron' },
+  { id: 'aaron-el-becerro', moduleId: 'personajes-escrituras', title: 'El Becerro de Oro', subtitle: 'El mayor fracaso del líder espiritual de Israel', description: 'Cuando el pueblo presionó a Aarón con "haznos dioses", cedió. Construyó el becerro de oro. Su excusa a Moisés — "lo eché al fuego y salió este becerro" — es la evasión más absurda de la Biblia. Un estudio sobre el liderazgo bajo presión.', level: 'INTERMEDIO', icon: '🐄', duration: 30, order: 3612, status: 'PUBLISHED', submoduleGroup: 'aaron' },
+  { id: 'aaron-el-sacerdocio', moduleId: 'personajes-escrituras', title: 'El Sacerdocio de Aarón', subtitle: 'Por qué el sacerdocio menor lleva su nombre', description: 'El sacerdocio aarónico en la Restauración incluye las llaves del ministerio de ángeles y el evangelio de arrepentimiento y bautismo. Juan el Bautista, quien trajo estas llaves a José Smith, era sacerdote levítico de la línea de Aarón.', level: 'AVANZADO', icon: '🔑', duration: 35, order: 3613, status: 'PUBLISHED', submoduleGroup: 'aaron' },
+  { id: 'aaron-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Aarón y la Restauración', subtitle: 'Las llaves del sacerdocio aarónico restauradas', description: 'El 15 de mayo de 1829, Juan el Bautista confirió el sacerdocio aarónico a José Smith y Oliver Cowdery. Este sacerdocio lleva el nombre de Aarón porque él fue el primer sumo sacerdote de la dispensación mosaica. Su herencia continúa.', level: 'INTERMEDIO', icon: '✨', duration: 25, order: 3614, status: 'PUBLISHED', submoduleGroup: 'aaron' },
   // ── PROFETAS DEL ANTIGUO TESTAMENTO (orders 40-49) ──────────────────────
-  {
-    id: 'isaias',
-    moduleId: 'personajes-escrituras',
-    title: 'Isaías — El Profeta de Todos los Tiempos',
-    subtitle: 'Nefi lo citó más que cualquier otro profeta',
-    description:
-      'Nefi ordenó a sus hijos estudiar las palabras de Isaías "porque nadie puede saber estas cosas a menos que sea instruido en la manera de los judíos" (2 Nefi 25:5). ¿Por qué es tan citado y tan difícil? Un estudio de su contexto histórico, su estilo hebreo y sus profecías cumplidas y pendientes.',
-    level: 'AVANZADO',
-    icon: '📜',
-    duration: 85,
-    order: 40,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'elias',
-    moduleId: 'personajes-escrituras',
-    title: 'Elías — El Fuego del Cielo y la Segunda Venida',
-    subtitle: 'El profeta que regresó en el Templo de Kirtland',
-    description:
-      'Elías convocó fuego del cielo, derrotó a 450 profetas de Baal, y luego huyó de una mujer asustado. DyC 110 registra su aparición en el Templo de Kirtland en 1836. Malaquías 4:5-6 lo promete para los últimos días. ¿Qué hizo y por qué importa ahora?',
-    level: 'AVANZADO',
-    icon: '⚡',
-    duration: 75,
-    order: 41,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'david',
-    moduleId: 'personajes-escrituras',
-    title: 'David — El Rey-Poeta y su Caída',
-    subtitle: 'El hombre conforme al corazón de Dios que lo traicionó',
-    description:
-      'David mató a Goliat a los 17 años, escribió los Salmos más hermosos de la historia, y a los 50 destruyó su legado con Betsabé y Urías. DyC 132:39 da el veredicto eterno. Salmo 22 y 110 como profecías mesiánicas directas.',
-    level: 'INTERMEDIO',
-    icon: '🎵',
-    duration: 70,
-    order: 42,
-    status: 'IN_CONSTRUCTION',
-  },
+  // ── ISAÍAS (submodule, orders 4010-4014) ────────────────────────────────
+  { id: 'isaias-el-profeta', moduleId: 'personajes-escrituras', title: 'El Profeta', subtitle: 'Contexto histórico de la voz más citada de las Escrituras', description: 'Isaías profetizó en Jerusalén entre 740 y 700 a.C. durante el colapso del Reino del Norte y la amenaza asiria. Entender su contexto histórico — Acaz, Ezequías, Senaquerib — es la clave para leer sus profecías con precisión.', level: 'INTERMEDIO', icon: '🏛️', duration: 30, order: 4010, status: 'PUBLISHED', submoduleGroup: 'isaias' },
+  { id: 'isaias-el-mesianico', moduleId: 'personajes-escrituras', title: 'El Mesíanico', subtitle: 'Las profecías de Cristo escritas 700 años antes', description: 'Isaías 7:14 (la virgen), 9:6 (el Príncipe de Paz), 53 (el Siervo Sufriente) y 61:1 (ungido para proclamar libertad) son las profecías mesiánicas más directas del Antiguo Testamento. Jesús las citó en la sinagoga de Nazaret.', level: 'AVANZADO', icon: '✝️', duration: 35, order: 4011, status: 'PUBLISHED', submoduleGroup: 'isaias' },
+  { id: 'isaias-los-ultimos-dias', moduleId: 'personajes-escrituras', title: 'Los Últimos Días', subtitle: 'La montaña de la casa del Señor en los últimos días', description: 'Isaías 2, 11, 35 y 60 describen con detalle la era mesiánica final: la montaña del templo como centro de naciones, el regreso de Israel disperso, el desierto que florece y la gloria de Sión. Profecías que la Restauración identifica como literales.', level: 'AVANZADO', icon: '🌄', duration: 35, order: 4012, status: 'PUBLISHED', submoduleGroup: 'isaias' },
+  { id: 'isaias-en-el-libro-de-mormon', moduleId: 'personajes-escrituras', title: 'Isaías en el Libro de Mormón', subtitle: '"Nadie puede entenderlo sin ser instruido a la manera de los judíos"', description: 'Nefi copió 21 capítulos completos de Isaías. El Señor mismo en 3 Nefi 23:1 mandó: "examinad estas cosas atentamente." ¿Por qué tanto énfasis? Un estudio de los capítulos de Isaías en el Libro de Mormón y lo que revelan.', level: 'AVANZADO', icon: '📖', duration: 35, order: 4013, status: 'PUBLISHED', submoduleGroup: 'isaias' },
+  { id: 'isaias-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Isaías y la Restauración', subtitle: 'La "obra maravillosa y portento" que profetizó', description: 'Isaías 29:14 profetizó una "obra maravillosa y portento." DyC 4:1 y 2 Nefi 25:17 identifican la Restauración como su cumplimiento. José Smith citó a Isaías más que cualquier otro profeta. El "libro sellado" de Isaías 29 y las planchas de oro.', level: 'AVANZADO', icon: '✨', duration: 25, order: 4014, status: 'PUBLISHED', submoduleGroup: 'isaias' },
+  // ── ELÍAS (submodule, orders 4110-4114) ─────────────────────────────────
+  { id: 'elias-el-celo', moduleId: 'personajes-escrituras', title: 'El Celo de Dios', subtitle: 'El profeta que detuvo la lluvia y derrotó a Baal', description: 'Elías declaró que no llovería sin su palabra, luego desapareció. Tres años después se presentó ante Acab y desafió a 450 profetas de Baal en el monte Carmelo. Fuego del cielo. El celo de Dios manifestado en un hombre.', level: 'INTERMEDIO', icon: '🔥', duration: 30, order: 4110, status: 'PUBLISHED', submoduleGroup: 'elias' },
+  { id: 'elias-el-agotado', moduleId: 'personajes-escrituras', title: 'El Agotado', subtitle: '"Ya es suficiente, Señor; quítame la vida"', description: 'Después de la victoria en el Carmelo, Elías huyó de Jezabel al desierto y pidió morir. Un ángel lo alimentó dos veces. En Horeb oyó la voz de Dios — no en el viento, ni en el terremoto, ni en el fuego — sino en una voz quieta y delicada.', level: 'INTERMEDIO', icon: '😔', duration: 30, order: 4111, status: 'PUBLISHED', submoduleGroup: 'elias' },
+  { id: 'elias-la-traslacion', moduleId: 'personajes-escrituras', title: 'La Traslación', subtitle: 'Arrebatado al cielo en un carro de fuego', description: 'Elías fue trasladado sin morir — arrebatado al cielo en un carro de fuego ante los ojos de Eliseo. La Restauración enseña que los seres trasladados tienen un ministerio específico. Elías fue preservado para una misión futura.', level: 'AVANZADO', icon: '🌪️', duration: 30, order: 4112, status: 'PUBLISHED', submoduleGroup: 'elias' },
+  { id: 'elias-las-llaves', moduleId: 'personajes-escrituras', title: 'Las Llaves del Sello', subtitle: 'La misión de volver los corazones de los hijos a los padres', description: 'Malaquías 4:5-6 prometió el regreso de Elías "antes del gran y terrible día del Señor." DyC 2 es la primera sección revelada porque estas llaves son el cimiento de toda la obra del templo. ¿Qué son exactamente las llaves del sello?', level: 'AVANZADO', icon: '🔑', duration: 35, order: 4113, status: 'PUBLISHED', submoduleGroup: 'elias' },
+  { id: 'elias-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Elías y la Restauración', subtitle: 'La aparición en el Templo de Kirtland — 3 de abril de 1836', description: 'DyC 110 registra la aparición de Elías junto a Cristo, Moisés y Elias. Entregó las llaves del sacerdocio de Elías — el poder de sellar en la tierra lo que es sellado en el cielo. Esta fecha y este evento son el fundamento de la obra de templos.', level: 'AVANZADO', icon: '✨', duration: 25, order: 4114, status: 'PUBLISHED', submoduleGroup: 'elias' },
+  // ── DAVID (submodule, orders 4210-4214) ─────────────────────────────────
+  { id: 'david-el-elegido', moduleId: 'personajes-escrituras', title: 'El Elegido', subtitle: '"El Señor mira el corazón" — 1 Samuel 16', description: 'Samuel llegó a Belén a ungir a un hijo de Isaí. Siete hijos desfilaron — ninguno era el elegido. Dios dijo: "el hombre mira la apariencia, pero el Señor mira el corazón." David era el octavo hijo, pastoreando ovejas, y nadie lo había considerado.', level: 'INTERMEDIO', icon: '👑', duration: 30, order: 4210, status: 'PUBLISHED', submoduleGroup: 'david' },
+  { id: 'david-y-goliat', moduleId: 'personajes-escrituras', title: 'David y Goliat', subtitle: 'La fe inductiva contra el gigante de Gat', description: 'Israel llevaba 40 días paralizado por las burlas de Goliat. David llegó con pan y queso para sus hermanos. Su argumento para pelear no era valentía — era teología: "¿Quién es este filisteo incircunciso para desafiar a los ejércitos del Dios viviente?"', level: 'INTERMEDIO', icon: '⚡', duration: 30, order: 4211, status: 'PUBLISHED', submoduleGroup: 'david' },
+  { id: 'david-el-poeta', moduleId: 'personajes-escrituras', title: 'El Poeta de Israel', subtitle: 'Los Salmos como profecía mesiánica y oración universal', description: 'David escribió al menos 73 de los 150 Salmos. El Salmo 22 describe la crucifixión con 7 correspondencias exactas escritas 1,000 años antes. El Salmo 110 es el versículo del Antiguo Testamento más citado en el Nuevo Testamento.', level: 'AVANZADO', icon: '🎵', duration: 35, order: 4212, status: 'PUBLISHED', submoduleGroup: 'david' },
+  { id: 'david-la-caida', moduleId: 'personajes-escrituras', title: 'La Caída', subtitle: 'Betsabé, Urías y el precio del pecado del ungido', description: 'En la primavera "cuando los reyes salen a la guerra", David se quedó en Jerusalén. Vio a Betsabé. La tomó. Hizo matar a Urías. Nathan le dijo: "Tú eres aquel hombre." El Salmo 51 es su clamor de arrepentimiento. DyC 132:39 da el veredicto eterno.', level: 'AVANZADO', icon: '💔', duration: 35, order: 4213, status: 'PUBLISHED', submoduleGroup: 'david' },
+  { id: 'david-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'David y la Restauración', subtitle: 'El convenio davídico y Cristo como su cumplimiento', description: '2 Samuel 7 registra el convenio de Dios con David: un hijo suyo reinaría para siempre. DyC 113:1-6 identifica a Cristo como el Vástago de Isaías 11. El "Mesías" (ungido) era el título del rey davídico. Jesús es el David eterno.', level: 'AVANZADO', icon: '✨', duration: 25, order: 4214, status: 'PUBLISHED', submoduleGroup: 'david' },
   {
     id: 'jeremias',
     moduleId: 'personajes-escrituras',
@@ -1182,32 +1273,18 @@ const LESSON_ROWS: LessonRow[] = [
     status: 'IN_CONSTRUCTION',
   },
   // ── LIBRO DE MORMÓN (orders 70-79) ───────────────────────────────────────
-  {
-    id: 'lehi',
-    moduleId: 'personajes-escrituras',
-    title: 'Lehi — El Padre que Lo Dejó Todo',
-    subtitle: 'El profeta rechazado que fundó un pueblo',
-    description:
-      'Lehi era un hombre rico de Jerusalén. Dios le pidió que lo dejara todo — su casa, su tierra, sus posesiones — y llevara a su familia al desierto. Sus hijos lo obedecieron y lo resistieron. Murió en tierra prometida sin ver la nación que fundó. 1 Nefi 1-18 y 2 Nefi 1-4.',
-    level: 'BÁSICO',
-    icon: '🏕️',
-    duration: 60,
-    order: 70,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'nefi',
-    moduleId: 'personajes-escrituras',
-    title: 'Nefi — El Que Obedeció cuando Era Imposible',
-    subtitle: '"Iré y haré las cosas que el Señor ha mandado"',
-    description:
-      'Nefi mató a un hombre borracho porque era "mejor que perezca un hombre que una nación" (1 Nefi 4:13). Construyó un barco sin instrucción previa. Obtuvo el Libro de Bronce. Y en su vejez escribió sus memorias con una tristeza que contrasta con toda su obediencia (2 Nefi 4:17-35).',
-    level: 'BÁSICO',
-    icon: '🚢',
-    duration: 65,
-    order: 71,
-    status: 'IN_CONSTRUCTION',
-  },
+  // ── LEHI (submodule, orders 7010-7014) ───────────────────────────────────
+  { id: 'lehi-el-profeta', moduleId: 'personajes-escrituras', title: 'El Profeta', subtitle: 'El llamamiento en Jerusalén', description: 'Lehi era un hombre rico de Jerusalén. Tuvo visiones, predicó, fue rechazado y huyó al desierto con su familia. El profeta que lo abandonó todo antes de que alguien más lo hiciera.', level: 'INTERMEDIO', icon: '🔥', duration: 30, order: 7010, status: 'PUBLISHED', submoduleGroup: 'lehi' },
+  { id: 'lehi-el-arbol', moduleId: 'personajes-escrituras', title: 'El Árbol de la Vida', subtitle: 'La alegoría central del Libro de Mormón', description: 'La visión de Lehi en 1 Nefi 8 — el árbol de fruto blanco, la barra de hierro, la niebla de oscuridad y el gran edificio — es la alegoría más citada de toda la escritura restaurada.', level: 'AVANZADO', icon: '🌳', duration: 35, order: 7011, status: 'PUBLISHED', submoduleGroup: 'lehi' },
+  { id: 'lehi-las-bendiciones', moduleId: 'personajes-escrituras', title: 'Las Bendiciones Patriarcales', subtitle: 'Las últimas palabras como herencia profética', description: 'Lehi reunió a sus hijos antes de morir y pronunció una bendición profética individual para cada uno. 2 Nefi 1-4 son algunas de las palabras más emotivas y teológicamente densas del Libro de Mormón.', level: 'INTERMEDIO', icon: '📜', duration: 30, order: 7012, status: 'PUBLISHED', submoduleGroup: 'lehi' },
+  { id: 'lehi-el-legado', moduleId: 'personajes-escrituras', title: 'El Legado', subtitle: 'Una decisión que cambió una civilización', description: 'La decisión de Lehi de abandonar Jerusalén dio origen a dos naciones que durarían mil años y recibirían la visita personal de Cristo resucitado. El impacto de una familia obediente en la escala de la historia.', level: 'AVANZADO', icon: '🌎', duration: 30, order: 7013, status: 'PUBLISHED', submoduleGroup: 'lehi' },
+  { id: 'lehi-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Lehi y la Restauración', subtitle: 'La cadena de custodia de las planchas de oro', description: 'Los descendientes de Lehi preservaron las planchas durante mil años. Sus profecías de 1 Nefi 13-14 sobre la Restauración se cumplieron con precisión. El árbol de la vida tiene conexión directa con la teología del templo restaurado.', level: 'INTERMEDIO', icon: '✨', duration: 25, order: 7014, status: 'PUBLISHED', submoduleGroup: 'lehi' },
+  // ── NEFI (submodule, orders 7110-7114) ───────────────────────────────────
+  { id: 'nefi-ire-y-hare', moduleId: 'personajes-escrituras', title: '"Iré y Haré"', subtitle: 'La promesa antes del plan', description: 'Nefi prometió obedecer antes de saber cómo. Intentó tres veces obtener las planchas de Labán. La tercera, fue conducido por el Espíritu "sin saber de antemano las cosas que haría."', level: 'INTERMEDIO', icon: '⚔️', duration: 30, order: 7110, status: 'PUBLISHED', submoduleGroup: 'nefi' },
+  { id: 'nefi-la-vision', moduleId: 'personajes-escrituras', title: 'La Visión', subtitle: 'Creer para ver', description: 'Nefi quiso ver lo mismo que su padre. El Espíritu le preguntó primero: "¿Crees que tu padre vio el árbol?" Su visión en 1 Nefi 11-14 expandió la de Lehi con interpretación profética completa.', level: 'AVANZADO', icon: '👁️', duration: 35, order: 7111, status: 'PUBLISHED', submoduleGroup: 'nefi' },
+  { id: 'nefi-el-lamento', moduleId: 'personajes-escrituras', title: 'El Salmo de Nefi', subtitle: 'La fe que coexiste con la debilidad', description: 'En 2 Nefi 4, Nefi llora su propia imperfección con una honestidad que contrasta con toda su fortaleza. El Salmo de Nefi es uno de los textos de vida interior más auténticos de la escritura sagrada.', level: 'INTERMEDIO', icon: '😢', duration: 30, order: 7112, status: 'PUBLISHED', submoduleGroup: 'nefi' },
+  { id: 'nefi-el-constructor', moduleId: 'personajes-escrituras', title: 'El Constructor', subtitle: 'El barco, el templo, la nación', description: 'Nefi construyó un barco sin saber cómo. Cruzó el océano. Fundó la Ciudad de Nefi y construyó un templo semejante al de Salomón. El obediente también construye — a escala de civilización.', level: 'INTERMEDIO', icon: '🚢', duration: 30, order: 7113, status: 'PUBLISHED', submoduleGroup: 'nefi' },
+  { id: 'nefi-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Nefi y la Restauración', subtitle: 'El profeta que más nos habla directamente', description: '2 Nefi 25-29 son profecías directas sobre la Restauración: la apostasía, el Libro de Mormón, la objeción "ya tenemos Biblia," y la invitación universal. Nefi escribió estos capítulos para nosotros.', level: 'AVANZADO', icon: '📖', duration: 25, order: 7114, status: 'PUBLISHED', submoduleGroup: 'nefi' },
   {
     id: 'el-hermano-de-jared',
     moduleId: 'personajes-escrituras',
@@ -1234,19 +1311,12 @@ const LESSON_ROWS: LessonRow[] = [
     order: 73,
     status: 'IN_CONSTRUCTION',
   },
-  {
-    id: 'rey-benjamin',
-    moduleId: 'personajes-escrituras',
-    title: 'Rey Benjamín — El Rey Siervo',
-    subtitle: 'El discurso que transformó a toda una nación en un solo día',
-    description:
-      'Benjamín era rey pero trabajaba con sus propias manos para no ser una carga. Su discurso desde la torre (Mosíah 2-5) produjo una conversión colectiva tan completa que el pueblo declaró no tener más deseo de hacer el mal. Incluye la profecía del nombre de Cristo 124 años antes de su nacimiento.',
-    level: 'BÁSICO',
-    icon: '🏰',
-    duration: 60,
-    order: 74,
-    status: 'IN_CONSTRUCTION',
-  },
+  // ── REY BENJAMÍN (submodule, orders 7410-7414) ───────────────────────────
+  { id: 'rey-benjamin-el-rey-siervo', moduleId: 'personajes-escrituras', title: 'El Rey Siervo', subtitle: 'Gobernó sin cobrar tributo', description: 'Benjamín era rey pero trabajaba con sus propias manos. Fue guerrero, gobernante y servidor. Su liderazgo invierte el modelo antiguo: la autoridad que sirve es la autoridad legítima.', level: 'INTERMEDIO', icon: '🛡️', duration: 30, order: 7410, status: 'PUBLISHED', submoduleGroup: 'rey-benjamin' },
+  { id: 'rey-benjamin-la-deuda', moduleId: 'personajes-escrituras', title: 'La Deuda Impagable', subtitle: 'El argumento más poderoso sobre la gracia', description: 'Mosíah 2:20-25 demuestra que no podemos saldar nuestra deuda con Dios — cada capacidad de servirle viene de Él. La única respuesta posible a la gracia es gratitud, no pago.', level: 'AVANZADO', icon: '⚖️', duration: 35, order: 7411, status: 'PUBLISHED', submoduleGroup: 'rey-benjamin' },
+  { id: 'rey-benjamin-el-nombre', moduleId: 'personajes-escrituras', title: 'El Nombre de Cristo', subtitle: 'Tomar el nombre como convenio', description: 'Mosíah 5:7-15 describe el convenio del pueblo de tomar sobre sí el nombre de Cristo. La conversión colectiva que siguió al discurso es única en la escritura: todos, sin excepción, experimentaron un cambio de corazón.', level: 'AVANZADO', icon: '✝️', duration: 35, order: 7412, status: 'PUBLISHED', submoduleGroup: 'rey-benjamin' },
+  { id: 'rey-benjamin-el-projimo', moduleId: 'personajes-escrituras', title: 'El Prójimo como Dios', subtitle: '"Al servicio de vuestros semejantes..."', description: 'Mosíah 2:17 es el versículo más citado de Rey Benjamín: servir a los demás ES servir a Dios. La teología del servicio como identidad — no como deber — es el legado práctico de su reinado.', level: 'INTERMEDIO', icon: '🤝', duration: 30, order: 7413, status: 'PUBLISHED', submoduleGroup: 'rey-benjamin' },
+  { id: 'rey-benjamin-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Rey Benjamín y la Restauración', subtitle: 'El sermón más completo sobre la Expiación antes de Cristo', description: 'El discurso de Rey Benjamín en Mosíah 3-5 es el tratado pre-cristiano más completo sobre la Expiación en la escritura. Su ceremonia de renovación de convenio anticipa la estructura del templo restaurado.', level: 'AVANZADO', icon: '✨', duration: 25, order: 7414, status: 'PUBLISHED', submoduleGroup: 'rey-benjamin' },
   {
     id: 'capitan-moroni',
     moduleId: 'personajes-escrituras',
@@ -1273,19 +1343,18 @@ const LESSON_ROWS: LessonRow[] = [
     order: 76,
     status: 'IN_CONSTRUCTION',
   },
-  {
-    id: 'moroni-profeta',
-    moduleId: 'personajes-escrituras',
-    title: 'Moroni — El Último Guardián',
-    subtitle: 'El último nefita, el primer ángel de la restauración',
-    description:
-      'Moroni sobrevivió al genocidio de su pueblo. Solo, errante, escribió los últimos capítulos del Libro de Mormón durante décadas. Enterró las planchas. Y 1,400 años después, apareció como ángel al joven José Smith en 1823. Moroni 10:4-5 contiene la promesa que ha transformado millones de vidas.',
-    level: 'INTERMEDIO',
-    icon: '📯',
-    duration: 65,
-    order: 77,
-    status: 'IN_CONSTRUCTION',
-  },
+  // ── MORONI PROFETA (submodule, orders 7710-7714) ─────────────────────────
+  { id: 'moroni-el-sobreviviente', moduleId: 'personajes-escrituras', title: 'El Sobreviviente', subtitle: 'Solo después de Cumorah', description: 'Moroni sobrevivió al genocidio de 230,000 nefitas incluyendo a su padre Mormon. Solo, errante, sin familia ni comunidad, escribió para una audiencia que no conocería nunca.', level: 'AVANZADO', icon: '🗡️', duration: 35, order: 7710, status: 'PUBLISHED', submoduleGroup: 'moroni-profeta' },
+  { id: 'moroni-la-profecia', moduleId: 'personajes-escrituras', title: 'La Profecía', subtitle: 'El diagnóstico de nuestra época', description: 'Mormón 8:35-41: Moroni describe con precisión la época en que el Libro de Mormón sería traducido. Orgullo, ropa de lujo, abandono de los pobres, contaminación de la iglesia. Nos habla directamente.', level: 'AVANZADO', icon: '🔭', duration: 35, order: 7711, status: 'PUBLISHED', submoduleGroup: 'moroni-profeta' },
+  { id: 'moroni-la-promesa', moduleId: 'personajes-escrituras', title: 'La Promesa', subtitle: 'Cómo saber que el libro es verdadero', description: 'Moroni 10:3-5 ofrece la promesa más conocida del Libro de Mormón: ponder, pray with sincere heart and real intent, and God will manifest the truth by the Holy Ghost. El mecanismo de confirmación espiritual.', level: 'INTERMEDIO', icon: '🙏', duration: 30, order: 7712, status: 'PUBLISHED', submoduleGroup: 'moroni-profeta' },
+  { id: 'moroni-las-planchas', moduleId: 'personajes-escrituras', title: 'El Ángel', subtitle: 'De guardián a mensajero de la Restauración', description: 'Moroni como ser resucitado visitó a José Smith a partir del 21 de septiembre de 1823. Cuatro años de preparación antes de la entrega de las planchas. Apocalipsis 14:6 lo profetizó 1,700 años antes.', level: 'AVANZADO', icon: '📿', duration: 30, order: 7713, status: 'PUBLISHED', submoduleGroup: 'moroni-profeta' },
+  { id: 'moroni-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Moroni y la Restauración', subtitle: 'La figura en la cima del templo', description: 'Moroni corona los templos del mundo con su trompeta — el heraldo de la Restauración. DyC 27:5 lo identifica. Sus palabras a José Smith cruzaron 1,400 años de silencio para inaugurar la última dispensación.', level: 'AVANZADO', icon: '📯', duration: 25, order: 7714, status: 'PUBLISHED', submoduleGroup: 'moroni-profeta' },
+  // ── MORMON EL PROFETA (submodule, orders 7810-7814) ──────────────────────
+  { id: 'mormon-el-general', moduleId: 'personajes-escrituras', title: 'El General', subtitle: 'Nombrado comandante a los 15 años', description: 'Mormon dirigió los ejércitos nefitas durante 60 años en guerras cada vez más desesperadas. Un general justo al servicio de un pueblo injusto. Cuando el pueblo atacó por venganza, se negó a liderarlos.', level: 'AVANZADO', icon: '⚔️', duration: 35, order: 7810, status: 'PUBLISHED', submoduleGroup: 'mormon' },
+  { id: 'mormon-el-compilador', moduleId: 'personajes-escrituras', title: 'El Compilador', subtitle: 'El editor más importante de la historia sagrada', description: 'Mormon tuvo acceso a milenios de registros nefitas. Eligió qué incluir, qué omitir, y por qué. Su voz editorial ("y así vemos") aparece en todo el libro. Es uno de los narradores más conscientes de sí mismos en la literatura antigua.', level: 'AVANZADO', icon: '📚', duration: 35, order: 7811, status: 'PUBLISHED', submoduleGroup: 'mormon' },
+  { id: 'mormon-el-profeta', moduleId: 'personajes-escrituras', title: 'El Profeta', subtitle: 'Visitado por el Señor a los 15 años', description: 'A los 10, Ammoró lo preparó para la misión de los registros. A los 15 fue visitado del Señor. A los 15 también tomó el mando del ejército. Mormon fue profeta y general simultáneamente, en un pueblo que rechazaba ambas cosas.', level: 'AVANZADO', icon: '🌟', duration: 30, order: 7812, status: 'PUBLISHED', submoduleGroup: 'mormon' },
+  { id: 'mormon-el-padre', moduleId: 'personajes-escrituras', title: 'El Padre', subtitle: 'Las cartas de un padre a su hijo durante el apocalipsis', description: 'Las cartas de Mormon a Moroni sobre el bautismo infantil (Moroni 8) muestran un teólogo preciso escribiendo en medio de la guerra. Entrenó a Moroni militarmente y espiritualmente. Le entregó las planchas y la misión.', level: 'INTERMEDIO', icon: '👨‍👦', duration: 30, order: 7813, status: 'PUBLISHED', submoduleGroup: 'mormon' },
+  { id: 'mormon-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Mormon y la Restauración', subtitle: 'El libro que lleva su nombre', description: 'Mormon nunca supo que el registro que compiló en los últimos días de una civilización colapsada sería traducido 1,400 años después y cambiaría el mundo. Sus palabras directas a los futuros lectores son una carta abierta para nosotros.', level: 'AVANZADO', icon: '📖', duration: 25, order: 7814, status: 'PUBLISHED', submoduleGroup: 'mormon' },
   // ── RESTAURACIÓN (orders 80-89) ───────────────────────────────────────────
   {
     id: 'jose-smith',
@@ -1540,6 +1609,32 @@ const LESSON_ROWS: LessonRow[] = [
   },
   // ── TEMAS PROFUNDOS ADICIONALES (orders 6-7) ─────────────────────────────────
   {
+    id: 'lucifer',
+    moduleId: 'temas-profundos',
+    title: 'Lucifer — El Hijo de la Mañana',
+    subtitle: 'De estrella premortal a adversario eterno',
+    description:
+      'Lucifer fue uno de los espíritus más prominentes del mundo premortal. Su plan alternativo en el Gran Concilio, la Guerra en el Cielo, sus estrategias contra la humanidad, y su destino final. La doctrina restaurada revela más sobre Satanás que cualquier otra tradición cristiana.',
+    level: 'AVANZADO',
+    icon: '🌑',
+    duration: 90,
+    order: 20,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'el-mundo-de-los-espiritus',
+    moduleId: 'temas-profundos',
+    title: 'El Mundo de los Espíritus',
+    subtitle: 'El reino intermedio entre la muerte y la resurrección',
+    description:
+      'Entre la muerte y la resurrección existe un reino real, habitado por espíritus conscientes que recuerdan quiénes son, aprenden el evangelio, y esperan la resurrección. DyC 138 revela su organización. La Restauración lo ha descrito con más detalle que ninguna otra tradición.',
+    level: 'AVANZADO',
+    icon: '🌌',
+    duration: 95,
+    order: 21,
+    status: 'PUBLISHED',
+  },
+  {
     id: 'elohim-el-padre-celestial',
     moduleId: 'temas-profundos',
     title: 'Elohim — El Padre Celestial',
@@ -1633,16 +1728,83 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'los-yo-soy-de-cristo': lessonLosYoSoy,
   'la-resurreccion-de-cristo': lessonResurreccionCristo,
   'el-circulo-de-jesus': lessonElCirculoDeJesus,
-  'enoc': lessonEnoc,
-  'noe': lessonNoe,
-  'melquisedec': lessonMelquisedec,
-  'isaac': lessonIsaac,
-  'jacob-israel': lessonJacobIsrael,
-  'moises': lessonMoises,
-  'aaron': lessonAaron,
-  'isaias': lessonIsaias,
-  'elias': lessonElias,
-  'david': lessonDavid,
+  'lucifer': lessonLucifer,
+  'el-mundo-de-los-espiritus': lessonMundoEspiritus,
+  'lehi-el-profeta': lessonLehiElProfeta,
+  'lehi-el-arbol': lessonLehiElArbol,
+  'lehi-las-bendiciones': lessonLehiLasBendiciones,
+  'lehi-el-legado': lessonLehiElLegado,
+  'lehi-y-la-restauracion': lessonLehiYLaRestauracion,
+  'nefi-ire-y-hare': lessonNefiIreYHare,
+  'nefi-la-vision': lessonNefiLaVision,
+  'nefi-el-lamento': lessonNefiElLamento,
+  'nefi-el-constructor': lessonNefiElConstructor,
+  'nefi-y-la-restauracion': lessonNefiYLaRestauracion,
+  'rey-benjamin-el-rey-siervo': lessonReyBenjaminElReySiervo,
+  'rey-benjamin-la-deuda': lessonReyBenjaminLaDeuda,
+  'rey-benjamin-el-nombre': lessonReyBenjaminElNombre,
+  'rey-benjamin-el-projimo': lessonReyBenjaminElProjimo,
+  'rey-benjamin-y-la-restauracion': lessonReyBenjaminYLaRestauracion,
+  'moroni-el-sobreviviente': lessonMoroniElSobreviviente,
+  'moroni-la-profecia': lessonMoroniLaProfecia,
+  'moroni-la-promesa': lessonMoroniLaPromesa,
+  'moroni-las-planchas': lessonMoroniLasPlanchas,
+  'moroni-y-la-restauracion': lessonMoroniYLaRestauracion,
+  'mormon-el-general': lessonMormonElGeneral,
+  'mormon-el-compilador': lessonMormonElCompilador,
+  'mormon-el-profeta': lessonMormonElProfeta,
+  'mormon-el-padre': lessonMormonElPadre,
+  'mormon-y-la-restauracion': lessonMormonYLaRestauracion,
+  'enoc-el-llamamiento': lessonEnocElLlamamiento,
+  'enoc-el-vidente': lessonEnocElVidente,
+  'enoc-la-ciudad': lessonEnocLaCiudad,
+  'enoc-la-traslacion': lessonEnocLaTraslacion,
+  'enoc-y-la-restauracion': lessonEnocYLaRestauracion,
+  'noe-el-predicador': lessonNoeElPredicador,
+  'noe-el-arca': lessonNoeElArca,
+  'noe-el-diluvio': lessonNoeElDiluvio,
+  'noe-el-pacto': lessonNoeElPacto,
+  'noe-y-la-restauracion': lessonNoeYLaRestauracion,
+  'melquisedec-el-rey': lessonMelquisedecElRey,
+  'melquisedec-la-ciudad': lessonMelquisedecLaCiudad,
+  'melquisedec-tipo-de-cristo': lessonMelquisedecTipoDeCristo,
+  'melquisedec-el-sacerdocio': lessonMelquisedecElSacerdocio,
+  'melquisedec-y-la-restauracion': lessonMelquisedecYLaRestauracion,
+  'isaac-el-hijo': lessonIsaacElHijo,
+  'isaac-el-sacrificio': lessonIsaacElSacrificio,
+  'isaac-el-esposo': lessonIsaacElEsposo,
+  'isaac-el-patriarca': lessonIsaacElPatriarca,
+  'isaac-y-la-restauracion': lessonIsaacYLaRestauracion,
+  'jacob-el-suplantador': lessonJacobElSuplantador,
+  'jacob-el-fugitivo': lessonJacobElFugitivo,
+  'jacob-la-lucha': lessonJacobLaLucha,
+  'jacob-el-padre': lessonJacobElPadre,
+  'jacob-y-la-restauracion': lessonJacobYLaRestauracion,
+  'moises-el-principe': lessonMoisesElPrincipe,
+  'moises-la-revelacion': lessonMoisesLaRevelacion,
+  'moises-el-libertador': lessonMoisesElLibertador,
+  'moises-el-legislador': lessonMoisesElLegislador,
+  'moises-y-la-restauracion': lessonMoisesYLaRestauracion,
+  'aaron-la-voz': lessonAaronLaVoz,
+  'aaron-el-sumo-sacerdote': lessonAaronElSumoSacerdote,
+  'aaron-el-becerro': lessonAaronElBecerro,
+  'aaron-el-sacerdocio': lessonAaronElSacerdocio,
+  'aaron-y-la-restauracion': lessonAaronYLaRestauracion,
+  'isaias-el-profeta': lessonIsaiasElProfeta,
+  'isaias-el-mesianico': lessonIsaiasElMesianico,
+  'isaias-los-ultimos-dias': lessonIsaiasLosUltimosDias,
+  'isaias-en-el-libro-de-mormon': lessonIsaiasEnElLibroDeMormon,
+  'isaias-y-la-restauracion': lessonIsaiasYLaRestauracion,
+  'elias-el-celo': lessonEliasElCelo,
+  'elias-el-agotado': lessonEliasElAgotado,
+  'elias-la-traslacion': lessonEliasLaTraslacion,
+  'elias-las-llaves': lessonEliasLasLlaves,
+  'elias-y-la-restauracion': lessonEliasYLaRestauracion,
+  'david-el-elegido': lessonDavidElElegido,
+  'david-y-goliat': lessonDavidYGoliat,
+  'david-el-poeta': lessonDavidElPoeta,
+  'david-la-caida': lessonDavidLaCaida,
+  'david-y-la-restauracion': lessonDavidYLaRestauracion,
   'jeremias': lessonJeremias,
   'daniel': lessonDaniel,
   'job': lessonJob,
@@ -1658,14 +1820,10 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'ester': lessonEster,
   'debora': lessonDebora,
   'maria-la-madre': lessonMariaLaMadre,
-  'lehi': lessonLehi,
-  'nefi': lessonNefi,
   'el-hermano-de-jared': lessonHermanoDeJared,
   'ammon': lessonAmmon,
-  'rey-benjamin': lessonReyBenjamin,
   'capitan-moroni': lessonCapitanMoroni,
   'samuel-el-lamanita': lessonSamuelElLamanita,
-  'moroni-profeta': lessonMoroniProfeta,
   'jose-smith': lessonJoseSmith,
   'emma-smith': lessonEmmaSmith,
   'hyrum-smith': lessonHyrumSmith,

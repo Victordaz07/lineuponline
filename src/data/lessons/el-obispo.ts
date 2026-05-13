@@ -20,8 +20,8 @@ export const elObispo: Lesson = {
       title: 'Episcopos — El Significado Original',
       intro: {
         romanNumeral: 'I',
-        heading: 'La Palabra que Cambió el Mundo',
-        subheading: 'Del griego al mundo restaurado',
+        title: 'La Palabra que Cambió el Mundo',
+        paragraphs: ['Del griego al mundo restaurado'],
       },
       topics: [
         {
@@ -75,8 +75,8 @@ export const elObispo: Lesson = {
       title: 'El Obispo en la Restauración',
       intro: {
         romanNumeral: 'II',
-        heading: 'La Revelación Restaura el Oficio',
-        subheading: 'DyC 68, 84 y 107',
+        title: 'La Revelación Restaura el Oficio',
+        paragraphs: ['DyC 68, 84 y 107'],
       },
       topics: [
         {
@@ -136,8 +136,8 @@ export const elObispo: Lesson = {
       title: 'Presidente del Sacerdocio Aarónico',
       intro: {
         romanNumeral: 'III',
-        heading: 'Las Llaves del Sacerdocio Menor',
-        subheading: 'El obispo preside el quórum de presbíteros',
+        title: 'Las Llaves del Sacerdocio Menor',
+        paragraphs: ['El obispo preside el quórum de presbíteros'],
       },
       topics: [
         {
@@ -175,8 +175,8 @@ export const elObispo: Lesson = {
       title: 'El Juez en Israel',
       intro: {
         romanNumeral: 'IV',
-        heading: 'La Función más Delicada',
-        subheading: 'Diezmo, templo, arrepentimiento',
+        title: 'La Función más Delicada',
+        paragraphs: ['Diezmo, templo, arrepentimiento'],
       },
       topics: [
         {
@@ -226,8 +226,8 @@ export const elObispo: Lesson = {
       title: 'El Pastor del Rebaño',
       intro: {
         romanNumeral: 'V',
-        heading: 'Conocer a Cada Oveja por Nombre',
-        subheading: 'El obispo como padre espiritual',
+        title: 'Conocer a Cada Oveja por Nombre',
+        paragraphs: ['El obispo como padre espiritual'],
       },
       topics: [
         {
@@ -259,8 +259,8 @@ export const elObispo: Lesson = {
       title: 'Cristo — El Obispo de Nuestras Almas',
       intro: {
         romanNumeral: 'VI',
-        heading: 'El Modelo Perfecto',
-        subheading: '1 Pedro 2:25 como la definición final',
+        title: 'El Modelo Perfecto',
+        paragraphs: ['1 Pedro 2:25 como la definición final'],
       },
       topics: [
         {
@@ -276,7 +276,7 @@ export const elObispo: Lesson = {
               type: 'doctrine_box',
               id: 'db1',
               title: 'El Patrón Cristológico del Episcopado',
-              content: 'Cristo como Obispo supremo es: (1) Pastor que conoce a cada oveja (Juan 10:14), (2) Juez de toda la tierra que juzga con perfecta misericordia (Génesis 18:25, Mosíah 3:18), (3) Administrador de los bienes del cielo para los necesitados (Mateo 25:35-40), (4) Supervisor vigilante que nunca duerme ni se adormece (Salmo 121:4).',
+              body: 'Cristo como Obispo supremo es: (1) Pastor que conoce a cada oveja (Juan 10:14), (2) Juez de toda la tierra que juzga con perfecta misericordia (Génesis 18:25, Mosíah 3:18), (3) Administrador de los bienes del cielo para los necesitados (Mateo 25:35-40), (4) Supervisor vigilante que nunca duerme ni se adormece (Salmo 121:4).',
             },
             {
               type: 'reflection',

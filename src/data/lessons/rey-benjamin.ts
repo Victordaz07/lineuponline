@@ -17,7 +17,7 @@ export const reyBenjamin: Lesson = {
     {
       id: 's1',
       title: 'El Rey que Sirvió con sus Propias Manos',
-      intro: { romanNumeral: 'I', heading: 'Mosíah 2 — La Autoridad del Servicio', subheading: 'Un rey que no cobró impuestos' },
+      intro: { romanNumeral: 'I', title: 'Mosíah 2 — La Autoridad del Servicio', paragraphs: ['Un rey que no cobró impuestos'] },
       topics: [
         {
           id: 't1',
@@ -32,14 +32,14 @@ export const reyBenjamin: Lesson = {
     {
       id: 's2',
       title: 'La Deuda Impagable',
-      intro: { romanNumeral: 'II', heading: 'Mosíah 2:20-25 — No Puedes Pagar', subheading: 'La teología de la gracia más clara del Libro de Mormón' },
+      intro: { romanNumeral: 'II', title: 'Mosíah 2:20-25 — No Puedes Pagar', paragraphs: ['La teología de la gracia más clara del Libro de Mormón'] },
       topics: [
         {
           id: 't2',
           title: 'Siempre en deuda con Dios',
           blocks: [
             { type: 'paragraph', id: 'p2', text: 'Mosíah 2:21-24 articula uno de los argumentos teológicos más poderosos sobre la gracia: si sirves a Dios con toda tu alma toda tu vida, y Dios te bendice por eso, inmediatamente estarás de nuevo en deuda con él por la misma bendición recibida. La deuda no se puede saldar mediante esfuerzo humano porque toda capacidad de servir viene de Dios en primer lugar. La única respuesta posible a la gracia de Dios es gratitud, no pago.' },
-            { type: 'doctrine_box', id: 'db1', title: 'La Gratitud como Respuesta Teológica', content: 'Mosíah 2:25: "Y he aquí, todo lo que os he dicho concerniente al que habéis de guardar es para que podáis ser sabios... siempre acordándoos de la grandeza de Dios, y de vuestra propia nada." La conciencia de nuestra pequeñez ante Dios no es auto-denigración psicológica — es precisión teológica. Es la única postura que permite recibir la gracia en lugar de intentar merecerla.' },
+            { type: 'doctrine_box', id: 'db1', title: 'La Gratitud como Respuesta Teológica', body: 'Mosíah 2:25: "Y he aquí, todo lo que os he dicho concerniente al que habéis de guardar es para que podáis ser sabios... siempre acordándoos de la grandeza de Dios, y de vuestra propia nada." La conciencia de nuestra pequeñez ante Dios no es auto-denigración psicológica — es precisión teológica. Es la única postura que permite recibir la gracia en lugar de intentar merecerla.' },
           ],
         },
       ],
@@ -47,7 +47,7 @@ export const reyBenjamin: Lesson = {
     {
       id: 's3',
       title: 'El Nombre de Cristo',
-      intro: { romanNumeral: 'III', heading: 'Mosíah 3-5 — La Sangre de Cristo', subheading: 'La doctrina de la expiación y el cambio de corazón' },
+      intro: { romanNumeral: 'III', title: 'Mosíah 3-5 — La Sangre de Cristo', paragraphs: ['La doctrina de la expiación y el cambio de corazón'] },
       topics: [
         {
           id: 't3',
@@ -62,7 +62,7 @@ export const reyBenjamin: Lesson = {
     {
       id: 's4',
       title: 'Servir a los Demás es Servir a Dios',
-      intro: { romanNumeral: 'IV', heading: 'Mosíah 2:17 — El Versículo que Define el Ministerio', subheading: 'La ecuación del servicio' },
+      intro: { romanNumeral: 'IV', title: 'Mosíah 2:17 — El Versículo que Define el Ministerio', paragraphs: ['La ecuación del servicio'] },
       topics: [
         {
           id: 't4',

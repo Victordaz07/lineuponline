@@ -17,7 +17,7 @@ export const isaias: Lesson = {
     {
       id: 's1',
       title: '¿Por qué Isaías?',
-      intro: { romanNumeral: 'I', heading: 'El Profeta más Citado del Canon', subheading: 'Nefi, Cristo y Pablo lo usaron más que a cualquier otro' },
+      intro: { romanNumeral: 'I', title: 'El Profeta más Citado del Canon', paragraphs: ['Nefi, Cristo y Pablo lo usaron más que a cualquier otro'] },
       topics: [
         {
           id: 't1',
@@ -32,7 +32,7 @@ export const isaias: Lesson = {
     {
       id: 's2',
       title: 'El Contexto Histórico que Todo lo Cambia',
-      intro: { romanNumeral: 'II', heading: 'Siglo VIII a.C. — Asiria en las Puertas', subheading: 'Isaías profetizó durante 4 reinados' },
+      intro: { romanNumeral: 'II', title: 'Siglo VIII a.C. — Asiria en las Puertas', paragraphs: ['Isaías profetizó durante 4 reinados'] },
       topics: [
         {
           id: 't2',
@@ -52,7 +52,7 @@ export const isaias: Lesson = {
     {
       id: 's3',
       title: 'Las Profecías Mesiánicas',
-      intro: { romanNumeral: 'III', heading: 'Cristo en cada Página', subheading: 'Las más directas del Antiguo Testamento' },
+      intro: { romanNumeral: 'III', title: 'Cristo en cada Página', paragraphs: ['Las más directas del Antiguo Testamento'] },
       topics: [
         {
           id: 't3',
@@ -81,7 +81,7 @@ export const isaias: Lesson = {
     {
       id: 's4',
       title: 'Los Últimos Días en Isaías',
-      intro: { romanNumeral: 'IV', heading: 'Capítulos 2, 29, 49 — Profecía de la Restauración', subheading: 'Lo que Isaías vio sobre nuestro tiempo' },
+      intro: { romanNumeral: 'IV', title: 'Capítulos 2, 29, 49 — Profecía de la Restauración', paragraphs: ['Lo que Isaías vio sobre nuestro tiempo'] },
       topics: [
         {
           id: 't5',

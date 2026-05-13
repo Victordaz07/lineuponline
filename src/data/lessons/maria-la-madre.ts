@@ -17,7 +17,7 @@ export const mariaLaMadre: Lesson = {
     {
       id: 's1',
       title: 'La Anunciación',
-      intro: { romanNumeral: 'I', heading: 'Lucas 1 — Gabriel y la Joven de Nazaret', subheading: 'El consentimiento que hizo posible la Encarnación' },
+      intro: { romanNumeral: 'I', title: 'Lucas 1 — Gabriel y la Joven de Nazaret', paragraphs: ['El consentimiento que hizo posible la Encarnación'] },
       topics: [
         {
           id: 't1',
@@ -32,7 +32,7 @@ export const mariaLaMadre: Lesson = {
     {
       id: 's2',
       title: 'El Magnificat',
-      intro: { romanNumeral: 'II', heading: 'Lucas 1:46-55 — El Cántico de María', subheading: 'La teología más profunda en el corazón de la más joven' },
+      intro: { romanNumeral: 'II', title: 'Lucas 1:46-55 — El Cántico de María', paragraphs: ['La teología más profunda en el corazón de la más joven'] },
       topics: [
         {
           id: 't2',
@@ -47,7 +47,7 @@ export const mariaLaMadre: Lesson = {
     {
       id: 's3',
       title: 'Guardar en el Corazón',
-      intro: { romanNumeral: 'III', heading: 'Lucas 2 — "Guardaba Todas estas Cosas"', subheading: 'La madre que no entendía todo pero confiaba' },
+      intro: { romanNumeral: 'III', title: 'Lucas 2 — "Guardaba Todas estas Cosas"', paragraphs: ['La madre que no entendía todo pero confiaba'] },
       topics: [
         {
           id: 't3',
@@ -61,7 +61,7 @@ export const mariaLaMadre: Lesson = {
     {
       id: 's4',
       title: 'Al Pie de la Cruz',
-      intro: { romanNumeral: 'IV', heading: 'Juan 19 — "Madre, ahí tienes a tu Hijo"', subheading: 'La lealtad que permaneció hasta el final' },
+      intro: { romanNumeral: 'IV', title: 'Juan 19 — "Madre, ahí tienes a tu Hijo"', paragraphs: ['La lealtad que permaneció hasta el final'] },
       topics: [
         {
           id: 't4',

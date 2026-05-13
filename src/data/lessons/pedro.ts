@@ -17,7 +17,7 @@ export const pedro: Lesson = {
     {
       id: 's1',
       title: 'El Pescador que Dejó Todo',
-      intro: { romanNumeral: 'I', heading: '"Sígueme, y Te Haré Pescador de Hombres"', subheading: 'La decisión en la orilla del lago' },
+      intro: { romanNumeral: 'I', title: '"Sígueme, y Te Haré Pescador de Hombres"', paragraphs: ['La decisión en la orilla del lago'] },
       topics: [
         {
           id: 't1',
@@ -32,14 +32,14 @@ export const pedro: Lesson = {
     {
       id: 's2',
       title: 'El Hombre que Caminó sobre el Agua',
-      intro: { romanNumeral: 'II', heading: 'Mateo 14 — La Fe que Funciona y la que Falla', subheading: 'La única persona además de Cristo que caminó sobre el agua' },
+      intro: { romanNumeral: 'II', title: 'Mateo 14 — La Fe que Funciona y la que Falla', paragraphs: ['La única persona además de Cristo que caminó sobre el agua'] },
       topics: [
         {
           id: 't2',
           title: 'Pedro pidió lo imposible — y lo recibió',
           blocks: [
             { type: 'paragraph', id: 'p2', text: 'En Mateo 14:28, cuando los discípulos vieron a Jesús caminar sobre el agua, Pedro hizo la petición más audaz de los Evangelios: "Señor, si eres tú, mándame ir a ti sobre las aguas." Jesús dijo: "Ven." Y Pedro bajó del barco. Caminó sobre el agua. Y luego miró el viento, tuvo miedo, y comenzó a hundirse. Este episodio resume toda la vida espiritual de Pedro: capaz de lo imposible cuando mantiene los ojos en Cristo; se hunde cuando los desvía.' },
-            { type: 'doctrine_box', id: 'db1', title: 'Por qué Pedro ES el Modelo del Discípulo', content: 'Pedro no es el modelo porque sea perfecto — es el modelo porque falla visiblemente y se levanta visiblemente. El discípulo que caminó sobre el agua es el mismo que se hundió. El que confesó a Cristo es el mismo que lo negó. El que lloró amargamente es el mismo que presidió la Iglesia primitiva. Su historia dice: la grandeza espiritual no requiere no caer. Requiere seguir levantándose.' },
+            { type: 'doctrine_box', id: 'db1', title: 'Por qué Pedro ES el Modelo del Discípulo', body: 'Pedro no es el modelo porque sea perfecto — es el modelo porque falla visiblemente y se levanta visiblemente. El discípulo que caminó sobre el agua es el mismo que se hundió. El que confesó a Cristo es el mismo que lo negó. El que lloró amargamente es el mismo que presidió la Iglesia primitiva. Su historia dice: la grandeza espiritual no requiere no caer. Requiere seguir levantándose.' },
           ],
         },
       ],
@@ -47,7 +47,7 @@ export const pedro: Lesson = {
     {
       id: 's3',
       title: 'Las Tres Negaciones',
-      intro: { romanNumeral: 'III', heading: 'La Noche más Oscura de Pedro', subheading: 'Juan 18 — y por qué Jesús lo miró' },
+      intro: { romanNumeral: 'III', title: 'La Noche más Oscura de Pedro', paragraphs: ['Juan 18 — y por qué Jesús lo miró'] },
       topics: [
         {
           id: 't3',
@@ -62,7 +62,7 @@ export const pedro: Lesson = {
     {
       id: 's4',
       title: 'El Presidente de la Iglesia Primitiva',
-      intro: { romanNumeral: 'IV', heading: 'Hechos — El Mismo Pedro Transformado', subheading: 'Pentecostés y la apertura a los gentiles' },
+      intro: { romanNumeral: 'IV', title: 'Hechos — El Mismo Pedro Transformado', paragraphs: ['Pentecostés y la apertura a los gentiles'] },
       topics: [
         {
           id: 't4',

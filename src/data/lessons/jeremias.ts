@@ -17,7 +17,7 @@ export const jeremias: Lesson = {
     {
       id: 's1',
       title: 'El Profeta antes de Nacer',
-      intro: { romanNumeral: 'I', heading: '"Antes que te Formara en el Vientre, Te Conocí"', subheading: 'Jeremías 1 — la preordenación más explícita del AT' },
+      intro: { romanNumeral: 'I', title: '"Antes que te Formara en el Vientre, Te Conocí"', paragraphs: ['Jeremías 1 — la preordenación más explícita del AT'] },
       topics: [
         {
           id: 't1',
@@ -33,14 +33,14 @@ export const jeremias: Lesson = {
     {
       id: 's2',
       title: 'El Profeta Sin Auditorio',
-      intro: { romanNumeral: 'II', heading: '40 Años, Cero Conversiones', subheading: 'El ministerio más solitario de la historia' },
+      intro: { romanNumeral: 'II', title: '40 Años, Cero Conversiones', paragraphs: ['El ministerio más solitario de la historia'] },
       topics: [
         {
           id: 't2',
           title: 'Predicar sin resultado visible',
           blocks: [
             { type: 'paragraph', id: 'p3', text: 'Jeremías profetizó desde el año 13 del rey Josías (627 a.C.) hasta después de la destrucción de Jerusalén (586 a.C.) — más de 40 años. En ese tiempo fue golpeado y puesto en cepo por el sacerdote Pasur (Jeremías 20), metido en un pozo de barro (Jeremías 38), constantemente amenazado de muerte, rechazado por su propia familia de Anatot (Jeremías 11:21), y prohibido de predicar en el templo. Nunca le está bien.' },
-            { type: 'doctrine_box', id: 'db1', title: 'Las "Confesiones" de Jeremías', content: 'A diferencia de otros profetas, Jeremías lleva un diario emocional de su sufrimiento: Jeremías 12:1 ("¿Por qué prospera el camino de los impíos?"), 15:10 ("¡Ay de mí, madre mía, que me engendraste!"), 20:7 ("Me sedujiste, oh Jehová, y fui seducido"), 20:14-18 (maldice el día de su nacimiento). La Biblia conserva estas quejas honestamente — Dios no las borró del registro.' },
+            { type: 'doctrine_box', id: 'db1', title: 'Las "Confesiones" de Jeremías', body: 'A diferencia de otros profetas, Jeremías lleva un diario emocional de su sufrimiento: Jeremías 12:1 ("¿Por qué prospera el camino de los impíos?"), 15:10 ("¡Ay de mí, madre mía, que me engendraste!"), 20:7 ("Me sedujiste, oh Jehová, y fui seducido"), 20:14-18 (maldice el día de su nacimiento). La Biblia conserva estas quejas honestamente — Dios no las borró del registro.' },
           ],
         },
       ],
@@ -48,7 +48,7 @@ export const jeremias: Lesson = {
     {
       id: 's3',
       title: 'El Nuevo Pacto — Jeremías 31',
-      intro: { romanNumeral: 'III', heading: 'La Profecía del Evangelio', subheading: 'La promesa que Cristo cumplió en la última cena' },
+      intro: { romanNumeral: 'III', title: 'La Profecía del Evangelio', paragraphs: ['La promesa que Cristo cumplió en la última cena'] },
       topics: [
         {
           id: 't3',
@@ -63,7 +63,7 @@ export const jeremias: Lesson = {
     {
       id: 's4',
       title: 'Las Lamentaciones — El Dolor más Puro',
-      intro: { romanNumeral: 'IV', heading: 'Llora y Llora en la Noche', subheading: 'Lamentaciones 3 — encontrar esperanza en la ceniza' },
+      intro: { romanNumeral: 'IV', title: 'Llora y Llora en la Noche', paragraphs: ['Lamentaciones 3 — encontrar esperanza en la ceniza'] },
       topics: [
         {
           id: 't4',

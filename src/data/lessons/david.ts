@@ -17,7 +17,7 @@ export const david: Lesson = {
     {
       id: 's1',
       title: 'El Elegido de Entre los Hijos',
-      intro: { romanNumeral: 'I', heading: 'No el Mayor, Sino el del Corazón', subheading: '1 Samuel 16 — Dios ve diferente' },
+      intro: { romanNumeral: 'I', title: 'No el Mayor, Sino el del Corazón', paragraphs: ['1 Samuel 16 — Dios ve diferente'] },
       topics: [
         {
           id: 't1',
@@ -32,7 +32,7 @@ export const david: Lesson = {
     {
       id: 's2',
       title: 'Goliat — La Fe que Actúa',
-      intro: { romanNumeral: 'II', heading: '1 Samuel 17 — La Batalla que Definió su Vida', subheading: 'La honda, las cinco piedras y el nombre de Jehová' },
+      intro: { romanNumeral: 'II', title: '1 Samuel 17 — La Batalla que Definió su Vida', paragraphs: ['La honda, las cinco piedras y el nombre de Jehová'] },
       topics: [
         {
           id: 't2',
@@ -47,7 +47,7 @@ export const david: Lesson = {
     {
       id: 's3',
       title: 'El Poeta del Alma Humana',
-      intro: { romanNumeral: 'III', heading: 'Los Salmos — La Autobiografía Espiritual de David', subheading: 'El Salmo 22 como profecía mesiánica y el Salmo 23 como consuelo eterno' },
+      intro: { romanNumeral: 'III', title: 'Los Salmos — La Autobiografía Espiritual de David', paragraphs: ['El Salmo 22 como profecía mesiánica y el Salmo 23 como consuelo eterno'] },
       topics: [
         {
           id: 't3',
@@ -62,7 +62,7 @@ export const david: Lesson = {
     {
       id: 's4',
       title: 'Betsabé, Urías y el Veredicto Eterno',
-      intro: { romanNumeral: 'IV', heading: '2 Samuel 11-12 — La Caída más Documentada de la Biblia', subheading: 'DyC 132:39 — la consecuencia que no se revocó' },
+      intro: { romanNumeral: 'IV', title: '2 Samuel 11-12 — La Caída más Documentada de la Biblia', paragraphs: ['DyC 132:39 — la consecuencia que no se revocó'] },
       topics: [
         {
           id: 't4',
@@ -70,7 +70,7 @@ export const david: Lesson = {
           blocks: [
             { type: 'paragraph', id: 'p4', text: 'David vio a Betsabé, la mandó traer, cometió adulterio, intentó encubrirlo, y cuando el encubrimiento falló, mandó colocar a Urías en el frente de batalla para que muriera. El Profeta Natán lo confrontó con la parábola de la oveja robada. La respuesta de David (2 Samuel 12:13) fue inmediata: "Pequé contra Jehová." Su arrepentimiento fue genuino — y sus consecuencias igualmente reales.' },
             { type: 'highlight_verse', id: 'v4', reference: 'DyC 132:39', text: 'David recibió muchas esposas y concubinas, y también Salomón y Moisés, mis siervos; mas David cedió a tentaciones y pecó en el asunto de Urías y su esposa; y, por tanto, se le quitaron las siguientes que tenía y fueron dadas a otro.' },
-            { type: 'doctrine_box', id: 'db1', title: 'El Pecado que Tiene Consecuencias Eternas', content: 'DyC 132:39 establece que David perdió sus sellamientos conyugales a causa del derramamiento de sangre inocente (Urías). Esto no significa que David no se arrepintió — el Salmo 51 es uno de los arrepentimientos más hermosos y profundos de toda la Escritura. Significa que algunas consecuencias del pecado, incluso con arrepentimiento sincero, afectan el destino eterno. Su destino final pertenece al juicio de Dios (Hechos 2:29-34 sugiere que David no está en la exaltación, pero el Señor conoce su condición).' },
+            { type: 'doctrine_box', id: 'db1', title: 'El Pecado que Tiene Consecuencias Eternas', body: 'DyC 132:39 establece que David perdió sus sellamientos conyugales a causa del derramamiento de sangre inocente (Urías). Esto no significa que David no se arrepintió — el Salmo 51 es uno de los arrepentimientos más hermosos y profundos de toda la Escritura. Significa que algunas consecuencias del pecado, incluso con arrepentimiento sincero, afectan el destino eterno. Su destino final pertenece al juicio de Dios (Hechos 2:29-34 sugiere que David no está en la exaltación, pero el Señor conoce su condición).' },
             { type: 'reflection', id: 'r1', prompt: '¿Qué te dice la historia de David sobre la posibilidad de ser "un hombre conforme al corazón de Dios" y aun así cometer errores graves? ¿Qué diferencia hay entre el arrepentimiento de David y el de Saúl (1 Samuel 15)?'},
           ],
         },

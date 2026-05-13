@@ -17,7 +17,7 @@ export const sara: Lesson = {
     {
       id: 's1',
       title: 'La Promesa a una Mujer Estéril',
-      intro: { romanNumeral: 'I', heading: 'Génesis 12 — "Tu descendencia heredará esta tierra"', subheading: 'Sara escuchó la promesa pero no fue nombrada' },
+      intro: { romanNumeral: 'I', title: 'Génesis 12 — "Tu descendencia heredará esta tierra"', paragraphs: ['Sara escuchó la promesa pero no fue nombrada'] },
       topics: [
         {
           id: 't1',
@@ -32,14 +32,14 @@ export const sara: Lesson = {
     {
       id: 's2',
       title: 'La Risa de Sara',
-      intro: { romanNumeral: 'II', heading: 'Génesis 18 — Los Tres Visitantes', subheading: 'La risa que pasó de la incredulidad al gozo' },
+      intro: { romanNumeral: 'II', title: 'Génesis 18 — Los Tres Visitantes', paragraphs: ['La risa que pasó de la incredulidad al gozo'] },
       topics: [
         {
           id: 't2',
           title: 'Reír ante lo imposible',
           blocks: [
             { type: 'paragraph', id: 'p2', text: 'Cuando los tres visitantes anunciaron que Sara tendría un hijo, ella estaba escuchando en la entrada de la tienda. Tenía noventa años. Abraham tenía cien. Génesis 18:12: "Se rió, pues, Sara entre sí, diciendo: ¿Después que he envejecido tendré deleite?" El visitante lo oyó — y dijo: "¿Hay para Dios alguna cosa difícil?" La risa de Sara fue un momento de humanidad auténtica: la mente racional encontrando el límite de su capacidad para creer. No fue descalificada por ello.' },
-            { type: 'doctrine_box', id: 'db1', title: 'Isaac — "Risa"', content: 'Cuando nació el hijo, Sara dijo: "Dios me ha hecho reír, y cualquiera que lo oyere, se reirá conmigo" (Génesis 21:6). El nombre Isaac en hebreo significa "risa" o "él ríe." Sara tomó el momento de su mayor vergüenza — reírse de Dios — y lo transformó en el nombre del cumplimiento. Lo que empezó como risa de incredulidad terminó como risa de gozo. El niño mismo portaba el testimonio de la transformación.' },
+            { type: 'doctrine_box', id: 'db1', title: 'Isaac — "Risa"', body: 'Cuando nació el hijo, Sara dijo: "Dios me ha hecho reír, y cualquiera que lo oyere, se reirá conmigo" (Génesis 21:6). El nombre Isaac en hebreo significa "risa" o "él ríe." Sara tomó el momento de su mayor vergüenza — reírse de Dios — y lo transformó en el nombre del cumplimiento. Lo que empezó como risa de incredulidad terminó como risa de gozo. El niño mismo portaba el testimonio de la transformación.' },
           ],
         },
       ],
@@ -47,7 +47,7 @@ export const sara: Lesson = {
     {
       id: 's3',
       title: 'La Fe de Sara en el Hall de la Fe',
-      intro: { romanNumeral: 'III', heading: 'Hebreos 11 — Entre los Gigantes', subheading: 'La única mujer nombrada individualmente' },
+      intro: { romanNumeral: 'III', title: 'Hebreos 11 — Entre los Gigantes', paragraphs: ['La única mujer nombrada individualmente'] },
       topics: [
         {
           id: 't3',
@@ -62,7 +62,7 @@ export const sara: Lesson = {
     {
       id: 's4',
       title: 'La Identidad de Sara en la Restauración',
-      intro: { romanNumeral: 'IV', heading: 'DyC 132 — El Convenio Eterno', subheading: 'Sara como modelo del convenio celestial' },
+      intro: { romanNumeral: 'IV', title: 'DyC 132 — El Convenio Eterno', paragraphs: ['Sara como modelo del convenio celestial'] },
       topics: [
         {
           id: 't4',

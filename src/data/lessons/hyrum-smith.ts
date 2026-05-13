@@ -17,7 +17,7 @@ export const hyrumSmith: Lesson = {
     {
       id: 's1',
       title: 'El Testigo del Libro de Mormón',
-      intro: { romanNumeral: 'I', heading: 'Hyrum entre los Ocho Testigos', subheading: 'La familia Smith en el corazón de la Restauración' },
+      intro: { romanNumeral: 'I', title: 'Hyrum entre los Ocho Testigos', paragraphs: ['La familia Smith en el corazón de la Restauración'] },
       topics: [
         {
           id: 't1',
@@ -32,7 +32,7 @@ export const hyrumSmith: Lesson = {
     {
       id: 's2',
       title: 'Patriarca e Instructor',
-      intro: { romanNumeral: 'II', heading: 'El Segundo en el Sacerdocio', subheading: 'Consejero, Patriarca y sostén de su hermano' },
+      intro: { romanNumeral: 'II', title: 'El Segundo en el Sacerdocio', paragraphs: ['Consejero, Patriarca y sostén de su hermano'] },
       topics: [
         {
           id: 't2',
@@ -46,7 +46,7 @@ export const hyrumSmith: Lesson = {
     {
       id: 's3',
       title: 'La Víspera de Carthage',
-      intro: { romanNumeral: 'III', heading: 'Junio de 1844 — La Elección de Quedarse', subheading: '"Nunca he abandonado a mi hermano"' },
+      intro: { romanNumeral: 'III', title: 'Junio de 1844 — La Elección de Quedarse', paragraphs: ['"Nunca he abandonado a mi hermano"'] },
       topics: [
         {
           id: 't3',
@@ -60,7 +60,7 @@ export const hyrumSmith: Lesson = {
     {
       id: 's4',
       title: '"Inocentes y Justos"',
-      intro: { romanNumeral: 'IV', heading: 'DyC 135 — El Obituario de los Mártires', subheading: 'El testimonio que sobrevive la muerte' },
+      intro: { romanNumeral: 'IV', title: 'DyC 135 — El Obituario de los Mártires', paragraphs: ['El testimonio que sobrevive la muerte'] },
       topics: [
         {
           id: 't4',

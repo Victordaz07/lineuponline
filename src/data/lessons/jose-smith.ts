@@ -17,7 +17,7 @@ export const joseSmith: Lesson = {
     {
       id: 's1',
       title: 'La Primera Visión',
-      intro: { romanNumeral: 'I', heading: 'Primavera de 1820 — La Arboleda Sagrada', subheading: 'La visión más importante desde la Ascensión de Cristo' },
+      intro: { romanNumeral: 'I', title: 'Primavera de 1820 — La Arboleda Sagrada', paragraphs: ['La visión más importante desde la Ascensión de Cristo'] },
       topics: [
         {
           id: 't1',
@@ -32,14 +32,14 @@ export const joseSmith: Lesson = {
     {
       id: 's2',
       title: 'El Libro de Mormón y la Traducción',
-      intro: { romanNumeral: 'II', heading: '1827-1830 — De las Planchas al Libro', subheading: 'El instrumento central de la Restauración' },
+      intro: { romanNumeral: 'II', title: '1827-1830 — De las Planchas al Libro', paragraphs: ['El instrumento central de la Restauración'] },
       topics: [
         {
           id: 't2',
           title: 'La obra más prodigiosa de la Restauración',
           blocks: [
             { type: 'paragraph', id: 'p2', text: 'José Smith obtuvo las planchas en septiembre de 1827. Perdió las 116 páginas con Martín Harris en 1828 — error costoso. Retomó la traducción con Oliver Cowdery en 1829. Publicó el Libro de Mormón el 26 de marzo de 1830, cinco días antes de organizar la Iglesia. La velocidad de la traducción — aproximadamente 65 días de trabajo activo para 531 páginas — desafía la explicación natural. Los testigos del proceso describieron a José dictando sin notas, sin pausas editoriales.' },
-            { type: 'doctrine_box', id: 'db1', title: 'El Problema Histórico de José Smith', content: 'Los críticos durante dos siglos han intentado explicar el Libro de Mormón como producto natural de José Smith — inspirado en libros de la época, en teorías sobre indígenas americanos, en fragmentos de la Biblia. Ninguna teoría ha podido dar cuenta de la coherencia interna del texto, la complejidad de su estructura narrativa, y los detalles que investigaciones arqueológicas y textuales del siglo XX han confirmado (quiasmo, nombres hebreos, elementos del Cercano Oriente antiguo).' },
+            { type: 'doctrine_box', id: 'db1', title: 'El Problema Histórico de José Smith', body: 'Los críticos durante dos siglos han intentado explicar el Libro de Mormón como producto natural de José Smith — inspirado en libros de la época, en teorías sobre indígenas americanos, en fragmentos de la Biblia. Ninguna teoría ha podido dar cuenta de la coherencia interna del texto, la complejidad de su estructura narrativa, y los detalles que investigaciones arqueológicas y textuales del siglo XX han confirmado (quiasmo, nombres hebreos, elementos del Cercano Oriente antiguo).' },
           ],
         },
       ],
@@ -47,7 +47,7 @@ export const joseSmith: Lesson = {
     {
       id: 's3',
       title: 'Las Revelaciones Restauradoras',
-      intro: { romanNumeral: 'III', heading: 'Doctrina y Convenios — La Voz Directa de Cristo', subheading: 'Revelación continua como principio central' },
+      intro: { romanNumeral: 'III', title: 'Doctrina y Convenios — La Voz Directa de Cristo', paragraphs: ['Revelación continua como principio central'] },
       topics: [
         {
           id: 't3',
@@ -62,7 +62,7 @@ export const joseSmith: Lesson = {
     {
       id: 's4',
       title: 'El Martirio',
-      intro: { romanNumeral: 'IV', heading: '27 de Junio de 1844 — Carthage', subheading: '"Ningún hombre conoce mi historia"' },
+      intro: { romanNumeral: 'IV', title: '27 de Junio de 1844 — Carthage', paragraphs: ['"Ningún hombre conoce mi historia"'] },
       topics: [
         {
           id: 't4',

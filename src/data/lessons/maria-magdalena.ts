@@ -17,14 +17,14 @@ export const mariaMagdalena: Lesson = {
     {
       id: 's1',
       title: 'La Que Fue Liberada',
-      intro: { romanNumeral: 'I', heading: 'Lucas 8 — Siete Demonios', subheading: 'La oscuridad de donde vino y lo que Cristo hizo' },
+      intro: { romanNumeral: 'I', title: 'Lucas 8 — Siete Demonios', paragraphs: ['La oscuridad de donde vino y lo que Cristo hizo'] },
       topics: [
         {
           id: 't1',
           title: 'De la posesión al discipulado',
           blocks: [
             { type: 'paragraph', id: 'p1', text: 'Lucas 8:2 la introduce con una sola línea: "María, que se llamaba Magdalena, de la que habían salido siete demonios." No sabemos qué significaba eso en términos experienciales. Sí sabemos que fue un sufrimiento severo y que Jesús intervino directamente. De ese punto en adelante, ella fue una de las mujeres que "le servían de sus bienes" — viajando con Jesús y los doce, financiando el ministerio. Su devoción nació de una liberación real.' },
-            { type: 'doctrine_box', id: 'db1', title: 'Lo que María Magdalena no era', content: 'Durante siglos, la tradición popular identificó erróneamente a María Magdalena con la "mujer pecadora" de Lucas 7 que ungió los pies de Jesús. Esto no tiene ningún fundamento textual. La confusión fue popularizada por el Papa Gregorio I en el siglo VI pero nunca tuvo base bíblica. Los textos son claros: María Magdalena era discípula, patrocinadora del ministerio, y primera testigo de la resurrección.' },
+            { type: 'doctrine_box', id: 'db1', title: 'Lo que María Magdalena no era', body: 'Durante siglos, la tradición popular identificó erróneamente a María Magdalena con la "mujer pecadora" de Lucas 7 que ungió los pies de Jesús. Esto no tiene ningún fundamento textual. La confusión fue popularizada por el Papa Gregorio I en el siglo VI pero nunca tuvo base bíblica. Los textos son claros: María Magdalena era discípula, patrocinadora del ministerio, y primera testigo de la resurrección.' },
           ],
         },
       ],
@@ -32,7 +32,7 @@ export const mariaMagdalena: Lesson = {
     {
       id: 's2',
       title: 'Al Pie de la Cruz',
-      intro: { romanNumeral: 'II', heading: 'Juan 19 — Mientras los Discípulos Huían', subheading: 'Las mujeres que se quedaron' },
+      intro: { romanNumeral: 'II', title: 'Juan 19 — Mientras los Discípulos Huían', paragraphs: ['Las mujeres que se quedaron'] },
       topics: [
         {
           id: 't2',
@@ -47,7 +47,7 @@ export const mariaMagdalena: Lesson = {
     {
       id: 's3',
       title: 'La Mañana del Primer Día',
-      intro: { romanNumeral: 'III', heading: 'Juan 20 — En el Huerto', subheading: 'La primera resurrección de la historia' },
+      intro: { romanNumeral: 'III', title: 'Juan 20 — En el Huerto', paragraphs: ['La primera resurrección de la historia'] },
       topics: [
         {
           id: 't3',
@@ -62,7 +62,7 @@ export const mariaMagdalena: Lesson = {
     {
       id: 's4',
       title: 'La Apóstol de los Apóstoles',
-      intro: { romanNumeral: 'IV', heading: 'El Testimonio que Nadie Creyó al Principio', subheading: 'Y por qué eso hace la historia más auténtica, no menos' },
+      intro: { romanNumeral: 'IV', title: 'El Testimonio que Nadie Creyó al Principio', paragraphs: ['Y por qué eso hace la historia más auténtica, no menos'] },
       topics: [
         {
           id: 't4',

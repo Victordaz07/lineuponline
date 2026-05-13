@@ -20,8 +20,8 @@ export const elPresidenteDeLaIglesia: Lesson = {
       title: 'El Único que Ejerce Todas las Llaves',
       intro: {
         romanNumeral: 'I',
-        heading: 'La Autoridad que Ningún Otro Tiene',
-        subheading: 'DyC 107:91-92',
+        title: 'La Autoridad que Ningún Otro Tiene',
+        paragraphs: ['DyC 107:91-92'],
       },
       topics: [
         {
@@ -43,7 +43,7 @@ export const elPresidenteDeLaIglesia: Lesson = {
               type: 'doctrine_box',
               id: 'db1',
               title: 'La Analogía de la Sala de Interruptores',
-              content: 'Imagina que los Apóstoles ordenados son como electricistas que saben exactamente cómo energizar cada circuito de un edificio. Todos tienen el conocimiento y la capacitación. Pero solo uno — el Presidente — está autorizado para activar el interruptor principal. Los demás pueden activar circuitos locales cuando se les autoriza, pero el control general es del Presidente.',
+              body: 'Imagina que los Apóstoles ordenados son como electricistas que saben exactamente cómo energizar cada circuito de un edificio. Todos tienen el conocimiento y la capacitación. Pero solo uno — el Presidente — está autorizado para activar el interruptor principal. Los demás pueden activar circuitos locales cuando se les autoriza, pero el control general es del Presidente.',
             },
           ],
         },
@@ -76,8 +76,8 @@ export const elPresidenteDeLaIglesia: Lesson = {
       title: 'La Revelación Continua',
       intro: {
         romanNumeral: 'II',
-        heading: 'El Canon no Está Cerrado',
-        subheading: 'La doctrina que separa la Restauración del mundo cristiano',
+        title: 'El Canon no Está Cerrado',
+        paragraphs: ['La doctrina que separa la Restauración del mundo cristiano'],
       },
       topics: [
         {
@@ -117,7 +117,7 @@ export const elPresidenteDeLaIglesia: Lesson = {
               type: 'doctrine_box',
               id: 'db2',
               title: 'El Estándar de la Revelación Canónica',
-              content: 'Para que una declaración del Presidente de la Iglesia se convierta en revelación canónica, normalmente pasa por: (1) Ser presentada a la Primera Presidencia y al Quórum de los Doce, (2) Recibir sustentación unánime de estos líderes, (3) Ser presentada a la Iglesia para sustentación. Las secciones de DyC y las declaraciones oficiales son ejemplos de este proceso.',
+              body: 'Para que una declaración del Presidente de la Iglesia se convierta en revelación canónica, normalmente pasa por: (1) Ser presentada a la Primera Presidencia y al Quórum de los Doce, (2) Recibir sustentación unánime de estos líderes, (3) Ser presentada a la Iglesia para sustentación. Las secciones de DyC y las declaraciones oficiales son ejemplos de este proceso.',
             },
           ],
         },
@@ -128,8 +128,8 @@ export const elPresidenteDeLaIglesia: Lesson = {
       title: 'La Sucesión Apostólica',
       intro: {
         romanNumeral: 'III',
-        heading: 'El Apóstol de Mayor Antigüedad',
-        subheading: 'Cómo se determina quién será el próximo Presidente',
+        title: 'El Apóstol de Mayor Antigüedad',
+        paragraphs: ['Cómo se determina quién será el próximo Presidente'],
       },
       topics: [
         {
@@ -166,8 +166,8 @@ export const elPresidenteDeLaIglesia: Lesson = {
       title: 'El Apóstol Senior como Testigo Supremo',
       intro: {
         romanNumeral: 'IV',
-        heading: 'El Presidente es el Apóstol de Mayor Antigüedad',
-        subheading: 'Su testimonio es el corazón de todo',
+        title: 'El Presidente es el Apóstol de Mayor Antigüedad',
+        paragraphs: ['Su testimonio es el corazón de todo'],
       },
       topics: [
         {
@@ -217,8 +217,8 @@ export const elPresidenteDeLaIglesia: Lesson = {
       title: 'Cristo — El Presidente Eterno',
       intro: {
         romanNumeral: 'V',
-        heading: 'El Único Presidente Perfecto',
-        subheading: 'Cada presidente mortal apunta a Él',
+        title: 'El Único Presidente Perfecto',
+        paragraphs: ['Cada presidente mortal apunta a Él'],
       },
       topics: [
         {
@@ -234,7 +234,7 @@ export const elPresidenteDeLaIglesia: Lesson = {
               type: 'doctrine_box',
               id: 'db3',
               title: 'La Cadena de Autoridad',
-              content: 'Padre Celestial → Jesucristo → José Smith (por Priesthood) → Sucesión apostólica continua → Presidente actual de la Iglesia → Primera Presidencia y Doce → Autoridades de área → Presidentes de estaca → Obispos → Miembros. Cada eslabón transmite autoridad real. La cadena nunca se ha roto desde 1829.',
+              body: 'Padre Celestial → Jesucristo → José Smith (por Priesthood) → Sucesión apostólica continua → Presidente actual de la Iglesia → Primera Presidencia y Doce → Autoridades de área → Presidentes de estaca → Obispos → Miembros. Cada eslabón transmite autoridad real. La cadena nunca se ha roto desde 1829.',
             },
           ],
         },

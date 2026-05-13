@@ -17,7 +17,7 @@ export const enoc: Lesson = {
     {
       id: 's1',
       title: 'El Llamamiento de un Hombre Inseguro',
-      intro: { romanNumeral: 'I', heading: '"Soy Tardo en el Habla"', subheading: 'Moisés 6:31' },
+      intro: { romanNumeral: 'I', title: '"Soy Tardo en el Habla"', paragraphs: ['Moisés 6:31'] },
       topics: [
         {
           id: 't1',
@@ -33,7 +33,7 @@ export const enoc: Lesson = {
     {
       id: 's2',
       title: 'El Vidente que Vio Todo',
-      intro: { romanNumeral: 'II', heading: 'La Visión de la Eternidad', subheading: 'Moisés 7 — lo que ningún otro vio' },
+      intro: { romanNumeral: 'II', title: 'La Visión de la Eternidad', paragraphs: ['Moisés 7 — lo que ningún otro vio'] },
       topics: [
         {
           id: 't2',
@@ -41,7 +41,7 @@ export const enoc: Lesson = {
           blocks: [
             { type: 'paragraph', id: 'p3', text: 'En Moisés 7, Enoc recibe una de las visiones más expansivas de toda la escritura. Ve la historia de la humanidad desde Adán hasta la Segunda Venida. Ve el diluvio. Ve la vida mortal de Cristo, su crucifixión. Ve la resurrección. Ve la reunión de Sión con la tierra en los últimos días. Todo antes de que sucediera nada de ello.' },
             { type: 'highlight_verse', id: 'v2', reference: 'Moisés 7:47', text: 'Y Enoc contempló al día del Hijo del Hombre en la carne, y su alma se regocijó, diciendo: El Justo es levantado, y el Cordero es muerto desde la fundación del mundo.' },
-            { type: 'doctrine_box', id: 'db1', title: 'Dios Llora — Moisés 7:28-29', content: 'Enoc ve algo que lo desconcierta profundamente: Dios llora. "¿Cómo es posible que llores, viendo que eres santo?", pregunta. La respuesta de Dios revela una teología de la emoción divina única en toda la escritura: Dios llora por Sus hijos que se pierden. La Restauración devuelve un Dios que siente, que ama, que sufre con Sus hijos — no el Primer Motor Inmóvil de Aristóteles.' },
+            { type: 'doctrine_box', id: 'db1', title: 'Dios Llora — Moisés 7:28-29', body: 'Enoc ve algo que lo desconcierta profundamente: Dios llora. "¿Cómo es posible que llores, viendo que eres santo?", pregunta. La respuesta de Dios revela una teología de la emoción divina única en toda la escritura: Dios llora por Sus hijos que se pierden. La Restauración devuelve un Dios que siente, que ama, que sufre con Sus hijos — no el Primer Motor Inmóvil de Aristóteles.' },
           ],
         },
       ],
@@ -49,7 +49,7 @@ export const enoc: Lesson = {
     {
       id: 's3',
       title: 'La Ciudad de Sión',
-      intro: { romanNumeral: 'III', heading: 'Un Solo Corazón y Una Sola Mente', subheading: 'El logro más grande de la historia humana' },
+      intro: { romanNumeral: 'III', title: 'Un Solo Corazón y Una Sola Mente', paragraphs: ['El logro más grande de la historia humana'] },
       topics: [
         {
           id: 't3',
@@ -65,7 +65,7 @@ export const enoc: Lesson = {
     {
       id: 's4',
       title: 'El Regreso de Enoc',
-      intro: { romanNumeral: 'IV', heading: 'DyC 45 — La Promesa del Milenio', subheading: 'Sión vuelve' },
+      intro: { romanNumeral: 'IV', title: 'DyC 45 — La Promesa del Milenio', paragraphs: ['Sión vuelve'] },
       topics: [
         {
           id: 't4',
