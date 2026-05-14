@@ -274,6 +274,19 @@ import { davidYGoliat as lessonDavidYGoliat } from '@/data/lessons/david-y-golia
 import { davidElPoeta as lessonDavidElPoeta } from '@/data/lessons/david-el-poeta'
 import { davidLaCaida as lessonDavidLaCaida } from '@/data/lessons/david-la-caida'
 import { davidYLaRestauracion as lessonDavidYLaRestauracion } from '@/data/lessons/david-y-la-restauracion'
+// ── CAPACITACIÓN LIDERAZGO — PFJ TRANSICIÓN 2026 ─────────────────────────────
+import { obispadoElCambio as lessonObispadoElCambio } from '@/data/lessons/obispado-el-cambio'
+import { obispadoQuintoDomingo as lessonObispadoQuintoDomingo } from '@/data/lessons/obispado-quinto-domingo'
+import { obispadoComunicarPadres as lessonObispadoComunicarPadres } from '@/data/lessons/obispado-comunicar-padres'
+import { hjLaGuiaPfj as lessonHjLaGuiaPfj } from '@/data/lessons/hj-la-guia-pfj'
+import { hjEnsenar25Minutos as lessonHjEnsenar25Minutos } from '@/data/lessons/hj-ensenar-25-minutos'
+import { hjMaratonLectura as lessonHjMaratonLectura } from '@/data/lessons/hj-maraton-lectura'
+import { mjLaGuiaPfj as lessonMjLaGuiaPfj } from '@/data/lessons/mj-la-guia-pfj'
+import { mjEnsenar25Minutos as lessonMjEnsenar25Minutos } from '@/data/lessons/mj-ensenar-25-minutos'
+import { mjConectarHogar as lessonMjConectarHogar } from '@/data/lessons/mj-conectar-hogar'
+import { elderesRolMisional as lessonElderesRolMisional } from '@/data/lessons/elderes-rol-misional'
+import { elderesMentoresJovenes as lessonElderesMentoresJovenes } from '@/data/lessons/elderes-mentores-jovenes'
+import { elderesVisionPfj as lessonElderesVisionPfj } from '@/data/lessons/elderes-vision-pfj'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -291,6 +304,27 @@ type LessonRow = {
 }
 
 export const SUBMODULE_GROUPS: Record<string, { title: string; description: string; icon: string }> = {
+  // ── CAPACITACIÓN LIDERAZGO ────────────────────────────────────────────────
+  'obispado-pfj': {
+    title: 'Obispado',
+    description: 'La transición PFJ desde la perspectiva del obispado: comunicar, organizar el quinto domingo y acompañar a cada organización.',
+    icon: '⚖️',
+  },
+  'hj-pfj': {
+    title: 'Hombres Jóvenes',
+    description: 'Líderes de HJ: conocer la guía PFJ, enseñar en 25 minutos y activar el maratón de lectura con los jóvenes y sus familias.',
+    icon: '🧑',
+  },
+  'mj-pfj': {
+    title: 'Mujeres Jóvenes',
+    description: 'Líderes de MJ: la guía PFJ desde la perspectiva de las jóvenes, clases semanales y conectar el hogar con el domingo.',
+    icon: '👧',
+  },
+  'elderes-pfj': {
+    title: 'Élderes y Líder Misional',
+    description: 'El Cuórum de Élderes como puente generacional: mentores misioneros, visión misional del PFJ y discipulado diario.',
+    icon: '🌍',
+  },
   jesucristo: {
     title: 'Jesucristo — Centro de Todo',
     description:
@@ -603,6 +637,16 @@ const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
     level: 'INTERMEDIO',
     usePurpleAccent: false,
     categoryLabel: 'PERSONAJE PRINCIPAL',
+  },
+  {
+    id: 'capacitacion-liderazgo',
+    title: 'Capacitación del Liderazgo',
+    description:
+      'Recursos de capacitación para el liderazgo del barrio: cambios programáticos, roles de cada organización y herramientas para enseñar y servir con más eficacia.',
+    icon: '🏛️',
+    order: 22,
+    level: 'BÁSICO',
+    usePurpleAccent: false,
   },
   {
     id: 'sacerdocio',
@@ -1734,6 +1778,23 @@ const LESSON_ROWS: LessonRow[] = [
     order: 7,
     status: 'PUBLISHED',
   },
+  // ── CAPACITACIÓN LIDERAZGO — PFJ TRANSICIÓN 2026 ─────────────────────────
+  // Obispado (orders 9010-9012)
+  { id: 'obispado-el-cambio', moduleId: 'capacitacion-liderazgo', title: 'El Cambio y Por Qué Importa', subtitle: 'Comprender el propósito antes de comunicarlo', description: 'Visión general del cambio PFJ 2026 para el obispado: qué cambia, por qué lo implementa la Iglesia, y cómo el obispado lidera la transición con claridad y confianza.', level: 'BÁSICO', icon: '⚖️', duration: 20, order: 9010, status: 'PUBLISHED', submoduleGroup: 'obispado-pfj' },
+  { id: 'obispado-quinto-domingo', moduleId: 'capacitacion-liderazgo', title: 'El Quinto Domingo — 30 de Agosto', subtitle: 'Reunión especial para jóvenes, padres y líderes', description: 'La Iglesia ha designado el 30 de agosto de 2026 para una reunión especial con videos instructivos. El obispado coordina la logística, la participación familiar y prepara a todos para el inicio oficial.', level: 'BÁSICO', icon: '📅', duration: 15, order: 9011, status: 'PUBLISHED', submoduleGroup: 'obispado-pfj' },
+  { id: 'obispado-comunicar-padres', moduleId: 'capacitacion-liderazgo', title: 'Comunicar a los Padres', subtitle: 'Cómo anunciar el cambio desde la reunión sacramental', description: 'Los padres necesitan entender el cambio antes de septiembre. Guía para anunciarlo desde el púlpito, responder las preguntas más frecuentes y distribuir la guía PFJ a cada familia.', level: 'BÁSICO', icon: '🗣️', duration: 15, order: 9012, status: 'PUBLISHED', submoduleGroup: 'obispado-pfj' },
+  // Hombres Jóvenes (orders 9110-9112)
+  { id: 'hj-la-guia-pfj', moduleId: 'capacitacion-liderazgo', title: 'La Guía PFJ — 12 Capítulos', subtitle: 'Conocer el material antes de enseñarlo', description: 'La guía Para la Fortaleza de la Juventud actualizada tiene 12 capítulos centrados en Cristo y la toma de decisiones. Los líderes de HJ deben dominar el contenido antes de llevar a los jóvenes a través de él.', level: 'BÁSICO', icon: '📖', duration: 20, order: 9110, status: 'PUBLISHED', submoduleGroup: 'hj-pfj' },
+  { id: 'hj-ensenar-25-minutos', moduleId: 'capacitacion-liderazgo', title: 'Enseñar en 25 Minutos', subtitle: 'El formato doctrina → principio → aplicación', description: 'Cada semana hay 25 minutos para enseñar un capítulo mensual. Esta lección enseña cómo estructurar ese tiempo: 5 min de introducción, 10 min de doctrina, 10 min de principio y aplicación.', level: 'INTERMEDIO', icon: '⏱️', duration: 20, order: 9111, status: 'PUBLISHED', submoduleGroup: 'hj-pfj' },
+  { id: 'hj-maraton-lectura', moduleId: 'capacitacion-liderazgo', title: 'El Maratón de Lectura', subtitle: 'Unir a jóvenes y familias desde mayo', description: 'El 3 de mayo de 2026 comienza el maratón mundial de lectura en @forstrengthofyouth. Una lección práctica para activar la participación de los jóvenes, sus familias y el cuórum de élderes en el proceso de lectura.', level: 'BÁSICO', icon: '🏃', duration: 15, order: 9112, status: 'PUBLISHED', submoduleGroup: 'hj-pfj' },
+  // Mujeres Jóvenes (orders 9210-9212)
+  { id: 'mj-la-guia-pfj', moduleId: 'capacitacion-liderazgo', title: 'La Guía PFJ para las Mujeres Jóvenes', subtitle: 'El mismo material, una perspectiva única', description: 'La guía PFJ es la misma para HJ y MJ, pero el contexto de las jóvenes tiene sus particularidades. Cómo presentar los 12 capítulos desde la perspectiva de las mujeres jóvenes y conectarlo con su preparación para el templo y la familia.', level: 'BÁSICO', icon: '💜', duration: 20, order: 9210, status: 'PUBLISHED', submoduleGroup: 'mj-pfj' },
+  { id: 'mj-ensenar-25-minutos', moduleId: 'capacitacion-liderazgo', title: 'Clases Semanales de 25 Minutos', subtitle: 'De alternas a semanales — el regalo del tiempo', description: 'El cambio de clases alternas a semanales es un regalo: más continuidad, más profundidad. Esta lección ayuda a los líderes de MJ a planificar el uso mensual del capítulo y mantener a las jóvenes comprometidas semana a semana.', level: 'INTERMEDIO', icon: '⏱️', duration: 20, order: 9211, status: 'PUBLISHED', submoduleGroup: 'mj-pfj' },
+  { id: 'mj-conectar-hogar', moduleId: 'capacitacion-liderazgo', title: 'Conectar el Hogar con el Domingo', subtitle: 'Que lo que enseñamos no se quede en el salón', description: 'El PFJ es diseñado para conectar el estudio del hogar con la clase dominical. Herramientas para que los líderes de MJ inviten a los padres y ayuden a las jóvenes a aplicar el evangelio diariamente.', level: 'INTERMEDIO', icon: '🏠', duration: 15, order: 9212, status: 'PUBLISHED', submoduleGroup: 'mj-pfj' },
+  // Élderes y Líder Misional (orders 9310-9312)
+  { id: 'elderes-rol-misional', moduleId: 'capacitacion-liderazgo', title: 'Nuestro Rol en la Transición', subtitle: 'El Cuórum de Élderes como puente generacional', description: 'El PFJ prepara a los jóvenes para la misión. El cuórum de élderes — formado por hombres que fueron esos jóvenes — tiene un rol único: servir de puente entre la juventud del barrio y la misión de tiempo completo.', level: 'BÁSICO', icon: '🌍', duration: 20, order: 9310, status: 'PUBLISHED', submoduleGroup: 'elderes-pfj' },
+  { id: 'elderes-mentores-jovenes', moduleId: 'capacitacion-liderazgo', title: 'Élderes como Mentores Misioneros', subtitle: 'Invitar élderes a compartir en las clases de jóvenes', description: 'Cómo involucrar a los élderes del cuórum en las clases de jóvenes: compartir experiencias misioneras relevantes, escuchar más que hablar, y crear relaciones que duran más allá del domingo.', level: 'INTERMEDIO', icon: '🤝', duration: 20, order: 9311, status: 'PUBLISHED', submoduleGroup: 'elderes-pfj' },
+  { id: 'elderes-vision-pfj', moduleId: 'capacitacion-liderazgo', title: 'La Visión Misional del PFJ', subtitle: '"El discipulado diario comienza hoy"', description: '"El discipulado para toda la vida comienza con el discipulado diario." — Pdte. Timothy L. Farnes. Esta lección explora la visión teológica detrás del PFJ: no es solo un cambio de horario, es una invitación a una generación a convertirse en discípulos de Cristo para siempre.', level: 'AVANZADO', icon: '✨', duration: 20, order: 9312, status: 'PUBLISHED', submoduleGroup: 'elderes-pfj' },
 ]
 
 const PORTED: Partial<Record<string, Lesson>> = {
@@ -1991,6 +2052,19 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'brigham-young-el-exodo': lessonBrighamYoungElExodo,
   'brigham-young-el-colonizador': lessonBrighamYoungElColonizador,
   'brigham-young-y-la-restauracion': lessonBrighamYoungYLaRestauracion,
+  // capacitacion-liderazgo
+  'obispado-el-cambio': lessonObispadoElCambio,
+  'obispado-quinto-domingo': lessonObispadoQuintoDomingo,
+  'obispado-comunicar-padres': lessonObispadoComunicarPadres,
+  'hj-la-guia-pfj': lessonHjLaGuiaPfj,
+  'hj-ensenar-25-minutos': lessonHjEnsenar25Minutos,
+  'hj-maraton-lectura': lessonHjMaratonLectura,
+  'mj-la-guia-pfj': lessonMjLaGuiaPfj,
+  'mj-ensenar-25-minutos': lessonMjEnsenar25Minutos,
+  'mj-conectar-hogar': lessonMjConectarHogar,
+  'elderes-rol-misional': lessonElderesRolMisional,
+  'elderes-mentores-jovenes': lessonElderesMentoresJovenes,
+  'elderes-vision-pfj': lessonElderesVisionPfj,
 }
 
 function lessonIdsForModule(moduleId: string): string[] {
