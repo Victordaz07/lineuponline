@@ -10,7 +10,8 @@ import {
   updateProfile,
   type ConfirmationResult,
 } from 'firebase/auth'
-import { getFirebaseAuth } from '@/lib/firebase'
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import { getFirebaseAuth, getFirebaseStorage } from '@/lib/firebase'
 
 // ── Google ──────────────────────────────────────────────────────────────────
 
@@ -62,6 +63,25 @@ export async function confirmPhoneOTP(
   otp: string,
 ): Promise<void> {
   await confirmationResult.confirm(otp)
+}
+
+// ── Profile updates ───────────────────────────────────────────────────────────
+
+export async function updateDisplayName(displayName: string): Promise<void> {
+  const user = getFirebaseAuth().currentUser
+  if (!user) throw new Error('No hay sesión activa')
+  await updateProfile(user, { displayName: displayName.trim() })
+}
+
+export async function uploadProfilePhoto(file: File): Promise<string> {
+  const user = getFirebaseAuth().currentUser
+  if (!user) throw new Error('No hay sesión activa')
+  const ext = file.name.split('.').pop() ?? 'jpg'
+  const storageRef = ref(getFirebaseStorage(), `avatars/${user.uid}/photo.${ext}`)
+  await uploadBytes(storageRef, file, { contentType: file.type })
+  const downloadURL = await getDownloadURL(storageRef)
+  await updateProfile(user, { photoURL: downloadURL })
+  return downloadURL
 }
 
 // ── Sign out ──────────────────────────────────────────────────────────────────

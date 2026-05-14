@@ -123,6 +123,15 @@ function UserMenu() {
           {/* Quick links */}
           <div className="border-b border-blue-accent/8 py-1">
             <Link
+              to="/profile"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-3 px-4 py-2.5 font-ui text-sm text-text-main transition hover:bg-bg-elevated"
+            >
+              <span className="text-base" aria-hidden="true">👤</span>
+              Mi Perfil
+              <span className="ml-auto text-text-muted text-xs">›</span>
+            </Link>
+            <Link
               to="/my-notes"
               onClick={() => setOpen(false)}
               className="flex items-center gap-3 px-4 py-2.5 font-ui text-sm text-text-main transition hover:bg-bg-elevated"

@@ -8,6 +8,7 @@ import LessonView from '@/pages/LessonView'
 import LoginPage from '@/pages/LoginPage'
 import MyNotes from '@/pages/MyNotes'
 import Search from '@/pages/Search'
+import ProfilePage from '@/pages/ProfilePage'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
               <Route path="/lesson/:moduleId/:lessonId" element={<LessonView />} />
               <Route path="/my-notes" element={<MyNotes />} />
               <Route path="/search" element={<Search />} />
+              <Route path="/profile" element={<ProfilePage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/registro" element={<Navigate to="/login" replace />} />
               <Route path="/notas" element={<Navigate to="/my-notes" replace />} />
