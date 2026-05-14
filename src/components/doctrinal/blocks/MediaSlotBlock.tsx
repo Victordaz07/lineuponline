@@ -16,7 +16,7 @@ export function MediaSlotBlock({ block }: MediaSlotBlockProps) {
       <figure className="overflow-hidden rounded-2xl border border-gold-main/35 bg-gradient-to-br from-[#0f172a] via-blue-accent to-[#1e3a5f] shadow-lg">
         <div className="flex min-h-[12rem] flex-col items-center justify-center gap-2 px-6 py-10 text-center text-white">
           {label ? <p className="font-ui text-xs font-semibold uppercase tracking-[0.2em] text-gold-main">{label}</p> : null}
-          {year ? <p className="font-title text-5xl text-gold-dim sm:text-6xl">{year}</p> : null}
+          {year ? <p className="font-title text-5xl text-amber-300 sm:text-6xl">{year}</p> : null}
           {place ? <p className="font-ui text-sm text-white/90">{place}</p> : null}
         </div>
         {block.caption ? (
