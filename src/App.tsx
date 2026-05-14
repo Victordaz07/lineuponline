@@ -1,33 +1,41 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Layout } from '@/components/layout/Layout'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
+import { AuthProvider } from '@/contexts/AuthContext'
+import { useFirestoreSync } from '@/hooks/useFirestoreSync'
 import Dashboard from '@/pages/Dashboard'
 import ModuleView from '@/pages/ModuleView'
 import LessonView from '@/pages/LessonView'
+import Login from '@/pages/Login'
 import MyNotes from '@/pages/MyNotes'
 import Search from '@/pages/Search'
 
-/**
- * Raíz de enrutamiento: rutas canónicas bajo `Layout`.
- *
- * @returns Aplicación enrutada
- */
-export default function App() {
+function AppRoutes() {
+  useFirestoreSync()
   return (
-    <BrowserRouter>
-      <Layout>
-        <ErrorBoundary>
+    <Layout>
+      <ErrorBoundary>
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/module/:moduleId" element={<ModuleView />} />
           <Route path="/lesson/:moduleId/:lessonId" element={<LessonView />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/my-notes" element={<MyNotes />} />
           <Route path="/search" element={<Search />} />
           <Route path="/notas" element={<Navigate to="/my-notes" replace />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-        </ErrorBoundary>
-      </Layout>
+      </ErrorBoundary>
+    </Layout>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AuthProvider>
+        <AppRoutes />
+      </AuthProvider>
     </BrowserRouter>
   )
 }
