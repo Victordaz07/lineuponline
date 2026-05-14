@@ -59,8 +59,8 @@ export const edCoorinarClases: Lesson = {
             },
             {
               type: 'doctrine_box',
-              title: 'El flujo del bloque dominical en concreto',
-              body: 'Después de la reunión sacramental: (1) Todos — adultos, jóvenes y niños mayores — van a Escuela Dominical 25 min (Ven, Sígueme). (2) Los niños van a Primaria (55 min). (3) Simultáneamente: jóvenes 12–17 van a su clase PFJ de 25 min; adultos 18+ van a SRS o Cuórum de Élderes 25 min. La ED gestiona el punto (1). El punto (3) lo gestionan las organizaciones respectivas.',
+              title: 'El flujo de los tres bloques dominicales',
+              body: 'BLOQUE 1 (1 hora) — Reunión Sacramental: todos juntos.\n\nBLOQUE 2 (25 min) — Escuela Dominical: los jóvenes 12–17 tienen su propia Escuela Dominical Juvenil (Ven, Sígueme); los adultos 18+ tienen Escuela Dominical de adultos (Ven, Sígueme); la Primaria inicia sus 55 minutos. LA ED COORDINA AMBAS CLASES DE BLOQUE 2.\n\nBLOQUE 3 (25 min) — Organizaciones: jóvenes varones → Cuórums del Sacerdocio Aarónico (guía PFJ); Mujeres Jóvenes → clase MJ (guía PFJ); mujeres adultas → Sociedad de Socorro; hombres adultos → Cuórum de Élderes; Primaria continúa. ESTE BLOQUE LO GESTIONAN HJ, MJ, SRS Y CUÓRUM DE ÉLDERES — NO LA ED.',
             },
           ],
         },

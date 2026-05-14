@@ -31,31 +31,36 @@ export const edNuevoHorario: Lesson = {
           title: 'El Horario Anterior vs. el Nuevo',
           blocks: [
             {
+              type: 'doctrine_box',
+              title: 'Los tres bloques del nuevo horario dominical',
+              body: 'BLOQUE 1 — Reunión Sacramental (1 hora): todos juntos, sin cambio.\n\nBLOQUE 2 — Escuela Dominical (25 min): Jóvenes 12–17 en su propia Escuela Dominical Juvenil; adultos 18+ en Escuela Dominical de adultos; Primaria inicia sus 55 min.\n\nBLOQUE 3 — Organizaciones (25 min): Jóvenes varones → Cuórums del Sacerdocio Aarónico (guía PFJ); Mujeres Jóvenes → clase MJ (guía PFJ); Mujeres adultas → Sociedad de Socorro; Hombres adultos → Cuórum de Élderes; Primaria continúa.',
+            },
+            {
               type: 'compare_grid',
               left: {
                 label: 'Formato anterior',
                 points: [
-                  'Reunión sacramental — todos',
-                  'Escuela Dominical (Ven, Sígueme) — semanas alternas',
+                  'Reunión sacramental — todos juntos',
+                  'Escuela Dominical unificada — semanas alternas',
                   'SRS / Cuórum de Élderes — semanas alternas',
-                  'Jóvenes participaban en la Escuela Dominical con adultos',
-                  'Primaria — 55 min (sin cambio)',
+                  'Jóvenes y adultos en la misma clase de ED',
+                  'HJ / MJ — semanas alternas con la ED',
                 ],
               },
               right: {
                 label: 'Nuevo formato (desde 6 sept 2026)',
                 points: [
-                  'Reunión sacramental — todos (sin cambio)',
-                  'Escuela Dominical 25 min — TODOS, cada domingo',
-                  'Jóvenes 12–17 → 25 min clase PFJ (separados)',
-                  'Adultos 18+ → 25 min SRS / Cuórum de Élderes',
-                  'Primaria — 55 min (sin cambio)',
+                  'Reunión sacramental — todos juntos (sin cambio)',
+                  'ED Juvenil (jóvenes) y ED Adultos — cada domingo, separados',
+                  'Cuórums HJ y clase MJ — cada domingo (bloque 3)',
+                  'SRS / Cuórum de Élderes — cada domingo (bloque 3)',
+                  'Primaria — 55 min continuos desde bloque 2',
                 ],
               },
             },
             {
               type: 'paragraph',
-              text: 'El cambio más visible: la Escuela Dominical deja de ser alterna y pasa a ser cada domingo. El segundo cambio: los jóvenes ya no comparten ese segundo bloque con los adultos — tienen su propio espacio de 25 minutos con la guía PFJ.',
+              text: 'El cambio más importante: la Escuela Dominical es ahora cada domingo y los jóvenes tienen su propia clase de ED (separada de los adultos). Luego, en el bloque 3, los jóvenes van a sus cuórums o clase de MJ donde estudian la guía PFJ. Los adultos van a Sociedad de Socorro o Cuórum de Élderes. Todos tienen clases cada semana — no alternas.',
             },
             {
               type: 'doctrine_box',
