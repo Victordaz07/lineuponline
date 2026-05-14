@@ -3,6 +3,7 @@ import type { HighlightColor } from '@/stores/highlightsStore'
 import { useFavoritesStore } from '@/stores/favoritesStore'
 import { useTextHighlight } from '@/hooks/useTextHighlight'
 import { HighlightToolbar } from '@/components/common/HighlightToolbar'
+import { HighlightDetailPanel } from '@/components/common/HighlightDetailPanel'
 
 export type HighlightVerseBlockProps = {
   block: HighlightVerseBlockType
@@ -29,7 +30,7 @@ export function HighlightVerseBlock({
   const addFavorite = useFavoritesStore((s) => s.addFavorite)
   const removeFavorite = useFavoritesStore((s) => s.removeFavorite)
 
-  const { sel, setSel, toolbarRef, handleMouseUp, saveHighlight, renderSegments } =
+  const { sel, setSel, toolbarRef, handleMouseUp, saveHighlight, activeHL, setActiveHL, renderSegments } =
     useTextHighlight(blockKey, lessonId, topicId, block.text)
 
   const canBookmark = Boolean(lessonId && moduleId)
@@ -59,6 +60,9 @@ export function HighlightVerseBlock({
         onSave={saveHighlight}
         onDismiss={() => { window.getSelection()?.removeAllRanges(); setSel(null) }}
       />
+      {activeHL && (
+        <HighlightDetailPanel activeHL={activeHL} onClose={() => setActiveHL(null)} />
+      )}
 
       {canBookmark ? (
         <button

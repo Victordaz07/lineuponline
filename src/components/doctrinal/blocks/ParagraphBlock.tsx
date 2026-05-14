@@ -2,6 +2,7 @@ import type { ParagraphBlock as ParagraphBlockType } from '@/types/doctrine'
 import type { HighlightColor } from '@/stores/highlightsStore'
 import { useTextHighlight } from '@/hooks/useTextHighlight'
 import { HighlightToolbar } from '@/components/common/HighlightToolbar'
+import { HighlightDetailPanel } from '@/components/common/HighlightDetailPanel'
 
 export type ParagraphBlockProps = {
   block: ParagraphBlockType
@@ -22,7 +23,7 @@ export function ParagraphBlock({ block, highlightId, blockKey, lessonId, topicId
   const blockId = block.blockId ?? undefined
   const isTtsOn = blockId != null && highlightId != null && blockId === highlightId
 
-  const { sel, setSel, toolbarRef, handleMouseUp, saveHighlight, renderSegments } =
+  const { sel, setSel, toolbarRef, handleMouseUp, saveHighlight, activeHL, setActiveHL, renderSegments } =
     useTextHighlight(blockKey, lessonId, topicId, block.text)
 
   return (
@@ -33,6 +34,9 @@ export function ParagraphBlock({ block, highlightId, blockKey, lessonId, topicId
         onSave={saveHighlight}
         onDismiss={() => { window.getSelection()?.removeAllRanges(); setSel(null) }}
       />
+      {activeHL && (
+        <HighlightDetailPanel activeHL={activeHL} onClose={() => setActiveHL(null)} />
+      )}
       <p
         id={blockId ? `p-${blockId}` : undefined}
         className={`select-text text-reading text-base leading-relaxed text-text-main transition-all duration-300 ${
