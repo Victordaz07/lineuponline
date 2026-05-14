@@ -291,6 +291,7 @@ import { hjEjemploClasePfj as lessonHjEjemploClasePfj } from '@/data/lessons/hj-
 import { edEjemploClase as lessonEdEjemploClase } from '@/data/lessons/ed-ejemplo-clase'
 import { mjEjemploClasePfj as lessonMjEjemploClasePfj } from '@/data/lessons/mj-ejemplo-clase-pfj'
 import { srsEjemploClase as lessonSrsEjemploClase } from '@/data/lessons/srs-ejemplo-clase'
+import { elderesEjemploClase as lessonElderesEjemploClase } from '@/data/lessons/elderes-ejemplo-clase'
 import { elderesRolMisional as lessonElderesRolMisional } from '@/data/lessons/elderes-rol-misional'
 import { elderesMentoresJovenes as lessonElderesMentoresJovenes } from '@/data/lessons/elderes-mentores-jovenes'
 import { elderesVisionPfj as lessonElderesVisionPfj } from '@/data/lessons/elderes-vision-pfj'
@@ -1815,6 +1816,7 @@ const LESSON_ROWS: LessonRow[] = [
   { id: 'elderes-rol-misional', moduleId: 'capacitacion-liderazgo', title: 'Nuestro Rol en la Transición', subtitle: 'El Cuórum de Élderes como puente generacional', description: 'El PFJ prepara a los jóvenes para la misión. El cuórum de élderes — formado por hombres que fueron esos jóvenes — tiene un rol único: servir de puente entre la juventud del barrio y la misión de tiempo completo.', level: 'BÁSICO', icon: '🌍', duration: 20, order: 9310, status: 'PUBLISHED', submoduleGroup: 'elderes-pfj' },
   { id: 'elderes-mentores-jovenes', moduleId: 'capacitacion-liderazgo', title: 'Élderes como Mentores Misioneros', subtitle: 'Invitar élderes a compartir en las clases de jóvenes', description: 'Cómo involucrar a los élderes del cuórum en las clases de jóvenes: compartir experiencias misioneras relevantes, escuchar más que hablar, y crear relaciones que duran más allá del domingo.', level: 'INTERMEDIO', icon: '🤝', duration: 20, order: 9311, status: 'PUBLISHED', submoduleGroup: 'elderes-pfj' },
   { id: 'elderes-vision-pfj', moduleId: 'capacitacion-liderazgo', title: 'La Visión Misional del PFJ', subtitle: '"El discipulado diario comienza hoy"', description: '"El discipulado para toda la vida comienza con el discipulado diario." — Pdte. Timothy L. Farnes. Esta lección explora la visión teológica detrás del PFJ: no es solo un cambio de horario, es una invitación a una generación a convertirse en discípulos de Cristo para siempre.', level: 'AVANZADO', icon: '✨', duration: 20, order: 9312, status: 'PUBLISHED', submoduleGroup: 'elderes-pfj' },
+  { id: 'elderes-ejemplo-clase', moduleId: 'capacitacion-liderazgo', title: 'Clase Modelo — Cuórum de Élderes 25 Minutos', subtitle: 'Mensajes de Conferencia General como discipulado, no como tarea', description: 'Ejemplo del nuevo formato semanal del Cuórum de Élderes: presidencia selecciona el discurso según necesidades del cuórum, consejo de hermanos con preguntas preparadas, sin anuncios en clase.', level: 'BÁSICO', icon: '🌍', duration: 15, order: 9313, status: 'PUBLISHED', submoduleGroup: 'elderes-pfj' },
   // Escuela Dominical (orders 9410-9411)
   { id: 'ed-nuevo-horario', moduleId: 'capacitacion-liderazgo', title: 'El Nuevo Horario Dominical', subtitle: 'Qué cambia el 6 de septiembre y de quién es la responsabilidad', description: 'La Presidencia de la Escuela Dominical coordina el cambio de horario: Escuela Dominical cada domingo, el 30 de agosto y la implementación del 6 de septiembre. Esta lección explica el antes y el después con pasos concretos.', level: 'BÁSICO', icon: '🗓️', duration: 20, order: 9410, status: 'PUBLISHED', submoduleGroup: 'ed-pfj' },
   { id: 'ed-coordinar-clases', moduleId: 'capacitacion-liderazgo', title: 'Coordinar las Clases de Jóvenes', subtitle: 'El rol de la Escuela Dominical con HJ, MJ y el bloque PFJ', description: 'Qué corresponde a la ED y qué a las organizaciones de jóvenes. Mapa de responsabilidades, logística del primer domingo y cómo prevenir fricciones el 6 de septiembre.', level: 'INTERMEDIO', icon: '🤝', duration: 15, order: 9411, status: 'PUBLISHED', submoduleGroup: 'ed-pfj' },
@@ -2097,6 +2099,7 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'ed-ejemplo-clase': lessonEdEjemploClase,
   'mj-ejemplo-clase-pfj': lessonMjEjemploClasePfj,
   'srs-ejemplo-clase': lessonSrsEjemploClase,
+  'elderes-ejemplo-clase': lessonElderesEjemploClase,
 }
 
 function lessonIdsForModule(moduleId: string): string[] {
