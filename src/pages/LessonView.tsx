@@ -5,18 +5,13 @@ import { LoadingSpinner } from '@/components/common/LoadingSpinner'
 import { useLesson } from '@/hooks/useLesson'
 import { useSyncNotes } from '@/hooks/useSyncNotes'
 import { useScrollMemory } from '@/hooks/useScrollMemory'
+import { useAuth } from '@/contexts/AuthContext'
 
-const DEMO_USER = 'demo-user'
-
-/**
- * Página de lección individual con vista maestra y notas opcionales.
- *
- * @returns Contenido de lección o estados de carga/error
- */
 export default function LessonView() {
   const { moduleId, lessonId } = useParams<{ moduleId: string; lessonId: string }>()
   const { lesson, loading, error } = useLesson(moduleId, lessonId)
-  const { saveNote } = useSyncNotes({ userId: DEMO_USER })
+  const { user } = useAuth()
+  const { saveNote } = useSyncNotes({ userId: user?.uid ?? 'anon' })
   useScrollMemory(`lesson:${moduleId}:${lessonId}`)
 
   if (loading) {

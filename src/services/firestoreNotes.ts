@@ -2,12 +2,18 @@ import {
   collection,
   deleteDoc,
   doc,
+  getDoc,
   getDocs,
   setDoc,
 } from 'firebase/firestore'
 import { getDb } from '@/lib/firebase'
 import type { FavoriteVerse } from '@/stores/favoritesStore'
 import type { StudyJournalEntry } from '@/stores/studyJournalStore'
+
+export type ProgressSnapshot = {
+  visitedTopics: string[]
+  completedQuizzes: string[]
+}
 
 export async function fetchFavorites(uid: string): Promise<FavoriteVerse[]> {
   const snap = await getDocs(collection(getDb(), 'users', uid, 'favorites'))
@@ -29,4 +35,18 @@ export async function fetchJournalEntries(uid: string): Promise<StudyJournalEntr
 
 export async function saveJournalEntry(uid: string, entry: StudyJournalEntry): Promise<void> {
   await setDoc(doc(getDb(), 'users', uid, 'journalEntries', entry.entryId), entry)
+}
+
+export async function fetchProgress(uid: string): Promise<ProgressSnapshot | null> {
+  const snap = await getDoc(doc(getDb(), 'users', uid, 'appState', 'progress'))
+  if (!snap.exists()) return null
+  const data = snap.data()
+  return {
+    visitedTopics: Array.isArray(data.visitedTopics) ? (data.visitedTopics as string[]) : [],
+    completedQuizzes: Array.isArray(data.completedQuizzes) ? (data.completedQuizzes as string[]) : [],
+  }
+}
+
+export async function saveProgress(uid: string, snapshot: ProgressSnapshot): Promise<void> {
+  await setDoc(doc(getDb(), 'users', uid, 'appState', 'progress'), snapshot)
 }
