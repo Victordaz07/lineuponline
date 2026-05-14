@@ -69,7 +69,7 @@ export function HighlightVerseBlock({
           type="button"
           onClick={toggleBookmark}
           aria-label={saved ? 'Quitar de favoritos' : 'Guardar versículo'}
-          className="absolute right-3 top-3 rounded-full p-1.5 text-xl leading-none text-white/50 transition hover:text-gold-dim"
+          className="absolute right-3 top-3 rounded-full p-1.5 text-xl leading-none text-white/50 transition hover:text-amber-300"
         >
           {saved ? '★' : '☆'}
         </button>
@@ -82,7 +82,7 @@ export function HighlightVerseBlock({
         &ldquo;{renderSegments(VERSE_COLOR_CLASSES)}&rdquo;
       </blockquote>
 
-      <figcaption className="mt-4 font-ui text-sm font-semibold tracking-wide text-gold-dim">
+      <figcaption className="mt-4 font-ui text-sm font-semibold tracking-wide text-amber-300">
         {block.reference}
       </figcaption>
     </figure>
