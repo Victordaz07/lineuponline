@@ -9,6 +9,10 @@ service cloud.firestore {
       return isAuthenticated() && request.auth.uid == userId;
     }
 
+    function isAdmin() {
+      return isAuthenticated() && request.auth.token.admin == true;
+    }
+
     match /users/{userId} {
       allow read, write: if isOwner(userId);
     }
@@ -41,6 +45,19 @@ service cloud.firestore {
 
     match /user_journal/{userId}/entries/{id} {
       allow read, write: if isOwner(userId);
+    }
+
+    match /community_messages/{messageId} {
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow read: if isAuthenticated() && (
+        resource.data.userId == request.auth.uid || isAdmin()
+      );
+      allow update, delete: if isAdmin();
+    }
+
+    match /admin_announcements/{announcementId} {
+      allow read: if true;
+      allow write: if isAdmin();
     }
   }
 }

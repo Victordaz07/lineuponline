@@ -19,6 +19,7 @@ type FavoritesState = {
   isFavorite: (reference: string, lessonId: string) => boolean
   getFavoriteId: (reference: string, lessonId: string) => string | undefined
   updateTags: (id: string, tags: string[]) => void
+  setVerses: (verses: FavoriteVerse[]) => void
 }
 
 export const useFavoritesStore = create<FavoritesState>()(
@@ -42,6 +43,7 @@ export const useFavoritesStore = create<FavoritesState>()(
         get().verses.some((v) => v.reference === reference && v.lessonId === lessonId),
       getFavoriteId: (reference, lessonId) =>
         get().verses.find((v) => v.reference === reference && v.lessonId === lessonId)?.id,
+      setVerses: (verses) => set({ verses }),
     }),
     { name: 'lineup-favorites' },
   ),

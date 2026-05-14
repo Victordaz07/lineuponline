@@ -19,7 +19,7 @@ function getOrCreateLocalId(): string {
  * - `userId`: uid de Firebase cuando logged in, o ID local estable cuando anónimo
  */
 export function useAuth() {
-  const { user, authLoading } = useAuthContext()
+  const { user, authLoading, signInWithGoogle, signOutUser } = useAuthContext()
 
   const userId = useMemo(() => {
     if (user) return user.uid
@@ -31,5 +31,7 @@ export function useAuth() {
     authLoading,
     isLoggedIn: user !== null,
     userId,
+    signInWithGoogle,
+    signOutUser,
   }
 }

@@ -6,8 +6,7 @@ import { LoadingSpinner } from '@/components/common/LoadingSpinner'
 import { MediaSlot } from '@/components/doctrinal/MediaSlot'
 import { ProgressBar } from '@/components/learning/ProgressBar'
 import { useModule } from '@/hooks/useModule'
-import { useUserProgress } from '@/hooks/useUserProgress'
-import { useAuth } from '@/hooks/useAuth'
+import { useLessonProgressStore } from '@/stores/lessonProgressStore'
 import type { DifficultyLevel, Lesson } from '@/types/doctrine'
 import { DIFFICULTY_LEVELS } from '@/lib/constants'
 
@@ -20,8 +19,7 @@ const LEVEL_LABEL: Record<DifficultyLevel, string> = {
 export default function ModuleView() {
   const { moduleId } = useParams<{ moduleId: string }>()
   const { module, lessons, loading, error } = useModule(moduleId)
-  const { userId } = useAuth()
-  const { completedLessonKeys } = useUserProgress(userId)
+  const hasAnyVisited = useLessonProgressStore((s) => s.hasAnyVisited)
   const [levelFilter, setLevelFilter] = useState<DifficultyLevel | 'ALL'>('ALL')
 
   const filteredLessons = useMemo(() => {
@@ -48,14 +46,10 @@ export default function ModuleView() {
   const hasGroups = groupedMap.size > 0
 
   const progressValue = useMemo(() => {
-    if (!module || lessons.length === 0) {
-      return 0
-    }
-    const done = lessons.filter((l) =>
-      completedLessonKeys.includes(`${module.id}:${l.id}`),
-    ).length
+    if (!module || lessons.length === 0) return 0
+    const done = lessons.filter((l) => hasAnyVisited(l.id)).length
     return done / lessons.length
-  }, [completedLessonKeys, lessons, module])
+  }, [hasAnyVisited, lessons, module])
 
   if (loading) {
     return (

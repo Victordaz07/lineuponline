@@ -14,6 +14,7 @@ dist
 dist-ssr
 *.local
 .env.local
+.env.production
 .env.*.local
 .firebase/
 firebase-debug.log
@@ -28,3 +29,6 @@ firebase-debug.log
 *.njsproj
 *.sln
 *.sw?
+
+# Claude Code worktrees and session data
+.claude/

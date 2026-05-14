@@ -66,39 +66,118 @@ import { elPresidenteDeLaIglesia as lessonElPresidente } from '@/data/lessons/el
 import { elohimElPadreCelestial as lessonElohim } from '@/data/lessons/elohim-el-padre-celestial'
 import { laDivinidad as lessonLaDivinidad } from '@/data/lessons/la-divinidad'
 import { cristoElGranSumoSacerdote as lessonCristoSumoSacerdote } from '@/data/lessons/cristo-el-gran-sumo-sacerdote'
-import { enoc as _lessonEnoc } from '@/data/lessons/enoc'
-import { noe as _lessonNoe } from '@/data/lessons/noe'
-import { melquisedec as _lessonMelquisedec } from '@/data/lessons/melquisedec'
-import { isaac as _lessonIsaac } from '@/data/lessons/isaac'
-import { jacobIsrael as _lessonJacobIsrael } from '@/data/lessons/jacob-israel'
-import { jeremias as lessonJeremias } from '@/data/lessons/jeremias'
-import { daniel as lessonDaniel } from '@/data/lessons/daniel'
-import { job as lessonJob } from '@/data/lessons/job'
-import { ezequiel as lessonEzequiel } from '@/data/lessons/ezequiel'
-import { pedro as lessonPedro } from '@/data/lessons/pedro'
-import { pablo as lessonPablo } from '@/data/lessons/pablo'
-import { juanElBautista as lessonJuanElBautista } from '@/data/lessons/juan-el-bautista'
-import { mariaMagdalena as lessonMariaMagdalena } from '@/data/lessons/maria-magdalena'
-import { tomas as lessonTomas } from '@/data/lessons/tomas'
-import { santiagoElJusto as lessonSantiagoElJusto } from '@/data/lessons/santiago-el-justo'
-import { sara as lessonSara } from '@/data/lessons/sara'
-import { rut as lessonRut } from '@/data/lessons/rut'
-import { ester as lessonEster } from '@/data/lessons/ester'
-import { debora as lessonDebora } from '@/data/lessons/debora'
-import { mariaLaMadre as lessonMariaLaMadre } from '@/data/lessons/maria-la-madre'
-import { lehi as _lessonLehi } from '@/data/lessons/lehi'
-import { nefi as _lessonNefi } from '@/data/lessons/nefi'
-import { elHermanoDeJared as lessonHermanoDeJared } from '@/data/lessons/el-hermano-de-jared'
-import { ammon as lessonAmmon } from '@/data/lessons/ammon'
-import { reyBenjamin as _lessonReyBenjamin } from '@/data/lessons/rey-benjamin'
+import { jeremiasElLlamamiento as lessonJeremiasElLlamamiento } from '@/data/lessons/jeremias-el-llamamiento'
+import { jeremiasElPerseguido as lessonJeremiasElPerseguido } from '@/data/lessons/jeremias-el-perseguido'
+import { jeremiasLasLamentaciones as lessonJeremiasLasLamentaciones } from '@/data/lessons/jeremias-las-lamentaciones'
+import { jeremiasElNuevoConvenio as lessonJeremiasElNuevoConvenio } from '@/data/lessons/jeremias-el-nuevo-convenio'
+import { jeremiasYLaRestauracion as lessonJeremiasYLaRestauracion } from '@/data/lessons/jeremias-y-la-restauracion'
+import { danielElCautivo as lessonDanielElCautivo } from '@/data/lessons/daniel-el-cautivo'
+import { danielElFiel as lessonDanielElFiel } from '@/data/lessons/daniel-el-fiel'
+import { danielLasVisiones as lessonDanielLasVisiones } from '@/data/lessons/daniel-las-visiones'
+import { danielEnElFoso as lessonDanielEnElFoso } from '@/data/lessons/daniel-en-el-foso'
+import { danielYLaRestauracion as lessonDanielYLaRestauracion } from '@/data/lessons/daniel-y-la-restauracion'
+import { jobElJusto as lessonJobElJusto } from '@/data/lessons/job-el-justo'
+import { jobElSufrimiento as lessonJobElSufrimiento } from '@/data/lessons/job-el-sufrimiento'
+import { jobLosAmigos as lessonJobLosAmigos } from '@/data/lessons/job-los-amigos'
+import { jobLaRespuesta as lessonJobLaRespuesta } from '@/data/lessons/job-la-respuesta'
+import { jobYLaRestauracion as lessonJobYLaRestauracion } from '@/data/lessons/job-y-la-restauracion'
+import { ezequielLaVision as lessonEzequielLaVision } from '@/data/lessons/ezequiel-la-vision'
+import { ezequielElGuardian as lessonEzequielElGuardian } from '@/data/lessons/ezequiel-el-guardian'
+import { ezequielLosHueoSecos as lessonEzequielLosHueoSecos } from '@/data/lessons/ezequiel-los-huesos-secos'
+import { ezequielLosDoPalos as lessonEzequielLosDoPalos } from '@/data/lessons/ezequiel-los-dos-palos'
+import { ezequielYLaRestauracion as lessonEzequielYLaRestauracion } from '@/data/lessons/ezequiel-y-la-restauracion'
+import { pedroElPescador as lessonPedroElPescador } from '@/data/lessons/pedro-el-pescador'
+import { pedroLaConfesion as lessonPedroLaConfesion } from '@/data/lessons/pedro-la-confesion'
+import { pedroLaNegacion as lessonPedroLaNegacion } from '@/data/lessons/pedro-la-negacion'
+import { pedroElApostol as lessonPedroElApostol } from '@/data/lessons/pedro-el-apostol'
+import { pedroYLaRestauracion as lessonPedroYLaRestauracion } from '@/data/lessons/pedro-y-la-restauracion'
+import { pabloElPerseguidor as lessonPabloElPerseguidor } from '@/data/lessons/pablo-el-perseguidor'
+import { pabloLaConversion as lessonPabloLaConversion } from '@/data/lessons/pablo-la-conversion'
+import { pabloElMisionero as lessonPabloElMisionero } from '@/data/lessons/pablo-el-misionero'
+import { pabloLaTeologia as lessonPabloLaTeologia } from '@/data/lessons/pablo-la-teologia'
+import { pabloYLaRestauracion as lessonPabloYLaRestauracion } from '@/data/lessons/pablo-y-la-restauracion'
+import { juanBautistaElPrecursor as lessonJuanBautistaElPrecursor } from '@/data/lessons/juan-bautista-el-precursor'
+import { juanBautistaElBautismo as lessonJuanBautistaElBautismo } from '@/data/lessons/juan-bautista-el-bautismo'
+import { juanBautistaElMayor as lessonJuanBautistaElMayor } from '@/data/lessons/juan-bautista-el-mayor'
+import { juanBautistaLaPrision as lessonJuanBautistaLaPrision } from '@/data/lessons/juan-bautista-la-prision'
+import { juanBautistaYLaRestauracion as lessonJuanBautistaYLaRestauracion } from '@/data/lessons/juan-bautista-y-la-restauracion'
+import { mariaMagdalenaElMito as lessonMariaMagdalenaElMito } from '@/data/lessons/maria-magdalena-el-mito'
+import { mariaMagdalenaLaDiscipula as lessonMariaMagdalenaLaDiscipula } from '@/data/lessons/maria-magdalena-la-discipula'
+import { mariaMagdalenaLaCruz as lessonMariaMagdalenaLaCruz } from '@/data/lessons/maria-magdalena-la-cruz'
+import { mariaMagdalenaLaResurreccion as lessonMariaMagdalenaLaResurreccion } from '@/data/lessons/maria-magdalena-la-resurreccion'
+import { mariaMagdalenaYLaRestauracion as lessonMariaMagdalenaYLaRestauracion } from '@/data/lessons/maria-magdalena-y-la-restauracion'
+import { tomasElGemelo as lessonTomasElGemelo } from '@/data/lessons/tomas-el-gemelo'
+import { tomasLaDuda as lessonTomasLaDuda } from '@/data/lessons/tomas-la-duda'
+import { tomasLaConfesion as lessonTomasLaConfesion } from '@/data/lessons/tomas-la-confesion'
+import { tomasElMisionero as lessonTomasElMisionero } from '@/data/lessons/tomas-el-misionero'
+import { tomasYLaRestauracion as lessonTomasYLaRestauracion } from '@/data/lessons/tomas-y-la-restauracion'
+import { santiagoElIncredulo as lessonSantiagoElIncredulo } from '@/data/lessons/santiago-el-incredulo'
+import { santiagoElApostol as lessonSantiagoElApostol } from '@/data/lessons/santiago-el-apostol'
+import { santiagoElLider as lessonSantiagoElLider } from '@/data/lessons/santiago-el-lider'
+import { santiagoLaEpistola as lessonSantiagoLaEpistola } from '@/data/lessons/santiago-la-epistola'
+import { santiagoYLaRestauracion as lessonSantiagoYLaRestauracion } from '@/data/lessons/santiago-y-la-restauracion'
+import { saraLaEsposa as lessonSaraLaEsposa } from '@/data/lessons/sara-la-esposa'
+import { saraLaRisa as lessonSaraLaRisa } from '@/data/lessons/sara-la-risa'
+import { saraYAgar as lessonSaraYAgar } from '@/data/lessons/sara-y-agar'
+import { saraLaMadre as lessonSaraLaMadre } from '@/data/lessons/sara-la-madre'
+import { saraYLaRestauracion as lessonSaraYLaRestauracion } from '@/data/lessons/sara-y-la-restauracion'
+import { rutLaMoabita as lessonRutLaMoabita } from '@/data/lessons/rut-la-moabita'
+import { rutLaLeal as lessonRutLaLeal } from '@/data/lessons/rut-la-leal'
+import { rutEnLosCampos as lessonRutEnLosCampos } from '@/data/lessons/rut-en-los-campos'
+import { rutYBoaz as lessonRutYBoaz } from '@/data/lessons/rut-y-boaz'
+import { rutYLaRestauracion as lessonRutYLaRestauracion } from '@/data/lessons/rut-y-la-restauracion'
+import { esterLaHuerfana as lessonEsterLaHuerfana } from '@/data/lessons/ester-la-huerfana'
+import { esterLaReina as lessonEsterLaReina } from '@/data/lessons/ester-la-reina'
+import { esterElDecreto as lessonEsterElDecreto } from '@/data/lessons/ester-el-decreto'
+import { esterElValor as lessonEsterElValor } from '@/data/lessons/ester-el-valor'
+import { esterYLaRestauracion as lessonEsterYLaRestauracion } from '@/data/lessons/ester-y-la-restauracion'
+import { deboraLaJueza as lessonDeboraLaJueza } from '@/data/lessons/debora-la-jueza'
+import { deboraLaProfetisa as lessonDeboraLaProfetisa } from '@/data/lessons/debora-la-profetisa'
+import { deboraLaGuerrera as lessonDeboraLaGuerrera } from '@/data/lessons/debora-la-guerrera'
+import { deboraYJael as lessonDeboraYJael } from '@/data/lessons/debora-y-jael'
+import { deboraYLaRestauracion as lessonDeboraYLaRestauracion } from '@/data/lessons/debora-y-la-restauracion'
+import { mariaMadreElAnuncio as lessonMariaMadreElAnuncio } from '@/data/lessons/maria-madre-el-anuncio'
+import { mariaMadreLaVisitacion as lessonMariaMadreLaVisitacion } from '@/data/lessons/maria-madre-la-visitacion'
+import { mariaMadreYJose as lessonMariaMadreYJose } from '@/data/lessons/maria-madre-y-jose'
+import { mariaMadreEnLaCruz as lessonMariaMadreEnLaCruz } from '@/data/lessons/maria-madre-en-la-cruz'
+import { mariaMadreYLaRestauracion as lessonMariaMadreYLaRestauracion } from '@/data/lessons/maria-madre-y-la-restauracion'
+import { hermanoJaredLaTorre as lessonHermanoJaredLaTorre } from '@/data/lessons/hermano-jared-la-torre'
+import { hermanoJaredElViaje as lessonHermanoJaredElViaje } from '@/data/lessons/hermano-jared-el-viaje'
+import { hermanoJaredLasPiedras as lessonHermanoJaredLasPiedras } from '@/data/lessons/hermano-jared-las-piedras'
+import { hermanoJaredLaVision as lessonHermanoJaredLaVision } from '@/data/lessons/hermano-jared-la-vision'
+import { hermanoJaredYLaRestauracion as lessonHermanoJaredYLaRestauracion } from '@/data/lessons/hermano-jared-y-la-restauracion'
+import { ammonLaMision as lessonAmmonLaMision } from '@/data/lessons/ammon-la-mision'
+import { ammonElGuardian as lessonAmmonElGuardian } from '@/data/lessons/ammon-el-guardian'
+import { ammonElMaestro as lessonAmmonElMaestro } from '@/data/lessons/ammon-el-maestro'
+import { ammonElPadre as lessonAmmonElPadre } from '@/data/lessons/ammon-el-padre'
+import { ammonYLaRestauracion as lessonAmmonYLaRestauracion } from '@/data/lessons/ammon-y-la-restauracion'
 import { capitanMoroni as lessonCapitanMoroni } from '@/data/lessons/capitan-moroni'
 import { samuelElLamanita as lessonSamuelElLamanita } from '@/data/lessons/samuel-el-lamanita'
-import { moroniProfeta as _lessonMoroniProfeta } from '@/data/lessons/moroni-profeta'
-import { joseSmith as lessonJoseSmith } from '@/data/lessons/jose-smith'
-import { emmaSmith as lessonEmmaSmith } from '@/data/lessons/emma-smith'
-import { hyrumSmith as lessonHyrumSmith } from '@/data/lessons/hyrum-smith'
-import { oliverCowdery as lessonOliverCowdery } from '@/data/lessons/oliver-cowdery'
-import { brighamYoung as lessonBrighamYoung } from '@/data/lessons/brigham-young'
+import { joseSmithLaPrimeraVision as lessonJoseSmithLaPrimeraVision } from '@/data/lessons/jose-smith-la-primera-vision'
+import { joseSmithElTraductor as lessonJoseSmithElTraductor } from '@/data/lessons/jose-smith-el-traductor'
+import { joseSmithElProfeta as lessonJoseSmithElProfeta } from '@/data/lessons/jose-smith-el-profeta'
+import { joseSmithElMartir as lessonJoseSmithElMartir } from '@/data/lessons/jose-smith-el-martir'
+import { joseSmithYLaRestauracion as lessonJoseSmithYLaRestauracion } from '@/data/lessons/jose-smith-y-la-restauracion'
+import { emmaSmithLaElegida as lessonEmmaSmithLaElegida } from '@/data/lessons/emma-smith-la-elegida'
+import { emmaSmithLaEscribiente as lessonEmmaSmithLaEscribiente } from '@/data/lessons/emma-smith-la-escribiente'
+import { emmaSmithElSufrimiento as lessonEmmaSmithElSufrimiento } from '@/data/lessons/emma-smith-el-sufrimiento'
+import { emmaSmithLaMusica as lessonEmmaSmithLaMusica } from '@/data/lessons/emma-smith-la-musica'
+import { emmaSmithYLaRestauracion as lessonEmmaSmithYLaRestauracion } from '@/data/lessons/emma-smith-y-la-restauracion'
+import { hyrumSmithElHermano as lessonHyrumSmithElHermano } from '@/data/lessons/hyrum-smith-el-hermano'
+import { hyrumSmithElPatriarca as lessonHyrumSmithElPatriarca } from '@/data/lessons/hyrum-smith-el-patriarca'
+import { hyrumSmithLaIntegridad as lessonHyrumSmithLaIntegridad } from '@/data/lessons/hyrum-smith-la-integridad'
+import { hyrumSmithCarthage as lessonHyrumSmithCarthage } from '@/data/lessons/hyrum-smith-carthage'
+import { hyrumSmithYLaRestauracion as lessonHyrumSmithYLaRestauracion } from '@/data/lessons/hyrum-smith-y-la-restauracion'
+import { oliverCowderyElEscribiente as lessonOliverCowderyElEscribiente } from '@/data/lessons/oliver-cowdery-el-escribiente'
+import { oliverCowderyElTestigo as lessonOliverCowderyElTestigo } from '@/data/lessons/oliver-cowdery-el-testigo'
+import { oliverCowderyElSacerdocio as lessonOliverCowderyElSacerdocio } from '@/data/lessons/oliver-cowdery-el-sacerdocio'
+import { oliverCowderyLaApostasia as lessonOliverCowderyLaApostasia } from '@/data/lessons/oliver-cowdery-la-apostasia'
+import { oliverCowderyYLaRestauracion as lessonOliverCowderyYLaRestauracion } from '@/data/lessons/oliver-cowdery-y-la-restauracion'
+import { brighamYoungLaConversion as lessonBrighamYoungLaConversion } from '@/data/lessons/brigham-young-la-conversion'
+import { brighamYoungNauvoo as lessonBrighamYoungNauvoo } from '@/data/lessons/brigham-young-nauvoo'
+import { brighamYoungElExodo as lessonBrighamYoungElExodo } from '@/data/lessons/brigham-young-el-exodo'
+import { brighamYoungElColonizador as lessonBrighamYoungElColonizador } from '@/data/lessons/brigham-young-el-colonizador'
+import { brighamYoungYLaRestauracion as lessonBrighamYoungYLaRestauracion } from '@/data/lessons/brigham-young-y-la-restauracion'
 import { lucifer as lessonLucifer } from '@/data/lessons/lucifer'
 import { elMundoDeLoEspiritus as lessonMundoEspiritus } from '@/data/lessons/el-mundo-de-los-espiritus'
 import { enocElLlamamiento as lessonEnocElLlamamiento } from '@/data/lessons/enoc-el-llamamiento'
@@ -176,6 +255,19 @@ import { davidYGoliat as lessonDavidYGoliat } from '@/data/lessons/david-y-golia
 import { davidElPoeta as lessonDavidElPoeta } from '@/data/lessons/david-el-poeta'
 import { davidLaCaida as lessonDavidLaCaida } from '@/data/lessons/david-la-caida'
 import { davidYLaRestauracion as lessonDavidYLaRestauracion } from '@/data/lessons/david-y-la-restauracion'
+// ── CAPACITACIÓN LIDERAZGO — PFJ TRANSICIÓN 2026 ─────────────────────────────
+import { obispadoElCambio as lessonObispadoElCambio } from '@/data/lessons/obispado-el-cambio'
+import { obispadoQuintoDomingo as lessonObispadoQuintoDomingo } from '@/data/lessons/obispado-quinto-domingo'
+import { obispadoComunicarPadres as lessonObispadoComunicarPadres } from '@/data/lessons/obispado-comunicar-padres'
+import { hjLaGuiaPfj as lessonHjLaGuiaPfj } from '@/data/lessons/hj-la-guia-pfj'
+import { hjEnsenar25Minutos as lessonHjEnsenar25Minutos } from '@/data/lessons/hj-ensenar-25-minutos'
+import { hjMaratonLectura as lessonHjMaratonLectura } from '@/data/lessons/hj-maraton-lectura'
+import { mjLaGuiaPfj as lessonMjLaGuiaPfj } from '@/data/lessons/mj-la-guia-pfj'
+import { mjEnsenar25Minutos as lessonMjEnsenar25Minutos } from '@/data/lessons/mj-ensenar-25-minutos'
+import { mjConectarHogar as lessonMjConectarHogar } from '@/data/lessons/mj-conectar-hogar'
+import { elderesRolMisional as lessonElderesRolMisional } from '@/data/lessons/elderes-rol-misional'
+import { elderesMentoresJovenes as lessonElderesMentoresJovenes } from '@/data/lessons/elderes-mentores-jovenes'
+import { elderesVisionPfj as lessonElderesVisionPfj } from '@/data/lessons/elderes-vision-pfj'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -193,6 +285,27 @@ type LessonRow = {
 }
 
 export const SUBMODULE_GROUPS: Record<string, { title: string; description: string; icon: string }> = {
+  // ── CAPACITACIÓN LIDERAZGO ────────────────────────────────────────────────
+  'obispado-pfj': {
+    title: 'Obispado',
+    description: 'La transición PFJ desde la perspectiva del obispado: comunicar, organizar el quinto domingo y acompañar a cada organización.',
+    icon: '⚖️',
+  },
+  'hj-pfj': {
+    title: 'Hombres Jóvenes',
+    description: 'Líderes de HJ: conocer la guía PFJ, enseñar en 25 minutos y activar el maratón de lectura con los jóvenes y sus familias.',
+    icon: '🧑',
+  },
+  'mj-pfj': {
+    title: 'Mujeres Jóvenes',
+    description: 'Líderes de MJ: la guía PFJ desde la perspectiva de las jóvenes, clases semanales y conectar el hogar con el domingo.',
+    icon: '👧',
+  },
+  'elderes-pfj': {
+    title: 'Élderes y Líder Misional',
+    description: 'El Cuórum de Élderes como puente generacional: mentores misioneros, visión misional del PFJ y discipulado diario.',
+    icon: '🌍',
+  },
   jesucristo: {
     title: 'Jesucristo — Centro de Todo',
     description:
@@ -295,6 +408,138 @@ export const SUBMODULE_GROUPS: Record<string, { title: string; description: stri
       'Mató a Goliat a los 17 años, escribió los Salmos más profundos de la historia, y a los 50 destruyó su legado con Betsabé y Urías. DyC 132:39 da el veredicto eterno. Un estudio de la fe, la caída y la gracia.',
     icon: '🎵',
   },
+  sara: {
+    title: 'Sara — La Madre de la Fe',
+    description:
+      'Se rió de Dios cuando le prometió un hijo a los 90 años. Dios nombró al niño "Isaac" — risa. Sara vivió la fe más improbable del Antiguo Testamento: creer en lo imposible después de décadas de silencio divino.',
+    icon: '😂',
+  },
+  rut: {
+    title: 'Rut — La Lealtad que Venció al Origen',
+    description:
+      "Moabita, viuda, extranjera — y bisabuela de David. Su declaración \"donde tú mueras, moriré yo\" es la declaración de lealtad más hermosa de la Biblia. Boaz como tipo de Cristo: el go'el que paga el precio completo.",
+    icon: '🌾',
+  },
+  ester: {
+    title: 'Ester — "Si He de Morir, Que Muera"',
+    description:
+      'Huérfana judía viviendo con nombre persa en la corte del rey más poderoso del mundo. "¿Quién sabe si no fue para este momento que llegaste al reino?" Lo que hizo después salvó a un pueblo entero.',
+    icon: '👸',
+  },
+  debora: {
+    title: 'Débora — La Jueza que Dirigió una Guerra',
+    description:
+      'La única mujer jueza de Israel. Gobernaba bajo su palmera, profetizaba la voluntad de Dios, y dio la orden de ataque cuando el general dudó. Su Canto (Jueces 5) es uno de los textos más antiguos de la Biblia.',
+    icon: '⚔️',
+  },
+  'maria-madre': {
+    title: 'María — La Madre Elegida entre Todas',
+    description:
+      'Nefi la vio en visión 600 años antes de su nacimiento. Mosíah 3:8 la nombra. Alma 7:10 especifica el lugar de su parto. María vivió la mayor alegría y el mayor dolor que puede vivir una madre — y estuvo en ambos momentos.',
+    icon: '✨',
+  },
+  'hermano-jared': {
+    title: 'El Hermano de Jared — El que Vio al Cristo Premortal',
+    description:
+      'Su fe fue tan grande que Dios no pudo ocultársele. Vio al Cristo premortal cara a cara. Las 16 piedras luminosas. La travesía del océano. Y una porción sellada de las escrituras que el mundo aún no ha recibido.',
+    icon: '💎',
+  },
+  ammon: {
+    title: 'Ammón — El Misionero que Cortó Brazos',
+    description:
+      'Eligió servir al rey lamanita. Cortó los brazos de sus atacantes. Convirtió al rey, al rey supremo, y a miles de lamanitas. Los Anti-Nefi-Lehíes enterraron sus armas y murieron antes de volver a usarlas.',
+    icon: '💪',
+  },
+  'jose-smith': {
+    title: 'José Smith — El Profeta de la Restauración',
+    description:
+      'A los 14 años vio al Padre y al Hijo. A los 38 fue martirizado. Entre esas dos fechas, tradujo el Libro de Mormón, restauró el sacerdocio, recibió 138 revelaciones, y estableció la dispensación de la plenitud de los tiempos.',
+    icon: '🌟',
+  },
+  'emma-smith': {
+    title: 'Emma Smith — La Elegida de Dios',
+    description:
+      'DyC 25 le habla directamente: "Elegida y llamada." Primera escribiente del Libro de Mormón. Compiló el primer himnario. Organizó la Sociedad de Socorro. Vivió el costo completo de ser la esposa del profeta.',
+    icon: '🌹',
+  },
+  'hyrum-smith': {
+    title: 'Hyrum Smith — El Mártir de la Integridad',
+    description:
+      '"Tiene la integridad de Job" — dijo José de él. Podría haberse salvado en Carthage. Eligió quedarse con su hermano. DyC 135 los nombra a ambos como mártires. Su muerte selló su testimonio con sangre.',
+    icon: '🤝',
+  },
+  'oliver-cowdery': {
+    title: 'Oliver Cowdery — El Testigo que Nunca Negó',
+    description:
+      'Transcribió el Libro de Mormón. Fue co-receptor del sacerdocio de Juan el Bautista y de Pedro, Santiago y Juan. Fue excomulgado. Diez años después volvió. Y murió con el mismo testimonio intacto.',
+    icon: '✍️',
+  },
+  'brigham-young': {
+    title: 'Brigham Young — El León de Israel',
+    description:
+      'Carpintero semi-analfabeto que leyó el Libro de Mormón y tardó dos años en convertirse. Treinta años después había guiado 70,000 santos a través de las llanuras y fundado 350 comunidades en el desierto.',
+    icon: '🦁',
+  },
+  jeremias: {
+    title: 'Jeremías — El Profeta que Lloró',
+    description:
+      'Profetizó 40 años sin convertir a nadie. Fue encerrado en un pozo de barro y vio Jerusalén arder. Sus Lamentaciones son el dolor más puro de las Escrituras. Y en medio de todo, profetizó el Nuevo Convenio escrito en el corazón.',
+    icon: '😭',
+  },
+  daniel: {
+    title: 'Daniel — En el Foso de los Leones',
+    description:
+      'Deportado a Babilonia a los 15 años, llegó a ser segundo del Imperio más poderoso de su época sin comprometer su fe. Sus visiones del capítulo 7 son la base de Adán-ondi-Ahmán. José Smith citó Daniel 2 como profecía central de la Restauración.',
+    icon: '🦁',
+  },
+  job: {
+    title: 'Job — El Sufrimiento del Justo',
+    description:
+      '¿Por qué sufre quien no merece sufrir? Job perdió todo en un día, sus amigos dieron respuestas incorrectas, y Dios respondió desde el torbellino con preguntas. Job 19:25-27 es la declaración de fe más audaz del Antiguo Testamento.',
+    icon: '🌪️',
+  },
+  ezequiel: {
+    title: 'Ezequiel — Las Visiones del Trono',
+    description:
+      'Vio la gloria de Dios moverse en un carro de fuego. Ezequiel 37 (los huesos secos) y 37:16-19 (los dos palos) tienen aplicación directa en la Restauración. El Libro de Mormón cumple la profecía del palo de Efraín.',
+    icon: '👁️',
+  },
+  pedro: {
+    title: 'Pedro — La Roca que Cayó y Se Levantó',
+    description:
+      'Caminó sobre el agua y se hundió. Confesó que Jesús era el Cristo. Negó a Jesús tres veces y lloró amargamente. Y fue él quien presidió la Iglesia primitiva, abrió el evangelio a los gentiles y murió crucificado de cabeza.',
+    icon: '🪨',
+  },
+  pablo: {
+    title: 'Pablo — Del Perseguidor al Mayor Misionero',
+    description:
+      'Aprobó la muerte de Esteban y arrestó cristianos de casa en casa — hasta que Cristo lo detuvo en el camino a Damasco. Sus 13 epístolas son el 40% del Nuevo Testamento. 1 Corintios 15:29 es el fundamento escritural del bautismo por los muertos.',
+    icon: '✉️',
+  },
+  'juan-bautista': {
+    title: 'Juan el Bautista — La Voz en el Desierto',
+    description:
+      '"Entre los nacidos de mujer, no ha surgido ninguno mayor." Bautizó a Jesús, fue decapitado por el capricho de una niña, y en 1829 apareció como ser resucitado para restaurar el sacerdocio aarónico a José Smith.',
+    icon: '🏜️',
+  },
+  'maria-magdalena': {
+    title: 'María Magdalena — La Primera Testigo',
+    description:
+      'No fue la pecadora que el mundo inventa — ese mito lo creó el Papa Gregorio I en 591 d.C. Era discípula fiel que financió el ministerio de Jesús, estuvo al pie de la cruz, y fue la primera persona a quien se le apareció el Cristo resucitado.',
+    icon: '🌸',
+  },
+  tomas: {
+    title: 'Tomás — El Incrédulo que Llegó Más Lejos',
+    description:
+      'El que exigió ver las heridas antes de creer hizo la confesión de divinidad más directa de los cuatro evangelios: "¡Señor mío y Dios mío!" Llevó el evangelio hasta la India en el año 52 d.C.',
+    icon: '🖐️',
+  },
+  'santiago-justo': {
+    title: 'Santiago el Justo — El Hermano de Jesús',
+    description:
+      'No creyó en su hermano durante el ministerio. El Cristo resucitado se le apareció personalmente. Después de eso presidió la Iglesia de Jerusalén 30 años. Santiago 1:5 fue el versículo que detonó la Primera Visión de José Smith.',
+    icon: '🏛️',
+  },
 }
 
 const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
@@ -373,6 +618,16 @@ const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
     level: 'INTERMEDIO',
     usePurpleAccent: false,
     categoryLabel: 'PERSONAJE PRINCIPAL',
+  },
+  {
+    id: 'capacitacion-liderazgo',
+    title: 'Capacitación del Liderazgo',
+    description:
+      'Recursos de capacitación para el liderazgo del barrio: cambios programáticos, roles de cada organización y herramientas para enseñar y servir con más eficacia.',
+    icon: '🏛️',
+    order: 22,
+    level: 'BÁSICO',
+    usePurpleAccent: false,
   },
   {
     id: 'sacerdocio',
@@ -1075,203 +1330,97 @@ const LESSON_ROWS: LessonRow[] = [
   { id: 'david-el-poeta', moduleId: 'personajes-escrituras', title: 'El Poeta de Israel', subtitle: 'Los Salmos como profecía mesiánica y oración universal', description: 'David escribió al menos 73 de los 150 Salmos. El Salmo 22 describe la crucifixión con 7 correspondencias exactas escritas 1,000 años antes. El Salmo 110 es el versículo del Antiguo Testamento más citado en el Nuevo Testamento.', level: 'AVANZADO', icon: '🎵', duration: 35, order: 4212, status: 'PUBLISHED', submoduleGroup: 'david' },
   { id: 'david-la-caida', moduleId: 'personajes-escrituras', title: 'La Caída', subtitle: 'Betsabé, Urías y el precio del pecado del ungido', description: 'En la primavera "cuando los reyes salen a la guerra", David se quedó en Jerusalén. Vio a Betsabé. La tomó. Hizo matar a Urías. Nathan le dijo: "Tú eres aquel hombre." El Salmo 51 es su clamor de arrepentimiento. DyC 132:39 da el veredicto eterno.', level: 'AVANZADO', icon: '💔', duration: 35, order: 4213, status: 'PUBLISHED', submoduleGroup: 'david' },
   { id: 'david-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'David y la Restauración', subtitle: 'El convenio davídico y Cristo como su cumplimiento', description: '2 Samuel 7 registra el convenio de Dios con David: un hijo suyo reinaría para siempre. DyC 113:1-6 identifica a Cristo como el Vástago de Isaías 11. El "Mesías" (ungido) era el título del rey davídico. Jesús es el David eterno.', level: 'AVANZADO', icon: '✨', duration: 25, order: 4214, status: 'PUBLISHED', submoduleGroup: 'david' },
-  {
-    id: 'jeremias',
-    moduleId: 'personajes-escrituras',
-    title: 'Jeremías — El Profeta que Lloró',
-    subtitle: 'Maldijo el día en que nació, y nunca paró de profetizar',
-    description:
-      'Jeremías profetizó durante 40 años y no convirtió a nadie. Fue golpeado, encerrado en un pozo de barro, y vio Jerusalén arder. Sus Lamentaciones son el dolor más puro de las Escrituras. Y en medio de todo, profetizó la restauración (Jeremías 31).',
-    level: 'INTERMEDIO',
-    icon: '😭',
-    duration: 65,
-    order: 43,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'daniel',
-    moduleId: 'personajes-escrituras',
-    title: 'Daniel — En el Foso de los Leones',
-    subtitle: 'El joven que gobernó Babilonia sin comprometerse',
-    description:
-      'Daniel fue llevado cautivo a Babilonia a los 15 años y llegó a ser el segundo hombre del Imperio más poderoso de su época — sin comer la comida del rey, sin inclinarse ante la estatua, sin dejar de orar tres veces al día. Sus visiones del capítulo 7 son la base del Adán-ondi-Ahmán.',
-    level: 'AVANZADO',
-    icon: '🦁',
-    duration: 75,
-    order: 44,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'job',
-    moduleId: 'personajes-escrituras',
-    title: 'Job — El Sufrimiento del Justo',
-    subtitle: '¿Por qué sufre quien no merece sufrir?',
-    description:
-      'Job perdió sus hijos, su salud y su fortuna en un solo día — y Dios lo permitió. Sus tres amigos dieron respuestas teológicas incorrectas. Job los superó. Y al final Dios habló desde el torbellino con las preguntas más inesperadas. Job 19:25-27 es la declaración de fe más audaz del Antiguo Testamento.',
-    level: 'AVANZADO',
-    icon: '🌪️',
-    duration: 70,
-    order: 45,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'ezequiel',
-    moduleId: 'personajes-escrituras',
-    title: 'Ezequiel — Las Visiones del Trono y los Huesos Secos',
-    subtitle: 'El profeta que vio el carro de Dios',
-    description:
-      'Ezequiel vio la gloria de Dios moverse en un carro de fuego (la merkavá). Actuó sus profecías: se acostó 390 días de un lado, cocinó con estiércol, rapó su cabeza. Ezequiel 37 (el valle de los huesos secos) y 37:16-19 (los dos palos/escrituras) tienen aplicación directa en la restauración.',
-    level: 'AVANZADO',
-    icon: '👁️',
-    duration: 70,
-    order: 46,
-    status: 'IN_CONSTRUCTION',
-  },
+  // ── JEREMÍAS (submodule, orders 4310-4314) ──────────────────────────────
+  { id: 'jeremias-el-llamamiento', moduleId: 'personajes-escrituras', title: 'El Llamamiento', subtitle: '"Antes que te formase en el vientre te conocí"', description: 'Jeremías fue llamado profeta antes de nacer (Jer 1:5). Resistió, alegando ser "un niño." Dios tocó su boca y lo envió a las naciones. El llamamiento prenatal de Jeremías es base doctrinal de la preexistencia en la Restauración.', level: 'INTERMEDIO', icon: '📢', duration: 30, order: 4310, status: 'PUBLISHED', submoduleGroup: 'jeremias' },
+  { id: 'jeremias-el-perseguido', moduleId: 'personajes-escrituras', title: 'El Perseguido', subtitle: 'Encerrado en el cepo, arrojado al pozo', description: 'Pasur lo golpeó y puso en el cepo. Fue arrojado a un pozo de barro. Sus "confesiones" revelan un hombre al borde del colapso que siguió profetizando. El profeta más maltratado de la Biblia nunca pidió ser relevado de su llamamiento.', level: 'INTERMEDIO', icon: '😤', duration: 30, order: 4311, status: 'PUBLISHED', submoduleGroup: 'jeremias' },
+  { id: 'jeremias-las-lamentaciones', moduleId: 'personajes-escrituras', title: 'Las Lamentaciones', subtitle: 'El dolor más puro de las Escrituras', description: 'Jeremías vio Jerusalén arder en 586 a.C. y escribió 5 poemas de dolor en estructura acróstica hebrea. Lamentaciones 3:22-23 ("sus misericordias son nuevas cada mañana") nació en la destrucción total.', level: 'AVANZADO', icon: '😭', duration: 35, order: 4312, status: 'PUBLISHED', submoduleGroup: 'jeremias' },
+  { id: 'jeremias-el-nuevo-convenio', moduleId: 'personajes-escrituras', title: 'El Nuevo Convenio', subtitle: 'La profecía que nombró al Nuevo Testamento', description: 'Jeremías 31:31-34 profetizó un convenio escrito en el corazón, no en tablas de piedra. El Nuevo Testamento lleva el nombre de esta profecía. Hebreos 8:8-12 la cita como cumplida en Cristo.', level: 'AVANZADO', icon: '📜', duration: 35, order: 4313, status: 'PUBLISHED', submoduleGroup: 'jeremias' },
+  { id: 'jeremias-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Jeremías y la Restauración', subtitle: 'Las planchas de bronce y la reunión de Israel', description: 'Las planchas de bronce contenían escritos de Jeremías (1 Nefi 5:13). Lehi era su contemporáneo. Jeremías 16:14-15 profetizó la reunión de Israel "de todos los rincones de la tierra" — la misión central de la Restauración.', level: 'INTERMEDIO', icon: '✨', duration: 25, order: 4314, status: 'PUBLISHED', submoduleGroup: 'jeremias' },
+  // ── DANIEL (submodule, orders 4410-4414) ────────────────────────────────
+  { id: 'daniel-el-cautivo', moduleId: 'personajes-escrituras', title: 'El Cautivo Fiel', subtitle: 'Deportado a Babilonia a los 15 años', description: 'Daniel fue llevado en la primera deportación babilónica (605 a.C.). Su primera decisión fue no contaminarse con la comida del rey. La prueba de 10 días con legumbres y agua fue el primer acto de una fe que nunca cedió.', level: 'INTERMEDIO', icon: '🏛️', duration: 30, order: 4410, status: 'PUBLISHED', submoduleGroup: 'daniel' },
+  { id: 'daniel-el-fiel', moduleId: 'personajes-escrituras', title: 'El Fiel', subtitle: 'Ni la estatua ni el foso lo doblegaron', description: 'El horno de Sadrac, Mesac y Abed-nego (Daniel 3) — "nuestro Dios puede librarnos, pero aunque no lo hiciere." La aparición del cuarto ser en el fuego. El foso de los leones (Daniel 6) y la noche sin dormir del rey Darío.', level: 'INTERMEDIO', icon: '🦁', duration: 30, order: 4411, status: 'PUBLISHED', submoduleGroup: 'daniel' },
+  { id: 'daniel-las-visiones', moduleId: 'personajes-escrituras', title: 'Las Visiones Apocalípticas', subtitle: 'La piedra que llenó la tierra y el Hijo del Hombre', description: 'La estatua de metales (4 imperios + la piedra del reino de Dios), las cuatro bestias de Daniel 7, las 70 semanas y el calendario del Mesías, y Adán-ondi-Ahmán (DyC 116) como cumplimiento de Daniel 7.', level: 'AVANZADO', icon: '👁️', duration: 35, order: 4412, status: 'PUBLISHED', submoduleGroup: 'daniel' },
+  { id: 'daniel-en-el-foso', moduleId: 'personajes-escrituras', title: 'La Oración que No Cesó', subtitle: 'Tres veces al día, ventana abierta hacia Jerusalén', description: 'Los sátrapas usaron la oración de Daniel como trampa: decreto de orar solo al rey por 30 días. Daniel continuó orando tres veces al día con la ventana abierta. La noche de Darío sin dormir. "El Dios tuyo te libró."', level: 'INTERMEDIO', icon: '🙏', duration: 30, order: 4413, status: 'PUBLISHED', submoduleGroup: 'daniel' },
+  { id: 'daniel-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Daniel y la Restauración', subtitle: 'La piedra cortada sin manos — profecía de la Restauración', description: 'José Smith enseñó que Daniel 2:44-45 profetizó la Restauración. DyC 116 identifica Adán-ondi-Ahmán con Daniel 7. Las 70 semanas apuntan al ministerio de Cristo. Daniel es el profeta más citado en documentos de la Restauración después de Isaías.', level: 'AVANZADO', icon: '✨', duration: 25, order: 4414, status: 'PUBLISHED', submoduleGroup: 'daniel' },
+  // ── JOB (submodule, orders 4510-4514) ───────────────────────────────────
+  { id: 'job-el-justo', moduleId: 'personajes-escrituras', title: 'El Justo', subtitle: '"¿Has considerado a mi siervo Job?"', description: 'El prólogo celestial de Job 1 — la apuesta entre Dios y el Acusador. Job es descrito como "íntegro y recto" sin paralelo en la Biblia. Cuatro catástrofes en un día. Su primera respuesta: "Desnudo salí... desnudo volveré."', level: 'AVANZADO', icon: '⚖️', duration: 30, order: 4510, status: 'PUBLISHED', submoduleGroup: 'job' },
+  { id: 'job-el-sufrimiento', moduleId: 'personajes-escrituras', title: 'El Sufrimiento', subtitle: '"Aunque me mate, en él esperaré"', description: 'La segunda prueba (las llagas), los 7 días de silencio de los amigos, las confesiones de Job en los capítulos 3, 7, 10, 13. Y la declaración de fe más audaz del Antiguo Testamento: Job 19:25-27 — "yo sé que mi Redentor vive."', level: 'AVANZADO', icon: '🌪️', duration: 35, order: 4511, status: 'PUBLISHED', submoduleGroup: 'job' },
+  { id: 'job-los-amigos', moduleId: 'personajes-escrituras', title: 'La Teología Incorrecta', subtitle: 'Cuando la doctrina correcta se aplica mal', description: 'Los tres amigos tenían una teología técnicamente ortodoxa (sufrimiento = castigo) pero la aplicaron mal. Eliú ofrece un argumento diferente (Job 33: el sufrimiento como refinamiento). Al final Dios les dijo que no habían "hablado lo recto" como Job.', level: 'AVANZADO', icon: '🗣️', duration: 30, order: 4512, status: 'PUBLISHED', submoduleGroup: 'job' },
+  { id: 'job-la-respuesta', moduleId: 'personajes-escrituras', title: 'La Respuesta desde el Torbellino', subtitle: '"¿Dónde estabas tú cuando puse los fundamentos de la tierra?"', description: 'Dios responde con preguntas sobre la creación — no con explicaciones. Behemot y Leviatán. La respuesta de Job: "Mis oídos te habían oído, pero ahora te ven mis ojos" (Job 42:5). La restauración de Job como tipo de la resurrección.', level: 'AVANZADO', icon: '🌩️', duration: 35, order: 4513, status: 'PUBLISHED', submoduleGroup: 'job' },
+  { id: 'job-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Job y la Restauración', subtitle: '"Yo sé que mi Redentor vive" — profecía de la resurrección', description: 'Job 19:25-27 profetizó la resurrección corporal 1,500 años antes de Cristo. Lorenzo Snow citó a Job en el contexto de la exaltación. La doctrina restaurada responde la pregunta de Job: el sufrimiento no siempre indica desaprobación divina.', level: 'INTERMEDIO', icon: '✨', duration: 25, order: 4514, status: 'PUBLISHED', submoduleGroup: 'job' },
+  // ── EZEQUIEL (submodule, orders 4610-4614) ──────────────────────────────
+  { id: 'ezequiel-la-vision', moduleId: 'personajes-escrituras', title: 'La Visión del Trono', subtitle: 'La merkavá — el carro de la gloria de Dios', description: 'Ezequiel 1 — los cuatro seres vivientes y las ruedas dentro de ruedas. La Gloria del Señor que abandona el templo (Ezequiel 10-11) y regresa al templo nuevo (Ezequiel 43). La merkavá como la visión teofánica más compleja del Antiguo Testamento.', level: 'AVANZADO', icon: '👁️', duration: 35, order: 4610, status: 'PUBLISHED', submoduleGroup: 'ezequiel' },
+  { id: 'ezequiel-el-guardian', moduleId: 'personajes-escrituras', title: 'El Atalaya de Israel', subtitle: '"Te he puesto por atalaya a la casa de Israel"', description: 'Ezequiel 3 y 33 — la responsabilidad del profeta de advertir. Las actuaciones proféticas: 390+40 días acostado, el duelo prohibido por la muerte de su esposa (Ezequiel 24). La teología radical de responsabilidad individual vs. colectiva (Ezequiel 18).', level: 'INTERMEDIO', icon: '⚔️', duration: 30, order: 4611, status: 'PUBLISHED', submoduleGroup: 'ezequiel' },
+  { id: 'ezequiel-los-huesos-secos', moduleId: 'personajes-escrituras', title: 'El Valle de los Huesos Secos', subtitle: '¿Vivirán estos huesos? — Ezequiel 37', description: 'Ezequiel 37:1-14 — la visión completa en cuatro etapas (ruido, temblor, carne, soplo). Interpretación inmediata: la casa de Israel que dice "nuestros huesos se secaron." Interpretación doctrinal: la resurrección literal. "Viviréis y sabréis que yo soy el Señor."', level: 'AVANZADO', icon: '🦴', duration: 35, order: 4612, status: 'PUBLISHED', submoduleGroup: 'ezequiel' },
+  { id: 'ezequiel-los-dos-palos', moduleId: 'personajes-escrituras', title: 'Los Dos Palos', subtitle: 'La Biblia y el Libro de Mormón en Ezequiel 37', description: 'Ezequiel 37:15-28 — el palo de Judá y el palo de Efraín que se unen en una mano. La Restauración identifica la Biblia como el palo de Judá y el Libro de Mormón como el de José/Efraín. 2 Nefi 3:12 lo confirma desde el propio Libro de Mormón.', level: 'AVANZADO', icon: '📖', duration: 35, order: 4613, status: 'PUBLISHED', submoduleGroup: 'ezequiel' },
+  { id: 'ezequiel-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Ezequiel y la Restauración', subtitle: 'El templo milenial y el río que sana', description: 'Ezequiel 40-48 — las medidas precisas del templo milenial. El río de Ezequiel 47 que sana las aguas muertas. Ezequiel 36:26 (corazón de carne). La profecía de Gog y Magog (Ezequiel 38-39) y su cumplimiento en DyC 45.', level: 'AVANZADO', icon: '✨', duration: 25, order: 4614, status: 'PUBLISHED', submoduleGroup: 'ezequiel' },
   // ── PERSONAS DEL NUEVO TESTAMENTO (orders 50-59) ─────────────────────────
-  {
-    id: 'pedro',
-    moduleId: 'personajes-escrituras',
-    title: 'Pedro — La Roca que Cayó y Se Levantó',
-    subtitle: 'De pescador a presidente de la Iglesia de Cristo',
-    description:
-      'Simón Pedro caminó sobre el agua y se hundió. Confesó que Jesús era el Cristo y fue llamado la roca. Negó a Jesús tres veces y lloró amargamente. Y fue él quien presidió la Iglesia primitiva, abrió el evangelio a los gentiles (Hechos 10) y murió crucificado de cabeza.',
-    level: 'INTERMEDIO',
-    icon: '🪨',
-    duration: 70,
-    order: 50,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'pablo',
-    moduleId: 'personajes-escrituras',
-    title: 'Pablo — Del Perseguidor al Mayor Misionero',
-    subtitle: 'La conversión más dramática del Nuevo Testamento',
-    description:
-      'Pablo aprobó la muerte de Esteban, arrestó cristianos de casa en casa — y en el camino a Damasco Cristo lo detuvo. Sus 13 epístolas son el 40% del Nuevo Testamento. Tres viajes misioneros. Dos encarcelamientos en Roma. Decapitado bajo Nerón. La teología de la gracia más desarrollada de la Biblia.',
-    level: 'INTERMEDIO',
-    icon: '✉️',
-    duration: 80,
-    order: 51,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'juan-el-bautista',
-    moduleId: 'personajes-escrituras',
-    title: 'Juan el Bautista — La Voz en el Desierto',
-    subtitle: 'El último profeta del AT y el primero del NT',
-    description:
-      'Jesús dijo de él: "Entre los nacidos de mujer, no ha surgido ninguno mayor que Juan el Bautista" (Mateo 11:11). Vivió en el desierto, comió langostas y miel silvestre, bautizó a Jesús, y fue decapitado por el capricho de una niña en una fiesta. DyC 13 registra su aparición a José Smith.',
-    level: 'INTERMEDIO',
-    icon: '🏜️',
-    duration: 60,
-    order: 52,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'maria-magdalena',
-    moduleId: 'personajes-escrituras',
-    title: 'María Magdalena — La Primera Testigo',
-    subtitle: 'No fue la pecadora que el mundo inventa',
-    description:
-      'En 591 d.C., el Papa Gregorio I fusionó tres mujeres distintas en una y creó el mito de la "pecadora arrepentida". María era de Magdala, tuvo siete demonios expulsados, financió el ministerio de Jesús, estuvo al pie de la cruz, y fue la primera persona a quien se le apareció el Cristo resucitado. Juan 20:11-18.',
-    level: 'INTERMEDIO',
-    icon: '🌸',
-    duration: 60,
-    order: 53,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'tomas',
-    moduleId: 'personajes-escrituras',
-    title: 'Tomás — El Incrédulo que Llegó Más Lejos',
-    subtitle: 'El que exigió pruebas hizo la confesión más profunda',
-    description:
-      'Tomás exigió ver las heridas antes de creer. Cuando las vio, dijo "¡Señor mío y Dios mío!" — la confesión de divinidad más directa de los cuatro evangelios. Según la tradición cristiana más antigua, llevó el evangelio hasta la India, donde murió mártir hacia el año 72 d.C.',
-    level: 'BÁSICO',
-    icon: '🖐️',
-    duration: 55,
-    order: 54,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'santiago-el-justo',
-    moduleId: 'personajes-escrituras',
-    title: 'Santiago el Justo — El Hermano de Jesús',
-    subtitle: 'De incrédulo a mártir y líder de la Iglesia de Jerusalén',
-    description:
-      'Santiago no creyó en su hermano durante el ministerio (Juan 7:5). El Cristo resucitado se le apareció personalmente (1 Cor 15:7). Después de eso, presidió la Iglesia de Jerusalén durante 30 años, escribió la Epístola de Santiago, y fue arrojado desde el pináculo del templo en el año 62 d.C. Josefo registra su muerte.',
-    level: 'AVANZADO',
-    icon: '🏛️',
-    duration: 65,
-    order: 55,
-    status: 'IN_CONSTRUCTION',
-  },
-  // ── MUJERES DE LAS ESCRITURAS (orders 60-69) ─────────────────────────────
-  {
-    id: 'sara',
-    moduleId: 'personajes-escrituras',
-    title: 'Sara — La Madre de la Fe',
-    subtitle: 'La que se rió de Dios y le creyó de todas formas',
-    description:
-      'Sara escuchó que daría a luz a los 90 años y se rió. Dios no se ofendió — nombró al niño "Isaac" (risa). Había mentido dos veces sobre ser la esposa de Abraham, había dado a su sierva a su marido, y Hebreos 11:11 la pone en la galería de los héroes de la fe de todas formas.',
-    level: 'BÁSICO',
-    icon: '😂',
-    duration: 55,
-    order: 60,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'rut',
-    moduleId: 'personajes-escrituras',
-    title: 'Rut — La Lealtad que Venció al Origen',
-    subtitle: 'Moabita, viuda, extranjera — y bisabuela de David',
-    description:
-      'Rut no era israelita. Provenía de Moab, un pueblo con orígenes vergonzosos. Perdió a su marido. Eligió quedarse con su suegra cuando podría haberse ido. Y su lealtad absoluta — "donde tú mueras, moriré yo" — la colocó en la línea directa del Mesías. El kinsman-redeemer Boaz como tipo de Cristo.',
-    level: 'BÁSICO',
-    icon: '🌾',
-    duration: 55,
-    order: 61,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'ester',
-    moduleId: 'personajes-escrituras',
-    title: 'Ester — "Si He de Morir, Que Muera"',
-    subtitle: 'La reina que salvó a su pueblo con una cena',
-    description:
-      'Ester era huérfana judía viviendo bajo un nombre persa falso en la corte del rey más poderoso del mundo. Su primo Mardoqueo le dijo: "¿Quién sabe si no fue para este momento que llegaste al reino?" (Ester 4:14). Lo que hizo después salvó a todos los judíos del Imperio Persa.',
-    level: 'BÁSICO',
-    icon: '👸',
-    duration: 55,
-    order: 62,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'debora',
-    moduleId: 'personajes-escrituras',
-    title: 'Débora — La Jueza-Guerrera',
-    subtitle: 'La única mujer jueza de Israel',
-    description:
-      'Débora gobernaba Israel, resolvía disputas bajo su palmera, y cuando llegó la guerra fue ella quien dio la orden de ataque. Jueces 4-5: la batalla, el general que obedeció a una mujer, y Jael, que clavó una estaca en la sien del enemigo. El Canto de Débora (Jueces 5) es uno de los textos más antiguos de la Biblia.',
-    level: 'INTERMEDIO',
-    icon: '⚔️',
-    duration: 55,
-    order: 63,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'maria-la-madre',
-    moduleId: 'personajes-escrituras',
-    title: 'María — La Madre Elegida entre Todas',
-    subtitle: 'La más mencionada en el Libro de Mormón entre las mujeres',
-    description:
-      'Nefi vio a la madre del Hijo de Dios en visión 600 años antes de su nacimiento (1 Nefi 11). Mosíah 3:8 la nombra. Alma 7:10 especifica el lugar del nacimiento. María vivió la mayor alegría y el mayor dolor que puede vivir una madre — y estuvo en ambos momentos hasta el final (Juan 19:25).',
-    level: 'INTERMEDIO',
-    icon: '✨',
-    duration: 65,
-    order: 64,
-    status: 'IN_CONSTRUCTION',
-  },
+  // ── PEDRO (submodule, orders 5010-5014) ─────────────────────────────────
+  { id: 'pedro-el-pescador', moduleId: 'personajes-escrituras', title: 'El Pescador', subtitle: '"Desde ahora serás pescador de hombres"', description: 'Simón Bar-Jonás de Betsaida. El llamamiento junto al Mar de Galilea (Lucas 5 — la pesca milagrosa). "Apártate de mí, Señor, porque soy hombre pecador." El nuevo nombre Cefas/Pedro. La dinámica de ser el hermano que Andrés encontró primero.', level: 'BÁSICO', icon: '🎣', duration: 25, order: 5010, status: 'PUBLISHED', submoduleGroup: 'pedro' },
+  { id: 'pedro-la-confesion', moduleId: 'personajes-escrituras', title: 'La Confesión de Cesarea', subtitle: '"Tú eres el Cristo, el Hijo del Dios viviente"', description: '"¿Quién decís que soy yo?" — la pregunta que definió la Iglesia. La respuesta de Pedro y la declaración de Jesús ("sobre esta roca"). Las llaves del reino de los cielos. Pedro caminando sobre el agua. La Transfiguración como testigo.', level: 'INTERMEDIO', icon: '🪨', duration: 30, order: 5011, status: 'PUBLISHED', submoduleGroup: 'pedro' },
+  { id: 'pedro-la-negacion', moduleId: 'personajes-escrituras', title: 'La Negación', subtitle: 'Tres veces, junto a la hoguera', description: 'La predicción de Jesús. Getsemaní — Pedro dormido. La negación junto a la hoguera en el patio del sumo sacerdote. "El canto del gallo" y "Pedro salió y lloró amargamente." La restauración en Juan 21: tres preguntas que anulan tres negaciones.', level: 'INTERMEDIO', icon: '🔥', duration: 30, order: 5012, status: 'PUBLISHED', submoduleGroup: 'pedro' },
+  { id: 'pedro-el-apostol', moduleId: 'personajes-escrituras', title: 'El Presidente del Quórum', subtitle: 'De Pentecostés a la apertura a los gentiles', description: 'El discurso de Pentecostés (Hechos 2 — 3,000 bautizados), la visión del mantel impuro y la apertura del evangelio a los gentiles (Cornelio, Hechos 10), el Concilio de Jerusalén (Hechos 15), y su muerte crucificado de cabeza bajo Nerón.', level: 'AVANZADO', icon: '🌍', duration: 35, order: 5013, status: 'PUBLISHED', submoduleGroup: 'pedro' },
+  { id: 'pedro-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Pedro y la Restauración', subtitle: 'Las llaves del apostolado restauradas', description: 'Pedro, Santiago y Juan confirieron el Sacerdocio de Melquisedec a José Smith y Oliver Cowdery (ca. 1829 — DyC 27:12-13). 2 Pedro 1:16-18 como testimonio ocular de la Transfiguración. 1 Pedro 3:18-20 como base del bautismo vicario.', level: 'AVANZADO', icon: '✨', duration: 25, order: 5014, status: 'PUBLISHED', submoduleGroup: 'pedro' },
+  // ── PABLO (submodule, orders 5110-5114) ─────────────────────────────────
+  { id: 'pablo-el-perseguidor', moduleId: 'personajes-escrituras', title: 'El Perseguidor', subtitle: 'De guardar los mantos a la muerte de Esteban', description: 'Saulo de Tarso — fariseo de fariseos, discípulo de Gamaliel, ciudadano romano. Aprobó la muerte de Esteban (Hechos 7). Persecución sistemática de casa en casa (Hechos 8:3). Un hombre absolutamente convencido de servir a Dios al perseguir la Iglesia.', level: 'INTERMEDIO', icon: '⚔️', duration: 30, order: 5110, status: 'PUBLISHED', submoduleGroup: 'pablo' },
+  { id: 'pablo-la-conversion', moduleId: 'personajes-escrituras', title: 'El Camino a Damasco', subtitle: 'La conversión más dramática del Nuevo Testamento', description: 'La luz, la voz ("¿por qué me persigues?"), tres días sin vista ni comida, Ananías el discípulo que obedeció sin entender, la recuperación de la vista y el bautismo inmediato. Los tres relatos del mismo evento (Hechos 9, 22, 26) con diferencias significativas.', level: 'INTERMEDIO', icon: '⚡', duration: 30, order: 5111, status: 'PUBLISHED', submoduleGroup: 'pablo' },
+  { id: 'pablo-el-misionero', moduleId: 'personajes-escrituras', title: 'El Gran Misionero', subtitle: 'Tres viajes, 14.000 km, 13 epístolas', description: 'Tres viajes misioneros por el mundo mediterráneo, el método misionero (sinagogas → gentiles), los sufrimientos de 2 Corintios 11:24-28, la carta a los Filipenses escrita desde la cárcel ("me gozo en el Señor siempre"), y su muerte en Roma.', level: 'BÁSICO', icon: '✉️', duration: 30, order: 5112, status: 'PUBLISHED', submoduleGroup: 'pablo' },
+  { id: 'pablo-la-teologia', moduleId: 'personajes-escrituras', title: 'La Teología de la Gracia', subtitle: 'Justificación por fe y el cuerpo de Cristo', description: 'La justificación por fe (Romanos 3, Gálatas 2), el cuerpo de Cristo (1 Corintios 12), el himno a la caridad (1 Corintios 13), la resurrección en 1 Corintios 15, y el bautismo por los muertos en 1 Corintios 15:29.', level: 'AVANZADO', icon: '📚', duration: 35, order: 5113, status: 'PUBLISHED', submoduleGroup: 'pablo' },
+  { id: 'pablo-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Pablo y la Restauración', subtitle: '1 Corintios 15:29 y la práctica primitiva', description: '1 Corintios 15:29 — el bautismo por los muertos como práctica conocida en la Iglesia primitiva. DyC 128:14-17 (José Smith cita a Pablo). Efesios 1:10 ("dispensación del cumplimiento de los tiempos"). La apostasía predicha en 2 Tesalonicenses 2.', level: 'AVANZADO', icon: '✨', duration: 25, order: 5114, status: 'PUBLISHED', submoduleGroup: 'pablo' },
+  // ── JUAN EL BAUTISTA (submodule, orders 5210-5214) ──────────────────────
+  { id: 'juan-bautista-el-precursor', moduleId: 'personajes-escrituras', title: 'El Precursor', subtitle: '"Voz del que clama en el desierto"', description: 'El nacimiento milagroso de Juan (Lucas 1). El ángel Gabriel y la profecía de que irá "con el espíritu y el poder de Elías." La vida en el desierto, la predicación de arrepentimiento, y su identificación como el "Elías que había de venir" (Mateo 11:14).', level: 'INTERMEDIO', icon: '🏜️', duration: 30, order: 5210, status: 'PUBLISHED', submoduleGroup: 'juan-bautista' },
+  { id: 'juan-bautista-el-bautismo', moduleId: 'personajes-escrituras', title: 'El Bautismo de Jesús', subtitle: 'La Trinidad manifiesta en el Jordán', description: 'La resistencia de Juan a bautizar a Jesús ("yo necesito ser bautizado por ti"). Jesús: "para cumplir toda justicia." La apertura de los cielos, la paloma, la voz del Padre. Por qué el bautismo de Jesús no fue para remisión de pecados pero establece el patrón correcto.', level: 'INTERMEDIO', icon: '💧', duration: 30, order: 5211, status: 'PUBLISHED', submoduleGroup: 'juan-bautista' },
+  { id: 'juan-bautista-el-mayor', moduleId: 'personajes-escrituras', title: '"Entre los Nacidos de Mujer, Ninguno Mayor"', subtitle: 'El lugar único de Juan en el plan de salvación', description: 'Mateo 11:11 — la paradoja ("el más pequeño en el reino es mayor que él"). Juan como el único profeta llamado antes de nacer con un nombre específico. Su papel como el último profeta del Antiguo Testamento y el primero del Nuevo.', level: 'AVANZADO', icon: '👑', duration: 30, order: 5212, status: 'PUBLISHED', submoduleGroup: 'juan-bautista' },
+  { id: 'juan-bautista-la-prision', moduleId: 'personajes-escrituras', title: 'La Prisión y la Muerte', subtitle: '"¿Eres tú el que había de venir?"', description: 'Juan encarcelado por reprender el matrimonio de Herodes. Su pregunta desde la prisión ("¿eres tú el que había de venir?") y lo que revela sobre la fe en el sufrimiento. La fiesta de Herodes, la danza de Salomé, y la decapitación del primer mártir cristiano.', level: 'INTERMEDIO', icon: '⛓️', duration: 30, order: 5213, status: 'PUBLISHED', submoduleGroup: 'juan-bautista' },
+  { id: 'juan-bautista-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Juan y la Restauración', subtitle: 'DyC 13 — las llaves del sacerdocio aarónico', description: 'Juan el Bautista como ser resucitado confirió el sacerdocio aarónico a José Smith y Oliver Cowdery el 15 de mayo de 1829 (DyC 13). Las llaves específicas: ministerio de ángeles, evangelio de arrepentimiento, bautismo por inmersión. El sacerdocio que "nunca será quitado."', level: 'AVANZADO', icon: '✨', duration: 25, order: 5214, status: 'PUBLISHED', submoduleGroup: 'juan-bautista' },
+  // ── MARÍA MAGDALENA (submodule, orders 5310-5314) ───────────────────────
+  { id: 'maria-magdalena-el-mito', moduleId: 'personajes-escrituras', title: 'El Mito', subtitle: 'Cómo el Papa Gregorio I inventó un personaje en 591 d.C.', description: 'Gregorio I fusionó tres mujeres distintas en una: María de Magdala, la pecadora anónima de Lucas 7, y María de Betania. El error duró 1,400 años. La Iglesia Católica lo corrigió oficialmente en 1969. Lo que dice Lucas 8:1-3 realmente sobre María.', level: 'INTERMEDIO', icon: '🔍', duration: 30, order: 5310, status: 'PUBLISHED', submoduleGroup: 'maria-magdalena' },
+  { id: 'maria-magdalena-la-discipula', moduleId: 'personajes-escrituras', title: 'La Discípula Fiel', subtitle: 'Financió el ministerio de Jesús y lo siguió hasta el final', description: 'Lucas 8:1-3 — María Magdalena y otras mujeres que servían con sus bienes al grupo de Jesús. Lo que esto significa económicamente. Las mujeres en los momentos más críticos de los Evangelios. El contraste con los doce que huyeron.', level: 'INTERMEDIO', icon: '🌸', duration: 30, order: 5311, status: 'PUBLISHED', submoduleGroup: 'maria-magdalena' },
+  { id: 'maria-magdalena-la-cruz', moduleId: 'personajes-escrituras', title: 'Al Pie de la Cruz', subtitle: 'La que no huyó en la oscuridad del Calvario', description: 'Las cuatro listas de mujeres en la crucifixión (Mateo 27, Marcos 15, Lucas 23, Juan 19) y sus diferencias. María Magdalena en todas las versiones. La vigilia junto al sepulcro. El significado teológico de ser testigo del momento más oscuro.', level: 'AVANZADO', icon: '✝️', duration: 30, order: 5312, status: 'PUBLISHED', submoduleGroup: 'maria-magdalena' },
+  { id: 'maria-magdalena-la-resurreccion', moduleId: 'personajes-escrituras', title: 'La Primera Testigo', subtitle: 'Juan 20:11-18 — Rabboni', description: 'Juan 20:1-18 completo: María llega de noche, la piedra quitada, los dos ángeles, el "jardinero", el reconocimiento cuando Jesús la llama por su nombre, "Rabboni", y el mandato "Ve y di a mis hermanos." El primer heraldo de la resurrección es una mujer.', level: 'AVANZADO', icon: '🌅', duration: 35, order: 5313, status: 'PUBLISHED', submoduleGroup: 'maria-magdalena' },
+  { id: 'maria-magdalena-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'María Magdalena y la Restauración', subtitle: 'La dignidad y el papel de la mujer en el evangelio', description: 'La enseñanza restaurada sobre el papel de la mujer como testigo y heraldo. Emma Smith en DyC 25:3. La Sociedad de Socorro fundada por José Smith. El testimonio de María como modelo de discipulado que no depende de posición eclesiástica.', level: 'INTERMEDIO', icon: '✨', duration: 25, order: 5314, status: 'PUBLISHED', submoduleGroup: 'maria-magdalena' },
+  // ── TOMÁS (submodule, orders 5410-5414) ─────────────────────────────────
+  { id: 'tomas-el-gemelo', moduleId: 'personajes-escrituras', title: 'Dídimo — El Gemelo', subtitle: 'El apóstol más malentendido de los doce', description: '"Tomás, llamado el Dídimo (Gemelo)" — cuatro momentos específicos en Juan (11:16, 14:5, 20:24-29, 21:2). Tomás en Juan 11:16: "vayamos también nosotros para morir con él" — un hombre dispuesto al martirio antes del episodio de la "duda."', level: 'BÁSICO', icon: '👥', duration: 25, order: 5410, status: 'PUBLISHED', submoduleGroup: 'tomas' },
+  { id: 'tomas-la-duda', moduleId: 'personajes-escrituras', title: 'La Duda Honesta', subtitle: '"Si no viere... no creeré"', description: 'Tomás no estaba cuando Jesús apareció la primera vez. Su declaración ("si no viere la señal de los clavos... no creeré") no fue incredulidad sino exigencia de evidencia empírica. La aparición a los ocho días y la invitación de Jesús: "no seas incrédulo sino creyente."', level: 'INTERMEDIO', icon: '🖐️', duration: 30, order: 5411, status: 'PUBLISHED', submoduleGroup: 'tomas' },
+  { id: 'tomas-la-confesion', moduleId: 'personajes-escrituras', title: '"¡Señor mío y Dios mío!"', subtitle: 'La confesión de divinidad más directa de los Evangelios', description: '"Ho kyrios mou kai ho theos mou" — la declaración de divinidad de Cristo más explícita en los cuatro evangelios. La paradoja: el que más dudó hizo la confesión más profunda. La respuesta de Jesús sobre los que creen sin ver.', level: 'AVANZADO', icon: '🌟', duration: 30, order: 5412, status: 'PUBLISHED', submoduleGroup: 'tomas' },
+  { id: 'tomas-el-misionero', moduleId: 'personajes-escrituras', title: 'El Misionero de la India', subtitle: 'El evangelio llega al subcontinente en el año 52 d.C.', description: 'Tomás llegó a Muzuris (Kerala) en 52 d.C. Fundó siete iglesias. La comunidad de Cristianos de Santo Tomás existe hasta hoy. Murió mártir en Chennai hacia el año 72 d.C. Su historia está documentada desde el siglo II.', level: 'INTERMEDIO', icon: '🌏', duration: 30, order: 5413, status: 'PUBLISHED', submoduleGroup: 'tomas' },
+  { id: 'tomas-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Tomás y la Restauración', subtitle: 'La fe que va más allá de la evidencia', description: 'La enseñanza restaurada sobre fe y testimonio (Alma 32). DyC 46:13-14 (el don de saber, el don de creer sin saber). Juan 20:29 como base del testimonio espiritual. La conexión entre la "duda honesta" de Tomás y la promesa de Moroni 10:3-5.', level: 'INTERMEDIO', icon: '✨', duration: 25, order: 5414, status: 'PUBLISHED', submoduleGroup: 'tomas' },
+  // ── SANTIAGO EL JUSTO (submodule, orders 5510-5514) ─────────────────────
+  { id: 'santiago-el-incredulo', moduleId: 'personajes-escrituras', title: 'El Hermano Incrédulo', subtitle: 'Juan 7:5 — "Ni aun sus hermanos creían en él"', description: 'Juan 7:5 es el verso más honesto de la Biblia sobre Jesús. Los hermanos de Jesús (Santiago, José, Simón, Judas — Mateo 13:55). Santiago burlándose en Juan 7:3-4. Lo que significa crecer en Nazaret como el hermano de alguien que afirma ser el Hijo de Dios.', level: 'INTERMEDIO', icon: '🏠', duration: 30, order: 5510, status: 'PUBLISHED', submoduleGroup: 'santiago-justo' },
+  { id: 'santiago-el-apostol', moduleId: 'personajes-escrituras', title: 'La Aparición que lo Cambió Todo', subtitle: '1 Corintios 15:7 — Cristo se le apareció a Santiago', description: 'Pablo menciona específicamente la aparición del Cristo resucitado a Santiago (1 Cor 15:7). La transformación de incrédulo a líder de la Iglesia de Jerusalén. Su ascenso en Hechos (12:17, 15:13, 21:18). Las conversiones producidas por el testimonio ocular de la resurrección.', level: 'INTERMEDIO', icon: '👁️', duration: 30, order: 5511, status: 'PUBLISHED', submoduleGroup: 'santiago-justo' },
+  { id: 'santiago-el-lider', moduleId: 'personajes-escrituras', title: 'El Líder de Jerusalén', subtitle: '30 años al frente de la Iglesia madre', description: 'El dictamen de Santiago en el Concilio de Jerusalén (Hechos 15). La relación con Pablo (Gálatas 2:9-12). El apodo "el Justo" dado por Josefo y Hegesipo. Sus rodillas callosas de tanto orar. La fortaleza de la comunidad judeo-cristiana de Jerusalén.', level: 'AVANZADO', icon: '🏛️', duration: 35, order: 5512, status: 'PUBLISHED', submoduleGroup: 'santiago-justo' },
+  { id: 'santiago-la-epistola', moduleId: 'personajes-escrituras', title: 'La Epístola de Santiago', subtitle: '"La fe sin obras está muerta"', description: 'Santiago 1:5 como el versículo que detonó la Primera Visión. Santiago 2:17-26 — la fe sin obras vs. la justificación por fe de Pablo (aparente contradicción resuelta). La oración por los enfermos (Santiago 5:14-15). La calidad literaria judía de la epístola.', level: 'AVANZADO', icon: '📜', duration: 30, order: 5513, status: 'PUBLISHED', submoduleGroup: 'santiago-justo' },
+  { id: 'santiago-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Santiago y la Restauración', subtitle: 'Santiago 1:5 — el versículo que detonó la Primera Visión', description: 'José Smith de 14 años leyó Santiago 1:5 y sintió que "penetraba con gran fuerza en mi corazón" (JS-H 1:11-12). La Primera Visión como respuesta directa. La muerte de Santiago arrojado desde el pináculo del templo en 62 d.C. (Josefo, Antigüedades 20.9.1).', level: 'AVANZADO', icon: '✨', duration: 25, order: 5514, status: 'PUBLISHED', submoduleGroup: 'santiago-justo' },
+  // ── SARA (submodule, orders 6010-6014) ───────────────────────────────────
+  { id: 'sara-la-esposa', moduleId: 'personajes-escrituras', title: 'La Esposa', subtitle: 'Sarai de Ur: antes de la promesa', description: 'Sara antes del convenio: la mujer de Ur que siguió a Abraham al desierto, que vivió como nómada décadas, y que mintió dos veces sobre su identidad por miedo.', level: 'BÁSICO', icon: '👩', duration: 30, order: 6010, status: 'PUBLISHED', submoduleGroup: 'sara' },
+  { id: 'sara-la-risa', moduleId: 'personajes-escrituras', title: 'La Risa', subtitle: 'El Dios que nombró a un niño "risa"', description: 'Sara escuchó la promesa de un hijo a los 90 años y se rió. Dios no se ofendió — nombró al niño Isaac. El teología de la risa como respuesta ante lo imposible.', level: 'INTERMEDIO', icon: '😂', duration: 30, order: 6011, status: 'PUBLISHED', submoduleGroup: 'sara' },
+  { id: 'sara-y-agar', moduleId: 'personajes-escrituras', title: 'Agar', subtitle: 'La solución humana a un problema divino', description: 'Sara da a Agar a Abraham para acelerar el cumplimiento de la promesa. El conflicto que siguió muestra lo que pasa cuando intentamos forzar los tiempos de Dios.', level: 'INTERMEDIO', icon: '🏜️', duration: 35, order: 6012, status: 'PUBLISHED', submoduleGroup: 'sara' },
+  { id: 'sara-la-madre', moduleId: 'personajes-escrituras', title: 'Isaac', subtitle: 'El hijo que Dios prometió y cumplió', description: 'El nacimiento de Isaac a los 90 años de Sara. Su muerte a los 127 años — la única mujer en la Biblia cuya edad de muerte se registra. La fe que sobrevivió décadas de espera.', level: 'BÁSICO', icon: '👶', duration: 30, order: 6013, status: 'PUBLISHED', submoduleGroup: 'sara' },
+  { id: 'sara-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Sara y la Restauración', subtitle: 'La madre del convenio abrahámico', description: 'Sara en DyC 132, Hebreos 11:11 y 1 Pedro 3:6. Su lugar en el convenio eterno. La Restauración y el matrimonio eterno como contexto de su legado.', level: 'AVANZADO', icon: '✨', duration: 25, order: 6014, status: 'PUBLISHED', submoduleGroup: 'sara' },
+  // ── RUT (submodule, orders 6110-6114) ────────────────────────────────────
+  { id: 'rut-la-moabita', moduleId: 'personajes-escrituras', title: 'La Moabita', subtitle: 'Del pueblo maldito a la genealogía del Mesías', description: 'Los moabitas tenían orígenes vergonzosos (Gén 19:37). Rut provenía de ese pueblo. Su historia comienza con lo que el mundo descartaría como un defecto de origen irreparable.', level: 'BÁSICO', icon: '🌾', duration: 30, order: 6110, status: 'PUBLISHED', submoduleGroup: 'rut' },
+  { id: 'rut-la-leal', moduleId: 'personajes-escrituras', title: '"Donde tú vayas"', subtitle: 'La declaración de lealtad más hermosa de la Biblia', description: 'Rut 1:16-18: "donde tú mueras, moriré yo." Lo que esa declaración costó en términos concretos. El hesed hebreo: lealtad de convenio que excede la obligación.', level: 'BÁSICO', icon: '💛', duration: 30, order: 6111, status: 'PUBLISHED', submoduleGroup: 'rut' },
+  { id: 'rut-en-los-campos', moduleId: 'personajes-escrituras', title: 'Los Campos de Boaz', subtitle: 'La providencia que parece coincidencia', description: 'Rut "casualmente" llega al campo de Boaz (Rut 2:3). La ley del rebusco (Lev 19:9-10). La providencia divina que opera a través de momentos ordinarios.', level: 'INTERMEDIO', icon: '🌿', duration: 30, order: 6112, status: 'PUBLISHED', submoduleGroup: 'rut' },
+  { id: 'rut-y-boaz', moduleId: 'personajes-escrituras', title: 'El Redentor', subtitle: 'Boaz como tipo de Cristo', description: 'El go\'el (redentor pariente) en la ley de Israel. Boaz paga el precio completo para redimir lo perdido. La era de trillar, el sandal, la puerta de la ciudad — y el paralelo con Cristo como nuestro Redentor.', level: 'AVANZADO', icon: '💍', duration: 35, order: 6113, status: 'PUBLISHED', submoduleGroup: 'rut' },
+  { id: 'rut-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Rut y la Restauración', subtitle: 'La extranjera en la línea del Salvador', description: 'Rut en Mateo 1:5 — en la genealogía de Jesús. Lo que significa que una moabita esté en la línea directa del Mesías. Romanos 11 y 1 Nefi 15: cualquier nación puede ser injertada en el convenio.', level: 'INTERMEDIO', icon: '✨', duration: 25, order: 6114, status: 'PUBLISHED', submoduleGroup: 'rut' },
+  // ── ESTER (submodule, orders 6210-6214) ──────────────────────────────────
+  { id: 'ester-la-huerfana', moduleId: 'personajes-escrituras', title: 'La Huérfana', subtitle: 'Hadasa en el Imperio Persa', description: 'Ester (Hadassah: mirto) era una huérfana judía criada por Mardoqueo en la diáspora persa. El concurso de belleza de Asuero. La doble vida: reina de Persia, judía en secreto.', level: 'BÁSICO', icon: '🌿', duration: 30, order: 6210, status: 'PUBLISHED', submoduleGroup: 'ester' },
+  { id: 'ester-la-reina', moduleId: 'personajes-escrituras', title: 'La Reina', subtitle: 'La doble vida en la corte del rey más poderoso', description: 'Ester en el palacio: favor del rey, identidad oculta, la conspiración que Mardoqueo descubre. La vida de fe bajo una identidad que no puede revelarse todavía.', level: 'BÁSICO', icon: '👑', duration: 30, order: 6211, status: 'PUBLISHED', submoduleGroup: 'ester' },
+  { id: 'ester-el-decreto', moduleId: 'personajes-escrituras', title: 'El Decreto', subtitle: 'El genocidio firmado con el anillo del rey', description: 'El decreto de Amán para exterminar a todos los judíos del Imperio Persa. Mardoqueo en duelo. El mensaje a Ester: debe actuar. Su resistencia: "cualquiera que entre sin ser llamado será ejecutado."', level: 'INTERMEDIO', icon: '📜', duration: 35, order: 6212, status: 'PUBLISHED', submoduleGroup: 'ester' },
+  { id: 'ester-el-valor', moduleId: 'personajes-escrituras', title: '"Si He de Morir"', subtitle: 'La decisión que salvó a un pueblo', description: '"¿Quién sabe si no fue para este momento que llegaste al reino?" La decisión de Ester, tres días de ayuno, el acceso al rey, la estrategia del banquete, la caída de Amán y el Purim.', level: 'INTERMEDIO', icon: '⚔️', duration: 35, order: 6213, status: 'PUBLISHED', submoduleGroup: 'ester' },
+  { id: 'ester-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Ester y la Restauración', subtitle: 'La providencia sin milagros visibles', description: 'El libro de Ester no menciona a Dios — pero la providencia está en cada página. Cómo Dios actúa a través de personas ordinarias en momentos extraordinarios. Emma Smith, Eliza R. Snow como Esteres modernas.', level: 'AVANZADO', icon: '✨', duration: 25, order: 6214, status: 'PUBLISHED', submoduleGroup: 'ester' },
+  // ── DÉBORA (submodule, orders 6310-6314) ─────────────────────────────────
+  { id: 'debora-la-jueza', moduleId: 'personajes-escrituras', title: 'La Jueza', subtitle: 'La única mujer jueza de Israel', description: 'Débora juzgaba a Israel bajo su palmera (Jueces 4:4-5). 20 años de opresión cananea, 900 carros de hierro. Lo extraordinario de una mujer con autoridad judicial, militar y espiritual en el mundo antiguo.', level: 'INTERMEDIO', icon: '⚖️', duration: 30, order: 6310, status: 'PUBLISHED', submoduleGroup: 'debora' },
+  { id: 'debora-la-profetisa', moduleId: 'personajes-escrituras', title: 'La Profetisa', subtitle: 'La voz de Dios en el Israel de los Jueces', description: 'Débora es llamada n\'biah — profetisa — en Jueces 4:4. Convoca a Barac y entrega el mensaje divino. Barac se niega a ir sin ella. La profecía: el honor irá a una mujer.', level: 'INTERMEDIO', icon: '🔥', duration: 30, order: 6311, status: 'PUBLISHED', submoduleGroup: 'debora' },
+  { id: 'debora-la-guerrera', moduleId: 'personajes-escrituras', title: 'La Batalla', subtitle: '900 carros de hierro que no sirvieron de nada', description: 'La batalla en el río Quisón. La orden de Débora: "Levántate, porque este es el día." La inundación que neutralizó los carros. Lo que enseña sobre la estrategia divina versus el poder humano.', level: 'INTERMEDIO', icon: '⚔️', duration: 30, order: 6312, status: 'PUBLISHED', submoduleGroup: 'debora' },
+  { id: 'debora-y-jael', moduleId: 'personajes-escrituras', title: 'Jael', subtitle: 'La estaca de la tienda y el fin de Sísara', description: 'Sísara huye a la tienda de Jael. El clavo de la tienda. El Canto de Débora (Jueces 5) — uno de los textos más antiguos de la Biblia en hebreo arcaico — celebra a ambas mujeres.', level: 'AVANZADO', icon: '🏕️', duration: 35, order: 6313, status: 'PUBLISHED', submoduleGroup: 'debora' },
+  { id: 'debora-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Débora y la Restauración', subtitle: 'El liderazgo femenino en las escrituras', description: 'Débora, Miriam, Hulda, Ana: el linaje de profetisas. Emma como Mujer Elegida (DyC 25). La Sociedad de Socorro. Joel 2:28 / Hechos 2:17: "vuestras hijas profetizarán."', level: 'AVANZADO', icon: '✨', duration: 25, order: 6314, status: 'PUBLISHED', submoduleGroup: 'debora' },
+  // ── MARÍA LA MADRE (submodule, orders 6410-6414) ─────────────────────────
+  { id: 'maria-madre-el-anuncio', moduleId: 'personajes-escrituras', title: 'El Anuncio', subtitle: 'Gabriel y el fiat que cambió la historia', description: 'Lucas 1:26-38: Gabriel a María. "He aquí la sierva del Señor." El fiat como el momento de entrega total. 1 Nefi 11: Nefi vio este mismo momento 600 años antes.', level: 'INTERMEDIO', icon: '🕊️', duration: 30, order: 6410, status: 'PUBLISHED', submoduleGroup: 'maria-madre' },
+  { id: 'maria-madre-la-visitacion', moduleId: 'personajes-escrituras', title: 'El Magníficat', subtitle: 'La canción de la madre del Señor', description: 'Lucas 1:39-56: la Visitación a Elisabet. El Magníficat — "Mi alma engrandece al Señor" — eco del Canto de Ana. María como teóloga: conoce las escrituras y entiende lo que está pasando.', level: 'INTERMEDIO', icon: '🌟', duration: 30, order: 6411, status: 'PUBLISHED', submoduleGroup: 'maria-madre' },
+  { id: 'maria-madre-y-jose', moduleId: 'personajes-escrituras', title: 'José y María', subtitle: 'El desposorio, el sueño y Belén', description: 'Mateo 1:18-25: el dilema de José, el ángel en el sueño. Lucas 2:1-20: el censo, Belén, el pesebre, los pastores. Simeón: "una espada traspasará tu alma."', level: 'INTERMEDIO', icon: '🌙', duration: 35, order: 6412, status: 'PUBLISHED', submoduleGroup: 'maria-madre' },
+  { id: 'maria-madre-en-la-cruz', moduleId: 'personajes-escrituras', title: 'De Belén a la Cruz', subtitle: 'La espada que traspasó su alma', description: 'El recorrido completo de María: Egipto, el Templo a los 12, Caná, la crucifixión (Juan 19:25-27), "Mujer, he ahí tu hijo." María en Hechos 1:14 — presente en Pentecostés.', level: 'AVANZADO', icon: '✝️', duration: 35, order: 6413, status: 'PUBLISHED', submoduleGroup: 'maria-madre' },
+  { id: 'maria-madre-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'María y la Restauración', subtitle: 'La más mencionada en el Libro de Mormón', description: '1 Nefi 11:13-21, Mosíah 3:8, Alma 7:10. La única mujer nombrada por nombre en el Libro de Mormón fuera de citas del AT. Lo que la Restauración añade a nuestra comprensión de María.', level: 'AVANZADO', icon: '✨', duration: 25, order: 6414, status: 'PUBLISHED', submoduleGroup: 'maria-madre' },
   // ── LIBRO DE MORMÓN (orders 70-79) ───────────────────────────────────────
   // ── LEHI (submodule, orders 7010-7014) ───────────────────────────────────
   { id: 'lehi-el-profeta', moduleId: 'personajes-escrituras', title: 'El Profeta', subtitle: 'El llamamiento en Jerusalén', description: 'Lehi era un hombre rico de Jerusalén. Tuvo visiones, predicó, fue rechazado y huyó al desierto con su familia. El profeta que lo abandonó todo antes de que alguien más lo hiciera.', level: 'INTERMEDIO', icon: '🔥', duration: 30, order: 7010, status: 'PUBLISHED', submoduleGroup: 'lehi' },
@@ -1285,32 +1434,18 @@ const LESSON_ROWS: LessonRow[] = [
   { id: 'nefi-el-lamento', moduleId: 'personajes-escrituras', title: 'El Salmo de Nefi', subtitle: 'La fe que coexiste con la debilidad', description: 'En 2 Nefi 4, Nefi llora su propia imperfección con una honestidad que contrasta con toda su fortaleza. El Salmo de Nefi es uno de los textos de vida interior más auténticos de la escritura sagrada.', level: 'INTERMEDIO', icon: '😢', duration: 30, order: 7112, status: 'PUBLISHED', submoduleGroup: 'nefi' },
   { id: 'nefi-el-constructor', moduleId: 'personajes-escrituras', title: 'El Constructor', subtitle: 'El barco, el templo, la nación', description: 'Nefi construyó un barco sin saber cómo. Cruzó el océano. Fundó la Ciudad de Nefi y construyó un templo semejante al de Salomón. El obediente también construye — a escala de civilización.', level: 'INTERMEDIO', icon: '🚢', duration: 30, order: 7113, status: 'PUBLISHED', submoduleGroup: 'nefi' },
   { id: 'nefi-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Nefi y la Restauración', subtitle: 'El profeta que más nos habla directamente', description: '2 Nefi 25-29 son profecías directas sobre la Restauración: la apostasía, el Libro de Mormón, la objeción "ya tenemos Biblia," y la invitación universal. Nefi escribió estos capítulos para nosotros.', level: 'AVANZADO', icon: '📖', duration: 25, order: 7114, status: 'PUBLISHED', submoduleGroup: 'nefi' },
-  {
-    id: 'el-hermano-de-jared',
-    moduleId: 'personajes-escrituras',
-    title: 'El Hermano de Jared — El que Vio al Señor',
-    subtitle: 'Su fe fue tan grande que Dios no pudo ocultársele',
-    description:
-      'Su nombre es Mahonri Moriancumer (revelado a Joseph Smith). Vio al Cristo premortal cara a cara porque su fe era tan perfecta que "el Señor no pudo retenerle nada" (Eter 3:26). El relato de las piedras luminosas y la travesía del océano en barcazas herméticas es el tipo de fe que la restauración llama al mundo a alcanzar.',
-    level: 'AVANZADO',
-    icon: '💎',
-    duration: 70,
-    order: 72,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'ammon',
-    moduleId: 'personajes-escrituras',
-    title: 'Ammon — El Misionero que Cortó Brazos',
-    subtitle: 'La misión más improbable de toda la escritura',
-    description:
-      'Ammon eligió servir al rey lamanita en lugar de casarse con su hija. Cortó los brazos de quienes atacaron los rebaños del rey. Y cuando el rey preguntó qué poder era ese, Ammon enseñó el evangelio. El resultado: la conversión más masiva del Libro de Mormón. Alma 17-19.',
-    level: 'BÁSICO',
-    icon: '💪',
-    duration: 60,
-    order: 73,
-    status: 'IN_CONSTRUCTION',
-  },
+  // ── HERMANO DE JARED (submodule, orders 7210-7214) ───────────────────────
+  { id: 'hermano-jared-la-torre', moduleId: 'personajes-escrituras', title: 'La Torre de Babel', subtitle: 'El origen de un pueblo elegido', description: 'El Hermano de Jared intercedió ante el Señor en el caos de Babel para preservar el idioma de su familia. Esta primera oración documentada revela un hombre que conocía a su Dios y sabía cómo acercarse a Él.', level: 'BÁSICO', icon: '🗼', duration: 25, order: 7210, status: 'PUBLISHED', submoduleGroup: 'hermano-jared' },
+  { id: 'hermano-jared-el-viaje', moduleId: 'personajes-escrituras', title: 'El Viaje al Mar', subtitle: 'Cuatro años de silencio divino', description: 'Después de cruzar tierras salvajes, el grupo acampó en la orilla del mar cuatro años. El Señor reprendió al Hermano de Jared por no orar. La disciplina espiritual como preparación para la mayor visión de la escritura.', level: 'INTERMEDIO', icon: '🏕️', duration: 30, order: 7211, status: 'PUBLISHED', submoduleGroup: 'hermano-jared' },
+  { id: 'hermano-jared-las-piedras', moduleId: 'personajes-escrituras', title: 'Las Dieciséis Piedras', subtitle: 'La fe que movió la mano del Señor', description: 'El Hermano de Jared presentó dieciséis piedras pequeñas al Señor y pidió que las iluminara. No pidió un milagro automático — preparó el instrumento y pidió poder divino. La fe activa que no espera soluciones ya empaquetadas.', level: 'AVANZADO', icon: '💎', duration: 35, order: 7212, status: 'PUBLISHED', submoduleGroup: 'hermano-jared' },
+  { id: 'hermano-jared-la-vision', moduleId: 'personajes-escrituras', title: 'La Gran Visión', subtitle: 'Vio al Cristo premortal cara a cara', description: 'Al tocar las piedras, el velo se rasgó y el Hermano de Jared vio al Cristo premortal. "El Señor no pudo retenerle nada" (Eter 3:26). La mayor teofanía privada registrada en la escritura — y toda la humanidad futura se le mostró.', level: 'AVANZADO', icon: '👁️', duration: 40, order: 7213, status: 'PUBLISHED', submoduleGroup: 'hermano-jared' },
+  { id: 'hermano-jared-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'El Hermano de Jared y la Restauración', subtitle: 'El tipo máximo de fe activa', description: 'La historia del Hermano de Jared es el modelo de fe restaurada: preparación activa, petición específica, acceso directo al Señor. Su visión sellada en el libro de Eter aguarda lectores con fe suficiente para recibirla.', level: 'AVANZADO', icon: '📖', duration: 25, order: 7214, status: 'PUBLISHED', submoduleGroup: 'hermano-jared' },
+  // ── AMMÓN (submodule, orders 7310-7314) ──────────────────────────────────
+  { id: 'ammon-la-mision', moduleId: 'personajes-escrituras', title: 'La Misión Imposible', subtitle: 'Fue a servir, no a predicar', description: 'Ammón eligió servir al rey lamanita Lamoni como sirviente en lugar de casarse con su hija. Esta elección de humildad radical cambió el curso de una civilización. Alma 17: el misionero que invirtió el modelo.', level: 'BÁSICO', icon: '🌍', duration: 25, order: 7310, status: 'PUBLISHED', submoduleGroup: 'ammon' },
+  { id: 'ammon-el-guardian', moduleId: 'personajes-escrituras', title: 'El Guardián de Rebaños', subtitle: 'La espada como instrumento del Señor', description: 'Ammón cortó los brazos de quienes atacaban los rebaños del rey. No lo hizo por violencia sino por servicio fiel. El rey Lamoni quedó tan asombrado que preguntó qué poder tenía este hombre — y Ammón enseñó el evangelio. Alma 17-18.', level: 'BÁSICO', icon: '⚔️', duration: 30, order: 7311, status: 'PUBLISHED', submoduleGroup: 'ammon' },
+  { id: 'ammon-el-maestro', moduleId: 'personajes-escrituras', title: 'El Maestro del Rey', subtitle: 'La conversión de Lamoni', description: 'Ammón enseñó al rey Lamoni sobre el Gran Espíritu, la Creación, el plan de redención y la Expiación. Lamoni cayó como muerto de gozo. Su esposa, su casa, y los sirvientes experimentaron el poder del Espíritu. Alma 18-19.', level: 'INTERMEDIO', icon: '👑', duration: 35, order: 7312, status: 'PUBLISHED', submoduleGroup: 'ammon' },
+  { id: 'ammon-el-padre', moduleId: 'personajes-escrituras', title: 'Los Anti-Nefi-Lehíes', subtitle: 'El pueblo que enterró sus armas', description: 'Bajo la influencia de Ammón, miles de lamanitas se convirtieron y enterraron sus armas como convenio de no derramar sangre. Eligieron morir antes que romper su convenio. La conversión más profunda del Libro de Mormón. Alma 23-24.', level: 'AVANZADO', icon: '🕊️', duration: 35, order: 7313, status: 'PUBLISHED', submoduleGroup: 'ammon' },
+  { id: 'ammon-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Ammón y la Restauración', subtitle: 'El modelo del misionero restaurado', description: 'La misión de Ammón es el arquetipo de la misión restaurada: servicio antes que sermón, conversión profunda sobre conversión superficial, convenios que cuestan algo. Los misioneros modernos estudian a Ammón como modelo.', level: 'AVANZADO', icon: '✨', duration: 25, order: 7314, status: 'PUBLISHED', submoduleGroup: 'ammon' },
   // ── REY BENJAMÍN (submodule, orders 7410-7414) ───────────────────────────
   { id: 'rey-benjamin-el-rey-siervo', moduleId: 'personajes-escrituras', title: 'El Rey Siervo', subtitle: 'Gobernó sin cobrar tributo', description: 'Benjamín era rey pero trabajaba con sus propias manos. Fue guerrero, gobernante y servidor. Su liderazgo invierte el modelo antiguo: la autoridad que sirve es la autoridad legítima.', level: 'INTERMEDIO', icon: '🛡️', duration: 30, order: 7410, status: 'PUBLISHED', submoduleGroup: 'rey-benjamin' },
   { id: 'rey-benjamin-la-deuda', moduleId: 'personajes-escrituras', title: 'La Deuda Impagable', subtitle: 'El argumento más poderoso sobre la gracia', description: 'Mosíah 2:20-25 demuestra que no podemos saldar nuestra deuda con Dios — cada capacidad de servirle viene de Él. La única respuesta posible a la gracia es gratitud, no pago.', level: 'AVANZADO', icon: '⚖️', duration: 35, order: 7411, status: 'PUBLISHED', submoduleGroup: 'rey-benjamin' },
@@ -1355,72 +1490,36 @@ const LESSON_ROWS: LessonRow[] = [
   { id: 'mormon-el-profeta', moduleId: 'personajes-escrituras', title: 'El Profeta', subtitle: 'Visitado por el Señor a los 15 años', description: 'A los 10, Ammoró lo preparó para la misión de los registros. A los 15 fue visitado del Señor. A los 15 también tomó el mando del ejército. Mormon fue profeta y general simultáneamente, en un pueblo que rechazaba ambas cosas.', level: 'AVANZADO', icon: '🌟', duration: 30, order: 7812, status: 'PUBLISHED', submoduleGroup: 'mormon' },
   { id: 'mormon-el-padre', moduleId: 'personajes-escrituras', title: 'El Padre', subtitle: 'Las cartas de un padre a su hijo durante el apocalipsis', description: 'Las cartas de Mormon a Moroni sobre el bautismo infantil (Moroni 8) muestran un teólogo preciso escribiendo en medio de la guerra. Entrenó a Moroni militarmente y espiritualmente. Le entregó las planchas y la misión.', level: 'INTERMEDIO', icon: '👨‍👦', duration: 30, order: 7813, status: 'PUBLISHED', submoduleGroup: 'mormon' },
   { id: 'mormon-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Mormon y la Restauración', subtitle: 'El libro que lleva su nombre', description: 'Mormon nunca supo que el registro que compiló en los últimos días de una civilización colapsada sería traducido 1,400 años después y cambiaría el mundo. Sus palabras directas a los futuros lectores son una carta abierta para nosotros.', level: 'AVANZADO', icon: '📖', duration: 25, order: 7814, status: 'PUBLISHED', submoduleGroup: 'mormon' },
-  // ── RESTAURACIÓN (orders 80-89) ───────────────────────────────────────────
-  {
-    id: 'jose-smith',
-    moduleId: 'personajes-escrituras',
-    title: 'José Smith — El Profeta de la Restauración',
-    subtitle: 'El joven que vio lo que nadie había visto en 1,800 años',
-    description:
-      'A los 14 años vio al Padre y al Hijo. A los 17, a un ángel. A los 23, era el profeta, vidente y revelador de la restauración. Tradujo el Libro de Mormón, recibió el sacerdocio de Juan el Bautista y de Pedro, Santiago y Juan, estableció la Iglesia, y fue martirizado a los 38 años.',
-    level: 'INTERMEDIO',
-    icon: '🌟',
-    duration: 80,
-    order: 80,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'emma-smith',
-    moduleId: 'personajes-escrituras',
-    title: 'Emma Smith — La Elegida de Dios',
-    subtitle: 'Más que "la esposa del profeta"',
-    description:
-      'DyC 25 está dirigida personalmente a Emma: "Elegida y llamada". Sirvió como escribiente, perdió cuatro hijos, vivió en la pobreza, y enfrentó la poligamia de su marido con una angustia documentada. Después de su muerte, José le dijo a Brigham Young que Emma era la mujer más dotada que había conocido.',
-    level: 'INTERMEDIO',
-    icon: '🌹',
-    duration: 65,
-    order: 81,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'hyrum-smith',
-    moduleId: 'personajes-escrituras',
-    title: 'Hyrum Smith — El Mártir Fiel',
-    subtitle: 'El hermano que eligió morir antes que abandonar',
-    description:
-      'Hyrum podría haberse salvado en Carthage. Le ofrecieron la oportunidad de salir. Eligió quedarse con su hermano. Murió el mismo día, casi al mismo tiempo. José dijo que Hyrum tenía "la integridad de Job". DyC 124:15 — Dios lo amaba también.',
-    level: 'BÁSICO',
-    icon: '🤝',
-    duration: 55,
-    order: 82,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'oliver-cowdery',
-    moduleId: 'personajes-escrituras',
-    title: 'Oliver Cowdery — El Testigo Primero',
-    subtitle: 'El escribiente, el apóstata y el regreso',
-    description:
-      'Oliver fue el escribiente principal del Libro de Mormón, estuvo presente cuando Juan el Bautista y después Pedro, Santiago y Juan restauraron el sacerdocio, y fue uno de los Tres Testigos. Luego fue excomulgado. Diez años después, volvió a la Iglesia y murió con su testimonio intacto.',
-    level: 'INTERMEDIO',
-    icon: '✍️',
-    duration: 65,
-    order: 83,
-    status: 'IN_CONSTRUCTION',
-  },
-  {
-    id: 'brigham-young',
-    moduleId: 'personajes-escrituras',
-    title: 'Brigham Young — El León de Israel',
-    subtitle: 'El carpintero que guió a miles al desierto',
-    description:
-      'Brigham Young era carpintero analfabeto cuando leyó el Libro de Mormón. Doce años después, organizó el éxodo de 70,000 santos de Nauvoo al Valle de la Sal en las condiciones más difíciles del siglo XIX. Presidió la Iglesia 30 años, estableció 350 comunidades, y dijo cosas que todavía se debaten.',
-    level: 'INTERMEDIO',
-    icon: '🦁',
-    duration: 70,
-    order: 84,
-    status: 'IN_CONSTRUCTION',
-  },
+  // ── JOSÉ SMITH (submodule, orders 8010-8014) ──────────────────────────────
+  { id: 'jose-smith-la-primera-vision', moduleId: 'personajes-escrituras', title: 'La Primera Visión', subtitle: 'El bosque donde todo comenzó', description: 'En la primavera de 1820, José Smith de 14 años entró al bosque con una pregunta simple. Lo que recibió cambió el mundo para siempre: el Padre y el Hijo se le aparecieron, le llamaron por nombre, y dijeron que la apostasía era real.', level: 'BÁSICO', icon: '🌲', duration: 30, order: 8010, status: 'PUBLISHED', submoduleGroup: 'jose-smith' },
+  { id: 'jose-smith-el-traductor', moduleId: 'personajes-escrituras', title: 'El Traductor', subtitle: 'Cómo se tradujo el Libro de Mormón', description: 'En 63 días de trabajo intenso, José Smith dictó el Libro de Mormón casi sin correcciones. Sin educación formal. Sin manuscrito a la vista. El proceso de traducción — las piedras, el sombrero, el proceso visionario — sigue siendo fascinante.', level: 'INTERMEDIO', icon: '📜', duration: 35, order: 8011, status: 'PUBLISHED', submoduleGroup: 'jose-smith' },
+  { id: 'jose-smith-el-profeta', moduleId: 'personajes-escrituras', title: 'El Profeta Sellador', subtitle: 'Las llaves de la última dispensación', description: 'José Smith recibió más revelaciones que cualquier profeta en la historia registrada. La restauración del sacerdocio, el templo, la exaltación familiar, las llaves de sellar y desatar. Su doctrina sobre la familia y la vida eterna transformó la teología cristiana.', level: 'AVANZADO', icon: '🗝️', duration: 40, order: 8012, status: 'PUBLISHED', submoduleGroup: 'jose-smith' },
+  { id: 'jose-smith-el-martir', moduleId: 'personajes-escrituras', title: 'El Mártir', subtitle: 'La tarde del 27 de junio de 1844', description: 'José Smith tenía 38 años cuando fue asesinado en Carthage. No fue sorprendido: había profetizado su muerte. Entró a la cárcel como un cordero al matadero. Su muerte selló su testimonio con sangre — el sello definitivo de toda dispensación.', level: 'AVANZADO', icon: '🕊️', duration: 35, order: 8013, status: 'PUBLISHED', submoduleGroup: 'jose-smith' },
+  { id: 'jose-smith-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'José Smith y la Restauración', subtitle: 'El hombre que abrió la última dispensación', description: 'José Smith es el pivote de la historia sagrada moderna. Todo lo que la Iglesia enseña, practica y espera viene de las llaves y revelaciones que él recibió. Entender a José Smith es entender la Restauración.', level: 'AVANZADO', icon: '✨', duration: 25, order: 8014, status: 'PUBLISHED', submoduleGroup: 'jose-smith' },
+  // ── EMMA SMITH (submodule, orders 8110-8114) ──────────────────────────────
+  { id: 'emma-smith-la-elegida', moduleId: 'personajes-escrituras', title: 'La Elegida', subtitle: 'DyC 25: "Elegida y llamada"', description: 'Emma Hale fue la primera destinataria de una revelación personal en esta dispensación. DyC 25 la llama "elegida y llamada" — no por ser esposa del profeta, sino por sus propios dones y su propio convenio. Quien es ella en sus propios términos.', level: 'BÁSICO', icon: '✨', duration: 25, order: 8110, status: 'PUBLISHED', submoduleGroup: 'emma-smith' },
+  { id: 'emma-smith-la-escribiente', moduleId: 'personajes-escrituras', title: 'La Escribiente', subtitle: 'La primera secretaria de la Restauración', description: 'Emma fue una de las escribientes del Libro de Mormón. Escribía mientras José dictaba, sin pausas para elaborar. Testificó que él nunca consultó notas ni texto previo. Su rol intelectual en los primeros años de la Iglesia ha sido sistemáticamente subestimado.', level: 'INTERMEDIO', icon: '✍️', duration: 30, order: 8111, status: 'PUBLISHED', submoduleGroup: 'emma-smith' },
+  { id: 'emma-smith-el-sufrimiento', moduleId: 'personajes-escrituras', title: 'El Sufrimiento', subtitle: 'Cuatro hijos muertos, pobreza, persecución', description: 'Emma perdió cuatro de sus once hijos. Vivió en pobreza crónica. Fue desplazada varias veces. Enfrentó la poligamia de José con una angustia documentada. Y siguió. Su resistencia no fue ciega — fue forjada en pérdidas reales y repetidas.', level: 'AVANZADO', icon: '💔', duration: 35, order: 8112, status: 'PUBLISHED', submoduleGroup: 'emma-smith' },
+  { id: 'emma-smith-la-musica', moduleId: 'personajes-escrituras', title: 'La Música Sagrada', subtitle: 'Compiló el primer himnario de la Iglesia', description: 'DyC 25:11 le encargó a Emma seleccionar himnos para la Iglesia. El primer himnario de 1835 fue su obra. La música de adoración de esta dispensación tiene su origen en los gustos, el conocimiento y la fe de Emma Smith.', level: 'INTERMEDIO', icon: '🎵', duration: 30, order: 8113, status: 'PUBLISHED', submoduleGroup: 'emma-smith' },
+  { id: 'emma-smith-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Emma Smith y la Restauración', subtitle: 'La mujer detrás de la dispensación', description: 'Emma Smith es la madre invisible de la Restauración moderna. Sin ella, no hay himnos, no hay escribiente del Libro de Mormón, no hay refugio para el profeta en los años más vulnerables. Su historia nos invita a reconocer el costo humano de la fundación de la Iglesia.', level: 'AVANZADO', icon: '🌹', duration: 25, order: 8114, status: 'PUBLISHED', submoduleGroup: 'emma-smith' },
+  // ── HYRUM SMITH (submodule, orders 8210-8214) ────────────────────────────
+  { id: 'hyrum-smith-el-hermano', moduleId: 'personajes-escrituras', title: 'El Hermano Mayor', subtitle: 'La sombra que sostuvo al profeta', description: 'Hyrum Smith fue el hermano mayor constante que José nunca menciona pero siempre necesitó. Desde los años de Kirtland hasta Carthage, estuvo presente. Su lealtad no fue fácil — costó su reputación, su comodidad, y al final, su vida.', level: 'BÁSICO', icon: '🤝', duration: 25, order: 8210, status: 'PUBLISHED', submoduleGroup: 'hyrum-smith' },
+  { id: 'hyrum-smith-el-patriarca', moduleId: 'personajes-escrituras', title: 'El Patriarca', subtitle: 'Portavoz de bendiciones para la Iglesia', description: 'Hyrum fue llamado como Patriarca de la Iglesia — el oficio que da bendiciones patriarcales a cada miembro. DyC 124:15 dice que Dios "lo amaba por la integridad de su corazón". No por brillantez, sino por integridad constante.', level: 'INTERMEDIO', icon: '✋', duration: 30, order: 8211, status: 'PUBLISHED', submoduleGroup: 'hyrum-smith' },
+  { id: 'hyrum-smith-la-integridad', moduleId: 'personajes-escrituras', title: 'La Integridad de Job', subtitle: 'El hombre que José admiraba más', description: 'José dijo que Hyrum tenía "la integridad de Job". Era el estándar de rectitud privada en la familia Smith. No se conocen escándalos, vacilaciones o compromisos con principios. En una época de apostasías masivas, Hyrum no se movió.', level: 'AVANZADO', icon: '🏛️', duration: 35, order: 8212, status: 'PUBLISHED', submoduleGroup: 'hyrum-smith' },
+  { id: 'hyrum-smith-carthage', moduleId: 'personajes-escrituras', title: 'Carthage', subtitle: 'Eligió morir antes que abandonar a su hermano', description: 'En Carthage, Hyrum podría haberse salvado. Había una oportunidad para salir. Eligió quedarse con José. Fue el primero en morir ese 27 de junio de 1844. DyC 135:3: "...han sellado su testimonio con su propia sangre".', level: 'AVANZADO', icon: '🕯️', duration: 35, order: 8213, status: 'PUBLISHED', submoduleGroup: 'hyrum-smith' },
+  { id: 'hyrum-smith-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Hyrum Smith y la Restauración', subtitle: 'El testigo silencioso de la dispensación', description: 'Hyrum Smith fue testigo de casi todos los eventos fundacionales de la Restauración. Su testimonio en silencio — sin libros publicados, sin grandes discursos — es el testimonio del hombre ordinario con integridad extraordinaria.', level: 'AVANZADO', icon: '📖', duration: 25, order: 8214, status: 'PUBLISHED', submoduleGroup: 'hyrum-smith' },
+  // ── OLIVER COWDERY (submodule, orders 8310-8314) ─────────────────────────
+  { id: 'oliver-cowdery-el-escribiente', moduleId: 'personajes-escrituras', title: 'El Escribiente', subtitle: 'Escribió el Libro de Mormón de principio a fin', description: 'Oliver Cowdery llegó a Harmony, Pennsylvania en abril de 1829. En 60 días fue el escribiente principal del Libro de Mormón. Su testimonio de la traducción es el más detallado que tenemos de ese proceso extraordinario.', level: 'BÁSICO', icon: '✍️', duration: 25, order: 8310, status: 'PUBLISHED', submoduleGroup: 'oliver-cowdery' },
+  { id: 'oliver-cowdery-el-testigo', moduleId: 'personajes-escrituras', title: 'El Testigo', subtitle: 'Vio y tocó las planchas de oro', description: 'Oliver fue uno de los Tres Testigos. Vio al ángel Moroni con las planchas. Oyó la voz de Dios declarar que la traducción era correcta. Aunque fue excomulgado 9 años después, nunca retiró su testimonio — ni en los peores momentos de apostasía.', level: 'INTERMEDIO', icon: '👁️', duration: 30, order: 8311, status: 'PUBLISHED', submoduleGroup: 'oliver-cowdery' },
+  { id: 'oliver-cowdery-el-sacerdocio', moduleId: 'personajes-escrituras', title: 'La Restauración del Sacerdocio', subtitle: 'Presente cuando Juan el Bautista descendió', description: 'Oliver estaba con José cuando Juan el Bautista les confirió el Sacerdocio Aarónico en mayo de 1829. Meses después, estuvo presente cuando Pedro, Santiago y Juan restauraron el Sacerdocio de Melquisedec. Fue co-receptor de las llaves más grandes de esta dispensación.', level: 'AVANZADO', icon: '🙌', duration: 35, order: 8312, status: 'PUBLISHED', submoduleGroup: 'oliver-cowdery' },
+  { id: 'oliver-cowdery-la-apostasia', moduleId: 'personajes-escrituras', title: 'La Apostasía y el Regreso', subtitle: 'Excomulgado. Diez años después volvió.', description: 'Oliver fue excomulgado en 1838 tras diferencias con José Smith. Pasó diez años fuera de la Iglesia. En 1848, regresó — no por presión, sino por convicción. Se rebautizó antes de morir. Su testimonio sobrevivió su apostasía.', level: 'AVANZADO', icon: '🔄', duration: 35, order: 8313, status: 'PUBLISHED', submoduleGroup: 'oliver-cowdery' },
+  { id: 'oliver-cowdery-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Oliver Cowdery y la Restauración', subtitle: 'El co-fundador olvidado', description: 'Oliver Cowdery es el co-fundador más importante de la Restauración que la historia ha relegado a segundo plano. Sin él, no hay Libro de Mormón traducido, no hay sacerdocio restaurado, no hay Tres Testigos. Su historia es la historia de lo que cuesta ser el primero.', level: 'AVANZADO', icon: '✨', duration: 25, order: 8314, status: 'PUBLISHED', submoduleGroup: 'oliver-cowdery' },
+  // ── BRIGHAM YOUNG (submodule, orders 8410-8414) ──────────────────────────
+  { id: 'brigham-young-la-conversion', moduleId: 'personajes-escrituras', title: 'La Conversión', subtitle: 'El carpintero que leyó el Libro de Mormón', description: 'Brigham Young era carpintero de Vermont cuando le dieron el Libro de Mormón en 1830. Lo estudió dos años antes de bautizarse — quería estar seguro. Cuando se convenció, fue total. Su conversión tardía pero absoluta marcó su liderazgo posterior.', level: 'BÁSICO', icon: '🪵', duration: 25, order: 8410, status: 'PUBLISHED', submoduleGroup: 'brigham-young' },
+  { id: 'brigham-young-nauvoo', moduleId: 'personajes-escrituras', title: 'Nauvoo y la Sucesión', subtitle: 'Cómo Brigham tomó el mando', description: 'Cuando José Smith murió en 1844, hubo una crisis de sucesión. Brigham Young, como presidente del Quórum de los Doce, asumió el liderazgo. Muchos testigos declararon que su voz y apariencia cambiaron para parecerse a José — el manto del profeta.', level: 'INTERMEDIO', icon: '🏙️', duration: 30, order: 8411, status: 'PUBLISHED', submoduleGroup: 'brigham-young' },
+  { id: 'brigham-young-el-exodo', moduleId: 'personajes-escrituras', title: 'El Éxodo', subtitle: 'Guió a 70,000 santos al desierto', description: 'En el invierno de 1846, Brigham organizó el mayor éxodo en la historia de América del Norte: 70,000 santos de Nauvoo al Valle del Gran Lago Salado. La logística fue milagrosa. Murieron miles en el camino. Llegaron miles más. La fe organizada como supervivencia.', level: 'AVANZADO', icon: '🌵', duration: 40, order: 8412, status: 'PUBLISHED', submoduleGroup: 'brigham-young' },
+  { id: 'brigham-young-el-colonizador', moduleId: 'personajes-escrituras', title: 'El Colonizador', subtitle: 'Fundó 350 comunidades en el desierto', description: 'Como presidente de la Iglesia por 30 años, Brigham Young fundó más de 350 comunidades en el oeste americano. Estableció la Universidad Brigham Young, el sistema de colonización basado en cooperativas, y una cultura de autosuficiencia que define el mormonismo hasta hoy.', level: 'INTERMEDIO', icon: '🏗️', duration: 35, order: 8413, status: 'PUBLISHED', submoduleGroup: 'brigham-young' },
+  { id: 'brigham-young-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Brigham Young y la Restauración', subtitle: 'El León de Israel que consolidó la obra', description: 'Brigham Young tomó una Iglesia en crisis de sucesión y la convirtió en una civilización en el desierto. Su contribución no fue doctrinal sino organizacional: probó que la Restauración podía sobrevivir sin su profeta fundador.', level: 'AVANZADO', icon: '🦁', duration: 25, order: 8414, status: 'PUBLISHED', submoduleGroup: 'brigham-young' },
   // ── REGULARES YA PUBLICADOS ────────────────────────────────────────────────
   {
     id: 'alma-el-joven',
@@ -1660,6 +1759,23 @@ const LESSON_ROWS: LessonRow[] = [
     order: 7,
     status: 'PUBLISHED',
   },
+  // ── CAPACITACIÓN LIDERAZGO — PFJ TRANSICIÓN 2026 ─────────────────────────
+  // Obispado (orders 9010-9012)
+  { id: 'obispado-el-cambio', moduleId: 'capacitacion-liderazgo', title: 'El Cambio y Por Qué Importa', subtitle: 'Comprender el propósito antes de comunicarlo', description: 'Visión general del cambio PFJ 2026 para el obispado: qué cambia, por qué lo implementa la Iglesia, y cómo el obispado lidera la transición con claridad y confianza.', level: 'BÁSICO', icon: '⚖️', duration: 20, order: 9010, status: 'PUBLISHED', submoduleGroup: 'obispado-pfj' },
+  { id: 'obispado-quinto-domingo', moduleId: 'capacitacion-liderazgo', title: 'El Quinto Domingo — 30 de Agosto', subtitle: 'Reunión especial para jóvenes, padres y líderes', description: 'La Iglesia ha designado el 30 de agosto de 2026 para una reunión especial con videos instructivos. El obispado coordina la logística, la participación familiar y prepara a todos para el inicio oficial.', level: 'BÁSICO', icon: '📅', duration: 15, order: 9011, status: 'PUBLISHED', submoduleGroup: 'obispado-pfj' },
+  { id: 'obispado-comunicar-padres', moduleId: 'capacitacion-liderazgo', title: 'Comunicar a los Padres', subtitle: 'Cómo anunciar el cambio desde la reunión sacramental', description: 'Los padres necesitan entender el cambio antes de septiembre. Guía para anunciarlo desde el púlpito, responder las preguntas más frecuentes y distribuir la guía PFJ a cada familia.', level: 'BÁSICO', icon: '🗣️', duration: 15, order: 9012, status: 'PUBLISHED', submoduleGroup: 'obispado-pfj' },
+  // Hombres Jóvenes (orders 9110-9112)
+  { id: 'hj-la-guia-pfj', moduleId: 'capacitacion-liderazgo', title: 'La Guía PFJ — 12 Capítulos', subtitle: 'Conocer el material antes de enseñarlo', description: 'La guía Para la Fortaleza de la Juventud actualizada tiene 12 capítulos centrados en Cristo y la toma de decisiones. Los líderes de HJ deben dominar el contenido antes de llevar a los jóvenes a través de él.', level: 'BÁSICO', icon: '📖', duration: 20, order: 9110, status: 'PUBLISHED', submoduleGroup: 'hj-pfj' },
+  { id: 'hj-ensenar-25-minutos', moduleId: 'capacitacion-liderazgo', title: 'Enseñar en 25 Minutos', subtitle: 'El formato doctrina → principio → aplicación', description: 'Cada semana hay 25 minutos para enseñar un capítulo mensual. Esta lección enseña cómo estructurar ese tiempo: 5 min de introducción, 10 min de doctrina, 10 min de principio y aplicación.', level: 'INTERMEDIO', icon: '⏱️', duration: 20, order: 9111, status: 'PUBLISHED', submoduleGroup: 'hj-pfj' },
+  { id: 'hj-maraton-lectura', moduleId: 'capacitacion-liderazgo', title: 'El Maratón de Lectura', subtitle: 'Unir a jóvenes y familias desde mayo', description: 'El 3 de mayo de 2026 comienza el maratón mundial de lectura en @forstrengthofyouth. Una lección práctica para activar la participación de los jóvenes, sus familias y el cuórum de élderes en el proceso de lectura.', level: 'BÁSICO', icon: '🏃', duration: 15, order: 9112, status: 'PUBLISHED', submoduleGroup: 'hj-pfj' },
+  // Mujeres Jóvenes (orders 9210-9212)
+  { id: 'mj-la-guia-pfj', moduleId: 'capacitacion-liderazgo', title: 'La Guía PFJ para las Mujeres Jóvenes', subtitle: 'El mismo material, una perspectiva única', description: 'La guía PFJ es la misma para HJ y MJ, pero el contexto de las jóvenes tiene sus particularidades. Cómo presentar los 12 capítulos desde la perspectiva de las mujeres jóvenes y conectarlo con su preparación para el templo y la familia.', level: 'BÁSICO', icon: '💜', duration: 20, order: 9210, status: 'PUBLISHED', submoduleGroup: 'mj-pfj' },
+  { id: 'mj-ensenar-25-minutos', moduleId: 'capacitacion-liderazgo', title: 'Clases Semanales de 25 Minutos', subtitle: 'De alternas a semanales — el regalo del tiempo', description: 'El cambio de clases alternas a semanales es un regalo: más continuidad, más profundidad. Esta lección ayuda a los líderes de MJ a planificar el uso mensual del capítulo y mantener a las jóvenes comprometidas semana a semana.', level: 'INTERMEDIO', icon: '⏱️', duration: 20, order: 9211, status: 'PUBLISHED', submoduleGroup: 'mj-pfj' },
+  { id: 'mj-conectar-hogar', moduleId: 'capacitacion-liderazgo', title: 'Conectar el Hogar con el Domingo', subtitle: 'Que lo que enseñamos no se quede en el salón', description: 'El PFJ es diseñado para conectar el estudio del hogar con la clase dominical. Herramientas para que los líderes de MJ inviten a los padres y ayuden a las jóvenes a aplicar el evangelio diariamente.', level: 'INTERMEDIO', icon: '🏠', duration: 15, order: 9212, status: 'PUBLISHED', submoduleGroup: 'mj-pfj' },
+  // Élderes y Líder Misional (orders 9310-9312)
+  { id: 'elderes-rol-misional', moduleId: 'capacitacion-liderazgo', title: 'Nuestro Rol en la Transición', subtitle: 'El Cuórum de Élderes como puente generacional', description: 'El PFJ prepara a los jóvenes para la misión. El cuórum de élderes — formado por hombres que fueron esos jóvenes — tiene un rol único: servir de puente entre la juventud del barrio y la misión de tiempo completo.', level: 'BÁSICO', icon: '🌍', duration: 20, order: 9310, status: 'PUBLISHED', submoduleGroup: 'elderes-pfj' },
+  { id: 'elderes-mentores-jovenes', moduleId: 'capacitacion-liderazgo', title: 'Élderes como Mentores Misioneros', subtitle: 'Invitar élderes a compartir en las clases de jóvenes', description: 'Cómo involucrar a los élderes del cuórum en las clases de jóvenes: compartir experiencias misioneras relevantes, escuchar más que hablar, y crear relaciones que duran más allá del domingo.', level: 'INTERMEDIO', icon: '🤝', duration: 20, order: 9311, status: 'PUBLISHED', submoduleGroup: 'elderes-pfj' },
+  { id: 'elderes-vision-pfj', moduleId: 'capacitacion-liderazgo', title: 'La Visión Misional del PFJ', subtitle: '"El discipulado diario comienza hoy"', description: '"El discipulado para toda la vida comienza con el discipulado diario." — Pdte. Timothy L. Farnes. Esta lección explora la visión teológica detrás del PFJ: no es solo un cambio de horario, es una invitación a una generación a convertirse en discípulos de Cristo para siempre.', level: 'AVANZADO', icon: '✨', duration: 20, order: 9312, status: 'PUBLISHED', submoduleGroup: 'elderes-pfj' },
 ]
 
 const PORTED: Partial<Record<string, Lesson>> = {
@@ -1805,30 +1921,131 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'david-el-poeta': lessonDavidElPoeta,
   'david-la-caida': lessonDavidLaCaida,
   'david-y-la-restauracion': lessonDavidYLaRestauracion,
-  'jeremias': lessonJeremias,
-  'daniel': lessonDaniel,
-  'job': lessonJob,
-  'ezequiel': lessonEzequiel,
-  'pedro': lessonPedro,
-  'pablo': lessonPablo,
-  'juan-el-bautista': lessonJuanElBautista,
-  'maria-magdalena': lessonMariaMagdalena,
-  'tomas': lessonTomas,
-  'santiago-el-justo': lessonSantiagoElJusto,
-  'sara': lessonSara,
-  'rut': lessonRut,
-  'ester': lessonEster,
-  'debora': lessonDebora,
-  'maria-la-madre': lessonMariaLaMadre,
-  'el-hermano-de-jared': lessonHermanoDeJared,
-  'ammon': lessonAmmon,
+  'jeremias-el-llamamiento': lessonJeremiasElLlamamiento,
+  'jeremias-el-perseguido': lessonJeremiasElPerseguido,
+  'jeremias-las-lamentaciones': lessonJeremiasLasLamentaciones,
+  'jeremias-el-nuevo-convenio': lessonJeremiasElNuevoConvenio,
+  'jeremias-y-la-restauracion': lessonJeremiasYLaRestauracion,
+  'daniel-el-cautivo': lessonDanielElCautivo,
+  'daniel-el-fiel': lessonDanielElFiel,
+  'daniel-las-visiones': lessonDanielLasVisiones,
+  'daniel-en-el-foso': lessonDanielEnElFoso,
+  'daniel-y-la-restauracion': lessonDanielYLaRestauracion,
+  'job-el-justo': lessonJobElJusto,
+  'job-el-sufrimiento': lessonJobElSufrimiento,
+  'job-los-amigos': lessonJobLosAmigos,
+  'job-la-respuesta': lessonJobLaRespuesta,
+  'job-y-la-restauracion': lessonJobYLaRestauracion,
+  'ezequiel-la-vision': lessonEzequielLaVision,
+  'ezequiel-el-guardian': lessonEzequielElGuardian,
+  'ezequiel-los-huesos-secos': lessonEzequielLosHueoSecos,
+  'ezequiel-los-dos-palos': lessonEzequielLosDoPalos,
+  'ezequiel-y-la-restauracion': lessonEzequielYLaRestauracion,
+  'pedro-el-pescador': lessonPedroElPescador,
+  'pedro-la-confesion': lessonPedroLaConfesion,
+  'pedro-la-negacion': lessonPedroLaNegacion,
+  'pedro-el-apostol': lessonPedroElApostol,
+  'pedro-y-la-restauracion': lessonPedroYLaRestauracion,
+  'pablo-el-perseguidor': lessonPabloElPerseguidor,
+  'pablo-la-conversion': lessonPabloLaConversion,
+  'pablo-el-misionero': lessonPabloElMisionero,
+  'pablo-la-teologia': lessonPabloLaTeologia,
+  'pablo-y-la-restauracion': lessonPabloYLaRestauracion,
+  'juan-bautista-el-precursor': lessonJuanBautistaElPrecursor,
+  'juan-bautista-el-bautismo': lessonJuanBautistaElBautismo,
+  'juan-bautista-el-mayor': lessonJuanBautistaElMayor,
+  'juan-bautista-la-prision': lessonJuanBautistaLaPrision,
+  'juan-bautista-y-la-restauracion': lessonJuanBautistaYLaRestauracion,
+  'maria-magdalena-el-mito': lessonMariaMagdalenaElMito,
+  'maria-magdalena-la-discipula': lessonMariaMagdalenaLaDiscipula,
+  'maria-magdalena-la-cruz': lessonMariaMagdalenaLaCruz,
+  'maria-magdalena-la-resurreccion': lessonMariaMagdalenaLaResurreccion,
+  'maria-magdalena-y-la-restauracion': lessonMariaMagdalenaYLaRestauracion,
+  'tomas-el-gemelo': lessonTomasElGemelo,
+  'tomas-la-duda': lessonTomasLaDuda,
+  'tomas-la-confesion': lessonTomasLaConfesion,
+  'tomas-el-misionero': lessonTomasElMisionero,
+  'tomas-y-la-restauracion': lessonTomasYLaRestauracion,
+  'santiago-el-incredulo': lessonSantiagoElIncredulo,
+  'santiago-el-apostol': lessonSantiagoElApostol,
+  'santiago-el-lider': lessonSantiagoElLider,
+  'santiago-la-epistola': lessonSantiagoLaEpistola,
+  'santiago-y-la-restauracion': lessonSantiagoYLaRestauracion,
+  'sara-la-esposa': lessonSaraLaEsposa,
+  'sara-la-risa': lessonSaraLaRisa,
+  'sara-y-agar': lessonSaraYAgar,
+  'sara-la-madre': lessonSaraLaMadre,
+  'sara-y-la-restauracion': lessonSaraYLaRestauracion,
+  'rut-la-moabita': lessonRutLaMoabita,
+  'rut-la-leal': lessonRutLaLeal,
+  'rut-en-los-campos': lessonRutEnLosCampos,
+  'rut-y-boaz': lessonRutYBoaz,
+  'rut-y-la-restauracion': lessonRutYLaRestauracion,
+  'ester-la-huerfana': lessonEsterLaHuerfana,
+  'ester-la-reina': lessonEsterLaReina,
+  'ester-el-decreto': lessonEsterElDecreto,
+  'ester-el-valor': lessonEsterElValor,
+  'ester-y-la-restauracion': lessonEsterYLaRestauracion,
+  'debora-la-jueza': lessonDeboraLaJueza,
+  'debora-la-profetisa': lessonDeboraLaProfetisa,
+  'debora-la-guerrera': lessonDeboraLaGuerrera,
+  'debora-y-jael': lessonDeboraYJael,
+  'debora-y-la-restauracion': lessonDeboraYLaRestauracion,
+  'maria-madre-el-anuncio': lessonMariaMadreElAnuncio,
+  'maria-madre-la-visitacion': lessonMariaMadreLaVisitacion,
+  'maria-madre-y-jose': lessonMariaMadreYJose,
+  'maria-madre-en-la-cruz': lessonMariaMadreEnLaCruz,
+  'maria-madre-y-la-restauracion': lessonMariaMadreYLaRestauracion,
+  'hermano-jared-la-torre': lessonHermanoJaredLaTorre,
+  'hermano-jared-el-viaje': lessonHermanoJaredElViaje,
+  'hermano-jared-las-piedras': lessonHermanoJaredLasPiedras,
+  'hermano-jared-la-vision': lessonHermanoJaredLaVision,
+  'hermano-jared-y-la-restauracion': lessonHermanoJaredYLaRestauracion,
+  'ammon-la-mision': lessonAmmonLaMision,
+  'ammon-el-guardian': lessonAmmonElGuardian,
+  'ammon-el-maestro': lessonAmmonElMaestro,
+  'ammon-el-padre': lessonAmmonElPadre,
+  'ammon-y-la-restauracion': lessonAmmonYLaRestauracion,
   'capitan-moroni': lessonCapitanMoroni,
   'samuel-el-lamanita': lessonSamuelElLamanita,
-  'jose-smith': lessonJoseSmith,
-  'emma-smith': lessonEmmaSmith,
-  'hyrum-smith': lessonHyrumSmith,
-  'oliver-cowdery': lessonOliverCowdery,
-  'brigham-young': lessonBrighamYoung,
+  'jose-smith-la-primera-vision': lessonJoseSmithLaPrimeraVision,
+  'jose-smith-el-traductor': lessonJoseSmithElTraductor,
+  'jose-smith-el-profeta': lessonJoseSmithElProfeta,
+  'jose-smith-el-martir': lessonJoseSmithElMartir,
+  'jose-smith-y-la-restauracion': lessonJoseSmithYLaRestauracion,
+  'emma-smith-la-elegida': lessonEmmaSmithLaElegida,
+  'emma-smith-la-escribiente': lessonEmmaSmithLaEscribiente,
+  'emma-smith-el-sufrimiento': lessonEmmaSmithElSufrimiento,
+  'emma-smith-la-musica': lessonEmmaSmithLaMusica,
+  'emma-smith-y-la-restauracion': lessonEmmaSmithYLaRestauracion,
+  'hyrum-smith-el-hermano': lessonHyrumSmithElHermano,
+  'hyrum-smith-el-patriarca': lessonHyrumSmithElPatriarca,
+  'hyrum-smith-la-integridad': lessonHyrumSmithLaIntegridad,
+  'hyrum-smith-carthage': lessonHyrumSmithCarthage,
+  'hyrum-smith-y-la-restauracion': lessonHyrumSmithYLaRestauracion,
+  'oliver-cowdery-el-escribiente': lessonOliverCowderyElEscribiente,
+  'oliver-cowdery-el-testigo': lessonOliverCowderyElTestigo,
+  'oliver-cowdery-el-sacerdocio': lessonOliverCowderyElSacerdocio,
+  'oliver-cowdery-la-apostasia': lessonOliverCowderyLaApostasia,
+  'oliver-cowdery-y-la-restauracion': lessonOliverCowderyYLaRestauracion,
+  'brigham-young-la-conversion': lessonBrighamYoungLaConversion,
+  'brigham-young-nauvoo': lessonBrighamYoungNauvoo,
+  'brigham-young-el-exodo': lessonBrighamYoungElExodo,
+  'brigham-young-el-colonizador': lessonBrighamYoungElColonizador,
+  'brigham-young-y-la-restauracion': lessonBrighamYoungYLaRestauracion,
+  // capacitacion-liderazgo
+  'obispado-el-cambio': lessonObispadoElCambio,
+  'obispado-quinto-domingo': lessonObispadoQuintoDomingo,
+  'obispado-comunicar-padres': lessonObispadoComunicarPadres,
+  'hj-la-guia-pfj': lessonHjLaGuiaPfj,
+  'hj-ensenar-25-minutos': lessonHjEnsenar25Minutos,
+  'hj-maraton-lectura': lessonHjMaratonLectura,
+  'mj-la-guia-pfj': lessonMjLaGuiaPfj,
+  'mj-ensenar-25-minutos': lessonMjEnsenar25Minutos,
+  'mj-conectar-hogar': lessonMjConectarHogar,
+  'elderes-rol-misional': lessonElderesRolMisional,
+  'elderes-mentores-jovenes': lessonElderesMentoresJovenes,
+  'elderes-vision-pfj': lessonElderesVisionPfj,
 }
 
 function lessonIdsForModule(moduleId: string): string[] {
