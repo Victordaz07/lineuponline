@@ -284,6 +284,7 @@ import { hjMaratonLectura as lessonHjMaratonLectura } from '@/data/lessons/hj-ma
 import { mjLaGuiaPfj as lessonMjLaGuiaPfj } from '@/data/lessons/mj-la-guia-pfj'
 import { mjEnsenar25Minutos as lessonMjEnsenar25Minutos } from '@/data/lessons/mj-ensenar-25-minutos'
 import { mjConectarHogar as lessonMjConectarHogar } from '@/data/lessons/mj-conectar-hogar'
+import { mjNuevosNombres as lessonMjNuevosNombres } from '@/data/lessons/mj-nuevos-nombres'
 import { elderesRolMisional as lessonElderesRolMisional } from '@/data/lessons/elderes-rol-misional'
 import { elderesMentoresJovenes as lessonElderesMentoresJovenes } from '@/data/lessons/elderes-mentores-jovenes'
 import { elderesVisionPfj as lessonElderesVisionPfj } from '@/data/lessons/elderes-vision-pfj'
@@ -1791,6 +1792,7 @@ const LESSON_ROWS: LessonRow[] = [
   { id: 'mj-la-guia-pfj', moduleId: 'capacitacion-liderazgo', title: 'La Guía PFJ para las Mujeres Jóvenes', subtitle: 'El mismo material, una perspectiva única', description: 'La guía PFJ es la misma para HJ y MJ, pero el contexto de las jóvenes tiene sus particularidades. Cómo presentar los 12 capítulos desde la perspectiva de las mujeres jóvenes y conectarlo con su preparación para el templo y la familia.', level: 'BÁSICO', icon: '💜', duration: 20, order: 9210, status: 'PUBLISHED', submoduleGroup: 'mj-pfj' },
   { id: 'mj-ensenar-25-minutos', moduleId: 'capacitacion-liderazgo', title: 'Clases Semanales de 25 Minutos', subtitle: 'De alternas a semanales — el regalo del tiempo', description: 'El cambio de clases alternas a semanales es un regalo: más continuidad, más profundidad. Esta lección ayuda a los líderes de MJ a planificar el uso mensual del capítulo y mantener a las jóvenes comprometidas semana a semana.', level: 'INTERMEDIO', icon: '⏱️', duration: 20, order: 9211, status: 'PUBLISHED', submoduleGroup: 'mj-pfj' },
   { id: 'mj-conectar-hogar', moduleId: 'capacitacion-liderazgo', title: 'Conectar el Hogar con el Domingo', subtitle: 'Que lo que enseñamos no se quede en el salón', description: 'El PFJ es diseñado para conectar el estudio del hogar con la clase dominical. Herramientas para que los líderes de MJ inviten a los padres y ayuden a las jóvenes a aplicar el evangelio diariamente.', level: 'INTERMEDIO', icon: '🏠', duration: 15, order: 9212, status: 'PUBLISHED', submoduleGroup: 'mj-pfj' },
+  { id: 'mj-nuevos-nombres', moduleId: 'capacitacion-liderazgo', title: 'Los Nuevos Nombres de las Mujeres Jóvenes', subtitle: 'Edificadoras, Mensajeras, Guardianas — Identidad Divina', description: 'Anunciados el 20 de abril de 2026: Edificadoras de Fe, Mensajeras de Esperanza y Guardianas de Luz. La doctrina detrás de cada nombre, el himno que los inspiró, y cómo presentarlos a las jóvenes como una declaración de identidad ante Dios.', level: 'BÁSICO', icon: '✨', duration: 25, order: 9213, status: 'PUBLISHED', submoduleGroup: 'mj-pfj' },
   // Élderes y Líder Misional (orders 9310-9312)
   { id: 'elderes-rol-misional', moduleId: 'capacitacion-liderazgo', title: 'Nuestro Rol en la Transición', subtitle: 'El Cuórum de Élderes como puente generacional', description: 'El PFJ prepara a los jóvenes para la misión. El cuórum de élderes — formado por hombres que fueron esos jóvenes — tiene un rol único: servir de puente entre la juventud del barrio y la misión de tiempo completo.', level: 'BÁSICO', icon: '🌍', duration: 20, order: 9310, status: 'PUBLISHED', submoduleGroup: 'elderes-pfj' },
   { id: 'elderes-mentores-jovenes', moduleId: 'capacitacion-liderazgo', title: 'Élderes como Mentores Misioneros', subtitle: 'Invitar élderes a compartir en las clases de jóvenes', description: 'Cómo involucrar a los élderes del cuórum en las clases de jóvenes: compartir experiencias misioneras relevantes, escuchar más que hablar, y crear relaciones que duran más allá del domingo.', level: 'INTERMEDIO', icon: '🤝', duration: 20, order: 9311, status: 'PUBLISHED', submoduleGroup: 'elderes-pfj' },
@@ -2062,6 +2064,7 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'mj-la-guia-pfj': lessonMjLaGuiaPfj,
   'mj-ensenar-25-minutos': lessonMjEnsenar25Minutos,
   'mj-conectar-hogar': lessonMjConectarHogar,
+  'mj-nuevos-nombres': lessonMjNuevosNombres,
   'elderes-rol-misional': lessonElderesRolMisional,
   'elderes-mentores-jovenes': lessonElderesMentoresJovenes,
   'elderes-vision-pfj': lessonElderesVisionPfj,
