@@ -9,6 +9,8 @@ import LessonView from '@/pages/LessonView'
 import Login from '@/pages/Login'
 import MyNotes from '@/pages/MyNotes'
 import Search from '@/pages/Search'
+import CommunityPage from '@/pages/CommunityPage'
+import AdminPage from '@/pages/AdminPage'
 
 function AppRoutes() {
   useFirestoreSync()
@@ -22,6 +24,8 @@ function AppRoutes() {
           <Route path="/login" element={<Login />} />
           <Route path="/my-notes" element={<MyNotes />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/community" element={<CommunityPage />} />
+          <Route path="/admin" element={<AdminPage />} />
           <Route path="/notas" element={<Navigate to="/my-notes" replace />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
