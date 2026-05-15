@@ -295,6 +295,10 @@ import { elderesEjemploClase as lessonElderesEjemploClase } from '@/data/lessons
 import { elderesRolMisional as lessonElderesRolMisional } from '@/data/lessons/elderes-rol-misional'
 import { elderesMentoresJovenes as lessonElderesMentoresJovenes } from '@/data/lessons/elderes-mentores-jovenes'
 import { elderesVisionPfj as lessonElderesVisionPfj } from '@/data/lessons/elderes-vision-pfj'
+// ── VIDA FAMILIAR Y PERSONAL — PARTICIPACIÓN DOMINICAL ───────────────────────
+import { comoDarUnDiscurso as lessonComoDarUnDiscurso } from '@/data/lessons/como-dar-un-discurso'
+import { comoDarUnTestimonio as lessonComoDarUnTestimonio } from '@/data/lessons/como-dar-un-testimonio'
+import { comoHacerUnaOracion as lessonComoHacerUnaOracion } from '@/data/lessons/como-hacer-una-oracion'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -342,6 +346,11 @@ export const SUBMODULE_GROUPS: Record<string, { title: string; description: stri
     title: 'Sociedad de Socorro',
     description: 'La nueva clase semanal de Sociedad de Socorro de 25 minutos: mensajes de Conferencia General como consejo entre hermanas, no como clase magistral.',
     icon: '💐',
+  },
+  'participacion-dominical': {
+    title: 'Cómo Participar',
+    description: 'Guías prácticas para participar activamente en el culto: cómo dar un discurso en la reunión sacramental, cómo compartir un testimonio en el día de ayuno, y cómo ofrecer una oración vocal.',
+    icon: '🎤',
   },
   jesucristo: {
     title: 'Jesucristo — Centro de Todo',
@@ -825,6 +834,45 @@ const LESSON_ROWS: LessonRow[] = [
     duration: 90,
     order: 5,
     status: 'PUBLISHED',
+  },
+  {
+    id: 'como-dar-un-discurso',
+    moduleId: 'vida-familiar-personal',
+    title: 'Cómo Dar un Discurso',
+    subtitle: 'Preparar y presentar un mensaje en la reunión sacramental',
+    description: 'Guía práctica para preparar y dar un discurso en la reunión sacramental. Desde el momento en que te asignan el tema hasta las últimas palabras desde el púlpito: estructura, errores comunes, cómo usar las escrituras y cómo dejar que el Espíritu sea el maestro real.',
+    level: 'BÁSICO',
+    icon: '🎤',
+    duration: 20,
+    order: 6,
+    status: 'PUBLISHED',
+    submoduleGroup: 'participacion-dominical',
+  },
+  {
+    id: 'como-dar-un-testimonio',
+    moduleId: 'vida-familiar-personal',
+    title: 'Cómo Dar un Testimonio',
+    subtitle: 'El día de ayuno y testimonio — qué decir y cómo decirlo',
+    description: 'Muchos miembros confunden compartir un testimonio con contar una historia o dar un sermón. Esta lección explica qué ES un testimonio, qué NO es, cómo estructurarlo en 2-3 minutos, y cómo vencer el miedo a levantarte por primera vez.',
+    level: 'BÁSICO',
+    icon: '🕊️',
+    duration: 15,
+    order: 7,
+    status: 'PUBLISHED',
+    submoduleGroup: 'participacion-dominical',
+  },
+  {
+    id: 'como-hacer-una-oracion',
+    moduleId: 'vida-familiar-personal',
+    title: 'Cómo Hacer una Oración',
+    subtitle: 'La estructura, el lenguaje y los errores más comunes',
+    description: 'Guía práctica sobre cómo ofrecer una oración vocal — la estructura de cuatro partes, el lenguaje correcto en español (tú/te/ti), la diferencia entre oración personal y grupal, y los errores más frecuentes que todos cometemos sin darnos cuenta.',
+    level: 'BÁSICO',
+    icon: '🙏',
+    duration: 15,
+    order: 8,
+    status: 'PUBLISHED',
+    submoduleGroup: 'participacion-dominical',
   },
   {
     id: 'vestimenta-sacerdocio',
@@ -1826,6 +1874,9 @@ const LESSON_ROWS: LessonRow[] = [
 
 const PORTED: Partial<Record<string, Lesson>> = {
   'el-sellamiento': lessonElSellamiento,
+  'como-dar-un-discurso': lessonComoDarUnDiscurso,
+  'como-dar-un-testimonio': lessonComoDarUnTestimonio,
+  'como-hacer-una-oracion': lessonComoHacerUnaOracion,
   'sacerdocio-aaonico': lessonSacerdocioAaonico,
   'el-diacono': lessonElDiacono,
   'el-maestro': lessonElMaestro,
