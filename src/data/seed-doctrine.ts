@@ -265,9 +265,21 @@ import { hjMaratonLectura as lessonHjMaratonLectura } from '@/data/lessons/hj-ma
 import { mjLaGuiaPfj as lessonMjLaGuiaPfj } from '@/data/lessons/mj-la-guia-pfj'
 import { mjEnsenar25Minutos as lessonMjEnsenar25Minutos } from '@/data/lessons/mj-ensenar-25-minutos'
 import { mjConectarHogar as lessonMjConectarHogar } from '@/data/lessons/mj-conectar-hogar'
+import { mjNuevosNombres as lessonMjNuevosNombres } from '@/data/lessons/mj-nuevos-nombres'
+import { edNuevoHorario as lessonEdNuevoHorario } from '@/data/lessons/ed-nuevo-horario'
+import { edCoorinarClases as lessonEdCoorinarClases } from '@/data/lessons/ed-coordinar-clases'
+import { hjEjemploClasePfj as lessonHjEjemploClasePfj } from '@/data/lessons/hj-ejemplo-clase-pfj'
+import { edEjemploClase as lessonEdEjemploClase } from '@/data/lessons/ed-ejemplo-clase'
+import { mjEjemploClasePfj as lessonMjEjemploClasePfj } from '@/data/lessons/mj-ejemplo-clase-pfj'
+import { srsEjemploClase as lessonSrsEjemploClase } from '@/data/lessons/srs-ejemplo-clase'
+import { elderesEjemploClase as lessonElderesEjemploClase } from '@/data/lessons/elderes-ejemplo-clase'
 import { elderesRolMisional as lessonElderesRolMisional } from '@/data/lessons/elderes-rol-misional'
 import { elderesMentoresJovenes as lessonElderesMentoresJovenes } from '@/data/lessons/elderes-mentores-jovenes'
 import { elderesVisionPfj as lessonElderesVisionPfj } from '@/data/lessons/elderes-vision-pfj'
+// ── VIDA FAMILIAR Y PERSONAL — PARTICIPACIÓN DOMINICAL ───────────────────────
+import { comoDarUnDiscurso as lessonComoDarUnDiscurso } from '@/data/lessons/como-dar-un-discurso'
+import { comoDarUnTestimonio as lessonComoDarUnTestimonio } from '@/data/lessons/como-dar-un-testimonio'
+import { comoHacerUnaOracion as lessonComoHacerUnaOracion } from '@/data/lessons/como-hacer-una-oracion'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -305,6 +317,21 @@ export const SUBMODULE_GROUPS: Record<string, { title: string; description: stri
     title: 'Élderes y Líder Misional',
     description: 'El Cuórum de Élderes como puente generacional: mentores misioneros, visión misional del PFJ y discipulado diario.',
     icon: '🌍',
+  },
+  'ed-pfj': {
+    title: 'Escuela Dominical',
+    description: 'La Presidencia de la Escuela Dominical coordina el nuevo horario dominical: Escuela Dominical cada domingo, el bloque PFJ para jóvenes y la implementación del 6 de septiembre.',
+    icon: '📋',
+  },
+  'srs-pfj': {
+    title: 'Sociedad de Socorro',
+    description: 'La nueva clase semanal de Sociedad de Socorro de 25 minutos: mensajes de Conferencia General como consejo entre hermanas, no como clase magistral.',
+    icon: '💐',
+  },
+  'participacion-dominical': {
+    title: 'Cómo Participar',
+    description: 'Guías prácticas para participar activamente en el culto: cómo dar un discurso en la reunión sacramental, cómo compartir un testimonio en el día de ayuno, y cómo ofrecer una oración vocal.',
+    icon: '🎤',
   },
   jesucristo: {
     title: 'Jesucristo — Centro de Todo',
@@ -788,6 +815,45 @@ const LESSON_ROWS: LessonRow[] = [
     duration: 90,
     order: 5,
     status: 'PUBLISHED',
+  },
+  {
+    id: 'como-dar-un-discurso',
+    moduleId: 'vida-familiar-personal',
+    title: 'Cómo Dar un Discurso',
+    subtitle: 'Preparar y presentar un mensaje en la reunión sacramental',
+    description: 'Guía práctica para preparar y dar un discurso en la reunión sacramental. Desde el momento en que te asignan el tema hasta las últimas palabras desde el púlpito: estructura, errores comunes, cómo usar las escrituras y cómo dejar que el Espíritu sea el maestro real.',
+    level: 'BÁSICO',
+    icon: '🎤',
+    duration: 20,
+    order: 6,
+    status: 'PUBLISHED',
+    submoduleGroup: 'participacion-dominical',
+  },
+  {
+    id: 'como-dar-un-testimonio',
+    moduleId: 'vida-familiar-personal',
+    title: 'Cómo Dar un Testimonio',
+    subtitle: 'El día de ayuno y testimonio — qué decir y cómo decirlo',
+    description: 'Muchos miembros confunden compartir un testimonio con contar una historia o dar un sermón. Esta lección explica qué ES un testimonio, qué NO es, cómo estructurarlo en 2-3 minutos, y cómo vencer el miedo a levantarte por primera vez.',
+    level: 'BÁSICO',
+    icon: '🕊️',
+    duration: 15,
+    order: 7,
+    status: 'PUBLISHED',
+    submoduleGroup: 'participacion-dominical',
+  },
+  {
+    id: 'como-hacer-una-oracion',
+    moduleId: 'vida-familiar-personal',
+    title: 'Cómo Hacer una Oración',
+    subtitle: 'La estructura, el lenguaje y los errores más comunes',
+    description: 'Guía práctica sobre cómo ofrecer una oración vocal — la estructura de cuatro partes, el lenguaje correcto en español (tú/te/ti), la diferencia entre oración personal y grupal, y los errores más frecuentes que todos cometemos sin darnos cuenta.',
+    level: 'BÁSICO',
+    icon: '🙏',
+    duration: 15,
+    order: 8,
+    status: 'PUBLISHED',
+    submoduleGroup: 'participacion-dominical',
   },
   {
     id: 'vestimenta-sacerdocio',
@@ -1768,18 +1834,30 @@ const LESSON_ROWS: LessonRow[] = [
   { id: 'hj-la-guia-pfj', moduleId: 'capacitacion-liderazgo', title: 'La Guía PFJ — 12 Capítulos', subtitle: 'Conocer el material antes de enseñarlo', description: 'La guía Para la Fortaleza de la Juventud actualizada tiene 12 capítulos centrados en Cristo y la toma de decisiones. Los líderes de HJ deben dominar el contenido antes de llevar a los jóvenes a través de él.', level: 'BÁSICO', icon: '📖', duration: 20, order: 9110, status: 'PUBLISHED', submoduleGroup: 'hj-pfj' },
   { id: 'hj-ensenar-25-minutos', moduleId: 'capacitacion-liderazgo', title: 'Enseñar en 25 Minutos', subtitle: 'El formato doctrina → principio → aplicación', description: 'Cada semana hay 25 minutos para enseñar un capítulo mensual. Esta lección enseña cómo estructurar ese tiempo: 5 min de introducción, 10 min de doctrina, 10 min de principio y aplicación.', level: 'INTERMEDIO', icon: '⏱️', duration: 20, order: 9111, status: 'PUBLISHED', submoduleGroup: 'hj-pfj' },
   { id: 'hj-maraton-lectura', moduleId: 'capacitacion-liderazgo', title: 'El Maratón de Lectura', subtitle: 'Unir a jóvenes y familias desde mayo', description: 'El 3 de mayo de 2026 comienza el maratón mundial de lectura en @forstrengthofyouth. Una lección práctica para activar la participación de los jóvenes, sus familias y el cuórum de élderes en el proceso de lectura.', level: 'BÁSICO', icon: '🏃', duration: 15, order: 9112, status: 'PUBLISHED', submoduleGroup: 'hj-pfj' },
+  { id: 'hj-ejemplo-clase-pfj', moduleId: 'capacitacion-liderazgo', title: 'Clase Modelo PFJ — Cuórum del Sacerdocio Aarónico', subtitle: 'Cómo estructurar los 4 domingos del mes con el Capítulo 1', description: 'Ejemplo completo del arco de 4 domingos usando el Capítulo 1 del PFJ. Domingo 1: verdad eterna. Domingos 2-3: principios y doctrinas. Domingo 4: identidad y aplicación al sacerdocio.', level: 'BÁSICO', icon: '📘', duration: 20, order: 9113, status: 'PUBLISHED', submoduleGroup: 'hj-pfj' },
   // Mujeres Jóvenes (orders 9210-9212)
   { id: 'mj-la-guia-pfj', moduleId: 'capacitacion-liderazgo', title: 'La Guía PFJ para las Mujeres Jóvenes', subtitle: 'El mismo material, una perspectiva única', description: 'La guía PFJ es la misma para HJ y MJ, pero el contexto de las jóvenes tiene sus particularidades. Cómo presentar los 12 capítulos desde la perspectiva de las mujeres jóvenes y conectarlo con su preparación para el templo y la familia.', level: 'BÁSICO', icon: '💜', duration: 20, order: 9210, status: 'PUBLISHED', submoduleGroup: 'mj-pfj' },
   { id: 'mj-ensenar-25-minutos', moduleId: 'capacitacion-liderazgo', title: 'Clases Semanales de 25 Minutos', subtitle: 'De alternas a semanales — el regalo del tiempo', description: 'El cambio de clases alternas a semanales es un regalo: más continuidad, más profundidad. Esta lección ayuda a los líderes de MJ a planificar el uso mensual del capítulo y mantener a las jóvenes comprometidas semana a semana.', level: 'INTERMEDIO', icon: '⏱️', duration: 20, order: 9211, status: 'PUBLISHED', submoduleGroup: 'mj-pfj' },
   { id: 'mj-conectar-hogar', moduleId: 'capacitacion-liderazgo', title: 'Conectar el Hogar con el Domingo', subtitle: 'Que lo que enseñamos no se quede en el salón', description: 'El PFJ es diseñado para conectar el estudio del hogar con la clase dominical. Herramientas para que los líderes de MJ inviten a los padres y ayuden a las jóvenes a aplicar el evangelio diariamente.', level: 'INTERMEDIO', icon: '🏠', duration: 15, order: 9212, status: 'PUBLISHED', submoduleGroup: 'mj-pfj' },
+  { id: 'mj-nuevos-nombres', moduleId: 'capacitacion-liderazgo', title: 'Los Nuevos Nombres de las Mujeres Jóvenes', subtitle: 'Edificadoras, Mensajeras, Guardianas — Identidad Divina', description: 'Anunciados el 20 de abril de 2026: Edificadoras de Fe, Mensajeras de Esperanza y Guardianas de Luz. La doctrina detrás de cada nombre, el himno que los inspiró, y cómo presentarlos a las jóvenes como una declaración de identidad ante Dios.', level: 'BÁSICO', icon: '✨', duration: 25, order: 9213, status: 'PUBLISHED', submoduleGroup: 'mj-pfj' },
+  { id: 'mj-ejemplo-clase-pfj', moduleId: 'capacitacion-liderazgo', title: 'Clase Modelo PFJ — Mujeres Jóvenes', subtitle: 'Los 4 domingos de septiembre con el Capítulo 1', description: 'Ejemplo del arco de 4 domingos del Capítulo 1: verdad eterna → principios → doctrinas → identidad del convenio. Incluye los cambios de formato (sin ejercicios de apertura, Tema a actividades) y el formato de la Presidenta Freeman.', level: 'BÁSICO', icon: '💜', duration: 20, order: 9214, status: 'PUBLISHED', submoduleGroup: 'mj-pfj' },
   // Élderes y Líder Misional (orders 9310-9312)
   { id: 'elderes-rol-misional', moduleId: 'capacitacion-liderazgo', title: 'Nuestro Rol en la Transición', subtitle: 'El Cuórum de Élderes como puente generacional', description: 'El PFJ prepara a los jóvenes para la misión. El cuórum de élderes — formado por hombres que fueron esos jóvenes — tiene un rol único: servir de puente entre la juventud del barrio y la misión de tiempo completo.', level: 'BÁSICO', icon: '🌍', duration: 20, order: 9310, status: 'PUBLISHED', submoduleGroup: 'elderes-pfj' },
   { id: 'elderes-mentores-jovenes', moduleId: 'capacitacion-liderazgo', title: 'Élderes como Mentores Misioneros', subtitle: 'Invitar élderes a compartir en las clases de jóvenes', description: 'Cómo involucrar a los élderes del cuórum en las clases de jóvenes: compartir experiencias misioneras relevantes, escuchar más que hablar, y crear relaciones que duran más allá del domingo.', level: 'INTERMEDIO', icon: '🤝', duration: 20, order: 9311, status: 'PUBLISHED', submoduleGroup: 'elderes-pfj' },
   { id: 'elderes-vision-pfj', moduleId: 'capacitacion-liderazgo', title: 'La Visión Misional del PFJ', subtitle: '"El discipulado diario comienza hoy"', description: '"El discipulado para toda la vida comienza con el discipulado diario." — Pdte. Timothy L. Farnes. Esta lección explora la visión teológica detrás del PFJ: no es solo un cambio de horario, es una invitación a una generación a convertirse en discípulos de Cristo para siempre.', level: 'AVANZADO', icon: '✨', duration: 20, order: 9312, status: 'PUBLISHED', submoduleGroup: 'elderes-pfj' },
+  { id: 'elderes-ejemplo-clase', moduleId: 'capacitacion-liderazgo', title: 'Clase Modelo — Cuórum de Élderes 25 Minutos', subtitle: 'Mensajes de Conferencia General como discipulado, no como tarea', description: 'Ejemplo del nuevo formato semanal del Cuórum de Élderes: presidencia selecciona el discurso según necesidades del cuórum, consejo de hermanos con preguntas preparadas, sin anuncios en clase.', level: 'BÁSICO', icon: '🌍', duration: 15, order: 9313, status: 'PUBLISHED', submoduleGroup: 'elderes-pfj' },
+  // Escuela Dominical (orders 9410-9411)
+  { id: 'ed-nuevo-horario', moduleId: 'capacitacion-liderazgo', title: 'El Nuevo Horario Dominical', subtitle: 'Qué cambia el 6 de septiembre y de quién es la responsabilidad', description: 'La Presidencia de la Escuela Dominical coordina el cambio de horario: Escuela Dominical cada domingo, el 30 de agosto y la implementación del 6 de septiembre. Esta lección explica el antes y el después con pasos concretos.', level: 'BÁSICO', icon: '🗓️', duration: 20, order: 9410, status: 'PUBLISHED', submoduleGroup: 'ed-pfj' },
+  { id: 'ed-coordinar-clases', moduleId: 'capacitacion-liderazgo', title: 'Coordinar las Clases de Jóvenes', subtitle: 'El rol de la Escuela Dominical con HJ, MJ y el bloque PFJ', description: 'Qué corresponde a la ED y qué a las organizaciones de jóvenes. Mapa de responsabilidades, logística del primer domingo y cómo prevenir fricciones el 6 de septiembre.', level: 'INTERMEDIO', icon: '🤝', duration: 15, order: 9411, status: 'PUBLISHED', submoduleGroup: 'ed-pfj' },
+  { id: 'ed-ejemplo-clase', moduleId: 'capacitacion-liderazgo', title: 'Clase Modelo — Escuela Dominical 25 Minutos', subtitle: 'Cómo enseñar Ven, Sígueme con menos tiempo y más profundidad', description: 'Ejemplo concreto de cómo preparar la Escuela Dominical de 25 minutos: elegir 1-3 principios, preguntas que abren conversación, y el rol del maestro como facilitador.', level: 'BÁSICO', icon: '📖', duration: 15, order: 9412, status: 'PUBLISHED', submoduleGroup: 'ed-pfj' },
+  { id: 'srs-ejemplo-clase', moduleId: 'capacitacion-liderazgo', title: 'Clase Modelo — Sociedad de Socorro 25 Minutos', subtitle: 'Mensajes de Conferencia General como consejo entre hermanas', description: 'Ejemplo de cómo estructurar la nueva clase semanal de SRS: presidencia selecciona el discurso prayerfully, sin anuncios en clase, discusión como consejo — no como lección magistral.', level: 'BÁSICO', icon: '💐', duration: 15, order: 9510, status: 'PUBLISHED', submoduleGroup: 'srs-pfj' },
 ]
 
 const PORTED: Partial<Record<string, Lesson>> = {
   'el-sellamiento': lessonElSellamiento,
+  'como-dar-un-discurso': lessonComoDarUnDiscurso,
+  'como-dar-un-testimonio': lessonComoDarUnTestimonio,
+  'como-hacer-una-oracion': lessonComoHacerUnaOracion,
   'sacerdocio-aaonico': lessonSacerdocioAaonico,
   'el-diacono': lessonElDiacono,
   'el-maestro': lessonElMaestro,
@@ -2043,9 +2121,17 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'mj-la-guia-pfj': lessonMjLaGuiaPfj,
   'mj-ensenar-25-minutos': lessonMjEnsenar25Minutos,
   'mj-conectar-hogar': lessonMjConectarHogar,
+  'mj-nuevos-nombres': lessonMjNuevosNombres,
   'elderes-rol-misional': lessonElderesRolMisional,
   'elderes-mentores-jovenes': lessonElderesMentoresJovenes,
   'elderes-vision-pfj': lessonElderesVisionPfj,
+  'ed-nuevo-horario': lessonEdNuevoHorario,
+  'ed-coordinar-clases': lessonEdCoorinarClases,
+  'hj-ejemplo-clase-pfj': lessonHjEjemploClasePfj,
+  'ed-ejemplo-clase': lessonEdEjemploClase,
+  'mj-ejemplo-clase-pfj': lessonMjEjemploClasePfj,
+  'srs-ejemplo-clase': lessonSrsEjemploClase,
+  'elderes-ejemplo-clase': lessonElderesEjemploClase,
 }
 
 function lessonIdsForModule(moduleId: string): string[] {
