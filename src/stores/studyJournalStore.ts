@@ -18,6 +18,7 @@ type StudyJournalState = {
   addEntry: (entry: StudyJournalEntry) => void
   getForLesson: (lessonId: string) => StudyJournalEntry[]
   uniqueTopicTitles: (lessonId: string) => string[]
+  setEntries: (entries: StudyJournalEntry[]) => void
 }
 
 export const useStudyJournalStore = create<StudyJournalState>()(
@@ -46,6 +47,7 @@ export const useStudyJournalStore = create<StudyJournalState>()(
         }
         return titles
       },
+      setEntries: (entries) => set({ entries }),
     }),
     { name: 'lineup-study-journal' },
   ),

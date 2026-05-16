@@ -53,11 +53,16 @@ export function MediaSlotBlock({ block }: MediaSlotBlockProps) {
 
   return (
     <figure className="overflow-hidden rounded-2xl border border-gold-main/25 bg-white shadow-sm">
-      <div className="flex aspect-video w-full items-center justify-center bg-gradient-to-b from-white to-bg-elevated">
+      <div className="flex w-full items-center justify-center bg-bg-elevated">
         {hasSrc ? (
-          <img src={block.src} alt={block.alt ?? ''} loading="lazy" className="h-full w-full object-cover" />
+          <img
+            src={block.src}
+            alt={block.alt ?? ''}
+            loading="lazy"
+            className="max-h-[36rem] w-full object-contain"
+          />
         ) : (
-          <p className="px-4 text-center font-ui text-sm text-text-muted">Contenido visual próximamente</p>
+          <p className="px-4 py-16 text-center font-ui text-sm text-text-muted">Contenido visual próximamente</p>
         )}
       </div>
       {block.caption ? (

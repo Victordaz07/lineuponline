@@ -12,7 +12,7 @@ import { LeaderQuoteBlock } from '@/components/doctrinal/blocks/LeaderQuoteBlock
 import { MediaSlotBlock } from '@/components/doctrinal/blocks/MediaSlotBlock'
 import { NotePromptsBlock } from '@/components/doctrinal/blocks/NotePromptsBlock'
 import { ParagraphBlock } from '@/components/doctrinal/blocks/ParagraphBlock'
-import { QuizBlockComponent } from '@/components/doctrinal/blocks/QuizBlock'
+import { QuizBlockComponent, quizBlockListKey } from '@/components/doctrinal/blocks/QuizBlock'
 import { ReflectionBlock } from '@/components/doctrinal/blocks/ReflectionBlock'
 import { StepsBlock } from '@/components/doctrinal/blocks/StepsBlock'
 import { TimelineBlockComponent } from '@/components/doctrinal/blocks/TimelineBlock'
@@ -61,7 +61,7 @@ export function BlockRenderer({
     case 'steps':
       return <StepsBlock block={block} />
     case 'highlight_verse':
-      return <HighlightVerseBlock block={block} />
+      return <HighlightVerseBlock block={block} lessonId={lessonId} moduleId={moduleId} topicTitle={topicTitle} />
     case 'central_quote':
       return <CentralQuoteBlock block={block} />
     case 'reflection':
@@ -71,7 +71,7 @@ export function BlockRenderer({
     case 'quiz':
       return (
         <QuizBlockComponent
-          key={`${lessonId}-${block.id}`}
+          key={quizBlockListKey(block, lessonId)}
           block={block}
           lessonId={lessonId}
           onComplete={onQuizComplete}

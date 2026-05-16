@@ -127,11 +127,49 @@ export type MediaSlotBlock = {
   contextCard?: MediaContextCard
 }
 
-export type QuizBlock = {
+/** Columna de comparación: títulos como `title` o `label`, viñetas como `items` o `points`. */
+export type CompareGridColumn = {
+  title?: string
+  label?: string
+  items?: string[]
+  points?: string[]
+}
+
+export type CompareGridBlock = {
+  type: 'compare_grid'
+  /** Encabezado opcional sobre las dos columnas. */
+  title?: string
+  left: CompareGridColumn
+  right: CompareGridColumn
+}
+
+/** Quiz en formato estructurado (`question` con `kind`). */
+export type QuizBlockStandard = {
   type: 'quiz'
   id: string
   question: QuizQuestion
 }
+
+/** Formato abreviado usado en algunas lecciones (misma semántica; se normaliza al renderizar). */
+export type QuizBlockShorthandTrueFalse = {
+  type: 'quiz'
+  id?: string
+  quizType: 'true_false'
+  question: string
+  answer: boolean
+  explanation?: string
+}
+
+export type QuizBlockShorthandFillBlank = {
+  type: 'quiz'
+  id?: string
+  quizType: 'fill_blank'
+  question: string
+  answer: string
+  explanation?: string
+}
+
+export type QuizBlock = QuizBlockStandard | QuizBlockShorthandTrueFalse | QuizBlockShorthandFillBlank
 
 export type NotePromptItem = {
   id: string
@@ -147,12 +185,6 @@ export type DialogueBlock = {
   type: 'dialogue'
   title?: string
   lines: { speaker: string; side: 'left' | 'right'; text: string }[]
-}
-
-export type CompareGridBlock = {
-  type: 'compare_grid'
-  left: { title: string; items: string[] }
-  right: { title: string; items: string[] }
 }
 
 export type CrisisCardsBlock = {
@@ -233,6 +265,7 @@ export type Lesson = {
   quickFacts?: string[]
   previousLessonId?: string | null
   nextLessonId?: string | null
+  submoduleGroup?: string
 }
 
 /** Módulo doctrinal con lista ordenada de ids de lección. */
@@ -245,5 +278,6 @@ export type DoctrinalModule = {
   level: DifficultyLevel
   usePurpleAccent?: boolean
   heroImageUrl?: string
+  categoryLabel?: string
   lessonIds: string[]
 }

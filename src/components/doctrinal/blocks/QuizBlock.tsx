@@ -1,5 +1,46 @@
 import { useCallback, useMemo, useState } from 'react'
-import type { QuizBlock as QuizBlockType } from '@/types/doctrine'
+import type { QuizBlock as QuizBlockType, QuizQuestion } from '@/types/doctrine'
+
+/** Clave estable para listas React cuando un quiz abreviado omite `id`. */
+export function quizBlockListKey(block: QuizBlockType, lessonId: string): string {
+  return `${lessonId}-${
+    'quizType' in block ? (block.id ?? `q-${hashPrompt(block.question)}`) : block.id
+  }`
+}
+
+function hashPrompt(s: string): string {
+  let h = 0
+  for (let i = 0; i < s.length; i++) h = (Math.imul(31, h) + s.charCodeAt(i)) | 0
+  return (h >>> 0).toString(16)
+}
+
+/** Unifica formato canónico y abreviado (`quizType` + string) para el render interactivo. */
+function normalizeQuiz(block: QuizBlockType, lessonId: string): { id: string; question: QuizQuestion } {
+  if ('quizType' in block) {
+    if (block.quizType === 'true_false') {
+      return {
+        id: block.id ?? `${lessonId}-tf-${hashPrompt(block.question)}`,
+        question: {
+          kind: 'true_false',
+          statement: block.question,
+          correctAnswer: block.answer,
+          explanation: block.explanation,
+        },
+      }
+    }
+    return {
+      id: block.id ?? `${lessonId}-fb-${hashPrompt(block.question)}`,
+      question: {
+        kind: 'fill_blank',
+        prompt: block.question,
+        options: [block.answer],
+        correctIndex: 0,
+        explanation: block.explanation,
+      },
+    }
+  }
+  return { id: block.id, question: block.question }
+}
 
 export type QuizBlockComponentProps = {
   block: QuizBlockType
@@ -18,14 +59,15 @@ function arraysEqualOrder(a: readonly number[], b: readonly number[]): boolean {
  * Quiz interactivo con feedback inmediato y micro-celebración visual.
  */
 export function QuizBlockComponent({ block, lessonId, onComplete }: QuizBlockComponentProps) {
-  const quizKey = useMemo(() => `${lessonId}:${block.id}`, [lessonId, block.id])
+  const { id: quizId, question: quizQuestion } = useMemo(() => normalizeQuiz(block, lessonId), [block, lessonId])
+  const quizKey = useMemo(() => `${lessonId}:${quizId}`, [lessonId, quizId])
   const [done, setDone] = useState(false)
   const [feedback, setFeedback] = useState<'correct' | 'wrong' | null>(null)
   const [sortOrder, setSortOrder] = useState<number[]>(() =>
-    block.question.kind === 'sort_items' ? block.question.items.map((_, i) => i) : [],
+    quizQuestion.kind === 'sort_items' ? quizQuestion.items.map((_, i) => i) : [],
   )
 
-  const q = block.question
+  const q = quizQuestion
 
   const handleCorrect = useCallback(() => {
     setFeedback('correct')

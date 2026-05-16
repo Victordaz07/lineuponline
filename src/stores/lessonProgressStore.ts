@@ -8,6 +8,9 @@ type LessonProgressState = {
   markQuizCompleted: (key: string) => void
   isTopicVisited: (key: string) => boolean
   isQuizCompleted: (key: string) => boolean
+  hasAnyVisited: (lessonId: string) => boolean
+  setVisitedTopics: (keys: string[]) => void
+  setCompletedQuizzes: (keys: string[]) => void
 }
 
 function addUnique(list: string[], key: string): string[] {
@@ -27,6 +30,9 @@ export const useLessonProgressStore = create<LessonProgressState>()(
       markQuizCompleted: (key) => set((s) => ({ completedQuizzes: addUnique(s.completedQuizzes, key) })),
       isTopicVisited: (key) => get().visitedTopics.includes(key),
       isQuizCompleted: (key) => get().completedQuizzes.includes(key),
+      hasAnyVisited: (lessonId) => get().visitedTopics.some((k) => k.startsWith(`${lessonId}:`)),
+      setVisitedTopics: (keys) => set({ visitedTopics: keys }),
+      setCompletedQuizzes: (keys) => set({ completedQuizzes: keys }),
     }),
     { name: 'lineup-lesson-progress' },
   ),

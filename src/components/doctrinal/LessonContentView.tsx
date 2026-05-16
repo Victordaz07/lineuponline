@@ -8,7 +8,7 @@ import { NoteEditor } from '@/components/doctrinal/NoteEditor'
 import { QuickFacts } from '@/components/doctrinal/QuickFacts'
 import { ScriptureBlock } from '@/components/doctrinal/ScriptureBlock'
 import { StudyJournal } from '@/components/doctrinal/StudyJournal'
-import { TextToSpeechButton } from '@/components/doctrinal/TextToSpeechButton'
+import { LessonAudioPlayer } from '@/components/doctrinal/LessonAudioPlayer'
 import { LessonSectionHeader } from '@/components/doctrinal/LessonSectionHeader'
 import { LessonSectionNav } from '@/components/doctrinal/LessonSectionNav'
 import { LessonTopicCard } from '@/components/doctrinal/LessonTopicCard'
@@ -19,6 +19,7 @@ import {
   topicHasQuiz,
 } from '@/lib/lessonRichUtils'
 import { splitPlainParagraphs } from '@/lib/utils'
+import { OriginalTextRenderer } from '@/components/doctrinal/OriginalTextRenderer'
 import { useLessonProgressStore } from '@/stores/lessonProgressStore'
 import { useStudyJournalStore } from '@/stores/studyJournalStore'
 import type { UserNoteInput } from '@/types/userNotes'
@@ -52,6 +53,7 @@ export function LessonContentView({
 
   const sections = useMemo(() => lesson.studySections ?? [], [lesson.studySections])
   const isRich = Boolean(sections.length > 0)
+  const hasOriginal = (lesson.originalBodyPlain ?? '').trim().length > 0
 
   const studyParagraphs = useMemo(() => splitPlainParagraphs(lesson.studyBodyPlain), [lesson.studyBodyPlain])
   const originalParagraphs = useMemo(() => splitPlainParagraphs(lesson.originalBodyPlain), [lesson.originalBodyPlain])
@@ -165,22 +167,19 @@ export function LessonContentView({
     [addJournalEntry, lessonId, moduleId],
   )
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(ttsText)
-    } catch {
-      /* ignore */
-    }
-  }
-
   const activeIndex = sections.findIndex((s) => s.id === activeSectionId)
 
   return (
     <article className="mx-auto max-w-3xl space-y-6 pb-8">
       <header className="space-y-3 rounded-2xl border border-gold-main/20 bg-gradient-to-br from-white via-bg-surface to-bg-elevated p-6 shadow-sm">
-        <p className="font-ui text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-text-muted">
-          {tab === 'study' ? 'Estudio guiado' : 'Texto completo · discurso original'}
-        </p>
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <p className="font-ui text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-text-muted">
+            {tab === 'study' ? 'Estudio guiado' : 'Texto completo · discurso original'}
+          </p>
+          <span className="rounded-full border border-amber-300/60 bg-amber-50 px-2.5 py-0.5 font-ui text-[0.6rem] font-semibold uppercase tracking-wide text-amber-700">
+            No oficial
+          </span>
+        </div>
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <h1 className="font-title text-3xl text-blue-accent sm:text-4xl">{title}</h1>
@@ -222,63 +221,59 @@ export function LessonContentView({
         />
       ) : null}
 
-      <div
-        role="tablist"
-        aria-label="Tipo de contenido"
-        className="flex gap-2 border-b border-blue-accent/10 pb-px"
-      >
-        <button
-          type="button"
-          role="tab"
-          aria-selected={tab === 'study'}
-          className={`rounded-t-lg px-4 py-2 font-ui text-sm font-semibold transition ${
-            tab === 'study' ? 'border-b-2 border-gold-main text-blue-accent' : 'text-text-muted hover:text-blue-accent'
-          }`}
-          onClick={() => setTab('study')}
+      {hasOriginal ? (
+        <div
+          role="tablist"
+          aria-label="Tipo de contenido"
+          className="flex gap-2 border-b border-blue-accent/10 pb-px"
         >
-          Estudio
-        </button>
-        <button
-          type="button"
-          role="tab"
-          aria-selected={tab === 'original'}
-          className={`rounded-t-lg px-4 py-2 font-ui text-sm font-semibold transition ${
-            tab === 'original'
-              ? 'border-b-2 border-gold-main text-blue-accent'
-              : 'text-text-muted hover:text-blue-accent'
-          }`}
-          onClick={() => setTab('original')}
-        >
-          Texto original
-        </button>
-      </div>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={tab === 'study'}
+            className={`rounded-t-lg px-4 py-2 font-ui text-sm font-semibold transition ${
+              tab === 'study' ? 'border-b-2 border-gold-main text-blue-accent' : 'text-text-muted hover:text-blue-accent'
+            }`}
+            onClick={() => setTab('study')}
+          >
+            Estudio
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={tab === 'original'}
+            className={`rounded-t-lg px-4 py-2 font-ui text-sm font-semibold transition ${
+              tab === 'original'
+                ? 'border-b-2 border-gold-main text-blue-accent'
+                : 'text-text-muted hover:text-blue-accent'
+            }`}
+            onClick={() => setTab('original')}
+          >
+            Texto original
+          </button>
+        </div>
+      ) : null}
 
-      <div className="flex flex-wrap items-center gap-3">
-        {tab === 'study' && isRich && ttsAllParagraphs.length > 0 ? (
-          <TextToSpeechButton
-            text={ttsAllParagraphs.map((p) => p.text).join('\n\n')}
-            paragraphs={ttsAllParagraphs}
-            onParagraphActive={setActiveParagraphId}
-            label="Escuchar lección"
-          />
-        ) : (
-          <TextToSpeechButton text={ttsText} label="Escuchar" />
-        )}
-        <button
-          type="button"
-          onClick={() => void handleCopy()}
-          className="rounded-full border border-blue-accent/25 bg-white px-4 py-2 font-ui text-sm font-semibold text-blue-accent shadow-sm transition hover:bg-blue-accent/5"
-        >
-          Copiar texto
-        </button>
-        <button
-          type="button"
-          onClick={() => setShowNotes((v) => !v)}
-          className="rounded-full border border-gold-main/40 bg-gold-dim px-4 py-2 font-ui text-sm font-semibold text-blue-accent"
-          aria-expanded={showNotes}
-        >
-          {showNotes ? 'Ocultar notas' : 'Mis notas'}
-        </button>
+      <div className="space-y-3">
+        <div className="flex flex-wrap items-center gap-3">
+          {tab === 'study' && isRich && ttsAllParagraphs.length > 0 ? (
+            <LessonAudioPlayer
+              text={ttsAllParagraphs.map((p) => p.text).join('\n\n')}
+              paragraphs={ttsAllParagraphs}
+              onParagraphActive={setActiveParagraphId}
+            />
+          ) : (
+            <LessonAudioPlayer text={ttsText} />
+          )}
+          <button
+            type="button"
+            onClick={() => setShowNotes((v) => !v)}
+            className="rounded-full border border-gold-main/40 bg-gold-dim px-4 py-2 font-ui text-sm font-semibold text-blue-accent"
+            aria-expanded={showNotes}
+          >
+            {showNotes ? 'Ocultar notas' : 'Mis notas'}
+          </button>
+        </div>
       </div>
 
       {tab === 'study' && lesson.quickFacts?.length ? <QuickFacts facts={lesson.quickFacts} /> : null}
@@ -338,14 +333,8 @@ export function LessonContentView({
           </ExplanationPanel>
         ) : null}
 
-        {tab === 'original' ? (
-          <div className="space-y-4">
-            {originalParagraphs.map((p, index) => (
-              <p key={`orig-${index}`} className="text-reading text-base leading-relaxed text-text-main">
-                {p}
-              </p>
-            ))}
-          </div>
+        {tab === 'original' && lesson.originalBodyPlain ? (
+          <OriginalTextRenderer text={lesson.originalBodyPlain} />
         ) : null}
 
         {lesson.scriptures?.length ? (
@@ -409,6 +398,16 @@ export function LessonContentView({
           <span className="text-sm text-text-muted sm:text-right">Fin del módulo</span>
         )}
       </nav>
+
+      <aside
+        role="note"
+        aria-label="Aviso importante"
+        className="rounded-xl border border-blue-accent/10 bg-bg-elevated px-5 py-4 text-center"
+      >
+        <p className="font-ui text-xs leading-relaxed text-text-muted">
+          <span className="font-semibold text-text-main">Nota:</span> Este recurso es independiente y no está afiliado, aprobado ni respaldado por La Iglesia de Jesucristo de los Santos de los Últimos Días. Todo el contenido es de carácter educativo y personal — creado para facilitar el estudio individual de temas religiosos.
+        </p>
+      </aside>
 
       <p className="sr-only" aria-live="polite">
         Mostrando {displayParagraphs.length} bloques de texto en la pestaña {tab === 'study' ? 'estudio' : 'original'}.

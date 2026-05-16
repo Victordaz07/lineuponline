@@ -1,15 +1,14 @@
 import { useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { LessonList } from '@/components/learning/LessonList'
+import { SubmoduleHeroSection } from '@/components/learning/SubmoduleHeroSection'
 import { LoadingSpinner } from '@/components/common/LoadingSpinner'
 import { MediaSlot } from '@/components/doctrinal/MediaSlot'
 import { ProgressBar } from '@/components/learning/ProgressBar'
 import { useModule } from '@/hooks/useModule'
-import { useUserProgress } from '@/hooks/useUserProgress'
-import type { DifficultyLevel } from '@/types/doctrine'
+import { useLessonProgressStore } from '@/stores/lessonProgressStore'
+import type { DifficultyLevel, Lesson } from '@/types/doctrine'
 import { DIFFICULTY_LEVELS } from '@/lib/constants'
-
-const DEMO_USER = 'demo-user'
 
 const LEVEL_LABEL: Record<DifficultyLevel, string> = {
   BÁSICO: 'Básico',
@@ -25,7 +24,7 @@ const LEVEL_LABEL: Record<DifficultyLevel, string> = {
 export default function ModuleView() {
   const { moduleId } = useParams<{ moduleId: string }>()
   const { module, lessons, loading, error } = useModule(moduleId)
-  const { completedLessonKeys } = useUserProgress(DEMO_USER)
+  const hasAnyVisited = useLessonProgressStore((s) => s.hasAnyVisited)
   const [levelFilter, setLevelFilter] = useState<DifficultyLevel | 'ALL'>('ALL')
 
   const filteredLessons = useMemo(() => {
@@ -35,15 +34,29 @@ export default function ModuleView() {
     return lessons.filter((l) => l.level === levelFilter)
   }, [lessons, levelFilter])
 
-  const progressValue = useMemo(() => {
-    if (!module || lessons.length === 0) {
-      return 0
+  const { featuredGroups, regularLessons } = useMemo(() => {
+    const groupMap = new Map<string, Lesson[]>()
+    const regular: Lesson[] = []
+    for (const l of filteredLessons) {
+      if (l.submoduleGroup) {
+        const arr = groupMap.get(l.submoduleGroup) ?? []
+        arr.push(l)
+        groupMap.set(l.submoduleGroup, arr)
+      } else {
+        regular.push(l)
+      }
     }
-    const done = lessons.filter((l) =>
-      completedLessonKeys.includes(`${module.id}:${l.id}`),
-    ).length
+    return {
+      featuredGroups: [...groupMap.entries()].map(([group, grpLessons]) => ({ group, lessons: grpLessons })),
+      regularLessons: regular,
+    }
+  }, [filteredLessons])
+
+  const progressValue = useMemo(() => {
+    if (!module || lessons.length === 0) return 0
+    const done = lessons.filter((l) => hasAnyVisited(l.id)).length
     return done / lessons.length
-  }, [completedLessonKeys, lessons, module])
+  }, [hasAnyVisited, lessons, module])
 
   if (loading) {
     return (
@@ -69,6 +82,11 @@ export default function ModuleView() {
             {module.icon ?? '📖'}
           </span>
           <div>
+            {module.categoryLabel ? (
+              <p className="font-ui text-xs font-semibold uppercase tracking-[0.2em] text-gold-main">
+                {module.categoryLabel}
+              </p>
+            ) : null}
             <h1 className="font-title text-3xl text-blue-accent">{module.title}</h1>
             <p className="mt-2 max-w-prose text-reading text-base text-text-muted">{module.description}</p>
           </div>
@@ -110,10 +128,18 @@ export default function ModuleView() {
         </div>
       </section>
 
-      <section>
-        <h2 className="mb-4 font-title text-xl text-blue-accent">Lecciones</h2>
-        <LessonList lessons={filteredLessons} moduleId={module.id} />
-      </section>
+      {featuredGroups.map(({ group, lessons: grpLessons }) => (
+        <SubmoduleHeroSection key={group} group={group} lessons={grpLessons} moduleId={module.id} />
+      ))}
+
+      {regularLessons.length > 0 ? (
+        <section>
+          <h2 className="mb-4 font-title text-xl text-blue-accent">
+            {featuredGroups.length > 0 ? 'Otros personajes' : 'Lecciones'}
+          </h2>
+          <LessonList lessons={regularLessons} moduleId={module.id} />
+        </section>
+      ) : null}
     </div>
   )
 }
