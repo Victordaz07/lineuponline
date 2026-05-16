@@ -5,7 +5,7 @@ export const elBautismo: Lesson = {
   moduleId: 'doctrina-fundamental',
   title: 'El Bautismo',
   subtitle: 'Nacimiento de nuevo por agua y por el Espíritu',
-  author: 'Iglesia de Jesucristo de los Santos de los Últimos Días',
+
   description:
     'La primera ordenanza del evangelio: la puerta al camino estrecho, el convenio en las aguas, y el nacimiento espiritual que transforma al hombre viejo en hombre nuevo.',
   level: 'BÁSICO',

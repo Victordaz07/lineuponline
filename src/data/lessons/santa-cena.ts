@@ -5,7 +5,7 @@ export const santaCena: Lesson = {
   moduleId: 'doctrina-avanzada-carne',
   title: 'La Santa Cena',
   subtitle: 'Convenio y poder renovados',
-  author: 'Iglesia de Jesucristo de los Santos de los Últimos Días',
+
   description:
     'El pan y el agua, la memoria del Salvador, y los convenios que renovamos cada semana. Una guía profunda sobre la ordenanza más frecuente de la Iglesia.',
   level: 'BÁSICO',

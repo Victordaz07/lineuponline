@@ -171,15 +171,21 @@ export function LessonContentView({
 
   return (
     <article className="mx-auto max-w-3xl space-y-6 pb-8">
+      <div
+        role="note"
+        aria-label="Aviso de contenido independiente"
+        className="flex items-start gap-3 rounded-xl border border-amber-300/70 bg-amber-50 px-4 py-3"
+      >
+        <span className="mt-0.5 text-amber-500" aria-hidden="true">⚠️</span>
+        <p className="font-ui text-xs leading-relaxed text-amber-800">
+          <span className="font-bold">Recurso independiente.</span> Este contenido no está afiliado, aprobado ni respaldado por La Iglesia de Jesucristo de los Santos de los Últimos Días. Es un recurso personal de estudio de temas religiosos.
+        </p>
+      </div>
+
       <header className="space-y-3 rounded-2xl border border-gold-main/20 bg-gradient-to-br from-white via-bg-surface to-bg-elevated p-6 shadow-sm">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <p className="font-ui text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-text-muted">
-            {tab === 'study' ? 'Estudio guiado' : 'Texto completo · discurso original'}
-          </p>
-          <span className="rounded-full border border-amber-300/60 bg-amber-50 px-2.5 py-0.5 font-ui text-[0.6rem] font-semibold uppercase tracking-wide text-amber-700">
-            No oficial
-          </span>
-        </div>
+        <p className="font-ui text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-text-muted">
+          {tab === 'study' ? 'Estudio guiado' : 'Texto completo · discurso original'}
+        </p>
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <h1 className="font-title text-3xl text-blue-accent sm:text-4xl">{title}</h1>
@@ -398,16 +404,6 @@ export function LessonContentView({
           <span className="text-sm text-text-muted sm:text-right">Fin del módulo</span>
         )}
       </nav>
-
-      <aside
-        role="note"
-        aria-label="Aviso importante"
-        className="rounded-xl border border-blue-accent/10 bg-bg-elevated px-5 py-4 text-center"
-      >
-        <p className="font-ui text-xs leading-relaxed text-text-muted">
-          <span className="font-semibold text-text-main">Nota:</span> Este recurso es independiente y no está afiliado, aprobado ni respaldado por La Iglesia de Jesucristo de los Santos de los Últimos Días. Todo el contenido es de carácter educativo y personal — creado para facilitar el estudio individual de temas religiosos.
-        </p>
-      </aside>
 
       <p className="sr-only" aria-live="polite">
         Mostrando {displayParagraphs.length} bloques de texto en la pestaña {tab === 'study' ? 'estudio' : 'original'}.
