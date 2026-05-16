@@ -5,7 +5,7 @@ export const elDonDelEspirituSanto: Lesson = {
   moduleId: 'doctrina-fundamental',
   title: 'El Don del Espíritu Santo',
   subtitle: 'El mayor don que Dios da a sus hijos en mortalidad',
-  author: 'Iglesia de Jesucristo de los Santos de los Últimos Días',
+
   description:
     'El tercer miembro de la Divinidad, sus funciones como Consolador, Testigo y Santificador, la diferencia crítica entre su influencia y su don, y cómo cultivar su compañía constante.',
   level: 'BÁSICO',
