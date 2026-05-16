@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { LessonDisclaimer } from '@/components/doctrinal/LessonDisclaimer'
 
 export type UnderConstructionProps = {
   lessonTitle?: string
@@ -13,7 +14,9 @@ export type UnderConstructionProps = {
  */
 export function UnderConstruction({ lessonTitle, moduleId }: UnderConstructionProps) {
   return (
-    <div className="mx-auto max-w-lg rounded-2xl border border-amber-200/80 bg-amber-50/90 p-8 text-center shadow-sm">
+    <div className="mx-auto max-w-lg space-y-6">
+      <LessonDisclaimer />
+      <div className="rounded-2xl border border-amber-200/80 bg-amber-50/90 p-8 text-center shadow-sm">
       <p className="font-ui text-xs font-bold uppercase tracking-[0.2em] text-gold-main">En construcción</p>
       <h1 className="mt-3 font-title text-2xl text-blue-accent">Próximamente</h1>
       {lessonTitle ? (
@@ -41,6 +44,7 @@ export function UnderConstruction({ lessonTitle, moduleId }: UnderConstructionPr
             Volver al módulo
           </Link>
         ) : null}
+      </div>
       </div>
     </div>
   )

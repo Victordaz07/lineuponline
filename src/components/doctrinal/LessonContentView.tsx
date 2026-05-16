@@ -19,6 +19,7 @@ import {
   topicHasQuiz,
 } from '@/lib/lessonRichUtils'
 import { splitPlainParagraphs } from '@/lib/utils'
+import { LessonDisclaimer } from '@/components/doctrinal/LessonDisclaimer'
 import { OriginalTextRenderer } from '@/components/doctrinal/OriginalTextRenderer'
 import { useLessonProgressStore } from '@/stores/lessonProgressStore'
 import { useStudyJournalStore } from '@/stores/studyJournalStore'
@@ -171,17 +172,7 @@ export function LessonContentView({
 
   return (
     <article className="mx-auto max-w-3xl space-y-6 pb-8">
-      <div
-        role="note"
-        aria-label="Aviso de contenido independiente"
-        className="flex items-start gap-3 rounded-xl border border-amber-300/70 bg-amber-50 px-4 py-3"
-      >
-        <span className="mt-0.5 text-amber-500" aria-hidden="true">⚠️</span>
-        <p className="font-ui text-xs leading-relaxed text-amber-800">
-          <span className="font-bold">Recurso independiente.</span> Este contenido no está afiliado, aprobado ni respaldado por La Iglesia de Jesucristo de los Santos de los Últimos Días. Es un recurso personal de estudio de temas religiosos.
-        </p>
-      </div>
-
+      <LessonDisclaimer />
       <header className="space-y-3 rounded-2xl border border-gold-main/20 bg-gradient-to-br from-white via-bg-surface to-bg-elevated p-6 shadow-sm">
         <p className="font-ui text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-text-muted">
           {tab === 'study' ? 'Estudio guiado' : 'Texto completo · discurso original'}
