@@ -24,9 +24,9 @@ export const jacobElSuplantador: Lesson = {
           id: 't1',
           title: 'Jacob nació tomando',
           blocks: [
-            { type: 'paragraph', id: 'p1', text: 'Jacob nació agarrando el talón de su gemelo Esaú (Génesis 25:26). Su nombre en hebreo, "Yaaqov", significa literalmente "el que agarra el talón" — pero también "el que suplanta" o "el que engaña". Es un nombre profético: toda la primera mitad de su vida, Jacob obtuvo lo que quería por medio de engaño. La primogenitura de Esaú por un plato de lentejas. La bendición de Isaac disfrazado como Esaú. Huyó de las consecuencias.' },
-            { type: 'highlight_verse', id: 'v1', reference: 'Génesis 25:31-33', text: 'Y Jacob respondió: Véndeme en este día tu primogenitura. Entonces dijo Esaú: He aquí yo me voy a morir; ¿para qué, pues, me servirá la primogenitura? Y Jacob dijo: Júramelo en este día. Y él le juró, y vendió a Jacob su primogenitura.' },
-            { type: 'paragraph', id: 'p2', text: 'Un detalle teológico importante: Esaú "menospreció" su primogenitura (v.34). Hebreos 12:16 lo llamará "profano" por ello. La transacción no fue únicamente un engaño de Jacob — fue la consecuencia de que Esaú mismo no valoraba lo que tenía. La primogenitura conllevaba responsabilidad sacerdotal y patriarcal, no solo herencia material.' },
+            { type: 'paragraph', text: 'Jacob nació agarrando el talón de su gemelo Esaú (Génesis 25:26). Su nombre en hebreo, "Yaaqov", significa literalmente "el que agarra el talón" — pero también "el que suplanta" o "el que engaña". Es un nombre profético: toda la primera mitad de su vida, Jacob obtuvo lo que quería por medio de engaño. La primogenitura de Esaú por un plato de lentejas. La bendición de Isaac disfrazado como Esaú. Huyó de las consecuencias.' },
+            { type: 'highlight_verse', reference: 'Génesis 25:31-33', text: 'Y Jacob respondió: Véndeme en este día tu primogenitura. Entonces dijo Esaú: He aquí yo me voy a morir; ¿para qué, pues, me servirá la primogenitura? Y Jacob dijo: Júramelo en este día. Y él le juró, y vendió a Jacob su primogenitura.' },
+            { type: 'paragraph', text: 'Un detalle teológico importante: Esaú "menospreció" su primogenitura (v.34). Hebreos 12:16 lo llamará "profano" por ello. La transacción no fue únicamente un engaño de Jacob — fue la consecuencia de que Esaú mismo no valoraba lo que tenía. La primogenitura conllevaba responsabilidad sacerdotal y patriarcal, no solo herencia material.' },
           ],
         },
       ],

@@ -20,7 +20,14 @@ export function StepsBlock({ block }: StepsBlockProps) {
             >
               {index + 1}
             </span>
-            <p className="text-reading text-base leading-relaxed text-text-main">{step}</p>
+            {typeof step === 'string' ? (
+              <p className="text-reading text-base leading-relaxed text-text-main">{step}</p>
+            ) : (
+              <div>
+                <p className="font-ui text-sm font-semibold text-blue-accent">{step.title}</p>
+                <p className="text-reading text-base leading-relaxed text-text-main">{step.body ?? step.description}</p>
+              </div>
+            )}
           </li>
         ))}
       </ol>

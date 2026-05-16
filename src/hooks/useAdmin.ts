@@ -1,10 +1,27 @@
-import { useAuth } from '@/contexts/AuthContext'
-
-const ADMIN_UID = import.meta.env.VITE_ADMIN_UID as string | undefined
+import { useEffect, useState } from 'react'
+import { useAuth } from '@/hooks/useAuth'
+import { isUidInAdminList } from '@/config/admin'
 
 export function useAdmin() {
   const { user } = useAuth()
-  return {
-    isAdmin: Boolean(user && ADMIN_UID && user.uid === ADMIN_UID),
-  }
+  const [tokenAdmin, setTokenAdmin] = useState(false)
+
+  useEffect(() => {
+    if (!user) {
+      setTokenAdmin(false)
+      return
+    }
+    let cancelled = false
+    void user.getIdTokenResult().then((r) => {
+      if (!cancelled) setTokenAdmin(r.claims.admin === true)
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [user])
+
+  const isAdmin =
+    Boolean(user) && (isUidInAdminList(user?.uid) || tokenAdmin)
+
+  return { isAdmin }
 }

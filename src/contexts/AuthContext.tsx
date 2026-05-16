@@ -1,59 +1,71 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
+import type { User } from 'firebase/auth'
+import { onAuthStateChanged } from 'firebase/auth'
+import { isFirebaseConfigured, getFirebaseAuth } from '@/lib/firebase'
+import { upsertUserProfile } from '@/services/users.service'
 import {
-  GoogleAuthProvider,
-  onAuthStateChanged,
-  signInWithPopup,
-  signOut,
-  type User,
-} from 'firebase/auth'
-import { getFirebaseAuth, isFirebaseConfigured } from '@/lib/firebase'
+  signInWithGoogle as signInGoogleWithPopup,
+  signOut as firebaseSignOut,
+} from '@/services/authService'
 
 type AuthContextValue = {
   user: User | null
-  loading: boolean
+  authLoading: boolean
   signInWithGoogle: () => Promise<void>
   signOutUser: () => Promise<void>
 }
 
 const AuthContext = createContext<AuthContextValue>({
   user: null,
-  loading: false,
+  authLoading: false,
   signInWithGoogle: async () => {},
   signOutUser: async () => {},
 })
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
-  const [loading, setLoading] = useState(isFirebaseConfigured())
+  const [authLoading, setAuthLoading] = useState(isFirebaseConfigured())
 
   useEffect(() => {
     if (!isFirebaseConfigured()) return
-    const auth = getFirebaseAuth()
-    const unsub = onAuthStateChanged(auth, (u) => {
-      setUser(u)
-      setLoading(false)
+
+    const unsubscribe = onAuthStateChanged(getFirebaseAuth(), async (firebaseUser) => {
+      setUser(firebaseUser)
+      setAuthLoading(false)
+
+      if (firebaseUser?.email) {
+        void upsertUserProfile({
+          userId: firebaseUser.uid,
+          displayName:
+            firebaseUser.displayName ??
+            firebaseUser.email.split('@')[0] ??
+            'Usuario',
+          email: firebaseUser.email,
+          role: 'student',
+        }).catch(() => {
+          // No crítico: errores de perfil Firestore no bloquean la sesión
+        })
+      }
     })
-    return unsub
+
+    return unsubscribe
   }, [])
 
   async function signInWithGoogle() {
-    const auth = getFirebaseAuth()
-    const provider = new GoogleAuthProvider()
-    await signInWithPopup(auth, provider)
+    await signInGoogleWithPopup()
   }
 
   async function signOutUser() {
-    const auth = getFirebaseAuth()
-    await signOut(auth)
+    await firebaseSignOut()
   }
 
   return (
-    <AuthContext.Provider value={{ user, loading, signInWithGoogle, signOutUser }}>
+    <AuthContext.Provider value={{ user, authLoading, signInWithGoogle, signOutUser }}>
       {children}
     </AuthContext.Provider>
   )
 }
 
-export function useAuth() {
+export function useAuthContext(): AuthContextValue {
   return useContext(AuthContext)
 }

@@ -24,15 +24,15 @@ export const noeYLaRestauracion: Lesson = {
           id: 't5',
           title: 'El diluvio como tipo de la Apostasía',
           blocks: [
-            { type: 'paragraph', id: 'p1', text: 'La Restauración usa el diluvio de Noé como tipo de la Gran Apostasía. Como las aguas cubrieron el mundo antiguo dejando solo a Noé y su familia con la fe verdadera, la Apostasía cubrió el mundo cristiano dejando solo fragmentos de verdad. Y como Noé emergió para construir un mundo nuevo, José Smith fue llamado para restaurar todo lo que se había perdido.' },
-            { type: 'highlight_verse', id: 'v1', reference: 'DyC 84:14-16', text: 'Y [Moisés] recibió el sacerdocio de Jethro, su suegro, quien lo recibió de Caleb; y Caleb lo recibió de Elihu; y Elihu de Jeremy; y Jeremy de Gad; y Gad de Esaías; y Esaías lo recibió bajo la mano de Dios... quien era el séptimo desde Adán.' },
-            { type: 'key_points', id: 'kp1', title: 'Las Paralelas entre Noé y la Restauración', points: [
+            { type: 'paragraph', text: 'La Restauración usa el diluvio de Noé como tipo de la Gran Apostasía. Como las aguas cubrieron el mundo antiguo dejando solo a Noé y su familia con la fe verdadera, la Apostasía cubrió el mundo cristiano dejando solo fragmentos de verdad. Y como Noé emergió para construir un mundo nuevo, José Smith fue llamado para restaurar todo lo que se había perdido.' },
+            { type: 'highlight_verse', reference: 'DyC 84:14-16', text: 'Y [Moisés] recibió el sacerdocio de Jethro, su suegro, quien lo recibió de Caleb; y Caleb lo recibió de Elihu; y Elihu de Jeremy; y Jeremy de Gad; y Gad de Esaías; y Esaías lo recibió bajo la mano de Dios... quien era el séptimo desde Adán.' },
+            { type: 'key_points', title: 'Las Paralelas entre Noé y la Restauración', points: [
               'Noé fue enviado a un mundo degenerado — José Smith a una apostasía de siglos',
               'El arca preservó vida física — la Restauración preservó vida espiritual',
               'El arco iris fue la señal del nuevo convenio — la primera Visión fue la señal de la dispensación final',
               'Noé construyó su arca contra la opinión popular — José construyó la Iglesia contra la oposición de su época',
             ]},
-            { type: 'reflection', id: 'r1', prompt: '¿Cómo te identificas con Noé — alguien que construye algo en fe durante años sin ver los resultados inmediatos? ¿Qué "arca" estás construyendo en tu vida?' },
+            { type: 'reflection', prompt: '¿Cómo te identificas con Noé — alguien que construye algo en fe durante años sin ver los resultados inmediatos? ¿Qué "arca" estás construyendo en tu vida?' },
           ],
         },
       ],

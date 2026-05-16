@@ -5,12 +5,12 @@ export const elTemplo: Lesson = {
   moduleId: 'doctrina-avanzada-carne',
   title: 'El Templo — La Casa del Señor',
   subtitle: 'Donde el tiempo y la eternidad se tocan',
-  author: 'Fuentes principales: DyC 84, 110, 131-132; Russell M. Nelson',
+  author: 'Fuentes principales: DyC 84, 110, 128, 131–132; Éxodo 25; Malaquías 4; Russell M. Nelson',
   description:
-    'El templo no es el edificio más hermoso de la Iglesia — es el lugar donde Dios hace sus promesas más grandes. Las ordenanzas del templo, el endowment, el sellamiento, y por qué Nelson dijo que nuestro futuro espiritual depende de nuestra relación con el templo.',
+    'El templo no es el edificio más hermoso de la Iglesia — es el lugar donde Dios hace sus promesas más grandes. Las ordenanzas del templo, el endowment, el sellamiento, el espíritu de Elías, y por qué el presidente Nelson declaró que nuestro futuro espiritual depende completamente de nuestra relación personal con el templo.',
   level: 'AVANZADO',
   icon: '🏛️',
-  duration: 75,
+  duration: 90,
   order: 2,
   status: 'PUBLISHED',
   studyBodyPlain: '',
@@ -18,94 +18,61 @@ export const elTemplo: Lesson = {
   previousLessonId: 'sacerdocio-autoridad-poder',
   nextLessonId: 'preexistencia',
   studySections: [
-    // ─── SECCIÓN I ──────────────────────────────────────────────────────────────
     {
       id: 's1',
-      title: 'Historia del Templo — De Moisés a Hoy',
+      title: 'Por Qué Existe el Templo — La Casa del Señor en la Escritura',
       intro: {
         romanNumeral: 'I',
-        title: 'Historia del Templo — De Moisés a Hoy',
+        title: 'Por Qué Existe el Templo — La Casa del Señor en la Escritura',
         paragraphs: [
-          'El templo no apareció en la historia de la salvación con la Restauración. Desde que Dios le dijo a Moisés "constrúyeme un santuario y habitaré en medio de ellos," el principio ha sido el mismo: un espacio sagrado donde el cielo y la tierra se tocan, donde los convenios se hacen, donde el poder del sacerdocio se manifiesta en toda su plenitud. Entender la línea histórica del templo es entender que Dios nunca ha querido separarse de su pueblo.',
+          'El templo no es una iglesia más grande con mejores decoraciones. Es el único lugar en la tierra donde Dios ofrece a sus hijos mortales las ordenanzas que hacen posible la exaltación eterna. Sin las ordenanzas del templo, el plan de salvación queda incompleto — no porque Dios sea burocrático, sino porque las ordenanzas son los convenios, y los convenios son los lazos que unen a la humanidad a la divinidad.',
         ],
       },
       topics: [
         {
-          id: 't1-1',
-          title: 'La Línea del Tiempo del Templo',
+          id: 't1',
+          title: 'El Deseo de Dios: Habitar Entre Su Pueblo',
+          subtitle:
+            'Desde Moisés hasta nuestros días, el templo ha sido la respuesta de Dios a una sola pregunta: ¿cómo puede lo mortal tocar lo eterno?',
           blocks: [
             {
               type: 'highlight_verse',
               text: 'Y me harán un santuario, y yo habitaré en medio de ellos.',
-              reference: 'Éxodo 25:8',
+              reference: 'Éxodo 25:8 · Biblia (RVR)',
             },
             {
               type: 'paragraph',
-              text: 'El tabernáculo portátil de Moisés, el templo de Salomón, el segundo templo de Herodes, el Templo de Kirtland, el de Nauvoo, y los más de 350 templos de hoy — todos son expresiones del mismo principio divino: Dios desea morar entre los suyos y darles acceso a las ordenanzas que hacen posible la exaltación. La línea histórica no es accidental; es el relato de cómo Dios ha buscado sin descanso restaurar esa conexión sagrada.',
+              text: 'El deseo de Dios es claro y consistente a través de toda la historia sagrada: quiere habitar cerca de Sus hijos. No en distancia mítica — en presencia activa. El tabernáculo de Moisés, el templo de Salomón, el templo de Herodes, el de Kirtland, el de Nauvoo — cada uno fue construido en respuesta a ese mismo deseo divino. El templo moderno no es una innovación de los últimos días. Es la continuación de la institución más antigua de la historia religiosa humana.',
+              blockId: 'et-s1-p-0',
             },
             {
               type: 'timeline',
               items: [
                 {
-                  label: 'c. 1440 a.C. — Tabernáculo',
-                  text: 'Moisés construye el tabernáculo portátil en el desierto. Primera casa de Dios entre Su pueblo con ordenanzas sagradas, el arca del convenio y el lugar santísimo.',
-                  ref: 'Éxodo 25–27',
+                  label: 'Tabernáculo de Moisés (~1440 a.C.)',
+                  text: 'La primera estructura portátil diseñada por Dios mismo. Tres zonas de santidad creciente: el atrio exterior, el lugar santo, y el lugar santísimo — donde habitaba la gloria del Señor sobre el arca del convenio.',
+                  ref: 'Éxodo 25–27; Éxodo 40:34',
                   color: 'gold',
                 },
                 {
-                  label: 'c. 960 a.C. — Templo de Salomón',
-                  text: 'Salomón edifica el primer templo permanente en Jerusalén. La gloria de Dios lo llena al dedicarlo. Destruido por Babilonia en 586 a.C.',
-                  ref: '1 Reyes 6–8',
-                  color: 'gold',
-                },
-                {
-                  label: '1836 — Templo de Kirtland',
-                  text: 'Primer templo de la dispensación restaurada. El Señor aparece. Moisés, Elías y Elías restituyen las llaves del sacerdocio (DyC 110). La Restauración culmina aquí.',
-                  ref: 'DyC 109–110',
+                  label: 'Templo de Salomón (~957 a.C.)',
+                  text: 'El primer templo permanente. Al ser dedicado, "la gloria del Señor llenó la casa de Dios" (2 Crónicas 7:1). Destruido por Babilonia en 586 a.C. como consecuencia de la apostasía de Israel.',
+                  ref: '1 Reyes 6–8; 2 Crónicas 7:1-2',
                   color: 'blue',
                 },
                 {
-                  label: '1846 — Templo de Nauvoo',
-                  text: 'Los Santos reciben el endowment completo antes del éxodo al oeste. José Smith había introducido las ordenanzas del templo desde 1842.',
-                  ref: 'DyC 124:40–41',
-                  color: 'blue',
+                  label: 'Templo de Kirtland (1836)',
+                  text: 'El primer templo de la Restauración. En su dedicación, el Señor apareció a José Smith y Oliver Cowdery. Elías, Moisés y Elías (Elijah) restauraron llaves esenciales del sacerdocio.',
+                  ref: 'DyC 110:1-16',
+                  color: 'gold',
                 },
                 {
-                  label: 'Hoy — Templos modernos',
-                  text: 'Más de 350 templos anunciados, en construcción o dedicados en todo el mundo. El presidente Nelson ha acelerado la construcción a un ritmo sin precedentes en la historia de la Iglesia.',
-                  ref: 'Russell M. Nelson, 2018–2025',
-                  color: 'gold',
+                  label: 'Templos modernos (1836–hoy)',
+                  text: 'Más de 300 templos en operación, construcción o anunciados en todo el mundo. Cada uno dedicado formalmente como la casa del Señor — el lugar donde el tiempo y la eternidad se tocan.',
+                  ref: 'DyC 97:15-17',
+                  color: 'blue',
                 },
               ],
-            },
-          ],
-        },
-        {
-          id: 't1-2',
-          title: 'La Gran Revelación de Kirtland — DyC 110',
-          blocks: [
-            {
-              type: 'doctrine_box',
-              title: 'Por qué Kirtland lo cambió todo',
-              body: 'El 3 de abril de 1836, José Smith y Oliver Cowdery se postraron en oración tras la cortina del templo de Kirtland. Lo que ocurrió a continuación fue la más concentrada restitución de llaves de sacerdocio en la historia moderna: el Señor Jesucristo apareció. Moisés restauró las llaves de la congregación de Israel. Elías restauró las llaves del evangelio de Abrahán. Y Elías (el profeta del Antiguo Testamento) restauró las llaves del sellamiento — el poder de sellar en la tierra y que sea sellado en el cielo.',
-            },
-            {
-              type: 'media_slot',
-              kind: 'image',
-              src: undefined,
-              alt: 'Historical collage of four temples through time: Tabernacle in the wilderness, Solomons Temple silhouette, Kirtland Temple, and a modern LDS temple, warm tones, painterly style',
-              caption: 'El templo a través de la historia — de Moisés al siglo XXI, el mismo propósito eterno',
-              contextCard: { label: 'Historia del Templo' },
-            },
-            {
-              type: 'highlight_verse',
-              text: 'Vimos al Señor estar de pie sobre el parapeto del púlpito, ante nosotros; y debajo de sus pies había un suelo de oro puro, de apariencia muy hermosa. [...] Sus ojos eran como llama de fuego; el cabello de su cabeza era blanco como la nieve pura; su rostro brillaba más que el sol.',
-              reference: 'Doctrina y Convenios 110:2–3',
-            },
-            {
-              type: 'highlight_verse',
-              text: 'He aquí, el tiempo ha llegado completamente, el gran día del Señor está cerca, y ¿quién podrá soportar la venida de él? [...] He aquí, os envío a Elías el profeta, antes que venga el grande y terrible día del Señor. Y él hará volver el corazón de los padres a los hijos, y el corazón de los hijos a sus padres.',
-              reference: 'Doctrina y Convenios 110:14, 15–16',
             },
             {
               type: 'highlight_verse',
@@ -113,390 +80,346 @@ export const elTemplo: Lesson = {
               reference: 'Doctrina y Convenios 84:20–21',
             },
             {
-              type: 'paragraph',
-              text: 'DyC 84:20-21 es la declaración doctrinal fundamental sobre el templo: sin las ordenanzas del sacerdocio, el poder de la divinidad no puede manifestarse plenamente en la vida de un ser mortal. El templo no es una institución religiosa opcional. Es el único canal a través del cual ciertas categorías del poder de Dios fluyen hacia Sus hijos.',
-            },
-          ],
-        },
-      ],
-    },
-
-    // ─── SECCIÓN II ─────────────────────────────────────────────────────────────
-    {
-      id: 's2',
-      title: 'Dignidad, No Perfección — El Acceso al Templo',
-      intro: {
-        romanNumeral: 'II',
-        title: 'Dignidad, No Perfección — El Acceso al Templo',
-        paragraphs: [
-          'Uno de los malentendidos más comunes sobre el templo es que está reservado para los perfectos, para los que tienen todo resuelto, para los que nunca tropiezan. Nada más alejado de la verdad doctrinal. La recomendación al templo no es un certificado de perfección — es una declaración de que una persona ha hecho los convenios del evangelio y los está honrando con sinceridad. Existe una diferencia crucial entre dignidad y perfección, y confundirlas mantiene afuera a personas que deberían estar adentro.',
-        ],
-      },
-      topics: [
-        {
-          id: 't2-1',
-          title: 'Lo Que Realmente Pregunta la Entrevista',
-          blocks: [
-            {
-              type: 'key_points',
-              title: 'Las preguntas de la entrevista para la recomendación al templo',
-              points: [
-                'Fe en Dios el Padre Eterno, en Jesucristo y en el Espíritu Santo; y en la expiación de Cristo',
-                'Testimonio de la Restauración y del papel del profeta viviente como presidente de la Iglesia',
-                'Esfuerzo sincero por cumplir los mandamientos, incluyendo los relacionados con el diezmo y la ley de castidad',
-                'Apoyo al liderazgo de la Iglesia y ausencia de enseñanzas contrarias a sus doctrinas',
-                'Honestidad en las relaciones con los demás y vida de acuerdo con las enseñanzas del evangelio',
-                'Llevar las vestiduras sagradas del templo correctamente (para los que ya han recibido el endowment)',
-                'Cumplimiento de las responsabilidades familiares',
-              ],
-            },
-            {
-              type: 'compare_grid',
-              left: {
-                title: 'Lo que la gente cree que requiere el templo',
-                items: [
-                  'No haber cometido pecados serios nunca',
-                  'Tener una fe perfecta sin dudas',
-                  'Tener un matrimonio y familia modelo',
-                  'Ser respetado en el barrio como ejemplo impecable',
-                  'Haber hecho una misión de tiempo completo',
-                  'No tener problemas emocionales ni luchas personales',
-                ],
-              },
-              right: {
-                title: 'Lo que realmente requiere el templo',
-                items: [
-                  'Tener fe sincera en Cristo y en la Restauración',
-                  'Vivir honestamente los convenios del bautismo',
-                  'Pagar diezmo fiel y ofrecer lo que se puede dar',
-                  'Esforzarse por cumplir la ley de castidad',
-                  'No enseñar doctrinas contrarias a la Iglesia',
-                  'Ser honesto con Dios, con uno mismo y con el obispo',
-                ],
-              },
-            },
-            {
               type: 'doctrine_box',
-              title: 'Dignidad significa ser limpio de pecado no arrepentido — no ausencia de debilidades',
-              body: 'La dignidad para el templo no es un estado de perfección moral alcanzado. Es un estado de convenio activo: la persona está honrando los convenios del evangelio, y cuando cae, se levanta mediante el arrepentimiento y sigue adelante. Las debilidades, las dudas, los tropiezos que se están trabajando activamente no impiden el acceso al templo. Solo el pecado no arrepentido que uno ha decidido mantener cierra la puerta. La diferencia entre dignidad e indignidad no es la ausencia de imperfecciones — es la dirección del corazón.',
+              title: 'Por qué las ordenanzas del templo son necesarias — DyC 84:20-21',
+              body: 'Este versículo establece uno de los principios doctrinales más importantes de la Restauración: el poder de la divinidad — el poder que transforma a un ser mortal en un ser capaz de la exaltación eterna — no puede manifestarse plenamente sin las ordenanzas del sacerdocio. El templo no es donde "ganamos puntos" con Dios. Es donde hacemos convenios que nos conectan a Su poder transformador, y donde ese poder puede operar en nuestra vida de maneras que no son posibles fuera de esos convenios. Las ordenanzas son los canales que Dios ha designado para transmitir Su poder a Sus hijos.',
+            },
+            {
+              type: 'highlight_verse',
+              text: 'Y nuevamente, de cierto os digo, que la casa de vuestro Dios, que habéis edificado, es aceptable a mí, y os lo hago saber; pues el Espíritu Santo es de testigo. Y he aquí, yo he aceptado esta casa, y mi nombre estará aquí.',
+              reference: 'Doctrina y Convenios 110:7',
             },
             {
               type: 'leader_quote',
-              quote: 'No vayan al templo pensando que deben ser perfectos. Vayan como son — con sus luchas, con sus preguntas, con sus debilidades. El templo es el lugar donde el Señor los transforma. No tienen que estar transformados para entrar. Tienen que estar dispuestos a serlo.',
-              name: 'Harold B. Lee',
-              role: 'Decimoprimero Presidente de la Iglesia (paráfrasis de enseñanzas sobre la dignidad del templo)',
-            },
-          ],
-        },
-        {
-          id: 't2-2',
-          title: 'Quién Debe Empezar a Prepararse Ahora',
-          blocks: [
-            {
-              type: 'paragraph',
-              text: 'Para los que están fuera del templo o que llevan tiempo sin ir: la puerta de la preparación no requiere meses de espera. Requiere una conversación honesta con el obispo, un corazón dispuesto al arrepentimiento donde sea necesario, y la decisión de honrar los convenios que ya se han hecho. Para la mayoría de los miembros activos que se mantienen alejados del templo por sentirse "no suficientemente buenos," la realidad doctrinal es que ya califican — solo necesitan creerlo.',
+              quote: 'Nuestro futuro espiritual — el vuestro y el mío — depende de nuestra relación personal con el templo. El adversario sabe esto. Por eso trabaja tan activamente para mantenernos alejados del templo, para hacernos sentir que la preparación es demasiado difícil, que el viaje es demasiado lejos, que el tiempo es demasiado corto. Él sabe con exactitud lo que perdemos cuando no vamos, y lo que ganamos cuando sí vamos.',
+              name: 'Presidente Russell M. Nelson',
+              role: '"El Templo y Tu Fundamento Espiritual", Conferencia General, octubre 2021 · Liahona, noviembre 2021',
             },
             {
               type: 'reflection',
-              prompt: '¿Hay algo que te hace sentir que no eres "suficientemente bueno" para el templo? ¿Es eso un pecado no arrepentido (que tiene solución) o es una percepción equivocada de lo que Dios requiere? ¿Cuándo fue la última vez que hablaste honestamente con tu obispo sobre tu dignidad para el templo?',
+              prompt:
+                '¿Cómo describes el templo a alguien que nunca ha entrado a uno? ¿Lo describes como un edificio bello, como un lugar de paz, como un lugar de ordenanzas? ¿Cuál es la descripción que captura mejor lo que el templo realmente es doctrinalmente?',
             },
           ],
         },
       ],
     },
-
-    // ─── SECCIÓN III ────────────────────────────────────────────────────────────
     {
-      id: 's3',
-      title: 'El Endowment y el Sellamiento',
+      id: 's2',
+      title: 'La Preparación para Entrar — Digno, No Perfecto',
       intro: {
-        romanNumeral: 'III',
-        title: 'El Endowment y el Sellamiento',
+        romanNumeral: 'II',
+        title: 'La Preparación para Entrar — Digno, No Perfecto',
         paragraphs: [
-          'El templo ofrece ordenanzas que ningún otro lugar en la tierra puede ofrecer. El endowment y el sellamiento no son rituales religiosos ordinarios. Son los convenios más elevados que un ser mortal puede hacer con Dios en esta vida: una dotación de poder desde lo alto, y la posibilidad de que los lazos más sagrados de la familia duren para siempre. Entender qué son y qué hacen es entender el corazón del plan de exaltación.',
+          'El templo no requiere perfección — requiere dignidad. Y dignidad es una condición del corazón, no un historial sin faltas. Entender qué significa ser digno del templo, y qué preguntas de la recomendación en realidad preguntan, transforma la preparación de una lista de requisitos en un examen personal de quién eres y a qué te has comprometido.',
         ],
       },
       topics: [
         {
-          id: 't3-1',
-          title: 'El Endowment — La Dotación de Poder desde lo Alto',
+          id: 't2',
+          title: '¿Qué Significa Ser Digno del Templo?',
+          subtitle:
+            'Las preguntas de la entrevista de recomendación revelan los principios que Dios considera fundamentales para entrar a Su casa.',
           blocks: [
             {
-              type: 'highlight_verse',
-              text: 'Y si vuestros ojos están puestos solamente en mi gloria, todo el cuerpo estará lleno de luz, y no habrá tinieblas en vosotros; y el cuerpo que está lleno de luz comprende todas las cosas. Por tanto, santificaos a fin de que vuestra mente esté limpia, a fin de que podáis testificar del Pacto del Padre que os enviará desde ahora.',
-              reference: 'Doctrina y Convenios 88:67–68',
-            },
-            {
               type: 'paragraph',
-              text: 'La palabra "endowment" — que en español se traduce como dotación o investidura — significa literalmente "ser dotado de poder desde arriba." José Smith describió su propósito con claridad: el endowment es una dotación de inteligencia, instrucción y poder divinos que capacita al receptor para cumplir su misión eterna. No es solo instrucción religiosa — es una transformación espiritual documentada en convenios.',
-            },
-            {
-              type: 'highlight_verse',
-              text: 'Por tanto, en las ordenanzas de aquel sacerdocio, se manifiesta el poder de la divinidad. Y sin las ordenanzas del mismo, y la autoridad del sacerdocio, el poder de la divinidad no se manifiesta a los hombres en la carne. Y sin los poderes del sacerdocio de Melquisedec, y sus llaves, ningún hombre puede ver la faz de Dios, ni vivir.',
-              reference: 'Doctrina y Convenios 84:19–22',
+              text: 'La recomendación del templo no es un certificado de perfección. Es un testigo de que la persona está viviendo los principios del evangelio con honestidad y fe. El obispo y el presidente de estaca no preguntan "¿has cometido alguna vez un pecado?" — preguntan sobre el estado actual del corazón, los convenios actuales, y las relaciones actuales con Dios y Sus líderes.',
+              blockId: 'et-s2-p-0',
             },
             {
               type: 'key_points',
-              title: 'Lo que el endowment ofrece espiritualmente',
               points: [
-                'Instrucción simbólica sobre el plan de salvación: la creación, la caída, la expiación y el retorno a la presencia de Dios',
-                'Convenios de obediencia a la ley de Dios, castidad, consagración y dedicación al evangelio',
-                'Una nueva vestidura sagrada como símbolo externo del convenio y del poder que viene con él',
-                'Conocimiento simbólico de la manera de regresar a la presencia del Padre — los "puntos de acceso" del viaje eterno',
-                'Poder espiritual que fluye a través del cumplimiento fiel de los convenios del templo a lo largo de la vida',
+                '① Fe en Dios el Padre, en Jesucristo, en el Espíritu Santo, y en la Expiación — la base de todo lo demás.',
+                '② Testimonio de la Restauración, del profeta José Smith, del Libro de Mormón, y del profeta viviente — compromiso con las fuentes de autoridad de la Iglesia restaurada.',
+                '③ Esfuerzo sincero por guardar los mandamientos, incluyendo ser honrado con el prójimo — no perfección, sino disposición genuina.',
+                '④ Ley de la castidad — fidelidad en el matrimonio o celibato fuera de él, sin transgresiones graves no resueltas.',
+                '⑤ Ley del diezmo — fe suficiente para devolver el diezmo completo, que es el testimonio financiero de la confianza en Dios.',
+                '⑥ Ley de la Word of Wisdom — abstinencia de alcohol, tabaco, café, té y sustancias nocivas.',
+                '⑦ Relaciones familiares — cumplimiento de las obligaciones hacia la familia, incluyendo pensión alimenticia si aplica.',
+                '⑧ Apoyo a los líderes del sacerdocio — no pertenecer a grupos que enseñan doctrinas contrarias a la Iglesia.',
               ],
             },
             {
+              type: 'doctrine_box',
+              title: 'La recomendación como examen del corazón, no de la conducta externa',
+              body: 'El presidente Howard W. Hunter enseñó: "Ser digno del templo es la norma de vida más alta que podemos establecer para nosotros mismos como santos de los últimos días." No se trata de conducta externa visible — se trata de la condición del corazón. Un Santo que comete errores cotidianos pero que tiene el corazón vuelto hacia Dios, que se arrepiente con sinceridad, que cumple sus compromisos con honestidad, es digno del templo. La dignidad es una disposición, no un historial limpio.',
+            },
+            {
+              type: 'highlight_verse',
+              text: '¿Quién subirá al monte de Jehová? ¿Y quién estará en su lugar santo? El limpio de manos y puro de corazón; el que no ha elevado su alma a la vanidad, ni jurado con engaño.',
+              reference: 'Salmos 24:3–4 · Biblia (RVR)',
+            },
+            {
               type: 'leader_quote',
-              quote: 'Yo llevo mis vestiduras sagradas del templo. Son un recordatorio diario de mis convenios con Dios. Cada vez que me las pongo, recuerdo quién soy, cuál es mi propósito, y a quién le pertenezco. Las vestiduras no son superstición ni magia — son un símbolo de que elegí seguir a Jesucristo con toda mi vida.',
-              name: 'Russell M. Nelson',
-              role: '"The Temple and Your Spiritual Foundation", Conferencia General, octubre 2021 (trad.)',
+              quote: 'El gran desafío de los últimos días es que todos los miembros de la Iglesia sean dignos de tener una recomendación del templo. No porque tengan que usarla todos los días, sino porque la dignidad del templo significa que están viviendo de manera tal que podrían entrar en la presencia de Dios. Ese es el estándar de la vida que se espera de los Santos de los Últimos Días.',
+              name: 'Presidente Gordon B. Hinckley',
+              role: '"A Temple-Motivated People", Liahona, mayo 1994 (trad.)',
+            },
+            {
+              type: 'deep_dive',
+              badge: 'Preparación',
+              title: 'Primera vez en el templo — lo que cambia y lo que permanece',
+              paragraphs: [
+                'Muchos Santos experimentan cierta sorpresa la primera vez que entran al templo para recibir sus propias ordenanzas. El entorno, el lenguaje simbólico, el ritmo de la ceremonia — todo es diferente a lo que conocen de las reuniones dominicales. Esto puede generar incertidumbre si no se espera.',
+                'Lo que hay que saber antes: el templo opera con lenguaje simbólico, no literal. Las ordenanzas usan símbolos, vestuario especial, y ceremonias rituales que tienen significado doctrinal profundo. No se entienden completamente en la primera visita — ni en la décima. El templo fue diseñado para ser meditado, no solo experimentado.',
+                'Los líderes de la Iglesia han animado consistentemente a los miembros a prepararse estudiando. El Manual "Preparación para la Investidura" publicado por la Iglesia ofrece contexto doctrinal sin revelar las partes sagradas de la ceremonia. Leer también los capítulos del Antiguo Testamento sobre el tabernáculo de Moisés (Éxodo 25-28) ayuda a entender el simbolismo de las vestiduras.',
+                'Lo que permanece igual dentro del templo: el amor del Padre, la presencia del Espíritu Santo, y la claridad de que estás haciendo algo eterno. Muchos Santos describen la primera visita al templo como el momento de mayor paz espiritual de sus vidas — incluso sin entender todo lo que ocurre.',
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 's3',
+      title: 'Las Ordenanzas Sagradas del Templo',
+      intro: {
+        romanNumeral: 'III',
+        title: 'Las Ordenanzas Sagradas del Templo',
+        paragraphs: [
+          'El templo ofrece ordenanzas que ningún otro lugar en la tierra puede ofrecer. El lavamiento y unción, el endowment y el sellamiento forman juntos el camino completo de regreso a la presencia del Padre. Cada uno tiene un propósito doctrinal específico. No son secretos — son sagrados, y esa distinción importa.',
+        ],
+      },
+      topics: [
+        {
+          id: 't3',
+          title: 'El Endowment — La Investidura de Poder desde lo Alto',
+          subtitle:
+            'José Smith describió el endowment como una "dotación de poder del cielo" — instrucción, inteligencia y conocimiento divino para quien lo recibe.',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'La palabra inglesa "endowment" — que se traduce como dotación o investidura — significa literalmente "dotación de poder desde arriba." No es solo una ceremonia religiosa — es el evento en que Dios, a través del sacerdocio, equipa a Sus hijos con el conocimiento, los convenios y el poder que necesitan para regresar a Su presencia y eventualmente llegar a ser como Él.',
+              blockId: 'et-s3-p-0',
+            },
+            {
+              type: 'highlight_verse',
+              text: 'Y que se purifiquen los pies de todos vosotros, y que seáis limpios de la sangre de esta generación; y que seáis investidos con poder desde lo alto.',
+              reference: 'Doctrina y Convenios 38:38',
+            },
+            {
+              type: 'key_points',
+              points: [
+                '① INSTRUCCIÓN — El endowment enseña el plan de salvación de manera simbólica: la creación, la caída, la Expiación y el camino de regreso a la presencia del Padre. Es la narración más completa del plan de Dios que la Iglesia ofrece.',
+                '② CONVENIOS — Se hacen convenios específicos de obediencia a Dios, castidad, consagración de tiempo y recursos, y dedicación al reino de Dios. Estos convenios son bilaterales: Dios promete bendiciones específicas a quienes los guardan.',
+                '③ VESTIDURA SAGRADA — Se recibe una vestidura blanca que se usa permanentemente como símbolo de pureza, de convenio con Dios, y de protección espiritual. Es un recordatorio físico y diario del convenio.',
+                '④ CONOCIMIENTO SIMBÓLICO — Se enseña conocimiento que el Señor considera sagrado — no secreto en el sentido de que haya algo vergonzoso, sino sagrado en el sentido de que su pleno significado se revela solo a quienes están preparados para recibirlo y meditarlo.',
+              ],
+            },
+            {
+              type: 'highlight_verse',
+              text: 'El mayor de todos, sin embargo, es la llave de los misterios del reino, así como también la plenitud del conocimiento de Dios. Por tanto, en las ordenanzas de aquel sacerdocio, se manifiesta el poder de la divinidad.',
+              reference: 'Doctrina y Convenios 84:19–20',
+            },
+            {
+              type: 'leader_quote',
+              quote: 'Yo insto a los miembros de la Iglesia de todo el mundo a que preparen sus vidas para poder ir al templo. Ese es el lugar más sagrado sobre la tierra. Allí se pueden hacer convenios que atan a los hombres al cielo. Allí se puede recibir el poder que Dios quiere dar a Sus hijos. No existe ningún poder mayor disponible a los seres mortales que el que se ofrece en el templo del Señor.',
+              name: 'Presidente Ezra Taft Benson',
+              role: '"The Sacred Temple", Conferencia General, abril 1985 · Liahona, julio 1985 (trad.)',
             },
           ],
         },
         {
-          id: 't3-2',
+          id: 't4',
           title: 'El Sellamiento — La Familia Eterna',
+          subtitle:
+            'La pregunta más profunda que el evangelio responde: ¿puede una familia existir para siempre? El sellamiento es la respuesta.',
           blocks: [
             {
               type: 'highlight_verse',
-              text: 'En el orden celestial existen tres grados. Y a fin de obtener el más elevado, un hombre tiene que entrar en este orden del sacerdocio [es decir, en el nuevo y sempiterno convenio del matrimonio]; y si no lo hace, no puede obtenerlo. Puede entrar en el otro, pero eso concluye su reino; no puede tener aumento.',
-              reference: 'Doctrina y Convenios 131:1–4',
-            },
-            {
-              type: 'highlight_verse',
-              text: 'Y si os casáis en el nuevo y sempiterno convenio, y este matrimonio no fue sellado por el que tiene esta autoridad y poder plenipotenciario, entonces no tenéis ningún convenio; y cuando estéis fuera del mundo no podréis tener aumento.',
-              reference: 'Doctrina y Convenios 132:18',
-            },
-            {
-              type: 'highlight_verse',
-              text: 'Y si os casáis por mí, en mi nombre, conforme a mi ley, y por mi palabra, y por convenio, y sois mutuamente fieles, vuestro matrimonio será válido para tiempo y para toda la eternidad.',
-              reference: 'Doctrina y Convenios 132:19–20',
+              text: 'Y si os casáis por mí, en mi nombre, conforme a mi ley, y por mi palabra, y por convenio, y os sois mutuamente fieles, vuestro matrimonio será válido para tiempo y para toda la eternidad.',
+              reference: 'Doctrina y Convenios 132:19',
             },
             {
               type: 'paragraph',
-              text: 'DyC 131 no es solo una doctrina del matrimonio. Es una doctrina de la exaltación: el grado más alto del reino celestial — el único donde hay "aumento" (vida, progreso, creación eternas) — requiere que la persona haya hecho el convenio del matrimonio eterno. No porque Dios excluya arbitrariamente a los solteros, sino porque la exaltación misma es un estado de relación eterna que solo puede iniciarse con ese convenio en esta vida.',
+              text: 'El mundo responde consistentemente a la pregunta sobre la familia eterna: "Hasta que la muerte los separe." El evangelio restaurado responde: depende. Depende de si los lazos fueron establecidos por el poder correcto, bajo las condiciones correctas, y mantenidos con fidelidad. El sellamiento no es un ritual mágico — es la aplicación del poder de las llaves del sacerdocio para ligar en la tierra lo que queda ligado en el cielo.',
+              blockId: 'et-s3-p-1',
+            },
+            {
+              type: 'highlight_verse',
+              text: 'En la orden celestial de la eternidad, existe en la esfera celestial un matrimonio. Y el que no obtenga esta ordenanza en el mundo no puede tener aumento en la eternidad, sino que será ministrado por los ángeles; y sin ninguna condición específica de inmortalidad, ni de vida eterna.',
+              reference: 'Doctrina y Convenios 131:1–4',
             },
             {
               type: 'compare_grid',
               left: {
                 title: 'Matrimonio civil o religioso ordinario',
                 items: [
-                  '"Hasta que la muerte los separe"',
-                  'Válido solo dentro de los límites de esta vida mortal',
-                  'Los hijos no están sellados eternamente a los padres',
-                  'No confiere "aumento" eterno según DyC 131',
-                  'Un contrato entre personas — reconocido por el Estado',
+                  '"Hasta que la muerte los separe" — válido solo en esta vida',
+                  'Los hijos no están sellados a los padres por convenio eterno',
+                  'Relación hermosa pero temporalmente limitada',
+                  'Sin aumento eterno en el más alto grado del reino celestial',
+                  'El amor es real, pero el vínculo no sobrevive la muerte',
                 ],
               },
               right: {
                 title: 'Matrimonio sellado en el templo',
                 items: [
-                  '"Por tiempo y por toda la eternidad"',
-                  'Válido más allá de la muerte si ambos son fieles a los convenios',
-                  'Los hijos nacidos en el convenio o sellados quedan ligados eternamente',
-                  'Abre el acceso al grado más alto del reino celestial (DyC 131)',
-                  'Un convenio con Dios — sellado por quien tiene la autoridad plenipotenciaria',
+                  '"Por tiempo y por toda la eternidad" — válido más allá de la muerte si son fieles',
+                  'Los hijos nacidos bajo el convenio o sellados son familia eterna',
+                  'El sellamiento une no solo a los cónyuges sino a generaciones completas',
+                  'Aumento eterno posible en el grado más alto del reino celestial (DyC 131:1-4)',
+                  'El vínculo sobrevive la muerte y la resurrección — por la fidelidad',
                 ],
               },
             },
             {
-              type: 'media_slot',
-              kind: 'image',
-              src: undefined,
-              alt: 'A couple kneeling at an altar in a temple sealing room, soft natural light, sacred atmosphere, faces not visible, reverent and beautiful',
-              caption: 'El Sellamiento — "por tiempo y por toda la eternidad" (DyC 132:19)',
-              contextCard: { label: 'El Sellamiento Eterno' },
+              type: 'doctrine_box',
+              title: '¿Qué significa "aumento eterno"?',
+              body: 'DyC 131:1-4 usa la palabra "aumento" para describir lo que es posible solo dentro del más alto grado del reino celestial para los sellados fieles. La teología restaurada enseña que "aumento" es el poder de crear y organizar vida espiritual — la capacidad de ser padre y madre en el sentido eterno y divino, tal como el Padre Celestial y la Madre Celestial lo son para nosotros. Los que no reciben el sellamiento pueden ser "ministrados por ángeles" en la gloria eterna — pero no tienen acceso al aumento que es la característica central de la exaltación.',
             },
             {
-              type: 'deep_dive',
-              badge: 'Profundizar',
-              title: '¿Qué significa teológicamente "el poder de sellar"?',
-              paragraphs: [
-                'El poder de sellar no es simplemente una ceremonia religiosa con más permanencia. Es el poder de que los actos realizados en la tierra tengan efecto vinculante en el cielo — lo que Jesucristo llamó "atar en la tierra" y "será atado en los cielos" (Mateo 16:19). Este poder fue ejercido por profetas desde Adán, fue restaurado a través de Elías en Kirtland (DyC 110:13-16), y hoy reside en el Presidente de la Iglesia, quien lo delega a los selladores del templo.',
-                'Lo que hace que el sellamiento sea teológicamente único no es solo la fórmula pronunciada — es la autoridad del que la pronuncia. Un matrimonio sellado por quien tiene la plenitud de esta autoridad tiene un estatuto eterno que ningún matrimonio sin esa autoridad puede tener. Esto no condena a los que se casaron sin el sello — hay provisiones para ellos. Pero sí explica por qué la Iglesia da al templo la prioridad que le da.',
-                'El sello también se puede recibir después de la muerte vicariamente — lo que significa que ninguna persona justa que murió sin acceso al templo está permanentemente excluida. La misericordia de Dios siempre opera dentro del marco de Su justicia, no fuera de él.',
-              ],
+              type: 'leader_quote',
+              quote: 'Cada vez que un hombre y una mujer son sellados en el templo, Satanás pierde terreno. Cada familia sellada es una familia que potencialmente puede continuar más allá de la muerte — y eso es exactamente lo que él no puede tolerar. Por eso trabaja tan incansablemente para destruir las familias, los matrimonios, y la santidad del templo.',
+              name: 'Presidente Russell M. Nelson',
+              role: '"Spiritual Treasures", Conferencia General, octubre 2019 · Liahona, noviembre 2019 (trad.)',
             },
           ],
         },
       ],
     },
-
-    // ─── SECCIÓN IV ─────────────────────────────────────────────────────────────
     {
       id: 's4',
-      title: 'El Espíritu de Elías y el Trabajo Vicario',
+      title: 'El Espíritu de Elías — El Trabajo por los Muertos',
       intro: {
         romanNumeral: 'IV',
-        title: 'El Espíritu de Elías y el Trabajo Vicario',
+        title: 'El Espíritu de Elías — El Trabajo por los Muertos',
         paragraphs: [
-          'El templo no es solo para los vivos. La doctrina más exclusiva y más audaz de la Restauración puede ser esta: que las ordenanzas del templo pueden hacerse vicariamente — por representación — por quienes murieron sin tener acceso a ellas. Esta enseñanza hace que Elías, la historia familiar y el sellamiento de generaciones sean inseparables. Y convierte el templo en el único lugar del mundo donde los vivos y los muertos colaboran activamente en la obra de la salvación.',
+          'El templo no es solo para los vivos. La doctrina más única de toda la Restauración puede ser esta: que las ordenanzas del templo pueden realizarse vicariamente por quienes murieron sin haber tenido acceso a ellas. Esta enseñanza hace que Elías, la historia familiar y el sellamiento de generaciones sean inseparables — y hace del templo el lugar donde el presente abraza al pasado para producir un futuro eterno.',
         ],
       },
       topics: [
         {
-          id: 't4-1',
-          title: 'La Promesa de Elías — Malaquías y Kirtland',
+          id: 't5',
+          title: 'Por Qué Dios Ordenó el Trabajo Vicario — y Cómo es Justo',
+          subtitle:
+            'Malaquías 4, DyC 128, y José Smith explican el fundamento doctrinal de la redención de los muertos.',
           blocks: [
             {
-              type: 'media_slot',
-              kind: 'image',
-              src: undefined,
-              alt: 'Elijah the prophet appearing in radiant light at the pulpit of the Kirtland Temple interior, dramatic divine illumination, two men kneeling in awe, 1836 setting',
-              caption: 'La aparición de Elías en el Templo de Kirtland, 3 de abril de 1836 (DyC 110:13–16)',
-              contextCard: { year: '1836', place: 'Templo de Kirtland, Ohio', label: 'El Espíritu de Elías' },
-            },
-            {
               type: 'highlight_verse',
-              text: 'He aquí, yo os envío al profeta Elías, antes que venga el día grande y terrible del Señor. Y él hará volver el corazón de los padres hacia los hijos, y el corazón de los hijos hacia los padres, para que yo no venga a herir la tierra con maldición.',
-              reference: 'Malaquías 4:5–6',
+              text: 'He aquí, yo os envío el profeta Elías, antes que venga el día de Jehová, grande y terrible. Él hará volver el corazón de los padres hacia los hijos, y el corazón de los hijos hacia los padres, no sea que yo venga y hiera la tierra con maldición.',
+              reference: 'Malaquías 4:5–6 · Biblia (RVR)',
             },
             {
               type: 'paragraph',
-              text: 'Esta profecía de Malaquías, citada por el ángel Moroni a José Smith desde la primera noche (JS-H 1:38), anunciaba algo más que un evento histórico: anunciaba el principio del trabajo redentor por los muertos que caracterizaría los últimos días. El "corazón de los padres hacia los hijos" es el vínculo que hace inseparables a las generaciones — y el templo es el único lugar donde ese vínculo puede sellarse eternamente.',
+              text: 'Malaquías profetizó que Elías vendría antes del "día grande y terrible del Señor." El 3 de abril de 1836, ese evento ocurrió: Elías se apareció en el Templo de Kirtland a José Smith y Oliver Cowdery y restauró las llaves del sellamiento. Desde ese momento, la obra de unir a los padres con los hijos — a través de las ordenanzas vicarias del templo — se convirtió en el trabajo central de la dispensación de la plenitud de los tiempos.',
+              blockId: 'et-s4-p-0',
             },
             {
               type: 'highlight_verse',
-              text: 'He aquí, el tiempo ha llegado, en verdad ha llegado, en el cual las grandes cosas que fueron prometidas a vosotros se han de cumplir. [...] El Señor Jesucristo apareció ante José y Oliver en el Templo de Kirtland. Moisés apareció y encomendó las llaves de la congregación de Israel. [...] Elías el profeta apareció y dijo: He aquí, el tiempo ha llegado completamente. [...] Y el espíritu, el poder y el llamamiento de Elías que se han cumplido en vuestros días.',
-              reference: 'Doctrina y Convenios 110:14, 11, 14, 16',
+              text: 'Y en ese día fui yo, Elías, para que se cumpliese la palabra del profeta Malaquías, tornando el corazón de los padres a los hijos e el corazón de los hijos a los padres, para que el mundo entero no fuera herido con maldición.',
+              reference: 'Doctrina y Convenios 110:14–15',
             },
-            {
-              type: 'doctrine_box',
-              title: 'La distinción entre Elías y Elías (Elijah)',
-              body: 'En DyC 110, dos figuras distintas aparecen con nombres similares. "Elías" en el versículo 12 es el personaje del Antiguo Testamento conocido como Elijah (en el original hebreo) — el profeta que fue llevado sin morir, que retiene el poder de sellar. Él restauró las llaves del sellamiento del templo. "Elías" en el versículo 11 es una figura diferente — probablemente el Elías del tiempo de Abrahán — que restauró las llaves del evangelio de Abrahán (las promesas de posteridad y el sacerdocio patriarcal). La aparición de ambos en Kirtland completó el cuadro de llaves necesarias para el trabajo del templo.',
-            },
-          ],
-        },
-        {
-          id: 't4-2',
-          title: 'La Salvación Es Colectiva — DyC 128:18',
-          blocks: [
             {
               type: 'highlight_verse',
               text: 'Porque sin nosotros no pueden ser perfeccionados; y tampoco nosotros sin nuestros muertos podemos ser perfeccionados.',
               reference: 'Doctrina y Convenios 128:18',
             },
             {
-              type: 'paragraph',
-              text: 'Esta escritura contiene una de las doctrinas más profundas del evangelio restaurado: la perfección es colectiva, no individual. No puedes ser completamente exaltado dejando a tus antepasados atrás. Ellos te necesitan. Tú los necesitas a ellos. La cadena de convenios que une las generaciones — desde Adán hasta el último niño que nacerá — es el tejido del plan eterno. Cortar esa cadena por descuido o indiferencia no es solo un error personal; es una ruptura en el propósito redentor de Dios.',
-            },
-            {
-              type: 'key_points',
-              title: 'Por qué el trabajo vicario es único en la historia del cristianismo',
-              points: [
-                'Ofrece las ordenanzas salvadoras a los que murieron sin acceso a ellas — sin forzarlos: la aceptación es voluntaria en el mundo de los espíritus',
-                'Resuelve el problema teológico más difícil del cristianismo: ¿qué pasa con los millones que nunca escucharon el evangelio?',
-                'Hace que la historia familiar no sea un hobby genealógico sino una misión espiritual con consecuencias eternas',
-                'Conecta a los vivos con sus muertos en un servicio que transforma tanto al servidor como al que recibe',
-                'Provee la base doctrinal del período milenial: mil años de trabajo del templo para llegar a toda alma que pueda ser alcanzada',
-              ],
+              type: 'doctrine_box',
+              title: 'La exaltación es colectiva, no individual',
+              body: 'DyC 128:18 contiene una de las doctrinas más sorprendentes del evangelio restaurado: la perfección es colectiva. No puedes ser completamente exaltado dejando a tus ancestros atrás. Ellos necesitan de ti. Tú necesitas de ellos. La cadena de convenios que une generaciones no es opcional — es el tejido del plan eterno. José Smith enseñó que "la mayor responsabilidad que Dios ha puesto sobre nosotros en este mundo es procurar por nuestros muertos" (Sermón de King Follett, 7 de abril de 1844).',
             },
             {
               type: 'deep_dive',
-              badge: 'Profundizar',
-              title: '¿Es justo el trabajo vicario? Respondiendo la pregunta más difícil',
+              badge: 'Pregunta Difícil',
+              title: 'La justicia del trabajo vicario — respondiendo la objeción más común',
               paragraphs: [
-                'La pregunta más frecuente es esta: ¿es justo que los muertos dependan de que los vivos hagan trabajo por ellos? ¿Qué pasa con los ancestros de alguien que nunca tuvo familia activa en la Iglesia? ¿Se quedan sin ordenanzas para siempre?',
-                'La respuesta doctrinal tiene dos partes esenciales. Primera: el trabajo vicario no salva automáticamente a nadie. Ofrece la ordenanza — pero la persona en el mundo de los espíritus conserva su plena agencia. Puede aceptar o rechazar la ordenanza hecha en su nombre. No se impone la salvación a nadie. La ordenanza solo se vuelve efectiva si la persona la acepta.',
-                'Segunda: Dios es perfectamente justo y perfectamente misericordioso a la vez. No perderá un alma por un descuido humano. El período milenial — mil años durante los cuales el templo funcionará sin interrupción con recursos y tecnología que no podemos imaginar hoy — está diseñado precisamente para alcanzar a toda alma que pueda y quiera ser alcanzada. La justicia de Dios no depende de que los humanos sean perfectamente eficientes.',
-                'Mientras tanto, nuestra responsabilidad es hacer lo que podemos. El Espíritu de Elías — el impulso que lleva a las personas a buscar sus raíces, a construir árboles genealógicos, a sentir amor por personas que nunca conocieron — fue prometido para los últimos días precisamente porque Dios quiere que este trabajo se haga ahora.',
+                'La pregunta obvia es: ¿Es justo que los muertos dependan de que los vivos hagan el trabajo por ellos? ¿Qué pasa con alguien que murió hace mil años y cuyos descendientes nunca fueron miembros de la Iglesia?',
+                'La respuesta doctrinal tiene dos partes fundamentales. Primera: el trabajo vicario NO salva automáticamente a nadie. Ofrece la ordenanza — pero la persona en el mundo de los espíritus tiene plena agencia para aceptarla o rechazarla. El bautismo por los muertos no bautiza al muerto en contra de su voluntad. Abre una puerta que antes estaba cerrada. Ellos deciden si cruzan.',
+                'Segunda: Dios es perfectamente justo y perfectamente omnisciente. No perderá un alma por un descuido humano. El período milenial — mil años durante los cuales el templo funcionará sin interrupción — está diseñado precisamente para que toda alma que pueda ser alcanzada, sea alcanzada. Mientras tanto, nuestra responsabilidad es hacer lo que podemos con las herramientas que tenemos.',
+                'El presidente Nelson enseñó: "El trabajo del templo es el trabajo más importante que hacemos como Santos de los Últimos Días. No existe otra obra que tenga consecuencias tan eternas." (Liahona, mayo 2021)',
               ],
             },
             {
+              type: 'leader_quote',
+              quote: 'Esta escritura [Malaquías 4:5-6] encierra la más poderosa de las revelaciones jamás dadas. Todo lo que se ha revelado desde los días de Adán sobre las dispensaciones, los evangelios, el bautismo y las alianzas de Dios con Sus hijos — todo converge en este trabajo: unir a los padres con los hijos, y a los hijos con sus padres, a través de las ordenanzas del sacerdocio que trascienden la muerte.',
+              name: 'Profeta José Smith',
+              role: 'Doctrina y Convenios 128:17–18 · Historia de la Iglesia, vol. 6',
+            },
+            {
               type: 'reflection',
-              prompt: '¿Cuándo fue la última vez que fuiste al templo para hacer trabajo vicario — no para una boda ni para recibir tus propias ordenanzas, sino para servir por nombre a un ancestro específico? ¿Tienes nombres pendientes? ¿Qué haría falta cambiar en tu vida para que el templo fuera un destino regular, no una visita ocasional?',
+              prompt:
+                '¿Cuándo fue la última vez que asististe al templo para hacer trabajo vicario por tus ancestros — no solo para recibir las tus propias ordenanzas? ¿Tienes nombres de ancestros identificados en FamilySearch que estén esperando sus ordenanzas? ¿Qué cambiaría en tu relación con el templo si lo vieras no como una visita ocasional sino como el lugar donde cumples tu responsabilidad más grande con tus muertos?',
             },
           ],
         },
       ],
     },
-
-    // ─── SECCIÓN V ──────────────────────────────────────────────────────────────
     {
       id: 's5',
-      title: 'El Templo como Centro Espiritual de Tu Vida',
+      title: 'El Templo como Centro de la Vida Espiritual',
       intro: {
         romanNumeral: 'V',
-        title: 'El Templo como Centro Espiritual de Tu Vida',
+        title: 'El Templo como Centro de la Vida Espiritual',
         paragraphs: [
-          'El presidente Russell M. Nelson ha hecho del templo el eje central de su llamado profético. No como una tradición que preservar, sino como una necesidad espiritual urgente para cada miembro de la Iglesia en los tiempos que vivimos. Su mensaje es repetido, deliberado y específico: el templo no debe ser el destino de tus grandes ocasiones. Debe ser tu refugio habitual. Tus problemas más difíciles, tus decisiones más importantes, tu paz más profunda — todas se encuentran ahí.',
+          'El presidente Nelson ha enseñado que el templo debe ser el centro de la vida espiritual de los Santos, no la periferia. La asistencia regular al templo no es un indicador de nivel de actividad — es el mecanismo por el cual el Señor da poder, protección y revelación personal a Sus hijos que han hecho convenios.',
         ],
       },
       topics: [
         {
-          id: 't5-1',
-          title: 'La Llamada Profética de Nelson',
+          id: 't6',
+          title: 'Por Qué la Asistencia Regular al Templo Cambia la Vida',
+          subtitle:
+            'Las promesas específicas que el Señor hace a quienes convierten el templo en el centro — no la periferia — de su vida espiritual.',
           blocks: [
             {
-              type: 'media_slot',
-              kind: 'image',
-              src: undefined,
-              alt: 'Modern LDS temple at dusk with perfect reflection in a still pool of water, warm golden windows, serene sky with soft clouds, peaceful and majestic',
-              caption: 'El templo — "el fundamento espiritual de vuestra vida" (Russell M. Nelson, oct. 2021)',
-              contextCard: { label: 'El Templo como Centro Espiritual' },
+              type: 'highlight_verse',
+              text: 'Sí, y mi presencia también estará allí, porque yo vendré a él, y todas las generaciones santas y puras que habiten en él. Y el nombre de mi gloria reposará sobre él; y será mi casa, una casa de oración, una casa de ayuno, una casa de fe, una casa de aprendizaje, una casa de gloria, una casa de orden, una casa de Dios.',
+              reference: 'Doctrina y Convenios 88:119',
             },
-            {
-              type: 'leader_quote',
-              quote: 'Nuestro futuro espiritual — el vuestro y el mío — depende de nuestra relación personal con el templo. El diablo sabe esto. Por eso trabaja tan activamente para mantenernos alejados del templo, para hacernos sentir que la preparación es demasiado difícil, que el viaje es demasiado lejos, que el tiempo es demasiado escaso. Él sabe lo que perdemos cuando no vamos.',
-              name: 'Russell M. Nelson',
-              role: '"The Temple and Your Spiritual Foundation", Conferencia General, octubre 2021 (trad.)',
-            },
-            {
-              type: 'paragraph',
-              text: 'Nelson no habla del templo como una recompensa para los santos avanzados. Habla de él como el fundamento espiritual sin el cual no hay suficiente poder para sobrevivir los últimos días. Los "tiempos sin precedentes" que él menciona requieren poder espiritual sin precedentes — y ese poder, según la revelación moderna, fluye a través de las ordenanzas y convenios del templo.',
-            },
-            {
-              type: 'leader_quote',
-              quote: 'Si quieren que su futuro sea diferente de vuestro pasado, vayan al templo. Hagan del templo la piedra angular de vuestra vida. Si la gente se burla de vosotros por ir al templo con regularidad, dejad que se burlen. Sabrán, cuando el tiempo llegue, lo que vosotros ya sabéis ahora.',
-              name: 'Russell M. Nelson',
-              role: '"Visita al Templo", instrucción general (trad.)',
-            },
-          ],
-        },
-        {
-          id: 't5-2',
-          title: 'Lo Que el Templo Regular Hace por Ti',
-          blocks: [
             {
               type: 'key_points',
-              title: '5 beneficios espirituales de la asistencia regular al templo',
               points: [
-                'Claridad doctrinal: cada visita al templo refuerza la comprensión del plan de salvación — propósito, identidad, destino eterno — de una manera que ninguna clase ni sermón puede replicar',
-                'Fortaleza contra la tentación: las vestiduras sagradas y el recuerdo activo de los convenios crean una barrera espiritual real contra el pecado y la distracción mundana',
-                'Paz en medio del caos: el templo es el único lugar en el mundo moderno diseñado específicamente para apartar el ruido del mundo y crear espacio para la revelación personal',
-                'Conexión con los muertos: servir vicariamente por nombre a un ancestro crea un vínculo espiritual que trasciende la muerte y refuerza el sentido de propósito familiar eterno',
-                'Poder espiritual acumulado: los santos que van al templo regularmente reportan consistentemente mayor capacidad para escuchar el Espíritu, tomar decisiones correctas y resistir las pruebas que los que no van',
+                '① REVELACIÓN PERSONAL — El templo es el lugar donde el Espíritu puede comunicarse con mayor claridad. El ruido del mundo no entra. El ambiente sagrado facilita la revelación que en casa o en la calle puede ser más difícil de escuchar.',
+                '② FORTALEZA PARA LAS PRUEBAS — Los convenios del templo son promesas de Dios de asistir a quien los guarda. Muchos Santos testifican que en sus momentos más difíciles, la fortaleza para resistir vino de recordar y honrar esos convenios.',
+                '③ PERSPECTIVA ETERNA — El templo recuerda físicamente que esta vida es temporal. Las vestiduras blancas, el ambiente separado del mundo, el lenguaje de la eternidad — todo reorienta el corazón hacia lo que realmente importa.',
+                '④ SERVICIO A LOS MUERTOS — Cada visita es una oportunidad de abrir puertas eternas para alguien que no puede hacerlo por sí mismo. No hay otro servicio en el mundo con ese alcance temporal.',
+                '⑤ PROTECCIÓN ESPIRITUAL — El presidente Nelson enseñó que los convenios del templo "proveen una protección espiritual para toda su vida" (CF, octubre 2021). No porque el templo sea magia, sino porque guardar convenios alinea la vida con la voluntad de Dios, lo que naturalmente produce protección.',
               ],
             },
             {
-              type: 'doctrine_box',
-              title: 'El templo y la revelación personal',
-              body: 'El presidente Nelson ha enseñado específicamente que las respuestas a las preguntas más difíciles de la vida llegan en el templo. No porque el templo sea un oráculo, sino porque en el templo el Espíritu puede hablar sin competencia: sin teléfonos, sin redes sociales, sin el ruido constante que llena la vida moderna. El templo fue diseñado como el espacio óptimo para la comunicación divina. Quienes lo visitan con preguntas específicas y mente preparada reportan con frecuencia recibir las respuestas que buscaban.',
+              type: 'highlight_verse',
+              text: 'Y he aquí, yo os digo estas cosas con el propósito de que podáis aprender sabiduría; a fin de que cuando el diablo os envíe sus vientos, sí, sus saetas en el torbellino, sí, cuando todos sus granizos y su poderosa tormenta os azoten, no tengan poder sobre vosotros, para arrastraros a las profundidades de la miseria y al dolor sin fin, a causa de la roca sobre la cual estáis edificados, que es un fundamento seguro.',
+              reference: 'Helamán 5:12',
             },
             {
-              type: 'quiz',
-              id: 'q-templo-1',
-              question: {
-                kind: 'true_false',
-                statement: 'La recomendación al templo es esencialmente un certificado de perfección moral: se otorga a quienes han alcanzado un nivel suficientemente alto de santidad personal.',
-                correctAnswer: false,
-                explanation: 'Falso. La recomendación al templo no es un certificado de perfección, sino una declaración de que la persona está honrando sus convenios del evangelio con sinceridad. La dignidad para el templo se basa en el arrepentimiento activo y la fidelidad a los convenios, no en la ausencia de debilidades o imperfecciones.',
+              type: 'quiz', id: 'q-1', question: { kind: 'fill_blank',
+                prompt: 'Según DyC 131:1-4, ¿qué es imposible sin haber recibido la ordenanza del matrimonio eterno en el más alto grado del reino celestial?',
+                options: [
+                  'Vivir en la presencia de Dios el Padre',
+                  'Recibir el Espíritu Santo como compañero constante',
+                  'El aumento eterno — continuar como padre o madre en la eternidad',
+                  'La resurrección gloriosa del cuerpo',
+                ],
+                correctIndex: 2,
+                explanation: 'DyC 131:1-4 enseña que en el más alto grado del reino celestial existe el matrimonio, y que quien no obtiene esta ordenanza "no puede tener aumento en la eternidad, sino que será ministrado por los ángeles." El aumento eterno — la capacidad de ser padre o madre eterna — es lo que distingue el más alto grado del celestial de los demás destinos.',
               },
             },
             {
-              type: 'quiz',
-              id: 'q-templo-2',
-              question: {
+              type: 'quiz', id: 'q-2', question: {
                 kind: 'fill_blank',
-                prompt: 'Según DyC 128:18, "sin nosotros no pueden ser perfeccionados; y tampoco nosotros sin nuestros ________ podemos ser perfeccionados."',
-                options: ['líderes', 'antepasados / muertos', 'hijos', 'misioneros'],
+                prompt: '¿Qué ocurrió el 3 de abril de 1836 en el Templo de Kirtland según DyC 110?',
+                options: [
+                  'Se realizó el primer sellamiento matrimonial de la Restauración',
+                  'El Señor, Moisés, Elías y Elías restauraron llaves esenciales del sacerdocio',
+                  'José Smith recibió el texto completo del endowment por revelación',
+                  'Se realizaron los primeros bautismos por los muertos de la Restauración',
+                ],
                 correctIndex: 1,
+                explanation: 'DyC 110 registra cuatro apariciones en el Templo de Kirtland el 3 de abril de 1836: el Señor aceptó el templo (vv. 7-10), Moisés restauró las llaves de la congregación de Israel (v. 11), Elías restauró el evangelio de Abraham (v. 12), y Elías (Elijah) restauró las llaves del sellamiento prometidas en Malaquías 4:5-6 (vv. 13-16).',
               },
+            },
+            {
+              type: 'leader_quote',
+              quote: 'Cuando la tormenta llega a tu vida — y llegará — tus convenios del templo serán tu ancla. No el edificio, no la ceremonia en sí — sino los convenios que hiciste con Dios y los que Dios hizo contigo. En ese momento difícil recordarás lo que prometiste, y recordarás lo que Él prometió. Y eso cambia todo.',
+              name: 'Presidente Russell M. Nelson',
+              role: '"El Templo y Tu Fundamento Espiritual", Conferencia General, octubre 2021 · Liahona, noviembre 2021',
             },
             {
               type: 'reflection',
-              prompt: '¿Cuál es tu relación actual con el templo? ¿Es un destino regular o una visita ocasional para grandes eventos? Basándote en lo que has aprendido en esta lección, ¿qué cambiaría si hicieras del templo el centro espiritual de tu vida — no como una obligación religiosa más, sino como la fuente deliberada del poder que necesitas para los desafíos que enfrentas?',
+              prompt:
+                '¿El templo es el centro o la periferia de tu vida espiritual ahora mismo? El presidente Nelson dice que nuestro futuro espiritual depende de nuestra relación personal con el templo. ¿Qué cambiaría en tu vida si lo visitaras con la misma regularidad con que participas en la Santa Cena — semanalmente o al menos mensualmente? ¿Qué obstáculo concreto tienes que resolver para que eso sea posible?',
             },
           ],
         },

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { useAuth } from '@/contexts/AuthContext'
+import { useAuth } from '@/hooks/useAuth'
 import { useFavoritesStore } from '@/stores/favoritesStore'
 import { useStudyJournalStore } from '@/stores/studyJournalStore'
 import { useLessonProgressStore } from '@/stores/lessonProgressStore'

@@ -24,8 +24,8 @@ export const melquisedecLaCiudad: Lesson = {
           id: 't2',
           title: 'El argumento de la superioridad',
           blocks: [
-            { type: 'highlight_verse', id: 'v2', reference: 'Hebreos 7:4,7', text: 'Considerad, pues, cuán grande era éste, a quien aun Abraham el patriarca dio diezmos del botín... Y sin discusión alguna, el menor es bendecido por el mayor.' },
-            { type: 'paragraph', id: 'p2', text: 'Pablo construye su argumento en capas: (1) Abraham le pagó diezmos a Melquisedec — en la lógica hebrea, el que recibe los diezmos es superior al que los paga; (2) Melquisedec bendijo a Abraham — el que bendice es mayor que el bendecido; (3) Leví, el antepasado de los sacerdotes levíticos, estaba "en los lomos de Abraham" cuando esto ocurrió — por tanto los sacerdotes levíticos pagaron diezmos a Melquisedec a través de su antepasado. El sacerdocio de Melquisedec es superioral levítico en todo sentido.' },
+            { type: 'highlight_verse', reference: 'Hebreos 7:4,7', text: 'Considerad, pues, cuán grande era éste, a quien aun Abraham el patriarca dio diezmos del botín... Y sin discusión alguna, el menor es bendecido por el mayor.' },
+            { type: 'paragraph', text: 'Pablo construye su argumento en capas: (1) Abraham le pagó diezmos a Melquisedec — en la lógica hebrea, el que recibe los diezmos es superior al que los paga; (2) Melquisedec bendijo a Abraham — el que bendice es mayor que el bendecido; (3) Leví, el antepasado de los sacerdotes levíticos, estaba "en los lomos de Abraham" cuando esto ocurrió — por tanto los sacerdotes levíticos pagaron diezmos a Melquisedec a través de su antepasado. El sacerdocio de Melquisedec es superioral levítico en todo sentido.' },
           ],
         },
       ],

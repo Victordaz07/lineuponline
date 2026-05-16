@@ -16,7 +16,7 @@ export function MediaSlotBlock({ block }: MediaSlotBlockProps) {
       <figure className="overflow-hidden rounded-2xl border border-gold-main/35 bg-gradient-to-br from-[#0f172a] via-blue-accent to-[#1e3a5f] shadow-lg">
         <div className="flex min-h-[12rem] flex-col items-center justify-center gap-2 px-6 py-10 text-center text-white">
           {label ? <p className="font-ui text-xs font-semibold uppercase tracking-[0.2em] text-gold-main">{label}</p> : null}
-          {year ? <p className="font-title text-5xl text-gold-dim sm:text-6xl">{year}</p> : null}
+          {year ? <p className="font-title text-5xl text-amber-300 sm:text-6xl">{year}</p> : null}
           {place ? <p className="font-ui text-sm text-white/90">{place}</p> : null}
         </div>
         {block.caption ? (
@@ -53,18 +53,13 @@ export function MediaSlotBlock({ block }: MediaSlotBlockProps) {
 
   return (
     <figure className="overflow-hidden rounded-2xl border border-gold-main/25 bg-white shadow-sm">
-      <div className="flex w-full items-center justify-center bg-bg-elevated">
-        {hasSrc ? (
-          <img
-            src={block.src}
-            alt={block.alt ?? ''}
-            loading="lazy"
-            className="max-h-[36rem] w-full object-contain"
-          />
-        ) : (
-          <p className="px-4 py-16 text-center font-ui text-sm text-text-muted">Contenido visual próximamente</p>
-        )}
-      </div>
+      {hasSrc ? (
+        <img src={block.src} alt={block.alt ?? ''} loading="lazy" className="block h-auto w-full" />
+      ) : (
+        <div className="flex aspect-video w-full items-center justify-center bg-gradient-to-b from-white to-bg-elevated">
+          <p className="px-4 text-center font-ui text-sm text-text-muted">Contenido visual próximamente</p>
+        </div>
+      )}
       {block.caption ? (
         <figcaption className="border-t border-gold-main/15 px-4 py-2 font-ui text-xs text-text-muted">
           {block.caption}

@@ -2,7 +2,12 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useFavoritesStore } from '@/stores/favoritesStore'
 import { useStudyJournalStore } from '@/stores/studyJournalStore'
+import { useHighlightsStore, type HighlightColor } from '@/stores/highlightsStore'
+import { useMarginNotesStore } from '@/stores/marginNotesStore'
+import { TagEditor } from '@/components/common/TagEditor'
 import { seedModules } from '@/data/seed-doctrine'
+
+// ── Helpers ────────────────────────────────────────────────────────────────
 
 function relativeTime(iso: string): string {
   const diff = Date.now() - new Date(iso).getTime()
@@ -20,40 +25,148 @@ function moduleTitle(moduleId: string): string {
   return seedModules.find((m) => m.id === moduleId)?.title ?? moduleId
 }
 
+const HIGHLIGHT_BG: Record<HighlightColor, string> = {
+  yellow: 'bg-yellow-200 text-yellow-900',
+  green: 'bg-emerald-200 text-emerald-900',
+  blue: 'bg-blue-200 text-blue-900',
+  pink: 'bg-pink-200 text-pink-900',
+}
+
+const HIGHLIGHT_BORDER: Record<HighlightColor, string> = {
+  yellow: 'border-l-yellow-400',
+  green: 'border-l-emerald-400',
+  blue: 'border-l-blue-400',
+  pink: 'border-l-pink-400',
+}
+
+// ── Types ──────────────────────────────────────────────────────────────────
+
+type Tab = 'highlights' | 'notes' | 'verses' | 'reflections'
+
+// ── Tag filter helper ──────────────────────────────────────────────────────
+
+function TagFilter({ allTags, active, onToggle }: {
+  allTags: string[]
+  active: string[]
+  onToggle: (tag: string) => void
+}) {
+  if (allTags.length === 0) return null
+  return (
+    <div className="flex flex-wrap gap-1.5">
+      {allTags.map((tag) => (
+        <button
+          key={tag}
+          type="button"
+          onClick={() => onToggle(tag)}
+          className={`rounded-full px-2.5 py-0.5 font-ui text-xs font-medium transition ${
+            active.includes(tag)
+              ? 'bg-blue-accent text-white'
+              : 'border border-blue-accent/20 bg-white text-blue-accent hover:border-blue-accent/40'
+          }`}
+        >
+          #{tag}
+        </button>
+      ))}
+    </div>
+  )
+}
+
+// ── Component ──────────────────────────────────────────────────────────────
+
 export default function MyNotes() {
+  const [tab, setTab] = useState<Tab>('highlights')
   const [query, setQuery] = useState('')
+  const [activeTags, setActiveTags] = useState<string[]>([])
 
   const verses = useFavoritesStore((s) => s.verses)
   const removeFavorite = useFavoritesStore((s) => s.removeFavorite)
+  const updateVerseTags = useFavoritesStore((s) => s.updateTags)
+
   const allEntries = useStudyJournalStore((s) => s.entries)
+
+  const highlights = useHighlightsStore((s) => s.highlights)
+  const removeHighlight = useHighlightsStore((s) => s.removeHighlight)
+  const updateHighlightTags = useHighlightsStore((s) => s.updateTags)
+
+  const marginNotes = useMarginNotesStore((s) => s.notes)
+  const removeNote = useMarginNotesStore((s) => s.removeNote)
+  const updateNoteTags = useMarginNotesStore((s) => s.updateTags)
 
   const q = query.trim().toLowerCase()
 
-  const filteredVerses = useMemo(() =>
-    q
-      ? verses.filter(
-          (v) =>
-            v.text.toLowerCase().includes(q) ||
-            v.reference.toLowerCase().includes(q) ||
-            v.topicTitle.toLowerCase().includes(q),
-        )
-      : verses,
-    [verses, q],
+  function toggleTag(tag: string) {
+    setActiveTags((prev) =>
+      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag],
+    )
+  }
+
+  function matchesTags(tags: string[]) {
+    if (activeTags.length === 0) return true
+    return activeTags.every((t) => tags.includes(t))
+  }
+
+  // ── Filtered data ────────────────────────────────────────────────────────
+
+  const filteredHighlights = useMemo(
+    () =>
+      highlights.filter(
+        (h) =>
+          matchesTags(h.tags) &&
+          (!q || h.selectedText.toLowerCase().includes(q) || h.lessonId.toLowerCase().includes(q)),
+      ),
+    [highlights, q, activeTags],
   )
 
-  const filteredEntries = useMemo(() =>
-    q
-      ? allEntries.filter(
-          (e) =>
-            e.answerText.toLowerCase().includes(q) ||
-            e.question.toLowerCase().includes(q) ||
-            e.topicTitle.toLowerCase().includes(q),
-        )
-      : allEntries,
+  const filteredNotes = useMemo(
+    () =>
+      marginNotes.filter(
+        (n) =>
+          matchesTags(n.tags) &&
+          (!q || n.noteText.toLowerCase().includes(q) || n.lessonId.toLowerCase().includes(q)),
+      ),
+    [marginNotes, q, activeTags],
+  )
+
+  const filteredVerses = useMemo(
+    () =>
+      verses.filter(
+        (v) =>
+          matchesTags(v.tags) &&
+          (!q ||
+            v.text.toLowerCase().includes(q) ||
+            v.reference.toLowerCase().includes(q) ||
+            v.topicTitle.toLowerCase().includes(q)),
+      ),
+    [verses, q, activeTags],
+  )
+
+  const filteredEntries = useMemo(
+    () =>
+      allEntries.filter(
+        (e) =>
+          !q ||
+          e.answerText.toLowerCase().includes(q) ||
+          e.question.toLowerCase().includes(q) ||
+          e.topicTitle.toLowerCase().includes(q),
+      ),
     [allEntries, q],
   )
 
-  // Group reflections by moduleId + lessonId
+  // ── All tags per tab ─────────────────────────────────────────────────────
+
+  const allHighlightTags = useMemo(
+    () => [...new Set(highlights.flatMap((h) => h.tags))].sort(),
+    [highlights],
+  )
+  const allNoteTags = useMemo(
+    () => [...new Set(marginNotes.flatMap((n) => n.tags))].sort(),
+    [marginNotes],
+  )
+  const allVerseTags = useMemo(
+    () => [...new Set(verses.flatMap((v) => v.tags))].sort(),
+    [verses],
+  )
+
   const groupedEntries = useMemo(() => {
     const map = new Map<string, typeof filteredEntries>()
     for (const e of filteredEntries) {
@@ -68,19 +181,52 @@ export default function MyNotes() {
     })
   }, [filteredEntries])
 
-  const totalVerses = verses.length
-  const totalReflections = allEntries.length
+  const tabs: { id: Tab; label: string; count: number }[] = [
+    { id: 'highlights', label: 'Resaltados', count: highlights.length },
+    { id: 'notes', label: 'Notas', count: marginNotes.length },
+    { id: 'verses', label: 'Versículos', count: verses.length },
+    { id: 'reflections', label: 'Reflexiones', count: allEntries.length },
+  ]
+
+  function onTabChange(t: Tab) {
+    setTab(t)
+    setActiveTags([])
+  }
+
+  const EMPTY_MSG: Record<Tab, { idle: string; empty: string }> = {
+    highlights: {
+      idle: 'Selecciona cualquier texto en una lección y elige un color para resaltarlo.',
+      empty: 'Sin resaltados para esa búsqueda.',
+    },
+    notes: {
+      idle: 'Pasa el cursor sobre cualquier bloque y toca ✏ para agregar una nota personal.',
+      empty: 'Sin notas para esa búsqueda.',
+    },
+    verses: {
+      idle: 'Toca ★ en cualquier versículo de una lección para guardarlo aquí.',
+      empty: 'Sin versículos para esa búsqueda.',
+    },
+    reflections: {
+      idle: 'Cuando respondas una pregunta de reflexión en una lección, aparecerá aquí.',
+      empty: 'Sin reflexiones para esa búsqueda.',
+    },
+  }
+
+  // ── Render ───────────────────────────────────────────────────────────────
 
   return (
-    <div className="mx-auto max-w-2xl space-y-8 pb-12">
+    <div className="mx-auto max-w-2xl space-y-6 pb-16">
       {/* Header */}
       <header className="space-y-1">
         <p className="font-ui text-xs font-semibold uppercase tracking-[0.18em] text-gold-main">
           Estudio personal
         </p>
-        <h1 className="font-title text-3xl text-blue-accent">Diario de Estudio</h1>
+        <h1 className="font-title text-3xl text-blue-accent">Mi Cuaderno</h1>
         <p className="font-ui text-sm text-text-muted">
-          {totalVerses} versículo{totalVerses !== 1 ? 's' : ''} · {totalReflections} reflexión{totalReflections !== 1 ? 'es' : ''}
+          {highlights.length} resaltado{highlights.length !== 1 ? 's' : ''} ·{' '}
+          {marginNotes.length} nota{marginNotes.length !== 1 ? 's' : ''} ·{' '}
+          {verses.length} versículo{verses.length !== 1 ? 's' : ''} ·{' '}
+          {allEntries.length} reflexión{allEntries.length !== 1 ? 'es' : ''}
         </p>
       </header>
 
@@ -93,101 +239,208 @@ export default function MyNotes() {
           type="search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Buscar en versículos y reflexiones…"
+          placeholder="Buscar en tu cuaderno…"
           className="w-full rounded-xl border border-blue-accent/20 bg-white py-2.5 pl-9 pr-4 font-ui text-sm text-text-main placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-gold-main/30"
         />
       </div>
 
-      {/* Mis Versículos */}
-      <section>
-        <h2 className="mb-3 font-title text-xl text-blue-accent">Mis Versículos</h2>
-        {filteredVerses.length === 0 ? (
-          <div className="rounded-2xl border border-dashed border-blue-accent/20 p-6 text-center">
-            <p className="font-ui text-sm text-text-muted">
-              {q ? 'Sin resultados para esa búsqueda.' : 'Marca un versículo con ★ mientras estudias para guardarlo aquí.'}
-            </p>
-            {!q && (
-              <Link
-                to="/"
-                className="mt-3 inline-flex font-ui text-sm font-semibold text-gold-main underline-offset-2 hover:underline"
-              >
-                Ir a estudiar
-              </Link>
+      {/* Tabs */}
+      <div className="flex gap-1 rounded-xl border border-blue-accent/10 bg-bg-elevated p-1">
+        {tabs.map((t) => (
+          <button
+            key={t.id}
+            type="button"
+            onClick={() => onTabChange(t.id)}
+            className={`flex flex-1 items-center justify-center gap-1.5 rounded-lg px-2 py-2 font-ui text-xs font-semibold transition ${
+              tab === t.id
+                ? 'bg-white text-blue-accent shadow-sm'
+                : 'text-text-muted hover:text-blue-accent'
+            }`}
+          >
+            {t.label}
+            {t.count > 0 && (
+              <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-bold ${tab === t.id ? 'bg-blue-accent/10 text-blue-accent' : 'bg-white/60 text-text-muted'}`}>
+                {t.count}
+              </span>
             )}
-          </div>
-        ) : (
-          <ul className="space-y-3">
-            {filteredVerses.map((v) => (
-              <li
-                key={v.id}
-                className="relative rounded-2xl border border-blue-accent/10 bg-white p-5 shadow-sm"
-              >
-                <button
-                  type="button"
-                  onClick={() => removeFavorite(v.id)}
-                  aria-label="Eliminar de favoritos"
-                  className="absolute right-3 top-3 rounded-full p-1 text-text-muted transition hover:text-red-400"
-                >
-                  ×
-                </button>
-                <p className="mb-1 font-ui text-xs font-semibold uppercase tracking-wide text-gold-main">
-                  {v.reference}
-                </p>
-                <blockquote className="font-reading text-base leading-relaxed text-text-main">
-                  &ldquo;{v.text}&rdquo;
-                </blockquote>
-                <footer className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1">
-                  <span className="font-ui text-xs text-text-muted">
-                    {moduleTitle(v.moduleId)}
-                  </span>
-                  <span className="font-ui text-xs text-text-muted">·</span>
-                  <span className="font-ui text-xs text-text-muted">{v.topicTitle}</span>
-                  <span className="ml-auto font-ui text-xs text-text-muted">{relativeTime(v.savedAt)}</span>
-                </footer>
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
+          </button>
+        ))}
+      </div>
 
-      {/* Mis Reflexiones */}
-      <section>
-        <h2 className="mb-3 font-title text-xl text-blue-accent">Mis Reflexiones</h2>
-        {groupedEntries.length === 0 ? (
-          <div className="rounded-2xl border border-dashed border-blue-accent/20 p-6 text-center">
-            <p className="font-ui text-sm text-text-muted">
-              {q ? 'Sin resultados para esa búsqueda.' : 'Cuando respondas una pregunta de reflexión en una lección, aparecerá aquí.'}
-            </p>
-          </div>
-        ) : (
-          <div className="space-y-6">
-            {groupedEntries.map(({ moduleId, lessonId, entries }) => (
-              <div key={`${moduleId}::${lessonId}`} className="space-y-2">
-                <Link
-                  to={`/lesson/${moduleId}/${lessonId}`}
-                  className="inline-flex items-center gap-1 font-ui text-xs font-semibold text-blue-accent/70 hover:text-blue-accent"
-                >
-                  {moduleTitle(moduleId)} →
-                </Link>
-                <ul className="space-y-2">
-                  {entries.map((e) => (
-                    <li key={e.entryId} className="rounded-2xl border border-blue-accent/10 bg-white p-4 shadow-sm">
-                      <p className="font-ui text-xs text-text-muted">{e.topicTitle}</p>
-                      <p className="mt-1 font-ui text-sm font-semibold text-text-muted">{e.question}</p>
-                      <p className="mt-2 whitespace-pre-wrap font-reading text-base leading-relaxed text-text-main">
-                        {e.answerText}
-                      </p>
-                      <p className="mt-2 text-right font-ui text-xs text-text-muted">
-                        {relativeTime(e.clientUpdatedAt)}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        )}
-      </section>
+      {/* ── Resaltados ─────────────────────────────────────────────────── */}
+      {tab === 'highlights' && (
+        <section className="space-y-4">
+          <TagFilter allTags={allHighlightTags} active={activeTags} onToggle={toggleTag} />
+          {filteredHighlights.length === 0 ? (
+            <EmptyState msg={q || activeTags.length > 0 ? EMPTY_MSG.highlights.empty : EMPTY_MSG.highlights.idle} />
+          ) : (
+            <ul className="space-y-3">
+              {filteredHighlights.map((h) => (
+                <li key={h.id} className={`relative rounded-2xl border-l-4 bg-white p-5 shadow-sm ${HIGHLIGHT_BORDER[h.color]}`}>
+                  <button
+                    type="button"
+                    onClick={() => removeHighlight(h.id)}
+                    aria-label="Eliminar resaltado"
+                    className="absolute right-3 top-3 rounded-full p-1 text-text-muted transition hover:text-red-400"
+                  >
+                    ×
+                  </button>
+                  <p className={`inline rounded px-1 font-reading text-base leading-relaxed ${HIGHLIGHT_BG[h.color]}`}>
+                    {h.selectedText}
+                  </p>
+                  <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <Link
+                      to={`/lesson/${h.lessonId.split(':')[0] ?? h.lessonId}/${h.lessonId}`}
+                      className="font-ui text-xs text-blue-accent/70 hover:text-blue-accent"
+                    >
+                      {h.lessonId} →
+                    </Link>
+                    <span className="ml-auto font-ui text-xs text-text-muted">{relativeTime(h.savedAt)}</span>
+                  </div>
+                  <div className="mt-2">
+                    <TagEditor tags={h.tags} onChange={(tags) => updateHighlightTags(h.id, tags)} />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      )}
+
+      {/* ── Notas al margen ────────────────────────────────────────────── */}
+      {tab === 'notes' && (
+        <section className="space-y-4">
+          <TagFilter allTags={allNoteTags} active={activeTags} onToggle={toggleTag} />
+          {filteredNotes.length === 0 ? (
+            <EmptyState msg={q || activeTags.length > 0 ? EMPTY_MSG.notes.empty : EMPTY_MSG.notes.idle} />
+          ) : (
+            <ul className="space-y-3">
+              {filteredNotes.map((n) => (
+                <li key={n.id} className="relative rounded-2xl border border-blue-accent/10 bg-white p-5 shadow-sm">
+                  <button
+                    type="button"
+                    onClick={() => removeNote(n.id)}
+                    aria-label="Eliminar nota"
+                    className="absolute right-3 top-3 rounded-full p-1 text-text-muted transition hover:text-red-400"
+                  >
+                    ×
+                  </button>
+                  <div className="mb-1 flex items-center gap-2">
+                    <span className="rounded-md bg-gold-dim/50 px-2 py-0.5 font-ui text-xs text-blue-accent">
+                      {n.blockType}
+                    </span>
+                    <Link
+                      to={`/lesson/${n.lessonId}`}
+                      className="font-ui text-xs text-blue-accent/70 hover:text-blue-accent"
+                    >
+                      {n.lessonId} →
+                    </Link>
+                  </div>
+                  <p className="whitespace-pre-wrap font-reading text-base leading-relaxed text-text-main pr-6">
+                    {n.noteText}
+                  </p>
+                  <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <span className="font-ui text-xs text-text-muted">{relativeTime(n.updatedAt)}</span>
+                  </div>
+                  <div className="mt-2">
+                    <TagEditor tags={n.tags} onChange={(tags) => updateNoteTags(n.id, tags)} />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      )}
+
+      {/* ── Versículos favoritos ───────────────────────────────────────── */}
+      {tab === 'verses' && (
+        <section className="space-y-4">
+          <TagFilter allTags={allVerseTags} active={activeTags} onToggle={toggleTag} />
+          {filteredVerses.length === 0 ? (
+            <EmptyState msg={q || activeTags.length > 0 ? EMPTY_MSG.verses.empty : EMPTY_MSG.verses.idle} />
+          ) : (
+            <ul className="space-y-3">
+              {filteredVerses.map((v) => (
+                <li key={v.id} className="relative rounded-2xl border border-blue-accent/10 bg-white p-5 shadow-sm">
+                  <button
+                    type="button"
+                    onClick={() => removeFavorite(v.id)}
+                    aria-label="Eliminar de favoritos"
+                    className="absolute right-3 top-3 rounded-full p-1 text-text-muted transition hover:text-red-400"
+                  >
+                    ×
+                  </button>
+                  <p className="mb-1 font-ui text-xs font-semibold uppercase tracking-wide text-gold-main">
+                    {v.reference}
+                  </p>
+                  <blockquote className="font-reading text-base leading-relaxed text-text-main pr-6">
+                    &ldquo;{v.text}&rdquo;
+                  </blockquote>
+                  <footer className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <span className="font-ui text-xs text-text-muted">{moduleTitle(v.moduleId)}</span>
+                    <span className="font-ui text-xs text-text-muted">·</span>
+                    <span className="font-ui text-xs text-text-muted">{v.topicTitle}</span>
+                    <span className="ml-auto font-ui text-xs text-text-muted">{relativeTime(v.savedAt)}</span>
+                  </footer>
+                  <div className="mt-2">
+                    <TagEditor tags={v.tags} onChange={(tags) => updateVerseTags(v.id, tags)} />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      )}
+
+      {/* ── Reflexiones ────────────────────────────────────────────────── */}
+      {tab === 'reflections' && (
+        <section className="space-y-4">
+          {groupedEntries.length === 0 ? (
+            <EmptyState msg={q ? EMPTY_MSG.reflections.empty : EMPTY_MSG.reflections.idle} />
+          ) : (
+            <div className="space-y-6">
+              {groupedEntries.map(({ moduleId, lessonId, entries }) => (
+                <div key={`${moduleId}::${lessonId}`} className="space-y-2">
+                  <Link
+                    to={`/lesson/${moduleId}/${lessonId}`}
+                    className="inline-flex items-center gap-1 font-ui text-xs font-semibold text-blue-accent/70 hover:text-blue-accent"
+                  >
+                    {moduleTitle(moduleId)} →
+                  </Link>
+                  <ul className="space-y-2">
+                    {entries.map((e) => (
+                      <li key={e.entryId} className="rounded-2xl border border-blue-accent/10 bg-white p-4 shadow-sm">
+                        <p className="font-ui text-xs text-text-muted">{e.topicTitle}</p>
+                        <p className="mt-1 font-ui text-sm font-semibold text-text-muted">{e.question}</p>
+                        <p className="mt-2 whitespace-pre-wrap font-reading text-base leading-relaxed text-text-main">
+                          {e.answerText}
+                        </p>
+                        <p className="mt-2 text-right font-ui text-xs text-text-muted">
+                          {relativeTime(e.clientUpdatedAt)}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+      )}
+    </div>
+  )
+}
+
+function EmptyState({ msg }: { msg: string }) {
+  return (
+    <div className="rounded-2xl border border-dashed border-blue-accent/20 p-8 text-center">
+      <p className="font-ui text-sm text-text-muted">{msg}</p>
+      <Link
+        to="/"
+        className="mt-3 inline-flex font-ui text-sm font-semibold text-gold-main underline-offset-2 hover:underline"
+      >
+        Ir a estudiar →
+      </Link>
     </div>
   )
 }

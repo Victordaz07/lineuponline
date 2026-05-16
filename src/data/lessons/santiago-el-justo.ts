@@ -23,8 +23,8 @@ export const santiagoElJusto: Lesson = {
           id: 't1',
           title: 'Escepticismo familiar',
           blocks: [
-            { type: 'paragraph', id: 'p1', text: 'Juan 7:5 registra un hecho impactante: "Porque ni aun sus hermanos creían en él." Los hermanos de Jesús — Santiago, José, Simón, Judas — crecieron en la misma casa, comieron en la misma mesa, y no creyeron. Marcos 3:21 registra que la familia de Jesús intentó llevárselo porque decían "está fuera de sí." Esta es la razón por la que el testimonio de Santiago es tan poderoso: su conversión no fue por entusiasmo religioso sino a pesar del conocimiento íntimo.' },
-            { type: 'doctrine_box', id: 'db1', title: 'Por qué la Conversión de Santiago Importa Históricamente', body: '1 Corintios 15:7 menciona que Cristo resucitado se apareció específicamente a Santiago. El historiador Josefo — judío no cristiano — registra la muerte de "Santiago, hermano de Jesús el llamado Cristo." Este es uno de los dos únicos textos no cristianos del siglo primero que mencionan a Jesús por nombre. La conversión de alguien que convivió con Jesús toda su vida y luego murió por creer en su resurrección es una evidencia de peso extraordinario.' },
+            { type: 'paragraph', text: 'Juan 7:5 registra un hecho impactante: "Porque ni aun sus hermanos creían en él." Los hermanos de Jesús — Santiago, José, Simón, Judas — crecieron en la misma casa, comieron en la misma mesa, y no creyeron. Marcos 3:21 registra que la familia de Jesús intentó llevárselo porque decían "está fuera de sí." Esta es la razón por la que el testimonio de Santiago es tan poderoso: su conversión no fue por entusiasmo religioso sino a pesar del conocimiento íntimo.' },
+            { type: 'doctrine_box', title: 'Por qué la Conversión de Santiago Importa Históricamente', body: '1 Corintios 15:7 menciona que Cristo resucitado se apareció específicamente a Santiago. El historiador Josefo — judío no cristiano — registra la muerte de "Santiago, hermano de Jesús el llamado Cristo." Este es uno de los dos únicos textos no cristianos del siglo primero que mencionan a Jesús por nombre. La conversión de alguien que convivió con Jesús toda su vida y luego murió por creer en su resurrección es una evidencia de peso extraordinario.' },
           ],
         },
       ],
@@ -38,8 +38,8 @@ export const santiagoElJusto: Lesson = {
           id: 't2',
           title: 'La decisión que abrió el evangelio',
           blocks: [
-            { type: 'highlight_verse', id: 'v1', reference: 'Hechos 15:19-20', text: 'Por lo cual yo juzgo que no se inquiete a los gentiles que se convierten a Dios, sino que se les escriba que se aparten de las contaminaciones de los ídolos, de fornicación, de ahogado y de sangre.' },
-            { type: 'paragraph', id: 'p2', text: 'Santiago presidió el concilio de Jerusalén (aproximadamente 49 d.C.), el primer concilio de la Iglesia. El debate: ¿deben los gentiles convertidos circuncidarse y observar la ley de Moisés? La decisión de Santiago — no — fue revolucionaria. Liberó el evangelio de la identidad étnica judía y lo convirtió en un mensaje universal. Sin esta decisión, el cristianismo habría permanecido como una secta judía. La Restauración reconoce la autoridad apostólica de este concilio.' },
+            { type: 'highlight_verse', reference: 'Hechos 15:19-20', text: 'Por lo cual yo juzgo que no se inquiete a los gentiles que se convierten a Dios, sino que se les escriba que se aparten de las contaminaciones de los ídolos, de fornicación, de ahogado y de sangre.' },
+            { type: 'paragraph', text: 'Santiago presidió el concilio de Jerusalén (aproximadamente 49 d.C.), el primer concilio de la Iglesia. El debate: ¿deben los gentiles convertidos circuncidarse y observar la ley de Moisés? La decisión de Santiago — no — fue revolucionaria. Liberó el evangelio de la identidad étnica judía y lo convirtió en un mensaje universal. Sin esta decisión, el cristianismo habría permanecido como una secta judía. La Restauración reconoce la autoridad apostólica de este concilio.' },
           ],
         },
       ],
@@ -53,8 +53,8 @@ export const santiagoElJusto: Lesson = {
           id: 't3',
           title: 'Fe operante',
           blocks: [
-            { type: 'highlight_verse', id: 'v2', reference: 'Santiago 2:17-18', text: 'Así también la fe, si no tiene obras, es muerta en sí misma. Pero alguno dirá: Tú tienes fe, y yo tengo obras. Muéstrame tu fe sin tus obras, y yo te mostraré mi fe por mis obras.' },
-            { type: 'paragraph', id: 'p3', text: 'Martín Lutero llamó a la epístola de Santiago "una epístola de paja" porque parecía contradecir su doctrina de la sola fide (solo por fe). Pero Santiago no contradice a Pablo — lo complementa. Pablo habla de la fe que justifica ante Dios; Santiago habla de la fe que se demuestra ante los hombres. Y para los Santos de los Últimos Días, la epístola de Santiago 1:5 tiene un significado especial: fue el versículo que José Smith leyó y que lo llevó a la Primera Visión.' },
+            { type: 'highlight_verse', reference: 'Santiago 2:17-18', text: 'Así también la fe, si no tiene obras, es muerta en sí misma. Pero alguno dirá: Tú tienes fe, y yo tengo obras. Muéstrame tu fe sin tus obras, y yo te mostraré mi fe por mis obras.' },
+            { type: 'paragraph', text: 'Martín Lutero llamó a la epístola de Santiago "una epístola de paja" porque parecía contradecir su doctrina de la sola fide (solo por fe). Pero Santiago no contradice a Pablo — lo complementa. Pablo habla de la fe que justifica ante Dios; Santiago habla de la fe que se demuestra ante los hombres. Y para los Santos de los Últimos Días, la epístola de Santiago 1:5 tiene un significado especial: fue el versículo que José Smith leyó y que lo llevó a la Primera Visión.' },
           ],
         },
       ],
@@ -68,8 +68,8 @@ export const santiagoElJusto: Lesson = {
           id: 't4',
           title: 'Lapidado por su fe',
           blocks: [
-            { type: 'paragraph', id: 'p4', text: 'Josefo registra en Antigüedades Judías XX.9.1 que Ananías el sumo sacerdote ordenó la lapidación de Santiago "el hermano de Jesús el llamado Cristo" en el año 62 d.C. Lo significativo es que Josefo añade que los judíos más observantes de Jerusalén se indignaron por esta muerte — el apodo de Santiago era "el Justo" incluso entre no cristianos. Hegesipo, historiador del siglo II, registra que sus rodillas estaban endurecidas como las de un camello de tanto orar. El hombre que no creyó en su hermano oró de rodillas hasta el martirio.' },
-            { type: 'reflection', id: 'r1', prompt: '¿Qué te enseña la trayectoria de Santiago — de escéptico a mártir — sobre la naturaleza del cambio espiritual? ¿Hay alguien en tu vida cuya conversión eventual te parece tan improbable como la de Santiago?' },
+            { type: 'paragraph', text: 'Josefo registra en Antigüedades Judías XX.9.1 que Ananías el sumo sacerdote ordenó la lapidación de Santiago "el hermano de Jesús el llamado Cristo" en el año 62 d.C. Lo significativo es que Josefo añade que los judíos más observantes de Jerusalén se indignaron por esta muerte — el apodo de Santiago era "el Justo" incluso entre no cristianos. Hegesipo, historiador del siglo II, registra que sus rodillas estaban endurecidas como las de un camello de tanto orar. El hombre que no creyó en su hermano oró de rodillas hasta el martirio.' },
+            { type: 'reflection', prompt: '¿Qué te enseña la trayectoria de Santiago — de escéptico a mártir — sobre la naturaleza del cambio espiritual? ¿Hay alguien en tu vida cuya conversión eventual te parece tan improbable como la de Santiago?' },
           ],
         },
       ],

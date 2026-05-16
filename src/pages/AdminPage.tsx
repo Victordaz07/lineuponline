@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import { useAdmin } from '@/hooks/useAdmin'
-import { useAuth } from '@/contexts/AuthContext'
+import { useAuth } from '@/hooks/useAuth'
 import { AdminStats } from '@/components/admin/AdminStats'
 import { MessageQueue } from '@/components/admin/MessageQueue'
 import { AnnouncementManager } from '@/components/admin/AnnouncementManager'
@@ -11,7 +11,7 @@ import type { CommunityMessage } from '@/types/community'
 type TabId = 'messages' | 'announcements'
 
 export default function AdminPage() {
-  const { user, loading } = useAuth()
+  const { user, authLoading } = useAuth()
   const { isAdmin } = useAdmin()
   const [messages, setMessages] = useState<CommunityMessage[]>([])
   const [tab, setTab] = useState<TabId>('messages')
@@ -22,7 +22,7 @@ export default function AdminPage() {
     return unsub
   }, [isAdmin])
 
-  if (loading) return null
+  if (authLoading) return null
 
   if (!user || !isAdmin) {
     return <Navigate to="/" replace />

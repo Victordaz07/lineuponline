@@ -1,26 +1,51 @@
 import type { ParagraphBlock as ParagraphBlockType } from '@/types/doctrine'
+import type { HighlightColor } from '@/stores/highlightsStore'
+import { useTextHighlight } from '@/hooks/useTextHighlight'
+import { HighlightToolbar } from '@/components/common/HighlightToolbar'
+import { HighlightDetailPanel } from '@/components/common/HighlightDetailPanel'
 
 export type ParagraphBlockProps = {
   block: ParagraphBlockType
-  /** Si coincide con `block.blockId`, se resalta para TTS. */
   highlightId?: string | null
+  blockKey?: string
+  lessonId?: string
+  topicId?: string
 }
 
-/**
- * Párrafo de estudio con opción de resaltado sincronizado con TTS.
- */
-export function ParagraphBlock({ block, highlightId }: ParagraphBlockProps) {
-  const id = block.blockId ?? undefined
-  const isOn = id != null && highlightId != null && id === highlightId
+const COLOR_CLASSES: Record<HighlightColor, string> = {
+  yellow: 'bg-yellow-200 text-yellow-900 rounded px-0.5',
+  green:  'bg-emerald-200 text-emerald-900 rounded px-0.5',
+  blue:   'bg-blue-200 text-blue-900 rounded px-0.5',
+  pink:   'bg-pink-200 text-pink-900 rounded px-0.5',
+}
+
+export function ParagraphBlock({ block, highlightId, blockKey, lessonId, topicId }: ParagraphBlockProps) {
+  const blockId = block.blockId ?? undefined
+  const isTtsOn = blockId != null && highlightId != null && blockId === highlightId
+
+  const { sel, setSel, toolbarRef, handleMouseUp, saveHighlight, activeHL, setActiveHL, renderSegments } =
+    useTextHighlight(blockKey, lessonId, topicId, block.text)
 
   return (
-    <p
-      id={id ? `p-${id}` : undefined}
-      className={`text-reading text-base leading-relaxed text-text-main transition-all duration-300 ${
-        isOn ? 'rounded-lg bg-gold-dim/90 px-3 py-2 ring-2 ring-gold-main' : ''
-      }`}
-    >
-      {block.text}
-    </p>
+    <div className="relative">
+      <HighlightToolbar
+        sel={sel}
+        toolbarRef={toolbarRef}
+        onSave={saveHighlight}
+        onDismiss={() => { window.getSelection()?.removeAllRanges(); setSel(null) }}
+      />
+      {activeHL && (
+        <HighlightDetailPanel activeHL={activeHL} onClose={() => setActiveHL(null)} />
+      )}
+      <p
+        id={blockId ? `p-${blockId}` : undefined}
+        className={`select-text text-reading text-base leading-relaxed text-text-main transition-all duration-300 ${
+          isTtsOn ? 'rounded-lg bg-gold-dim/90 px-3 py-2 ring-2 ring-gold-main' : ''
+        }`}
+        onMouseUp={handleMouseUp}
+      >
+        {renderSegments(COLOR_CLASSES)}
+      </p>
+    </div>
   )
 }

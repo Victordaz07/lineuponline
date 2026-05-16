@@ -218,7 +218,6 @@ export const mariaMadreLaVisitacion: Lesson = {
               text: 'Esta teología de las inversiones no es únicamente del Nuevo Testamento. Corre por toda la Escritura: Dios elige al más joven antes que al primogénito (Abel, Jacob, José, David). Elige a los esclavos antes que a los faraones. Elige a la estéril para ser madre de los patriarcas. Elige a Nazaret antes que a Jerusalén. El Magníficat es la articulación más concisa de este patrón consistente en el obrar divino: Dios trabaja desde abajo hacia arriba, desde los márgenes hacia el centro.',
             },
             {
-              type: 'quote' as 'central_quote',
               type: 'central_quote',
               text: 'El Magníficat es el himno más subversivo jamás escrito. No habla de reforma gradual sino de inversión radical del orden existente.',
               attribution: 'N.T. Wright — teólogo anglicano',

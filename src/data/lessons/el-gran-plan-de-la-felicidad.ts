@@ -27,19 +27,16 @@ export const elGranPlanDeLaFelicidad: Lesson = {
           blocks: [
             {
               type: 'paragraph',
-              content:
-                'Desde la infancia en la Iglesia aprendemos el Plan de Salvación con un diagrama familiar: círculos etiquetados como "Preexistencia", "Tierra", "Mundo de los Espíritus" y "Reinos de Gloria", conectados por flechas. Es un mapa útil. Pero tiene un problema silencioso: muestra *dónde* vamos, no *en quién* nos convertimos.',
+              text: 'Desde la infancia en la Iglesia aprendemos el Plan de Salvación con un diagrama familiar: círculos etiquetados como "Preexistencia", "Tierra", "Mundo de los Espíritus" y "Reinos de Gloria", conectados por flechas. Es un mapa útil. Pero tiene un problema silencioso: muestra *dónde* vamos, no *en quién* nos convertimos.',
             },
             {
               type: 'paragraph',
-              content:
-                'Los investigadores Tyler J. Griffin y Donald B. Anderson, profesores de Educación Religiosa en BYU, publicaron en 2017 un artículo que propone un modelo visual radicalmente diferente. Su premisa central: "Lo que llegamos a ser determina nuestro destino eterno, y el plan de la felicidad es el diseño de Dios para permitir ese desarrollo." No el destino. El desarrollo.',
+              text: 'Los investigadores Tyler J. Griffin y Donald B. Anderson, profesores de Educación Religiosa en BYU, publicaron en 2017 un artículo que propone un modelo visual radicalmente diferente. Su premisa central: "Lo que llegamos a ser determina nuestro destino eterno, y el plan de la felicidad es el diseño de Dios para permitir ese desarrollo." No el destino. El desarrollo.',
             },
             {
               type: 'doctrine_box',
               title: 'La pregunta que cambia todo',
-              content:
-                'El Plan de Salvación no responde solo "¿a dónde voy cuando muera?" Responde: "¿en qué tipo de ser me estoy convirtiendo?" La diferencia no es semántica — es la diferencia entre tratar el Evangelio como un mapa para navegar o como un proceso de transformación que te convierte en alguien diferente.',
+              body: 'El Plan de Salvación no responde solo "¿a dónde voy cuando muera?" Responde: "¿en qué tipo de ser me estoy convirtiendo?" La diferencia no es semántica — es la diferencia entre tratar el Evangelio como un mapa para navegar o como un proceso de transformación que te convierte en alguien diferente.',
             },
             {
               type: 'highlight_verse',
@@ -48,8 +45,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             },
             {
               type: 'paragraph',
-              content:
-                'El rey Benjamín no dice "el hombre natural irá a un reino inferior." Dice que el hombre natural *es* enemigo de Dios. El plan no solo mueve a las personas de un lugar a otro — las transforma en un tipo diferente de ser. Esa transformación es imposible sin la Expiación de Cristo actuando activamente.',
+              text: 'El rey Benjamín no dice "el hombre natural irá a un reino inferior." Dice que el hombre natural *es* enemigo de Dios. El plan no solo mueve a las personas de un lugar a otro — las transforma en un tipo diferente de ser. Esa transformación es imposible sin la Expiación de Cristo actuando activamente.',
             },
           ],
         },
@@ -59,8 +55,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
           blocks: [
             {
               type: 'paragraph',
-              content:
-                'La exaltación no es entrar a una habitación lujosa. Es convertirse en el tipo de ser que vive, piensa y actúa como Dios. La presencia de Dios no es simplemente un lugar geográfico — es el estado de ser capaz de soportar y prosperar en esa presencia porque tu naturaleza se ha transformado.',
+              text: 'La exaltación no es entrar a una habitación lujosa. Es convertirse en el tipo de ser que vive, piensa y actúa como Dios. La presencia de Dios no es simplemente un lugar geográfico — es el estado de ser capaz de soportar y prosperar en esa presencia porque tu naturaleza se ha transformado.',
             },
             {
               type: 'highlight_verse',
@@ -70,8 +65,9 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             {
               type: 'deep_dive',
               title: 'Por qué la exaltación forzada no sería misericordiosa',
-              content:
+              paragraphs: [
                 'Moroni plantea algo perturbador: los injustos en la presencia de Dios sufrirían más que en cualquier otro lugar. Esto no es crueldad divina — es una observación sobre la naturaleza de la santidad. La presencia de una luz infinita no es tolerada sin la transformación interna correspondiente. El plan no fuerza a nadie al reino celestial. Lo ofrece como el destino de los que se han convertido en seres celestiales.',
+              ],
             },
             {
               type: 'compare_grid',
@@ -99,7 +95,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             },
             {
               type: 'reflection',
-              question: '¿Estás tratando el Evangelio como un mapa que navegar, o como un proceso que te está transformando? ¿Cómo cambia eso tus decisiones diarias?',
+              prompt: '¿Estás tratando el Evangelio como un mapa que navegar, o como un proceso que te está transformando? ¿Cómo cambia eso tus decisiones diarias?',
             },
           ],
         },
@@ -116,8 +112,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
           blocks: [
             {
               type: 'paragraph',
-              content:
-                'El modelo de Griffin y Anderson descansa sobre tres eventos fundacionales que deben entenderse juntos: la Creación, la Caída y la Expiación. Los profetas de la Restauración los llaman "los tres pilares de la eternidad." No son eventos separados — son las tres partes de un plan único, diseñado antes de que comenzara la mortalidad.',
+              text: 'El modelo de Griffin y Anderson descansa sobre tres eventos fundacionales que deben entenderse juntos: la Creación, la Caída y la Expiación. Los profetas de la Restauración los llaman "los tres pilares de la eternidad." No son eventos separados — son las tres partes de un plan único, diseñado antes de que comenzara la mortalidad.',
             },
             {
               type: 'highlight_verse',
@@ -127,22 +122,10 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             {
               type: 'steps',
               title: 'Cómo los tres pilares se conectan',
-              items: [
-                {
-                  step: '1',
-                  title: 'La Creación',
-                  body: 'Establece lo que éramos (hijos espirituales de Dios sin cuerpo físico ni experiencia mortal) y lo que podríamos llegar a ser (seres exaltados con cuerpo glorificado). Sin la Creación, no hay punto de partida ni destino.',
-                },
-                {
-                  step: '2',
-                  title: 'La Caída',
-                  body: 'Introduce las condiciones necesarias para el desarrollo: muerte física (cuerpo separado del espíritu), muerte espiritual (separación de la presencia de Dios) y naturaleza carnal (oposición interna). Sin la Caída, la mortalidad es imposible como prueba real.',
-                },
-                {
-                  step: '3',
-                  title: 'La Expiación',
-                  body: 'Proporciona la solución a ambas muertes Y el mecanismo de transformación. Cristo conquista la muerte física (resurrección universal) y la muerte espiritual (redención condicional del pecado personal). Sin la Expiación, la Caída es fatal y permanente.',
-                },
+              steps: [
+                'La Creación: Establece lo que éramos (hijos espirituales de Dios sin cuerpo físico ni experiencia mortal) y lo que podríamos llegar a ser (seres exaltados con cuerpo glorificado). Sin la Creación, no hay punto de partida ni destino.',
+                'La Caída: Introduce las condiciones necesarias para el desarrollo: muerte física (cuerpo separado del espíritu), muerte espiritual (separación de la presencia de Dios) y naturaleza carnal (oposición interna). Sin la Caída, la mortalidad es imposible como prueba real.',
+                'La Expiación: Proporciona la solución a ambas muertes Y el mecanismo de transformación. Cristo conquista la muerte física (resurrección universal) y la muerte espiritual (redención condicional del pecado personal). Sin la Expiación, la Caída es fatal y permanente.',
               ],
             },
             {
@@ -158,8 +141,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
           blocks: [
             {
               type: 'paragraph',
-              content:
-                'Aquí está la paradoja más profunda del plan: la Caída no fue un accidente que Dios tuvo que remediar. Fue el primer acto necesario del drama de la eternidad. Lehi le explica esto a Jacob: sin la Caída, Adán y Eva habrían permanecido en un estado de inocencia infantil, sin la capacidad de tener gozo profundo, de conocer el bien del mal, o de progresar hacia la exaltación.',
+              text: 'Aquí está la paradoja más profunda del plan: la Caída no fue un accidente que Dios tuvo que remediar. Fue el primer acto necesario del drama de la eternidad. Lehi le explica esto a Jacob: sin la Caída, Adán y Eva habrían permanecido en un estado de inocencia infantil, sin la capacidad de tener gozo profundo, de conocer el bien del mal, o de progresar hacia la exaltación.',
             },
             {
               type: 'highlight_verse',
@@ -169,8 +151,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             {
               type: 'doctrine_box',
               title: 'La paradoja: la Caída era necesaria para la exaltación',
-              content:
-                'Sin la Caída: sin hijos, sin mortalidad, sin oposición, sin experiencia, sin conocimiento del bien y del mal, sin cuerpos mortales que superar, sin necesidad de Expiación, sin transformación posible. La conclusión: el estado de inocencia de Adán y Eva no era el estado final deseado. Era el estado inicial. La Caída abrió la única puerta hacia la exaltación.',
+              body: 'Sin la Caída: sin hijos, sin mortalidad, sin oposición, sin experiencia, sin conocimiento del bien y del mal, sin cuerpos mortales que superar, sin necesidad de Expiación, sin transformación posible. La conclusión: el estado de inocencia de Adán y Eva no era el estado final deseado. Era el estado inicial. La Caída abrió la única puerta hacia la exaltación.',
             },
             {
               type: 'highlight_verse',
@@ -179,7 +160,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             },
             {
               type: 'reflection',
-              question: '¿Cómo cambia tu perspectiva sobre las dificultades de la vida saber que la oposición no es un fallo del plan sino el mecanismo principal del plan?',
+              prompt: '¿Cómo cambia tu perspectiva sobre las dificultades de la vida saber que la oposición no es un fallo del plan sino el mecanismo principal del plan?',
             },
           ],
         },
@@ -196,8 +177,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
           blocks: [
             {
               type: 'paragraph',
-              content:
-                'Griffin y Anderson identifican seis estados distintos por los que pasa la existencia humana. Entender cada estado — lo que nos faltaba, lo que ganamos, y el papel de Cristo en él — transforma la comprensión del plan de un resumen abstracto a una narrativa viva.',
+              text: 'Griffin y Anderson identifican seis estados distintos por los que pasa la existencia humana. Entender cada estado — lo que nos faltaba, lo que ganamos, y el papel de Cristo en él — transforma la comprensión del plan de un resumen abstracto a una narrativa viva.',
             },
             {
               type: 'key_points',
@@ -228,8 +208,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             },
             {
               type: 'paragraph',
-              content:
-                'Este versículo — la primera promesa mesiánica de las Escrituras — fue dado *inmediatamente* después de la Caída, mientras Adán y Eva aún estaban en el Jardín. Cristo no fue un plan de contingencia. Fue la respuesta preparada de antemano.',
+              text: 'Este versículo — la primera promesa mesiánica de las Escrituras — fue dado *inmediatamente* después de la Caída, mientras Adán y Eva aún estaban en el Jardín. Cristo no fue un plan de contingencia. Fue la respuesta preparada de antemano.',
             },
           ],
         },
@@ -239,20 +218,17 @@ export const elGranPlanDeLaFelicidad: Lesson = {
           blocks: [
             {
               type: 'paragraph',
-              content:
-                'Los estados 3 y 4 son los más relevantes para nosotros, porque en ellos vivimos actualmente. Comprender dónde estamos en el plan no es un ejercicio académico — es la base de toda decisión espiritual.',
+              text: 'Los estados 3 y 4 son los más relevantes para nosotros, porque en ellos vivimos actualmente. Comprender dónde estamos en el plan no es un ejercicio académico — es la base de toda decisión espiritual.',
             },
             {
               type: 'doctrine_box',
               title: 'Estado 3: Caído y mortal',
-              content:
-                'Después de la Caída, todos los seres humanos heredamos: (1) Muerte física — el cuerpo eventualmente se separa del espíritu. (2) Muerte espiritual — separación de la presencia de Dios. (3) Naturaleza carnal — inclinación interna hacia el egoísmo, los apetitos físicos, y lo opuesto al Espíritu. Estas tres condiciones no son castigos arbitrarios. Son las condiciones necesarias para que la prueba mortal sea real.',
+              body: 'Después de la Caída, todos los seres humanos heredamos: (1) Muerte física — el cuerpo eventualmente se separa del espíritu. (2) Muerte espiritual — separación de la presencia de Dios. (3) Naturaleza carnal — inclinación interna hacia el egoísmo, los apetitos físicos, y lo opuesto al Espíritu. Estas tres condiciones no son castigos arbitrarios. Son las condiciones necesarias para que la prueba mortal sea real.',
             },
             {
               type: 'doctrine_box',
               title: 'Estado 4: Redención (donde estamos ahora)',
-              content:
-                'A través de la Expiación de Cristo, todos los seres humanos en mortalidad están en el estado de redención. Esto significa que: la redención de la Caída está disponible y activa. El Salvador ha pagado el precio. Los convenios del Evangelio están disponibles. La transformación es posible. Estamos entre la Caída (pasado) y el Juicio Final (futuro), con acceso completo a la gracia de Cristo.',
+              body: 'A través de la Expiación de Cristo, todos los seres humanos en mortalidad están en el estado de redención. Esto significa que: la redención de la Caída está disponible y activa. El Salvador ha pagado el precio. Los convenios del Evangelio están disponibles. La transformación es posible. Estamos entre la Caída (pasado) y el Juicio Final (futuro), con acceso completo a la gracia de Cristo.',
             },
             {
               type: 'highlight_verse',
@@ -261,8 +237,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             },
             {
               type: 'paragraph',
-              content:
-                '"La salvación es libre" no significa automática — significa disponible a todos sin costo de entrada. La puerta está abierta. Pero entrar y permanecer requiere cooperar con la gracia de Cristo a través del arrepentimiento, los convenios y la fidelidad.',
+              text: '"La salvación es libre" no significa automática — significa disponible a todos sin costo de entrada. La puerta está abierta. Pero entrar y permanecer requiere cooperar con la gracia de Cristo a través del arrepentimiento, los convenios y la fidelidad.',
             },
           ],
         },
@@ -311,14 +286,12 @@ export const elGranPlanDeLaFelicidad: Lesson = {
           blocks: [
             {
               type: 'paragraph',
-              content:
-                'Esta es la distinción doctrinal más importante del artículo y una de las más mal comprendidas en la Iglesia. La palabra "salvación" se usa en las Escrituras de dos maneras distintas, y confundirlas genera confusión teológica seria.',
+              text: 'Esta es la distinción doctrinal más importante del artículo y una de las más mal comprendidas en la Iglesia. La palabra "salvación" se usa en las Escrituras de dos maneras distintas, y confundirlas genera confusión teológica seria.',
             },
             {
               type: 'doctrine_box',
               title: 'Redención incondicional — el regalo de Adán',
-              content:
-                'Cristo redimió a TODA la humanidad de los efectos directos de la Caída de Adán: (1) Muerte física → Resurrección universal: todos los que han vivido serán resucitados, independientemente de su fidelidad. (2) Muerte espiritual por la transgresión de Adán → Cristo nos devolvió a un estado de redención disponible. Esto es GRATUITO. Sin condiciones. Sin arrepentimiento requerido. Es el regalo de la Expiación que todos reciben.',
+              body: 'Cristo redimió a TODA la humanidad de los efectos directos de la Caída de Adán: (1) Muerte física → Resurrección universal: todos los que han vivido serán resucitados, independientemente de su fidelidad. (2) Muerte espiritual por la transgresión de Adán → Cristo nos devolvió a un estado de redención disponible. Esto es GRATUITO. Sin condiciones. Sin arrepentimiento requerido. Es el regalo de la Expiación que todos reciben.',
             },
             {
               type: 'highlight_verse',
@@ -327,8 +300,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             },
             {
               type: 'paragraph',
-              content:
-                '"Todos serán vivificados" — sin excepción. El ladrón crucificado junto a Cristo será resucitado. El peor malhechor de la historia será resucitado. La resurrección es el don incondicional de la Expiación. No se gana. No se puede perder. Es la respuesta de Dios a la Caída de Adán por todos sus hijos.',
+              text: '"Todos serán vivificados" — sin excepción. El ladrón crucificado junto a Cristo será resucitado. El peor malhechor de la historia será resucitado. La resurrección es el don incondicional de la Expiación. No se gana. No se puede perder. Es la respuesta de Dios a la Caída de Adán por todos sus hijos.',
             },
           ],
         },
@@ -339,8 +311,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             {
               type: 'doctrine_box',
               title: 'Salvación condicional — la redención del pecado personal',
-              content:
-                'El segundo tipo de "salvación" se refiere a la redención de NUESTROS PROPIOS PECADOS — los que cometemos personalmente, no los de Adán. Esto requiere condiciones: fe en Cristo, arrepentimiento, bautismo, don del Espíritu Santo, fidelidad a los convenios, y gracia activa. No es automática. Dios no puede "simplemente perdonar" sin condiciones sin violar la justicia eterna.',
+              body: 'El segundo tipo de "salvación" se refiere a la redención de NUESTROS PROPIOS PECADOS — los que cometemos personalmente, no los de Adán. Esto requiere condiciones: fe en Cristo, arrepentimiento, bautismo, don del Espíritu Santo, fidelidad a los convenios, y gracia activa. No es automática. Dios no puede "simplemente perdonar" sin condiciones sin violar la justicia eterna.',
             },
             {
               type: 'highlight_verse',
@@ -349,8 +320,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             },
             {
               type: 'paragraph',
-              content:
-                '"Después de hacer todo lo que podemos" no significa que nos ganamos la salvación — ningún esfuerzo humano es suficiente para pagar el precio del pecado. Significa que la gracia opera en cooperación con nuestra disposición, arrepentimiento y convenios. La puerta está abierta (redención universal), pero caminar a través de ella requiere intención activa (salvación condicional).',
+              text: '"Después de hacer todo lo que podemos" no significa que nos ganamos la salvación — ningún esfuerzo humano es suficiente para pagar el precio del pecado. Significa que la gracia opera en cooperación con nuestra disposición, arrepentimiento y convenios. La puerta está abierta (redención universal), pero caminar a través de ella requiere intención activa (salvación condicional).',
             },
             {
               type: 'compare_grid',
@@ -384,8 +354,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
           blocks: [
             {
               type: 'paragraph',
-              content:
-                'Cuando no distinguimos entre los dos tipos de salvación, surgen distorsiones teológicas graves: se piensa que toda la humanidad será exaltada automáticamente (universalismo), o que solo los "perfectos" serán salvados (perfeccionismo ansioso), o que el arrepentimiento es una formalidad vacía. Ninguna de las tres es correcta.',
+              text: 'Cuando no distinguimos entre los dos tipos de salvación, surgen distorsiones teológicas graves: se piensa que toda la humanidad será exaltada automáticamente (universalismo), o que solo los "perfectos" serán salvados (perfeccionismo ansioso), o que el arrepentimiento es una formalidad vacía. Ninguna de las tres es correcta.',
             },
             {
               type: 'highlight_verse',
@@ -395,12 +364,11 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             {
               type: 'doctrine_box',
               title: 'La justicia y la misericordia como socios, no enemigos',
-              content:
-                'Alma 42 enseña que la justicia y la misericordia se reconcilian en la Expiación, no se contradicen. La redención incondicional satisface la justicia por la transgresión de Adán. La salvación condicional permite que la misericordia obre sin destruir la justicia — porque alguien pagó el precio (Cristo), y la persona acepta esos términos (arrepentimiento, convenios). Sin la Expiación, la justicia exigiría la destrucción de la humanidad. Con ella, la misericordia puede actuar mientras la justicia es satisfecha.',
+              body: 'Alma 42 enseña que la justicia y la misericordia se reconcilian en la Expiación, no se contradicen. La redención incondicional satisface la justicia por la transgresión de Adán. La salvación condicional permite que la misericordia obre sin destruir la justicia — porque alguien pagó el precio (Cristo), y la persona acepta esos términos (arrepentimiento, convenios). Sin la Expiación, la justicia exigiría la destrucción de la humanidad. Con ella, la misericordia puede actuar mientras la justicia es satisfecha.',
             },
             {
               type: 'reflection',
-              question: '¿Hay alguna creencia errónea sobre la salvación que hayas tenido — demasiado fácil (automática) o demasiado difícil (perfecta obediencia)? ¿Cómo cambia esta distinción tu comprensión?',
+              prompt: '¿Hay alguna creencia errónea sobre la salvación que hayas tenido — demasiado fácil (automática) o demasiado difícil (perfecta obediencia)? ¿Cómo cambia esta distinción tu comprensión?',
             },
           ],
         },
@@ -417,8 +385,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
           blocks: [
             {
               type: 'paragraph',
-              content:
-                'Uno de los aportes más originales del artículo de Griffin y Anderson es su análisis de la naturaleza caída. No es un defecto que Dios tuvo que tolerar — es el diseño principal que hace posible la prueba mortal. La naturaleza carnal no está *afuera* de nosotros, amenazándonos desde el mundo. Está *adentro* de nosotros.',
+              text: 'Uno de los aportes más originales del artículo de Griffin y Anderson es su análisis de la naturaleza caída. No es un defecto que Dios tuvo que tolerar — es el diseño principal que hace posible la prueba mortal. La naturaleza carnal no está *afuera* de nosotros, amenazándonos desde el mundo. Está *adentro* de nosotros.',
             },
             {
               type: 'highlight_verse',
@@ -427,8 +394,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             },
             {
               type: 'paragraph',
-              content:
-                'El rey Benjamín no dice "el mundo exterior es enemigo de Dios." Dice que el hombre *natural* — lo que somos por naturaleza heredada de la Caída — es el enemigo. La batalla espiritual no es principalmente externa (aunque lo es también). Es interna. Eso es lo que hace que la obediencia sea significativa.',
+              text: 'El rey Benjamín no dice "el mundo exterior es enemigo de Dios." Dice que el hombre *natural* — lo que somos por naturaleza heredada de la Caída — es el enemigo. La batalla espiritual no es principalmente externa (aunque lo es también). Es interna. Eso es lo que hace que la obediencia sea significativa.',
             },
             {
               type: 'highlight_verse',
@@ -438,8 +404,9 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             {
               type: 'deep_dive',
               title: 'La oposición interna como prueba genuina',
-              content:
+              paragraphs: [
                 'Si la oposición fuera solo externa (el mundo nos ataca), la obediencia sería simplemente resistir la presión social. Pero la oposición interna — el deseo de la carne contra el Espíritu — significa que cada acto de obediencia es una victoria real sobre algo que está dentro de ti. Eso es lo que convierte la mortalidad en un campo de desarrollo genuino. Los músculos se fortalecen con la resistencia. El carácter espiritual se desarrolla de la misma manera.',
+              ],
             },
           ],
         },
@@ -478,12 +445,11 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             },
             {
               type: 'paragraph',
-              content:
-                'La dificultad que sientes al ser fiel no es evidencia de que algo está mal contigo. Es evidencia de que el plan está funcionando. La oposición interna no es un bug — es el feature principal que hace de la mortalidad una prueba genuina y de la obediencia un acto de voluntad real.',
+              text: 'La dificultad que sientes al ser fiel no es evidencia de que algo está mal contigo. Es evidencia de que el plan está funcionando. La oposición interna no es un bug — es el feature principal que hace de la mortalidad una prueba genuina y de la obediencia un acto de voluntad real.',
             },
             {
               type: 'reflection',
-              question: '¿Hay alguna debilidad o tentación que hayas estado viendo como un defecto personal? ¿Cómo cambia tu perspectiva verla como parte del mecanismo de la prueba mortal?',
+              prompt: '¿Hay alguna debilidad o tentación que hayas estado viendo como un defecto personal? ¿Cómo cambia tu perspectiva verla como parte del mecanismo de la prueba mortal?',
             },
           ],
         },
@@ -500,8 +466,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
           blocks: [
             {
               type: 'paragraph',
-              content:
-                'El título del artículo no es solo descriptivo — es programático: "Un enfoque centrado en Cristo." La afirmación de Griffin y Anderson es que Cristo no es solo la solución a un problema en el estado 4 (mortalidad). Es el actor central en CADA uno de los seis estados de la existencia humana. Ningún estado carece de su presencia activa.',
+              text: 'El título del artículo no es solo descriptivo — es programático: "Un enfoque centrado en Cristo." La afirmación de Griffin y Anderson es que Cristo no es solo la solución a un problema en el estado 4 (mortalidad). Es el actor central en CADA uno de los seis estados de la existencia humana. Ningún estado carece de su presencia activa.',
             },
             {
               type: 'highlight_verse',
@@ -511,37 +476,13 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             {
               type: 'steps',
               title: 'Cristo activo en cada estado',
-              items: [
-                {
-                  step: 'Estado 1',
-                  title: 'Premortal — el Cordero ya era el Salvador',
-                  body: 'En el consejo premortal, Cristo fue elegido como Salvador antes de que la Tierra existiera. "Inmolado desde la fundación del mundo" (Ap 13:8). La Creación ocurrió por medio de Él (Juan 1:3). Él presentó el plan. Él fue el arquitecto de la mortalidad.',
-                },
-                {
-                  step: 'Estado 2',
-                  title: 'Inocencia — Cristo dio los mandamientos en el Edén',
-                  body: 'Cristo (como el Dios de Israel, el Jehová del Antiguo Testamento) fue quien se comunicó con Adán y Eva en el Jardín, dio los mandamientos, y advirtió sobre la muerte. No era un observador distante.',
-                },
-                {
-                  step: 'Estado 3',
-                  title: 'Caído y mortal — anunciado inmediatamente como solución',
-                  body: 'Génesis 3:15 / Moisés 4:21 — la primera promesa mesiánica fue dada mientras Adán y Eva todavía estaban en el Jardín. Cristo fue nombrado como la solución al problema de la Caída antes de que sus efectos fueran completamente experimentados.',
-                },
-                {
-                  step: 'Estado 4',
-                  title: 'Redención — la Expiación en el huerto y el Calvario',
-                  body: 'Getsemaní y el Calvario — el centro del plan. Cristo pagó el precio de los pecados de toda la humanidad y venció la muerte física. Es el evento más importante de toda la historia humana y cósmica.',
-                },
-                {
-                  step: 'Estado 5',
-                  title: 'Mundo de los espíritus — predicación organizada por Cristo',
-                  body: 'D&C 138: Pedro enseña que Cristo visitó el mundo de los espíritus entre su muerte y resurrección. Organizó el trabajo misionero entre los muertos. El trabajo vicario del templo opera en conexión con su ministerio allí.',
-                },
-                {
-                  step: 'Estado 6',
-                  title: 'Estado final — Cristo como Juez de toda la humanidad',
-                  body: '"Todos compareceremos ante el tribunal de Cristo" (Romanos 14:10). El juicio no es administrado por un observador neutro sino por el único que pagó el precio por cada alma juzgada. Eso da al juicio un peso moral único.',
-                },
+              steps: [
+                'Estado 1 — Premortal: En el consejo premortal, Cristo fue elegido como Salvador antes de que la Tierra existiera. "Inmolado desde la fundación del mundo" (Ap 13:8). La Creación ocurrió por medio de Él (Juan 1:3). Él presentó el plan. Él fue el arquitecto de la mortalidad.',
+                'Estado 2 — Inocencia: Cristo (como el Dios de Israel, el Jehová del Antiguo Testamento) fue quien se comunicó con Adán y Eva en el Jardín, dio los mandamientos, y advirtió sobre la muerte. No era un observador distante.',
+                'Estado 3 — Caído y mortal: Génesis 3:15 / Moisés 4:21 — la primera promesa mesiánica fue dada mientras Adán y Eva todavía estaban en el Jardín. Cristo fue nombrado como la solución al problema de la Caída antes de que sus efectos fueran completamente experimentados.',
+                'Estado 4 — Redención: Getsemaní y el Calvario — el centro del plan. Cristo pagó el precio de los pecados de toda la humanidad y venció la muerte física. Es el evento más importante de toda la historia humana y cósmica.',
+                'Estado 5 — Mundo de los espíritus: D&C 138: Pedro enseña que Cristo visitó el mundo de los espíritus entre su muerte y resurrección. Organizó el trabajo misionero entre los muertos. El trabajo vicario del templo opera en conexión con su ministerio allí.',
+                'Estado 6 — Estado final: "Todos compareceremos ante el tribunal de Cristo" (Romanos 14:10). El juicio no es administrado por un observador neutro sino por el único que pagó el precio por cada alma juzgada. Eso da al juicio un peso moral único.',
               ],
             },
           ],
@@ -552,8 +493,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
           blocks: [
             {
               type: 'paragraph',
-              content:
-                'Si Cristo está activo en cada uno de los seis estados, entonces no existe ningún estado de la existencia humana donde el ser humano esté solo. Ni en la premortalidad, ni en el Edén, ni en la caída mortalidad, ni en el trabajo de transformación actual, ni en el mundo de los espíritus después de la muerte, ni en el juicio final. La presencia activa de Cristo en cada estado es la garantía de que el plan es posible para todos.',
+              text: 'Si Cristo está activo en cada uno de los seis estados, entonces no existe ningún estado de la existencia humana donde el ser humano esté solo. Ni en la premortalidad, ni en el Edén, ni en la caída mortalidad, ni en el trabajo de transformación actual, ni en el mundo de los espíritus después de la muerte, ni en el juicio final. La presencia activa de Cristo en cada estado es la garantía de que el plan es posible para todos.',
             },
             {
               type: 'highlight_verse',
@@ -563,12 +503,11 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             {
               type: 'doctrine_box',
               title: 'El Evangelio como presencia, no solo como sistema',
-              content:
-                'El modelo centrado en Cristo no es solo un cambio de diagramas visuales. Es un cambio en cómo se experimenta el Evangelio. No es un sistema de reglas administrado por una institución. Es una relación con un Ser que ha estado presente en cada etapa de tu existencia eterna, que pagó un precio que no puedes comprender por transformarte en alguien capaz de soportar su presencia eterna.',
+              body: 'El modelo centrado en Cristo no es solo un cambio de diagramas visuales. Es un cambio en cómo se experimenta el Evangelio. No es un sistema de reglas administrado por una institución. Es una relación con un Ser que ha estado presente en cada etapa de tu existencia eterna, que pagó un precio que no puedes comprender por transformarte en alguien capaz de soportar su presencia eterna.',
             },
             {
               type: 'reflection',
-              question: '¿En qué estado de tu vida actual sientes que Cristo está más presente? ¿Hay algún área de tu vida donde le cuesta sentirlo presente? ¿Cómo cambia este modelo esa percepción?',
+              prompt: '¿En qué estado de tu vida actual sientes que Cristo está más presente? ¿Hay algún área de tu vida donde le cuesta sentirlo presente? ¿Cómo cambia este modelo esa percepción?',
             },
           ],
         },
@@ -585,8 +524,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
           blocks: [
             {
               type: 'paragraph',
-              content:
-                'La doctrina de los tres reinos de gloria — revelada en D&C 76 a José Smith y Sidney Rigdon — es una de las más misericordiosas en la historia del pensamiento religioso. Mientras el mundo cristiano tradicional ofrecía cielo o infierno eterno (una opción binaria brutal), la Restauración reveló que hay múltiples grados de gloria correspondientes a múltiples tipos de ser.',
+              text: 'La doctrina de los tres reinos de gloria — revelada en D&C 76 a José Smith y Sidney Rigdon — es una de las más misericordiosas en la historia del pensamiento religioso. Mientras el mundo cristiano tradicional ofrecía cielo o infierno eterno (una opción binaria brutal), la Restauración reveló que hay múltiples grados de gloria correspondientes a múltiples tipos de ser.',
             },
             {
               type: 'highlight_verse',
@@ -617,14 +555,12 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             },
             {
               type: 'paragraph',
-              content:
-                'Este versículo revela algo profundo: la presencia de Dios no es automáticamente un regalo para todos. Para quien no ha experimentado la transformación que hace posible soportar esa presencia, la presencia de Dios sería tortura, no gozo. Los reinos inferiores no son una prisión cruel — son una misericordia para los que no podrían tolerar la presencia celestial sin sufrimiento extremo.',
+              text: 'Este versículo revela algo profundo: la presencia de Dios no es automáticamente un regalo para todos. Para quien no ha experimentado la transformación que hace posible soportar esa presencia, la presencia de Dios sería tortura, no gozo. Los reinos inferiores no son una prisión cruel — son una misericordia para los que no podrían tolerar la presencia celestial sin sufrimiento extremo.',
             },
             {
               type: 'doctrine_box',
               title: 'D&C 88:32 — "lo que están dispuestos a recibir"',
-              content:
-                'El lenguaje de D&C 88:32 es revelador: los seres en los reinos inferiores "volverán a su propio lugar para gozar de lo que están dispuestos a recibir." No de lo que *merecían* en el sentido de castigo. De lo que estaban *dispuestos* a recibir — lo que su naturaleza, sus elecciones y su ser les hacía capaz de absorber. Dios da a cada uno el máximo bien que son capaces de recibir dado quiénes son.',
+              body: 'El lenguaje de D&C 88:32 es revelador: los seres en los reinos inferiores "volverán a su propio lugar para gozar de lo que están dispuestos a recibir." No de lo que *merecían* en el sentido de castigo. De lo que estaban *dispuestos* a recibir — lo que su naturaleza, sus elecciones y su ser les hacía capaz de absorber. Dios da a cada uno el máximo bien que son capaces de recibir dado quiénes son.',
             },
             {
               type: 'compare_grid',
@@ -652,7 +588,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             },
             {
               type: 'reflection',
-              question: '¿Cómo cambia tu forma de ver el juicio final entender que Dios da a cada persona el máximo bien que su ser puede recibir? ¿Qué dice eso sobre la importancia de la transformación en esta vida?',
+              prompt: '¿Cómo cambia tu forma de ver el juicio final entender que Dios da a cada persona el máximo bien que su ser puede recibir? ¿Qué dice eso sobre la importancia de la transformación en esta vida?',
             },
           ],
         },
@@ -669,13 +605,11 @@ export const elGranPlanDeLaFelicidad: Lesson = {
           blocks: [
             {
               type: 'paragraph',
-              content:
-                'Griffin y Anderson concluyen su artículo con una observación sobre cómo los profetas enseñan el plan. El patrón es consistente a través de las Escrituras: (1) Explican un elemento del plan con claridad. (2) Inmediatamente invitan a la acción — aumentar la fe en Cristo, arrepentirse, recibir ordenanzas, avanzar.',
+              text: 'Griffin y Anderson concluyen su artículo con una observación sobre cómo los profetas enseñan el plan. El patrón es consistente a través de las Escrituras: (1) Explican un elemento del plan con claridad. (2) Inmediatamente invitan a la acción — aumentar la fe en Cristo, arrepentirse, recibir ordenanzas, avanzar.',
             },
             {
               type: 'paragraph',
-              content:
-                'El plan no se enseña como información neutral. Se enseña como una invitación urgente. Porque una vez que entiendes que la mortalidad es el único período en que puedes recibir los convenios del Evangelio y experimentar la transformación que hace posible la exaltación, la urgencia se vuelve obvia. No hay un "después" indefinido en el que podrás hacer todo esto.',
+              text: 'El plan no se enseña como información neutral. Se enseña como una invitación urgente. Porque una vez que entiendes que la mortalidad es el único período en que puedes recibir los convenios del Evangelio y experimentar la transformación que hace posible la exaltación, la urgencia se vuelve obvia. No hay un "después" indefinido en el que podrás hacer todo esto.',
             },
             {
               type: 'highlight_verse',
@@ -684,8 +618,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             },
             {
               type: 'paragraph',
-              content:
-                '"Para obrar por sí mismos y no ser obrados por" — esta es la distinción fundamental. El plan da agencia real. El propósito de esa agencia es usar la mortalidad para OBRAR activamente en la dirección de la transformación, no ser movido pasivamente por las circunstancias, los apetitos o el mundo.',
+              text: '"Para obrar por sí mismos y no ser obrados por" — esta es la distinción fundamental. El plan da agencia real. El propósito de esa agencia es usar la mortalidad para OBRAR activamente en la dirección de la transformación, no ser movido pasivamente por las circunstancias, los apetitos o el mundo.',
             },
           ],
         },
@@ -712,8 +645,7 @@ export const elGranPlanDeLaFelicidad: Lesson = {
             {
               type: 'doctrine_box',
               title: 'El día de tu gracia',
-              content:
-                'Jacob en 2 Nefi 9 habla del "día de tu gracia" — el período durante el cual la gracia de Cristo está disponible activamente para transformarte. Ese período es la mortalidad. No porque Dios retire su amor después, sino porque la mortalidad con su cuerpo físico, sus convenios, su Espíritu Santo y su Expiación activa es el entorno único diseñado para producir la transformación necesaria para la exaltación.',
+              body: 'Jacob en 2 Nefi 9 habla del "día de tu gracia" — el período durante el cual la gracia de Cristo está disponible activamente para transformarte. Ese período es la mortalidad. No porque Dios retire su amor después, sino porque la mortalidad con su cuerpo físico, sus convenios, su Espíritu Santo y su Expiación activa es el entorno único diseñado para producir la transformación necesaria para la exaltación.',
             },
           ],
         },
@@ -723,22 +655,34 @@ export const elGranPlanDeLaFelicidad: Lesson = {
           blocks: [
             {
               type: 'paragraph',
-              content:
-                'El artículo de Griffin y Anderson no es solo un diagrama nuevo para enseñar en clases de Evangelio. Es una invitación a reorientar toda tu vida espiritual alrededor de una pregunta diferente: no "¿estoy cumpliendo los requisitos?" sino "¿en qué tipo de ser me estoy convirtiendo?"',
+              text: 'El artículo de Griffin y Anderson no es solo un diagrama nuevo para enseñar en clases de Evangelio. Es una invitación a reorientar toda tu vida espiritual alrededor de una pregunta diferente: no "¿estoy cumpliendo los requisitos?" sino "¿en qué tipo de ser me estoy convirtiendo?"',
             },
             {
               type: 'deep_dive',
               title: 'La diferencia entre conocer el plan y vivirlo',
-              content:
+              paragraphs: [
                 'Conocer el plan: puedes explicar los seis estados, los tres pilares, los dos tipos de redención, los tres reinos. Vivir el plan: tus decisiones diarias reflejan la conciencia de que estás en el estado 4 (redención), en el momento de mayor acceso a la gracia, con el tiempo contado, y con el tipo de ser en que te estás convirtiendo como la única variable que importa eternamente. La diferencia no está en el conocimiento — está en si el conocimiento ha descendido del intelecto al corazón y está gobernando las decisiones.',
+              ],
             },
             {
               type: 'note_prompts',
               prompts: [
-                '¿En qué área específica de tu vida notas más la oposición interna de la naturaleza caída? ¿Qué dice eso sobre dónde necesitas más la gracia de Cristo?',
-                'Si el propósito del plan es transformarte en un ser celestial, ¿qué característica de Dios estás desarrollando actualmente? ¿Cuál necesitas empezar a desarrollar?',
-                '¿Hay algo en tu vida que estás tratando como "lo haré después"? ¿Cómo cambia la comprensión de la mortalidad como el "día de tu gracia" esa decisión?',
-                'Escribe una descripción del ser en que quieres convertirte al final de la mortalidad. ¿Qué decisiones diarias te acercan a ese ser? ¿Cuáles te alejan?',
+                {
+                  id: 'prompt-1',
+                  question: '¿En qué área específica de tu vida notas más la oposición interna de la naturaleza caída? ¿Qué dice eso sobre dónde necesitas más la gracia de Cristo?',
+                },
+                {
+                  id: 'prompt-2',
+                  question: 'Si el propósito del plan es transformarte en un ser celestial, ¿qué característica de Dios estás desarrollando actualmente? ¿Cuál necesitas empezar a desarrollar?',
+                },
+                {
+                  id: 'prompt-3',
+                  question: '¿Hay algo en tu vida que estás tratando como "lo haré después"? ¿Cómo cambia la comprensión de la mortalidad como el "día de tu gracia" esa decisión?',
+                },
+                {
+                  id: 'prompt-4',
+                  question: 'Escribe una descripción del ser en que quieres convertirte al final de la mortalidad. ¿Qué decisiones diarias te acercan a ese ser? ¿Cuáles te alejan?',
+                },
               ],
             },
           ],

@@ -24,8 +24,8 @@ export const jacobElFugitivo: Lesson = {
           id: 't2',
           title: 'Siete años como pocos días',
           blocks: [
-            { type: 'highlight_verse', id: 'v2', reference: 'Génesis 29:20', text: 'Así sirvió Jacob por Raquel siete años; y le parecieron como pocos días, porque la amaba.' },
-            { type: 'paragraph', id: 'p3', text: 'Jacob trabajó 7 años para casarse con Raquel y fue engañado en la noche de bodas con Lea — una justicia poética: el engañador fue engañado. Trabajó otros 7 años por Raquel. Ese total de 14 años de espera y trabajo por amor a una mujer es uno de los relatos más tiernos del AT. El hombre que siempre tomó atajos, en este caso pagó el precio completo.' },
+            { type: 'highlight_verse', reference: 'Génesis 29:20', text: 'Así sirvió Jacob por Raquel siete años; y le parecieron como pocos días, porque la amaba.' },
+            { type: 'paragraph', text: 'Jacob trabajó 7 años para casarse con Raquel y fue engañado en la noche de bodas con Lea — una justicia poética: el engañador fue engañado. Trabajó otros 7 años por Raquel. Ese total de 14 años de espera y trabajo por amor a una mujer es uno de los relatos más tiernos del AT. El hombre que siempre tomó atajos, en este caso pagó el precio completo.' },
           ],
         },
       ],

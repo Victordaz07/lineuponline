@@ -43,7 +43,7 @@ export const brighamYoungElColonizador: Lesson = {
               title: 'Las instituciones que Brigham construyó',
               points: [
                 'Universidad de Deseret (1850) — hoy Universidad de Utah',
-                'ZCMI — Zion's Cooperative Mercantile Institution (1869) — primero gran almacén cooperativo de EEUU',
+                "ZCMI — Zion's Cooperative Mercantile Institution (1869) — primero gran almacén cooperativo de EEUU",
                 'El Tabernáculo de Salt Lake (1867) — acústica famosa, sede de la Conferencia General',
                 'Primera piedra del Templo de Salt Lake (1853) — completado en 1893, 16 años después de su muerte',
                 'Sistema de irrigación que convirtió el desierto en tierra fértil',

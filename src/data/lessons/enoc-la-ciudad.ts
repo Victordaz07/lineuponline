@@ -24,9 +24,9 @@ export const enocLaCiudad: Lesson = {
           id: 't3',
           title: '¿Qué hizo diferente a Sión?',
           blocks: [
-            { type: 'highlight_verse', id: 'v3', reference: 'Moisés 7:18', text: 'Y el Señor llamó a su pueblo SIÓN, porque eran de un corazón y una mente, y habitaban en justicia; y no había pobres entre ellos.' },
-            { type: 'paragraph', id: 'p4', text: 'Tres marcas de Sión: (1) unidad de corazón y mente, (2) justicia en la vida diaria, (3) ningún pobre entre ellos. No es un programa social — es la consecuencia de una transformación espiritual colectiva. Cuando la gente ama a Dios con todo el corazón, naturalmente ama al prójimo como a sí misma, y las consecuencias económicas y sociales son inevitables.' },
-            { type: 'key_points', id: 'kp1', title: '¿Por qué Dios arrebató la ciudad?', points: ['La tierra se volvió tan malvada que Sión ya no podía existir en ella', 'Dios la preservó para que vuelva en los últimos días (DyC 45:11-14)', 'Su regreso es parte del orden de eventos de la Segunda Venida', 'La ciudad de Enoc y la nueva Sión terrenal se "besarán" en el milenio'] },
+            { type: 'highlight_verse', reference: 'Moisés 7:18', text: 'Y el Señor llamó a su pueblo SIÓN, porque eran de un corazón y una mente, y habitaban en justicia; y no había pobres entre ellos.' },
+            { type: 'paragraph', text: 'Tres marcas de Sión: (1) unidad de corazón y mente, (2) justicia en la vida diaria, (3) ningún pobre entre ellos. No es un programa social — es la consecuencia de una transformación espiritual colectiva. Cuando la gente ama a Dios con todo el corazón, naturalmente ama al prójimo como a sí misma, y las consecuencias económicas y sociales son inevitables.' },
+            { type: 'key_points', title: '¿Por qué Dios arrebató la ciudad?', points: ['La tierra se volvió tan malvada que Sión ya no podía existir en ella', 'Dios la preservó para que vuelva en los últimos días (DyC 45:11-14)', 'Su regreso es parte del orden de eventos de la Segunda Venida', 'La ciudad de Enoc y la nueva Sión terrenal se "besarán" en el milenio'] },
           ],
         },
       ],

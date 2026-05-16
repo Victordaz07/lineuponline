@@ -24,8 +24,8 @@ export const isaacElPatriarca: Lesson = {
           id: 't4',
           title: 'La bendición que cambió la historia',
           blocks: [
-            { type: 'paragraph', id: 'p4', text: 'La historia de Jacob robando la bendición de Esaú (Génesis 27) es perturbadora moralmente. Pero revela algo profundo sobre la teología de la bendición patriarcal: Isaac dice "le bendije, y será bendito" (v.33) — incluso después de descubrir el engaño. En la teología hebrea, la bendición pronunciada por un patriarca bajo inspiración tiene peso real. No es simplemente un deseo piadoso — es una declaración profética que el cielo reconoce.' },
-            { type: 'reflection', id: 'r1', prompt: '¿Qué "bendición" has recibido de tus padres o ancestros — espiritual, de carácter, de fe — que llevas contigo aunque nunca fue pronunciada formalmente? ¿Cómo honras esa herencia?' },
+            { type: 'paragraph', text: 'La historia de Jacob robando la bendición de Esaú (Génesis 27) es perturbadora moralmente. Pero revela algo profundo sobre la teología de la bendición patriarcal: Isaac dice "le bendije, y será bendito" (v.33) — incluso después de descubrir el engaño. En la teología hebrea, la bendición pronunciada por un patriarca bajo inspiración tiene peso real. No es simplemente un deseo piadoso — es una declaración profética que el cielo reconoce.' },
+            { type: 'reflection', prompt: '¿Qué "bendición" has recibido de tus padres o ancestros — espiritual, de carácter, de fe — que llevas contigo aunque nunca fue pronunciada formalmente? ¿Cómo honras esa herencia?' },
           ],
         },
       ],

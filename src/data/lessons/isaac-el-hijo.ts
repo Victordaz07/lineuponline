@@ -24,8 +24,8 @@ export const isaacElHijo: Lesson = {
           id: 't1',
           title: 'Nacido contra toda lógica',
           blocks: [
-            { type: 'paragraph', id: 'p1', text: 'Isaac nació cuando Abraham tenía 100 años y Sara 90. No es hipérbole: Hebreos 11:11-12 lo confirma. Su nacimiento fue milagroso no solo biológicamente sino teológicamente — toda la promesa de la descendencia de Abraham descansaba sobre este único hijo. Su nombre, "Yitzhak" en hebreo, significa "él ríe" o "risa" — en honor a la risa de incredulidad de Sara cuando escuchó la promesa (Génesis 18:12) y a la risa de gozo cuando se cumplió (Génesis 21:6).' },
-            { type: 'highlight_verse', id: 'v1', reference: 'Génesis 21:6', text: 'Y dijo Sara: Dios me ha hecho reír, y cualquiera que lo oyere, se reirá conmigo.' },
+            { type: 'paragraph', text: 'Isaac nació cuando Abraham tenía 100 años y Sara 90. No es hipérbole: Hebreos 11:11-12 lo confirma. Su nacimiento fue milagroso no solo biológicamente sino teológicamente — toda la promesa de la descendencia de Abraham descansaba sobre este único hijo. Su nombre, "Yitzhak" en hebreo, significa "él ríe" o "risa" — en honor a la risa de incredulidad de Sara cuando escuchó la promesa (Génesis 18:12) y a la risa de gozo cuando se cumplió (Génesis 21:6).' },
+            { type: 'highlight_verse', reference: 'Génesis 21:6', text: 'Y dijo Sara: Dios me ha hecho reír, y cualquiera que lo oyere, se reirá conmigo.' },
           ],
         },
       ],

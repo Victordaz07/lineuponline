@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { useAuth } from '@/contexts/AuthContext'
+import { useAuth } from '@/hooks/useAuth'
+import { signOut } from '@/services/authService'
+import { usePreferencesStore, type FontSize } from '@/stores/preferencesStore'
 
 function BackButton() {
   const navigate = useNavigate()
@@ -19,62 +21,178 @@ function BackButton() {
   )
 }
 
-function UserMenu() {
-  const { user, signOutUser } = useAuth()
-  const [open, setOpen] = useState(false)
+const FONT_OPTIONS: { value: FontSize; label: string; aria: string }[] = [
+  { value: 'sm', label: 'A−', aria: 'Texto pequeño' },
+  { value: 'md', label: 'A',  aria: 'Texto normal' },
+  { value: 'lg', label: 'A+', aria: 'Texto grande' },
+]
 
-  if (!user) {
+function providerLabel(user: { providerData?: { providerId: string }[] } | null): string {
+  const pid = user?.providerData?.[0]?.providerId ?? ''
+  if (pid === 'google.com') return '🔵 Google'
+  if (pid === 'phone') return '📱 Teléfono'
+  if (pid === 'password') return '✉️ Correo'
+  return '☁️ Nube'
+}
+
+function UserMenu() {
+  const { user, isLoggedIn } = useAuth()
+  const [open, setOpen] = useState(false)
+  const menuRef = useRef<HTMLDivElement | null>(null)
+
+  const fontSize = usePreferencesStore((s) => s.fontSize)
+  const setFontSize = usePreferencesStore((s) => s.setFontSize)
+
+  const initial =
+    user?.displayName?.[0]?.toUpperCase() ??
+    user?.email?.[0]?.toUpperCase() ??
+    (user?.phoneNumber ? '📱' : '?')
+
+  const displayName = user?.displayName ?? user?.email?.split('@')[0] ?? user?.phoneNumber ?? 'Usuario'
+  const displayEmail = user?.email ?? user?.phoneNumber ?? ''
+
+  useEffect(() => {
+    if (!open) return
+    function handler(e: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [open])
+
+  async function handleSignOut() {
+    setOpen(false)
+    try {
+      await signOut()
+    } catch {
+      /* ignore */
+    }
+  }
+
+  if (!isLoggedIn) {
     return (
       <Link
         to="/login"
-        className="rounded-full border border-blue-accent/20 px-3 py-1.5 font-ui text-xs font-semibold text-blue-accent transition hover:bg-gold-dim"
+        className="flex items-center gap-1.5 rounded-lg border border-gold-main/30 px-3 py-1.5 font-ui text-xs font-semibold text-blue-accent transition hover:border-gold-main/60 hover:bg-gold-dim/30"
       >
-        Ingresar
+        <span aria-hidden="true">☁</span>
+        <span className="hidden sm:inline">Guardar progreso</span>
+        <span className="sm:hidden">Guardar</span>
       </Link>
     )
   }
 
-  const initials = user.displayName
-    ? user.displayName.split(' ').slice(0, 2).map((n) => n[0]).join('').toUpperCase()
-    : user.email?.[0]?.toUpperCase() ?? '?'
-
   return (
-    <div className="relative">
+    <div className="relative" ref={menuRef}>
       <button
         type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-label="Menú de usuario"
-        className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border-2 border-gold-main/40 bg-blue-accent/10 font-ui text-xs font-bold text-blue-accent transition hover:border-gold-main"
+        onClick={() => setOpen((o) => !o)}
+        aria-label="Mi cuenta"
+        aria-expanded={open}
+        className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-accent font-ui text-sm font-bold text-white shadow-sm transition hover:brightness-90"
       >
-        {user.photoURL ? (
-          <img src={user.photoURL} alt={user.displayName ?? 'Avatar'} className="h-full w-full object-cover" referrerPolicy="no-referrer" />
+        {user?.photoURL ? (
+          <img src={user.photoURL} alt={displayName} className="h-8 w-8 rounded-full object-cover" referrerPolicy="no-referrer" />
         ) : (
-          initials
+          initial
         )}
       </button>
 
-      {open ? (
-        <div className="absolute right-0 top-10 z-50 min-w-[180px] rounded-2xl border border-blue-accent/10 bg-white p-3 shadow-lg">
-          <p className="mb-2 truncate font-ui text-xs font-semibold text-text-muted">
-            {user.displayName ?? user.email}
-          </p>
-          <button
-            type="button"
-            onClick={async () => { setOpen(false); await signOutUser() }}
-            className="w-full rounded-xl px-3 py-2 text-left font-ui text-sm font-semibold text-red-500 transition hover:bg-red-50"
-          >
-            Cerrar sesión
-          </button>
-        </div>
-      ) : null}
+      {open && (
+        <div className="absolute right-0 top-10 z-50 w-64 overflow-hidden rounded-2xl border border-blue-accent/10 bg-white shadow-xl">
+          <div className="flex items-center gap-3 border-b border-blue-accent/8 bg-bg-elevated px-4 py-3.5">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-accent font-ui text-base font-bold text-white shadow-sm">
+              {user?.photoURL ? (
+                <img src={user.photoURL} alt={displayName} className="h-10 w-10 rounded-full object-cover" referrerPolicy="no-referrer" />
+              ) : (
+                initial
+              )}
+            </div>
+            <div className="min-w-0">
+              <p className="truncate font-ui text-sm font-semibold text-text-main">{displayName}</p>
+              {displayEmail ? <p className="truncate font-ui text-xs text-text-muted">{displayEmail}</p> : null}
+              <p className="mt-0.5 font-ui text-[10px] font-medium text-emerald-500">
+                {providerLabel(user)} · Activo ✓
+              </p>
+            </div>
+          </div>
 
-      {open ? (
-        <div
-          className="fixed inset-0 z-40"
-          aria-hidden="true"
-          onClick={() => setOpen(false)}
-        />
-      ) : null}
+          <div className="border-b border-blue-accent/8 py-1">
+            <Link
+              to="/profile"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-3 px-4 py-2.5 font-ui text-sm text-text-main transition hover:bg-bg-elevated"
+            >
+              <span className="text-base" aria-hidden="true">👤</span>
+              Mi Perfil
+              <span className="ml-auto text-text-muted text-xs">›</span>
+            </Link>
+            <Link
+              to="/my-notes"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-3 px-4 py-2.5 font-ui text-sm text-text-main transition hover:bg-bg-elevated"
+            >
+              <span className="text-base" aria-hidden="true">📓</span>
+              Mi Cuaderno
+              <span className="ml-auto text-text-muted text-xs">›</span>
+            </Link>
+            <Link
+              to="/community"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-3 px-4 py-2.5 font-ui text-sm text-text-main transition hover:bg-bg-elevated"
+            >
+              <span className="text-base" aria-hidden="true">💬</span>
+              Comunidad
+              <span className="ml-auto text-text-muted text-xs">›</span>
+            </Link>
+            <Link
+              to="/search"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-3 px-4 py-2.5 font-ui text-sm text-text-main transition hover:bg-bg-elevated"
+            >
+              <span className="text-base" aria-hidden="true">🔍</span>
+              Buscar lecciones
+              <span className="ml-auto text-text-muted text-xs">›</span>
+            </Link>
+          </div>
+
+          <div className="border-b border-blue-accent/8 px-4 py-3">
+            <p className="mb-2 font-ui text-[10px] font-semibold uppercase tracking-widest text-text-muted">
+              Tamaño de texto
+            </p>
+            <div className="flex gap-1.5">
+              {FONT_OPTIONS.map(({ value, label, aria }) => (
+                <button
+                  key={value}
+                  type="button"
+                  aria-label={aria}
+                  onClick={() => setFontSize(value)}
+                  className={`flex-1 rounded-lg border py-1.5 font-ui font-semibold transition ${
+                    fontSize === value
+                      ? 'border-blue-accent bg-blue-accent text-white'
+                      : 'border-blue-accent/20 text-blue-accent hover:border-blue-accent/40 hover:bg-bg-elevated'
+                  } ${value === 'sm' ? 'text-xs' : value === 'lg' ? 'text-base' : 'text-sm'}`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="py-1">
+            <button
+              type="button"
+              onClick={handleSignOut}
+              className="flex w-full items-center gap-3 px-4 py-2.5 font-ui text-sm text-rose-500 transition hover:bg-rose-50"
+            >
+              <span className="text-base" aria-hidden="true">🚪</span>
+              Cerrar sesión
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -88,10 +206,10 @@ export function Header() {
       <div className="mx-auto flex max-w-5xl items-center gap-3">
         {isNested ? <BackButton /> : null}
         <div className="flex flex-col gap-0.5">
-          <p className="font-ui text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-gold-main leading-none">
+          <p className="font-ui text-[0.6rem] font-semibold uppercase tracking-[0.2em] leading-none text-gold-main">
             Edición celestial
           </p>
-          <Link to="/" className="font-title text-xl text-blue-accent sm:text-2xl leading-tight">
+          <Link to="/" className="font-title text-xl leading-tight text-blue-accent sm:text-2xl">
             LineUponLine
           </Link>
         </div>

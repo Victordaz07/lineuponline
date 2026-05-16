@@ -5,13 +5,13 @@ import { LoadingSpinner } from '@/components/common/LoadingSpinner'
 import { useLesson } from '@/hooks/useLesson'
 import { useSyncNotes } from '@/hooks/useSyncNotes'
 import { useScrollMemory } from '@/hooks/useScrollMemory'
-import { useAuth } from '@/contexts/AuthContext'
+import { useAuth } from '@/hooks/useAuth'
 
 export default function LessonView() {
   const { moduleId, lessonId } = useParams<{ moduleId: string; lessonId: string }>()
   const { lesson, loading, error } = useLesson(moduleId, lessonId)
-  const { user } = useAuth()
-  const { saveNote } = useSyncNotes({ userId: user?.uid ?? 'anon' })
+  const { userId } = useAuth()
+  const { saveNote } = useSyncNotes({ userId })
   useScrollMemory(`lesson:${moduleId}:${lessonId}`)
 
   if (loading) {

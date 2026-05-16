@@ -24,8 +24,8 @@ export const noeElArca: Lesson = {
           id: 't2',
           title: 'La fe que construye lo que no ve',
           blocks: [
-            { type: 'highlight_verse', id: 'v2', reference: 'Hebreos 11:7', text: 'Por la fe Noé, cuando fue advertido por Dios acerca de cosas que aún no se veían, con temor preparó el arca en que su casa se salvase; y por esa fe condenó al mundo, y fue hecho heredero de la justicia que es según la fe.' },
-            { type: 'paragraph', id: 'p3', text: 'Pablo incluye a Noé en su galería de héroes de la fe (Hebreos 11) con una observación sorprendente: al preparar el arca, Noé "condenó al mundo". No con palabras de juicio — con su acción. Cuando un hombre actúa en fe sobre lo que Dios le dijo, su obediencia es un testigo tácito contra quienes no creyeron.' },
+            { type: 'highlight_verse', reference: 'Hebreos 11:7', text: 'Por la fe Noé, cuando fue advertido por Dios acerca de cosas que aún no se veían, con temor preparó el arca en que su casa se salvase; y por esa fe condenó al mundo, y fue hecho heredero de la justicia que es según la fe.' },
+            { type: 'paragraph', text: 'Pablo incluye a Noé en su galería de héroes de la fe (Hebreos 11) con una observación sorprendente: al preparar el arca, Noé "condenó al mundo". No con palabras de juicio — con su acción. Cuando un hombre actúa en fe sobre lo que Dios le dijo, su obediencia es un testigo tácito contra quienes no creyeron.' },
           ],
         },
       ],

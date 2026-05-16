@@ -1,5 +1,6 @@
 import type { LessonBlock } from '@/types/doctrine'
 import type { UserNoteInput } from '@/types/userNotes'
+import { BlockWrapper } from '@/components/doctrinal/blocks/BlockWrapper'
 import { CentralQuoteBlock } from '@/components/doctrinal/blocks/CentralQuoteBlock'
 import { CompareGridBlockComponent } from '@/components/doctrinal/blocks/CompareGridBlock'
 import { CrisisCardsBlockComponent } from '@/components/doctrinal/blocks/CrisisCardsBlock'
@@ -23,6 +24,8 @@ export type BlockRendererProps = {
   moduleId: string
   topicId: string
   topicTitle: string
+  /** 0-based index of this block within its topic — used to build the stable blockKey. */
+  blockIndex?: number
   activeParagraphId?: string | null
   onSaveNote?: (note: UserNoteInput) => Promise<void>
   onJournalSave?: (payload: {
@@ -36,7 +39,8 @@ export type BlockRendererProps = {
 }
 
 /**
- * Enruta un bloque de lección a su componente visual.
+ * Enruta un bloque de lección a su componente visual y lo envuelve en
+ * BlockWrapper para habilitar notas al margen en cualquier bloque.
  */
 export function BlockRenderer({
   block,
@@ -44,64 +48,98 @@ export function BlockRenderer({
   moduleId,
   topicId,
   topicTitle,
+  blockIndex,
   activeParagraphId,
   onSaveNote,
   onJournalSave,
   onQuizComplete,
 }: BlockRendererProps) {
-  switch (block.type) {
-    case 'paragraph':
-      return <ParagraphBlock block={block} highlightId={activeParagraphId} />
-    case 'leader_quote':
-      return <LeaderQuoteBlock block={block} />
-    case 'doctrine_box':
-      return <DoctrineBoxBlock block={block} />
-    case 'key_points':
-      return <KeyPointsBlock block={block} />
-    case 'steps':
-      return <StepsBlock block={block} />
-    case 'highlight_verse':
-      return <HighlightVerseBlock block={block} lessonId={lessonId} moduleId={moduleId} topicTitle={topicTitle} />
-    case 'central_quote':
-      return <CentralQuoteBlock block={block} />
-    case 'reflection':
-      return <ReflectionBlock block={block} />
-    case 'media_slot':
-      return <MediaSlotBlock block={block} />
-    case 'quiz':
-      return (
-        <QuizBlockComponent
-          key={quizBlockListKey(block, lessonId)}
-          block={block}
-          lessonId={lessonId}
-          onComplete={onQuizComplete}
-        />
-      )
-    case 'note_prompts':
-      return (
-        <NotePromptsBlock
-          block={block}
-          moduleId={moduleId}
-          lessonId={lessonId}
-          topicId={topicId}
-          topicTitle={topicTitle}
-          onSaveNote={onSaveNote}
-          onJournalSave={onJournalSave}
-        />
-      )
-    case 'dialogue':
-      return <DialogueBlockComponent block={block} />
-    case 'compare_grid':
-      return <CompareGridBlockComponent block={block} />
-    case 'crisis_cards':
-      return <CrisisCardsBlockComponent block={block} />
-    case 'deep_dive':
-      return <DeepDiveBlockComponent block={block} />
-    case 'timeline':
-      return <TimelineBlockComponent block={block} />
-    default: {
-      const exhaustive: never = block
-      return exhaustive
+  const blockKey =
+    blockIndex !== undefined ? `${lessonId}:${topicId}:${blockIndex}` : undefined
+
+  function renderInner() {
+    switch (block.type) {
+      case 'paragraph':
+        return (
+          <ParagraphBlock
+            block={block}
+            highlightId={activeParagraphId}
+            blockKey={blockKey}
+            lessonId={lessonId}
+            topicId={topicId}
+          />
+        )
+      case 'leader_quote':
+        return <LeaderQuoteBlock block={block} />
+      case 'doctrine_box':
+        return <DoctrineBoxBlock block={block} />
+      case 'key_points':
+        return <KeyPointsBlock block={block} />
+      case 'steps':
+        return <StepsBlock block={block} />
+      case 'highlight_verse':
+        return (
+          <HighlightVerseBlock
+            block={block}
+            lessonId={lessonId}
+            moduleId={moduleId}
+            topicTitle={topicTitle}
+          />
+        )
+      case 'central_quote':
+        return <CentralQuoteBlock block={block} />
+      case 'reflection':
+        return <ReflectionBlock block={block} />
+      case 'media_slot':
+        return <MediaSlotBlock block={block} />
+      case 'quiz':
+        return (
+          <QuizBlockComponent
+            key={quizBlockListKey(block, lessonId)}
+            block={block}
+            lessonId={lessonId}
+            onComplete={onQuizComplete}
+          />
+        )
+      case 'note_prompts':
+        return (
+          <NotePromptsBlock
+            block={block}
+            moduleId={moduleId}
+            lessonId={lessonId}
+            topicId={topicId}
+            topicTitle={topicTitle}
+            onSaveNote={onSaveNote}
+            onJournalSave={onJournalSave}
+          />
+        )
+      case 'dialogue':
+        return <DialogueBlockComponent block={block} />
+      case 'compare_grid':
+        return <CompareGridBlockComponent block={block} />
+      case 'crisis_cards':
+        return <CrisisCardsBlockComponent block={block} />
+      case 'deep_dive':
+        return <DeepDiveBlockComponent block={block} />
+      case 'timeline':
+        return <TimelineBlockComponent block={block} />
+      default: {
+        const exhaustive: never = block
+        return exhaustive
+      }
     }
   }
+
+  if (!blockKey) return renderInner()
+
+  return (
+    <BlockWrapper
+      blockKey={blockKey}
+      lessonId={lessonId}
+      topicId={topicId}
+      blockType={block.type}
+    >
+      {renderInner()}
+    </BlockWrapper>
+  )
 }

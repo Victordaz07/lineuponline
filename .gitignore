@@ -1,3 +1,5 @@
+.claude/worktrees/
+
 # Logs
 logs
 *.log
@@ -12,6 +14,7 @@ dist
 dist-ssr
 *.local
 .env.local
+.env.production
 .env.*.local
 .firebase/
 firebase-debug.log

@@ -8,15 +8,17 @@ export type FavoriteVerse = {
   lessonId: string
   moduleId: string
   topicTitle: string
+  tags: string[]
   savedAt: string
 }
 
 type FavoritesState = {
   verses: FavoriteVerse[]
-  addFavorite: (verse: Omit<FavoriteVerse, 'id' | 'savedAt'>) => void
+  addFavorite: (verse: Omit<FavoriteVerse, 'id' | 'savedAt' | 'tags'>) => void
   removeFavorite: (id: string) => void
   isFavorite: (reference: string, lessonId: string) => boolean
   getFavoriteId: (reference: string, lessonId: string) => string | undefined
+  updateTags: (id: string, tags: string[]) => void
   setVerses: (verses: FavoriteVerse[]) => void
 }
 
@@ -27,12 +29,16 @@ export const useFavoritesStore = create<FavoritesState>()(
       addFavorite: (verse) => {
         const id = `fav-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`
         set((s) => ({
-          verses: [{ ...verse, id, savedAt: new Date().toISOString() }, ...s.verses],
+          verses: [{ ...verse, id, tags: [], savedAt: new Date().toISOString() }, ...s.verses],
         }))
       },
       removeFavorite: (id) => {
         set((s) => ({ verses: s.verses.filter((v) => v.id !== id) }))
       },
+      updateTags: (id, tags) =>
+        set((s) => ({
+          verses: s.verses.map((v) => (v.id === id ? { ...v, tags } : v)),
+        })),
       isFavorite: (reference, lessonId) =>
         get().verses.some((v) => v.reference === reference && v.lessonId === lessonId),
       getFavoriteId: (reference, lessonId) =>

@@ -66,21 +66,6 @@ import { elPresidenteDeLaIglesia as lessonElPresidente } from '@/data/lessons/el
 import { elohimElPadreCelestial as lessonElohim } from '@/data/lessons/elohim-el-padre-celestial'
 import { laDivinidad as lessonLaDivinidad } from '@/data/lessons/la-divinidad'
 import { cristoElGranSumoSacerdote as lessonCristoSumoSacerdote } from '@/data/lessons/cristo-el-gran-sumo-sacerdote'
-import { enoc as lessonEnoc } from '@/data/lessons/enoc'
-import { noe as lessonNoe } from '@/data/lessons/noe'
-import { melquisedec as lessonMelquisedec } from '@/data/lessons/melquisedec'
-import { isaac as lessonIsaac } from '@/data/lessons/isaac'
-import { jacobIsrael as lessonJacobIsrael } from '@/data/lessons/jacob-israel'
-import { jeremias as lessonJeremias } from '@/data/lessons/jeremias'
-import { daniel as lessonDaniel } from '@/data/lessons/daniel'
-import { job as lessonJob } from '@/data/lessons/job'
-import { ezequiel as lessonEzequiel } from '@/data/lessons/ezequiel'
-import { pedro as lessonPedro } from '@/data/lessons/pedro'
-import { pablo as lessonPablo } from '@/data/lessons/pablo'
-import { juanElBautista as lessonJuanElBautista } from '@/data/lessons/juan-el-bautista'
-import { mariaMagdalena as lessonMariaMagdalena } from '@/data/lessons/maria-magdalena'
-import { tomas as lessonTomas } from '@/data/lessons/tomas'
-import { santiagoElJusto as lessonSantiagoElJusto } from '@/data/lessons/santiago-el-justo'
 import { jeremiasElLlamamiento as lessonJeremiasElLlamamiento } from '@/data/lessons/jeremias-el-llamamiento'
 import { jeremiasElPerseguido as lessonJeremiasElPerseguido } from '@/data/lessons/jeremias-el-perseguido'
 import { jeremiasLasLamentaciones as lessonJeremiasLasLamentaciones } from '@/data/lessons/jeremias-las-lamentaciones'
@@ -98,7 +83,7 @@ import { jobLaRespuesta as lessonJobLaRespuesta } from '@/data/lessons/job-la-re
 import { jobYLaRestauracion as lessonJobYLaRestauracion } from '@/data/lessons/job-y-la-restauracion'
 import { ezequielLaVision as lessonEzequielLaVision } from '@/data/lessons/ezequiel-la-vision'
 import { ezequielElGuardian as lessonEzequielElGuardian } from '@/data/lessons/ezequiel-el-guardian'
-import { ezequielLosHuesoSecos as lessonEzequielLosHuesoSecos } from '@/data/lessons/ezequiel-los-huesos-secos'
+import { ezequielLosHueoSecos as lessonEzequielLosHueoSecos } from '@/data/lessons/ezequiel-los-huesos-secos'
 import { ezequielLosDoPalos as lessonEzequielLosDoPalos } from '@/data/lessons/ezequiel-los-dos-palos'
 import { ezequielYLaRestauracion as lessonEzequielYLaRestauracion } from '@/data/lessons/ezequiel-y-la-restauracion'
 import { pedroElPescador as lessonPedroElPescador } from '@/data/lessons/pedro-el-pescador'
@@ -156,8 +141,6 @@ import { mariaMadreLaVisitacion as lessonMariaMadreLaVisitacion } from '@/data/l
 import { mariaMadreYJose as lessonMariaMadreYJose } from '@/data/lessons/maria-madre-y-jose'
 import { mariaMadreEnLaCruz as lessonMariaMadreEnLaCruz } from '@/data/lessons/maria-madre-en-la-cruz'
 import { mariaMadreYLaRestauracion as lessonMariaMadreYLaRestauracion } from '@/data/lessons/maria-madre-y-la-restauracion'
-import { lehi as lessonLehi } from '@/data/lessons/lehi'
-import { nefi as lessonNefi } from '@/data/lessons/nefi'
 import { hermanoJaredLaTorre as lessonHermanoJaredLaTorre } from '@/data/lessons/hermano-jared-la-torre'
 import { hermanoJaredElViaje as lessonHermanoJaredElViaje } from '@/data/lessons/hermano-jared-el-viaje'
 import { hermanoJaredLasPiedras as lessonHermanoJaredLasPiedras } from '@/data/lessons/hermano-jared-las-piedras'
@@ -168,10 +151,8 @@ import { ammonElGuardian as lessonAmmonElGuardian } from '@/data/lessons/ammon-e
 import { ammonElMaestro as lessonAmmonElMaestro } from '@/data/lessons/ammon-el-maestro'
 import { ammonElPadre as lessonAmmonElPadre } from '@/data/lessons/ammon-el-padre'
 import { ammonYLaRestauracion as lessonAmmonYLaRestauracion } from '@/data/lessons/ammon-y-la-restauracion'
-import { reyBenjamin as lessonReyBenjamin } from '@/data/lessons/rey-benjamin'
 import { capitanMoroni as lessonCapitanMoroni } from '@/data/lessons/capitan-moroni'
 import { samuelElLamanita as lessonSamuelElLamanita } from '@/data/lessons/samuel-el-lamanita'
-import { moroniProfeta as lessonMoroniProfeta } from '@/data/lessons/moroni-profeta'
 import { joseSmithLaPrimeraVision as lessonJoseSmithLaPrimeraVision } from '@/data/lessons/jose-smith-la-primera-vision'
 import { joseSmithElTraductor as lessonJoseSmithElTraductor } from '@/data/lessons/jose-smith-el-traductor'
 import { joseSmithElProfeta as lessonJoseSmithElProfeta } from '@/data/lessons/jose-smith-el-profeta'
@@ -463,7 +444,7 @@ export const SUBMODULE_GROUPS: Record<string, { title: string; description: stri
   rut: {
     title: 'Rut — La Lealtad que Venció al Origen',
     description:
-      'Moabita, viuda, extranjera — y bisabuela de David. Su declaración "donde tú mueras, moriré yo" es la declaración de lealtad más hermosa de la Biblia. Boaz como tipo de Cristo: el go'el que paga el precio completo.',
+      "Moabita, viuda, extranjera — y bisabuela de David. Su declaración \"donde tú mueras, moriré yo\" es la declaración de lealtad más hermosa de la Biblia. Boaz como tipo de Cristo: el go'el que paga el precio completo.",
     icon: '🌾',
   },
   ester: {
@@ -734,7 +715,7 @@ const LESSON_ROWS: LessonRow[] = [
     level: 'BÁSICO',
     icon: '🕊️',
     duration: 60,
-    order: 3,
+    order: 4,
     status: 'PUBLISHED',
   },
   {
@@ -2035,7 +2016,7 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'job-y-la-restauracion': lessonJobYLaRestauracion,
   'ezequiel-la-vision': lessonEzequielLaVision,
   'ezequiel-el-guardian': lessonEzequielElGuardian,
-  'ezequiel-los-huesos-secos': lessonEzequielLosHuesoSecos,
+  'ezequiel-los-huesos-secos': lessonEzequielLosHueoSecos,
   'ezequiel-los-dos-palos': lessonEzequielLosDoPalos,
   'ezequiel-y-la-restauracion': lessonEzequielYLaRestauracion,
   'pedro-el-pescador': lessonPedroElPescador,

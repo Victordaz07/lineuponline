@@ -161,11 +161,16 @@ export const deboraLaProfetisa: Lesson = {
             },
             {
               type: 'quiz',
-              quizType: 'fill_blank',
-              prompt: 'Débora profetizó que la gloria de la victoria sobre Sísara iría a manos de ___.',
-              options: ['Barac', 'una mujer', 'el ángel del Señor', 'Mardoqueo'],
-              correctIndex: 1,
-              explanation: 'Débora profetizó que "en mano de mujer venderá Jehová a Sísara" (Jueces 4:9). Esta profecía se cumplió con Jael, quien mató a Sísara después de la batalla.',
+              id: 'debora-sisara-gloria',
+              question: {
+                kind: 'fill_blank',
+                prompt:
+                  'Débora profetizó que la gloria de la victoria sobre Sísara iría a manos de ___.',
+                options: ['Barac', 'una mujer', 'el ángel del Señor', 'Mardoqueo'],
+                correctIndex: 1,
+                explanation:
+                  'Débora profetizó que "en mano de mujer venderá Jehová a Sísara" (Jueces 4:9). Esta profecía se cumplió con Jael, quien mató a Sísara después de la batalla.',
+              },
             },
           ],
         },

@@ -16,11 +16,6 @@ const LEVEL_LABEL: Record<DifficultyLevel, string> = {
   AVANZADO: 'Avanzado',
 }
 
-/**
- * Vista de un módulo con lista de lecciones y filtro por nivel.
- *
- * @returns Página de módulo
- */
 export default function ModuleView() {
   const { moduleId } = useParams<{ moduleId: string }>()
   const { module, lessons, loading, error } = useModule(moduleId)
@@ -28,29 +23,27 @@ export default function ModuleView() {
   const [levelFilter, setLevelFilter] = useState<DifficultyLevel | 'ALL'>('ALL')
 
   const filteredLessons = useMemo(() => {
-    if (levelFilter === 'ALL') {
-      return lessons
-    }
+    if (levelFilter === 'ALL') return lessons
     return lessons.filter((l) => l.level === levelFilter)
   }, [lessons, levelFilter])
 
-  const { featuredGroups, regularLessons } = useMemo(() => {
-    const groupMap = new Map<string, Lesson[]>()
-    const regular: Lesson[] = []
-    for (const l of filteredLessons) {
-      if (l.submoduleGroup) {
-        const arr = groupMap.get(l.submoduleGroup) ?? []
-        arr.push(l)
-        groupMap.set(l.submoduleGroup, arr)
+  // Group by submoduleGroup preserving lesson order
+  const { groupedMap, ungrouped } = useMemo(() => {
+    const map = new Map<string, Lesson[]>()
+    const rest: Lesson[] = []
+    for (const lesson of filteredLessons) {
+      if (lesson.submoduleGroup) {
+        const arr = map.get(lesson.submoduleGroup) ?? []
+        arr.push(lesson)
+        map.set(lesson.submoduleGroup, arr)
       } else {
-        regular.push(l)
+        rest.push(lesson)
       }
     }
-    return {
-      featuredGroups: [...groupMap.entries()].map(([group, grpLessons]) => ({ group, lessons: grpLessons })),
-      regularLessons: regular,
-    }
+    return { groupedMap: map, ungrouped: rest }
   }, [filteredLessons])
+
+  const hasGroups = groupedMap.size > 0
 
   const progressValue = useMemo(() => {
     if (!module || lessons.length === 0) return 0
@@ -82,11 +75,11 @@ export default function ModuleView() {
             {module.icon ?? '📖'}
           </span>
           <div>
-            {module.categoryLabel ? (
+            {module.categoryLabel && (
               <p className="font-ui text-xs font-semibold uppercase tracking-[0.2em] text-gold-main">
                 {module.categoryLabel}
               </p>
-            ) : null}
+            )}
             <h1 className="font-title text-3xl text-blue-accent">{module.title}</h1>
             <p className="mt-2 max-w-prose text-reading text-base text-text-muted">{module.description}</p>
           </div>
@@ -128,18 +121,28 @@ export default function ModuleView() {
         </div>
       </section>
 
-      {featuredGroups.map(({ group, lessons: grpLessons }) => (
-        <SubmoduleHeroSection key={group} group={group} lessons={grpLessons} moduleId={module.id} />
-      ))}
-
-      {regularLessons.length > 0 ? (
-        <section>
-          <h2 className="mb-4 font-title text-xl text-blue-accent">
-            {featuredGroups.length > 0 ? 'Otros personajes' : 'Lecciones'}
-          </h2>
-          <LessonList lessons={regularLessons} moduleId={module.id} />
-        </section>
-      ) : null}
+      <section aria-label="Lecciones del módulo">
+        {hasGroups ? (
+          <div className="space-y-8">
+            {[...groupedMap.entries()].map(([groupKey, groupLessons]) => (
+              <SubmoduleHeroSection
+                key={groupKey}
+                group={groupKey}
+                lessons={groupLessons}
+                moduleId={module.id}
+              />
+            ))}
+            {ungrouped.length > 0 && (
+              <LessonList lessons={ungrouped} moduleId={module.id} />
+            )}
+          </div>
+        ) : (
+          <>
+            <h2 className="mb-4 font-title text-xl text-blue-accent">Lecciones</h2>
+            <LessonList lessons={filteredLessons} moduleId={module.id} />
+          </>
+        )}
+      </section>
     </div>
   )
 }
