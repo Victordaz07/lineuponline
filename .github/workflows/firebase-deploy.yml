@@ -3,10 +3,13 @@ name: Deploy Firebase
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
@@ -15,9 +18,15 @@ jobs:
           node-version: '20'
           cache: npm
 
+      - name: Verificar token de Firebase
+        run: |
+          if [ -z "$FIREBASE_TOKEN" ]; then
+            echo "::error::FIREBASE_TOKEN no está configurado. Ve a Settings → Secrets and variables → Actions → New repository secret (nombre exacto: FIREBASE_TOKEN)."
+            exit 1
+          fi
+
       - run: npm ci
       - run: npm run build
 
-      - run: npx firebase-tools@latest deploy --only hosting,firestore:rules --project lineuponline-17a81 --non-interactive
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: Deploy a Firebase
+        run: npx firebase-tools@14.19.1 deploy --only hosting,firestore:rules --project lineuponline-17a81 --non-interactive --token "$FIREBASE_TOKEN"
