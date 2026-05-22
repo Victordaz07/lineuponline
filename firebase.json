@@ -6,7 +6,7 @@
     "source": "functions"
   },
   "hosting": {
-    "site": "lineuponline-a7eda",
+    "site": "lineuponline-17a81",
     "public": "dist",
     "ignore": [
       "firebase.json",
