@@ -10,7 +10,10 @@ const SWATCH_CLASSES: Record<HighlightColor, string> = {
   pink:   'bg-pink-300 hover:bg-pink-400',
 }
 
-type SelectionState = { text: string; top: number; left: number }
+const TOOLBAR_W = 210
+const TOOLBAR_H = 44
+
+type SelectionState = { text: string; top: number; left: number; height?: number }
 
 type HighlightToolbarProps = {
   sel: SelectionState | null
@@ -21,11 +24,19 @@ type HighlightToolbarProps = {
 
 export function HighlightToolbar({ sel, toolbarRef, onSave, onDismiss }: HighlightToolbarProps) {
   if (!sel) return null
+
+  const vw = typeof window !== 'undefined' ? window.innerWidth : 375
+  const clampedLeft = Math.min(Math.max(8, sel.left), vw - TOOLBAR_W - 8)
+  const clampedTop =
+    sel.top < TOOLBAR_H + 16
+      ? sel.top + (sel.height ?? 24) + 4
+      : sel.top - TOOLBAR_H - 4
+
   return (
     <div
       ref={toolbarRef}
       className="fixed z-50 flex items-center gap-1.5 rounded-xl border border-gold-main/20 bg-white px-2 py-1.5 shadow-lg"
-      style={{ top: sel.top, left: sel.left }}
+      style={{ top: clampedTop, left: clampedLeft }}
     >
       {COLORS.map((color) => (
         <button
