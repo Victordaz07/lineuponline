@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
+import { useAdmin } from '@/hooks/useAdmin'
 import { signOut } from '@/services/authService'
 import { usePreferencesStore, type FontSize } from '@/stores/preferencesStore'
 
@@ -37,6 +38,7 @@ function providerLabel(user: { providerData?: { providerId: string }[] } | null)
 
 function UserMenu() {
   const { user, isLoggedIn } = useAuth()
+  const { isAdmin } = useAdmin()
   const [open, setOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement | null>(null)
 
@@ -166,6 +168,17 @@ function UserMenu() {
               Buscar lecciones
               <span className="ml-auto text-text-muted text-xs">›</span>
             </Link>
+            {isAdmin ? (
+              <Link
+                to="/admin"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-3 border-t border-blue-accent/8 bg-gold-dim/40 px-4 py-2.5 font-ui text-sm font-semibold text-blue-accent transition hover:bg-gold-dim/70"
+              >
+                <span className="text-base" aria-hidden="true">🛡️</span>
+                Panel admin
+                <span className="ml-auto text-blue-accent/60 text-xs">›</span>
+              </Link>
+            ) : null}
           </div>
 
           <div className="border-b border-blue-accent/8 px-4 py-3">
