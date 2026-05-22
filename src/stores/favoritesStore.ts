@@ -26,7 +26,7 @@ export const useFavoritesStore = create<FavoritesState>()(
     (set, get) => ({
       verses: [],
       addFavorite: (verse) => {
-        const id = `fav-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`
+        const id = `fav-${crypto.randomUUID()}`
         set((s) => ({
           verses: [{ ...verse, id, tags: [], savedAt: new Date().toISOString() }, ...s.verses],
         }))

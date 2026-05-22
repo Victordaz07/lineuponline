@@ -28,7 +28,7 @@ export const useHighlightsStore = create<HighlightsState>()(
     (set, get) => ({
       highlights: [],
       addHighlight: (h) => {
-        const id = `hl-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`
+        const id = `hl-${crypto.randomUUID()}`
         set((s) => ({
           highlights: [{ ...h, id, savedAt: new Date().toISOString() }, ...s.highlights],
         }))

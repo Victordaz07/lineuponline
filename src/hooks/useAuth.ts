@@ -6,7 +6,7 @@ const LOCAL_ID_KEY = 'lineuponline:localId'
 function getOrCreateLocalId(): string {
   let id = localStorage.getItem(LOCAL_ID_KEY)
   if (!id) {
-    id = `local-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`
+    id = `local-${crypto.randomUUID()}`
     localStorage.setItem(LOCAL_ID_KEY, id)
   }
   return id

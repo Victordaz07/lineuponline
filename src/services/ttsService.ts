@@ -113,10 +113,25 @@ async function waitForResume(signal: AbortSignal): Promise<void> {
   })
 }
 
+async function getAuthToken(): Promise<string | null> {
+  try {
+    const { getFirebaseAuth, isFirebaseConfigured } = await import('@/lib/firebase')
+    if (!isFirebaseConfigured()) return null
+    const user = getFirebaseAuth().currentUser
+    return user ? await user.getIdToken() : null
+  } catch {
+    return null
+  }
+}
+
 async function playOpenAI(text: string, voice: string, signal: AbortSignal): Promise<void> {
+  const token = await getAuthToken()
+  const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+  if (token) headers['Authorization'] = `Bearer ${token}`
+
   const res = await fetch(TTS_URL!, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers,
     body: JSON.stringify({ text: text.slice(0, 4096), voice }),
     signal,
   })
