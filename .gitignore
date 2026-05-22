@@ -33,3 +33,9 @@ firebase-debug.log
 
 # Claude Code worktrees and session data
 .claude/
+
+# Firebase Admin SDK service account keys (NUNCA subir a git)
+service-account*.json
+*-firebase-adminsdk-*.json
+secrets/
+

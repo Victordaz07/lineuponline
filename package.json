@@ -12,6 +12,8 @@
     "port-lesson-structured": "tsx scripts/port-lesson-structured.ts",
     "deploy:hosting": "npm run build && npx firebase-tools deploy --only hosting",
     "deploy:rules": "npx firebase-tools deploy --only firestore:rules",
+    "admin:set": "tsx scripts/setAdminClaim.ts --set",
+    "admin:unset": "tsx scripts/setAdminClaim.ts --unset",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui"
@@ -39,6 +41,7 @@
     "eslint": "^10.2.1",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
+    "firebase-admin": "^13.10.0",
     "globals": "^17.5.0",
     "jsdom": "^29.1.1",
     "postcss": "^8.5.12",
