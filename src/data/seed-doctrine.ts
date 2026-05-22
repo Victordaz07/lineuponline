@@ -83,7 +83,7 @@ import { jobLaRespuesta as lessonJobLaRespuesta } from '@/data/lessons/job-la-re
 import { jobYLaRestauracion as lessonJobYLaRestauracion } from '@/data/lessons/job-y-la-restauracion'
 import { ezequielLaVision as lessonEzequielLaVision } from '@/data/lessons/ezequiel-la-vision'
 import { ezequielElGuardian as lessonEzequielElGuardian } from '@/data/lessons/ezequiel-el-guardian'
-import { ezequielLosHueoSecos as lessonEzequielLosHueoSecos } from '@/data/lessons/ezequiel-los-huesos-secos'
+import { ezequielLosHuesoSecos as lessonEzequielLosHueoSecos } from '@/data/lessons/ezequiel-los-huesos-secos'
 import { ezequielLosDoPalos as lessonEzequielLosDoPalos } from '@/data/lessons/ezequiel-los-dos-palos'
 import { ezequielYLaRestauracion as lessonEzequielYLaRestauracion } from '@/data/lessons/ezequiel-y-la-restauracion'
 import { pedroElPescador as lessonPedroElPescador } from '@/data/lessons/pedro-el-pescador'

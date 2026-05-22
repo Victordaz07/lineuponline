@@ -33,6 +33,7 @@ const textHighlightSchema = z.object({
   selectedText: z.string().max(1000),
   color: z.enum(['yellow', 'green', 'blue', 'pink']),
   tags: z.array(z.string().max(50)).max(20).default([]),
+  note: z.string().max(5000).default(''),
   savedAt: z.string(),
 })
 
