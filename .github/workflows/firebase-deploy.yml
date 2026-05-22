@@ -18,6 +18,6 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - run: npx firebase-tools@latest deploy --only hosting,firestore:rules --project lineuponline-a7eda --non-interactive
+      - run: npx firebase-tools@latest deploy --only hosting,firestore:rules --project lineuponline-17a81 --non-interactive
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
