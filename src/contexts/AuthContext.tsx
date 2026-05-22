@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
 import type { User } from 'firebase/auth'
-import { onAuthStateChanged } from 'firebase/auth'
+import { onIdTokenChanged } from 'firebase/auth'
 import { isFirebaseConfigured, getFirebaseAuth } from '@/lib/firebase'
 import { upsertUserProfile } from '@/services/users.service'
 import {
@@ -29,7 +29,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!isFirebaseConfigured()) return
 
-    const unsubscribe = onAuthStateChanged(getFirebaseAuth(), async (firebaseUser) => {
+    const unsubscribe = onIdTokenChanged(getFirebaseAuth(), async (firebaseUser) => {
       setUser(firebaseUser)
       setAuthLoading(false)
 

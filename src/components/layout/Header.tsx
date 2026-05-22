@@ -62,6 +62,15 @@ function UserMenu() {
     return () => document.removeEventListener('mousedown', handler)
   }, [open])
 
+  useEffect(() => {
+    if (!open) return
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [open])
+
   async function handleSignOut() {
     setOpen(false)
     try {
@@ -91,7 +100,8 @@ function UserMenu() {
         onClick={() => setOpen((o) => !o)}
         aria-label="Mi cuenta"
         aria-expanded={open}
-        className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-accent font-ui text-sm font-bold text-white shadow-sm transition hover:brightness-90"
+        aria-haspopup="menu"
+        className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-accent font-ui text-sm font-bold text-white shadow-sm transition hover:brightness-90 focus-visible:ring-2 focus-visible:ring-gold-main focus-visible:ring-offset-2"
       >
         {user?.photoURL ? (
           <img src={user.photoURL} alt={displayName} className="h-8 w-8 rounded-full object-cover" referrerPolicy="no-referrer" />

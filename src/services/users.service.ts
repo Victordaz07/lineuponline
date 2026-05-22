@@ -7,7 +7,7 @@ const userProfileSchema = z.object({
   userId: z.string().min(1),
   displayName: z.string().min(1),
   email: z.string().email(),
-  role: z.enum(['student', 'teacher', 'admin']),
+  role: z.literal('student'),
 })
 
 type UpsertUserProfileInput = z.infer<typeof userProfileSchema>

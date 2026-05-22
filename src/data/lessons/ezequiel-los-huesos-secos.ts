@@ -1,6 +1,6 @@
 import type { Lesson } from '@/types/doctrine'
 
-export const ezequielLosHueoSecos: Lesson = {
+export const ezequielLosHuesoSecos: Lesson = {
   id: 'ezequiel-los-huesos-secos',
   moduleId: 'personajes-escrituras',
   title: 'El Valle de los Huesos Secos',

@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useRef, useMemo } from 'react'
 import type { StudyJournalEntry } from '@/stores/studyJournalStore'
 
 export type StudyJournalProps = {
@@ -14,6 +14,35 @@ export type StudyJournalProps = {
  * Panel lateral con notas guardadas en la lección y resumen de temas reflexionados.
  */
 export function StudyJournal({ open, onClose, lessonId, lessonTitle, entries, uniqueTopicTitles }: StudyJournalProps) {
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
+  const asideRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    if (!open) return
+    closeButtonRef.current?.focus()
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { onClose(); return }
+      if (e.key !== 'Tab' || !asideRef.current) return
+
+      const focusable = asideRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      )
+      if (focusable.length === 0) return
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus() }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first.focus() }
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [open, onClose])
+
   const grouped = useMemo(() => {
     const map = new Map<string, StudyJournalEntry[]>()
     for (const e of entries) {
@@ -42,6 +71,7 @@ export function StudyJournal({ open, onClose, lessonId, lessonTitle, entries, un
         onClick={onClose}
       />
       <aside
+        ref={asideRef}
         className="fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col border-l border-gold-main/25 bg-bg-surface shadow-2xl"
         aria-label="Diario de estudio"
         role="dialog"
@@ -54,6 +84,7 @@ export function StudyJournal({ open, onClose, lessonId, lessonTitle, entries, un
             <p className="mt-1 font-ui text-xs text-text-muted">Lección: {lessonId}</p>
           </div>
           <button
+            ref={closeButtonRef}
             type="button"
             onClick={onClose}
             className="rounded-full border border-blue-accent/20 px-3 py-1 font-ui text-sm font-semibold text-blue-accent"

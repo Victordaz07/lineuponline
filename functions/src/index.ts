@@ -1,6 +1,10 @@
 import { onRequest } from 'firebase-functions/v2/https'
 import { defineSecret } from 'firebase-functions/params'
+import { initializeApp, getApps } from 'firebase-admin/app'
+import { getAuth } from 'firebase-admin/auth'
 import OpenAI from 'openai'
+
+if (getApps().length === 0) initializeApp()
 
 const openaiKey = defineSecret('OPENAI_API_KEY')
 
@@ -15,7 +19,6 @@ export const tts = onRequest(
   {
     secrets: [openaiKey],
     cors: ALLOWED_ORIGINS,
-    // Importante: sin invoker público, Cloud Run/dev puede responder 403 al OPTIONS antes del handler → error CORS en el navegador.
     invoker: 'public',
     region: 'us-central1',
     memory: '256MiB',
@@ -32,10 +35,28 @@ export const tts = onRequest(
       return
     }
 
+    // Verify Firebase ID token — only authenticated users can use paid TTS
+    const authHeader = req.headers.authorization ?? ''
+    if (!authHeader.startsWith('Bearer ')) {
+      res.status(401).json({ error: 'Unauthorized' })
+      return
+    }
+    try {
+      await getAuth().verifyIdToken(authHeader.slice(7))
+    } catch {
+      res.status(401).json({ error: 'Invalid or expired token' })
+      return
+    }
+
     const { text, voice = 'nova' } = req.body as { text?: string; voice?: string }
 
     if (!text?.trim()) {
       res.status(400).json({ error: 'text is required' })
+      return
+    }
+
+    if (text.length > 4096) {
+      res.status(400).json({ error: 'text too long (max 4096 chars)' })
       return
     }
 

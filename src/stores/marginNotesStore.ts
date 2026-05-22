@@ -28,7 +28,7 @@ export const useMarginNotesStore = create<MarginNotesState>()(
     (set, get) => ({
       notes: [],
       addNote: (n) => {
-        const id = `mn-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`
+        const id = `mn-${crypto.randomUUID()}`
         const now = new Date().toISOString()
         set((s) => ({
           notes: [{ ...n, id, savedAt: now, updatedAt: now }, ...s.notes],

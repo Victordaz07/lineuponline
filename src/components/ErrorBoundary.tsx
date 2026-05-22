@@ -7,6 +7,24 @@ type State = { error: Error | null }
 export class ErrorBoundary extends Component<Props, State> {
   state: State = { error: null }
 
+  private handleUnhandledRejection = (event: PromiseRejectionEvent) => {
+    console.error('[Unhandled Promise Rejection]', event.reason)
+  }
+
+  private handleWindowError = (event: ErrorEvent) => {
+    console.error('[Window Error]', event.error)
+  }
+
+  componentDidMount() {
+    window.addEventListener('unhandledrejection', this.handleUnhandledRejection)
+    window.addEventListener('error', this.handleWindowError)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('unhandledrejection', this.handleUnhandledRejection)
+    window.removeEventListener('error', this.handleWindowError)
+  }
+
   static getDerivedStateFromError(error: Error): State {
     return { error }
   }
