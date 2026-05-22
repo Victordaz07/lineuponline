@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 import { signOut } from '@/services/authService'
@@ -33,6 +33,15 @@ function UserMenu() {
   const displayLabel =
     user?.displayName ?? user?.email ?? user?.phoneNumber ?? 'Mi cuenta'
 
+  useEffect(() => {
+    if (!open) return
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [open])
+
   async function handleSignOut() {
     setOpen(false)
     try { await signOut() } catch { /* ignore */ }
@@ -58,7 +67,9 @@ function UserMenu() {
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-label="Mi cuenta"
-        className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-accent font-ui text-sm font-bold text-white shadow-sm transition hover:brightness-90"
+        aria-expanded={open}
+        aria-haspopup="menu"
+        className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-accent font-ui text-sm font-bold text-white shadow-sm transition hover:brightness-90 focus-visible:ring-2 focus-visible:ring-gold-main focus-visible:ring-offset-2"
       >
         {initial}
       </button>

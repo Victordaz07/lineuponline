@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { BottomNav } from '@/components/layout/BottomNav'
 import { Header } from '@/components/layout/Header'
+import { Toaster } from '@/components/common/Toaster'
 import { useCloudSync } from '@/hooks/useCloudSync'
 
 export type LayoutProps = {
@@ -19,6 +20,7 @@ export function Layout({ children }: LayoutProps) {
       <Header />
       <main className="flex-1 min-w-0 px-4 pb-28 pt-4 sm:px-6">{children}</main>
       <BottomNav />
+      <Toaster />
     </div>
   )
 }
