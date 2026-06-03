@@ -8,6 +8,7 @@ export function useAdmin() {
 
   useEffect(() => {
     if (!user) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setTokenAdmin(false)
       return
     }

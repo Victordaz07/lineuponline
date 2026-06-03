@@ -147,7 +147,7 @@ export default function LoginPage() {
       {/* Header */}
       <div className="text-center">
         <p className="font-ui text-xs font-semibold uppercase tracking-[0.2em] text-gold-main">
-          LineUponLine
+          Seeker Gospel
         </p>
         <h1 className="mt-1 font-title text-3xl text-blue-accent">Guardar en la nube</h1>
         <p className="mt-2 font-ui text-sm text-text-muted">

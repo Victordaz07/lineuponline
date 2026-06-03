@@ -1,22 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-  <defs>
-    <radialGradient id="bg" cx="40%" cy="35%" r="65%">
-      <stop offset="0%" stop-color="#243f78"/>
-      <stop offset="100%" stop-color="#111f3e"/>
-    </radialGradient>
-    <radialGradient id="star" cx="50%" cy="40%" r="60%">
-      <stop offset="0%" stop-color="#f0c96a"/>
-      <stop offset="100%" stop-color="#b8892a"/>
-    </radialGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="1.2" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
-  <rect width="48" height="48" rx="11" fill="url(#bg)"/>
-  <polygon
-    points="24,7 26.8,18.2 37.5,15.5 30,24 37.5,32.5 26.8,29.8 24,41 21.2,29.8 10.5,32.5 18,24 10.5,15.5 21.2,18.2"
-    fill="url(#star)"
-    filter="url(#glow)"
-  />
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="500" rx="80" fill="#0D1B2A"/>
+  <g transform="translate(250,250)" stroke="#D4AF62" stroke-width="6" stroke-linecap="round">
+    <path d="M -150,70 A 160,160 0 0,1 -15,-155" fill="none"/>
+    <path d="M 15,-155 A 160,160 0 0,1 150,70" fill="none"/>
+    <path d="M 0,90 C -35,75 -85,75 -130,95 L -130,-75 C -85,-95 -35,-95 0,-75 C 35,-95 85,-95 130,-75 L 130,95 C 85,75 35,75 0,90 Z" fill="none"/>
+    <line x1="0" y1="-75" x2="0" y2="90"/>
+    <g transform="rotate(-38)">
+      <polygon points="0,-190 22,0 0,190 -22,0" fill="#D4AF62" opacity="0.9"/>
+      <circle cx="0" cy="0" r="14" fill="#0D1B2A" stroke="#D4AF62"/>
+    </g>
+  </g>
 </svg>

@@ -32,9 +32,9 @@ export default function Login() {
     <div className="mx-auto flex max-w-sm flex-col items-center gap-8 pt-16">
       <div className="space-y-2 text-center">
         <p className="font-ui text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-gold-main">
-          Edición Celestial
+          Deep Gospel Study
         </p>
-        <h1 className="font-title text-3xl text-blue-accent">LineUponLine</h1>
+        <h1 className="font-title text-3xl text-blue-accent">Seeker Gospel</h1>
         <p className="font-ui text-sm text-text-muted">
           Inicia sesión para sincronizar tu diario de estudio en todos tus dispositivos.
         </p>

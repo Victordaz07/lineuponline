@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Lora:wght@400;500;600&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -19,7 +19,7 @@
   h1,
   h2,
   .eyebrow {
-    @apply font-title text-blue-accent;
+    @apply font-display text-blue-accent;
   }
 
   h1 {
@@ -33,6 +33,6 @@
 
 @layer utilities {
   .text-reading {
-    @apply font-reading leading-8;
+    @apply font-display leading-8;
   }
 }

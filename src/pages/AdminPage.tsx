@@ -39,7 +39,7 @@ export default function AdminPage() {
         <p className="font-ui text-xs font-semibold uppercase tracking-[0.18em] text-gold-main">
           Panel de administración
         </p>
-        <h1 className="font-title text-3xl text-blue-accent">LineUponLine Admin</h1>
+        <h1 className="font-title text-3xl text-blue-accent">Seeker Gospel Admin</h1>
       </header>
 
       <AdminStats messages={messages} />

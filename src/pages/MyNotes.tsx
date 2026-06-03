@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useFavoritesStore } from '@/stores/favoritesStore'
 import { useStudyJournalStore } from '@/stores/studyJournalStore'
@@ -100,10 +100,10 @@ export default function MyNotes() {
     )
   }
 
-  function matchesTags(tags: string[]) {
+  const matchesTags = useCallback((tags: string[]) => {
     if (activeTags.length === 0) return true
     return activeTags.every((t) => tags.includes(t))
-  }
+  }, [activeTags])
 
   // ── Filtered data ────────────────────────────────────────────────────────
 
@@ -114,7 +114,7 @@ export default function MyNotes() {
           matchesTags(h.tags) &&
           (!q || h.selectedText.toLowerCase().includes(q) || h.lessonId.toLowerCase().includes(q)),
       ),
-    [highlights, q, activeTags],
+    [highlights, q, matchesTags],
   )
 
   const filteredNotes = useMemo(
@@ -124,7 +124,7 @@ export default function MyNotes() {
           matchesTags(n.tags) &&
           (!q || n.noteText.toLowerCase().includes(q) || n.lessonId.toLowerCase().includes(q)),
       ),
-    [marginNotes, q, activeTags],
+    [marginNotes, q, matchesTags],
   )
 
   const filteredVerses = useMemo(
@@ -137,7 +137,7 @@ export default function MyNotes() {
             v.reference.toLowerCase().includes(q) ||
             v.topicTitle.toLowerCase().includes(q)),
       ),
-    [verses, q, activeTags],
+    [verses, q, matchesTags],
   )
 
   const filteredEntries = useMemo(

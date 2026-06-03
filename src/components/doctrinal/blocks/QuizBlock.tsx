@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from 'react'
 import type { QuizBlock as QuizBlockType, QuizQuestion } from '@/types/doctrine'
 
-/** Clave estable para listas React cuando un quiz abreviado omite `id`. */
+// eslint-disable-next-line react-refresh/only-export-components
 export function quizBlockListKey(block: QuizBlockType, lessonId: string): string {
   return `${lessonId}-${
     'quizType' in block ? (block.id ?? `q-${hashPrompt(block.question)}`) : block.id
