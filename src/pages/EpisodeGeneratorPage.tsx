@@ -54,7 +54,11 @@ function CreditsCard() {
               Resets {new Date(data.nextResetUnix * 1000).toLocaleDateString('es', { month: 'long', day: 'numeric' })}
             </p>
           </div>
-        ) : null}
+        ) : (
+          <p className="font-ui text-sm text-parchment/40">
+            Pulsa <span className="text-sg-gold-light">Ver créditos</span> para consultar el uso
+          </p>
+        )}
       </div>
       {configured && (
         <button
@@ -63,7 +67,7 @@ function CreditsCard() {
           disabled={loading}
           className="font-ui text-xs text-sg-gold-light transition hover:text-sg-gold disabled:opacity-40"
         >
-          Refresh
+          {data ? 'Refresh' : 'Ver créditos'}
         </button>
       )}
     </div>
