@@ -46,7 +46,7 @@ export default function Search() {
 
   return (
     <div className="mx-auto max-w-xl space-y-6 py-4">
-      <h1 className="font-title text-3xl text-blue-accent">Buscar</h1>
+      <h1 className="font-display text-3xl text-parchment">Buscar</h1>
       <form
         className="flex flex-col gap-3 sm:flex-row"
         onSubmit={(e) => {
@@ -62,34 +62,34 @@ export default function Search() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Escribe para buscar lecciones…"
-          className="flex-1 rounded-xl border border-blue-accent/25 bg-white px-4 py-3 font-ui text-sm shadow-inner focus:border-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent/20"
+          className="flex-1 rounded-xl border border-sg-gold/20 bg-navy-deep px-4 py-3 font-ui text-sm text-parchment/85 placeholder:text-parchment/35 focus:border-sg-gold focus:outline-none focus:ring-2 focus:ring-sg-gold/30"
         />
         <button
           type="submit"
-          className="rounded-xl bg-gold-main px-5 py-3 font-ui text-sm font-semibold text-white shadow-sm hover:brightness-95"
+          className="rounded-xl bg-sg-gold px-5 py-3 font-ui text-sm font-semibold text-navy-deep shadow-sm hover:brightness-95"
         >
           Buscar
         </button>
       </form>
       {!normalized && !loading ? (
-        <p className="text-center font-ui text-sm text-text-muted">Escribe una palabra y pulsa Buscar.</p>
+        <p className="text-center font-ui text-sm text-parchment/55">Escribe una palabra y pulsa Buscar.</p>
       ) : null}
-      {loading ? <p className="text-center font-ui text-sm text-text-muted">Buscando…</p> : null}
+      {loading ? <p className="text-center font-ui text-sm text-parchment/55">Buscando…</p> : null}
       <ul className="space-y-2" aria-label="Resultados">
         {hits.map(({ moduleId, lesson }) => (
           <li key={`${moduleId}-${lesson.id}`}>
             <Link
               to={`/lesson/${moduleId}/${lesson.id}`}
-              className="block rounded-xl border border-blue-accent/10 bg-white px-4 py-3 font-ui text-sm font-semibold text-blue-accent shadow-sm transition hover:border-gold-main/40 hover:bg-gold-dim"
+              className="block rounded-xl border border-sg-gold/15 bg-navy-mid px-4 py-3 font-ui text-sm font-semibold text-parchment/85 shadow-sm transition hover:border-sg-gold/40 hover:bg-navy-deep/60"
             >
               {lesson.title}
-              <span className="mt-1 block text-xs font-normal text-text-muted">Módulo: {moduleId}</span>
+              <span className="mt-1 block text-xs font-normal text-parchment/50">Módulo: {moduleId}</span>
             </Link>
           </li>
         ))}
       </ul>
       {normalized && !loading && hits.length === 0 ? (
-        <p className="text-center font-ui text-sm text-text-muted">Sin resultados.</p>
+        <p className="text-center font-ui text-sm text-parchment/55">Sin resultados.</p>
       ) : null}
     </div>
   )

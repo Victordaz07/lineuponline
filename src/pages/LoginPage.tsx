@@ -149,7 +149,7 @@ export default function LoginPage() {
     <div className="mx-auto max-w-md space-y-6 px-4 py-10">
       {/* Header */}
       <div className="text-center">
-        <p className="font-ui text-xs font-semibold uppercase tracking-[0.2em] text-gold-main">
+        <p className="font-ui text-xs font-semibold uppercase tracking-[0.2em] text-sg-gold">
           Seeker Gospel
         </p>
         <h1 className="mt-1 font-display text-3xl text-parchment">Guardar en la nube</h1>
@@ -205,7 +205,7 @@ export default function LoginPage() {
           {googleError && (
             <p role="alert" className="text-center font-ui text-sm text-red-500">{googleError}</p>
           )}
-          <p className="text-center font-ui text-xs text-text-muted">
+          <p className="text-center font-ui text-xs text-parchment/50">
             Rápido, seguro, sin contraseñas.
           </p>
         </div>
@@ -215,25 +215,25 @@ export default function LoginPage() {
       {firebaseReady && section === 'email' && (
         <div className="space-y-4">
           {/* Mode toggle */}
-          <div className="flex gap-3 border-b border-blue-accent/10 pb-3">
+          <div className="flex gap-3 border-b border-sg-gold/15 pb-3">
             <button
               type="button"
               onClick={() => { setMode('signin'); setEmailError(''); setResetSent(false) }}
-              className={`font-ui text-sm font-semibold transition ${mode === 'signin' ? 'text-blue-accent underline underline-offset-4' : 'text-text-muted hover:text-blue-accent'}`}
+              className={`font-ui text-sm font-semibold transition ${mode === 'signin' ? 'text-sg-gold-light underline underline-offset-4' : 'text-parchment/50 hover:text-parchment/80'}`}
             >
               Iniciar sesión
             </button>
             <button
               type="button"
               onClick={() => { setMode('signup'); setEmailError(''); setResetSent(false) }}
-              className={`font-ui text-sm font-semibold transition ${mode === 'signup' ? 'text-blue-accent underline underline-offset-4' : 'text-text-muted hover:text-blue-accent'}`}
+              className={`font-ui text-sm font-semibold transition ${mode === 'signup' ? 'text-sg-gold-light underline underline-offset-4' : 'text-parchment/50 hover:text-parchment/80'}`}
             >
               Crear cuenta
             </button>
           </div>
 
           {resetSent ? (
-            <div className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 font-ui text-sm text-emerald-700">
+            <div className="rounded-xl border border-emerald-500/30 bg-emerald-950/30 px-4 py-3 font-ui text-sm text-emerald-400">
               Correo de recuperación enviado a <strong>{email}</strong>. Revisa tu bandeja.
             </div>
           ) : (
@@ -330,7 +330,7 @@ export default function LoginPage() {
                   required
                   className="w-full rounded-xl border border-sg-gold/20 bg-navy-mid px-4 py-2.5 font-ui text-sm text-parchment placeholder:text-parchment/30 focus:outline-none focus:ring-2 focus:ring-sg-gold/30"
                 />
-                <p className="mt-1 font-ui text-xs text-text-muted">
+                <p className="mt-1 font-ui text-xs text-parchment/50">
                   Incluye el código de país (ej. +52 para México)
                 </p>
               </div>
@@ -347,7 +347,7 @@ export default function LoginPage() {
             </form>
           ) : (
             <form onSubmit={handleConfirmOTP} className="space-y-3">
-              <p className="font-ui text-sm text-text-main">
+              <p className="font-ui text-sm text-parchment/80">
                 Código enviado a <strong>{phone}</strong>. Revisa tus mensajes.
               </p>
               <div>
@@ -364,7 +364,7 @@ export default function LoginPage() {
                   placeholder="123456"
                   required
                   autoFocus
-                  className="w-full rounded-xl border border-blue-accent/20 bg-white px-4 py-2.5 text-center font-ui text-xl tracking-[0.5em] text-text-main focus:outline-none focus:ring-2 focus:ring-gold-main/30"
+                  className="w-full rounded-xl border border-sg-gold/20 bg-navy-deep px-4 py-2.5 text-center font-ui text-xl tracking-[0.5em] text-parchment/85 focus:outline-none focus:ring-2 focus:ring-sg-gold/30"
                 />
               </div>
               {phoneError && <p role="alert" className="font-ui text-sm text-red-500">{phoneError}</p>}
@@ -389,7 +389,7 @@ export default function LoginPage() {
 
       {/* Back link */}
       <div className="text-center">
-        <Link to="/" className="font-ui text-xs text-text-muted hover:text-blue-accent">
+        <Link to="/" className="font-ui text-xs text-parchment/40 hover:text-sg-gold-light">
           ← Volver sin iniciar sesión
         </Link>
       </div>

@@ -9,8 +9,8 @@ export type AnnouncementBannerProps = {
 }
 
 const LEFT_BORDER_COLOR: Record<AnnouncementType, string> = {
-  announcement: 'border-l-blue-accent',
-  update: 'border-l-gold-main',
+  announcement: 'border-l-sg-gold',
+  update: 'border-l-sg-gold',
   new_content: 'border-l-green-600',
 }
 
@@ -39,7 +39,7 @@ export function AnnouncementBanner({ announcement }: AnnouncementBannerProps) {
   return (
     <article
       className={[
-        'rounded-2xl border border-blue-accent/10 bg-bg-surface shadow-sm',
+        'rounded-2xl border border-sg-gold/15 bg-navy-mid shadow-sm',
         'border-l-4',
         LEFT_BORDER_COLOR[type],
       ].join(' ')}
@@ -67,15 +67,15 @@ export function AnnouncementBanner({ announcement }: AnnouncementBannerProps) {
         </div>
 
         {/* Title */}
-        <h3 className="font-title text-base font-semibold text-text-main">{title}</h3>
+        <h3 className="font-display text-base font-semibold text-parchment/80">{title}</h3>
 
         {/* Content */}
-        <p className="mt-1 text-sm leading-relaxed text-text-main">{content}</p>
+        <p className="mt-1 text-sm leading-relaxed text-parchment/80">{content}</p>
 
         {/* Date */}
         <time
           dateTime={createdAt}
-          className="mt-2 block font-ui text-xs text-text-muted"
+          className="mt-2 block font-ui text-xs text-parchment/50"
         >
           {relativeDate(createdAt)}
         </time>

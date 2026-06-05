@@ -44,8 +44,8 @@ function FilterButton({ active, onClick, children }: FilterButtonProps) {
       className={`rounded-full border px-3 py-1 font-ui text-xs font-semibold transition
         ${
           active
-            ? 'border-blue-accent bg-blue-accent text-white'
-            : 'border-blue-accent/20 bg-white text-text-muted hover:border-blue-accent/50 hover:text-blue-accent'
+            ? 'border-sg-gold bg-sg-gold text-navy-deep'
+            : 'border-sg-gold/20 bg-transparent text-parchment/55 hover:border-sg-gold/50 hover:text-parchment/80'
         }`}
     >
       {children}
@@ -92,50 +92,50 @@ function MessageCard({ message }: MessageCardProps) {
   const statusBadgeClass = MESSAGE_STATUS_COLORS[message.status]
 
   return (
-    <div className="rounded-2xl border border-blue-accent/10 bg-white p-4 space-y-3">
+    <div className="rounded-2xl border border-sg-gold/15 bg-navy-mid p-4 space-y-3">
       {/* Header row */}
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="font-ui text-sm font-semibold text-text-main">{message.userName}</span>
-          <span className="rounded-full border border-blue-accent/15 bg-bg-elevated px-2 py-0.5 font-ui text-xs text-text-muted">
+          <span className="font-ui text-sm font-semibold text-parchment/85">{message.userName}</span>
+          <span className="rounded-full border border-sg-gold/15 bg-navy-deep/50 px-2 py-0.5 font-ui text-xs text-parchment/55">
             {MESSAGE_TYPE_LABELS[message.type]}
           </span>
           <span className={`rounded-full px-2 py-0.5 font-ui text-xs font-semibold ${statusBadgeClass}`}>
             {MESSAGE_STATUS_LABELS[message.status]}
           </span>
         </div>
-        <span className="font-ui text-xs text-text-muted">{formatDate(message.createdAt)}</span>
+        <span className="font-ui text-xs text-parchment/50">{formatDate(message.createdAt)}</span>
       </div>
 
       {/* Topic */}
       {message.topicName && (
-        <p className="font-ui text-xs text-text-muted">
-          Tema: <span className="font-semibold text-blue-accent">{message.topicName}</span>
+        <p className="font-ui text-xs text-parchment/55">
+          Tema: <span className="font-semibold text-sg-gold-light">{message.topicName}</span>
         </p>
       )}
 
       {/* Content */}
-      <p className="font-ui text-sm leading-relaxed text-text-main">{message.content}</p>
+      <p className="font-ui text-sm leading-relaxed text-parchment/80">{message.content}</p>
 
       {/* Admin response */}
       {message.adminResponse && (
-        <div className="rounded-xl border-l-4 border-gold-main bg-gold-dim p-3">
-          <p className="mb-1 font-ui text-xs font-semibold text-gold-main">Respuesta del administrador</p>
-          <p className="font-ui text-sm text-text-main">{message.adminResponse}</p>
+        <div className="rounded-xl border-l-4 border-sg-gold/40 bg-sg-gold/5 p-3">
+          <p className="mb-1 font-ui text-xs font-semibold text-sg-gold-light">Respuesta del administrador</p>
+          <p className="font-ui text-sm text-parchment/80">{message.adminResponse}</p>
           {message.adminRespondedAt && (
-            <p className="mt-1 font-ui text-xs text-text-muted">{formatDate(message.adminRespondedAt)}</p>
+            <p className="mt-1 font-ui text-xs text-parchment/50">{formatDate(message.adminRespondedAt)}</p>
           )}
         </div>
       )}
 
       {/* Actions */}
-      <div className="flex flex-wrap items-center gap-2 border-t border-blue-accent/10 pt-3">
+      <div className="flex flex-wrap items-center gap-2 border-t border-sg-gold/15 pt-3">
         {/* Status selector */}
         <select
           value={message.status}
           disabled={updatingStatus}
           onChange={(e) => handleStatusChange(e.target.value as MessageStatus)}
-          className="rounded-lg border border-blue-accent/20 bg-white px-2 py-1.5 font-ui text-xs text-text-main focus:outline-none focus:ring-2 focus:ring-blue-accent/30 disabled:opacity-50"
+          className="rounded-lg border border-sg-gold/20 bg-navy-deep px-2 py-1.5 font-ui text-xs text-parchment/80 focus:outline-none focus:ring-2 focus:ring-sg-gold/30 disabled:opacity-50"
           aria-label="Cambiar estado"
         >
           {ALL_STATUSES.map((s) => (
@@ -149,7 +149,7 @@ function MessageCard({ message }: MessageCardProps) {
         <button
           type="button"
           onClick={() => setReplyOpen((v) => !v)}
-          className="rounded-lg border border-blue-accent/30 bg-white px-3 py-1.5 font-ui text-xs font-semibold text-blue-accent transition hover:bg-blue-accent/5"
+          className="rounded-lg border border-sg-gold/30 bg-transparent px-3 py-1.5 font-ui text-xs font-semibold text-parchment/70 transition hover:bg-navy-deep/60"
         >
           {replyOpen ? 'Cancelar' : 'Responder'}
         </button>
@@ -172,13 +172,13 @@ function MessageCard({ message }: MessageCardProps) {
             onChange={(e) => setReplyText(e.target.value)}
             rows={3}
             placeholder="Escribe tu respuesta..."
-            className="w-full rounded-xl border border-blue-accent/20 bg-white p-3 font-ui text-sm text-text-main placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-blue-accent/30"
+            className="w-full rounded-xl border border-sg-gold/20 bg-navy-deep p-3 font-ui text-sm text-parchment/80 placeholder:text-parchment/30 focus:outline-none focus:ring-2 focus:ring-sg-gold/30"
           />
           <button
             type="button"
             onClick={handleReply}
             disabled={sending || !replyText.trim()}
-            className="rounded-lg border border-gold-main bg-gold-main px-4 py-2 font-ui text-sm font-semibold text-white shadow-sm transition hover:brightness-95 disabled:opacity-50"
+            className="rounded-lg border border-sg-gold bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-navy-deep shadow-sm transition hover:brightness-95 disabled:opacity-50"
           >
             {sending ? 'Enviando…' : 'Enviar respuesta'}
           </button>
@@ -219,7 +219,7 @@ export function MessageQueue({ messages }: MessageQueueProps) {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Buscar por contenido, usuario o tema…"
-        className="w-full rounded-xl border border-blue-accent/20 bg-white px-4 py-2.5 font-ui text-sm text-text-main placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-blue-accent/30"
+        className="w-full rounded-xl border border-sg-gold/20 bg-navy-deep px-4 py-2.5 font-ui text-sm text-parchment/80 placeholder:text-parchment/30 focus:outline-none focus:ring-2 focus:ring-sg-gold/30"
       />
 
       {/* Status filters */}
@@ -248,8 +248,8 @@ export function MessageQueue({ messages }: MessageQueueProps) {
 
       {/* Message list */}
       {filtered.length === 0 ? (
-        <div className="rounded-2xl border border-blue-accent/10 bg-white p-10 text-center">
-          <p className="font-ui text-sm text-text-muted">No hay mensajes que coincidan con los filtros.</p>
+        <div className="rounded-2xl border border-sg-gold/15 bg-navy-mid p-10 text-center">
+          <p className="font-ui text-sm text-parchment/50">No hay mensajes que coincidan con los filtros.</p>
         </div>
       ) : (
         <div className="space-y-3">

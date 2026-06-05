@@ -1,17 +1,17 @@
 import type { TimelineBlock } from '@/types/doctrine'
 
 const dotColor = {
-  gold: 'border-gold-main bg-gold-dim',
-  red: 'border-red-400 bg-red-50',
-  blue: 'border-blue-accent bg-blue-accent/10',
-  green: 'border-emerald-500 bg-emerald-50',
+  gold: 'border-sg-gold bg-sg-gold/10',
+  red: 'border-red-400 bg-red-950/30',
+  blue: 'border-sg-gold bg-sg-gold/10',
+  green: 'border-emerald-500 bg-emerald-950/30',
 }
 
 const labelColor = {
-  gold: 'text-gold-main',
+  gold: 'text-sg-gold-light',
   red: 'text-red-600',
-  blue: 'text-blue-accent',
-  green: 'text-emerald-700',
+  blue: 'text-sg-gold-light',
+  green: 'text-emerald-400',
 }
 
 export function TimelineBlockComponent({ block }: { block: TimelineBlock }) {
@@ -26,9 +26,9 @@ export function TimelineBlockComponent({ block }: { block: TimelineBlock }) {
           <p className={`mb-0.5 font-ui text-[0.68rem] font-bold uppercase tracking-widest ${labelColor[item.color]}`}>
             {item.label}
           </p>
-          <p className="font-reading text-sm leading-relaxed text-text-main">{item.text}</p>
+          <p className="font-reading text-sm leading-relaxed text-parchment/80">{item.text}</p>
           {item.ref && (
-            <p className="mt-1 font-ui text-xs text-text-muted">{item.ref}</p>
+            <p className="mt-1 font-ui text-xs text-parchment/50">{item.ref}</p>
           )}
         </div>
       ))}

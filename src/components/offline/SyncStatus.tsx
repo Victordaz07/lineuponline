@@ -17,13 +17,13 @@ export function SyncStatus({
 }) {
   return (
     <div
-      className="rounded-xl border border-blue-accent/15 bg-bg-surface px-3 py-2 font-ui text-xs text-text-muted"
+      className="rounded-xl border border-sg-gold/15 bg-navy-mid px-3 py-2 font-ui text-xs text-parchment/55"
       role="status"
       aria-live="polite"
     >
       <p>
         Red:{' '}
-        <span className={isOnline ? 'font-semibold text-blue-accent' : 'font-semibold text-gold-main'}>
+        <span className={isOnline ? 'font-semibold text-emerald-400' : 'font-semibold text-sg-gold'}>
           {isOnline ? 'En línea' : 'Sin conexión'}
         </span>
       </p>

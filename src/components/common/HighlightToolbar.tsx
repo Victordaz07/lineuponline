@@ -35,7 +35,7 @@ export function HighlightToolbar({ sel, toolbarRef, onSave, onDismiss }: Highlig
   return (
     <div
       ref={toolbarRef}
-      className="fixed z-50 flex items-center gap-1.5 rounded-xl border border-gold-main/20 bg-white px-2 py-1.5 shadow-lg"
+      className="fixed z-50 flex items-center gap-1.5 rounded-xl border border-sg-gold/25 bg-navy-mid px-2 py-1.5 shadow-lg"
       style={{ top: clampedTop, left: clampedLeft }}
     >
       {COLORS.map((color) => (
@@ -52,7 +52,7 @@ export function HighlightToolbar({ sel, toolbarRef, onSave, onDismiss }: Highlig
         type="button"
         onMouseDown={(e) => e.preventDefault()}
         onClick={onDismiss}
-        className="ml-1 flex h-6 w-6 items-center justify-center rounded-full text-xs text-text-muted hover:bg-gray-100"
+        className="ml-1 flex h-6 w-6 items-center justify-center rounded-full text-xs text-parchment/50 hover:bg-navy-deep/50"
       >
         ✕
       </button>

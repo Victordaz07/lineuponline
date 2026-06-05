@@ -92,14 +92,14 @@ export function TextToSpeechButton({
         type="button"
         onClick={() => void handleClick()}
         disabled={!supported}
-        className="inline-flex items-center justify-center gap-2 rounded-full border border-gold-main/40 bg-white px-4 py-2 font-ui text-sm font-semibold text-blue-accent shadow-md transition hover:bg-gold-dim disabled:cursor-not-allowed disabled:opacity-50"
+        className="inline-flex items-center justify-center gap-2 rounded-full border border-sg-gold/30 bg-navy-mid px-4 py-2 font-ui text-sm font-semibold text-parchment/85 shadow-md transition hover:bg-sg-gold/10 disabled:cursor-not-allowed disabled:opacity-50"
         aria-pressed={playing}
         aria-label={playing ? 'Pausar lectura' : label}
       >
         <span aria-hidden="true">{playing ? '⏸' : '🔊'}</span>
         {playing ? 'Detener' : label}
       </button>
-      {!supported ? <p className="font-ui text-xs text-text-muted">Voz no disponible en este navegador.</p> : null}
+      {!supported ? <p className="font-ui text-xs text-parchment/50">Voz no disponible en este navegador.</p> : null}
       {error ? <p className="font-ui text-xs text-red-600">{error}</p> : null}
     </div>
   )

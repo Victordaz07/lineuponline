@@ -53,7 +53,7 @@ export function HighlightVerseBlock({
   }
 
   return (
-    <figure className="relative rounded-2xl bg-blue-accent px-5 py-6 text-white shadow-lg">
+    <figure className="relative rounded-2xl bg-navy-mid px-5 py-6 text-parchment shadow-lg">
       <HighlightToolbar
         sel={sel}
         toolbarRef={toolbarRef}

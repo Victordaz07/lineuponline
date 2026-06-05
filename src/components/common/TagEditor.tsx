@@ -74,13 +74,13 @@ export function TagEditor({ tags, onChange }: TagEditorProps) {
             setInput('')
           }}
           placeholder="etiqueta…"
-          className="w-24 rounded-full border border-blue-accent/20 bg-white px-2 py-0.5 font-ui text-xs text-text-main focus:outline-none focus:ring-2 focus:ring-gold-main/30"
+          className="w-24 rounded-full border border-sg-gold/20 bg-navy-deep px-2 py-0.5 font-ui text-xs text-parchment/80 focus:outline-none focus:ring-2 focus:ring-sg-gold/30"
         />
       ) : (
         <button
           type="button"
           onClick={() => setEditing(true)}
-          className="rounded-full border border-dashed border-blue-accent/20 px-2 py-0.5 font-ui text-xs text-text-muted transition hover:border-gold-main/40 hover:text-gold-main"
+          className="rounded-full border border-dashed border-sg-gold/20 px-2 py-0.5 font-ui text-xs text-parchment/50 transition hover:border-sg-gold/40 hover:text-sg-gold-light"
         >
           + etiqueta
         </button>

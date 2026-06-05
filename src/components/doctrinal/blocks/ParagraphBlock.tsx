@@ -39,8 +39,8 @@ export function ParagraphBlock({ block, highlightId, blockKey, lessonId, topicId
       )}
       <p
         id={blockId ? `p-${blockId}` : undefined}
-        className={`select-text text-reading text-base leading-relaxed text-text-main transition-all duration-300 ${
-          isTtsOn ? 'rounded-lg bg-gold-dim/90 px-3 py-2 ring-2 ring-gold-main' : ''
+        className={`select-text text-reading text-base leading-relaxed text-parchment/80 transition-all duration-300 ${
+          isTtsOn ? 'rounded-lg bg-sg-gold/15 px-3 py-2 ring-2 ring-sg-gold' : ''
         }`}
         onMouseUp={handleMouseUp}
       >

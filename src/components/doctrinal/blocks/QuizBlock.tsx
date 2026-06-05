@@ -109,22 +109,22 @@ export function QuizBlockComponent({ block, lessonId, onComplete }: QuizBlockCom
       <div
         className={`rounded-2xl border-2 p-5 transition-all ${
           feedback === 'correct'
-            ? 'border-emerald-500 bg-emerald-50'
+            ? 'border-emerald-500 bg-emerald-950/30'
             : feedback === 'wrong'
-              ? 'border-amber-400 bg-amber-50'
-              : 'border-blue-accent/20 bg-white'
+              ? 'border-amber-400 bg-amber-950/20'
+              : 'border-sg-gold/20 bg-navy-mid'
         }`}
         role="region"
         aria-label="Pregunta de repaso"
       >
-        <p className="font-ui text-xs font-semibold uppercase tracking-wider text-text-muted">Comprueba</p>
-        <p className="mt-2 text-reading text-base font-medium text-text-main">{q.statement}</p>
+        <p className="font-ui text-xs font-semibold uppercase tracking-wider text-parchment/55">Comprueba</p>
+        <p className="mt-2 text-reading text-base font-medium text-parchment/85">{q.statement}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           <button
             type="button"
             disabled={done}
             onClick={() => (q.correctAnswer ? handleCorrect() : handleWrong())}
-            className="rounded-full border border-blue-accent/30 bg-white px-4 py-2 font-ui text-sm font-semibold text-blue-accent hover:bg-gold-dim disabled:opacity-50"
+            className="rounded-full border border-sg-gold/30 bg-navy-deep px-4 py-2 font-ui text-sm font-semibold text-parchment/80 hover:bg-sg-gold/10 disabled:opacity-50"
           >
             Verdadero
           </button>
@@ -132,18 +132,18 @@ export function QuizBlockComponent({ block, lessonId, onComplete }: QuizBlockCom
             type="button"
             disabled={done}
             onClick={() => (!q.correctAnswer ? handleCorrect() : handleWrong())}
-            className="rounded-full border border-blue-accent/30 bg-white px-4 py-2 font-ui text-sm font-semibold text-blue-accent hover:bg-gold-dim disabled:opacity-50"
+            className="rounded-full border border-sg-gold/30 bg-navy-deep px-4 py-2 font-ui text-sm font-semibold text-parchment/80 hover:bg-sg-gold/10 disabled:opacity-50"
           >
             Falso
           </button>
         </div>
         {feedback === 'correct' ? (
-          <p className="mt-4 animate-pulse font-ui text-sm font-semibold text-emerald-700">¡Correcto! Buen trabajo.</p>
+          <p className="mt-4 animate-pulse font-ui text-sm font-semibold text-emerald-400">¡Correcto! Buen trabajo.</p>
         ) : null}
         {feedback === 'wrong' && !done ? (
-          <p className="mt-4 font-ui text-sm text-amber-900">No es correcto. Intenta de nuevo.</p>
+          <p className="mt-4 font-ui text-sm text-amber-300">No es correcto. Intenta de nuevo.</p>
         ) : null}
-        {done && q.explanation ? <p className="mt-3 text-sm text-text-muted">{q.explanation}</p> : null}
+        {done && q.explanation ? <p className="mt-3 text-sm text-parchment/55">{q.explanation}</p> : null}
       </div>
     )
   }
@@ -153,16 +153,16 @@ export function QuizBlockComponent({ block, lessonId, onComplete }: QuizBlockCom
       <div
         className={`rounded-2xl border-2 p-5 transition-all ${
           feedback === 'correct'
-            ? 'border-emerald-500 bg-emerald-50'
+            ? 'border-emerald-500 bg-emerald-950/30'
             : feedback === 'wrong'
-              ? 'border-amber-400 bg-amber-50'
-              : 'border-blue-accent/20 bg-white'
+              ? 'border-amber-400 bg-amber-950/20'
+              : 'border-sg-gold/20 bg-navy-mid'
         }`}
         role="region"
         aria-label="Completa la idea"
       >
-        <p className="font-ui text-xs font-semibold uppercase tracking-wider text-text-muted">Elige la opción</p>
-        <p className="mt-2 text-reading text-base font-medium text-text-main">{q.prompt}</p>
+        <p className="font-ui text-xs font-semibold uppercase tracking-wider text-parchment/55">Elige la opción</p>
+        <p className="mt-2 text-reading text-base font-medium text-parchment/85">{q.prompt}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {q.options.map((opt, index) => (
             <button
@@ -170,19 +170,19 @@ export function QuizBlockComponent({ block, lessonId, onComplete }: QuizBlockCom
               type="button"
               disabled={done}
               onClick={() => (index === q.correctIndex ? handleCorrect() : handleWrong())}
-              className="rounded-xl border border-gold-main/40 bg-gold-dim/50 px-3 py-2 font-ui text-sm font-semibold text-blue-accent hover:bg-gold-dim disabled:opacity-50"
+              className="rounded-xl border border-sg-gold/30 bg-sg-gold/10 px-3 py-2 font-ui text-sm font-semibold text-parchment/80 hover:bg-sg-gold/20 disabled:opacity-50"
             >
               {opt}
             </button>
           ))}
         </div>
         {feedback === 'correct' ? (
-          <p className="mt-4 animate-pulse font-ui text-sm font-semibold text-emerald-700">¡Excelente!</p>
+          <p className="mt-4 animate-pulse font-ui text-sm font-semibold text-emerald-400">¡Excelente!</p>
         ) : null}
         {feedback === 'wrong' && !done ? (
-          <p className="mt-4 font-ui text-sm text-amber-900">Prueba otra opción.</p>
+          <p className="mt-4 font-ui text-sm text-amber-300">Prueba otra opción.</p>
         ) : null}
-        {done && q.explanation ? <p className="mt-3 text-sm text-text-muted">{q.explanation}</p> : null}
+        {done && q.explanation ? <p className="mt-3 text-sm text-parchment/55">{q.explanation}</p> : null}
       </div>
     )
   }
@@ -191,28 +191,28 @@ export function QuizBlockComponent({ block, lessonId, onComplete }: QuizBlockCom
     <div
       className={`rounded-2xl border-2 p-5 transition-all ${
         feedback === 'correct'
-          ? 'border-emerald-500 bg-emerald-50'
+          ? 'border-emerald-500 bg-emerald-950/30'
           : feedback === 'wrong'
-            ? 'border-amber-400 bg-amber-50'
-            : 'border-blue-accent/20 bg-white'
+            ? 'border-amber-400 bg-amber-950/20'
+            : 'border-sg-gold/20 bg-navy-mid'
       }`}
       role="region"
       aria-label="Ordena los conceptos"
     >
-      <p className="font-ui text-xs font-semibold uppercase tracking-wider text-text-muted">Ordena</p>
-      <p className="mt-2 text-reading text-sm text-text-muted">Usa los botones para poner cada idea en el orden correcto.</p>
+      <p className="font-ui text-xs font-semibold uppercase tracking-wider text-parchment/55">Ordena</p>
+      <p className="mt-2 text-reading text-sm text-parchment/55">Usa los botones para poner cada idea en el orden correcto.</p>
       <ol className="mt-4 space-y-2">
         {sortOrder.map((idxPos, pos) => (
           <li
             key={`${idxPos}-${pos}`}
-            className="flex items-center gap-2 rounded-lg border border-blue-accent/15 bg-bg-elevated px-3 py-2"
+            className="flex items-center gap-2 rounded-lg border border-sg-gold/15 bg-navy-deep px-3 py-2"
           >
-            <span className="flex-1 text-reading text-sm text-text-main">{q.items[idxPos]}</span>
+            <span className="flex-1 text-reading text-sm text-parchment/80">{q.items[idxPos]}</span>
             <button
               type="button"
               disabled={done || pos === 0}
               onClick={() => moveSort(pos, -1)}
-              className="rounded border border-blue-accent/20 px-2 py-1 font-ui text-xs disabled:opacity-40"
+              className="rounded border border-sg-gold/20 px-2 py-1 font-ui text-xs disabled:opacity-40"
               aria-label="Subir"
             >
               ↑
@@ -221,7 +221,7 @@ export function QuizBlockComponent({ block, lessonId, onComplete }: QuizBlockCom
               type="button"
               disabled={done || pos === sortOrder.length - 1}
               onClick={() => moveSort(pos, 1)}
-              className="rounded border border-blue-accent/20 px-2 py-1 font-ui text-xs disabled:opacity-40"
+              className="rounded border border-sg-gold/20 px-2 py-1 font-ui text-xs disabled:opacity-40"
               aria-label="Bajar"
             >
               ↓
@@ -233,17 +233,17 @@ export function QuizBlockComponent({ block, lessonId, onComplete }: QuizBlockCom
         type="button"
         disabled={done}
         onClick={() => verifySort()}
-        className="mt-4 rounded-full bg-blue-accent px-5 py-2 font-ui text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50"
+        className="mt-4 rounded-full bg-sg-gold px-5 py-2 font-ui text-sm font-semibold text-navy-deep hover:opacity-90 disabled:opacity-50"
       >
         Comprobar orden
       </button>
       {feedback === 'correct' ? (
-        <p className="mt-4 animate-pulse font-ui text-sm font-semibold text-emerald-700">¡Orden perfecto!</p>
+        <p className="mt-4 animate-pulse font-ui text-sm font-semibold text-emerald-400">¡Orden perfecto!</p>
       ) : null}
       {feedback === 'wrong' && !done ? (
-        <p className="mt-4 font-ui text-sm text-amber-900">Aún no coincide. Ajusta y vuelve a intentar.</p>
+        <p className="mt-4 font-ui text-sm text-amber-300">Aún no coincide. Ajusta y vuelve a intentar.</p>
       ) : null}
-      {done && q.explanation ? <p className="mt-3 text-sm text-text-muted">{q.explanation}</p> : null}
+      {done && q.explanation ? <p className="mt-3 text-sm text-parchment/55">{q.explanation}</p> : null}
     </div>
   )
 }

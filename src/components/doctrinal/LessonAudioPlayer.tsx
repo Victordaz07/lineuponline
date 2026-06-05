@@ -139,7 +139,7 @@ export function LessonAudioPlayer({ text, paragraphs, onParagraphActive }: Lesso
         type="button"
         onClick={() => { setExpanded(true); void handlePlay() }}
         disabled={!supported}
-        className="inline-flex items-center gap-2 rounded-full border border-gold-main/40 bg-white px-4 py-2 font-ui text-sm font-semibold text-blue-accent shadow-md transition hover:bg-gold-dim disabled:cursor-not-allowed disabled:opacity-50"
+        className="inline-flex items-center gap-2 rounded-full border border-sg-gold/30 bg-navy-mid px-4 py-2 font-ui text-sm font-semibold text-parchment/85 shadow-md transition hover:bg-sg-gold/10 disabled:cursor-not-allowed disabled:opacity-50"
       >
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
           <path d="M9 3a5 5 0 0 1 0 10" strokeLinecap="round" />
@@ -153,14 +153,14 @@ export function LessonAudioPlayer({ text, paragraphs, onParagraphActive }: Lesso
   }
 
   return (
-    <div className="w-full overflow-hidden rounded-2xl border border-blue-accent/15 bg-white shadow-md">
+    <div className="w-full overflow-hidden rounded-2xl border border-sg-gold/15 bg-navy-mid shadow-md">
       {/* Transport row */}
       <div className="flex items-center gap-3 px-4 pb-2 pt-3">
         {/* Play / Pause / Resume */}
         {!playing && !paused ? (
           <button
             onClick={() => void handlePlay()}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-accent text-white shadow transition hover:bg-blue-accent/80"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sg-gold text-navy-deep shadow transition hover:brightness-95"
             aria-label="Reproducir"
           >
             <PlayIcon />
@@ -168,7 +168,7 @@ export function LessonAudioPlayer({ text, paragraphs, onParagraphActive }: Lesso
         ) : paused ? (
           <button
             onClick={handleResume}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-accent text-white shadow transition hover:bg-blue-accent/80"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sg-gold text-navy-deep shadow transition hover:brightness-95"
             aria-label="Reanudar"
           >
             <PlayIcon />
@@ -176,7 +176,7 @@ export function LessonAudioPlayer({ text, paragraphs, onParagraphActive }: Lesso
         ) : (
           <button
             onClick={handlePause}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-accent text-white shadow transition hover:bg-blue-accent/80"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sg-gold text-navy-deep shadow transition hover:brightness-95"
             aria-label="Pausar"
           >
             <PauseIcon />
@@ -185,13 +185,13 @@ export function LessonAudioPlayer({ text, paragraphs, onParagraphActive }: Lesso
 
         {/* Progress bar + label */}
         <div className="flex min-w-0 flex-1 flex-col gap-1">
-          <div className="relative h-2 w-full overflow-hidden rounded-full bg-blue-accent/10">
+          <div className="relative h-2 w-full overflow-hidden rounded-full bg-sg-gold/15">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-gold-main to-blue-accent transition-[width] duration-75"
+              className="h-full rounded-full bg-gradient-to-r from-sg-gold to-sg-gold-light transition-[width] duration-75"
               style={{ width: `${overallProgress * 100}%` }}
             />
           </div>
-          <div className="flex items-center justify-between font-ui text-[0.6rem] text-text-muted">
+          <div className="flex items-center justify-between font-ui text-[0.6rem] text-parchment/50">
             <span>
               {playing || paused
                 ? `Párrafo ${currentChunk + 1} de ${totalChunks}`
@@ -206,7 +206,7 @@ export function LessonAudioPlayer({ text, paragraphs, onParagraphActive }: Lesso
         {/* Stop */}
         <button
           onClick={handleStop}
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-blue-accent/20 text-text-muted transition hover:border-blue-accent/50 hover:text-blue-accent"
+          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-sg-gold/20 text-parchment/50 transition hover:border-sg-gold/50 hover:text-parchment"
           aria-label="Detener"
         >
           <StopIcon />
@@ -215,7 +215,7 @@ export function LessonAudioPlayer({ text, paragraphs, onParagraphActive }: Lesso
         {/* Collapse */}
         <button
           onClick={() => { handleStop(); setExpanded(false) }}
-          className="font-ui text-[0.65rem] text-text-muted transition hover:text-blue-accent"
+          className="font-ui text-[0.65rem] text-parchment/50 transition hover:text-parchment"
           aria-label="Cerrar reproductor"
         >
           ✕
@@ -223,10 +223,10 @@ export function LessonAudioPlayer({ text, paragraphs, onParagraphActive }: Lesso
       </div>
 
       {/* Controls row: speed + voice */}
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-blue-accent/8 px-4 pb-3 pt-2">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-sg-gold/10 px-4 pb-3 pt-2">
         {/* Speed pills */}
         <div className="flex items-center gap-1">
-          <span className="mr-1 font-ui text-[0.6rem] font-semibold uppercase tracking-wider text-text-muted">
+          <span className="mr-1 font-ui text-[0.6rem] font-semibold uppercase tracking-wider text-parchment/50">
             Vel.
           </span>
           {SPEEDS.map((s) => (
@@ -235,8 +235,8 @@ export function LessonAudioPlayer({ text, paragraphs, onParagraphActive }: Lesso
               onClick={() => handleSpeedChange(s)}
               className={`rounded-full px-2.5 py-0.5 font-ui text-xs font-semibold transition ${
                 speed === s
-                  ? 'bg-gold-main/15 text-blue-accent ring-1 ring-gold-main/40'
-                  : 'text-text-muted hover:text-blue-accent'
+                  ? 'bg-sg-gold/15 text-sg-gold-light ring-1 ring-sg-gold/40'
+                  : 'text-parchment/50 hover:text-parchment'
               }`}
             >
               {s}×
@@ -247,14 +247,14 @@ export function LessonAudioPlayer({ text, paragraphs, onParagraphActive }: Lesso
         {/* Voice selector — only when OpenAI is active */}
         {openAI && (
           <div className="ml-auto flex items-center gap-2">
-            <span className="font-ui text-[0.6rem] font-semibold uppercase tracking-wider text-text-muted">
+            <span className="font-ui text-[0.6rem] font-semibold uppercase tracking-wider text-parchment/50">
               Voz
             </span>
             <select
               value={voice}
               onChange={(e) => setVoice(e.target.value)}
               disabled={playing && !paused}
-              className="rounded-lg border border-blue-accent/20 bg-white px-2 py-1 font-ui text-xs text-blue-accent focus:outline-none focus:ring-1 focus:ring-gold-main/40 disabled:cursor-not-allowed disabled:opacity-50"
+              className="rounded-lg border border-sg-gold/20 bg-navy-deep px-2 py-1 font-ui text-xs text-parchment/80 focus:outline-none focus:ring-1 focus:ring-sg-gold/40 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {VOICES.map((v) => (
                 <option key={v.id} value={v.id}>

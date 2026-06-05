@@ -67,12 +67,12 @@ export function HighlightDetailPanel({ activeHL, onClose }: Props) {
   return (
     <div
       ref={panelRef}
-      className="fixed z-50 w-72 rounded-2xl border border-gold-main/20 bg-white shadow-xl"
+      className="fixed z-50 w-72 rounded-2xl border border-sg-gold/25 bg-navy-mid shadow-xl"
       style={{ top, left }}
     >
       {/* Header: color + remove */}
-      <div className="flex items-center gap-2 border-b border-gray-100 px-3 py-2.5">
-        <span className="font-ui text-xs font-semibold uppercase tracking-wide text-text-muted">
+      <div className="flex items-center gap-2 border-b border-sg-gold/10 px-3 py-2.5">
+        <span className="font-ui text-xs font-semibold uppercase tracking-wide text-parchment/55">
           Resaltado
         </span>
         <div className="ml-auto flex items-center gap-1.5">
@@ -93,7 +93,7 @@ export function HighlightDetailPanel({ activeHL, onClose }: Props) {
             aria-label="Quitar resaltado"
             onMouseDown={(e) => e.preventDefault()}
             onClick={handleRemove}
-            className="ml-1.5 flex h-6 w-6 items-center justify-center rounded-full text-sm text-rose-400 transition hover:bg-rose-50 hover:text-rose-600"
+            className="ml-1.5 flex h-6 w-6 items-center justify-center rounded-full text-sm text-rose-400 transition hover:bg-red-950/40 hover:text-rose-400"
             title="Quitar resaltado"
           >
             🗑
@@ -102,13 +102,13 @@ export function HighlightDetailPanel({ activeHL, onClose }: Props) {
       </div>
 
       {/* Selected text preview */}
-      <p className="px-3 pt-2.5 font-reading text-xs italic leading-relaxed text-text-muted line-clamp-2">
+      <p className="px-3 pt-2.5 font-reading text-xs italic leading-relaxed text-parchment/55 line-clamp-2">
         &ldquo;{highlight.selectedText}&rdquo;
       </p>
 
       {/* Tags */}
       <div className="px-3 pt-2">
-        <p className="mb-1 font-ui text-xs font-semibold text-text-muted">Etiquetas</p>
+        <p className="mb-1 font-ui text-xs font-semibold text-parchment/55">Etiquetas</p>
         <TagEditor
           tags={highlight.tags}
           onChange={(tags) => updateTags(activeHL.id, tags)}
@@ -117,13 +117,13 @@ export function HighlightDetailPanel({ activeHL, onClose }: Props) {
 
       {/* Note */}
       <div className="px-3 pb-3 pt-2">
-        <p className="mb-1 font-ui text-xs font-semibold text-text-muted">Nota personal</p>
+        <p className="mb-1 font-ui text-xs font-semibold text-parchment/55">Nota personal</p>
         <textarea
           rows={2}
           value={highlight.note}
           onChange={(e) => updateNote(activeHL.id, e.target.value)}
           placeholder="Escribe tu reflexión sobre este versículo…"
-          className="w-full resize-none rounded-xl border border-blue-accent/15 bg-cream px-3 py-2 font-reading text-xs leading-relaxed text-text-main placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-gold-main/30"
+          className="w-full resize-none rounded-xl border border-sg-gold/15 bg-navy-deep px-3 py-2 font-reading text-xs leading-relaxed text-parchment/80 placeholder:text-parchment/30 focus:outline-none focus:ring-2 focus:ring-sg-gold/30"
         />
       </div>
     </div>

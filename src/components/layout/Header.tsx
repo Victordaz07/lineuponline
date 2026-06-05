@@ -104,7 +104,7 @@ function UserMenu() {
         aria-label="Mi cuenta"
         aria-expanded={open}
         aria-haspopup="menu"
-        className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-accent font-ui text-sm font-bold text-white shadow-sm transition hover:brightness-90 focus-visible:ring-2 focus-visible:ring-gold-main focus-visible:ring-offset-2"
+        className="flex h-8 w-8 items-center justify-center rounded-full bg-sg-gold font-ui text-sm font-bold text-navy-deep shadow-sm transition hover:brightness-90 focus-visible:ring-2 focus-visible:ring-sg-gold focus-visible:ring-offset-2"
       >
         {user?.photoURL ? (
           <img src={user.photoURL} alt={displayName} className="h-8 w-8 rounded-full object-cover" referrerPolicy="no-referrer" />
@@ -114,9 +114,9 @@ function UserMenu() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-10 z-50 w-64 overflow-hidden rounded-2xl border border-blue-accent/10 bg-white shadow-xl">
-          <div className="flex items-center gap-3 border-b border-blue-accent/8 bg-bg-elevated px-4 py-3.5">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-accent font-ui text-base font-bold text-white shadow-sm">
+        <div className="absolute right-0 top-10 z-50 w-64 overflow-hidden rounded-2xl border border-sg-gold/15 bg-navy-mid shadow-xl">
+          <div className="flex items-center gap-3 border-b border-sg-gold/15 bg-navy-deep px-4 py-3.5">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sg-gold font-ui text-base font-bold text-navy-deep shadow-sm">
               {user?.photoURL ? (
                 <img src={user.photoURL} alt={displayName} className="h-10 w-10 rounded-full object-cover" referrerPolicy="no-referrer" />
               ) : (
@@ -124,66 +124,66 @@ function UserMenu() {
               )}
             </div>
             <div className="min-w-0">
-              <p className="truncate font-ui text-sm font-semibold text-text-main">{displayName}</p>
-              {displayEmail ? <p className="truncate font-ui text-xs text-text-muted">{displayEmail}</p> : null}
+              <p className="truncate font-ui text-sm font-semibold text-parchment/85">{displayName}</p>
+              {displayEmail ? <p className="truncate font-ui text-xs text-parchment/55">{displayEmail}</p> : null}
               <p className="mt-0.5 font-ui text-[10px] font-medium text-emerald-500">
                 {providerLabel(user)} · Activo ✓
               </p>
             </div>
           </div>
 
-          <div className="border-b border-blue-accent/8 py-1">
+          <div className="border-b border-sg-gold/15 py-1">
             <Link
               to="/profile"
               onClick={() => setOpen(false)}
-              className="flex items-center gap-3 px-4 py-2.5 font-ui text-sm text-text-main transition hover:bg-bg-elevated"
+              className="flex items-center gap-3 px-4 py-2.5 font-ui text-sm text-parchment/80 transition hover:bg-navy-deep/50"
             >
               <span className="text-base" aria-hidden="true">👤</span>
               Mi Perfil
-              <span className="ml-auto text-text-muted text-xs">›</span>
+              <span className="ml-auto text-parchment/55 text-xs">›</span>
             </Link>
             <Link
               to="/my-notes"
               onClick={() => setOpen(false)}
-              className="flex items-center gap-3 px-4 py-2.5 font-ui text-sm text-text-main transition hover:bg-bg-elevated"
+              className="flex items-center gap-3 px-4 py-2.5 font-ui text-sm text-parchment/80 transition hover:bg-navy-deep/50"
             >
               <span className="text-base" aria-hidden="true">📓</span>
               Mi Cuaderno
-              <span className="ml-auto text-text-muted text-xs">›</span>
+              <span className="ml-auto text-parchment/55 text-xs">›</span>
             </Link>
             <Link
               to="/community"
               onClick={() => setOpen(false)}
-              className="flex items-center gap-3 px-4 py-2.5 font-ui text-sm text-text-main transition hover:bg-bg-elevated"
+              className="flex items-center gap-3 px-4 py-2.5 font-ui text-sm text-parchment/80 transition hover:bg-navy-deep/50"
             >
               <span className="text-base" aria-hidden="true">💬</span>
               Comunidad
-              <span className="ml-auto text-text-muted text-xs">›</span>
+              <span className="ml-auto text-parchment/55 text-xs">›</span>
             </Link>
             <Link
               to="/search"
               onClick={() => setOpen(false)}
-              className="flex items-center gap-3 px-4 py-2.5 font-ui text-sm text-text-main transition hover:bg-bg-elevated"
+              className="flex items-center gap-3 px-4 py-2.5 font-ui text-sm text-parchment/80 transition hover:bg-navy-deep/50"
             >
               <span className="text-base" aria-hidden="true">🔍</span>
               Buscar lecciones
-              <span className="ml-auto text-text-muted text-xs">›</span>
+              <span className="ml-auto text-parchment/55 text-xs">›</span>
             </Link>
             {isAdmin ? (
               <Link
                 to="/admin"
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-3 border-t border-blue-accent/8 bg-gold-dim/40 px-4 py-2.5 font-ui text-sm font-semibold text-blue-accent transition hover:bg-gold-dim/70"
+                className="flex items-center gap-3 border-t border-sg-gold/15 bg-sg-gold/10 px-4 py-2.5 font-ui text-sm font-semibold text-sg-gold-light transition hover:bg-sg-gold/20"
               >
                 <span className="text-base" aria-hidden="true">🛡️</span>
                 Panel admin
-                <span className="ml-auto text-blue-accent/60 text-xs">›</span>
+                <span className="ml-auto text-sg-gold/50 text-xs">›</span>
               </Link>
             ) : null}
           </div>
 
-          <div className="border-b border-blue-accent/8 px-4 py-3">
-            <p className="mb-2 font-ui text-[10px] font-semibold uppercase tracking-widest text-text-muted">
+          <div className="border-b border-sg-gold/15 px-4 py-3">
+            <p className="mb-2 font-ui text-[10px] font-semibold uppercase tracking-widest text-parchment/50">
               Tamaño de texto
             </p>
             <div className="flex gap-1.5">
@@ -195,8 +195,8 @@ function UserMenu() {
                   onClick={() => setFontSize(value)}
                   className={`flex-1 rounded-lg border py-1.5 font-ui font-semibold transition ${
                     fontSize === value
-                      ? 'border-blue-accent bg-blue-accent text-white'
-                      : 'border-blue-accent/20 text-blue-accent hover:border-blue-accent/40 hover:bg-bg-elevated'
+                      ? 'border-sg-gold bg-sg-gold text-navy-deep'
+                      : 'border-sg-gold/20 text-parchment/65 hover:border-sg-gold/40 hover:bg-navy-deep/40'
                   } ${value === 'sm' ? 'text-xs' : value === 'lg' ? 'text-base' : 'text-sm'}`}
                 >
                   {label}
@@ -209,7 +209,7 @@ function UserMenu() {
             <button
               type="button"
               onClick={handleSignOut}
-              className="flex w-full items-center gap-3 px-4 py-2.5 font-ui text-sm text-rose-500 transition hover:bg-rose-50"
+              className="flex w-full items-center gap-3 px-4 py-2.5 font-ui text-sm text-rose-400 transition hover:bg-red-950/40"
             >
               <span className="text-base" aria-hidden="true">🚪</span>
               Cerrar sesión

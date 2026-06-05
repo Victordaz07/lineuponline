@@ -3,7 +3,7 @@ import { useToastStore } from '@/stores/toastStore'
 const colorMap = {
   error: 'bg-red-500',
   success: 'bg-emerald-500',
-  info: 'bg-blue-accent',
+  info: 'bg-navy-light',
 }
 
 export function Toaster() {

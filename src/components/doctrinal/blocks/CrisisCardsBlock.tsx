@@ -2,22 +2,22 @@ import type { CrisisCardsBlock } from '@/types/doctrine'
 
 const colorMap = {
   purple: {
-    border: 'border-purple-200',
-    bg: 'bg-purple-50',
+    border: 'border-purple-400/40',
+    bg: 'bg-purple-950/30',
     bar: 'bg-purple-500',
-    num: 'text-purple-700',
+    num: 'text-purple-300',
   },
   blue: {
-    border: 'border-blue-200',
-    bg: 'bg-blue-50',
-    bar: 'bg-blue-accent',
-    num: 'text-blue-accent',
+    border: 'border-sg-gold/30',
+    bg: 'bg-navy-mid',
+    bar: 'bg-sg-gold',
+    num: 'text-sg-gold-light',
   },
   red: {
-    border: 'border-red-200',
-    bg: 'bg-red-50',
+    border: 'border-red-400/40',
+    bg: 'bg-red-950/30',
     bar: 'bg-red-500',
-    num: 'text-red-700',
+    num: 'text-red-400',
   },
 }
 
@@ -35,8 +35,8 @@ export function CrisisCardsBlockComponent({ block }: { block: CrisisCardsBlock }
             <p className={`mb-1 font-ui text-xs font-bold uppercase tracking-widest ${c.num}`}>
               {card.num}
             </p>
-            <p className="mb-1.5 font-reading text-base font-semibold text-text-main">{card.title}</p>
-            <p className="font-ui text-sm leading-relaxed text-text-main">{card.desc}</p>
+            <p className="mb-1.5 font-reading text-base font-semibold text-parchment/85">{card.title}</p>
+            <p className="font-ui text-sm leading-relaxed text-parchment/75">{card.desc}</p>
           </div>
         )
       })}

@@ -57,17 +57,17 @@ export default function CommunityPage() {
   return (
     <div className="mx-auto max-w-2xl space-y-6 pb-12">
       <header className="space-y-1">
-        <p className="font-ui text-xs font-semibold uppercase tracking-[0.18em] text-gold-main">
+        <p className="font-ui text-xs font-semibold uppercase tracking-[0.18em] text-sg-gold">
           Comunidad
         </p>
-        <h1 className="font-title text-3xl text-blue-accent">Seeker Gospel</h1>
-        <p className="font-ui text-sm text-text-muted">
+        <h1 className="font-display text-3xl text-parchment">Seeker Gospel</h1>
+        <p className="font-ui text-sm text-parchment/55">
           Avisos del equipo, sugerencias y solicitudes de temas.
         </p>
       </header>
 
       {/* Tabs */}
-      <div role="tablist" className="flex gap-1 rounded-2xl border border-blue-accent/10 bg-white p-1">
+      <div role="tablist" className="flex gap-1 rounded-2xl border border-sg-gold/15 bg-navy-mid p-1">
         {tabs.map(({ id, label }) => (
           <button
             key={id}
@@ -77,8 +77,8 @@ export default function CommunityPage() {
             onClick={() => setTab(id)}
             className={`flex-1 rounded-xl px-3 py-2 font-ui text-xs font-semibold transition ${
               tab === id
-                ? 'bg-blue-accent text-white shadow-sm'
-                : 'text-text-muted hover:text-blue-accent'
+                ? 'bg-sg-gold text-navy-deep shadow-sm'
+                : 'text-parchment/50 hover:text-parchment/80'
             }`}
           >
             {label}
@@ -87,7 +87,7 @@ export default function CommunityPage() {
       </div>
 
       {submitSuccess ? (
-        <div className="rounded-2xl border border-green-200 bg-green-50 px-4 py-3 font-ui text-sm text-green-700">
+        <div className="rounded-2xl border border-emerald-500/30 bg-emerald-950/30 px-4 py-3 font-ui text-sm text-emerald-400">
           ✓ Mensaje enviado correctamente. El administrador lo revisará pronto.
         </div>
       ) : null}
@@ -96,8 +96,8 @@ export default function CommunityPage() {
       {tab === 'announcements' ? (
         <section className="space-y-3">
           {announcements.length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-blue-accent/20 p-8 text-center">
-              <p className="font-ui text-sm text-text-muted">No hay avisos por ahora.</p>
+            <div className="rounded-2xl border border-dashed border-sg-gold/20 p-8 text-center">
+              <p className="font-ui text-sm text-parchment/50">No hay avisos por ahora.</p>
             </div>
           ) : (
             announcements.map((a) => <AnnouncementBanner key={a.id} announcement={a} />)
@@ -109,14 +109,14 @@ export default function CommunityPage() {
       {tab === 'send' ? (
         <section>
           {!user ? (
-            <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6 text-center">
-              <p className="mb-3 font-ui text-sm text-amber-800">
+            <div className="rounded-2xl border border-amber-500/30 bg-amber-950/30 p-6 text-center">
+              <p className="mb-3 font-ui text-sm text-amber-300">
                 Necesitas iniciar sesión para enviar mensajes.
               </p>
               <button
                 type="button"
                 onClick={() => navigate('/login')}
-                className="rounded-full bg-blue-accent px-4 py-2 font-ui text-sm font-semibold text-white"
+                className="rounded-full bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-navy-deep"
               >
                 Iniciar sesión
               </button>
@@ -131,14 +131,14 @@ export default function CommunityPage() {
       {tab === 'my_messages' ? (
         <section className="space-y-3">
           {!user ? (
-            <div className="rounded-2xl border border-dashed border-blue-accent/20 p-6 text-center">
-              <p className="font-ui text-sm text-text-muted">
+            <div className="rounded-2xl border border-dashed border-sg-gold/20 p-6 text-center">
+              <p className="font-ui text-sm text-parchment/50">
                 Inicia sesión para ver tus mensajes.
               </p>
             </div>
           ) : myMessages.length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-blue-accent/20 p-8 text-center">
-              <p className="font-ui text-sm text-text-muted">
+            <div className="rounded-2xl border border-dashed border-sg-gold/20 p-8 text-center">
+              <p className="font-ui text-sm text-parchment/50">
                 Aún no has enviado ningún mensaje.
               </p>
             </div>

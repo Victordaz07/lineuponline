@@ -37,11 +37,11 @@ function AvatarUploader({
   return (
     <div className="relative mx-auto h-28 w-28">
       {/* Circle */}
-      <div className="h-28 w-28 overflow-hidden rounded-full border-4 border-white shadow-xl ring-2 ring-blue-accent/20">
+      <div className="h-28 w-28 overflow-hidden rounded-full border-4 border-navy-mid shadow-xl ring-2 ring-sg-gold/25">
         {photoURL
           ? <img src={photoURL} alt="Foto de perfil" className="h-full w-full object-cover" referrerPolicy="no-referrer" />
           : (
-            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-blue-accent to-[#1e3a5f] font-title text-4xl font-bold text-white">
+            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-navy-mid to-navy-light font-display text-4xl font-bold text-parchment">
               {initial}
             </div>
           )
@@ -54,11 +54,11 @@ function AvatarUploader({
         onClick={() => inputRef.current?.click()}
         disabled={uploading}
         aria-label="Cambiar foto"
-        className="absolute bottom-0 right-0 flex h-9 w-9 items-center justify-center rounded-full border-2 border-white bg-blue-accent shadow-md transition hover:brightness-90 disabled:opacity-60"
+        className="absolute bottom-0 right-0 flex h-9 w-9 items-center justify-center rounded-full border-2 border-navy-mid bg-sg-gold shadow-md transition hover:brightness-90 disabled:opacity-60"
       >
         {uploading
           ? <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
-          : <span className="text-sm text-white" aria-hidden="true">📷</span>
+          : <span className="text-sm text-navy-deep" aria-hidden="true">📷</span>
         }
       </button>
 
@@ -79,10 +79,10 @@ function AvatarUploader({
 
 function StatCard({ icon, value, label }: { icon: string; value: number; label: string }) {
   return (
-    <div className="flex flex-col items-center gap-1 rounded-2xl border border-blue-accent/10 bg-white px-4 py-4 shadow-sm">
+    <div className="flex flex-col items-center gap-1 rounded-2xl border border-sg-gold/15 bg-navy-mid px-4 py-4 shadow-sm">
       <span className="text-2xl" aria-hidden="true">{icon}</span>
-      <span className="font-title text-2xl font-bold text-blue-accent">{value}</span>
-      <span className="text-center font-ui text-xs text-text-muted">{label}</span>
+      <span className="font-display text-2xl font-bold text-sg-gold-light">{value}</span>
+      <span className="text-center font-ui text-xs text-parchment/55">{label}</span>
     </div>
   )
 }
@@ -167,7 +167,7 @@ export default function ProfilePage() {
     <div className="mx-auto max-w-lg pb-16 pt-2">
 
       {/* ── Hero banner ── */}
-      <div className="relative mb-20 overflow-hidden rounded-3xl bg-gradient-to-br from-blue-accent via-[#1e3a5f] to-[#0b1a35] px-6 pb-16 pt-10 text-center shadow-xl">
+      <div className="relative mb-20 overflow-hidden rounded-3xl bg-gradient-to-br from-navy-mid via-navy-light to-navy-deep px-6 pb-16 pt-10 text-center shadow-xl">
         {/* Decorative rings */}
         <div className="pointer-events-none absolute -left-10 -top-10 h-40 w-40 rounded-full bg-white/5" />
         <div className="pointer-events-none absolute -right-6 -bottom-8 h-32 w-32 rounded-full bg-white/5" />
@@ -187,11 +187,11 @@ export default function ProfilePage() {
           <p className="mt-2 font-ui text-xs text-rose-300">{uploadError}</p>
         )}
 
-        <h1 className="mt-4 font-title text-2xl text-white">{displayHandle}</h1>
+        <h1 className="mt-4 font-display text-2xl text-parchment">{displayHandle}</h1>
         {displayEmail && (
           <p className="mt-1 font-ui text-sm text-white/60">{displayEmail}</p>
         )}
-        <div className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 font-ui text-xs text-white/80">
+        <div className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-parchment/10 px-3 py-1 font-ui text-xs text-parchment/80">
           <span>{provider.icon}</span>
           <span>{provider.label}</span>
           <span className="mx-1 text-white/30">·</span>
@@ -207,16 +207,16 @@ export default function ProfilePage() {
       </div>
 
       {/* ── Info personal ── */}
-      <section className="mb-4 overflow-hidden rounded-2xl border border-blue-accent/10 bg-white shadow-sm">
-        <div className="border-b border-blue-accent/8 px-5 py-3">
-          <p className="font-ui text-[10px] font-semibold uppercase tracking-widest text-text-muted">
+      <section className="mb-4 overflow-hidden rounded-2xl border border-sg-gold/15 bg-navy-mid shadow-sm">
+        <div className="border-b border-sg-gold/10 px-5 py-3">
+          <p className="font-ui text-[10px] font-semibold uppercase tracking-widest text-parchment/50">
             Información personal
           </p>
         </div>
 
         {/* Name row */}
         <div className="px-5 py-4">
-          <p className="mb-1 font-ui text-xs text-text-muted">Nombre</p>
+          <p className="mb-1 font-ui text-xs text-parchment/50">Nombre</p>
           {nameEditing
             ? (
               <div className="flex items-center gap-2">
@@ -230,20 +230,20 @@ export default function ProfilePage() {
                     if (e.key === 'Enter') void saveName()
                     if (e.key === 'Escape') { setNameEditing(false); setName(user?.displayName ?? '') }
                   }}
-                  className="flex-1 rounded-xl border border-blue-accent/25 bg-bg-elevated px-3 py-2 font-ui text-sm text-text-main focus:outline-none focus:ring-2 focus:ring-blue-accent/30"
+                  className="flex-1 rounded-xl border border-sg-gold/20 bg-navy-deep px-3 py-2 font-ui text-sm text-parchment/80 focus:outline-none focus:ring-2 focus:ring-sg-gold/30"
                 />
                 <button
                   type="button"
                   onClick={() => void saveName()}
                   disabled={nameSaving}
-                  className="rounded-xl bg-blue-accent px-3 py-2 font-ui text-xs font-semibold text-white transition hover:brightness-90 disabled:opacity-60"
+                  className="rounded-xl bg-sg-gold px-3 py-2 font-ui text-xs font-semibold text-navy-deep transition hover:brightness-90 disabled:opacity-60"
                 >
                   {nameSaving ? '…' : 'Guardar'}
                 </button>
                 <button
                   type="button"
                   onClick={() => { setNameEditing(false); setName(user?.displayName ?? '') }}
-                  className="rounded-xl border border-blue-accent/20 px-3 py-2 font-ui text-xs text-text-muted hover:bg-bg-elevated"
+                  className="rounded-xl border border-sg-gold/20 px-3 py-2 font-ui text-xs text-parchment/50 hover:bg-navy-deep/50"
                 >
                   ✕
                 </button>
@@ -251,14 +251,14 @@ export default function ProfilePage() {
             )
             : (
               <div className="flex items-center justify-between">
-                <span className="font-ui text-sm font-semibold text-text-main">
+                <span className="font-ui text-sm font-semibold text-parchment/85">
                   {user?.displayName ?? '—'}
-                  {nameSuccess && <span className="ml-2 text-emerald-500 text-xs">✓ Guardado</span>}
+                  {nameSuccess && <span className="ml-2 text-emerald-400 text-xs">✓ Guardado</span>}
                 </span>
                 <button
                   type="button"
                   onClick={() => setNameEditing(true)}
-                  className="rounded-lg px-2 py-1 font-ui text-xs text-blue-accent transition hover:bg-bg-elevated"
+                  className="rounded-lg px-2 py-1 font-ui text-xs text-sg-gold-light transition hover:bg-navy-deep/50"
                 >
                   Editar ✏️
                 </button>
@@ -270,24 +270,24 @@ export default function ProfilePage() {
 
         {/* Email/phone row */}
         {displayEmail && (
-          <div className="border-t border-blue-accent/8 px-5 py-4">
-            <p className="mb-1 font-ui text-xs text-text-muted">
+          <div className="border-t border-sg-gold/10 px-5 py-4">
+            <p className="mb-1 font-ui text-xs text-parchment/50">
               {user?.email ? 'Correo electrónico' : 'Teléfono'}
             </p>
             <div className="flex items-center justify-between">
-              <span className="font-ui text-sm text-text-main">{displayEmail}</span>
-              <span className="font-ui text-xs text-text-muted" title="Gestionado por el proveedor">🔒</span>
+              <span className="font-ui text-sm text-parchment/80">{displayEmail}</span>
+              <span className="font-ui text-xs text-parchment/50" title="Gestionado por el proveedor">🔒</span>
             </div>
           </div>
         )}
 
         {/* Provider row */}
-        <div className="border-t border-blue-accent/8 px-5 py-4">
-          <p className="mb-1 font-ui text-xs text-text-muted">Método de acceso</p>
+        <div className="border-t border-sg-gold/10 px-5 py-4">
+          <p className="mb-1 font-ui text-xs text-parchment/50">Método de acceso</p>
           <div className="flex items-center gap-2">
             <span>{provider.icon}</span>
-            <span className="font-ui text-sm text-text-main">{provider.label}</span>
-            <span className="ml-auto rounded-full bg-emerald-50 px-2 py-0.5 font-ui text-xs font-medium text-emerald-600">
+            <span className="font-ui text-sm text-parchment/80">{provider.label}</span>
+            <span className="ml-auto rounded-full bg-emerald-950/30 px-2 py-0.5 font-ui text-xs font-medium text-emerald-400">
               Activo ✓
             </span>
           </div>
@@ -295,19 +295,19 @@ export default function ProfilePage() {
       </section>
 
       {/* ── Cuenta ── */}
-      <section className="overflow-hidden rounded-2xl border border-blue-accent/10 bg-white shadow-sm">
-        <div className="border-b border-blue-accent/8 px-5 py-3">
-          <p className="font-ui text-[10px] font-semibold uppercase tracking-widest text-text-muted">
+      <section className="overflow-hidden rounded-2xl border border-sg-gold/15 bg-navy-mid shadow-sm">
+        <div className="border-b border-sg-gold/10 px-5 py-3">
+          <p className="font-ui text-[10px] font-semibold uppercase tracking-widest text-parchment/50">
             Cuenta
           </p>
         </div>
         <div className="px-5 py-4">
-          <p className="mb-1 font-ui text-xs text-text-muted">Miembro desde</p>
-          <p className="font-ui text-sm text-text-main">{memberSince}</p>
+          <p className="mb-1 font-ui text-xs text-parchment/50">Miembro desde</p>
+          <p className="font-ui text-sm text-parchment/80">{memberSince}</p>
         </div>
-        <div className="border-t border-blue-accent/8 px-5 py-4">
-          <p className="mb-1 font-ui text-xs text-text-muted">ID de usuario</p>
-          <p className="font-mono text-xs text-text-muted break-all">{user?.uid}</p>
+        <div className="border-t border-sg-gold/10 px-5 py-4">
+          <p className="mb-1 font-ui text-xs text-parchment/50">ID de usuario</p>
+          <p className="font-mono text-xs text-parchment/50 break-all">{user?.uid}</p>
         </div>
       </section>
 

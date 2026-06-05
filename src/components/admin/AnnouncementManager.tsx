@@ -52,20 +52,20 @@ function NewAnnouncementForm({ onClose }: NewAnnouncementFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-blue-accent/10 bg-bg-elevated p-5 space-y-4"
+      className="rounded-2xl border border-sg-gold/15 bg-navy-mid p-5 space-y-4"
     >
-      <h3 className="font-title text-lg text-blue-accent">Nuevo anuncio</h3>
+      <h3 className="font-display text-lg text-sg-gold-light">Nuevo anuncio</h3>
 
       {/* Type */}
       <div className="space-y-1">
-        <label className="font-ui text-xs font-semibold text-text-muted" htmlFor="ann-type">
+        <label className="font-ui text-xs font-semibold text-parchment/55" htmlFor="ann-type">
           Tipo
         </label>
         <select
           id="ann-type"
           value={type}
           onChange={(e) => setType(e.target.value as AnnouncementType)}
-          className="w-full rounded-xl border border-blue-accent/20 bg-white px-3 py-2 font-ui text-sm text-text-main focus:outline-none focus:ring-2 focus:ring-blue-accent/30"
+          className="w-full rounded-xl border border-sg-gold/20 bg-navy-deep px-3 py-2 font-ui text-sm text-parchment/80 focus:outline-none focus:ring-2 focus:ring-sg-gold/30"
         >
           {ALL_ANNOUNCEMENT_TYPES.map((t) => (
             <option key={t} value={t}>
@@ -77,7 +77,7 @@ function NewAnnouncementForm({ onClose }: NewAnnouncementFormProps) {
 
       {/* Title */}
       <div className="space-y-1">
-        <label className="font-ui text-xs font-semibold text-text-muted" htmlFor="ann-title">
+        <label className="font-ui text-xs font-semibold text-parchment/55" htmlFor="ann-title">
           Título
         </label>
         <input
@@ -87,13 +87,13 @@ function NewAnnouncementForm({ onClose }: NewAnnouncementFormProps) {
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Título del anuncio"
           required
-          className="w-full rounded-xl border border-blue-accent/20 bg-white px-3 py-2 font-ui text-sm text-text-main placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-blue-accent/30"
+          className="w-full rounded-xl border border-sg-gold/20 bg-navy-deep px-3 py-2 font-ui text-sm text-parchment/80 placeholder:text-parchment/30 focus:outline-none focus:ring-2 focus:ring-sg-gold/30"
         />
       </div>
 
       {/* Content */}
       <div className="space-y-1">
-        <label className="font-ui text-xs font-semibold text-text-muted" htmlFor="ann-content">
+        <label className="font-ui text-xs font-semibold text-parchment/55" htmlFor="ann-content">
           Contenido
         </label>
         <textarea
@@ -103,7 +103,7 @@ function NewAnnouncementForm({ onClose }: NewAnnouncementFormProps) {
           rows={4}
           placeholder="Escribe el contenido del anuncio…"
           required
-          className="w-full rounded-xl border border-blue-accent/20 bg-white px-3 py-2 font-ui text-sm text-text-main placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-blue-accent/30"
+          className="w-full rounded-xl border border-sg-gold/20 bg-navy-deep px-3 py-2 font-ui text-sm text-parchment/80 placeholder:text-parchment/30 focus:outline-none focus:ring-2 focus:ring-sg-gold/30"
         />
       </div>
 
@@ -113,9 +113,9 @@ function NewAnnouncementForm({ onClose }: NewAnnouncementFormProps) {
           type="checkbox"
           checked={isPinned}
           onChange={(e) => setIsPinned(e.target.checked)}
-          className="h-4 w-4 rounded border-blue-accent/30 accent-blue-accent"
+          className="h-4 w-4 rounded border-sg-gold/30 accent-sg-gold"
         />
-        <span className="font-ui text-sm text-text-main">Fijar al tope</span>
+        <span className="font-ui text-sm text-parchment/80">Fijar al tope</span>
       </label>
 
       {/* Buttons */}
@@ -123,14 +123,14 @@ function NewAnnouncementForm({ onClose }: NewAnnouncementFormProps) {
         <button
           type="submit"
           disabled={submitting || !title.trim() || !content.trim()}
-          className="rounded-lg border border-gold-main bg-gold-main px-4 py-2 font-ui text-sm font-semibold text-white shadow-sm transition hover:brightness-95 disabled:opacity-50"
+          className="rounded-lg border border-sg-gold bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-navy-deep shadow-sm transition hover:brightness-95 disabled:opacity-50"
         >
           {submitting ? 'Publicando…' : 'Publicar anuncio'}
         </button>
         <button
           type="button"
           onClick={onClose}
-          className="rounded-lg border border-blue-accent/30 bg-white px-4 py-2 font-ui text-sm font-semibold text-blue-accent transition hover:bg-blue-accent/5"
+          className="rounded-lg border border-sg-gold/30 bg-transparent px-4 py-2 font-ui text-sm font-semibold text-parchment/70 transition hover:bg-navy-deep/60"
         >
           Cancelar
         </button>
@@ -171,7 +171,7 @@ function AnnouncementCard({ announcement }: AnnouncementCardProps) {
   }
 
   return (
-    <div className="rounded-2xl border border-blue-accent/10 bg-white p-4 space-y-2">
+    <div className="rounded-2xl border border-sg-gold/15 bg-navy-mid p-4 space-y-2">
       {/* Header */}
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div className="flex flex-wrap items-center gap-2">
@@ -184,24 +184,24 @@ function AnnouncementCard({ announcement }: AnnouncementCardProps) {
             {ANNOUNCEMENT_TYPE_LABELS[announcement.type]}
           </span>
         </div>
-        <span className="font-ui text-xs text-text-muted">{formatDate(announcement.createdAt)}</span>
+        <span className="font-ui text-xs text-parchment/50">{formatDate(announcement.createdAt)}</span>
       </div>
 
       {/* Title */}
-      <p className="font-title text-base text-blue-accent">{announcement.title}</p>
+      <p className="font-display text-base text-parchment/90">{announcement.title}</p>
 
       {/* Content preview */}
-      <p className="line-clamp-2 font-ui text-sm leading-relaxed text-text-muted">
+      <p className="line-clamp-2 font-ui text-sm leading-relaxed text-parchment/55">
         {announcement.content}
       </p>
 
       {/* Actions */}
-      <div className="flex flex-wrap gap-2 border-t border-blue-accent/10 pt-3">
+      <div className="flex flex-wrap gap-2 border-t border-sg-gold/15 pt-3">
         <button
           type="button"
           onClick={handleTogglePin}
           disabled={toggling}
-          className="rounded-lg border border-blue-accent/30 bg-white px-3 py-1.5 font-ui text-xs font-semibold text-blue-accent transition hover:bg-blue-accent/5 disabled:opacity-50"
+          className="rounded-lg border border-sg-gold/30 bg-transparent px-3 py-1.5 font-ui text-xs font-semibold text-parchment/70 transition hover:bg-navy-deep/60 disabled:opacity-50"
         >
           {toggling ? '…' : announcement.isPinned ? 'Desfijar' : 'Fijar'}
         </button>
@@ -233,12 +233,12 @@ export function AnnouncementManager() {
     <div className="space-y-4">
       {/* Toolbar */}
       <div className="flex items-center justify-between">
-        <h2 className="font-title text-xl text-blue-accent">Anuncios</h2>
+        <h2 className="font-display text-xl text-parchment">Anuncios</h2>
         {!showForm && (
           <button
             type="button"
             onClick={() => setShowForm(true)}
-            className="rounded-lg border border-gold-main bg-gold-main px-4 py-2 font-ui text-sm font-semibold text-white shadow-sm transition hover:brightness-95"
+            className="rounded-lg border border-sg-gold bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-navy-deep shadow-sm transition hover:brightness-95"
           >
             + Nuevo anuncio
           </button>
@@ -250,8 +250,8 @@ export function AnnouncementManager() {
 
       {/* Announcements list */}
       {announcements.length === 0 ? (
-        <div className="rounded-2xl border border-blue-accent/10 bg-white p-10 text-center">
-          <p className="font-ui text-sm text-text-muted">No hay anuncios publicados aún.</p>
+        <div className="rounded-2xl border border-sg-gold/15 bg-navy-mid p-10 text-center">
+          <p className="font-ui text-sm text-parchment/50">No hay anuncios publicados aún.</p>
         </div>
       ) : (
         <div className="space-y-3">

@@ -54,11 +54,11 @@ export function MessageForm({ onSubmit }: MessageFormProps) {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="rounded-2xl border border-blue-accent/10 bg-bg-surface p-5 shadow-sm"
+      className="rounded-2xl border border-sg-gold/15 bg-navy-mid p-5 shadow-sm"
     >
       {/* Type selector */}
       <fieldset className="mb-4">
-        <legend className="mb-2 font-ui text-xs font-semibold uppercase tracking-wide text-text-muted">
+        <legend className="mb-2 font-ui text-xs font-semibold uppercase tracking-wide text-parchment/55">
           Tipo de mensaje
         </legend>
         <div className="flex flex-wrap gap-2">
@@ -73,8 +73,8 @@ export function MessageForm({ onSubmit }: MessageFormProps) {
               className={[
                 'rounded-full border px-3.5 py-1.5 font-ui text-sm font-medium transition',
                 t === type
-                  ? 'border-blue-accent bg-blue-accent text-white shadow-sm'
-                  : 'border-blue-accent/20 bg-bg-elevated text-text-main hover:border-blue-accent/50 hover:bg-blue-accent/5',
+                  ? 'border-sg-gold bg-sg-gold text-navy-deep shadow-sm'
+                  : 'border-sg-gold/20 bg-navy-deep/40 text-parchment/75 hover:border-sg-gold/50 hover:bg-sg-gold/5',
               ].join(' ')}
             >
               {MESSAGE_TYPE_LABELS[t]}
@@ -88,7 +88,7 @@ export function MessageForm({ onSubmit }: MessageFormProps) {
         <div className="mb-4">
           <label
             htmlFor="topicName"
-            className="mb-1.5 block font-ui text-sm font-medium text-text-main"
+            className="mb-1.5 block font-ui text-sm font-medium text-parchment/80"
           >
             Nombre del tema
           </label>
@@ -102,9 +102,9 @@ export function MessageForm({ onSubmit }: MessageFormProps) {
             }}
             placeholder="Ej. El libro de Job"
             className={[
-              'w-full rounded-lg border bg-bg-elevated px-3 py-2 font-ui text-sm text-text-main placeholder:text-text-muted',
-              'focus:outline-none focus:ring-2 focus:ring-blue-accent/40',
-              errors.topicName ? 'border-red-500' : 'border-blue-accent/15',
+              'w-full rounded-lg border bg-navy-deep px-3 py-2 font-ui text-sm text-parchment/80 placeholder:text-parchment/30',
+              'focus:outline-none focus:ring-2 focus:ring-sg-gold/40',
+              errors.topicName ? 'border-red-500' : 'border-sg-gold/20',
             ].join(' ')}
           />
           {errors.topicName && (
@@ -117,7 +117,7 @@ export function MessageForm({ onSubmit }: MessageFormProps) {
       <div className="mb-5">
         <label
           htmlFor="messageContent"
-          className="mb-1.5 block font-ui text-sm font-medium text-text-main"
+          className="mb-1.5 block font-ui text-sm font-medium text-parchment/80"
         >
           Mensaje
         </label>
@@ -133,9 +133,9 @@ export function MessageForm({ onSubmit }: MessageFormProps) {
           }}
           placeholder="Escribe tu mensaje aquí… (mínimo 20 caracteres)"
           className={[
-            'w-full resize-none rounded-lg border bg-bg-elevated px-3 py-2 font-reading text-sm text-text-main placeholder:text-text-muted',
-            'focus:outline-none focus:ring-2 focus:ring-blue-accent/40',
-            errors.content ? 'border-red-500' : 'border-blue-accent/15',
+            'w-full resize-none rounded-lg border bg-navy-deep px-3 py-2 font-reading text-sm text-parchment/80 placeholder:text-parchment/30',
+            'focus:outline-none focus:ring-2 focus:ring-sg-gold/40',
+            errors.content ? 'border-red-500' : 'border-sg-gold/20',
           ].join(' ')}
         />
         <div className="mt-1 flex items-start justify-between gap-2">
@@ -147,7 +147,7 @@ export function MessageForm({ onSubmit }: MessageFormProps) {
           <span
             className={[
               'ml-auto font-ui text-xs tabular-nums',
-              content.trim().length < 20 ? 'text-text-muted' : 'text-blue-accent',
+              content.trim().length < 20 ? 'text-parchment/55' : 'text-sg-gold-light',
             ].join(' ')}
           >
             {content.trim().length} / 20 mín.
@@ -159,7 +159,7 @@ export function MessageForm({ onSubmit }: MessageFormProps) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-lg border border-gold-main bg-gold-main px-4 py-2.5 font-ui text-sm font-semibold text-white shadow-sm transition hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-accent disabled:cursor-not-allowed disabled:opacity-50"
+        className="w-full rounded-lg border border-sg-gold bg-sg-gold px-4 py-2.5 font-ui text-sm font-semibold text-navy-deep shadow-sm transition hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sg-gold disabled:cursor-not-allowed disabled:opacity-50"
       >
         {loading ? (
           <span className="inline-flex items-center justify-center gap-2">

@@ -55,24 +55,24 @@ export function NoteEditor({
   return (
     <form
       onSubmit={(e) => void handleSubmit(e)}
-      className="mt-6 space-y-4 rounded-2xl border border-gold-main/25 bg-white p-5 shadow-sm"
+      className="mt-6 space-y-4 rounded-2xl border border-sg-gold/20 bg-navy-mid p-5 shadow-sm"
       aria-label="Editor de notas personales"
     >
-      <h3 className="font-title text-lg text-blue-accent">Tus notas</h3>
+      <h3 className="font-display text-lg text-parchment">Tus notas</h3>
       <div className="space-y-2">
-        <label htmlFor="note-title" className="block font-ui text-sm font-semibold text-text-main">
+        <label htmlFor="note-title" className="block font-ui text-sm font-semibold text-parchment/75">
           Título (opcional)
         </label>
         <input
           id="note-title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full rounded-lg border border-blue-accent/25 bg-white px-3 py-2 font-ui text-sm text-text-main shadow-inner focus:border-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent/20"
+          className="w-full rounded-lg border border-sg-gold/20 bg-navy-deep px-3 py-2 font-ui text-sm text-parchment/80 shadow-inner focus:border-sg-gold focus:outline-none focus:ring-2 focus:ring-sg-gold/30"
           placeholder="Ej. Ideas para compartir"
         />
       </div>
       <div className="space-y-2">
-        <label htmlFor="note-content" className="block font-ui text-sm font-semibold text-text-main">
+        <label htmlFor="note-content" className="block font-ui text-sm font-semibold text-parchment/75">
           Contenido
         </label>
         <textarea
@@ -80,7 +80,7 @@ export function NoteEditor({
           value={content}
           onChange={(e) => setContent(e.target.value)}
           rows={5}
-          className="w-full rounded-lg border border-blue-accent/25 bg-white px-3 py-2 font-reading text-sm text-text-main shadow-inner focus:border-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent/20"
+          className="w-full rounded-lg border border-sg-gold/20 bg-navy-deep px-3 py-2 font-display text-sm text-parchment/80 shadow-inner focus:border-sg-gold focus:outline-none focus:ring-2 focus:ring-sg-gold/30"
           placeholder="Escribe tu reflexión…"
           required
         />

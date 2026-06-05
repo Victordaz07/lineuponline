@@ -92,22 +92,22 @@ export class ErrorBoundary extends Component<Props, State> {
     if (this.state.error) {
       return (
         <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4 p-8 text-center">
-          <p className="font-title text-4xl">⚠️</p>
-          <h2 className="font-title text-2xl text-blue-accent">Algo salió mal</h2>
-          <p className="max-w-sm font-ui text-sm text-text-muted">
+          <p className="font-display text-4xl">⚠️</p>
+          <h2 className="font-display text-2xl text-parchment">Algo salió mal</h2>
+          <p className="max-w-sm font-ui text-sm text-parchment/60">
             {this.state.error.message || 'Error inesperado en esta sección.'}
           </p>
           <div className="flex gap-3">
             <button
               type="button"
               onClick={() => this.setState({ error: null })}
-              className="rounded-full border border-blue-accent/25 bg-white px-4 py-2 font-ui text-sm font-semibold text-blue-accent"
+              className="rounded-full border border-sg-gold/25 bg-transparent px-4 py-2 font-ui text-sm font-semibold text-parchment/80 hover:bg-navy-deep/50"
             >
               Reintentar
             </button>
             <Link
               to="/"
-              className="rounded-full bg-gold-main px-4 py-2 font-ui text-sm font-semibold text-white"
+              className="rounded-full bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-navy-deep"
             >
               Ir al inicio
             </Link>

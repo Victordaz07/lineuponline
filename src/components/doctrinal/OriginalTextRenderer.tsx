@@ -69,11 +69,11 @@ function DialogLine({ text }: { text: string }) {
   const speaker = text.slice(0, colonIdx)
   const rest = text.slice(colonIdx + 1).trim()
   return (
-    <p className="pl-4 font-reading text-base leading-relaxed text-text-main">
-      <strong className="font-ui text-xs font-semibold uppercase tracking-wide text-blue-accent">
+    <p className="pl-4 font-reading text-base leading-relaxed text-parchment/80">
+      <strong className="font-ui text-xs font-semibold uppercase tracking-wide text-sg-gold-light">
         {speaker}
       </strong>
-      <span className="text-text-muted"> · </span>
+      <span className="text-parchment/40"> · </span>
       <em>{rest}</em>
     </p>
   )
@@ -86,10 +86,10 @@ function QuoteBlock({ text }: { text: string }) {
   const reference = refMatch ? refMatch[2] : null
 
   return (
-    <blockquote className="relative my-1 overflow-hidden rounded-r-xl border-l-4 border-gold-main bg-gold-dim px-5 py-4">
-      <p className="font-reading text-base italic leading-relaxed text-text-main">{quoteText}</p>
+    <blockquote className="relative my-1 overflow-hidden rounded-r-xl border-l-4 border-sg-gold bg-sg-gold/5 px-5 py-4">
+      <p className="font-reading text-base italic leading-relaxed text-parchment/85">{quoteText}</p>
       {reference && (
-        <cite className="mt-2 block font-ui text-xs font-semibold not-italic text-gold-main">
+        <cite className="mt-2 block font-ui text-xs font-semibold not-italic text-sg-gold">
           — {reference}
         </cite>
       )}
@@ -106,21 +106,21 @@ export function OriginalTextRenderer({ text }: { text: string }) {
         switch (block.type) {
           case 'main-title':
             return (
-              <div key={i} className="border-b border-gold-main/30 pb-5 text-center">
-                <h1 className="font-title text-2xl text-blue-accent sm:text-3xl">{block.text}</h1>
+              <div key={i} className="border-b border-sg-gold/25 pb-5 text-center">
+                <h1 className="font-display text-2xl text-parchment sm:text-3xl">{block.text}</h1>
               </div>
             )
 
           case 'author':
             return (
-              <p key={i} className="-mt-3 text-center font-ui text-sm text-text-muted">
+              <p key={i} className="-mt-3 text-center font-ui text-sm text-parchment/55">
                 {block.text}
               </p>
             )
 
           case 'context':
             return (
-              <p key={i} className="rounded-xl bg-bg-elevated px-4 py-3 font-ui text-xs italic leading-relaxed text-text-muted">
+              <p key={i} className="rounded-xl bg-navy-deep/50 px-4 py-3 font-ui text-xs italic leading-relaxed text-parchment/55">
                 {block.text}
               </p>
             )
@@ -129,9 +129,9 @@ export function OriginalTextRenderer({ text }: { text: string }) {
           case 'question-title':
             return (
               <div key={i} className="mt-6 flex items-center gap-3 first:mt-0">
-                <span className="h-px flex-1 bg-gold-main/25" />
-                <h2 className="font-title text-base text-blue-accent sm:text-lg">{block.text}</h2>
-                <span className="h-px flex-1 bg-gold-main/25" />
+                <span className="h-px flex-1 bg-sg-gold/20" />
+                <h2 className="font-display text-base text-parchment sm:text-lg">{block.text}</h2>
+                <span className="h-px flex-1 bg-sg-gold/20" />
               </div>
             )
 
@@ -143,14 +143,14 @@ export function OriginalTextRenderer({ text }: { text: string }) {
 
           case 'cta':
             return (
-              <div key={i} className="mt-4 rounded-xl border border-blue-accent/20 bg-bg-elevated px-5 py-4 text-center">
-                <p className="font-ui text-sm font-semibold text-blue-accent">{block.text}</p>
+              <div key={i} className="mt-4 rounded-xl border border-sg-gold/20 bg-navy-mid px-5 py-4 text-center">
+                <p className="font-ui text-sm font-semibold text-sg-gold-light">{block.text}</p>
               </div>
             )
 
           default:
             return (
-              <p key={i} className="font-reading text-base leading-relaxed text-text-main">
+              <p key={i} className="font-reading text-base leading-relaxed text-parchment/80">
                 {block.text}
               </p>
             )

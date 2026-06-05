@@ -40,17 +40,17 @@ export function UserMessageCard({ message }: UserMessageCardProps) {
   } = message
 
   return (
-    <article className="rounded-2xl border border-blue-accent/10 bg-bg-surface shadow-sm">
+    <article className="rounded-2xl border border-sg-gold/15 bg-navy-mid shadow-sm">
       {/* Header */}
-      <div className="flex flex-wrap items-start justify-between gap-2 border-b border-blue-accent/10 px-4 py-3">
+      <div className="flex flex-wrap items-start justify-between gap-2 border-b border-sg-gold/15 px-4 py-3">
         <div className="flex flex-wrap items-center gap-2">
           {/* Type pill */}
-          <span className="rounded-full border border-blue-accent/20 bg-blue-accent/8 px-2.5 py-0.5 font-ui text-xs font-semibold text-blue-accent">
+          <span className="rounded-full border border-sg-gold/20 bg-sg-gold/10 px-2.5 py-0.5 font-ui text-xs font-semibold text-sg-gold-light">
             {MESSAGE_TYPE_LABELS[type]}
           </span>
           {/* Topic name */}
           {topicName && (
-            <span className="font-ui text-xs text-text-muted">
+            <span className="font-ui text-xs text-parchment/50">
               · <span className="italic">{topicName}</span>
             </span>
           )}
@@ -68,18 +68,18 @@ export function UserMessageCard({ message }: UserMessageCardProps) {
 
       {/* Content */}
       <div className="px-4 py-3">
-        <p className="font-reading text-sm leading-relaxed text-text-main">{content}</p>
+        <p className="font-reading text-sm leading-relaxed text-parchment/80">{content}</p>
       </div>
 
       {/* Admin response */}
       {adminResponse && (
-        <div className="mx-4 mb-3 rounded-xl border border-gold-main/40 bg-bg-elevated px-4 py-3">
-          <p className="mb-1.5 font-ui text-xs font-semibold uppercase tracking-wide text-gold-main">
+        <div className="mx-4 mb-3 rounded-xl border border-sg-gold/30 bg-sg-gold/5 px-4 py-3">
+          <p className="mb-1.5 font-ui text-xs font-semibold uppercase tracking-wide text-sg-gold-light">
             Respuesta del administrador
           </p>
-          <p className="font-reading text-sm leading-relaxed text-text-main">{adminResponse}</p>
+          <p className="font-reading text-sm leading-relaxed text-parchment/80">{adminResponse}</p>
           {adminRespondedAt && (
-            <p className="mt-2 font-ui text-xs text-text-muted">
+            <p className="mt-2 font-ui text-xs text-parchment/50">
               {relativeDate(adminRespondedAt)}
             </p>
           )}
@@ -87,10 +87,10 @@ export function UserMessageCard({ message }: UserMessageCardProps) {
       )}
 
       {/* Footer */}
-      <div className="border-t border-blue-accent/10 px-4 py-2">
+      <div className="border-t border-sg-gold/15 px-4 py-2">
         <time
           dateTime={createdAt}
-          className="font-ui text-xs text-text-muted"
+          className="font-ui text-xs text-parchment/50"
         >
           {relativeDate(createdAt)}
         </time>
