@@ -11,7 +11,12 @@
     "port-lessons": "tsx scripts/port-lesson-html.ts",
     "port-lesson-structured": "tsx scripts/port-lesson-structured.ts",
     "deploy:hosting": "npm run build && npx firebase-tools deploy --only hosting",
-    "deploy:rules": "npx firebase-tools deploy --only firestore:rules"
+    "deploy:rules": "npx firebase-tools deploy --only firestore:rules",
+    "admin:set": "tsx scripts/setAdminClaim.ts --set",
+    "admin:unset": "tsx scripts/setAdminClaim.ts --unset",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
     "firebase": "^12.12.1",
@@ -23,15 +28,20 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
     "@types/jsdom": "^28.0.1",
     "@types/node": "^24.12.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
+    "@vitest/ui": "^4.1.7",
     "autoprefixer": "^10.5.0",
     "eslint": "^10.2.1",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
+    "firebase-admin": "^13.10.0",
     "globals": "^17.5.0",
     "jsdom": "^29.1.1",
     "postcss": "^8.5.12",
@@ -40,6 +50,7 @@
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.2",
     "vite": "^8.0.10",
-    "vite-plugin-pwa": "^1.3.0"
+    "vite-plugin-pwa": "^1.3.0",
+    "vitest": "^4.1.7"
   }
 }

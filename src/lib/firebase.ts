@@ -1,11 +1,12 @@
 /**
- * Inicialización central de Firebase (app, Firestore, Auth, Storage).
+ * Inicialización central de Firebase (app, Firestore, Auth, Storage, Analytics).
  * La configuración proviene de variables de entorno Vite (sin secretos en código).
  *
  * No inicializar Auth ni Firestore al importar el módulo: con VITE_FIREBASE_API_KEY
  * vacío en el build de producción, getAuth() lanzaba auth/invalid-api-key y rompía toda la SPA.
  */
 import { getApp, getApps, initializeApp, type FirebaseOptions } from 'firebase/app'
+import { getAnalytics, isSupported, type Analytics } from 'firebase/analytics'
 import { getAuth, type Auth } from 'firebase/auth'
 import { getFirestore, type Firestore } from 'firebase/firestore'
 import { getStorage, type FirebaseStorage } from 'firebase/storage'
@@ -15,6 +16,7 @@ function readFirebaseOptions(): FirebaseOptions | null {
   if (typeof apiKey !== 'string' || apiKey.trim() === '') {
     return null
   }
+  const measurementId = import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
   return {
     apiKey: apiKey.trim(),
     authDomain: String(import.meta.env.VITE_FIREBASE_AUTH_DOMAIN ?? ''),
@@ -22,6 +24,9 @@ function readFirebaseOptions(): FirebaseOptions | null {
     storageBucket: String(import.meta.env.VITE_FIREBASE_STORAGE_BUCKET ?? ''),
     messagingSenderId: String(import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID ?? ''),
     appId: String(import.meta.env.VITE_FIREBASE_APP_ID ?? ''),
+    ...(typeof measurementId === 'string' && measurementId.trim() !== ''
+      ? { measurementId: measurementId.trim() }
+      : {}),
   }
 }
 
@@ -29,6 +34,8 @@ let app: ReturnType<typeof initializeApp> | undefined
 let dbInstance: Firestore | undefined
 let authInstance: Auth | undefined
 let storageInstance: FirebaseStorage | undefined
+let analyticsInstance: Analytics | undefined
+let analyticsInitPromise: Promise<Analytics | null> | undefined
 
 function getOrInitApp(): ReturnType<typeof initializeApp> {
   if (app) {
@@ -73,4 +80,25 @@ export function getFirebaseStorage(): FirebaseStorage {
     storageInstance = getStorage(getOrInitApp())
   }
   return storageInstance
+}
+
+/** Analytics: perezoso y solo en navegador compatible. */
+export async function getFirebaseAnalytics(): Promise<Analytics | null> {
+  if (analyticsInstance) {
+    return analyticsInstance
+  }
+  if (!analyticsInitPromise) {
+    analyticsInitPromise = (async () => {
+      if (typeof window === 'undefined') {
+        return null
+      }
+      const supported = await isSupported()
+      if (!supported) {
+        return null
+      }
+      analyticsInstance = getAnalytics(getOrInitApp())
+      return analyticsInstance
+    })()
+  }
+  return analyticsInitPromise
 }

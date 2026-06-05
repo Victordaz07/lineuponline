@@ -6,18 +6,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.tts = void 0;
 const https_1 = require("firebase-functions/v2/https");
 const params_1 = require("firebase-functions/params");
+const app_1 = require("firebase-admin/app");
+const auth_1 = require("firebase-admin/auth");
 const openai_1 = __importDefault(require("openai"));
+if ((0, app_1.getApps)().length === 0)
+    (0, app_1.initializeApp)();
 const openaiKey = (0, params_1.defineSecret)('OPENAI_API_KEY');
 /** Orígenes del front SPA (Hosting + desarrollo local). */
 const ALLOWED_ORIGINS = [
     'https://lineuponline-a7eda.web.app',
+    'https://lineuponline-a7eda.firebaseapp.com',
+    'https://lineuponline-17a81.web.app',
     'http://localhost:5173',
     'http://127.0.0.1:5173',
 ];
 exports.tts = (0, https_1.onRequest)({
     secrets: [openaiKey],
     cors: ALLOWED_ORIGINS,
-    // Importante: sin invoker público, Cloud Run/dev puede responder 403 al OPTIONS antes del handler → error CORS en el navegador.
     invoker: 'public',
     region: 'us-central1',
     memory: '256MiB',
@@ -31,9 +36,26 @@ exports.tts = (0, https_1.onRequest)({
         res.status(405).json({ error: 'Method not allowed' });
         return;
     }
+    // Verify Firebase ID token — only authenticated users can use paid TTS
+    const authHeader = req.headers.authorization ?? '';
+    if (!authHeader.startsWith('Bearer ')) {
+        res.status(401).json({ error: 'Unauthorized' });
+        return;
+    }
+    try {
+        await (0, auth_1.getAuth)().verifyIdToken(authHeader.slice(7));
+    }
+    catch {
+        res.status(401).json({ error: 'Invalid or expired token' });
+        return;
+    }
     const { text, voice = 'nova' } = req.body;
     if (!text?.trim()) {
         res.status(400).json({ error: 'text is required' });
+        return;
+    }
+    if (text.length > 4096) {
+        res.status(400).json({ error: 'text too long (max 4096 chars)' });
         return;
     }
     const validVoices = ['alloy', 'echo', 'fable', 'nova', 'onyx', 'shimmer'];

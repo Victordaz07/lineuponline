@@ -84,6 +84,8 @@ export function BlockRenderer({
             lessonId={lessonId}
             moduleId={moduleId}
             topicTitle={topicTitle}
+            blockKey={blockKey}
+            topicId={topicId}
           />
         )
       case 'central_quote':

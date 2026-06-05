@@ -14,7 +14,11 @@ service cloud.firestore {
     }
 
     match /users/{userId} {
-      allow read, write: if isOwner(userId);
+      allow read: if isOwner(userId);
+      // Prevent clients from writing role values other than 'student'
+      allow write: if isOwner(userId)
+        && (!request.resource.data.keys().hasAny(['role'])
+            || request.resource.data.role == 'student');
     }
 
     match /topics/{topicId} {

@@ -4,11 +4,11 @@ import { getDb } from '@/lib/firebase'
 import type { UserNote, UserNoteInput } from '@/types/userNotes'
 
 const noteInputSchema = z.object({
-  noteId: z.string().min(1),
-  topicId: z.string().min(1),
-  moduleId: z.string().min(1),
-  question: z.string().min(1),
-  answerText: z.string().min(1),
+  noteId: z.string().min(1).max(128),
+  topicId: z.string().min(1).max(256),
+  moduleId: z.string().min(1).max(256),
+  question: z.string().min(1).max(500),
+  answerText: z.string().min(1).max(10000),
   clientUpdatedAt: z.string().datetime(),
 })
 

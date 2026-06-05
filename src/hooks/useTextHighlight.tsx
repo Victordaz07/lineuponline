@@ -3,7 +3,7 @@ import type React from 'react'
 import type { HighlightColor, TextHighlight } from '@/stores/highlightsStore'
 import { useHighlightsStore } from '@/stores/highlightsStore'
 
-type SelectionState = { text: string; top: number; left: number }
+type SelectionState = { text: string; top: number; left: number; height?: number }
 
 /** State for an existing highlight the user clicked on */
 export type ActiveHighlight = {
@@ -77,6 +77,7 @@ export function useTextHighlight(
       text: selectedText,
       top: rect.top - 52,
       left: rect.left + rect.width / 2 - 72,
+      height: rect.height,
     })
   }, [])
 

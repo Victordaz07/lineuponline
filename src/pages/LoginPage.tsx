@@ -81,10 +81,13 @@ export default function LoginPage() {
       onSuccess()
     } catch (err) {
       const code = (err as { code?: string }).code ?? ''
-      if (code === 'auth/user-not-found' || code === 'auth/wrong-password' || code === 'auth/invalid-credential') {
-        setEmailError('Correo o contraseña incorrectos.')
-      } else if (code === 'auth/email-already-in-use') {
-        setEmailError('Ese correo ya tiene una cuenta. Inicia sesión.')
+      if (
+        code === 'auth/user-not-found' ||
+        code === 'auth/wrong-password' ||
+        code === 'auth/invalid-credential' ||
+        code === 'auth/email-already-in-use'
+      ) {
+        setEmailError('Correo o contraseña incorrectos. Verifica tus datos.')
       } else if (code === 'auth/weak-password') {
         setEmailError('La contraseña debe tener al menos 6 caracteres.')
       } else {
@@ -200,7 +203,7 @@ export default function LoginPage() {
             {googleLoading ? 'Conectando…' : 'Continuar con Google'}
           </button>
           {googleError && (
-            <p className="text-center font-ui text-sm text-red-500">{googleError}</p>
+            <p role="alert" className="text-center font-ui text-sm text-red-500">{googleError}</p>
           )}
           <p className="text-center font-ui text-xs text-text-muted">
             Rápido, seguro, sin contraseñas.
@@ -281,7 +284,7 @@ export default function LoginPage() {
               </div>
 
               {emailError && (
-                <p className="font-ui text-sm text-red-500">{emailError}</p>
+                <p role="alert" className="font-ui text-sm text-red-500">{emailError}</p>
               )}
 
               <button
@@ -331,7 +334,7 @@ export default function LoginPage() {
                   Incluye el código de país (ej. +52 para México)
                 </p>
               </div>
-              {phoneError && <p className="font-ui text-sm text-red-500">{phoneError}</p>}
+              {phoneError && <p role="alert" className="font-ui text-sm text-red-500">{phoneError}</p>}
               <button
                 type="submit"
                 disabled={phoneLoading}
@@ -364,7 +367,7 @@ export default function LoginPage() {
                   className="w-full rounded-xl border border-blue-accent/20 bg-white px-4 py-2.5 text-center font-ui text-xl tracking-[0.5em] text-text-main focus:outline-none focus:ring-2 focus:ring-gold-main/30"
                 />
               </div>
-              {phoneError && <p className="font-ui text-sm text-red-500">{phoneError}</p>}
+              {phoneError && <p role="alert" className="font-ui text-sm text-red-500">{phoneError}</p>}
               <button
                 type="submit"
                 disabled={phoneLoading || otp.length !== 6}

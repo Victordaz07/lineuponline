@@ -1,10 +1,12 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { useAuth } from '@/hooks/useAuth'
 import { isFirebaseConfigured } from '@/lib/firebase'
+import { debounce } from '@/lib/debounce'
 import { useFavoritesStore } from '@/stores/favoritesStore'
 import { useHighlightsStore } from '@/stores/highlightsStore'
 import { useMarginNotesStore } from '@/stores/marginNotesStore'
 import { useStudyJournalStore } from '@/stores/studyJournalStore'
+import { useToastStore } from '@/stores/toastStore'
 import {
   loadFavorites,
   loadHighlights,
@@ -32,20 +34,18 @@ export function useCloudSync() {
   const syncedForRef = useRef<string | null>(null)
 
   const favorites = useFavoritesStore((s) => s.verses)
-
   const highlights = useHighlightsStore((s) => s.highlights)
   const marginNotes = useMarginNotesStore((s) => s.notes)
   const journalEntries = useStudyJournalStore((s) => s.entries)
 
+  // Initial sync: pull remote + push merged state (runs once per login session)
   useEffect(() => {
     if (!isLoggedIn || !user || !isFirebaseConfigured()) return
-    // Only run once per user session
     if (syncedForRef.current === user.uid) return
     syncedForRef.current = user.uid
 
     void (async () => {
       try {
-        // 1. Pull remote data
         const [remoteFavs, remoteHighlights, remoteNotes, remoteJournal] = await Promise.all([
           loadFavorites(user.uid),
           loadHighlights(user.uid),
@@ -53,7 +53,7 @@ export function useCloudSync() {
           loadJournalEntries(user.uid),
         ])
 
-        // 2. Merge: combine remote + local, local wins on id collision
+        // Merge: combine remote + local, local wins on id collision
         const favMap = new Map(remoteFavs.map((v) => [v.id, v]))
         useFavoritesStore.getState().verses.forEach((v) => favMap.set(v.id, v))
 
@@ -66,7 +66,6 @@ export function useCloudSync() {
         const jMap = new Map(remoteJournal.map((e) => [e.entryId, e]))
         useStudyJournalStore.getState().entries.forEach((e) => jMap.set(e.entryId, e))
 
-        // Apply merged data to local stores
         if (remoteFavs.length > 0) {
           useFavoritesStore.setState({ verses: [...favMap.values()] })
         }
@@ -80,7 +79,6 @@ export function useCloudSync() {
           useStudyJournalStore.setState({ entries: [...jMap.values()] })
         }
 
-        // 3. Push merged state to Firestore
         const mergedFavs = [...favMap.values()]
         const mergedHl = [...hlMap.values()]
         const mergedNotes = [...noteMap.values()]
@@ -93,29 +91,83 @@ export function useCloudSync() {
           mergedJournal.length > 0 ? syncJournalEntries(user.uid, mergedJournal) : Promise.resolve(),
         ])
       } catch {
-        // Non-critical — local data is always intact, sync failure is silent
+        useToastStore
+          .getState()
+          .addToast('No se pudo sincronizar con la nube. Tus datos locales están seguros.', 'error')
       }
     })()
   }, [isLoggedIn, user])
 
-  // Push incremental writes when stores change (only while logged in)
-  useEffect(() => {
-    if (!isLoggedIn || !user || !isFirebaseConfigured()) return
-    void syncFavorites(user.uid, favorites).catch(() => {})
-  }, [favorites, isLoggedIn, user])
+  // Incremental sync — debounced 1500ms so rapid mutations don't fire per keystroke
+  const syncFavDebounced = useMemo(
+    () =>
+      debounce((uid: string, data: typeof favorites) => {
+        void syncFavorites(uid, data).catch(() => {
+          useToastStore
+            .getState()
+            .addToast('Error al guardar favorito en la nube.', 'error')
+        })
+      }, 1500),
+    [],
+  )
+
+  const syncHlDebounced = useMemo(
+    () =>
+      debounce((uid: string, data: typeof highlights) => {
+        void syncHighlights(uid, data).catch(() => {
+          useToastStore
+            .getState()
+            .addToast('Error al guardar resaltado en la nube.', 'error')
+        })
+      }, 1500),
+    [],
+  )
+
+  const syncNotesDebounced = useMemo(
+    () =>
+      debounce((uid: string, data: typeof marginNotes) => {
+        void syncMarginNotes(uid, data).catch(() => {
+          useToastStore
+            .getState()
+            .addToast('Error al guardar nota en la nube.', 'error')
+        })
+      }, 1500),
+    [],
+  )
+
+  const syncJournalDebounced = useMemo(
+    () =>
+      debounce((uid: string, data: typeof journalEntries) => {
+        void syncJournalEntries(uid, data).catch(() => {
+          useToastStore
+            .getState()
+            .addToast('Error al guardar diario en la nube.', 'error')
+        })
+      }, 1500),
+    [],
+  )
 
   useEffect(() => {
     if (!isLoggedIn || !user || !isFirebaseConfigured()) return
-    void syncHighlights(user.uid, highlights).catch(() => {})
-  }, [highlights, isLoggedIn, user])
+    syncFavDebounced(user.uid, favorites)
+    return () => syncFavDebounced.cancel()
+  }, [favorites, isLoggedIn, user, syncFavDebounced])
 
   useEffect(() => {
     if (!isLoggedIn || !user || !isFirebaseConfigured()) return
-    void syncMarginNotes(user.uid, marginNotes).catch(() => {})
-  }, [marginNotes, isLoggedIn, user])
+    syncHlDebounced(user.uid, highlights)
+    return () => syncHlDebounced.cancel()
+  }, [highlights, isLoggedIn, user, syncHlDebounced])
 
   useEffect(() => {
     if (!isLoggedIn || !user || !isFirebaseConfigured()) return
-    void syncJournalEntries(user.uid, journalEntries).catch(() => {})
-  }, [journalEntries, isLoggedIn, user])
+    syncNotesDebounced(user.uid, marginNotes)
+    return () => syncNotesDebounced.cancel()
+  }, [marginNotes, isLoggedIn, user, syncNotesDebounced])
+
+  useEffect(() => {
+    if (!isLoggedIn || !user || !isFirebaseConfigured()) return
+    syncJournalDebounced(user.uid, journalEntries)
+    return () => syncJournalDebounced.cancel()
+  }, [journalEntries, isLoggedIn, user, syncJournalDebounced])
 }

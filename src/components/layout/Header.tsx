@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
+import { useAdmin } from '@/hooks/useAdmin'
 import { signOut } from '@/services/authService'
 import { usePreferencesStore, type FontSize } from '@/stores/preferencesStore'
 import { SeekerLogo } from '@/components/common/SeekerLogo'
@@ -38,6 +39,7 @@ function providerLabel(user: { providerData?: { providerId: string }[] } | null)
 
 function UserMenu() {
   const { user, isLoggedIn } = useAuth()
+  const { isAdmin } = useAdmin()
   const [open, setOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement | null>(null)
 
@@ -61,6 +63,15 @@ function UserMenu() {
     }
     document.addEventListener('mousedown', handler)
     return () => document.removeEventListener('mousedown', handler)
+  }, [open])
+
+  useEffect(() => {
+    if (!open) return
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
   }, [open])
 
   async function handleSignOut() {
@@ -92,7 +103,8 @@ function UserMenu() {
         onClick={() => setOpen((o) => !o)}
         aria-label="Mi cuenta"
         aria-expanded={open}
-        className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-accent font-ui text-sm font-bold text-white shadow-sm transition hover:brightness-90"
+        aria-haspopup="menu"
+        className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-accent font-ui text-sm font-bold text-white shadow-sm transition hover:brightness-90 focus-visible:ring-2 focus-visible:ring-gold-main focus-visible:ring-offset-2"
       >
         {user?.photoURL ? (
           <img src={user.photoURL} alt={displayName} className="h-8 w-8 rounded-full object-cover" referrerPolicy="no-referrer" />
@@ -157,6 +169,17 @@ function UserMenu() {
               Buscar lecciones
               <span className="ml-auto text-text-muted text-xs">›</span>
             </Link>
+            {isAdmin ? (
+              <Link
+                to="/admin"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-3 border-t border-blue-accent/8 bg-gold-dim/40 px-4 py-2.5 font-ui text-sm font-semibold text-blue-accent transition hover:bg-gold-dim/70"
+              >
+                <span className="text-base" aria-hidden="true">🛡️</span>
+                Panel admin
+                <span className="ml-auto text-blue-accent/60 text-xs">›</span>
+              </Link>
+            ) : null}
           </div>
 
           <div className="border-b border-blue-accent/8 px-4 py-3">
