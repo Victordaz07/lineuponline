@@ -42,7 +42,13 @@ export async function fetchSubscription(): Promise<ElevenLabsSubscription> {
   const res = await fetch(`${BASE_URL}/user/subscription`, {
     headers: { 'xi-api-key': API_KEY.trim() },
   })
-  if (!res.ok) throw new Error(`ElevenLabs subscription error ${res.status}`)
+  if (!res.ok) {
+    // A key can be valid for TTS but lack the user_read scope used here.
+    if (res.status === 401) {
+      throw new Error('La API key no tiene permiso user_read (los créditos no se muestran, pero la generación de audio sí funciona).')
+    }
+    throw new Error(`ElevenLabs subscription error ${res.status}`)
+  }
   const data = await res.json() as {
     character_count: number
     character_limit: number

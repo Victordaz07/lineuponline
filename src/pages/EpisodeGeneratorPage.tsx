@@ -33,7 +33,7 @@ function CreditsCard() {
         ) : loading ? (
           <p className="font-ui text-sm text-parchment/40">Loading…</p>
         ) : error ? (
-          <p className="font-ui text-sm text-rose-400">{error}</p>
+          <p className="font-ui text-sm text-parchment/40">{error}</p>
         ) : data ? (
           <div className="space-y-1">
             <div className="flex items-center gap-3">
