@@ -61,8 +61,8 @@ export default function ModuleView() {
 
   if (error || !module) {
     return (
-      <div className="mx-auto max-w-lg rounded-2xl border border-red-200 bg-red-50 p-6 text-center">
-        <p className="font-ui text-sm text-red-800">{error ?? 'Módulo no encontrado.'}</p>
+      <div className="mx-auto max-w-lg rounded-2xl border border-red-900/40 bg-red-950/40 p-6 text-center">
+        <p className="font-ui text-sm text-red-400">{error ?? 'Módulo no encontrado.'}</p>
       </div>
     )
   }
@@ -76,12 +76,12 @@ export default function ModuleView() {
           </span>
           <div>
             {module.categoryLabel && (
-              <p className="font-ui text-xs font-semibold uppercase tracking-[0.2em] text-gold-main">
+              <p className="font-ui text-xs font-semibold uppercase tracking-[0.2em] text-sg-gold">
                 {module.categoryLabel}
               </p>
             )}
-            <h1 className="font-title text-3xl text-blue-accent">{module.title}</h1>
-            <p className="mt-2 max-w-prose text-reading text-base text-text-muted">{module.description}</p>
+            <h1 className="font-display text-3xl text-parchment">{module.title}</h1>
+            <p className="mt-2 max-w-prose font-display text-base text-parchment/60">{module.description}</p>
           </div>
         </div>
         {module.heroImageUrl ? (
@@ -95,13 +95,13 @@ export default function ModuleView() {
       </header>
 
       <section aria-label="Filtro por nivel">
-        <p className="mb-2 font-ui text-sm font-semibold text-text-main">Nivel</p>
+        <p className="mb-2 font-ui text-sm font-semibold text-parchment/70">Nivel</p>
         <div className="flex flex-wrap gap-2">
           <button
             type="button"
             onClick={() => setLevelFilter('ALL')}
-            className={`rounded-full px-3 py-1 font-ui text-xs font-semibold ${
-              levelFilter === 'ALL' ? 'bg-blue-accent text-white' : 'border border-blue-accent/20 bg-white text-blue-accent'
+            className={`rounded-full px-3 py-1 font-ui text-xs font-semibold transition ${
+              levelFilter === 'ALL' ? 'bg-sg-gold text-navy-deep' : 'border border-sg-gold/20 bg-transparent text-parchment/60 hover:border-sg-gold/40'
             }`}
           >
             Todos
@@ -111,8 +111,8 @@ export default function ModuleView() {
               key={lvl}
               type="button"
               onClick={() => setLevelFilter(lvl)}
-              className={`rounded-full px-3 py-1 font-ui text-xs font-semibold ${
-                levelFilter === lvl ? 'bg-gold-main text-white' : 'border border-gold-main/30 bg-white text-blue-accent'
+              className={`rounded-full px-3 py-1 font-ui text-xs font-semibold transition ${
+                levelFilter === lvl ? 'bg-sg-gold text-navy-deep' : 'border border-sg-gold/30 bg-transparent text-parchment/60 hover:border-sg-gold/50'
               }`}
             >
               {LEVEL_LABEL[lvl]}
@@ -138,7 +138,7 @@ export default function ModuleView() {
           </div>
         ) : (
           <>
-            <h2 className="mb-4 font-title text-xl text-blue-accent">Lecciones</h2>
+            <h2 className="mb-4 font-display text-xl text-parchment">Lecciones</h2>
             <LessonList lessons={filteredLessons} moduleId={module.id} />
           </>
         )}
