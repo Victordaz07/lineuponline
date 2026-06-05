@@ -14,8 +14,7 @@ service cloud.firestore {
     }
 
     match /users/{userId} {
-      allow read: if isOwner(userId);
-      // Prevent clients from writing role values other than 'student'
+      allow read: if isOwner(userId) || isAdmin();
       allow write: if isOwner(userId)
         && (!request.resource.data.keys().hasAny(['role'])
             || request.resource.data.role == 'student');
@@ -34,7 +33,6 @@ service cloud.firestore {
       allow read, write: if isOwner(userId);
     }
 
-    // Datos de personalización (resaltados, notas, favoritos, diario)
     match /user_favorites/{userId}/verses/{id} {
       allow read, write: if isOwner(userId);
     }
@@ -49,6 +47,19 @@ service cloud.firestore {
 
     match /user_journal/{userId}/entries/{id} {
       allow read, write: if isOwner(userId);
+    }
+
+    // Admin collectionGroup reads for analytics dashboard
+    match /{path=**}/topics/{topicId} {
+      allow read: if isAdmin();
+    }
+
+    match /{path=**}/entries/{entryId} {
+      allow read: if isAdmin();
+    }
+
+    match /{path=**}/notes/{noteId} {
+      allow read: if isAdmin();
     }
 
     match /community_messages/{messageId} {
