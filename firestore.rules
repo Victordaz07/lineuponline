@@ -74,7 +74,7 @@ service cloud.firestore {
     }
 
     match /admin_announcements/{announcementId} {
-      allow read: if true;
+      allow read: if isAuthenticated();
       allow write: if isAdmin();
     }
   }

@@ -56,7 +56,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   async function signOutUser() {
+    const uid = user?.uid
     await firebaseSignOut()
+    const keys = [
+      'lineup-favorites',
+      'lineup-highlights',
+      'lineup-lesson-progress',
+      'lineup-margin-notes',
+      'lineup-study-journal',
+      'lineuponline:userProgress:v1',
+      'lineuponline:localId',
+    ]
+    if (uid) keys.push(`lineuponline:notesQueue:v1:${uid}`)
+    keys.forEach((k) => localStorage.removeItem(k))
   }
 
   return (

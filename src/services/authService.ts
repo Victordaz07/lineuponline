@@ -11,7 +11,10 @@ import {
   type ConfirmationResult,
 } from 'firebase/auth'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import { z } from 'zod'
 import { getFirebaseAuth, getFirebaseStorage } from '@/lib/firebase'
+
+const emailSchema = z.string().email('Email inválido')
 
 // ── Google ──────────────────────────────────────────────────────────────────
 
@@ -39,7 +42,8 @@ export async function createAccountWithEmail(
 }
 
 export async function sendPasswordReset(email: string): Promise<void> {
-  await sendPasswordResetEmail(getFirebaseAuth(), email)
+  const validEmail = emailSchema.parse(email)
+  await sendPasswordResetEmail(getFirebaseAuth(), validEmail)
 }
 
 // ── Phone / SMS ───────────────────────────────────────────────────────────────

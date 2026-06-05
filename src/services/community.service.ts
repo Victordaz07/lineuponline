@@ -11,6 +11,7 @@ import {
   where,
   type Unsubscribe,
 } from 'firebase/firestore'
+import { z } from 'zod'
 import { getDb } from '@/lib/firebase'
 import type {
   AdminAnnouncement,
@@ -19,6 +20,18 @@ import type {
   MessageStatus,
   MessageType,
 } from '@/types/community'
+
+const submitMessageSchema = z.object({
+  type: z.enum(['comment', 'suggestion', 'concern', 'topic_request']),
+  content: z.string().min(20, 'Mínimo 20 caracteres').max(5000, 'Máximo 5000 caracteres'),
+  topicName: z.string().max(256).optional(),
+  userId: z.string().min(1),
+  userName: z.string().min(1).max(256),
+})
+
+const adminReplySchema = z.object({
+  response: z.string().min(1, 'La respuesta no puede estar vacía').max(5000),
+})
 
 // ── Messages ─────────────────────────────────────────────────────────────────
 
@@ -29,8 +42,9 @@ export async function submitMessage(payload: {
   userId: string
   userName: string
 }): Promise<void> {
+  const valid = submitMessageSchema.parse(payload)
   await addDoc(collection(getDb(), 'community_messages'), {
-    ...payload,
+    ...valid,
     status: 'pending' as MessageStatus,
     createdAt: serverTimestamp(),
     updatedAt: serverTimestamp(),
@@ -93,8 +107,9 @@ export async function replyToMessage(
   messageId: string,
   response: string,
 ): Promise<void> {
+  const { response: validResponse } = adminReplySchema.parse({ response })
   await updateDoc(doc(getDb(), 'community_messages', messageId), {
-    adminResponse: response,
+    adminResponse: validResponse,
     adminRespondedAt: serverTimestamp(),
     status: 'replied' as MessageStatus,
     updatedAt: serverTimestamp(),

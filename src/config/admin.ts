@@ -1,10 +1,3 @@
-/**
- * UIDs de administrador fijos (lista en cliente; reglas Firestore usan token `admin`).
- *
- * Proyecto Firebase: lineuponline-a7eda
- * - rrl3eojMMthlp6P6PjQDFIWo9Qg2 → daz.graphic*
- * - O2ttkJj8VlNLT26Z5OhTRwL8nqK2 → viruizbc*
- */
 export const PRIMARY_ADMIN_UIDS = [
   'rrl3eojMMthlp6P6PjQDFIWo9Qg2',
   'O2ttkJj8VlNLT26Z5OhTRwL8nqK2',
