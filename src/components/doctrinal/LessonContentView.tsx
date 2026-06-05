@@ -174,36 +174,36 @@ export function LessonContentView({
   return (
     <article className="mx-auto max-w-3xl space-y-6 pb-8">
       <LessonDisclaimer />
-      <header className="space-y-3 rounded-2xl border border-gold-main/20 bg-gradient-to-br from-white via-bg-surface to-bg-elevated p-6 shadow-sm">
-        <p className="font-ui text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-text-muted">
+      <header className="space-y-3 rounded-2xl border border-sg-gold/20 bg-navy-mid p-6 shadow-sm">
+        <p className="font-ui text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-parchment/50">
           {tab === 'study' ? 'Estudio guiado' : 'Texto completo · discurso original'}
         </p>
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <h1 className="font-title text-3xl text-blue-accent sm:text-4xl">{title}</h1>
+            <h1 className="font-display text-3xl text-parchment sm:text-4xl">{title}</h1>
             {lesson.author ? (
-              <p className="mt-2 font-ui text-sm text-text-muted">
-                por <span className="font-semibold text-text-main">{lesson.author}</span>
+              <p className="mt-2 font-ui text-sm text-parchment/50">
+                por <span className="font-semibold text-parchment/80">{lesson.author}</span>
               </p>
             ) : null}
             {lesson.description ? (
-              <p className="mt-3 max-w-prose text-reading text-base text-text-main">{lesson.description}</p>
+              <p className="mt-3 max-w-prose font-display text-base text-parchment/70">{lesson.description}</p>
             ) : null}
           </div>
           <LevelBadge level={lesson.level} />
         </div>
         {isRich ? (
-          <div className="flex flex-col gap-2 border-t border-gold-main/15 pt-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="font-ui text-sm text-text-main">
+          <div className="flex flex-col gap-2 border-t border-sg-gold/15 pt-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="font-ui text-sm text-parchment/70">
               Progreso de temas:{' '}
-              <span className="font-semibold text-blue-accent">
+              <span className="font-semibold text-sg-gold-light">
                 {visitedTopicsCount} de {totalTopics}
               </span>
             </div>
             <button
               type="button"
               onClick={() => setJournalOpen(true)}
-              className="rounded-full border border-blue-accent/25 bg-white px-4 py-2 font-ui text-sm font-semibold text-blue-accent shadow-sm"
+              className="rounded-full border border-sg-gold/30 bg-sg-gold/10 px-4 py-2 font-ui text-sm font-semibold text-sg-gold-light shadow-sm transition hover:bg-sg-gold/20"
             >
               Diario de estudio
             </button>
@@ -223,14 +223,14 @@ export function LessonContentView({
         <div
           role="tablist"
           aria-label="Tipo de contenido"
-          className="flex gap-2 border-b border-blue-accent/10 pb-px"
+          className="flex gap-2 border-b border-sg-gold/15 pb-px"
         >
           <button
             type="button"
             role="tab"
             aria-selected={tab === 'study'}
             className={`rounded-t-lg px-4 py-2 font-ui text-sm font-semibold transition ${
-              tab === 'study' ? 'border-b-2 border-gold-main text-blue-accent' : 'text-text-muted hover:text-blue-accent'
+              tab === 'study' ? 'border-b-2 border-sg-gold text-sg-gold-light' : 'text-parchment/40 hover:text-parchment'
             }`}
             onClick={() => setTab('study')}
           >
@@ -242,8 +242,8 @@ export function LessonContentView({
             aria-selected={tab === 'original'}
             className={`rounded-t-lg px-4 py-2 font-ui text-sm font-semibold transition ${
               tab === 'original'
-                ? 'border-b-2 border-gold-main text-blue-accent'
-                : 'text-text-muted hover:text-blue-accent'
+                ? 'border-b-2 border-sg-gold text-sg-gold-light'
+                : 'text-parchment/40 hover:text-parchment'
             }`}
             onClick={() => setTab('original')}
           >
@@ -266,7 +266,7 @@ export function LessonContentView({
           <button
             type="button"
             onClick={() => setShowNotes((v) => !v)}
-            className="rounded-full border border-gold-main/40 bg-gold-dim px-4 py-2 font-ui text-sm font-semibold text-blue-accent"
+            className="rounded-full border border-sg-gold/40 bg-sg-gold/10 px-4 py-2 font-ui text-sm font-semibold text-sg-gold-light transition hover:bg-sg-gold/20"
             aria-expanded={showNotes}
           >
             {showNotes ? 'Ocultar notas' : 'Mis notas'}
@@ -279,7 +279,7 @@ export function LessonContentView({
       <div
         role="tabpanel"
         aria-label={tab === 'study' ? 'Contenido de estudio' : 'Texto original'}
-        className="space-y-6 rounded-2xl border border-blue-accent/10 bg-white/95 p-5 shadow-inner sm:p-8"
+        className="space-y-6 rounded-2xl border border-sg-gold/15 bg-navy-mid p-5 sm:p-8"
       >
         {tab === 'study' && isRich ? (
           <div className="space-y-10">
@@ -323,7 +323,7 @@ export function LessonContentView({
           <ExplanationPanel title="Ideas para reflexionar">
             <div className="space-y-4">
               {studyParagraphs.map((p, index) => (
-                <p key={`study-${index}`} className="text-reading text-base leading-relaxed text-text-main">
+                <p key={`study-${index}`} className="font-display text-base leading-relaxed text-parchment/80">
                   {p}
                 </p>
               ))}
@@ -337,7 +337,7 @@ export function LessonContentView({
 
         {lesson.scriptures?.length ? (
           <div className="space-y-3">
-            <h2 className="font-title text-xl text-blue-accent">Escrituras relacionadas</h2>
+            <h2 className="font-display text-xl text-parchment">Escrituras relacionadas</h2>
             <div className="space-y-3">
               {lesson.scriptures.map((s) => (
                 <ScriptureBlock key={s.reference} scripture={s} />
@@ -366,34 +366,34 @@ export function LessonContentView({
       />
 
       <nav
-        className="flex flex-col gap-3 border-t border-gold-main/20 pt-6 sm:flex-row sm:justify-between"
+        className="flex flex-col gap-3 border-t border-sg-gold/20 pt-6 sm:flex-row sm:justify-between"
         aria-label="Navegación entre lecciones"
       >
         {lesson.previousLessonId ? (
           <Link
             to={`/lesson/${moduleId}/${lesson.previousLessonId}`}
-            className="inline-flex items-center justify-center rounded-xl border border-blue-accent/25 bg-white px-4 py-3 font-ui text-sm font-semibold text-blue-accent shadow-sm transition hover:bg-gold-dim"
+            className="inline-flex items-center justify-center rounded-xl border border-sg-gold/25 bg-navy-mid px-4 py-3 font-ui text-sm font-semibold text-sg-gold-light shadow-sm transition hover:bg-sg-gold/10"
           >
             ← Lección anterior
           </Link>
         ) : (
-          <span className="text-sm text-text-muted">Inicio del módulo</span>
+          <span className="text-sm text-parchment/40">Inicio del módulo</span>
         )}
         <Link
           to={`/module/${moduleId}`}
-          className="inline-flex items-center justify-center rounded-xl border border-gold-main/40 bg-gold-dim px-4 py-3 font-ui text-sm font-semibold text-blue-accent"
+          className="inline-flex items-center justify-center rounded-xl border border-sg-gold/40 bg-sg-gold/10 px-4 py-3 font-ui text-sm font-semibold text-sg-gold-light transition hover:bg-sg-gold/20"
         >
           Volver al módulo
         </Link>
         {lesson.nextLessonId ? (
           <Link
             to={`/lesson/${moduleId}/${lesson.nextLessonId}`}
-            className="inline-flex items-center justify-center rounded-xl border border-blue-accent/25 bg-white px-4 py-3 font-ui text-sm font-semibold text-blue-accent shadow-sm transition hover:bg-gold-dim"
+            className="inline-flex items-center justify-center rounded-xl border border-sg-gold/25 bg-navy-mid px-4 py-3 font-ui text-sm font-semibold text-sg-gold-light shadow-sm transition hover:bg-sg-gold/10"
           >
             Siguiente lección →
           </Link>
         ) : (
-          <span className="text-sm text-text-muted sm:text-right">Fin del módulo</span>
+          <span className="text-sm text-parchment/40 sm:text-right">Fin del módulo</span>
         )}
       </nav>
 
