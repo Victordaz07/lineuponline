@@ -25,9 +25,6 @@ function newNoteId(): string {
   return `note-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`
 }
 
-/**
- * Prompts de notas guiadas; opcionalmente guarda en Firestore vía onSaveNote.
- */
 export function NotePromptsBlock({
   block,
   moduleId,
@@ -48,9 +45,7 @@ export function NotePromptsBlock({
   const handleSave = useCallback(
     async (promptId: string, question: string) => {
       const answerText = (drafts[promptId] ?? '').trim()
-      if (!answerText || !onSaveNote) {
-        return
-      }
+      if (!answerText || !onSaveNote) return
       setBusyId(promptId)
       try {
         const note: UserNoteInput = {
@@ -72,16 +67,16 @@ export function NotePromptsBlock({
   )
 
   return (
-    <div className="space-y-4 rounded-2xl border border-gold-main/30 bg-white p-5 shadow-sm">
-      <p className="font-ui text-xs font-semibold uppercase tracking-wider text-gold-main">Notas guiadas</p>
-      <p className="text-sm text-text-muted">
+    <div className="space-y-4 rounded-2xl border border-sg-gold/25 bg-navy-mid p-5 shadow-sm">
+      <p className="font-ui text-xs font-semibold uppercase tracking-wider text-sg-gold">Notas guiadas</p>
+      <p className="font-ui text-sm text-parchment/60">
         Escribe lo que sientes sobre este tema; puedes revisarlo luego en tu diario de estudio.
         {topicTitle ? <span className="sr-only"> Tema: {topicTitle}.</span> : null}
       </p>
       <ul className="space-y-4">
         {block.prompts.map((p) => (
-          <li key={p.id} className="rounded-xl border border-blue-accent/10 bg-bg-elevated/80 p-4">
-            <label htmlFor={`prompt-${p.id}`} className="font-ui text-sm font-semibold text-blue-accent">
+          <li key={p.id} className="rounded-xl border border-sg-gold/15 bg-navy-deep p-4">
+            <label htmlFor={`prompt-${p.id}`} className="font-ui text-sm font-semibold text-parchment/85">
               {p.question}
             </label>
             <textarea
@@ -90,7 +85,7 @@ export function NotePromptsBlock({
               value={drafts[p.id] ?? ''}
               onChange={(e) => setDraft(p.id, e.target.value)}
               disabled={Boolean(saved[p.id])}
-              className="mt-2 w-full rounded-lg border border-blue-accent/20 bg-white p-3 font-reading text-sm text-text-main focus:border-gold-main focus:outline-none focus:ring-1 focus:ring-gold-main disabled:opacity-70"
+              className="mt-2 w-full rounded-lg border border-sg-gold/20 bg-navy-mid p-3 font-display text-sm text-parchment/85 placeholder:text-parchment/35 focus:border-sg-gold focus:outline-none focus:ring-1 focus:ring-sg-gold/40 disabled:opacity-60"
             />
             <div className="mt-2 flex items-center gap-2">
               {onSaveNote ? (
@@ -98,12 +93,12 @@ export function NotePromptsBlock({
                   type="button"
                   disabled={Boolean(saved[p.id]) || busyId === p.id || !(drafts[p.id] ?? '').trim()}
                   onClick={() => void handleSave(p.id, p.question)}
-                  className="rounded-full bg-gold-main px-4 py-1.5 font-ui text-xs font-semibold text-blue-accent hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="rounded-full bg-sg-gold px-4 py-1.5 font-ui text-xs font-semibold text-navy-deep hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {saved[p.id] ? 'Guardado' : busyId === p.id ? 'Guardando…' : 'Guardar nota'}
                 </button>
               ) : (
-                <p className="font-ui text-xs text-text-muted">Inicia sesión o configura notas para guardar.</p>
+                <p className="font-ui text-xs text-parchment/50">Inicia sesión o configura notas para guardar.</p>
               )}
             </div>
           </li>

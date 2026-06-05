@@ -13,14 +13,14 @@ export function CompareGridBlockComponent({ block }: { block: CompareGridBlock }
     return (
       <div className="my-5 overflow-x-auto">
         {block.title ? (
-          <p className="mb-3 font-ui text-sm font-semibold text-text-main">{block.title}</p>
+          <p className="mb-3 font-ui text-sm font-semibold text-parchment/85">{block.title}</p>
         ) : null}
         <table className="w-full border-collapse text-sm">
           {block.columns ? (
             <thead>
-              <tr className="bg-blue-accent/10">
+              <tr className="bg-sg-gold/10">
                 {block.columns.map((col, i) => (
-                  <th key={i} className="border border-blue-accent/15 px-3 py-2 font-ui font-bold text-text-main text-left">{col}</th>
+                  <th key={i} className="border border-sg-gold/15 px-3 py-2 font-ui font-bold text-parchment text-left">{col}</th>
                 ))}
               </tr>
             </thead>
@@ -29,10 +29,10 @@ export function CompareGridBlockComponent({ block }: { block: CompareGridBlock }
             {block.rows.map((row, i) => {
               const cells = Array.isArray(row) ? row : [row.label, row.a, row.b]
               return (
-                <tr key={i} className={i % 2 === 0 ? 'bg-white/60' : 'bg-blue-50/40'}>
-                  <td className="border border-blue-accent/15 px-3 py-2 font-ui font-semibold text-text-main">{cells[0]}</td>
-                  <td className="border border-blue-accent/15 px-3 py-2 text-emerald-800">{cells[1]}</td>
-                  <td className="border border-blue-accent/15 px-3 py-2 text-red-800">{cells[2]}</td>
+                <tr key={i} className={i % 2 === 0 ? 'bg-navy-mid' : 'bg-navy-deep'}>
+                  <td className="border border-sg-gold/15 px-3 py-2 font-ui font-semibold text-parchment/85">{cells[0]}</td>
+                  <td className="border border-sg-gold/15 px-3 py-2 text-emerald-400">{cells[1]}</td>
+                  <td className="border border-sg-gold/15 px-3 py-2 text-red-400">{cells[2]}</td>
                 </tr>
               )
             })}
@@ -52,26 +52,26 @@ export function CompareGridBlockComponent({ block }: { block: CompareGridBlock }
   return (
     <div className="my-5">
       {block.title ? (
-        <p className="mb-3 font-ui text-sm font-semibold text-text-main">{block.title}</p>
+        <p className="mb-3 font-ui text-sm font-semibold text-parchment/85">{block.title}</p>
       ) : null}
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4">
-          <p className="mb-3 font-ui text-xs font-bold uppercase tracking-wide text-emerald-700">{leftHeading}</p>
+        <div className="rounded-xl border border-emerald-500/25 bg-emerald-500/10 p-4">
+          <p className="mb-3 font-ui text-xs font-bold uppercase tracking-wide text-emerald-400">{leftHeading}</p>
           <ul className="space-y-1.5">
             {leftItems.map((item, i) => (
-              <li key={i} className="flex items-start gap-2 font-ui text-sm text-text-main">
-                <span className="mt-0.5 shrink-0 text-emerald-600">✓</span>
+              <li key={i} className="flex items-start gap-2 font-ui text-sm text-parchment/80">
+                <span className="mt-0.5 shrink-0 text-emerald-400">✓</span>
                 <span>{item}</span>
               </li>
             ))}
           </ul>
         </div>
-        <div className="rounded-xl border border-red-200 bg-red-50 p-4">
-          <p className="mb-3 font-ui text-xs font-bold uppercase tracking-wide text-red-700">{rightHeading}</p>
+        <div className="rounded-xl border border-red-500/25 bg-red-500/10 p-4">
+          <p className="mb-3 font-ui text-xs font-bold uppercase tracking-wide text-red-400">{rightHeading}</p>
           <ul className="space-y-1.5">
             {rightItems.map((item, i) => (
-              <li key={i} className="flex items-start gap-2 font-ui text-sm text-text-main">
-                <span className="mt-0.5 shrink-0 text-red-500">✗</span>
+              <li key={i} className="flex items-start gap-2 font-ui text-sm text-parchment/80">
+                <span className="mt-0.5 shrink-0 text-red-400">✗</span>
                 <span>{item}</span>
               </li>
             ))}

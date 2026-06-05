@@ -15,9 +15,9 @@ export function SubmoduleHeroSection({ group, lessons, moduleId }: SubmoduleHero
   return (
     <section
       aria-label={`Submodulo especial: ${meta.title}`}
-      className="rounded-2xl border border-gold-main/40 bg-gradient-to-br from-bg-elevated via-white to-bg-surface p-6 shadow-md"
+      className="rounded-2xl border border-sg-gold/30 bg-navy-mid p-6 shadow-md"
     >
-      <p className="font-ui text-xs font-semibold uppercase tracking-[0.18em] text-gold-main">
+      <p className="font-ui text-xs font-semibold uppercase tracking-[0.18em] text-sg-gold">
         Personaje principal
       </p>
       <div className="mt-3 flex flex-wrap items-start gap-3">
@@ -25,10 +25,10 @@ export function SubmoduleHeroSection({ group, lessons, moduleId }: SubmoduleHero
           {meta.icon}
         </span>
         <div className="min-w-0 flex-1">
-          <h2 className="font-title text-2xl leading-tight text-blue-accent sm:text-3xl">
+          <h2 className="font-display text-2xl leading-tight text-parchment sm:text-3xl">
             {meta.title}
           </h2>
-          <p className="mt-2 max-w-prose font-reading text-sm leading-relaxed text-text-muted">
+          <p className="mt-2 max-w-prose font-display text-sm leading-relaxed text-parchment/65">
             {meta.description}
           </p>
         </div>

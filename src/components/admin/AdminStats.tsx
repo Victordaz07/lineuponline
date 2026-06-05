@@ -7,9 +7,9 @@ type StatCardProps = {
 
 function StatCard({ value, label }: StatCardProps) {
   return (
-    <div className="rounded-2xl border border-blue-accent/10 bg-white p-4 text-center">
-      <p className="font-title text-3xl text-blue-accent">{value}</p>
-      <p className="mt-1 font-ui text-xs text-text-muted">{label}</p>
+    <div className="rounded-2xl border border-sg-gold/15 bg-navy-mid p-4 text-center">
+      <p className="font-display text-3xl text-sg-gold-light">{value}</p>
+      <p className="mt-1 font-ui text-xs text-parchment/55">{label}</p>
     </div>
   )
 }
