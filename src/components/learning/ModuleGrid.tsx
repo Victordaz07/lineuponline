@@ -20,25 +20,25 @@ export function ModuleGrid({ modules, completedLessonKeys = [] }: ModuleGridProp
           <Link
             key={mod.id}
             to={`/module/${mod.id}`}
-            className="group flex flex-col rounded-2xl border border-gold-main/25 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-gold-main/50 hover:shadow-md"
+            className="group flex flex-col rounded-2xl border border-sg-gold/15 bg-navy-deep p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-sg-gold/40 hover:shadow-lg"
           >
             <div className="mb-3 flex items-center gap-2">
               <span className="text-2xl" aria-hidden="true">
                 {mod.icon ?? '📘'}
               </span>
-              <h2 className="font-title text-lg text-blue-accent group-hover:text-gold-main">{mod.title}</h2>
+              <h2 className="font-display text-lg text-parchment group-hover:text-sg-gold-light">{mod.title}</h2>
             </div>
-            <p className="mb-4 flex-1 font-reading text-sm leading-relaxed text-text-muted">{mod.description}</p>
+            <p className="mb-4 flex-1 font-ui text-sm leading-relaxed text-parchment/50">{mod.description}</p>
             <div>
               <div className="mb-1 flex items-center justify-between">
-                <p className="font-ui text-xs font-semibold uppercase tracking-wide text-gold-main">
+                <p className="font-ui text-xs font-semibold uppercase tracking-wide text-sg-gold">
                   {total} lecciones
                 </p>
-                <p className="font-ui text-xs text-text-muted">{completed}/{total}</p>
+                <p className="font-ui text-xs text-parchment/35">{completed}/{total}</p>
               </div>
-              <div className="h-1.5 w-full overflow-hidden rounded-full bg-bg-elevated">
+              <div className="h-1.5 w-full overflow-hidden rounded-full bg-navy-light">
                 <div
-                  className="h-full rounded-full bg-gold-main transition-all"
+                  className="h-full rounded-full bg-sg-gold transition-all"
                   style={{ width: `${pct}%` }}
                 />
               </div>

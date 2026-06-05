@@ -63,7 +63,7 @@ const items = [
 export function BottomNav() {
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-40 border-t border-blue-accent/10 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_20px_rgba(27,58,107,0.07)] backdrop-blur-sm"
+      className="fixed bottom-0 left-0 right-0 z-40 border-t border-sg-gold/15 bg-navy-deep/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_20px_rgba(0,0,0,0.3)] backdrop-blur-md"
       aria-label="Navegación principal"
     >
       <div className="mx-auto flex max-w-lg">
@@ -74,7 +74,7 @@ export function BottomNav() {
             end={end}
             className={({ isActive }) =>
               `flex min-w-0 flex-1 flex-col items-center gap-1 px-2 py-3 font-ui text-[0.65rem] font-semibold transition-colors ${
-                isActive ? 'text-blue-accent' : 'text-text-muted hover:text-blue-accent'
+                isActive ? 'text-sg-gold-light' : 'text-parchment/40 hover:text-parchment/70'
               }`
             }
             aria-label={label}
