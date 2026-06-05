@@ -338,7 +338,7 @@ function EpisodeEditor({
     )
     try {
       const raw  = await generateSpeech(seg.text, seg.voiceId)
-      const blob = await padWithSilence(raw, 200)
+      const blob = await padWithSilence(raw, 300)
       blobMap.current.set(segId, blob)
       const blobUrl = URL.createObjectURL(blob)
       const updated: EpisodeSegment = {
