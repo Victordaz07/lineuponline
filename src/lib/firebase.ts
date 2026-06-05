@@ -8,7 +8,7 @@
 import { getApp, getApps, initializeApp, type FirebaseOptions } from 'firebase/app'
 import { getAnalytics, isSupported, type Analytics } from 'firebase/analytics'
 import { getAuth, type Auth } from 'firebase/auth'
-import { getFirestore, type Firestore } from 'firebase/firestore'
+import { initializeFirestore, type Firestore } from 'firebase/firestore'
 import { getStorage, type FirebaseStorage } from 'firebase/storage'
 
 function readFirebaseOptions(): FirebaseOptions | null {
@@ -62,7 +62,11 @@ export function getFirebaseApp(): ReturnType<typeof initializeApp> {
 /** Firestore: inicialización perezosa. Solo usar desde servicios. */
 export function getDb(): Firestore {
   if (!dbInstance) {
-    dbInstance = getFirestore(getOrInitApp())
+    // ignoreUndefinedProperties: optional segment fields (audioUrl, generatedAt,
+    // errorMessage…) are often undefined; without this, updateDoc/setDoc throws.
+    dbInstance = initializeFirestore(getOrInitApp(), {
+      ignoreUndefinedProperties: true,
+    })
   }
   return dbInstance
 }
