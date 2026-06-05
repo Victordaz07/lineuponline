@@ -21,6 +21,17 @@ service cloud.firestore {
       allow write: if isOwner(userId)
         && (!request.resource.data.keys().hasAny(['role'])
             || request.resource.data.role == 'student');
+
+      // Per-user sync subcollections written by useFirestoreSync / firestoreNotes
+      match /favorites/{favoriteId} {
+        allow read, write: if isOwner(userId);
+      }
+      match /journalEntries/{entryId} {
+        allow read, write: if isOwner(userId);
+      }
+      match /appState/{docId} {
+        allow read, write: if isOwner(userId);
+      }
     }
 
     match /topics/{topicId} {
