@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Navigate } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { useAdmin } from '@/hooks/useAdmin'
 import { useAuth } from '@/hooks/useAuth'
 import { AdminStats } from '@/components/admin/AdminStats'
@@ -68,6 +68,28 @@ export default function AdminPage() {
       {tab === 'messages' ? <MessageQueue messages={messages} /> : null}
       {tab === 'announcements' ? <AnnouncementManager /> : null}
       {tab === 'metrics' ? <AnalyticsDashboard /> : null}
+
+      {/* ── Tools ── */}
+      <section className="overflow-hidden rounded-2xl border border-sg-gold/15 bg-navy-mid shadow-sm">
+        <div className="border-b border-sg-gold/10 px-5 py-3">
+          <p className="font-ui text-[10px] font-semibold uppercase tracking-widest text-parchment/50">
+            Herramientas
+          </p>
+        </div>
+        <Link
+          to="/tools/episode-generator"
+          className="flex items-center gap-4 px-5 py-4 transition hover:bg-navy-deep/40"
+        >
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-sg-gold/10 text-xl">
+            🎙️
+          </span>
+          <div className="min-w-0 flex-1">
+            <p className="font-ui text-sm font-semibold text-parchment/85">Generador de Episodios</p>
+            <p className="font-ui text-xs text-parchment/45">Crea audio por segmentos a partir de un guión SETH / MIA</p>
+          </div>
+          <span className="text-parchment/30">›</span>
+        </Link>
+      </section>
     </div>
   )
 }

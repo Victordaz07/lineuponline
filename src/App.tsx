@@ -15,6 +15,7 @@ const Search = lazy(() => import('@/pages/Search'))
 const ProfilePage = lazy(() => import('@/pages/ProfilePage'))
 const CommunityPage = lazy(() => import('@/pages/CommunityPage'))
 const AdminPage = lazy(() => import('@/pages/AdminPage'))
+const EpisodeGeneratorPage = lazy(() => import('@/pages/EpisodeGeneratorPage'))
 
 function PageLoader() {
   return (
@@ -39,6 +40,7 @@ function AppRoutes() {
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/community" element={<CommunityPage />} />
             <Route path="/admin" element={<AdminPage />} />
+            <Route path="/tools/episode-generator" element={<EpisodeGeneratorPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/registro" element={<Navigate to="/login" replace />} />
             <Route path="/notas" element={<Navigate to="/my-notes" replace />} />
