@@ -12,8 +12,8 @@ export type RecommendedNextProps = {
 
 export function RecommendedNext({ moduleId, lessonId, title, moduleTitle, icon, duration, level }: RecommendedNextProps) {
   return (
-    <div className="rounded-2xl border-2 border-gold-main/40 bg-gradient-to-r from-white to-bg-elevated p-6 shadow-sm">
-      <span className="inline-block rounded-full bg-gold-main/15 px-3 py-1 font-ui text-xs font-bold uppercase tracking-widest text-gold-main">
+    <div className="rounded-2xl border border-sg-gold/30 bg-navy-mid p-6 shadow-sm">
+      <span className="inline-block rounded-full bg-sg-gold/15 px-3 py-1 font-ui text-xs font-bold uppercase tracking-widest text-sg-gold">
         Siguiente sugerido
       </span>
       <div className="mt-4 flex items-start gap-3">
@@ -23,18 +23,18 @@ export function RecommendedNext({ moduleId, lessonId, title, moduleTitle, icon, 
           </span>
         )}
         <div className="min-w-0">
-          <p className="font-title text-xl leading-snug text-blue-accent">{title}</p>
+          <p className="font-display text-xl leading-snug text-parchment">{title}</p>
           {moduleTitle && (
-            <p className="mt-0.5 font-ui text-sm text-text-muted">{moduleTitle}</p>
+            <p className="mt-0.5 font-ui text-sm text-parchment/50">{moduleTitle}</p>
           )}
           <div className="mt-2 flex flex-wrap gap-2">
             {duration && (
-              <span className="rounded bg-blue-accent/10 px-2 py-0.5 font-ui text-xs text-blue-accent">
+              <span className="rounded bg-navy-light px-2 py-0.5 font-ui text-xs text-sg-gold-light">
                 ⏱ {duration} min
               </span>
             )}
             {level && (
-              <span className="rounded bg-gold-main/15 px-2 py-0.5 font-ui text-xs font-semibold text-gold-main">
+              <span className="rounded bg-sg-gold/15 px-2 py-0.5 font-ui text-xs font-semibold text-sg-gold">
                 {level}
               </span>
             )}
@@ -43,7 +43,7 @@ export function RecommendedNext({ moduleId, lessonId, title, moduleTitle, icon, 
       </div>
       <Link
         to={`/lesson/${moduleId}/${lessonId}`}
-        className="mt-5 inline-flex items-center gap-2 rounded-lg bg-blue-accent px-5 py-2.5 font-ui text-sm font-semibold text-white transition hover:brightness-110"
+        className="mt-5 inline-flex items-center gap-2 rounded-lg bg-sg-gold px-5 py-2.5 font-ui text-sm font-semibold text-navy-deep transition hover:brightness-95"
       >
         Continuar estudio →
       </Link>

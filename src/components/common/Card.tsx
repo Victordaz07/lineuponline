@@ -13,7 +13,7 @@ export type CardProps = {
 export function Card({ children, className = '', ...rest }: CardProps) {
   return (
     <div
-      className={`rounded-2xl border border-gold-main/25 bg-white p-5 shadow-sm sm:p-6 ${className}`.trim()}
+      className={`rounded-2xl border border-sg-gold/15 bg-navy-mid p-5 shadow-sm sm:p-6 ${className}`.trim()}
       {...rest}
     >
       {children}

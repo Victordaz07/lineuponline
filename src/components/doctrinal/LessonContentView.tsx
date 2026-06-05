@@ -116,6 +116,7 @@ export function LessonContentView({
   // Initialize activeSectionId once sections are available
   useEffect(() => {
     if (sections.length > 0 && !activeSectionId) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveSectionId(sections[0].id)
     }
   }, [sections, activeSectionId])

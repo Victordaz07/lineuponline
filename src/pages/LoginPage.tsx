@@ -147,23 +147,23 @@ export default function LoginPage() {
       {/* Header */}
       <div className="text-center">
         <p className="font-ui text-xs font-semibold uppercase tracking-[0.2em] text-gold-main">
-          LineUponLine
+          Seeker Gospel
         </p>
-        <h1 className="mt-1 font-title text-3xl text-blue-accent">Guardar en la nube</h1>
-        <p className="mt-2 font-ui text-sm text-text-muted">
+        <h1 className="mt-1 font-display text-3xl text-parchment">Guardar en la nube</h1>
+        <p className="mt-2 font-display italic text-sm text-sg-gold-light/70">
           Tus resaltados, notas y progreso te siguen en cualquier dispositivo.
         </p>
       </div>
 
       {!firebaseReady && (
-        <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-center font-ui text-sm text-red-700">
+        <div className="rounded-xl border border-red-900/40 bg-red-950/40 px-4 py-3 text-center font-ui text-sm text-red-400">
           Firebase no está configurado en este entorno. Contacta al administrador.
         </div>
       )}
 
       {/* Method tabs */}
       {firebaseReady && (
-        <div className="flex gap-1 rounded-xl border border-blue-accent/10 bg-bg-elevated p-1">
+        <div className="flex gap-1 rounded-xl border border-sg-gold/15 bg-navy-mid p-1">
           {(['google', 'email', 'phone'] as Section[]).map((s) => (
             <button
               key={s}
@@ -171,8 +171,8 @@ export default function LoginPage() {
               onClick={() => setSection(s)}
               className={`flex-1 rounded-lg py-2 font-ui text-xs font-semibold transition ${
                 section === s
-                  ? 'bg-white text-blue-accent shadow-sm'
-                  : 'text-text-muted hover:text-blue-accent'
+                  ? 'bg-navy-light text-parchment shadow-sm'
+                  : 'text-parchment/40 hover:text-parchment/70'
               }`}
             >
               {s === 'google' ? 'Google' : s === 'email' ? 'Correo' : 'Teléfono'}
@@ -188,7 +188,7 @@ export default function LoginPage() {
             type="button"
             onClick={handleGoogle}
             disabled={googleLoading}
-            className="flex w-full items-center justify-center gap-3 rounded-xl border border-blue-accent/20 bg-white py-3.5 font-ui text-sm font-semibold text-text-main shadow-sm transition hover:border-blue-accent/40 hover:shadow-md disabled:opacity-60"
+            className="flex w-full items-center justify-center gap-3 rounded-xl border border-white/20 bg-white py-3.5 font-ui text-sm font-semibold text-gray-700 shadow-sm transition hover:shadow-md disabled:opacity-60"
           >
             {/* Google SVG logo */}
             <svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true">
@@ -237,7 +237,7 @@ export default function LoginPage() {
             <form onSubmit={handleEmail} className="space-y-3">
               {mode === 'signup' && (
                 <div>
-                  <label className="mb-1 block font-ui text-xs font-semibold text-text-main">
+                  <label className="mb-1 block font-ui text-xs font-semibold text-parchment/60">
                     Nombre
                   </label>
                   <input
@@ -246,12 +246,12 @@ export default function LoginPage() {
                     onChange={(e) => setDisplayName(e.target.value)}
                     placeholder="Tu nombre"
                     required={mode === 'signup'}
-                    className="w-full rounded-xl border border-blue-accent/20 bg-white px-4 py-2.5 font-ui text-sm text-text-main placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-gold-main/30"
+                    className="w-full rounded-xl border border-sg-gold/20 bg-navy-mid px-4 py-2.5 font-ui text-sm text-parchment placeholder:text-parchment/30 focus:outline-none focus:ring-2 focus:ring-sg-gold/30"
                   />
                 </div>
               )}
               <div>
-                <label className="mb-1 block font-ui text-xs font-semibold text-text-main">
+                <label className="mb-1 block font-ui text-xs font-semibold text-parchment/60">
                   Correo electrónico
                 </label>
                 <input
@@ -261,11 +261,11 @@ export default function LoginPage() {
                   placeholder="tu@correo.com"
                   required
                   autoComplete="email"
-                  className="w-full rounded-xl border border-blue-accent/20 bg-white px-4 py-2.5 font-ui text-sm text-text-main placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-gold-main/30"
+                  className="w-full rounded-xl border border-sg-gold/20 bg-navy-mid px-4 py-2.5 font-ui text-sm text-parchment placeholder:text-parchment/30 focus:outline-none focus:ring-2 focus:ring-sg-gold/30"
                 />
               </div>
               <div>
-                <label className="mb-1 block font-ui text-xs font-semibold text-text-main">
+                <label className="mb-1 block font-ui text-xs font-semibold text-parchment/60">
                   Contraseña
                 </label>
                 <input
@@ -276,7 +276,7 @@ export default function LoginPage() {
                   required
                   minLength={6}
                   autoComplete={mode === 'signin' ? 'current-password' : 'new-password'}
-                  className="w-full rounded-xl border border-blue-accent/20 bg-white px-4 py-2.5 font-ui text-sm text-text-main placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-gold-main/30"
+                  className="w-full rounded-xl border border-sg-gold/20 bg-navy-mid px-4 py-2.5 font-ui text-sm text-parchment placeholder:text-parchment/30 focus:outline-none focus:ring-2 focus:ring-sg-gold/30"
                 />
               </div>
 
@@ -287,7 +287,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={emailLoading}
-                className="w-full rounded-xl bg-blue-accent py-3 font-ui text-sm font-semibold text-white shadow-sm transition hover:brightness-95 disabled:opacity-60"
+                className="w-full rounded-xl bg-sg-gold py-3 font-ui text-sm font-semibold text-navy-deep shadow-sm transition hover:brightness-95 disabled:opacity-60"
               >
                 {emailLoading
                   ? 'Un momento…'
@@ -300,7 +300,7 @@ export default function LoginPage() {
                 <button
                   type="button"
                   onClick={handlePasswordReset}
-                  className="w-full text-center font-ui text-xs text-text-muted hover:text-blue-accent"
+                  className="w-full text-center font-ui text-xs text-parchment/40 hover:text-sg-gold-light"
                 >
                   ¿Olvidaste tu contraseña?
                 </button>
@@ -316,7 +316,7 @@ export default function LoginPage() {
           {!confirmationResult ? (
             <form onSubmit={handleSendOTP} className="space-y-3">
               <div>
-                <label className="mb-1 block font-ui text-xs font-semibold text-text-main">
+                <label className="mb-1 block font-ui text-xs font-semibold text-parchment/60">
                   Número de teléfono
                 </label>
                 <input
@@ -325,7 +325,7 @@ export default function LoginPage() {
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="+52 55 1234 5678"
                   required
-                  className="w-full rounded-xl border border-blue-accent/20 bg-white px-4 py-2.5 font-ui text-sm text-text-main placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-gold-main/30"
+                  className="w-full rounded-xl border border-sg-gold/20 bg-navy-mid px-4 py-2.5 font-ui text-sm text-parchment placeholder:text-parchment/30 focus:outline-none focus:ring-2 focus:ring-sg-gold/30"
                 />
                 <p className="mt-1 font-ui text-xs text-text-muted">
                   Incluye el código de país (ej. +52 para México)
@@ -335,7 +335,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={phoneLoading}
-                className="w-full rounded-xl bg-blue-accent py-3 font-ui text-sm font-semibold text-white shadow-sm transition hover:brightness-95 disabled:opacity-60"
+                className="w-full rounded-xl bg-sg-gold py-3 font-ui text-sm font-semibold text-navy-deep shadow-sm transition hover:brightness-95 disabled:opacity-60"
               >
                 {phoneLoading ? 'Enviando…' : 'Enviar código SMS'}
               </button>
@@ -348,7 +348,7 @@ export default function LoginPage() {
                 Código enviado a <strong>{phone}</strong>. Revisa tus mensajes.
               </p>
               <div>
-                <label className="mb-1 block font-ui text-xs font-semibold text-text-main">
+                <label className="mb-1 block font-ui text-xs font-semibold text-parchment/60">
                   Código de 6 dígitos
                 </label>
                 <input
@@ -368,14 +368,14 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={phoneLoading || otp.length !== 6}
-                className="w-full rounded-xl bg-blue-accent py-3 font-ui text-sm font-semibold text-white shadow-sm transition hover:brightness-95 disabled:opacity-60"
+                className="w-full rounded-xl bg-sg-gold py-3 font-ui text-sm font-semibold text-navy-deep shadow-sm transition hover:brightness-95 disabled:opacity-60"
               >
                 {phoneLoading ? 'Verificando…' : 'Confirmar código'}
               </button>
               <button
                 type="button"
                 onClick={() => { setConfirmationResult(null); setOtp(''); setPhoneError('') }}
-                className="w-full text-center font-ui text-xs text-text-muted hover:text-blue-accent"
+                className="w-full text-center font-ui text-xs text-parchment/40 hover:text-sg-gold-light"
               >
                 Cambiar número
               </button>

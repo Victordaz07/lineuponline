@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 import { signOut } from '@/services/authService'
 import { usePreferencesStore, type FontSize } from '@/stores/preferencesStore'
+import { SeekerLogo } from '@/components/common/SeekerLogo'
 
 function BackButton() {
   const navigate = useNavigate()
@@ -11,7 +12,7 @@ function BackButton() {
       type="button"
       onClick={() => navigate(-1)}
       aria-label="Volver"
-      className="flex items-center gap-1.5 rounded-lg px-2 py-1.5 font-ui text-sm font-semibold text-blue-accent transition hover:bg-gold-dim active:scale-95"
+      className="flex items-center gap-1.5 rounded-lg px-2 py-1.5 font-ui text-sm font-semibold text-warm-white transition hover:bg-navy-mid active:scale-95"
     >
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M10 3L5 8l5 5" />
@@ -75,7 +76,7 @@ function UserMenu() {
     return (
       <Link
         to="/login"
-        className="flex items-center gap-1.5 rounded-lg border border-gold-main/30 px-3 py-1.5 font-ui text-xs font-semibold text-blue-accent transition hover:border-gold-main/60 hover:bg-gold-dim/30"
+        className="flex items-center gap-1.5 rounded-lg border border-sg-gold/40 px-3 py-1.5 font-ui text-xs font-semibold text-sg-gold-light transition hover:border-sg-gold hover:bg-navy-mid"
       >
         <span aria-hidden="true">☁</span>
         <span className="hidden sm:inline">Guardar progreso</span>
@@ -202,17 +203,20 @@ export function Header() {
   const isNested = pathname !== '/'
 
   return (
-    <header className="sticky top-0 z-30 border-b border-blue-accent/10 bg-white/85 px-4 py-3 backdrop-blur-md sm:px-6">
+    <header className="sticky top-0 z-30 border-b border-sg-gold/20 bg-navy-deep/95 px-4 py-3 backdrop-blur-md sm:px-6">
       <div className="mx-auto flex max-w-5xl items-center gap-3">
         {isNested ? <BackButton /> : null}
-        <div className="flex flex-col gap-0.5">
-          <p className="font-ui text-[0.6rem] font-semibold uppercase tracking-[0.2em] leading-none text-gold-main">
-            Edición celestial
-          </p>
-          <Link to="/" className="font-title text-xl leading-tight text-blue-accent sm:text-2xl">
-            LineUponLine
-          </Link>
-        </div>
+        <Link to="/" className="flex items-center gap-2.5">
+          <SeekerLogo size={34} variant="dark" rounded="rounded" />
+          <div className="flex flex-col gap-0">
+            <p className="font-ui text-[9px] font-medium uppercase tracking-[0.18em] leading-none text-sg-gold">
+              Deep Gospel Study
+            </p>
+            <span className="font-display text-[19px] font-semibold leading-tight text-parchment" style={{ color: '#F5EFE0' }}>
+              Seeker Gospel
+            </span>
+          </div>
+        </Link>
         <div className="ml-auto">
           <UserMenu />
         </div>

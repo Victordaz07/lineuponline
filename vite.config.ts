@@ -10,9 +10,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
       manifest: {
-        name: 'LineUponLine — Edición Celestial',
-        short_name: 'LineUponLine',
-        description: 'Estudia doctrina con claridad, línea sobre línea.',
+        name: 'Seeker Gospel — Deep Gospel Study',
+        short_name: 'Seeker Gospel',
+        description: 'Deep doctrinal study for members of The Church of Jesus Christ of Latter-day Saints.',
         theme_color: '#0b1a35',
         background_color: '#0b1a35',
         display: 'standalone',

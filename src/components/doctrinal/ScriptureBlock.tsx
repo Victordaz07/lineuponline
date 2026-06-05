@@ -9,7 +9,7 @@ export type ScriptureBlockProps = {
 function ScriptureIcon() {
   return (
     <svg
-      className="h-5 w-5 shrink-0 text-blue-accent"
+      className="h-5 w-5 shrink-0 text-sg-gold"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -27,12 +27,6 @@ function ScriptureIcon() {
   )
 }
 
-/**
- * Tarjeta expandible para una cita de escritura con enlaces de apoyo.
- *
- * @param props - Referencia de escritura
- * @returns Bloque interactivo
- */
 export function ScriptureBlock({ scripture }: ScriptureBlockProps) {
   const [open, setOpen] = useState(false)
   const baseId = useId()
@@ -42,12 +36,12 @@ export function ScriptureBlock({ scripture }: ScriptureBlockProps) {
 
   return (
     <article
-      className="overflow-hidden rounded-r-2xl border-l-4 border-blue-accent bg-blue-50/80 shadow-sm"
+      className="overflow-hidden rounded-r-2xl border-l-2 border-sg-gold bg-sg-gold/5 shadow-sm"
       aria-labelledby={headingId}
     >
       <button
         type="button"
-        className="flex w-full items-start gap-3 px-4 py-4 text-left transition hover:bg-blue-50"
+        className="flex w-full items-start gap-3 px-4 py-4 text-left transition hover:bg-sg-gold/5"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls={bodyId}
@@ -55,32 +49,32 @@ export function ScriptureBlock({ scripture }: ScriptureBlockProps) {
       >
         <ScriptureIcon />
         <div className="min-w-0 flex-1">
-          <p className="font-ui text-xs font-semibold uppercase tracking-wide text-gold-main">Escritura</p>
-          <p className="font-title text-lg text-blue-accent">{scripture.reference}</p>
+          <p className="font-ui text-xs font-semibold uppercase tracking-wide text-sg-gold">Escritura</p>
+          <p className="font-display text-lg text-parchment">{scripture.reference}</p>
           {scripture.book ? (
-            <p className="mt-1 font-ui text-sm text-text-muted">
+            <p className="mt-1 font-ui text-sm text-parchment/50">
               {scripture.book}
               {scripture.verses ? ` · vers. ${scripture.verses}` : ''}
             </p>
           ) : null}
         </div>
-        <span className="font-ui text-xs text-text-muted" aria-hidden="true">
+        <span className="font-ui text-xs text-parchment/40" aria-hidden="true">
           {open ? '▲' : '▼'}
         </span>
       </button>
       {open ? (
-        <div id={bodyId} className="flex flex-wrap gap-2 border-t border-blue-accent/10 px-4 py-3" role="region">
+        <div id={bodyId} className="flex flex-wrap gap-2 border-t border-sg-gold/15 px-4 py-3" role="region">
           <a
             href={churchUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg border border-blue-accent/30 bg-white px-3 py-1.5 font-ui text-xs font-semibold text-blue-accent transition hover:bg-blue-accent/5"
+            className="rounded-lg border border-sg-gold/30 bg-navy-mid px-3 py-1.5 font-ui text-xs font-semibold text-sg-gold-light transition hover:bg-sg-gold/10"
           >
             Leer en churchofjesuschrist.org
           </a>
           <button
             type="button"
-            className="rounded-lg border border-gold-main/40 bg-gold-dim px-3 py-1.5 font-ui text-xs font-semibold text-blue-accent"
+            className="rounded-lg border border-sg-gold/20 bg-sg-gold/10 px-3 py-1.5 font-ui text-xs font-semibold text-sg-gold"
             onClick={() => {
               void navigator.clipboard?.writeText(scripture.reference)
             }}

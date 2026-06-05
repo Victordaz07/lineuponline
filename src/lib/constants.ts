@@ -1,5 +1,5 @@
 /**
- * Constantes globales de la aplicación LineUponLine.
+ * Constantes globales de la aplicación Seeker Gospel.
  */
 
 export const DEFAULT_TTS_SPEED = 1

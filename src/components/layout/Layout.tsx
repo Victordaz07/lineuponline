@@ -21,7 +21,7 @@ function FontSizeManager() {
 
 export function Layout({ children }: LayoutProps) {
   return (
-    <div className="flex min-h-screen flex-col bg-bg-surface text-text-main">
+    <div className="flex min-h-screen flex-col bg-navy-deep text-parchment">
       <CloudSyncManager />
       <FontSizeManager />
       <Header />

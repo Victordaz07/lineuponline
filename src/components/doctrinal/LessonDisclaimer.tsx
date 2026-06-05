@@ -17,7 +17,7 @@ export function LessonDisclaimer() {
             Este material no es oficial de la Iglesia
           </p>
           <p className="text-text-muted [&_strong]:font-semibold [&_strong]:text-text-main">
-            <strong>LineUponLine</strong> es un recurso{' '}
+            <strong>Seeker Gospel</strong> es un recurso{' '}
             <strong>independiente</strong>: no está afiliado, respaldado ni constituye publicación oficial de{' '}
             <strong>La Iglesia de Jesucristo de los Santos de los Últimos Días</strong> ni de ningún otro
             organismo religioso. El contenido se ofrece solo como ayuda para{' '}

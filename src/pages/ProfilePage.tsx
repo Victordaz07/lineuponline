@@ -108,10 +108,12 @@ export default function ProfilePage() {
 
   // Sync name when user object changes (e.g. after save)
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (!nameEditing) setName(user?.displayName ?? '')
   }, [user?.displayName, nameEditing])
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setPhotoURL(user?.photoURL ?? null)
   }, [user?.photoURL])
 

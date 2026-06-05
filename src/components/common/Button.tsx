@@ -12,9 +12,9 @@ export type ButtonProps = {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    'rounded-lg border border-gold-main bg-gold-main px-4 py-2 font-ui text-sm font-semibold text-white shadow-sm transition hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-accent disabled:opacity-50',
+    'rounded-lg border border-sg-gold bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-navy-deep shadow-sm transition hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sg-gold disabled:opacity-50',
   secondary:
-    'rounded-lg border border-blue-accent/30 bg-white px-4 py-2 font-ui text-sm font-semibold text-blue-accent transition hover:bg-blue-accent/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-accent disabled:opacity-50',
+    'rounded-lg border border-sg-gold/40 bg-transparent px-4 py-2 font-ui text-sm font-semibold text-sg-gold-light transition hover:bg-sg-gold/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sg-gold disabled:opacity-50',
   danger:
     'rounded-lg border border-red-600 bg-red-600 px-4 py-2 font-ui text-sm font-semibold text-white shadow-sm transition hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700 disabled:opacity-50',
 }

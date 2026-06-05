@@ -60,7 +60,7 @@ export default function CommunityPage() {
         <p className="font-ui text-xs font-semibold uppercase tracking-[0.18em] text-gold-main">
           Comunidad
         </p>
-        <h1 className="font-title text-3xl text-blue-accent">LineUponLine</h1>
+        <h1 className="font-title text-3xl text-blue-accent">Seeker Gospel</h1>
         <p className="font-ui text-sm text-text-muted">
           Avisos del equipo, sugerencias y solicitudes de temas.
         </p>

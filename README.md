@@ -1,4 +1,4 @@
-# LineUponLine
+# Seeker Gospel
 
 PWA de estudio profundo del evangelio construida con React + Vite + TypeScript + Firebase.
 
