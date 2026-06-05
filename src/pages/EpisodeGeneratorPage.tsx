@@ -9,11 +9,9 @@ import {
   createEpisode,
   updateEpisodeMeta,
   deleteEpisode,
-  uploadSegmentAudio,
-  uploadCombinedAudio,
 } from '@/services/episodeProjects.service'
 import { parseScript, scriptCharCount } from '@/utils/scriptParser'
-import { mergeAudioBlobs, fetchBlob } from '@/utils/mergeAudio'
+import { mergeAudioBlobs } from '@/utils/mergeAudio'
 import type { Episode, EpisodeSegment } from '@/types/episode'
 import { EPISODE_VOICES } from '@/types/episode'
 
@@ -278,10 +276,12 @@ function EpisodeEditor({
   const [saving, setSaving] = useState(false)
   const [generateAllProgress, setGenerateAllProgress] = useState<{ done: number; total: number } | null>(null)
   const [merging, setMerging] = useState(false)
-  const [combinedUrl, setCombinedUrl] = useState<string | null>(episode.combinedAudioUrl ?? null)
+  const [combinedUrl, setCombinedUrl] = useState<string | null>(null)
   const [activeSegmentId, setActiveSegmentId] = useState<string | null>(null)
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const prevCombinedUrl = useRef<string | null>(null)
+  // Audio blobs kept in memory — no Storage upload needed
+  const blobMap = useRef<Map<string, Blob>>(new Map())
 
   const parsedPreview = parseScript(rawScript)
   const charCount = scriptCharCount(rawScript)
@@ -334,17 +334,17 @@ function EpisodeEditor({
     )
     try {
       const blob = await generateSpeech(seg.text, seg.voiceId)
-      const { storagePath, downloadUrl } = await uploadSegmentAudio(episode.id, segId, blob)
+      blobMap.current.set(segId, blob)
+      const blobUrl = URL.createObjectURL(blob)
       const updated: EpisodeSegment = {
         ...seg,
         status: 'done',
-        audioStoragePath: storagePath,
-        audioUrl: downloadUrl,
+        audioUrl: blobUrl,
         generatedAt: new Date().toISOString(),
       }
       setSegments((prev) => {
         const next = prev.map((s) => s.id === segId ? updated : s)
-        void updateEpisodeMeta(episode.id, { segments: next })
+        void updateEpisodeMeta(episode.id, { segments: next.map((s) => ({ ...s, audioUrl: undefined })) })
         return next
       })
     } catch (err) {
@@ -366,20 +366,18 @@ function EpisodeEditor({
   }
 
   async function mergeAndSave() {
-    const sorted = [...segments].sort((a, b) => a.order - b.order).filter((s) => s.status === 'done' && s.audioUrl)
-    if (sorted.length === 0) return
+    const sorted = [...segments].sort((a, b) => a.order - b.order).filter((s) => s.status === 'done')
+    const blobs = sorted.map((s) => blobMap.current.get(s.id)).filter((b): b is Blob => Boolean(b))
+    if (blobs.length === 0) return
     setMerging(true)
     try {
-      const blobs = await Promise.all(sorted.map((s) => fetchBlob(s.audioUrl!)))
       const combined = await mergeAudioBlobs(blobs)
-      if (prevCombinedUrl.current) {
-        URL.revokeObjectURL(prevCombinedUrl.current)
-      }
-      const { downloadUrl } = await uploadCombinedAudio(episode.id, combined)
-      await updateEpisodeMeta(episode.id, { status: 'ready', combinedAudioUrl: downloadUrl })
-      setCombinedUrl(downloadUrl)
-      prevCombinedUrl.current = downloadUrl
-      onUpdate({ ...episode, status: 'ready', combinedAudioUrl: downloadUrl })
+      if (prevCombinedUrl.current) URL.revokeObjectURL(prevCombinedUrl.current)
+      const url = URL.createObjectURL(combined)
+      prevCombinedUrl.current = url
+      setCombinedUrl(url)
+      await updateEpisodeMeta(episode.id, { status: 'ready' })
+      onUpdate({ ...episode, status: 'ready' })
     } catch (err) {
       console.error('Merge error:', err)
     } finally {
