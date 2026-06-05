@@ -11,7 +11,7 @@ import {
   deleteEpisode,
 } from '@/services/episodeProjects.service'
 import { parseScript, scriptCharCount } from '@/utils/scriptParser'
-import { mergeAudioBlobs } from '@/utils/mergeAudio'
+import { padWithSilence, mergeAudioBuffers } from '@/utils/audioProcessing'
 import type { Episode, EpisodeSegment } from '@/types/episode'
 import { EPISODE_VOICES } from '@/types/episode'
 
@@ -333,7 +333,8 @@ function EpisodeEditor({
       prev.map((s) => s.id === segId ? { ...s, status: 'generating', errorMessage: undefined } : s),
     )
     try {
-      const blob = await generateSpeech(seg.text, seg.voiceId)
+      const raw  = await generateSpeech(seg.text, seg.voiceId)
+      const blob = await padWithSilence(raw, 200)
       blobMap.current.set(segId, blob)
       const blobUrl = URL.createObjectURL(blob)
       const updated: EpisodeSegment = {
@@ -371,7 +372,7 @@ function EpisodeEditor({
     if (blobs.length === 0) return
     setMerging(true)
     try {
-      const combined = await mergeAudioBlobs(blobs)
+      const combined = await mergeAudioBuffers(blobs)
       if (prevCombinedUrl.current) URL.revokeObjectURL(prevCombinedUrl.current)
       const url = URL.createObjectURL(combined)
       prevCombinedUrl.current = url
@@ -530,7 +531,7 @@ function EpisodeEditor({
               <div className="flex flex-wrap gap-2">
                 <a
                   href={combinedUrl}
-                  download={`${title || 'episode'}.mp3`}
+                  download={`${title || 'episode'}.wav`}
                   className="rounded-xl border border-sg-gold/30 px-4 py-2 font-ui text-sm font-semibold text-sg-gold-light transition hover:bg-navy-light"
                 >
                   Download MP3
