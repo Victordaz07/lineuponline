@@ -5,10 +5,11 @@ import { useAuth } from '@/hooks/useAuth'
 import { AdminStats } from '@/components/admin/AdminStats'
 import { MessageQueue } from '@/components/admin/MessageQueue'
 import { AnnouncementManager } from '@/components/admin/AnnouncementManager'
+import { AnalyticsDashboard } from '@/components/admin/AnalyticsDashboard'
 import { subscribeAllMessages } from '@/services/community.service'
 import type { CommunityMessage } from '@/types/community'
 
-type TabId = 'messages' | 'announcements'
+type TabId = 'messages' | 'announcements' | 'metrics'
 
 export default function AdminPage() {
   const { user, authLoading } = useAuth()
@@ -29,22 +30,23 @@ export default function AdminPage() {
   }
 
   const tabs: { id: TabId; label: string }[] = [
-    { id: 'messages', label: `Mensajes (${messages.filter((m) => m.status === 'pending').length} pendientes)` },
+    { id: 'messages', label: `Mensajes (${messages.filter((m) => m.status === 'pending').length})` },
     { id: 'announcements', label: 'Anuncios' },
+    { id: 'metrics', label: 'Métricas' },
   ]
 
   return (
     <div className="mx-auto max-w-3xl space-y-6 pb-12">
       <header className="space-y-1">
-        <p className="font-ui text-xs font-semibold uppercase tracking-[0.18em] text-gold-main">
+        <p className="font-ui text-xs font-semibold uppercase tracking-[0.18em] text-sg-gold">
           Panel de administración
         </p>
-        <h1 className="font-title text-3xl text-blue-accent">Seeker Gospel Admin</h1>
+        <h1 className="font-display text-3xl text-parchment">Seeker Gospel Admin</h1>
       </header>
 
       <AdminStats messages={messages} />
 
-      <div role="tablist" className="flex gap-1 rounded-2xl border border-blue-accent/10 bg-white p-1">
+      <div role="tablist" className="flex gap-1 rounded-2xl border border-sg-gold/15 bg-navy-mid p-1">
         {tabs.map(({ id, label }) => (
           <button
             key={id}
@@ -54,8 +56,8 @@ export default function AdminPage() {
             onClick={() => setTab(id)}
             className={`flex-1 rounded-xl px-3 py-2 font-ui text-xs font-semibold transition ${
               tab === id
-                ? 'bg-blue-accent text-white shadow-sm'
-                : 'text-text-muted hover:text-blue-accent'
+                ? 'bg-navy-light text-parchment shadow-sm'
+                : 'text-parchment/40 hover:text-parchment/70'
             }`}
           >
             {label}
@@ -65,6 +67,7 @@ export default function AdminPage() {
 
       {tab === 'messages' ? <MessageQueue messages={messages} /> : null}
       {tab === 'announcements' ? <AnnouncementManager /> : null}
+      {tab === 'metrics' ? <AnalyticsDashboard /> : null}
     </div>
   )
 }
