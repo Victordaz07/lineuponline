@@ -2163,6 +2163,7 @@ function buildSeedLessons(): Record<string, Lesson> {
     if (ported) {
       out[row.id] = {
         ...ported,
+        moduleId: row.moduleId,
         previousLessonId: prevId,
         nextLessonId: nextId,
         submoduleGroup: row.submoduleGroup,
