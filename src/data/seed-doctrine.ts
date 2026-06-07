@@ -287,6 +287,12 @@ import { scComoServir as lessonScComoServir } from '@/data/lessons/sc-como-servi
 import { scArrepentimiento as lessonScArrepentimiento } from '@/data/lessons/sc-arrepentimiento'
 import { scVidaSinSantaCena as lessonScVidaSinSantaCena } from '@/data/lessons/sc-vida-sin-santa-cena'
 import { scPromesaEspiritu as lessonScPromesaEspiritu } from '@/data/lessons/sc-promesa-espiritu'
+// ── MÓDULO ELÍ ───────────────────────────────────────────────────────────────
+import { eliElSumoSacerdote as lessonEliElSumoSacerdote } from '@/data/lessons/eli-el-sumo-sacerdote'
+import { eliYAna as lessonEliYAna } from '@/data/lessons/eli-y-ana'
+import { eliYSusHijos as lessonEliYSusHijos } from '@/data/lessons/eli-y-sus-hijos'
+import { eliLaCaida as lessonEliLaCaida } from '@/data/lessons/eli-la-caida'
+import { eliYLaRestauracion as lessonEliYLaRestauracion } from '@/data/lessons/eli-y-la-restauracion'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -578,6 +584,12 @@ export const SUBMODULE_GROUPS: Record<string, { title: string; description: stri
     title: 'Santiago el Justo — El Hermano de Jesús',
     description:
       'No creyó en su hermano durante el ministerio. El Cristo resucitado se le apareció personalmente. Después de eso presidió la Iglesia de Jerusalén 30 años. Santiago 1:5 fue el versículo que detonó la Primera Visión de José Smith.',
+    icon: '🏛️',
+  },
+  eli: {
+    title: 'Elí — El Sumo Sacerdote de Siló',
+    description:
+      'Juez de Israel durante cuarenta años. Guardián del arca del convenio. Padre de hijos que corrompieron el sacerdocio desde adentro. La historia de Elí es la historia de lo que pasa cuando el amor paternal supera a la fidelidad a Dios — y el patrón de restauración que Dios usa cuando el sacerdocio falla.',
     icon: '🏛️',
   },
 }
@@ -1606,6 +1618,12 @@ const LESSON_ROWS: LessonRow[] = [
   { id: 'brigham-young-el-exodo', moduleId: 'personajes-escrituras', title: 'El Éxodo', subtitle: 'Guió a 70,000 santos al desierto', description: 'En el invierno de 1846, Brigham organizó el mayor éxodo en la historia de América del Norte: 70,000 santos de Nauvoo al Valle del Gran Lago Salado. La logística fue milagrosa. Murieron miles en el camino. Llegaron miles más. La fe organizada como supervivencia.', level: 'AVANZADO', icon: '🌵', duration: 40, order: 8412, status: 'PUBLISHED', submoduleGroup: 'brigham-young' },
   { id: 'brigham-young-el-colonizador', moduleId: 'personajes-escrituras', title: 'El Colonizador', subtitle: 'Fundó 350 comunidades en el desierto', description: 'Como presidente de la Iglesia por 30 años, Brigham Young fundó más de 350 comunidades en el oeste americano. Estableció la Universidad Brigham Young, el sistema de colonización basado en cooperativas, y una cultura de autosuficiencia que define el mormonismo hasta hoy.', level: 'INTERMEDIO', icon: '🏗️', duration: 35, order: 8413, status: 'PUBLISHED', submoduleGroup: 'brigham-young' },
   { id: 'brigham-young-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Brigham Young y la Restauración', subtitle: 'El León de Israel que consolidó la obra', description: 'Brigham Young tomó una Iglesia en crisis de sucesión y la convirtió en una civilización en el desierto. Su contribución no fue doctrinal sino organizacional: probó que la Restauración podía sobrevivir sin su profeta fundador.', level: 'AVANZADO', icon: '🦁', duration: 25, order: 8414, status: 'PUBLISHED', submoduleGroup: 'brigham-young' },
+  // ── ELÍ (submodule, orders 8510-8514) ────────────────────────────────────
+  { id: 'eli-el-sumo-sacerdote', moduleId: 'personajes-escrituras', title: 'El Sumo Sacerdote de Siló', subtitle: 'Cuarenta años juzgando a Israel desde el tabernáculo', description: 'Elí era sumo sacerdote y juez de Israel durante cuatro décadas cuando una mujer desesperada entró a orar al tabernáculo de Siló. Esta lección establece quién era Elí, qué posición ocupaba, y el mundo que lo rodeaba.', level: 'BÁSICO', icon: '🏛️', duration: 30, order: 8510, status: 'PUBLISHED', submoduleGroup: 'eli' },
+  { id: 'eli-y-ana', moduleId: 'personajes-escrituras', title: 'Elí y Ana', subtitle: 'La oración más silenciosa que cambió la historia de Israel', description: 'Ana era estéril y despreciada. En su desesperación entró al tabernáculo y oró con un dolor tan profundo que Elí la confundió con una borracha. Pero esa oración fue respondida — y el hijo que nació se convertiría en el profeta que untaría a los dos primeros reyes de Israel.', level: 'BÁSICO', icon: '🙏', duration: 35, order: 8511, status: 'PUBLISHED', submoduleGroup: 'eli' },
+  { id: 'eli-y-sus-hijos', moduleId: 'personajes-escrituras', title: 'Elí y Sus Hijos', subtitle: 'Cuando el sacerdocio se usa para servirse a uno mismo', description: 'Ofni y Finees eran "hombres impíos que no conocían a Jehová." Su corrupción de las ofrendas y su conducta en el tabernáculo fue una de las tragedias espirituales más documentadas del Antiguo Testamento — y Elí lo sabía y no los detuvo.', level: 'INTERMEDIO', icon: '⚠️', duration: 40, order: 8512, status: 'PUBLISHED', submoduleGroup: 'eli' },
+  { id: 'eli-la-caida', moduleId: 'personajes-escrituras', title: 'Icabod — La Gloria se Ha Apartado', subtitle: 'La batalla de Eben-ezer y la muerte de Elí', description: 'En un solo día: Israel perdió la batalla, el arca fue capturada, los dos hijos de Elí murieron, y Elí cayó hacia atrás y murió. Una nuera dio a luz en ese momento y le puso al bebé un nombre que resumía todo: Icabod — "Se ha apartado la gloria de Israel."', level: 'INTERMEDIO', icon: '💔', duration: 35, order: 8513, status: 'PUBLISHED', submoduleGroup: 'eli' },
+  { id: 'eli-y-la-restauracion', moduleId: 'personajes-escrituras', title: 'Elí y la Restauración', subtitle: 'Cuando Dios llama a un niño porque los sacerdotes han fallado', description: 'La historia de Elí y Samuel no es solo una tragedia familiar — es el patrón que Dios usa cuando el sacerdocio se corrompe: lo quita de los indignos y lo entrega a alguien humilde. Este patrón se repitió cuando un adolescente entró a un bosque con una pregunta honesta.', level: 'AVANZADO', icon: '🌟', duration: 35, order: 8514, status: 'PUBLISHED', submoduleGroup: 'eli' },
   // ── REGULARES YA PUBLICADOS ────────────────────────────────────────────────
   {
     id: 'alma-el-joven',
@@ -2137,6 +2155,12 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'brigham-young-el-exodo': lessonBrighamYoungElExodo,
   'brigham-young-el-colonizador': lessonBrighamYoungElColonizador,
   'brigham-young-y-la-restauracion': lessonBrighamYoungYLaRestauracion,
+  // eli
+  'eli-el-sumo-sacerdote': lessonEliElSumoSacerdote,
+  'eli-y-ana': lessonEliYAna,
+  'eli-y-sus-hijos': lessonEliYSusHijos,
+  'eli-la-caida': lessonEliLaCaida,
+  'eli-y-la-restauracion': lessonEliYLaRestauracion,
   // capacitacion-liderazgo
   'obispado-el-cambio': lessonObispadoElCambio,
   'obispado-quinto-domingo': lessonObispadoQuintoDomingo,
