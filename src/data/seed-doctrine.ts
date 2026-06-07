@@ -280,6 +280,13 @@ import { elderesVisionPfj as lessonElderesVisionPfj } from '@/data/lessons/elder
 import { comoDarUnDiscurso as lessonComoDarUnDiscurso } from '@/data/lessons/como-dar-un-discurso'
 import { comoDarUnTestimonio as lessonComoDarUnTestimonio } from '@/data/lessons/como-dar-un-testimonio'
 import { comoHacerUnaOracion as lessonComoHacerUnaOracion } from '@/data/lessons/como-hacer-una-oracion'
+// ── MÓDULO LA SANTA CENA ──────────────────────────────────────────────────────
+import { scCristoSantaCena as lessonScCristoSantaCena } from '@/data/lessons/sc-cristo-santa-cena'
+import { scQueSimboliza as lessonScQueSimboliza } from '@/data/lessons/sc-que-simboliza'
+import { scComoServir as lessonScComoServir } from '@/data/lessons/sc-como-servir'
+import { scArrepentimiento as lessonScArrepentimiento } from '@/data/lessons/sc-arrepentimiento'
+import { scVidaSinSantaCena as lessonScVidaSinSantaCena } from '@/data/lessons/sc-vida-sin-santa-cena'
+import { scPromesaEspiritu as lessonScPromesaEspiritu } from '@/data/lessons/sc-promesa-espiritu'
 import type { DifficultyLevel, DoctrinalModule, Lesson, LessonStatus } from '@/types/doctrine'
 
 type LessonRow = {
@@ -667,6 +674,16 @@ const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
     usePurpleAccent: true,
     categoryLabel: 'OFICIO',
   },
+  {
+    id: 'la-santa-cena',
+    title: 'La Santa Cena',
+    description:
+      'La ordenanza más frecuente de la Iglesia vista desde todos los ángulos: su institución por Cristo, sus símbolos, cómo se administra, su conexión con el arrepentimiento y qué perdemos cuando nos alejamos de ella.',
+    icon: '🍷',
+    order: 10,
+    level: 'BÁSICO',
+    usePurpleAccent: false,
+  },
 ]
 
 const LESSON_ROWS: LessonRow[] = [
@@ -682,6 +699,13 @@ const LESSON_ROWS: LessonRow[] = [
     order: 6,
     status: 'PUBLISHED',
   },
+  // ── MÓDULO LA SANTA CENA ────────────────────────────────────────────────────
+  { id: 'sc-cristo-santa-cena', moduleId: 'la-santa-cena', title: 'El Cristo y la Santa Cena', subtitle: 'La noche que lo cambió todo — y cada domingo desde entonces', description: 'Desde el aposento alto hasta el continente americano y el banquete eterno: Cristo instituyó esta ordenanza con sus propias manos y prometió volver a tomarla con nosotros.', level: 'BÁSICO', icon: '✝️', duration: 35, order: 1, status: 'PUBLISHED' },
+  { id: 'sc-que-simboliza', moduleId: 'la-santa-cena', title: '¿Qué Simboliza la Santa Cena?', subtitle: 'Pan, agua, manto blanco — cada elemento tiene un mensaje revelado', description: 'El pan no es solo pan y el agua no es solo agua. Esta lección abre el lenguaje simbólico de la ordenanza más frecuente de la Iglesia.', level: 'BÁSICO', icon: '🍞', duration: 30, order: 2, status: 'PUBLISHED' },
+  { id: 'sc-como-servir', moduleId: 'la-santa-cena', title: 'Cómo Servir la Santa Cena', subtitle: 'Los pasos, las oraciones reveladas y el corazón del servidor', description: 'Preparar, bendecir y repartir: quién puede hacer qué, las oraciones palabra por palabra, el orden completo y el corazón de quien representa a Cristo ante su pueblo.', level: 'BÁSICO', icon: '🙏', duration: 40, order: 3, status: 'PUBLISHED' },
+  { id: 'sc-arrepentimiento', moduleId: 'la-santa-cena', title: 'La Santa Cena y el Arrepentimiento', subtitle: 'El mecanismo semanal de acceso a la misericordia de Cristo', description: 'La remisión semanal de pecados, la diferencia entre indigno e imperfecto, y cómo prepararse durante la semana para ese momento del domingo.', level: 'BÁSICO', icon: '🤍', duration: 35, order: 4, status: 'PUBLISHED' },
+  { id: 'sc-vida-sin-santa-cena', moduleId: 'la-santa-cena', title: 'La Vida sin la Santa Cena', subtitle: 'Qué perdemos cuando nos alejamos — y por qué el regreso siempre es posible', description: 'Qué sucede espiritualmente cuando un miembro deja de tomar la Santa Cena: el proceso de alejamiento, el endurecimiento gradual y el camino de regreso que siempre está abierto.', level: 'INTERMEDIO', icon: '💔', duration: 40, order: 5, status: 'PUBLISHED' },
+  { id: 'sc-promesa-espiritu', moduleId: 'la-santa-cena', title: 'La Promesa del Espíritu', subtitle: '"Tendréis mi Espíritu consigo" — lo que eso significa de lunes a sábado', description: 'La promesa central de la Santa Cena no es para el domingo — es para toda la semana. Qué significa tener al Espíritu como compañero y cómo los minutos de silencio de la distribución son los de mayor potencial revelador.', level: 'INTERMEDIO', icon: '🕊️', duration: 30, order: 6, status: 'PUBLISHED' },
   {
     id: 'bautismo',
     moduleId: 'doctrina-fundamental',
@@ -1866,6 +1890,12 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'el-sumo-sacerdote': lessonElSumoSacerdote,
   'el-patriarca': lessonElPatriarca,
   'santa-cena': lessonSantaCena,
+  'sc-cristo-santa-cena': lessonScCristoSantaCena,
+  'sc-que-simboliza': lessonScQueSimboliza,
+  'sc-como-servir': lessonScComoServir,
+  'sc-arrepentimiento': lessonScArrepentimiento,
+  'sc-vida-sin-santa-cena': lessonScVidaSinSantaCena,
+  'sc-promesa-espiritu': lessonScPromesaEspiritu,
   'bautismo': lessonElBautismo,
   'don-espiritu-santo': lessonDonEspirituSanto,
   'fe-principio-poder': lessonFePrincipioPoder,
