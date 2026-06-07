@@ -32,7 +32,7 @@ export default function Search() {
       for (const mod of modules) {
         const lessons = await fetchLessonsForModule(mod.id)
         for (const lesson of lessons) {
-          const haystack = `${lesson.title} ${lesson.description ?? ''} ${lesson.author ?? ''}`.toLowerCase()
+          const haystack = `${lesson.title} ${lesson.subtitle ?? ''} ${lesson.description ?? ''} ${lesson.author ?? ''}`.toLowerCase()
           if (haystack.includes(normalized)) {
             results.push({ moduleId: mod.id, lesson })
           }
