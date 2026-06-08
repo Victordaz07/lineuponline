@@ -17,9 +17,11 @@ export function SubmoduleHeroSection({ group, lessons, moduleId }: SubmoduleHero
       aria-label={`Submodulo especial: ${meta.title}`}
       className="rounded-2xl border border-sg-gold/30 bg-navy-mid p-6 shadow-md"
     >
-      <p className="font-ui text-xs font-semibold uppercase tracking-[0.18em] text-sg-gold">
-        Personaje principal
-      </p>
+      {meta.label && (
+        <p className="font-ui text-xs font-semibold uppercase tracking-[0.18em] text-sg-gold">
+          {meta.label}
+        </p>
+      )}
       <div className="mt-3 flex flex-wrap items-start gap-3">
         <span className="text-5xl leading-none" aria-hidden="true">
           {meta.icon}
