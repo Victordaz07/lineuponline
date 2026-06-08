@@ -4,7 +4,7 @@ export const hyrumSmithCarthage: Lesson = {
   id: 'hyrum-smith-carthage',
   moduleId: 'personajes-escrituras',
   submoduleGroup: 'hyrum-smith',
-  title: 'Carthage',
+  title: 'Hyrum Smith en Carthage',
   subtitle: 'El que eligió morir con su hermano',
   author: 'Fuentes: DyC 135; Relato de John Taylor; Historia de la Iglesia Vol. 6-7; Testimonios de testigos presenciales',
   description:

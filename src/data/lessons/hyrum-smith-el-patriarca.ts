@@ -4,7 +4,7 @@ export const hyrumSmithElPatriarca: Lesson = {
   id: 'hyrum-smith-el-patriarca',
   moduleId: 'personajes-escrituras',
   submoduleGroup: 'hyrum-smith',
-  title: 'El Patriarca',
+  title: 'Hyrum Smith — El Patriarca',
   subtitle: 'Las bendiciones patriarcales y su ministerio sagrado',
   author: 'Fuentes: DyC 124; Historia de la Iglesia; Registro de Bendiciones Patriarcales Vol. 1-4',
   description:

@@ -4,7 +4,7 @@ export const oliverCowderyLaApostasia: Lesson = {
   id: 'oliver-cowdery-la-apostasia',
   moduleId: 'personajes-escrituras',
   submoduleGroup: 'oliver-cowdery',
-  title: 'La Caída',
+  title: 'Oliver Cowdery — La Apostasía',
   subtitle: 'El primer apóstata que también fue el primero en regresar',
   author: 'Fuentes: Historia de la Iglesia Vol. 3, Registro del Consejo de Far West, Cartas de Oliver Cowdery 1838-1848',
   description:

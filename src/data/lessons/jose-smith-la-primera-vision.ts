@@ -4,7 +4,7 @@ export const joseSmithLaPrimeraVision: Lesson = {
   id: 'jose-smith-la-primera-vision',
   moduleId: 'personajes-escrituras',
   submoduleGroup: 'jose-smith',
-  title: 'La Primera Visión',
+  title: 'La Primera Visión — El Relato de José',
   subtitle: '14 años, un bosque, el cielo abierto',
   author: 'Fuentes: JS-H 1:5-26; DyC 20:1; Historia de la Iglesia 1:1-7',
   description:

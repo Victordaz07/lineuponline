@@ -3,7 +3,7 @@ import type { Lesson } from '@/types/doctrine'
 export const moisesElLibertador: Lesson = {
   id: 'moises-el-libertador',
   moduleId: 'personajes-escrituras',
-  title: 'Moisés — El Libertador de Israel',
+  title: 'Moisés — Las Plagas y la Pascua',
   subtitle: 'YHWH contra los dioses de Egipto — la guerra de plagas',
   description: 'El nombre sagrado "YO SOY EL QUE SOY," las 10 plagas como confrontación directa contra las deidades egipcias, la Pascua como tipo profético de la Expiación de Cristo, y la travesía del Mar Rojo. La liberación de Israel fue a la vez histórica y tipológica.',
   level: 'INTERMEDIO',

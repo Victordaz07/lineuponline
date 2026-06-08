@@ -4,7 +4,7 @@ export const emmaSmithElSufrimiento: Lesson = {
   id: 'emma-smith-el-sufrimiento',
   moduleId: 'personajes-escrituras',
   submoduleGroup: 'emma-smith',
-  title: 'El Sufrimiento',
+  title: 'Emma Smith — El Sufrimiento',
   subtitle: 'La prueba más grande que una mujer puede llevar',
   author: 'Fuentes: DyC 25; DyC 132; Historia de la Iglesia; Cartas de Emma a José',
   description:

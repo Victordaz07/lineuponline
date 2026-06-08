@@ -3,7 +3,7 @@ import type { Lesson } from '@/types/doctrine'
 export const enocElLlamamiento: Lesson = {
   id: 'enoc-el-llamamiento',
   moduleId: 'personajes-escrituras',
-  title: 'El Llamamiento',
+  title: 'Enoc — El Llamamiento',
   subtitle: 'Tardo en el habla, grande en fe',
   description: 'Enoc era joven e inseguro cuando Dios lo llamó. Su respuesta — \'Soy tardo en el habla\' — es el patrón de todo llamamiento profético. Dios prometió llenar su boca. Y lo hizo.',
   level: 'AVANZADO',

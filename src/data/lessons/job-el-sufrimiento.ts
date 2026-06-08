@@ -3,7 +3,7 @@ import type { Lesson } from '@/types/doctrine'
 export const jobElSufrimiento: Lesson = {
   id: 'job-el-sufrimiento',
   moduleId: 'personajes-escrituras',
-  title: 'El Sufrimiento',
+  title: 'Job — El Sufrimiento',
   subtitle: 'La segunda prueba y el silencio de los amigos',
   description: 'La segunda prueba de Job lo toca en su cuerpo. Sus amigos guardan silencio durante siete días — el mejor momento del libro. Luego Job habla: maldice el día en que nació, llora ante Dios, y en Job 19:25-27 pronuncia la declaración de fe más audaz del Antiguo Testamento.',
   level: 'AVANZADO',

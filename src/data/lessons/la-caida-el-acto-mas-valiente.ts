@@ -4,7 +4,7 @@ export const laCaidaElActoMasValiente: Lesson = {
   id: 'la-caida-el-acto-mas-valiente',
   moduleId: 'personajes-escrituras',
   submoduleGroup: 'adan-eva',
-  title: 'La Caída',
+  title: 'La Caída de Adán — El Acto más Valiente',
   subtitle: 'El acto más valiente de la historia',
   author: 'Fuentes: 2 Nefi 2:22-25; Moisés 4-5; Génesis 3; Alma 12:21-26; DyC 29:40-41; Jacob 2',
   description:

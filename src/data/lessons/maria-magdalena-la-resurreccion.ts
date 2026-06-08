@@ -4,8 +4,8 @@ export const mariaMagdalenaLaResurreccion: Lesson = {
   id: 'maria-magdalena-la-resurreccion',
   moduleId: 'personajes-escrituras',
   submoduleGroup: 'maria-magdalena',
-  title: 'La Resurrección',
-  subtitle: 'Juan 20:1-18 — "¡María!" — El primer nombre pronunciado por el Resucitado',
+  title: 'Juan 20 — "¡María!"',
+  subtitle: 'El primer nombre pronunciado por el Resucitado',
   description:
     'Juan 20:1-18 es el relato más detallado del descubrimiento de la tumba vacía y la primera aparición del Cristo resucitado. La primera persona que habló con Jesús después de la resurrección fue María Magdalena. Jesús la llamó por su nombre — y ese nombre fue la primera palabra del mundo nuevo.',
   level: 'AVANZADO',

@@ -4,7 +4,7 @@ export const joseSmithElMartir: Lesson = {
   id: 'jose-smith-el-martir',
   moduleId: 'personajes-escrituras',
   submoduleGroup: 'jose-smith',
-  title: 'Carthage',
+  title: 'José Smith en Carthage',
   subtitle: 'El sellamiento final del testimonio',
   author: 'Fuentes: DyC 135; Historia de la Iglesia 6:605-631; Diario de John Taylor',
   description:

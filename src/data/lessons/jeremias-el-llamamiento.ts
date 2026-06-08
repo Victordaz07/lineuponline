@@ -3,7 +3,7 @@ import type { Lesson } from '@/types/doctrine'
 export const jeremiasElLlamamiento: Lesson = {
   id: 'jeremias-el-llamamiento',
   moduleId: 'personajes-escrituras',
-  title: 'El Llamamiento',
+  title: 'Jeremías — El Llamamiento',
   subtitle: '"Antes que te formase en el vientre te conocí"',
   description: 'Jeremías fue llamado antes de nacer, consagrado como profeta a las naciones mientras aún era un joven inseguro. Su llamamiento incluye dos señales visuales (la vara de almendro y la olla hirviendo), una prohibición matrimonial única, y la declaración más explícita de preexistencia en el Antiguo Testamento canónico.',
   level: 'INTERMEDIO',
