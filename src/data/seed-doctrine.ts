@@ -309,7 +309,7 @@ type LessonRow = {
   submoduleGroup?: string
 }
 
-export const SUBMODULE_GROUPS: Record<string, { title: string; description: string; icon: string }> = {
+export const SUBMODULE_GROUPS: Record<string, { title: string; description: string; icon: string; categoryLabel?: string }> = {
   // ── DOCTRINA FUNDAMENTAL ──────────────────────────────────────────────────
   'la-santa-cena': {
     title: 'La Santa Cena',
@@ -357,6 +357,7 @@ export const SUBMODULE_GROUPS: Record<string, { title: string; description: stri
     description:
       'El Salvador del mundo visto desde todos los ángulos: su vida mortal, su naturaleza divina, su presencia en los cuatro evangelios, en 3 Nefi y en la voz de los profetas.',
     icon: '🌅',
+    categoryLabel: 'PERSONAJE PRINCIPAL',
   },
   'adan-eva': {
     title: 'Adán y Eva — Los Primeros Padres',
