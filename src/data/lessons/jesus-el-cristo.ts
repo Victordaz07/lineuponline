@@ -10,7 +10,7 @@ export const jesusElCristo: Lesson = {
   description:
     'Cristo no es solo un maestro extraordinario ni un profeta elevado. Es el Creador de mundos, el Jehová del Antiguo Testamento, el Unigénito del Padre, y el único que tiene poder de dar vida eterna. Esta lección examina su naturaleza divina desde Juan 1 hasta 3 Nefi 11.',
   level: 'AVANZADO',
-  icon: '✝️',
+  icon: '🌅',
   duration: 90,
   order: 2,
   status: 'PUBLISHED',

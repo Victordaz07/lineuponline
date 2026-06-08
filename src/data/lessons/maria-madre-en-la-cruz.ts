@@ -10,7 +10,7 @@ export const mariaMadreEnLaCruz: Lesson = {
   description:
     'Simeón le había dicho a María en el templo: "una espada traspasará tu misma alma." Treinta y tres años después, María estuvo al pie de la cruz mientras su hijo moría. Este estudio sigue el camino de María desde Belén hasta el Calvario: la huida a Egipto, el niño de doce años en el templo, las bodas de Caná, el ministerio, la crucifixión. Y al final, Hechos 1:14 la muestra en la comunidad apostólica — present en Pentecostés, testigo de la Resurrección y del Espíritu Santo.',
   level: 'AVANZADO',
-  icon: '✝️',
+  icon: '🌟',
   duration: 35,
   order: 6413,
   status: 'PUBLISHED',

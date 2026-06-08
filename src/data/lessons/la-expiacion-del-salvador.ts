@@ -9,7 +9,7 @@ export const laExpiacionDelSalvador: Lesson = {
   description:
     'Estudio lineal del plan de salvación, la Caída, la justicia y la misericordia, centrado en la Expiación de Jesucristo. Basado en el discurso de W. Cleon Skousen y las enseñanzas del Apóstol John A. Widtsoe.',
   level: 'BÁSICO',
-  icon: '✝️',
+  icon: '🌟',
   duration: 120,
   order: 6,
   status: 'PUBLISHED',

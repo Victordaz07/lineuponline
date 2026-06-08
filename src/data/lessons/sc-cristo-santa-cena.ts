@@ -8,7 +8,7 @@ export const scCristoSantaCena: Lesson = {
   description:
     'Desde el aposento alto de Jerusalén hasta el continente americano y la promesa del banquete eterno: Cristo instituyó esta ordenanza con sus propias manos, en dos hemisferios, y prometió volver a tomarla con nosotros en el reino del Padre.',
   level: 'BÁSICO',
-  icon: '✝️',
+  icon: '🌟',
   duration: 35,
   order: 1,
   status: 'PUBLISHED',

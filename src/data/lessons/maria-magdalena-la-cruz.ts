@@ -9,7 +9,7 @@ export const mariaMagdalenaLaCruz: Lesson = {
   description:
     'Los cuatro Evangelios registran listas distintas de mujeres en la crucifixión. En todas las versiones, María Magdalena está presente. Su presencia en el momento más oscuro de la historia del mundo es el dato más sólidamente atestiguado de su vida.',
   level: 'AVANZADO',
-  icon: '✝️',
+  icon: '🌟',
   duration: 30,
   order: 5312,
   status: 'PUBLISHED',

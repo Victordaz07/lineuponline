@@ -7,7 +7,7 @@ export const melquisedecTipoDeCristo: Lesson = {
   subtitle: 'Pan, vino y la prefiguración del Salvador',
   description: 'Melquisedec ofreció pan y vino a Abraham — el tipo más claro de la Santa Cena en el Antiguo Testamento. Cristo es Sumo Sacerdote según el orden de Melquisedec, no de Aarón.',
   level: 'AVANZADO',
-  icon: '✝️',
+  icon: '🌟',
   duration: 15,
   order: 3212,
   status: 'PUBLISHED',

@@ -9,7 +9,7 @@ export const reyBenjaminElNombre: Lesson = {
   description:
     'Mosíah 3 contiene la revelación angelical que Benjamín recibió sobre la Expiación de Cristo —antes de que Cristo naciera. Mosíah 5 registra el resultado: todo el pueblo tomó el nombre de Cristo mediante pacto y experimentó un cambio de corazón genuino. ¿Qué significa realmente "tomar el nombre de Cristo"?',
   level: 'AVANZADO',
-  icon: '✝️',
+  icon: '🌟',
   duration: 35,
   order: 7412,
   status: 'PUBLISHED',
