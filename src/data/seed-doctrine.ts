@@ -278,8 +278,23 @@ import { elderesMentoresJovenes as lessonElderesMentoresJovenes } from '@/data/l
 import { elderesVisionPfj as lessonElderesVisionPfj } from '@/data/lessons/elderes-vision-pfj'
 // ── CAPACITACIÓN LIDERAZGO — LLAMIMIENTOS ─────────────────────────────────────
 import { srsPresidenta as lessonSrsPresidenta } from '@/data/lessons/srs-presidenta'
+import { srsConsejeras as lessonSrsConsejeras } from '@/data/lessons/srs-consejeras'
+import { srsSecretaria as lessonSrsSecretaria } from '@/data/lessons/srs-secretaria'
+import { elderesPresidente as lessonElderesPresidente } from '@/data/lessons/elderes-presidente'
+import { elderesConsejeros as lessonElderesConsejeros } from '@/data/lessons/elderes-consejeros'
+import { elderesSecretario as lessonElderesSecretario } from '@/data/lessons/elderes-secretario'
 import { mjPresidenta as lessonMjPresidenta } from '@/data/lessons/mj-presidenta'
+import { mjConsejeras as lessonMjConsejeras } from '@/data/lessons/mj-consejeras'
+import { mjSecretaria as lessonMjSecretaria } from '@/data/lessons/mj-secretaria'
+import { hjPresidente as lessonHjPresidente } from '@/data/lessons/hj-presidente'
+import { hjConsejeros as lessonHjConsejeros } from '@/data/lessons/hj-consejeros'
+import { hjSecretario as lessonHjSecretario } from '@/data/lessons/hj-secretario'
 import { primariaPresidenta as lessonPrimariaPresidenta } from '@/data/lessons/primaria-presidenta'
+import { primariaConsejeras as lessonPrimariaConsejeras } from '@/data/lessons/primaria-consejeras'
+import { primariaSecretaria as lessonPrimariaSecretaria } from '@/data/lessons/primaria-secretaria'
+import { edPresidente as lessonEdPresidente } from '@/data/lessons/ed-presidente'
+import { edConsejeros as lessonEdConsejeros } from '@/data/lessons/ed-consejeros'
+import { edSecretario as lessonEdSecretario } from '@/data/lessons/ed-secretario'
 // ── VIDA FAMILIAR Y PERSONAL — PARTICIPACIÓN DOMINICAL ───────────────────────
 import { comoDarUnDiscurso as lessonComoDarUnDiscurso } from '@/data/lessons/como-dar-un-discurso'
 import { comoDarUnTestimonio as lessonComoDarUnTestimonio } from '@/data/lessons/como-dar-un-testimonio'
@@ -1924,8 +1939,23 @@ const LESSON_ROWS: LessonRow[] = [
   { id: 'ed-ejemplo-clase', moduleId: 'capacitacion-liderazgo', title: 'Clase Modelo — Escuela Dominical 25 Minutos', subtitle: 'Cómo enseñar Ven, Sígueme con menos tiempo y más profundidad', description: 'Ejemplo concreto de cómo preparar la Escuela Dominical de 25 minutos: elegir 1-3 principios, preguntas que abren conversación, y el rol del maestro como facilitador.', level: 'BÁSICO', icon: '📖', duration: 15, order: 9412, status: 'PUBLISHED', submoduleGroup: 'ed-pfj' },
   { id: 'srs-ejemplo-clase', moduleId: 'capacitacion-liderazgo', title: 'Clase Modelo — Sociedad de Socorro 25 Minutos', subtitle: 'Mensajes de Conferencia General como consejo entre hermanas', description: 'Ejemplo de cómo estructurar la nueva clase semanal de SRS: presidencia selecciona el discurso prayerfully, sin anuncios en clase, discusión como consejo — no como lección magistral.', level: 'BÁSICO', icon: '💐', duration: 15, order: 9510, status: 'PUBLISHED', submoduleGroup: 'srs-pfj' },
   { id: 'srs-presidenta', moduleId: 'capacitacion-liderazgo', title: 'La Presidenta de la Sociedad de Socorro', subtitle: 'Pastora, administradora y voz de las hermanas ante el obispado', description: 'La presidenta de la Sociedad de Socorro es la líder responsable del bienestar espiritual y temporal de todas las mujeres adultas. Esta lección cubre su llamamiento, responsabilidades centrales y relación con el obispado.', level: 'BÁSICO', icon: '💐', duration: 25, order: 9520, status: 'PUBLISHED', submoduleGroup: 'srs-lideres' },
+  { id: 'srs-consejeras', moduleId: 'capacitacion-liderazgo', title: 'Las Consejeras de la Sociedad de Socorro', subtitle: 'Apoyo específico, no dirección independiente', description: 'Una consejera de la Sociedad de Socorro sirve bajo la dirección de la presidenta con asignaciones específicas. Esta lección cubre la naturaleza del llamamiento, asignaciones típicas y cómo actuar en ausencia de la presidenta.', level: 'BÁSICO', icon: '🤝', duration: 25, order: 9521, status: 'PUBLISHED', submoduleGroup: 'srs-lideres' },
+  { id: 'srs-secretaria', moduleId: 'capacitacion-liderazgo', title: 'La Secretaria de la Sociedad de Socorro', subtitle: 'El sistema de información que hace funcionar la presidencia', description: 'La secretaria es la memoria institucional de la Sociedad de Socorro: minutas de presidencia, registro de ministerio, administración del presupuesto y preparación del informe mensual al obispado.', level: 'BÁSICO', icon: '📋', duration: 25, order: 9522, status: 'PUBLISHED', submoduleGroup: 'srs-lideres' },
+  { id: 'elderes-presidente', moduleId: 'capacitacion-liderazgo', title: 'El Presidente del Cuórum de Élderes', subtitle: 'Llave del ministerio y del bienestar de los hombres del barrio', description: 'El presidente del Cuórum de Élderes dirige el ministerio de los hermanos, responde por su bienestar espiritual y temporal, preside la presidencia del cuórum y participa en el consejo de barrio. Basado en el Manual General capítulo 8.', level: 'BÁSICO', icon: '🌍', duration: 25, order: 9530, status: 'PUBLISHED', submoduleGroup: 'elderes-lideres' },
+  { id: 'elderes-consejeros', moduleId: 'capacitacion-liderazgo', title: 'Los Consejeros del Cuórum de Élderes', subtitle: 'Fuerza compartida, responsabilidad asignada', description: 'Los consejeros del Cuórum de Élderes sirven bajo la dirección del presidente con asignaciones específicas. Esta lección cubre su papel, las asignaciones comunes del primer y segundo consejero, y cómo contribuyen a la reunión de presidencia.', level: 'BÁSICO', icon: '🤝', duration: 25, order: 9531, status: 'PUBLISHED', submoduleGroup: 'elderes-lideres' },
+  { id: 'elderes-secretario', moduleId: 'capacitacion-liderazgo', title: 'El Secretario del Cuórum de Élderes', subtitle: 'Administración al servicio del ministerio', description: 'El secretario del cuórum mantiene los registros de asistencia y ministerio, toma minutas, administra el presupuesto y prepara los informes para el obispado. Su labor administrativa es fundamental para que la presidencia pueda ejercer su responsabilidad pastoral.', level: 'BÁSICO', icon: '📋', duration: 25, order: 9532, status: 'PUBLISHED', submoduleGroup: 'elderes-lideres' },
   { id: 'mj-presidenta', moduleId: 'capacitacion-liderazgo', title: 'La Presidenta de las Mujeres Jóvenes', subtitle: 'Pastora de jóvenes — entre el obispado y las jóvenes', description: 'La presidenta de MJ es llamada y orientada por el obispo. Su primera responsabilidad es el bienestar espiritual y temporal de cada joven. Cubre responsabilidades, ministerio personal y coordinación con el consejo de barrio.', level: 'BÁSICO', icon: '💜', duration: 25, order: 9540, status: 'PUBLISHED', submoduleGroup: 'mj-lideres' },
+  { id: 'mj-consejeras', moduleId: 'capacitacion-liderazgo', title: 'Las Consejeras de las Mujeres Jóvenes', subtitle: 'Asignadas a clases, actividades y bienestar individual', description: 'Las consejeras de MJ sirven bajo la dirección de la presidenta con asignaciones específicas por clase o área. Cubre la división de responsabilidades, el ministerio personal a cada joven y la presencia constante que gana el corazón de las jóvenes.', level: 'BÁSICO', icon: '🤝', duration: 25, order: 9541, status: 'PUBLISHED', submoduleGroup: 'mj-lideres' },
+  { id: 'mj-secretaria', moduleId: 'capacitacion-liderazgo', title: 'La Secretaria de las Mujeres Jóvenes', subtitle: 'Organización al servicio de cada joven', description: 'La secretaria de MJ mantiene el directorio actualizado, registra asistencia, coordina actividades y campamentos, maneja el presupuesto y reporta al obispado. Su trabajo organizado libera a la presidenta para el ministerio pastoral.', level: 'BÁSICO', icon: '📋', duration: 20, order: 9542, status: 'PUBLISHED', submoduleGroup: 'mj-lideres' },
+  { id: 'hj-presidente', moduleId: 'capacitacion-liderazgo', title: 'El Presidente de los Hombres Jóvenes', subtitle: 'Coordinador entre el obispado y los cuórums del Sacerdocio Aarónico', description: 'El presidente de HJ sirve bajo la dirección del obispo — quien presida el Sacerdocio Aarónico. Cubre la distinción teológica clave, las responsabilidades de coordinación y el foco espiritual en preparar a cada joven para la misión y el templo.', level: 'BÁSICO', icon: '🧑', duration: 25, order: 9550, status: 'PUBLISHED', submoduleGroup: 'hj-lideres' },
+  { id: 'hj-consejeros', moduleId: 'capacitacion-liderazgo', title: 'Los Consejeros de los Hombres Jóvenes', subtitle: 'Mentores, no supervisores — presencia que cambia vidas', description: 'Los consejeros de HJ son mentores que conocen a los jóvenes en su mundo — no solo en el edificio. Cubre asignaciones por cuórum, el principio del ejemplo de vida y el impacto de un adulto que genuinamente conoce a cada joven.', level: 'BÁSICO', icon: '🤝', duration: 25, order: 9551, status: 'PUBLISHED', submoduleGroup: 'hj-lideres' },
+  { id: 'hj-secretario', moduleId: 'capacitacion-liderazgo', title: 'El Secretario de los Hombres Jóvenes', subtitle: 'Seguimiento, asistencia y coordinación de actividades', description: 'El secretario de HJ coordina con los secretarios de cuórum, planifica el calendario anual de actividades, maneja el presupuesto y da seguimiento a los avances del Sacerdocio Aarónico — especialmente a los jóvenes próximos a cumplir misión.', level: 'BÁSICO', icon: '📋', duration: 20, order: 9552, status: 'PUBLISHED', submoduleGroup: 'hj-lideres' },
   { id: 'primaria-presidenta', moduleId: 'capacitacion-liderazgo', title: 'La Presidenta de la Primaria', subtitle: 'Formadora de la fe que dura toda la vida', description: 'La presidenta de la Primaria tiene a su cargo los niños del barrio desde los 18 meses hasta los 11 años. Cubre el llamamiento, la Presentación Anual de la Primaria y la coordinación con el obispado.', level: 'BÁSICO', icon: '⭐', duration: 25, order: 9560, status: 'PUBLISHED', submoduleGroup: 'primaria-lideres' },
+  { id: 'primaria-consejeras', moduleId: 'capacitacion-liderazgo', title: 'Las Consejeras de la Primaria', subtitle: 'Presencia constante en la vida de cada niño', description: 'Las consejeras de la Primaria son asignadas a grupos de edad, conocen a cada niño individualmente y coordinan la música y el ambiente espiritual. Su ministerio directo a los niños es el corazón del llamamiento.', level: 'BÁSICO', icon: '🤝', duration: 25, order: 9561, status: 'PUBLISHED', submoduleGroup: 'primaria-lideres' },
+  { id: 'primaria-secretaria', moduleId: 'capacitacion-liderazgo', title: 'La Secretaria de la Primaria', subtitle: 'El registro que protege y acompaña a cada niño', description: 'La secretaria de la Primaria mantiene el directorio de niños, registra asistencia, coordina los discursos en la reunión sacramental y administra el presupuesto. Su trabajo sistemático asegura que ningún niño quede sin seguimiento.', level: 'BÁSICO', icon: '📋', duration: 20, order: 9562, status: 'PUBLISHED', submoduleGroup: 'primaria-lideres' },
+  { id: 'ed-presidente', moduleId: 'capacitacion-liderazgo', title: 'El Presidente de la Escuela Dominical', subtitle: 'Director del aprendizaje doctrinal del barrio', description: 'El presidente de la ED selecciona y capacita maestros, coordina con el obispado, supervisa el formato de 25 minutos de Ven, Sígueme y dirige el quinto domingo. Su llamamiento es velar por la calidad doctrinal de toda la enseñanza adulta del barrio.', level: 'BÁSICO', icon: '📖', duration: 25, order: 9570, status: 'PUBLISHED', submoduleGroup: 'ed-lideres' },
+  { id: 'ed-consejeros', moduleId: 'capacitacion-liderazgo', title: 'Los Consejeros de la Escuela Dominical', subtitle: 'Apoyo a los maestros y coordinación de clases', description: 'Los consejeros de ED apoyan a los maestros visitando clases, ofreciendo recursos y coordinando el quinto domingo. Su rol es asegurarse de que cada maestro tenga el apoyo que necesita para enseñar con el Espíritu.', level: 'BÁSICO', icon: '🤝', duration: 20, order: 9571, status: 'PUBLISHED', submoduleGroup: 'ed-lideres' },
+  { id: 'ed-secretario', moduleId: 'capacitacion-liderazgo', title: 'El Secretario de la Escuela Dominical', subtitle: 'Coordinación y registros al servicio de la enseñanza', description: 'El secretario de ED mantiene la lista de clases y maestros, gestiona los sustitutos, comunica el material semanal y coordina con otras organizaciones cuando cambia el horario. Su labor permite que la enseñanza fluya sin fricciones.', level: 'BÁSICO', icon: '📋', duration: 20, order: 9572, status: 'PUBLISHED', submoduleGroup: 'ed-lideres' },
 ]
 
 const PORTED: Partial<Record<string, Lesson>> = {
@@ -2221,8 +2251,23 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'elderes-ejemplo-clase': lessonElderesEjemploClase,
   // llamimientos
   'srs-presidenta': lessonSrsPresidenta,
+  'srs-consejeras': lessonSrsConsejeras,
+  'srs-secretaria': lessonSrsSecretaria,
+  'elderes-presidente': lessonElderesPresidente,
+  'elderes-consejeros': lessonElderesConsejeros,
+  'elderes-secretario': lessonElderesSecretario,
   'mj-presidenta': lessonMjPresidenta,
+  'mj-consejeras': lessonMjConsejeras,
+  'mj-secretaria': lessonMjSecretaria,
+  'hj-presidente': lessonHjPresidente,
+  'hj-consejeros': lessonHjConsejeros,
+  'hj-secretario': lessonHjSecretario,
   'primaria-presidenta': lessonPrimariaPresidenta,
+  'primaria-consejeras': lessonPrimariaConsejeras,
+  'primaria-secretaria': lessonPrimariaSecretaria,
+  'ed-presidente': lessonEdPresidente,
+  'ed-consejeros': lessonEdConsejeros,
+  'ed-secretario': lessonEdSecretario,
 }
 
 function lessonIdsForModule(moduleId: string): string[] {
