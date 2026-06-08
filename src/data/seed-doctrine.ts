@@ -276,6 +276,10 @@ import { elderesEjemploClase as lessonElderesEjemploClase } from '@/data/lessons
 import { elderesRolMisional as lessonElderesRolMisional } from '@/data/lessons/elderes-rol-misional'
 import { elderesMentoresJovenes as lessonElderesMentoresJovenes } from '@/data/lessons/elderes-mentores-jovenes'
 import { elderesVisionPfj as lessonElderesVisionPfj } from '@/data/lessons/elderes-vision-pfj'
+// ── CAPACITACIÓN LIDERAZGO — LLAMIMIENTOS ─────────────────────────────────────
+import { srsPresidenta as lessonSrsPresidenta } from '@/data/lessons/srs-presidenta'
+import { mjPresidenta as lessonMjPresidenta } from '@/data/lessons/mj-presidenta'
+import { primariaPresidenta as lessonPrimariaPresidenta } from '@/data/lessons/primaria-presidenta'
 // ── VIDA FAMILIAR Y PERSONAL — PARTICIPACIÓN DOMINICAL ───────────────────────
 import { comoDarUnDiscurso as lessonComoDarUnDiscurso } from '@/data/lessons/como-dar-un-discurso'
 import { comoDarUnTestimonio as lessonComoDarUnTestimonio } from '@/data/lessons/como-dar-un-testimonio'
@@ -346,6 +350,36 @@ export const SUBMODULE_GROUPS: Record<string, { title: string; description: stri
     title: 'Sociedad de Socorro',
     description: 'La nueva clase semanal de Sociedad de Socorro de 25 minutos: mensajes de Conferencia General como consejo entre hermanas, no como clase magistral.',
     icon: '💐',
+  },
+  'srs-lideres': {
+    title: 'SRS — Presidencia y Secretaria',
+    description: 'Llamientos de la Sociedad de Socorro: qué hace la presidenta, las consejeras y la secretaria, cómo trabajan con el obispado y cómo sirven a cada hermana del barrio.',
+    icon: '💐',
+  },
+  'mj-lideres': {
+    title: 'MJ — Presidencia y Secretaria',
+    description: 'Llamientos de las Mujeres Jóvenes: presidenta, consejeras y secretaria — sus responsabilidades específicas, cómo coordinar con el obispado y cómo ministrar a cada joven.',
+    icon: '💜',
+  },
+  'hj-lideres': {
+    title: 'HJ — Presidencia y Secretario',
+    description: 'Llamientos de los Hombres Jóvenes: el presidente que sirve bajo la dirección del obispo, los consejeros como mentores, y el secretario que da seguimiento a cada joven.',
+    icon: '🧑',
+  },
+  'elderes-lideres': {
+    title: 'Élderes — Presidencia y Secretario',
+    description: 'Llamientos del Cuórum de Élderes: presidente, consejeros y secretario — ministerio, bienestar y cómo llevar el cuórum a una fraternidad de convenio activa.',
+    icon: '🌍',
+  },
+  'primaria-lideres': {
+    title: 'Primaria — Presidencia y Secretaria',
+    description: 'Llamientos de la Primaria: presidenta, consejeras y secretaria — formación de la fe desde la infancia, presentación anual y ministerio personal a cada niño.',
+    icon: '⭐',
+  },
+  'ed-lideres': {
+    title: 'ED — Presidencia y Secretario',
+    description: 'Llamientos de la Escuela Dominical: presidente, consejeros y secretario — capacitación de maestros, coordinación del quinto domingo y enseñanza doctrinal de calidad.',
+    icon: '📖',
   },
   'participacion-dominical': {
     title: 'Cómo Participar',
@@ -1889,6 +1923,9 @@ const LESSON_ROWS: LessonRow[] = [
   { id: 'ed-coordinar-clases', moduleId: 'capacitacion-liderazgo', title: 'Coordinar las Clases de Jóvenes', subtitle: 'El rol de la Escuela Dominical con HJ, MJ y el bloque PFJ', description: 'Qué corresponde a la ED y qué a las organizaciones de jóvenes. Mapa de responsabilidades, logística del primer domingo y cómo prevenir fricciones el 6 de septiembre.', level: 'INTERMEDIO', icon: '🤝', duration: 15, order: 9411, status: 'PUBLISHED', submoduleGroup: 'ed-pfj' },
   { id: 'ed-ejemplo-clase', moduleId: 'capacitacion-liderazgo', title: 'Clase Modelo — Escuela Dominical 25 Minutos', subtitle: 'Cómo enseñar Ven, Sígueme con menos tiempo y más profundidad', description: 'Ejemplo concreto de cómo preparar la Escuela Dominical de 25 minutos: elegir 1-3 principios, preguntas que abren conversación, y el rol del maestro como facilitador.', level: 'BÁSICO', icon: '📖', duration: 15, order: 9412, status: 'PUBLISHED', submoduleGroup: 'ed-pfj' },
   { id: 'srs-ejemplo-clase', moduleId: 'capacitacion-liderazgo', title: 'Clase Modelo — Sociedad de Socorro 25 Minutos', subtitle: 'Mensajes de Conferencia General como consejo entre hermanas', description: 'Ejemplo de cómo estructurar la nueva clase semanal de SRS: presidencia selecciona el discurso prayerfully, sin anuncios en clase, discusión como consejo — no como lección magistral.', level: 'BÁSICO', icon: '💐', duration: 15, order: 9510, status: 'PUBLISHED', submoduleGroup: 'srs-pfj' },
+  { id: 'srs-presidenta', moduleId: 'capacitacion-liderazgo', title: 'La Presidenta de la Sociedad de Socorro', subtitle: 'Pastora, administradora y voz de las hermanas ante el obispado', description: 'La presidenta de la Sociedad de Socorro es la líder responsable del bienestar espiritual y temporal de todas las mujeres adultas. Esta lección cubre su llamamiento, responsabilidades centrales y relación con el obispado.', level: 'BÁSICO', icon: '💐', duration: 25, order: 9520, status: 'PUBLISHED', submoduleGroup: 'srs-lideres' },
+  { id: 'mj-presidenta', moduleId: 'capacitacion-liderazgo', title: 'La Presidenta de las Mujeres Jóvenes', subtitle: 'Pastora de jóvenes — entre el obispado y las jóvenes', description: 'La presidenta de MJ es llamada y orientada por el obispo. Su primera responsabilidad es el bienestar espiritual y temporal de cada joven. Cubre responsabilidades, ministerio personal y coordinación con el consejo de barrio.', level: 'BÁSICO', icon: '💜', duration: 25, order: 9540, status: 'PUBLISHED', submoduleGroup: 'mj-lideres' },
+  { id: 'primaria-presidenta', moduleId: 'capacitacion-liderazgo', title: 'La Presidenta de la Primaria', subtitle: 'Formadora de la fe que dura toda la vida', description: 'La presidenta de la Primaria tiene a su cargo los niños del barrio desde los 18 meses hasta los 11 años. Cubre el llamamiento, la Presentación Anual de la Primaria y la coordinación con el obispado.', level: 'BÁSICO', icon: '⭐', duration: 25, order: 9560, status: 'PUBLISHED', submoduleGroup: 'primaria-lideres' },
 ]
 
 const PORTED: Partial<Record<string, Lesson>> = {
@@ -2182,6 +2219,10 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'mj-ejemplo-clase-pfj': lessonMjEjemploClasePfj,
   'srs-ejemplo-clase': lessonSrsEjemploClase,
   'elderes-ejemplo-clase': lessonElderesEjemploClase,
+  // llamimientos
+  'srs-presidenta': lessonSrsPresidenta,
+  'mj-presidenta': lessonMjPresidenta,
+  'primaria-presidenta': lessonPrimariaPresidenta,
 }
 
 function lessonIdsForModule(moduleId: string): string[] {
