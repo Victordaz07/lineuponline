@@ -6,13 +6,22 @@ import { useLesson } from '@/hooks/useLesson'
 import { useSyncNotes } from '@/hooks/useSyncNotes'
 import { useScrollMemory } from '@/hooks/useScrollMemory'
 import { useAuth } from '@/hooks/useAuth'
+import { useUserProgress } from '@/hooks/useUserProgress'
+import { useCallback } from 'react'
 
 export default function LessonView() {
   const { moduleId, lessonId } = useParams<{ moduleId: string; lessonId: string }>()
   const { lesson, loading, error } = useLesson(moduleId, lessonId)
   const { userId } = useAuth()
   const { saveNote } = useSyncNotes({ userId })
+  const { markLessonComplete, isLessonComplete } = useUserProgress(userId)
   useScrollMemory(`lesson:${moduleId}:${lessonId}`)
+
+  const handleMarkComplete = useCallback(() => {
+    if (moduleId && lessonId) markLessonComplete(moduleId, lessonId)
+  }, [moduleId, lessonId, markLessonComplete])
+
+  const complete = Boolean(moduleId && lessonId && isLessonComplete(moduleId, lessonId))
 
   if (loading) {
     return (
@@ -42,6 +51,8 @@ export default function LessonView() {
       lesson={lesson}
       heroImageUrl={lesson.heroImage?.url}
       onSaveNote={saveNote}
+      isComplete={complete}
+      onMarkComplete={handleMarkComplete}
     />
   )
 }

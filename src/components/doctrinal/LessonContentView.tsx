@@ -32,6 +32,8 @@ export type LessonContentViewProps = {
   lesson: Lesson
   heroImageUrl?: string
   onSaveNote?: (note: UserNoteInput) => Promise<void>
+  isComplete?: boolean
+  onMarkComplete?: () => void
 }
 
 type TabId = 'study' | 'original'
@@ -43,6 +45,8 @@ export function LessonContentView({
   lesson,
   heroImageUrl,
   onSaveNote,
+  isComplete = false,
+  onMarkComplete,
 }: LessonContentViewProps) {
   const [tab, setTab] = useState<TabId>('study')
   const [showNotes, setShowNotes] = useState(false)
@@ -112,6 +116,14 @@ export function LessonContentView({
     }
     return n
   }, [sections, isTopicVisited, lessonId])
+
+  // Auto-mark lesson complete when every topic has been visited
+  useEffect(() => {
+    if (isComplete || !onMarkComplete) return
+    if (isRich && totalTopics > 0 && visitedTopicsCount >= totalTopics) {
+      onMarkComplete()
+    }
+  }, [visitedTopicsCount, totalTopics, isRich, isComplete, onMarkComplete])
 
   // Initialize activeSectionId once sections are available
   useEffect(() => {
@@ -194,19 +206,38 @@ export function LessonContentView({
         </div>
         {isRich ? (
           <div className="flex flex-col gap-2 border-t border-sg-gold/15 pt-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="font-ui text-sm text-parchment/70">
-              Progreso de temas:{' '}
-              <span className="font-semibold text-sg-gold-light">
-                {visitedTopicsCount} de {totalTopics}
-              </span>
+            <div className="flex items-center gap-3">
+              {isComplete ? (
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-900/40 px-3 py-1 font-ui text-xs font-semibold text-emerald-300">
+                  ✓ Completada
+                </span>
+              ) : (
+                <div className="font-ui text-sm text-parchment/70">
+                  Progreso:{' '}
+                  <span className="font-semibold text-sg-gold-light">
+                    {visitedTopicsCount} de {totalTopics} temas
+                  </span>
+                </div>
+              )}
             </div>
-            <button
-              type="button"
-              onClick={() => setJournalOpen(true)}
-              className="rounded-full border border-sg-gold/30 bg-sg-gold/10 px-4 py-2 font-ui text-sm font-semibold text-sg-gold-light shadow-sm transition hover:bg-sg-gold/20"
-            >
-              Diario de estudio
-            </button>
+            <div className="flex flex-wrap gap-2">
+              {!isComplete && onMarkComplete ? (
+                <button
+                  type="button"
+                  onClick={onMarkComplete}
+                  className="rounded-full border border-emerald-700/50 bg-emerald-900/30 px-4 py-2 font-ui text-sm font-semibold text-emerald-300 transition hover:bg-emerald-900/50"
+                >
+                  Marcar como completada
+                </button>
+              ) : null}
+              <button
+                type="button"
+                onClick={() => setJournalOpen(true)}
+                className="rounded-full border border-sg-gold/30 bg-sg-gold/10 px-4 py-2 font-ui text-sm font-semibold text-sg-gold-light shadow-sm transition hover:bg-sg-gold/20"
+              >
+                Diario de estudio
+              </button>
+            </div>
           </div>
         ) : null}
       </header>
@@ -364,6 +395,25 @@ export function LessonContentView({
         entries={journalEntries}
         uniqueTopicTitles={journalTopicTitles}
       />
+
+      {/* Completion banner / manual button for plain-text lessons */}
+      {isComplete ? (
+        <div className="flex items-center gap-3 rounded-2xl border border-emerald-700/40 bg-emerald-900/20 px-5 py-4">
+          <span className="text-2xl" aria-hidden="true">✓</span>
+          <div>
+            <p className="font-ui text-sm font-semibold text-emerald-300">Lección completada</p>
+            <p className="font-ui text-xs text-emerald-300/60">Esta lección ya cuenta en tu progreso general.</p>
+          </div>
+        </div>
+      ) : onMarkComplete && !isRich ? (
+        <button
+          type="button"
+          onClick={onMarkComplete}
+          className="w-full rounded-2xl border border-emerald-700/50 bg-emerald-900/30 py-3 font-ui text-sm font-semibold text-emerald-300 transition hover:bg-emerald-900/50"
+        >
+          Marcar como completada
+        </button>
+      ) : null}
 
       <nav
         className="flex flex-col gap-3 border-t border-sg-gold/20 pt-6 sm:flex-row sm:justify-between"
