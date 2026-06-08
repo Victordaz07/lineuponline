@@ -71,7 +71,7 @@ export function CompareGridBlockComponent({ block }: { block: CompareGridBlock }
           <ul className="space-y-1.5">
             {rightItems.map((item, i) => (
               <li key={i} className="flex items-start gap-2 font-ui text-sm text-parchment/80">
-                <span className="mt-0.5 shrink-0 text-red-400">✗</span>
+                <span className="mt-0.5 shrink-0 text-red-400/70">–</span>
                 <span>{item}</span>
               </li>
             ))}

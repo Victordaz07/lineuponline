@@ -218,7 +218,7 @@ export function LessonAudioPlayer({ text, paragraphs, onParagraphActive }: Lesso
           className="font-ui text-[0.65rem] text-parchment/50 transition hover:text-parchment"
           aria-label="Cerrar reproductor"
         >
-          ✕
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 1l8 8M9 1L1 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
         </button>
       </div>
 

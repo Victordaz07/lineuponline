@@ -54,7 +54,7 @@ export function HighlightToolbar({ sel, toolbarRef, onSave, onDismiss }: Highlig
         onClick={onDismiss}
         className="ml-1 flex h-6 w-6 items-center justify-center rounded-full text-xs text-parchment/50 hover:bg-navy-deep/50"
       >
-        ✕
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 1l8 8M9 1L1 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
       </button>
     </div>
   )

@@ -245,7 +245,7 @@ export default function ProfilePage() {
                   onClick={() => { setNameEditing(false); setName(user?.displayName ?? '') }}
                   className="rounded-xl border border-sg-gold/20 px-3 py-2 font-ui text-xs text-parchment/50 hover:bg-navy-deep/50"
                 >
-                  ✕
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 1l8 8M9 1L1 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
                 </button>
               </div>
             )
