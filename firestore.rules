@@ -42,6 +42,13 @@ service cloud.firestore {
       }
     }
 
+    // Scripture Quest: banco de preguntas aprobadas (lectura pública para
+    // jugadores autenticados; escritura solo de administradores)
+    match /scripturequest_questions/{questionId} {
+      allow read: if isAuthenticated() && (resource.data.status == 'approved' || isAdmin());
+      allow write: if isAdmin();
+    }
+
     // Scripture Quest: realtime game rooms (doc id = 6-char session code)
     match /scripturequest_rooms/{roomId} {
       allow read: if isAuthenticated();

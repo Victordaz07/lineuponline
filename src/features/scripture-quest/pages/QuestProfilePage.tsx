@@ -9,7 +9,7 @@ import { useBadges } from '../hooks/useBadges'
 import { fetchHistory } from '../services/historyService'
 import type { GameHistoryEntry } from '../types'
 
-/** Profile section: last 6 games + badge collection. */
+/** Perfil: franja de estadísticas, últimas 6 partidas, insignias 4×2 y estudio. */
 export default function QuestProfilePage() {
   const { user } = useAuth()
   const { badges } = useBadges(user?.uid)
@@ -33,23 +33,38 @@ export default function QuestProfilePage() {
   }, [user])
 
   const earnedById = new Map(badges.map((b) => [b.badgeId, b]))
+  const totalScore = history.reduce((sum, h) => sum + h.score, 0)
+  const passRate =
+    history.length > 0
+      ? Math.round((history.filter((h) => h.passed).length / history.length) * 100)
+      : 0
+  const missedTotal = history.reduce((sum, h) => sum + (h.missedQuestions?.length ?? 0), 0)
 
   return (
     <QuestShell>
       <QuestAuthGate>
         <div className="space-y-10">
+          {/* Franja de estadísticas */}
+          <section className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {[
+              { label: 'Partidas recientes', value: String(history.length) },
+              { label: 'Puntos acumulados', value: totalScore.toLocaleString('es') },
+              { label: 'Aprobadas', value: `${passRate}%` },
+              { label: 'Insignias', value: `${badges.length}/${Object.keys(BADGES).length}` },
+            ].map((stat, i) => (
+              <div key={stat.label} className={`sq-card sq-rise sq-rise-${i} p-4 text-center`}>
+                <p className="font-display text-3xl font-bold text-sg-gold-bright">{stat.value}</p>
+                <p className="font-ui text-[11px] uppercase tracking-widest text-warm-white/60">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </section>
+
           <section>
-            <div className="mb-3 flex items-center justify-between gap-3">
-              <h2 className="font-display text-2xl font-bold text-warm-white">
-                Mis últimas partidas
-              </h2>
-              <Link
-                to="/games/scripture-quest/study"
-                className="font-ui text-xs font-bold uppercase tracking-wide text-sg-gold-bright hover:underline"
-              >
-                Modo estudio →
-              </Link>
-            </div>
+            <h2 className="mb-3 font-display text-2xl font-bold text-warm-white">
+              Mis últimas partidas
+            </h2>
             {loading ? (
               <p className="font-ui text-sm text-warm-white/60">Cargando…</p>
             ) : history.length === 0 ? (
@@ -71,7 +86,11 @@ export default function QuestProfilePage() {
                         {getTopicById(h.topic)?.label ?? h.topic}
                       </p>
                       <p className="font-ui text-xs text-warm-white/60">
-                        Nivel {h.level} · {h.correctAnswers}/{h.totalQuestions} correctas
+                        Nivel {h.level} ·{' '}
+                        {h.totalQuestions > 0
+                          ? `${Math.round((h.correctAnswers / h.totalQuestions) * 100)}% correctas`
+                          : 'sin rondas'}{' '}
+                        ({h.correctAnswers}/{h.totalQuestions})
                         {h.date && ` · ${h.date.toDate().toLocaleDateString('es')}`}
                       </p>
                     </div>
@@ -86,7 +105,7 @@ export default function QuestProfilePage() {
                         {h.passed ? 'Aprobada' : 'A repasar'}
                       </span>
                       <span className="font-display text-xl font-bold text-sg-gold-bright">
-                        {h.score} pts
+                        {h.score.toLocaleString('es')}
                       </span>
                     </div>
                   </li>
@@ -99,7 +118,7 @@ export default function QuestProfilePage() {
             <h2 className="mb-3 font-display text-2xl font-bold text-warm-white">
               Insignias ({badges.length}/{Object.keys(BADGES).length})
             </h2>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               {Object.values(BADGES).map((def) => {
                 const earned = earnedById.get(def.id)
                 return (
@@ -113,6 +132,26 @@ export default function QuestProfilePage() {
               })}
             </div>
           </section>
+
+          {/* Tarjeta de modo estudio */}
+          <Link
+            to="/games/scripture-quest/study"
+            className="sq-card block p-5 transition hover:border-sg-gold"
+          >
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <p className="font-display text-xl font-bold text-warm-white">📖 Modo estudio</p>
+                <p className="font-ui text-sm text-warm-white/60">
+                  {missedTotal > 0
+                    ? `Tienes ${missedTotal} pregunta${missedTotal === 1 ? '' : 's'} fallada${missedTotal === 1 ? '' : 's'} por repasar.`
+                    : 'Sin preguntas pendientes de repaso. ¡Bien hecho!'}
+                </p>
+              </div>
+              <span className="font-ui text-xs font-bold uppercase tracking-wide text-sg-gold-bright">
+                Repasar →
+              </span>
+            </div>
+          </Link>
         </div>
       </QuestAuthGate>
     </QuestShell>

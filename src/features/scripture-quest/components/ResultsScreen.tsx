@@ -1,56 +1,74 @@
-import type { AnswerOption, Player, Question, Team } from '../types'
+import type { GameRound, Player, Team } from '../types'
+import { ROUND_TYPE_LABELS } from '../data/badges'
+import { roundAnswerText, roundExplanation } from '../utils/scoreCalculator'
 import { LiveLeaderboard } from './LiveLeaderboard'
 
 type Props = {
-  question: Question
+  round: GameRound
   players: Player[]
   teams: Team[]
   teamMode: boolean
-  /** Player view: the answer this user (or their team) gave. */
-  myAnswer?: AnswerOption | null
+  /** Vista del jugador: resultado propio de esta ronda. */
+  myResult?: { correct: boolean; points: number } | null
   highlightUid?: string
-  /** Host view: seconds until the next question starts automatically. */
+  /** Vista del anfitrión: segundos para la siguiente ronda. */
   nextIn?: number | null
+  /** Vista del anfitrión: tipo de la siguiente ronda (vista previa). */
+  nextRoundType?: string | null
 }
 
-/** Between-questions screen: correct answer, explanation and standings. */
+/** Pantalla entre rondas: respuesta correcta, dato de las Escrituras y tabla. */
 export function ResultsScreen({
-  question,
+  round,
   players,
   teams,
   teamMode,
-  myAnswer,
+  myResult,
   highlightUid,
   nextIn,
+  nextRoundType,
 }: Props) {
-  const answered = myAnswer !== undefined
-  const correct = myAnswer === question.correctAnswer
-
   return (
     <div className="space-y-6">
-      {answered && (
+      {myResult !== undefined && myResult !== null && (
         <div
-          className={`rounded-2xl p-5 text-center ${
-            correct ? 'bg-emerald-500/15 ring-1 ring-emerald-400' : 'bg-rose-500/15 ring-1 ring-rose-400'
+          className={`sq-pop rounded-2xl p-5 text-center ${
+            myResult.correct
+              ? 'bg-emerald-500/15 ring-1 ring-emerald-400'
+              : 'bg-rose-500/15 ring-1 ring-rose-400'
           }`}
         >
           <p className="text-4xl" aria-hidden>
-            {correct ? '🎉' : '😔'}
+            {myResult.correct ? '🎉' : '😔'}
           </p>
           <p className="mt-1 font-display text-2xl font-bold text-warm-white">
-            {correct ? '¡Correcto!' : myAnswer ? 'Incorrecto' : 'Sin respuesta'}
+            {myResult.correct ? '¡Correcto!' : 'Incorrecto'}
           </p>
+          {myResult.points > 0 && (
+            <p className="font-ui text-sg-gold-bright">
+              +{myResult.points.toLocaleString('es')} pts
+            </p>
+          )}
         </div>
       )}
 
-      <div className="rounded-2xl border border-sg-gold/40 bg-gold-dim p-5">
+      <div className="sq-rise rounded-2xl border border-sg-gold/40 bg-gold-dim p-5">
         <p className="font-ui text-xs uppercase tracking-widest text-sg-gold-bright">
           Respuesta correcta
         </p>
         <p className="mt-1 font-display text-xl font-bold text-warm-white">
-          {question.correctAnswer}. {question.options[question.correctAnswer]}
+          {roundAnswerText(round)}
         </p>
-        <p className="mt-2 font-ui text-sm text-warm-white/85">{question.explanation}</p>
+      </div>
+
+      {/* Dato de las Escrituras */}
+      <div className="sq-rise sq-rise-2 sq-card p-5">
+        <p className="flex items-center gap-2 font-ui text-xs font-bold uppercase tracking-widest text-sg-gold-light">
+          📖 Dato de las Escrituras
+        </p>
+        <p className="mt-2 font-display text-lg leading-snug text-warm-white">
+          {roundExplanation(round)}
+        </p>
       </div>
 
       <LiveLeaderboard
@@ -63,7 +81,9 @@ export function ResultsScreen({
 
       {typeof nextIn === 'number' && nextIn > 0 && (
         <p className="text-center font-ui text-sm text-warm-white/60">
-          Siguiente pregunta en {nextIn}…
+          {nextRoundType
+            ? `Siguiente ronda (${ROUND_TYPE_LABELS[nextRoundType] ?? nextRoundType}) en ${nextIn}…`
+            : `Siguiente ronda en ${nextIn}…`}
         </p>
       )}
     </div>

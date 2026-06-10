@@ -1,4 +1,5 @@
 import type { Player, Team } from '../types'
+import { SQAvatar } from './SQIcon'
 
 type Props = {
   players: Player[]
@@ -17,7 +18,8 @@ export function LiveLeaderboard({ players, teams, teamMode, highlightUid, limit 
         .sort((a, b) => b.score - a.score)
         .map((t) => ({
           key: t.id,
-          label: t.name,
+          name: t.name,
+          avatar: null as string | null,
           detail: `${t.memberIds.length} integrante${t.memberIds.length === 1 ? '' : 's'}`,
           score: t.score,
           highlighted: false,
@@ -26,7 +28,8 @@ export function LiveLeaderboard({ players, teams, teamMode, highlightUid, limit 
         .sort((a, b) => b.score - a.score)
         .map((p) => ({
           key: p.uid,
-          label: `${p.avatar} ${p.name}`,
+          name: p.name,
+          avatar: p.avatar as string | null,
           detail: p.streak >= 2 ? `🔥 Racha de ${p.streak}` : '',
           score: p.score,
           highlighted: p.uid === highlightUid,
@@ -45,20 +48,17 @@ export function LiveLeaderboard({ players, teams, teamMode, highlightUid, limit 
           <li
             key={row.key}
             className={`flex items-center justify-between rounded-xl px-4 py-2.5 font-ui ${
-              row.highlighted
-                ? 'bg-sg-gold/20 ring-1 ring-sg-gold'
-                : 'bg-navy-light/60'
+              row.highlighted ? 'bg-sg-gold/20 ring-1 ring-sg-gold' : 'bg-navy-light/60'
             }`}
           >
             <span className="flex items-center gap-3 text-warm-white">
               <span className="w-7 text-center text-lg">{MEDALS[i] ?? `${i + 1}.`}</span>
-              <span className="font-medium">{row.label}</span>
-              {row.detail && (
-                <span className="text-xs text-sg-gold-light">{row.detail}</span>
-              )}
+              {row.avatar && <SQAvatar id={row.avatar} size={30} />}
+              <span className="font-medium">{row.name}</span>
+              {row.detail && <span className="text-xs text-sg-gold-light">{row.detail}</span>}
             </span>
             <span className="font-display text-xl font-bold text-sg-gold-bright">
-              {row.score}
+              {row.score.toLocaleString('es')}
             </span>
           </li>
         ))}

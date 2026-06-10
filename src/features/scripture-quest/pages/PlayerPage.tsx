@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 import { useToastStore } from '@/stores/toastStore'
-import { AnswerPanel } from '../components/AnswerPanel'
 import { PlayerJoin } from '../components/PlayerJoin'
 import { ResultsScreen } from '../components/ResultsScreen'
-import { TeamVotingPanel } from '../components/TeamVotingPanel'
+import { RoundPanel } from '../components/RoundPanels'
+import { WaitingRoom } from '../components/WaitingRoom'
 import { QuestAuthGate, QuestShell } from '../components/QuestShell'
 import { useGameTimer } from '../hooks/useGameTimer'
 import { usePlayers } from '../hooks/usePlayers'
@@ -19,9 +19,9 @@ import {
   voteTeamAnswer,
 } from '../services/roomService'
 import { useGameStore } from '../store/gameStore'
-import type { AnswerOption } from '../types'
+import { TIMER_BY_TYPE } from '../utils/scoreCalculator'
 
-/** Player view (mobile-first): join → lobby/teams → answer → results. */
+/** Vista del jugador (móvil): unirse → sala de espera → rondas → resultados. */
 export default function PlayerPage() {
   const { roomId } = useParams<{ roomId: string }>()
   const navigate = useNavigate()
@@ -31,14 +31,16 @@ export default function PlayerPage() {
 
   const { room, loading, error } = useRoom(roomId)
   const { players, teams } = usePlayers(roomId)
-  const timer = useGameTimer(room?.questionStartedAt)
+
+  const round = room?.rounds[room.currentQuestion]
+  const duration = round ? TIMER_BY_TYPE[round.roundType] : 20
+  const timer = useGameTimer(room?.questionStartedAt, duration)
 
   const [joining, setJoining] = useState(false)
   const [teamName, setTeamName] = useState('')
 
   const me = players.find((p) => p.uid === user?.uid)
   const myTeam = me?.teamId ? teams.find((t) => t.id === me.teamId) : undefined
-  const question = room?.questions[room.currentQuestion]
 
   useEffect(() => {
     if (room?.status === 'ended' && roomId) {
@@ -69,12 +71,7 @@ export default function PlayerPage() {
     }
   }
 
-  function handleAnswer(option: AnswerOption) {
-    if (!roomId || !user) return
-    void submitAnswer(roomId, user.uid, option).catch(() =>
-      addToast('No se pudo enviar tu respuesta.', 'error'),
-    )
-  }
+  const elapsed = duration - timer.remaining
 
   const inLobby = room?.status === 'lobby'
   const inQuestion = room?.status === 'playing' || room?.status === 'question'
@@ -103,22 +100,12 @@ export default function PlayerPage() {
             )}
 
             {me && inLobby && (
-              <div className="space-y-6 text-center">
-                <p className="text-5xl" aria-hidden>
-                  {me.avatar}
-                </p>
-                <h2 className="font-display text-3xl font-bold text-warm-white">
-                  ¡Estás dentro, {me.name}!
-                </h2>
-                <p className="font-ui text-sm text-warm-white/60">
-                  Espera a que el anfitrión comience la partida…
-                </p>
+              <div className="space-y-6">
+                <WaitingRoom me={me} myTeam={myTeam} />
 
                 {room.teamMode && (
                   <div className="mx-auto max-w-sm space-y-3 text-left">
-                    <h3 className="font-display text-xl font-bold text-sg-gold-light">
-                      Equipos
-                    </h3>
+                    <h3 className="font-display text-xl font-bold text-sg-gold-light">Equipos</h3>
                     {teams.map((t) => (
                       <div
                         key={t.id}
@@ -167,44 +154,35 @@ export default function PlayerPage() {
               </div>
             )}
 
-            {me && inQuestion && question && (
-              <>
-                {myTeam ? (
-                  <TeamVotingPanel
-                    question={question}
-                    team={myTeam}
-                    players={players}
-                    isLeader={myTeam.leaderId === me.uid}
-                    remaining={timer.remaining}
-                    expired={timer.expired}
-                    myVote={myTeam.votes?.[me.uid] ?? null}
-                    onVote={(o) => void voteTeamAnswer(roomId, myTeam.id, me.uid, o)}
-                    onConfirm={(o) =>
-                      void confirmTeamAnswer(roomId, myTeam.id, me.uid, o)
-                    }
-                  />
-                ) : (
-                  <AnswerPanel
-                    question={question}
-                    remaining={timer.remaining}
-                    expired={timer.expired}
-                    selected={me.currentAnswer}
-                    onAnswer={handleAnswer}
-                  />
-                )}
-              </>
+            {me && inQuestion && round && (
+              <RoundPanel
+                round={round}
+                me={me}
+                myTeam={myTeam}
+                players={players}
+                remaining={timer.remaining}
+                expired={timer.expired}
+                onAnswer={(answer) =>
+                  void submitAnswer(roomId, me.uid, answer, elapsed).catch(() =>
+                    addToast('No se pudo enviar tu respuesta.', 'error'),
+                  )
+                }
+                onVote={(answer) =>
+                  myTeam && void voteTeamAnswer(roomId, myTeam.id, me.uid, answer)
+                }
+                onConfirm={(answer) =>
+                  myTeam && void confirmTeamAnswer(roomId, myTeam.id, me.uid, answer, elapsed)
+                }
+              />
             )}
 
-            {me && room.status === 'results' && question && (
+            {me && room.status === 'results' && round && (
               <ResultsScreen
-                question={question}
+                round={round}
                 players={players}
                 teams={teams}
                 teamMode={room.teamMode}
-                myAnswer={
-                  me.answers?.[String(room.currentQuestion)] ??
-                  (myTeam ? (myTeam.confirmedAnswer ?? null) : me.currentAnswer)
-                }
+                myResult={me.results?.[String(room.currentQuestion)] ?? { correct: false, points: 0 }}
                 highlightUid={me.uid}
               />
             )}

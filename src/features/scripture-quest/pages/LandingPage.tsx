@@ -2,12 +2,16 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 import { useToastStore } from '@/stores/toastStore'
+import { CodeInput } from '../components/CodeInput'
 import { QuestAuthGate, QuestShell } from '../components/QuestShell'
 import { TOPICS } from '../data/topics'
+import { fetchApprovedRounds, selectRounds } from '../services/bankService'
 import { createRoom } from '../services/roomService'
 import { useGameStore } from '../store/gameStore'
 import type { QuestLevel } from '../types'
-import { isValidRoomCode, normalizeRoomCode } from '../utils/roomCodeGenerator'
+import { isValidRoomCode } from '../utils/roomCodeGenerator'
+
+const ROUNDS_PER_GAME = 10
 
 const LEVELS: { value: QuestLevel; label: string }[] = [
   { value: 1, label: 'Nivel 1 · Reconocimiento' },
@@ -16,7 +20,7 @@ const LEVELS: { value: QuestLevel; label: string }[] = [
   { value: 4, label: 'Nivel 4 · Análisis profundo' },
 ]
 
-/** Landing: create a room as host (topic + level) or join with a code. */
+/** Landing: crear sala (tema + nivel) o unirse con el código de 6 casillas. */
 export default function LandingPage() {
   const navigate = useNavigate()
   const { user } = useAuth()
@@ -34,7 +38,14 @@ export default function LandingPage() {
     if (!user) return
     setCreating(true)
     try {
-      const code = await createRoom({ hostId: user.uid, topicId, level, teamMode })
+      // Las rondas se sortean del banco aprobado: cero llamadas a IA
+      const pool = await fetchApprovedRounds()
+      const rounds = selectRounds(pool, { topicId, level, count: ROUNDS_PER_GAME, teamMode })
+      if (rounds.length === 0) {
+        addToast('No hay rondas aprobadas para ese tema y nivel.', 'error')
+        return
+      }
+      const code = await createRoom({ hostId: user.uid, topicId, level, teamMode, rounds })
       setActiveRoom(code, 'host')
       navigate(`/games/scripture-quest/host/${code}`)
     } catch {
@@ -44,8 +55,7 @@ export default function LandingPage() {
     }
   }
 
-  function handleJoin() {
-    const code = normalizeRoomCode(joinCode)
+  function handleJoin(code: string = joinCode) {
     if (!isValidRoomCode(code)) {
       addToast('El código debe tener 6 caracteres.', 'error')
       return
@@ -59,8 +69,8 @@ export default function LandingPage() {
     <QuestShell>
       <QuestAuthGate>
         <p className="mb-6 max-w-2xl font-ui text-sm text-warm-white/70">
-          Trivia bíblica multijugador en tiempo real. Crea una sala, proyecta el
-          código y compite respondiendo preguntas sobre el Evangelio.
+          Trivia de las Escrituras multijugador en tiempo real: preguntas clásicas,
+          versículos para completar, mímica en equipo, ¿quién soy? y más.
         </p>
 
         <div className="mb-6 flex gap-2">
@@ -86,7 +96,7 @@ export default function LandingPage() {
         </div>
 
         {tab === 'host' ? (
-          <div className="space-y-5">
+          <div className="space-y-5 sq-rise">
             <div className="space-y-1.5">
               <span className="font-ui text-sm font-medium text-sg-gold-light">Tema</span>
               <div className="grid gap-2 sm:grid-cols-2">
@@ -101,23 +111,17 @@ export default function LandingPage() {
                         : 'border-navy-light bg-navy-light/40 hover:border-sg-gold/50'
                     }`}
                   >
-                    <p className="font-display text-base font-bold text-warm-white">
-                      {t.label}
-                    </p>
+                    <p className="font-display text-base font-bold text-warm-white">{t.label}</p>
                   </button>
                 ))}
               </div>
               {selectedTopic && (
-                <p className="font-ui text-xs text-warm-white/60">
-                  {selectedTopic.description}
-                </p>
+                <p className="font-ui text-xs text-warm-white/60">{selectedTopic.description}</p>
               )}
             </div>
 
             <div className="space-y-1.5">
-              <span className="font-ui text-sm font-medium text-sg-gold-light">
-                Dificultad
-              </span>
+              <span className="font-ui text-sm font-medium text-sg-gold-light">Dificultad</span>
               <div className="grid gap-2 sm:grid-cols-2">
                 {LEVELS.map((l) => (
                   <button
@@ -146,7 +150,7 @@ export default function LandingPage() {
               <span className="font-ui text-sm text-warm-white">
                 Modo por equipos
                 <span className="block text-xs text-warm-white/60">
-                  Los jugadores votan en equipo y un líder confirma la respuesta.
+                  Votación en vivo, líder que confirma y rondas de mímica exclusivas.
                 </span>
               </span>
             </label>
@@ -157,29 +161,20 @@ export default function LandingPage() {
               onClick={() => void handleCreate()}
               className="w-full rounded-xl bg-sg-gold py-4 font-ui text-base font-bold uppercase tracking-wide text-navy-deep transition hover:bg-sg-gold-light disabled:opacity-40"
             >
-              {creating ? 'Creando sala…' : 'Crear sala'}
+              {creating ? 'Sorteando rondas…' : 'Crear sala'}
             </button>
           </div>
         ) : (
-          <div className="mx-auto max-w-sm space-y-4">
-            <label className="block space-y-1.5">
-              <span className="font-ui text-sm font-medium text-sg-gold-light">
-                Código de sala
-              </span>
-              <input
-                type="text"
-                value={joinCode}
-                maxLength={6}
-                onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
-                onKeyDown={(e) => e.key === 'Enter' && handleJoin()}
-                placeholder="ABC123"
-                className="w-full rounded-xl border border-navy-light bg-navy-light/50 px-4 py-4 text-center font-display text-3xl font-bold tracking-[0.3em] text-warm-white placeholder:text-warm-white/30 focus:border-sg-gold focus:outline-none"
-              />
-            </label>
+          <div className="mx-auto max-w-sm space-y-5 sq-rise">
+            <p className="text-center font-ui text-sm font-medium text-sg-gold-light">
+              Ingresa el código de la sala
+            </p>
+            <CodeInput value={joinCode} onChange={setJoinCode} onComplete={handleJoin} />
             <button
               type="button"
-              onClick={handleJoin}
-              className="w-full rounded-xl bg-sg-gold py-4 font-ui text-base font-bold uppercase tracking-wide text-navy-deep transition hover:bg-sg-gold-light"
+              onClick={() => handleJoin()}
+              disabled={!isValidRoomCode(joinCode)}
+              className="w-full rounded-xl bg-sg-gold py-4 font-ui text-base font-bold uppercase tracking-wide text-navy-deep transition hover:bg-sg-gold-light disabled:opacity-40"
             >
               Unirme
             </button>

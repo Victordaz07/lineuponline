@@ -1,7 +1,18 @@
-import type { AnswerOption, Player, Question, Team } from '../types'
+/**
+ * Vista del anfitrión (proyector/TV): muestra la ronda en curso con barras de
+ * votos en vivo, pistas progresivas o conteo de respuestas según el tipo.
+ */
+import type { GameRound, Player, Team } from '../types'
+import { ROUND_TYPE_LABELS } from '../data/badges'
+import {
+  TIMER_BY_TYPE,
+  WHO_AM_I_CLUE_SECONDS,
+  whoAmIPoints,
+} from '../utils/scoreCalculator'
+import { SQAvatar } from './SQIcon'
 
 type Props = {
-  question: Question
+  round: GameRound
   questionNumber: number
   totalQuestions: number
   players: Player[]
@@ -9,36 +20,74 @@ type Props = {
   teamMode: boolean
   remaining: number
   progress: number
-  /** When true, highlights the correct answer and shows the explanation. */
-  reveal: boolean
 }
 
-const OPTIONS: AnswerOption[] = ['A', 'B', 'C', 'D']
-
-const OPTION_COLORS: Record<AnswerOption, string> = {
-  A: 'bg-rose-500',
-  B: 'bg-sky-500',
-  C: 'bg-amber-500',
-  D: 'bg-emerald-500',
+const OPTION_KEYS = ['A', 'B', 'C', 'D'] as const
+const OPTION_CLASSES: Record<string, string> = {
+  A: 'sq-ans-a',
+  B: 'sq-ans-b',
+  C: 'sq-ans-c',
+  D: 'sq-ans-d',
 }
 
-const CATEGORY_LABELS: Record<Question['category'], string> = {
-  personajes: 'Personajes',
-  lugares: 'Lugares',
-  eventos: 'Eventos',
-  doctrina: 'Doctrina y Convenios',
-  escrituras: 'Escrituras al Pie',
-  cronologia: 'Tiempo y Cronología',
-  simbolos: 'Símbolos y Tipos',
-  restauracion: 'Restauración e Historia',
+function VoteBars({
+  options,
+  counts,
+}: {
+  options: { key: string; label: string; color: string }[]
+  counts: Record<string, number>
+}) {
+  const total = options.reduce((sum, o) => sum + (counts[o.key] ?? 0), 0)
+  return (
+    <div className="grid gap-3 md:grid-cols-2">
+      {options.map((option) => {
+        const count = counts[option.key] ?? 0
+        const pct = total > 0 ? (count / total) * 100 : 0
+        return (
+          <div
+            key={option.key}
+            className="relative overflow-hidden rounded-xl border border-navy-light bg-navy-light/40 p-4"
+          >
+            <div
+              className={`absolute inset-y-0 left-0 ${option.color} opacity-25 transition-[width] duration-500`}
+              style={{ width: `${pct}%` }}
+            />
+            <div className="relative flex items-center justify-between gap-3">
+              <span className="flex items-center gap-3">
+                <span
+                  className={`flex h-9 min-w-9 shrink-0 items-center justify-center rounded-lg px-2 font-display text-lg font-bold text-white ${option.color}`}
+                >
+                  {option.key === 'true' ? '✔' : option.key === 'false' ? '✖' : option.key}
+                </span>
+                <span className="font-ui text-lg text-warm-white">{option.label}</span>
+              </span>
+              <span className="font-display text-xl font-bold text-sg-gold-bright">{count}</span>
+            </div>
+          </div>
+        )
+      })}
+    </div>
+  )
 }
 
-/**
- * Host (projector) view: question with live vote bars that update in realtime
- * as players answer / team members vote. Desktop-first layout.
- */
+function AnsweredMeter({ players, label }: { players: Player[]; label?: string }) {
+  const answered = players.filter((p) => p.answeredCurrentQuestion)
+  return (
+    <div className="sq-card flex items-center justify-between p-4">
+      <span className="font-ui text-warm-white">
+        {label ?? 'Respuestas recibidas'}: {answered.length}/{players.length}
+      </span>
+      <span className="flex -space-x-2">
+        {answered.slice(0, 10).map((p) => (
+          <SQAvatar key={p.uid} id={p.avatar} size={30} className="sq-pop" />
+        ))}
+      </span>
+    </div>
+  )
+}
+
 export function QuestionDisplay({
-  question,
+  round,
   questionNumber,
   totalQuestions,
   players,
@@ -46,99 +95,177 @@ export function QuestionDisplay({
   teamMode,
   remaining,
   progress,
-  reveal,
 }: Props) {
-  // Aggregate live votes: individual answers, plus team member votes in team mode
-  const counts: Record<AnswerOption, number> = { A: 0, B: 0, C: 0, D: 0 }
+  const duration = TIMER_BY_TYPE[round.roundType]
+  const elapsed = Math.max(0, duration - remaining)
+
+  // Conteo de votos para clásica / verdadero-falso
+  const counts: Record<string, number> = {}
   if (teamMode) {
     for (const t of teams) {
-      for (const vote of Object.values(t.votes ?? {})) counts[vote] += 1
+      for (const vote of Object.values(t.votes ?? {})) counts[vote] = (counts[vote] ?? 0) + 1
     }
   } else {
     for (const p of players) {
-      if (p.currentAnswer) counts[p.currentAnswer] += 1
+      if (p.currentAnswer) counts[p.currentAnswer] = (counts[p.currentAnswer] ?? 0) + 1
     }
   }
-  const totalVotes = OPTIONS.reduce((sum, o) => sum + counts[o], 0)
 
   return (
-    <div className="space-y-6">
+    <div className="flex h-full flex-col justify-between gap-6">
       <div className="flex items-center justify-between gap-4">
         <div className="font-ui text-sm uppercase tracking-widest text-sg-gold-light">
-          Pregunta {questionNumber} de {totalQuestions} ·{' '}
-          {CATEGORY_LABELS[question.category] ?? 'Doctrina'} · {question.points} pts
+          Ronda {questionNumber} de {totalQuestions} · {ROUND_TYPE_LABELS[round.roundType]} ·
+          Nivel {round.level}
         </div>
         <div
-          className={`flex h-14 w-14 items-center justify-center rounded-full font-display text-2xl font-bold ${
-            remaining <= 5 ? 'bg-rose-600 text-white' : 'bg-sg-gold text-navy-deep'
+          className={`flex h-16 w-16 items-center justify-center rounded-full font-display text-3xl font-bold ${
+            remaining <= 5 ? 'bg-rose-600 text-white sq-pulse' : 'bg-sg-gold text-navy-deep'
           }`}
         >
-          {reveal ? '✓' : remaining}
+          {remaining}
         </div>
       </div>
 
-      {!reveal && (
-        <div className="h-2 overflow-hidden rounded-full bg-navy-light">
-          <div
-            className="h-full rounded-full bg-sg-gold transition-[width] duration-300 ease-linear"
-            style={{ width: `${progress * 100}%` }}
-          />
-        </div>
-      )}
+      <div className="h-2 overflow-hidden rounded-full bg-navy-light">
+        <div
+          className="h-full rounded-full bg-sg-gold transition-[width] duration-300 ease-linear"
+          style={{ width: `${progress * 100}%` }}
+        />
+      </div>
 
-      <h2 className="font-display text-3xl font-bold leading-snug text-warm-white md:text-4xl">
-        {question.question}
-      </h2>
+      <div className="flex-1 space-y-6">
+        {round.roundType === 'classic' && (
+          <>
+            <h2 className="sq-rise font-display text-4xl font-bold leading-snug text-warm-white">
+              {round.content.question}
+            </h2>
+            <VoteBars
+              options={OPTION_KEYS.map((k) => ({
+                key: k,
+                label: round.content.options[k],
+                color: OPTION_CLASSES[k],
+              }))}
+              counts={counts}
+            />
+          </>
+        )}
 
-      <div className="grid gap-3 md:grid-cols-2">
-        {OPTIONS.map((option) => {
-          const count = counts[option]
-          const pct = totalVotes > 0 ? (count / totalVotes) * 100 : 0
-          const isCorrect = reveal && option === question.correctAnswer
-          return (
-            <div
-              key={option}
-              className={`relative overflow-hidden rounded-xl border p-4 ${
-                isCorrect
-                  ? 'border-emerald-400 bg-emerald-500/15'
-                  : reveal
-                    ? 'border-navy-light bg-navy-light/40 opacity-60'
-                    : 'border-navy-light bg-navy-light/40'
-              }`}
-            >
-              <div
-                className={`absolute inset-y-0 left-0 ${OPTION_COLORS[option]} opacity-25 transition-[width] duration-500`}
-                style={{ width: `${pct}%` }}
-              />
-              <div className="relative flex items-center justify-between gap-3">
-                <span className="flex items-center gap-3">
-                  <span
-                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg font-display text-lg font-bold text-white ${OPTION_COLORS[option]}`}
-                  >
-                    {option}
-                  </span>
-                  <span className="font-ui text-lg text-warm-white">
-                    {question.options[option]}
-                  </span>
-                  {isCorrect && <span aria-hidden>✅</span>}
-                </span>
-                <span className="font-display text-xl font-bold text-sg-gold-bright">
-                  {count}
-                </span>
-              </div>
+        {round.roundType === 'true_false' && (
+          <>
+            <h2 className="sq-rise font-display text-4xl font-bold leading-snug text-warm-white">
+              {round.content.statement}
+            </h2>
+            <VoteBars
+              options={[
+                { key: 'true', label: 'Verdadero', color: 'sq-ans-d' },
+                { key: 'false', label: 'Falso', color: 'sq-ans-a' },
+              ]}
+              counts={counts}
+            />
+          </>
+        )}
+
+        {round.roundType === 'fill_blank' && (
+          <>
+            <blockquote className="sq-rise font-display text-4xl font-bold leading-snug text-warm-white">
+              {round.content.verse.replace('[BLANK]', ' ______ ')}
+            </blockquote>
+            <p className="font-ui text-lg text-sg-gold-light">{round.content.reference}</p>
+            <AnsweredMeter players={players} />
+          </>
+        )}
+
+        {round.roundType === 'image_guess' && (
+          <div className="grid h-full grid-cols-[1fr_auto] items-start gap-8">
+            <div className="space-y-4">
+              <h2 className="sq-rise font-display text-3xl font-bold text-warm-white">
+                ¿Qué representa esta imagen?
+              </h2>
+              {elapsed >= 15 && (
+                <p className="sq-card sq-rise p-4 font-ui text-xl text-sg-gold-bright">
+                  💡 Pista: {round.content.hint}
+                </p>
+              )}
+              <AnsweredMeter players={players} />
             </div>
-          )
-        })}
-      </div>
+            <img
+              src={round.content.imageUrl}
+              alt="Adivina la imagen"
+              className="max-h-96 rounded-2xl border-2 border-sg-gold object-contain"
+            />
+          </div>
+        )}
 
-      {reveal && (
-        <div className="rounded-xl border border-sg-gold/40 bg-gold-dim p-4">
-          <p className="font-ui text-sm font-semibold uppercase tracking-wide text-sg-gold-bright">
-            Explicación
-          </p>
-          <p className="mt-1 font-ui text-warm-white">{question.explanation}</p>
-        </div>
-      )}
+        {round.roundType === 'mime' && (
+          <div className="space-y-6 text-center">
+            <p className="text-6xl" aria-hidden>🎭</p>
+            <h2 className="font-display text-4xl font-bold text-warm-white">
+              ¡Mímica en equipo!
+            </h2>
+            <p className="font-ui text-xl text-warm-white/70">
+              El líder de cada equipo actúa lo que ve en su teléfono.
+              <br />
+              ¡Su equipo debe escribir la respuesta antes de que acabe el tiempo!
+            </p>
+            <AnsweredMeter players={players.filter((p) => !p.isLeader)} label="Intentos" />
+          </div>
+        )}
+
+        {round.roundType === 'who_am_i' && (
+          <div className="space-y-4">
+            <div className="flex items-baseline justify-between">
+              <h2 className="font-display text-4xl font-bold text-warm-white">¿Quién soy?</h2>
+              <p className="font-display text-3xl font-bold text-sg-gold-bright">
+                {whoAmIPoints(
+                  round.content,
+                  Math.min(
+                    Math.floor(elapsed / WHO_AM_I_CLUE_SECONDS) + 1,
+                    round.content.clues.length,
+                  ),
+                ).toLocaleString('es')}{' '}
+                pts
+              </p>
+            </div>
+            <ol className="space-y-3">
+              {round.content.clues
+                .slice(
+                  0,
+                  Math.min(
+                    Math.floor(elapsed / WHO_AM_I_CLUE_SECONDS) + 1,
+                    round.content.clues.length,
+                  ),
+                )
+                .map((clue, i) => (
+                  <li
+                    key={i}
+                    className="sq-card sq-rise p-4 font-display text-2xl text-warm-white"
+                  >
+                    <span className="mr-3 font-bold text-sg-gold-bright">{i + 1}.</span>
+                    {clue}
+                  </li>
+                ))}
+            </ol>
+            <AnsweredMeter players={players} />
+          </div>
+        )}
+
+        {round.roundType === 'order_events' && (
+          <div className="space-y-4">
+            <h2 className="sq-rise font-display text-3xl font-bold text-warm-white">
+              Ordena los acontecimientos cronológicamente
+            </h2>
+            <ul className="grid gap-3 md:grid-cols-2">
+              {round.content.events.map((event) => (
+                <li key={event.id} className="sq-card p-4 font-ui text-lg text-warm-white">
+                  {event.text}
+                </li>
+              ))}
+            </ul>
+            <AnsweredMeter players={players} />
+          </div>
+        )}
+      </div>
     </div>
   )
 }

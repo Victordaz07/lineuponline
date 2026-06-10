@@ -10,23 +10,22 @@ type Props = {
 
 const OPTIONS: AnswerOption[] = ['A', 'B', 'C', 'D']
 
-const OPTION_COLORS: Record<AnswerOption, string> = {
-  A: 'bg-rose-500 active:bg-rose-600',
-  B: 'bg-sky-500 active:bg-sky-600',
-  C: 'bg-amber-500 active:bg-amber-600',
-  D: 'bg-emerald-500 active:bg-emerald-600',
+const OPTION_CLASSES: Record<AnswerOption, string> = {
+  A: 'sq-ans-a',
+  B: 'sq-ans-b',
+  C: 'sq-ans-c',
+  D: 'sq-ans-d',
 }
 
 /** Player answer view: big tappable buttons + countdown. Mobile-first. */
 export function AnswerPanel({ question, remaining, expired, selected, onAnswer }: Props) {
   const locked = selected !== null || expired
   return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <p className="font-ui text-sm text-warm-white/80">{question.points} pts</p>
+    <div className="space-y-4 sq-rise">
+      <div className="flex items-center justify-end">
         <div
           className={`flex h-12 w-12 items-center justify-center rounded-full font-display text-xl font-bold ${
-            remaining <= 5 ? 'bg-rose-600 text-white' : 'bg-sg-gold text-navy-deep'
+            remaining <= 5 ? 'bg-rose-600 text-white sq-pulse' : 'bg-sg-gold text-navy-deep'
           }`}
         >
           {remaining}
@@ -44,7 +43,7 @@ export function AnswerPanel({ question, remaining, expired, selected, onAnswer }
             type="button"
             disabled={locked}
             onClick={() => onAnswer(option)}
-            className={`flex min-h-16 items-center gap-3 rounded-xl px-4 py-3 text-left font-ui text-base font-medium text-white transition ${OPTION_COLORS[option]} ${
+            className={`flex min-h-16 items-center gap-3 rounded-xl px-4 py-3 text-left font-ui text-base font-medium text-white transition ${OPTION_CLASSES[option]} ${
               locked && selected !== option ? 'opacity-40' : ''
             } ${selected === option ? 'ring-4 ring-warm-white' : ''}`}
           >

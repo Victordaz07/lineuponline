@@ -1,0 +1,105 @@
+/* Scripture Quest — design system (variables, animaciones, utilidades) */
+
+:root {
+  --navy: #0d1b2a;
+  --navy-mid: #1a2e45;
+  --navy-light: #243b55;
+  --gold: #b8923a;
+  --gold-bright: #d4af62;
+  --gold-glow: #e8c87a;
+  --parchment: #f5efe0;
+  --warm-white: #e8e2d4;
+  --ans-a: #e2574c;
+  --ans-b: #3e8ed0;
+  --ans-c: #e0a431;
+  --ans-d: #43a06b;
+  --ok: #43a06b;
+  --bad: #e2574c;
+  --sq-radius: 16px;
+  --sq-font-display: 'Cormorant Garamond', Georgia, serif;
+  --sq-font-ui: 'Inter', system-ui, sans-serif;
+}
+
+/* ── Animaciones ─────────────────────────────────────────────────────── */
+@keyframes sq-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes sq-pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  70% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes sq-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes sq-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+@keyframes sq-confetti {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0.6; }
+}
+@keyframes sq-bar {
+  from { width: 0; }
+}
+
+.sq-rise { animation: sq-rise 0.45s ease-out both; }
+.sq-pop { animation: sq-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.sq-float { animation: sq-float 3.2s ease-in-out infinite; }
+.sq-pulse { animation: sq-pulse 1.4s ease-in-out infinite; }
+.sq-bar { animation: sq-bar 0.6s ease-out both; }
+
+.sq-rise-1 { animation-delay: 0.05s; }
+.sq-rise-2 { animation-delay: 0.15s; }
+.sq-rise-3 { animation-delay: 0.25s; }
+.sq-rise-4 { animation-delay: 0.35s; }
+
+/* Confeti: cada pieza usa --sq-x (posición) y --sq-d (duración/retraso) */
+.sq-confetti-piece {
+  position: absolute;
+  top: -5vh;
+  width: 10px;
+  height: 16px;
+  border-radius: 2px;
+  animation: sq-confetti var(--sq-d, 3s) linear infinite;
+  left: var(--sq-x, 50%);
+}
+
+/* ── Utilidades de marca ─────────────────────────────────────────────── */
+.sq-display { font-family: var(--sq-font-display); }
+.sq-ui { font-family: var(--sq-font-ui); }
+
+.sq-card {
+  background: color-mix(in srgb, var(--navy-light) 45%, transparent);
+  border: 1px solid var(--navy-light);
+  border-radius: var(--sq-radius);
+}
+
+.sq-gold-ring { box-shadow: 0 0 0 2px var(--gold), 0 0 24px rgba(212, 175, 98, 0.35); }
+
+.sq-ans-a { background: var(--ans-a); }
+.sq-ans-b { background: var(--ans-b); }
+.sq-ans-c { background: var(--ans-c); }
+.sq-ans-d { background: var(--ans-d); }
+
+/* Cajas de código de sala (6 caracteres) */
+.sq-code-box {
+  width: 3rem;
+  height: 3.75rem;
+  border-radius: 12px;
+  border: 2px solid var(--navy-light);
+  background: rgba(36, 59, 85, 0.5);
+  color: var(--warm-white);
+  font-family: var(--sq-font-display);
+  font-size: 1.9rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  caret-color: var(--gold-bright);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+.sq-code-box:focus { border-color: var(--gold); }

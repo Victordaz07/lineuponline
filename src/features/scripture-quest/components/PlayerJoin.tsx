@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { AVATARS } from '../data/badges'
 import { useGameStore } from '../store/gameStore'
+import { SQ_AVATARS, SQAvatar } from './SQIcon'
 
 type Props = {
   joining: boolean
@@ -16,7 +16,7 @@ export function PlayerJoin({ joining, onJoin }: Props) {
   const valid = name.trim().length >= 2
 
   return (
-    <div className="mx-auto max-w-sm space-y-5">
+    <div className="mx-auto max-w-sm space-y-5 sq-rise">
       <h2 className="text-center font-display text-3xl font-bold text-warm-white">
         Únete a la partida
       </h2>
@@ -35,20 +35,19 @@ export function PlayerJoin({ joining, onJoin }: Props) {
 
       <div className="space-y-1.5">
         <span className="font-ui text-sm font-medium text-sg-gold-light">Elige tu avatar</span>
-        <div className="grid grid-cols-6 gap-2">
-          {AVATARS.map((a) => (
+        <div className="grid grid-cols-4 gap-2">
+          {SQ_AVATARS.map((a) => (
             <button
-              key={a}
+              key={a.id}
               type="button"
-              onClick={() => setAvatar(a)}
-              className={`flex aspect-square items-center justify-center rounded-xl text-2xl transition ${
-                avatar === a
-                  ? 'bg-sg-gold/30 ring-2 ring-sg-gold'
-                  : 'bg-navy-light/50 hover:bg-navy-light'
+              onClick={() => setAvatar(a.id)}
+              title={a.label}
+              className={`flex aspect-square items-center justify-center rounded-xl transition ${
+                avatar === a.id ? 'bg-sg-gold/25 sq-gold-ring' : 'bg-navy-light/50 hover:bg-navy-light'
               }`}
-              aria-label={`Avatar ${a}`}
+              aria-label={a.label}
             >
-              {a}
+              <SQAvatar id={a.id} size={48} />
             </button>
           ))}
         </div>

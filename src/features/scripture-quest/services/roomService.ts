@@ -14,9 +14,9 @@ import {
   writeBatch,
 } from 'firebase/firestore'
 import { getDb } from '@/lib/firebase'
-import type { AnswerOption, Player, QuestLevel, Question, Room, Team } from '../types'
+import type { GameRound, Player, QuestLevel, Room, Team } from '../types'
 import { generateRoomCode } from '../utils/roomCodeGenerator'
-import { pointsForCorrectAnswer } from '../utils/scoreCalculator'
+import { TIMER_BY_TYPE, evaluateAnswer } from '../utils/scoreCalculator'
 
 export const ROOMS_COLLECTION = 'scripturequest_rooms'
 
@@ -32,12 +32,13 @@ export function teamRef(roomId: string, teamId: string) {
   return doc(getDb(), ROOMS_COLLECTION, roomId, 'teams', teamId)
 }
 
-/** Creates a room with a fresh unique session code and returns the code. */
+/** Creates a room with a fresh unique session code and the drawn rounds. */
 export async function createRoom(params: {
   hostId: string
   topicId: string
   level: QuestLevel
   teamMode: boolean
+  rounds: GameRound[]
 }): Promise<string> {
   for (let attempt = 0; attempt < 5; attempt++) {
     const code = generateRoomCode()
@@ -48,10 +49,11 @@ export async function createRoom(params: {
       hostId: params.hostId,
       status: 'lobby',
       currentQuestion: 0,
-      currentRoundType: 'classic',
+      currentRoundType: params.rounds[0]?.roundType ?? 'classic',
       topic: params.topicId,
       level: params.level,
-      questions: [],
+      rounds: params.rounds,
+      selectedQuestionIds: params.rounds.map((r) => r.id),
       teamMode: params.teamMode,
     }
     await setDoc(ref, {
@@ -69,8 +71,13 @@ export async function fetchRoom(roomId: string): Promise<Room | null> {
   return snap.exists() ? (snap.data() as Room) : null
 }
 
-export async function setRoomQuestions(roomId: string, questions: Question[]): Promise<void> {
-  await updateDoc(roomRef(roomId), { questions })
+/** Replaces the drawn rounds while the room is still in the lobby. */
+export async function setRoomRounds(roomId: string, rounds: GameRound[]): Promise<void> {
+  await updateDoc(roomRef(roomId), {
+    rounds,
+    selectedQuestionIds: rounds.map((r) => r.id),
+    currentRoundType: rounds[0]?.roundType ?? 'classic',
+  })
 }
 
 export async function joinRoom(
@@ -93,9 +100,10 @@ export async function joinRoom(
     isLeader: false,
     answeredCurrentQuestion: false,
     currentAnswer: null,
+    answerElapsed: null,
     streak: 0,
     maxStreak: 0,
-    answers: {},
+    results: {},
   }
   await setDoc(playerRef(roomId, player.uid), fresh)
 }
@@ -141,19 +149,20 @@ export async function leaveTeam(roomId: string, team: Team, uid: string): Promis
   await batch.commit()
 }
 
-/** Host: starts the game and launches the first question. */
+/** Host: starts the game and launches the first round. */
 export async function startGame(roomId: string, players: Player[], teams: Team[]): Promise<void> {
   await updateDoc(roomRef(roomId), { status: 'playing' })
-  await startQuestion(roomId, 0, players, teams)
+  await startQuestion(roomId, 0, null, players, teams)
 }
 
 /**
- * Host: opens question `index`. Resets per-question player/team state in one
- * batch and anchors the server-side timer via questionStartedAt.
+ * Host: opens round `index`. Resets per-round player/team state in one batch
+ * and anchors the server-side timer via questionStartedAt.
  */
 export async function startQuestion(
   roomId: string,
   index: number,
+  round: GameRound | null,
   players: Player[],
   teams: Team[],
 ): Promise<void> {
@@ -162,6 +171,7 @@ export async function startQuestion(
     batch.update(playerRef(roomId, p.uid), {
       answeredCurrentQuestion: false,
       currentAnswer: null,
+      answerElapsed: null,
     })
   }
   for (const t of teams) {
@@ -170,29 +180,32 @@ export async function startQuestion(
   batch.update(roomRef(roomId), {
     status: 'question',
     currentQuestion: index,
+    ...(round ? { currentRoundType: round.roundType } : {}),
     questionStartedAt: serverTimestamp(),
   })
   await batch.commit()
 }
 
-/** Player: locks in an individual answer for the current question. */
+/** Player: locks in an answer (option letter, text, true/false or ordering). */
 export async function submitAnswer(
   roomId: string,
   uid: string,
-  answer: AnswerOption,
+  answer: string,
+  elapsedSeconds: number,
 ): Promise<void> {
   await updateDoc(playerRef(roomId, uid), {
     answeredCurrentQuestion: true,
     currentAnswer: answer,
+    answerElapsed: Math.max(0, Math.round(elapsedSeconds)),
   })
 }
 
-/** Team member: casts a realtime vote visible to the leader. */
+/** Team member: casts a realtime vote visible to the leader (classic/TF). */
 export async function voteTeamAnswer(
   roomId: string,
   teamId: string,
   uid: string,
-  answer: AnswerOption,
+  answer: string,
 ): Promise<void> {
   await updateDoc(teamRef(roomId, teamId), { [`votes.${uid}`]: answer })
 }
@@ -202,50 +215,95 @@ export async function confirmTeamAnswer(
   roomId: string,
   teamId: string,
   leaderId: string,
-  answer: AnswerOption,
+  answer: string,
+  elapsedSeconds: number,
 ): Promise<void> {
   const batch = writeBatch(getDb())
   batch.update(teamRef(roomId, teamId), { confirmedAnswer: answer })
   batch.update(playerRef(roomId, leaderId), {
     answeredCurrentQuestion: true,
     currentAnswer: answer,
+    answerElapsed: Math.max(0, Math.round(elapsedSeconds)),
   })
   await batch.commit()
 }
 
+/** Most voted option (ties resolved by option order) — auto-confirm on timeout. */
+export function mostVotedAnswer(team: Team): string | null {
+  const counts = new Map<string, number>()
+  for (const vote of Object.values(team.votes ?? {})) {
+    counts.set(vote, (counts.get(vote) ?? 0) + 1)
+  }
+  let best: string | null = null
+  let bestCount = 0
+  for (const [answer, count] of [...counts.entries()].sort()) {
+    if (count > bestCount) {
+      best = answer
+      bestCount = count
+    }
+  }
+  return best
+}
+
+/** Round types where teams answer via vote + leader confirmation. */
+const TEAM_VOTE_TYPES = ['classic', 'true_false']
+
 /**
- * Host: closes the question, awards points (with streak bonus) and moves the
- * room to 'results'. All score updates go out in a single batch.
+ * Host: closes the round, evaluates every answer (speed/streak/partial
+ * matches according to the round type) and moves the room to 'results'.
+ * All score updates go out in a single batch.
  */
 export async function revealResults(
   roomId: string,
   questionIndex: number,
-  question: Question,
+  round: GameRound,
   players: Player[],
   teams: Team[],
 ): Promise<void> {
   const batch = writeBatch(getDb())
   const teamById = new Map(teams.map((t) => [t.id, t]))
+  const duration = TIMER_BY_TYPE[round.roundType]
+  const isVoteRound = TEAM_VOTE_TYPES.includes(round.roundType)
 
+  // Mime: the whole team scores if any member guessed correctly
+  const mimeTeamCorrect = new Set<string>()
+  if (round.roundType === 'mime') {
+    for (const p of players) {
+      if (!p.teamId) continue
+      const res = evaluateAnswer(round, p.currentAnswer, p.answerElapsed ?? duration, 0)
+      if (res.correct) mimeTeamCorrect.add(p.teamId)
+    }
+  }
+
+  const playerPoints = new Map<string, { correct: boolean; points: number }>()
   for (const p of players) {
-    const effectiveAnswer = p.teamId
-      ? (teamById.get(p.teamId)?.confirmedAnswer ?? null)
-      : p.currentAnswer
-    const correct = effectiveAnswer === question.correctAnswer
-    const newStreak = correct ? p.streak + 1 : 0
+    let evaluation: { correct: boolean; points: number }
+    if (round.roundType === 'mime') {
+      const teamCorrect = p.teamId ? mimeTeamCorrect.has(p.teamId) : false
+      evaluation = evaluateAnswer(round, teamCorrect ? round.content.answer : null, duration, 0)
+    } else if (isVoteRound && p.teamId) {
+      // Team answer (confirmed by leader or auto-confirmed) applies to members
+      const team = teamById.get(p.teamId)
+      const answer = team?.confirmedAnswer ?? mostVotedAnswer(team ?? ({ votes: {} } as Team))
+      evaluation = evaluateAnswer(round, answer, p.answerElapsed ?? duration, p.streak)
+    } else {
+      evaluation = evaluateAnswer(round, p.currentAnswer, p.answerElapsed ?? duration, p.streak)
+    }
+    playerPoints.set(p.uid, evaluation)
+    const newStreak = evaluation.correct ? p.streak + 1 : 0
     batch.update(playerRef(roomId, p.uid), {
-      score: correct ? p.score + pointsForCorrectAnswer(question, p.streak) : p.score,
+      score: p.score + evaluation.points,
       streak: newStreak,
       maxStreak: Math.max(p.maxStreak ?? 0, newStreak),
-      [`answers.${questionIndex}`]: effectiveAnswer,
+      [`results.${questionIndex}`]: evaluation,
     })
   }
 
   for (const t of teams) {
-    if (t.confirmedAnswer === question.correctAnswer) {
-      batch.update(teamRef(roomId, t.id), {
-        score: t.score + pointsForCorrectAnswer(question, 0),
-      })
+    const memberPoints = t.memberIds.map((uid) => playerPoints.get(uid)?.points ?? 0)
+    const best = memberPoints.length > 0 ? Math.max(...memberPoints) : 0
+    if (best > 0) {
+      batch.update(teamRef(roomId, t.id), { score: t.score + best })
     }
   }
 
@@ -253,7 +311,7 @@ export async function revealResults(
   await batch.commit()
 }
 
-/** Host: advances to the next question or ends the game after the last one. */
+/** Host: advances to the next round or ends the game after the last one. */
 export async function advanceGame(
   roomId: string,
   room: Room,
@@ -261,9 +319,9 @@ export async function advanceGame(
   teams: Team[],
 ): Promise<void> {
   const next = room.currentQuestion + 1
-  if (next >= room.questions.length) {
+  if (next >= room.rounds.length) {
     await updateDoc(roomRef(roomId), { status: 'ended' })
   } else {
-    await startQuestion(roomId, next, players, teams)
+    await startQuestion(roomId, next, room.rounds[next] ?? null, players, teams)
   }
 }

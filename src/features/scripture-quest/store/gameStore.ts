@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { AVATARS } from '../data/badges'
+
+const DEFAULT_AVATAR = 'lion'
 
 type Role = 'host' | 'player'
 
@@ -20,7 +21,7 @@ export const useGameStore = create<GameState>()(
   persist(
     (set) => ({
       playerName: '',
-      avatar: AVATARS[0],
+      avatar: DEFAULT_AVATAR,
       setIdentity: (playerName, avatar) => set({ playerName, avatar }),
       activeRoomId: null,
       role: null,

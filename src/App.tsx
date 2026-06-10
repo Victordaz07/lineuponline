@@ -25,6 +25,7 @@ const SQPlayer = lazy(() => sq().then((m) => ({ default: m.ScriptureQuestPlayerP
 const SQResults = lazy(() => sq().then((m) => ({ default: m.ScriptureQuestResultsPage })))
 const SQStudy = lazy(() => sq().then((m) => ({ default: m.ScriptureQuestStudyPage })))
 const SQProfile = lazy(() => sq().then((m) => ({ default: m.ScriptureQuestProfilePage })))
+const SQAdmin = lazy(() => sq().then((m) => ({ default: m.ScriptureQuestAdminPage })))
 
 function PageLoader() {
   return (
@@ -56,6 +57,7 @@ function AppRoutes() {
             <Route path="/games/scripture-quest/results/:roomId" element={<SQResults />} />
             <Route path="/games/scripture-quest/study" element={<SQStudy />} />
             <Route path="/profile/scripture-quest" element={<SQProfile />} />
+            <Route path="/admin/scripture-quest" element={<SQAdmin />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/registro" element={<Navigate to="/login" replace />} />
             <Route path="/notas" element={<Navigate to="/my-notes" replace />} />
