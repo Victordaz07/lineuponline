@@ -32,6 +32,42 @@ service cloud.firestore {
       match /appState/{docId} {
         allow read, write: if isOwner(userId);
       }
+
+      // Scripture Quest: per-user game history (last 6) and earned badges
+      match /gameHistory/{entryId} {
+        allow read, write: if isOwner(userId);
+      }
+      match /badges/{badgeId} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+
+    // Scripture Quest: realtime game rooms (doc id = 6-char session code)
+    match /scripturequest_rooms/{roomId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && request.resource.data.hostId == request.auth.uid;
+      // Game flow (status, questions, timer) is driven by the host
+      allow update: if isAuthenticated() && resource.data.hostId == request.auth.uid;
+      allow delete: if isAuthenticated() && resource.data.hostId == request.auth.uid;
+
+      match /players/{playerId} {
+        allow read: if isAuthenticated();
+        // A player manages their own doc; the host writes scores/streaks on reveal
+        allow write: if isAuthenticated() && (
+          request.auth.uid == playerId ||
+          request.auth.uid == get(/databases/$(database)/documents/scripturequest_rooms/$(roomId)).data.hostId
+        );
+      }
+
+      match /teams/{teamId} {
+        // Members vote and join in realtime; the host awards team scores
+        allow read, write: if isAuthenticated();
+      }
+    }
+
+    // Scripture Quest: monthly score totals (for the "campeón" badge)
+    match /scripturequest_monthly/{monthId} {
+      allow read, write: if isAuthenticated();
     }
 
     match /topics/{topicId} {
