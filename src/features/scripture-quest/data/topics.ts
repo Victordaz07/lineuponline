@@ -78,6 +78,24 @@ export const TOPICS: TopicDef[] = [
   },
 ]
 
+/**
+ * Tema especial "Mixto": sortea preguntas de todos los temas.
+ * No forma parte de TOPICS (no aplica para insignias ni para el banco).
+ */
+export const MIXED_TOPIC_ID = 'mixed'
+
+export const MIXED_TOPIC: TopicDef = {
+  id: MIXED_TOPIC_ID,
+  label: '🎲 Mixto — Todos los temas',
+  description:
+    'Preguntas sorpresa de cualquier tema: la prueba definitiva de tu conocimiento del Evangelio.',
+  studyModuleId: null,
+}
+
+/** Lista que se muestra en el selector del juego (Mixto primero). */
+export const SELECTABLE_TOPICS: TopicDef[] = [MIXED_TOPIC, ...TOPICS]
+
 export function getTopicById(id: string): TopicDef | undefined {
+  if (id === MIXED_TOPIC_ID) return MIXED_TOPIC
   return TOPICS.find((t) => t.id === id)
 }

@@ -207,6 +207,20 @@ describe('question bank', () => {
     expect(rounds.some((r) => r.roundType === 'mime')).toBe(false)
     expect(new Set(rounds.map((r) => r.id)).size).toBe(10)
   })
+
+  it('mixed topic draws from any topic at the requested level', () => {
+    const rounds = selectRounds(LOCAL_ROUNDS, {
+      topicId: 'mixed',
+      level: 2,
+      count: 10,
+      teamMode: false,
+    })
+    expect(rounds).toHaveLength(10)
+    // Con 200+ rondas de nivel 2 disponibles, todas deben ser del nivel pedido
+    expect(rounds.every((r) => r.level === 2)).toBe(true)
+    // Y al ser mixto, lo esperable es variedad de temas
+    expect(new Set(rounds.map((r) => r.topic)).size).toBeGreaterThan(1)
+  })
 })
 
 describe('checkAndAwardBadges', () => {
