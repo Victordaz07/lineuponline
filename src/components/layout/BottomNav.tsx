@@ -49,6 +49,18 @@ const items = [
     ),
   },
   {
+    to: '/games/scripture-quest',
+    end: false,
+    label: 'Jugar',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M6 3h10v5a5 5 0 01-10 0V3z" />
+        <path d="M6 5H3.5v1.5A3.5 3.5 0 007 10M16 5h2.5v1.5A3.5 3.5 0 0115 10" />
+        <path d="M11 13v3M8 19h6M9.5 16h3v3h-3z" />
+      </svg>
+    ),
+  },
+  {
     to: '/community',
     end: false,
     label: 'Comunidad',
