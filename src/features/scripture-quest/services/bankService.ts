@@ -18,6 +18,7 @@ import {
 } from 'firebase/firestore'
 import { getDb } from '@/lib/firebase'
 import { LOCAL_ROUNDS, localBankAsSeedDocs } from '../data/questionBank'
+import { MIXED_TOPIC_ID } from '../data/topics'
 import type { BankQuestion, GameRound, QuestLevel, Question } from '../types'
 import { TEAM_ONLY_TYPES } from '../utils/scoreCalculator'
 
@@ -69,12 +70,15 @@ export type RoundSelection = {
 /**
  * Sortea las rondas de una partida: prioriza tema+nivel exactos, rellena con
  * niveles vecinos del mismo tema y finalmente con el mismo nivel de otros
- * temas. Omite rondas exclusivas de equipos cuando no hay equipos.
+ * temas. Con el tema Mixto, cualquier tema cuenta como coincidencia.
+ * Omite rondas exclusivas de equipos cuando no hay equipos.
  */
 export function selectRounds(pool: GameRound[], params: RoundSelection): GameRound[] {
   const usable = pool.filter(
     (r) => params.teamMode || !TEAM_ONLY_TYPES.includes(r.roundType),
   )
+  const matchesTopic = (r: GameRound) =>
+    params.topicId === MIXED_TOPIC_ID || r.topic === params.topicId
   const picked: GameRound[] = []
   const pickedIds = new Set<string>()
   const take = (candidates: GameRound[]) => {
@@ -86,13 +90,13 @@ export function selectRounds(pool: GameRound[], params: RoundSelection): GameRou
     }
   }
 
-  take(usable.filter((r) => r.topic === params.topicId && r.level === params.level))
+  take(usable.filter((r) => matchesTopic(r) && r.level === params.level))
   // Niveles vecinos del mismo tema, del más cercano al más lejano
   const byDistance = [1, 2, 3]
     .flatMap((d) => [params.level - d, params.level + d])
     .filter((l): l is QuestLevel => l >= 1 && l <= 4)
   for (const level of byDistance) {
-    take(usable.filter((r) => r.topic === params.topicId && r.level === level))
+    take(usable.filter((r) => matchesTopic(r) && r.level === level))
   }
   take(usable.filter((r) => r.level === params.level))
   take(usable)
