@@ -174,12 +174,12 @@ describe('scoring — order_events', () => {
 
 describe('question bank', () => {
   it('contains the full seeded content', () => {
-    expect(CLASSIC_QUESTIONS.length).toBe(160)
+    expect(CLASSIC_QUESTIONS.length).toBe(200)
     const byType = LOCAL_ROUNDS.reduce<Record<string, number>>((acc, r) => {
       acc[r.roundType] = (acc[r.roundType] ?? 0) + 1
       return acc
     }, {})
-    expect(byType.classic).toBe(160)
+    expect(byType.classic).toBe(200)
     expect(byType.fill_blank).toBe(30)
     expect(byType.true_false).toBe(30)
     expect(byType.who_am_i).toBe(20)
