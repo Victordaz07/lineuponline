@@ -10,6 +10,8 @@ interface ImportMetaEnv {
   readonly VITE_FIREBASE_MEASUREMENT_ID?: string
   readonly VITE_ADMIN_UID?: string
   readonly VITE_TTS_FUNCTION_URL?: string
+  readonly VITE_SQ_FUNCTION_URL?: string
+  readonly VITE_ANTHROPIC_API_KEY?: string
 }
 
 interface ImportMeta {
