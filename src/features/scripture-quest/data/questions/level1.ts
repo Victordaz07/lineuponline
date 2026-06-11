@@ -21,7 +21,7 @@ export const LEVEL_1: Question[] = [
   {
     id: 'atonement-n1-2',
     question: '¿Quién entregó a Jesús a las autoridades por treinta piezas de plata?',
-    options: { A: 'Pedro', B: 'Tomás', C: 'Judas Iscariote', D: 'Caifás' },
+    options: { A: 'Simón Pedro', B: 'Tomás el Dídimo', C: 'Judas Iscariote', D: 'Caifás, el sumo sacerdote' },
     correctAnswer: 'C',
     explanation:
       'Judas Iscariote acordó entregar al Salvador por treinta piezas de plata (Mateo 26:14–16).',
@@ -61,7 +61,7 @@ export const LEVEL_1: Question[] = [
   {
     id: 'atonement-n1-5',
     question: '¿Quién fue la primera persona en ver al Salvador resucitado?',
-    options: { A: 'Pedro', B: 'Juan', C: 'Tomás', D: 'María Magdalena' },
+    options: { A: 'Simón Pedro', B: 'Juan el Amado', C: 'Tomás el Dídimo', D: 'María Magdalena' },
     correctAnswer: 'D',
     explanation: 'María Magdalena vio al Señor resucitado junto al sepulcro (Juan 20:11–18).',
     topic: 'atonement',
@@ -116,10 +116,10 @@ export const LEVEL_1: Question[] = [
     id: 'restoration-n1-4',
     question: '¿Dónde oró José Smith cuando recibió la Primera Visión?',
     options: {
-      A: 'En su habitación',
+      A: 'En su habitación, durante la noche',
       B: 'En una arboleda cerca de su casa',
       C: 'En una capilla',
-      D: 'En la escuela',
+      D: 'En la escuela del pueblo',
     },
     correctAnswer: 'B',
     explanation:
@@ -210,9 +210,9 @@ export const LEVEL_1: Question[] = [
     id: 'plan_of_salvation-n1-5',
     question: 'Según Moisés 1:39, ¿cuál es la obra y la gloria de Dios?',
     options: {
-      A: 'Crear mundos sin fin',
+      A: 'Crear mundos y gobernarlos con poder infinito',
       B: 'Llevar a cabo la inmortalidad y la vida eterna del hombre',
-      C: 'Juzgar a las naciones',
+      C: 'Juzgar a las naciones de la tierra',
       D: 'Ser adorado por Sus hijos',
     },
     correctAnswer: 'B',
@@ -296,9 +296,9 @@ export const LEVEL_1: Question[] = [
     question: '¿Quién dirige la Iglesia de Jesucristo en la tierra bajo la dirección del Salvador?',
     options: {
       A: 'El obispo',
-      B: 'Los misioneros',
+      B: 'Los misioneros de tiempo completo',
       C: 'El profeta y presidente de la Iglesia',
-      D: 'El coro del Tabernáculo',
+      D: 'El coro del Tabernáculo de Salt Lake',
     },
     correctAnswer: 'C',
     explanation:
@@ -353,10 +353,10 @@ export const LEVEL_1: Question[] = [
     id: 'prophets-n1-5',
     question: '¿Cómo mostramos públicamente nuestro apoyo a los líderes llamados de Dios?',
     options: {
-      A: 'Aplaudiendo',
-      B: 'Firmando un documento',
+      A: 'Aplaudiendo en la conferencia',
+      B: 'Firmando un documento de apoyo',
       C: 'Levantando la mano para sostenerlos',
-      D: 'Con un donativo',
+      D: 'Entregando un donativo especial',
     },
     correctAnswer: 'C',
     explanation:
@@ -401,9 +401,9 @@ export const LEVEL_1: Question[] = [
     id: 'ordinances-n1-3',
     question: '¿Qué representan el pan y el agua de la Santa Cena?',
     options: {
-      A: 'El maná del desierto',
+      A: 'El maná que cayó en el desierto',
       B: 'El cuerpo y la sangre de Jesucristo',
-      C: 'La tierra y el mar',
+      C: 'La tierra prometida y el mar Rojo',
       D: 'La ley de Moisés',
     },
     correctAnswer: 'B',
@@ -431,8 +431,8 @@ export const LEVEL_1: Question[] = [
     question: '¿Qué es un convenio?',
     options: {
       A: 'Una promesa sagrada entre Dios y Sus hijos',
-      B: 'Un contrato entre dos personas',
-      C: 'Un reglamento de la Iglesia',
+      B: 'Un contrato legal entre dos personas',
+      C: 'Un reglamento interno de la Iglesia',
       D: 'Una tradición familiar',
     },
     correctAnswer: 'A',
@@ -449,9 +449,9 @@ export const LEVEL_1: Question[] = [
     id: 'priesthood-n1-1',
     question: '¿Qué es el sacerdocio?',
     options: {
-      A: 'Un título honorífico',
+      A: 'Un título honorífico para los miembros fieles',
       B: 'La autoridad y el poder de Dios delegados al hombre',
-      C: 'Un grupo de líderes',
+      C: 'Un grupo de líderes elegidos por la congregación',
       D: 'Un empleo de la Iglesia',
     },
     correctAnswer: 'B',
@@ -501,7 +501,7 @@ export const LEVEL_1: Question[] = [
     question: '¿Quiénes restauraron el Sacerdocio de Melquisedec?',
     options: {
       A: 'Adán y Enoc',
-      B: 'Moisés y Elías',
+      B: 'Moisés y Elías el Profeta',
       C: 'Juan el Bautista',
       D: 'Pedro, Santiago y Juan',
     },
@@ -516,7 +516,7 @@ export const LEVEL_1: Question[] = [
   {
     id: 'priesthood-n1-5',
     question: '¿Cerca de qué río se restauró el Sacerdocio Aarónico?',
-    options: { A: 'Misisipi', B: 'Susquehanna', C: 'Jordán', D: 'Hudson' },
+    options: { A: 'Misisipi', B: 'Susquehanna', C: 'Jordán', D: 'Río Hudson' },
     correctAnswer: 'B',
     explanation:
       'José y Oliver se bautizaron mutuamente en el río Susquehanna tras recibir el sacerdocio (José Smith—Historia 1:68–72).',
@@ -531,7 +531,7 @@ export const LEVEL_1: Question[] = [
     id: 'faith_repentance-n1-1',
     question: '¿Cuál es el primer principio del Evangelio?',
     options: {
-      A: 'El arrepentimiento',
+      A: 'El arrepentimiento sincero',
       B: 'El bautismo',
       C: 'La fe en el Señor Jesucristo',
       D: 'La obediencia',
@@ -601,7 +601,7 @@ export const LEVEL_1: Question[] = [
   {
     id: 'baptism-n1-1',
     question: '¿Quién bautizó a Jesucristo?',
-    options: { A: 'Pedro', B: 'Santiago', C: 'Juan el Bautista', D: 'José' },
+    options: { A: 'Simón Pedro', B: 'Santiago, el hermano de Juan', C: 'Juan el Bautista', D: 'José' },
     correctAnswer: 'C',
     explanation: 'Jesús fue bautizado por Juan el Bautista (Mateo 3:13–17).',
     topic: 'baptism',
@@ -641,7 +641,7 @@ export const LEVEL_1: Question[] = [
     id: 'baptism-n1-4',
     question: '¿Qué don se recibe mediante la confirmación después del bautismo?',
     options: {
-      A: 'El don de lenguas',
+      A: 'El don de hablar en lenguas',
       B: 'El don del Espíritu Santo',
       C: 'El don de sanar',
       D: 'El sacerdocio',
@@ -686,7 +686,7 @@ export const LEVEL_1: Question[] = [
     options: {
       A: 'La Familia: Una Proclamación para el Mundo',
       B: 'El Manual de la Familia',
-      C: 'La Carta a las Familias',
+      C: 'La Carta Apostólica sobre las Familias del Mundo',
       D: 'El Libro de la Familia',
     },
     correctAnswer: 'A',
@@ -717,7 +717,7 @@ export const LEVEL_1: Question[] = [
   {
     id: 'eternal_family-n1-4',
     question: '¿Qué profeta antiguo entregó a José Smith las llaves del poder de sellar?',
-    options: { A: 'Moisés', B: 'Abraham', C: 'Elías el Profeta', D: 'Isaías' },
+    options: { A: 'El profeta Moisés', B: 'El patriarca Abraham', C: 'Elías el Profeta', D: 'Isaías' },
     correctAnswer: 'C',
     explanation:
       'Elías el Profeta entregó las llaves del sellamiento, cumpliendo la promesa de Malaquías (D. y C. 110:13–16).',
