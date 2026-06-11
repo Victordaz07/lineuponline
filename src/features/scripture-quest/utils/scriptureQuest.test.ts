@@ -196,6 +196,25 @@ describe('question bank', () => {
     }
   })
 
+  it('does not telegraph the correct answer by length', () => {
+    // La correcta nunca puede ser >30% más larga que el distractor más largo
+    const offenders: string[] = []
+    let correctIsLongest = 0
+    for (const q of CLASSIC_QUESTIONS) {
+      const correctLen = q.options[q.correctAnswer].length
+      const maxOther = Math.max(
+        ...(['A', 'B', 'C', 'D'] as const)
+          .filter((k) => k !== q.correctAnswer)
+          .map((k) => q.options[k].length),
+      )
+      if (correctLen > maxOther) correctIsLongest++
+      if (correctLen > maxOther * 1.3) offenders.push(`${q.id} (${correctLen}/${maxOther})`)
+    }
+    expect(offenders, offenders.join(', ')).toHaveLength(0)
+    // Y "elegir la más larga" no debe ser una estrategia fiable
+    expect(correctIsLongest / CLASSIC_QUESTIONS.length).toBeLessThan(0.65)
+  })
+
   it('selectRounds draws the requested count and skips team-only types in solo mode', () => {
     const rounds = selectRounds(LOCAL_ROUNDS, {
       topicId: 'atonement',

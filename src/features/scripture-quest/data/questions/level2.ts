@@ -10,10 +10,10 @@ export const LEVEL_2: Question[] = [
     id: 'atonement-n2-1',
     question: '¿A dónde fue Jesús con Sus apóstoles inmediatamente después de la Última Cena?',
     options: {
-      A: 'Al templo de Jerusalén',
+      A: 'Al templo de Jerusalén a orar',
       B: 'A Betania',
       C: 'Al monte de los Olivos, a Getsemaní',
-      D: 'A casa de Pedro',
+      D: 'A casa de Pedro, en Capernaúm',
     },
     correctAnswer: 'C',
     explanation:
@@ -28,8 +28,8 @@ export const LEVEL_2: Question[] = [
     question: 'Según Lucas, ¿qué le ocurrió a Jesús mientras oraba en Getsemaní?',
     options: {
       A: 'Su sudor era como grandes gotas de sangre',
-      B: 'Fue transfigurado',
-      C: 'Se quedó dormido',
+      B: 'Fue transfigurado delante de ellos',
+      C: 'Se quedó dormido por el cansancio',
       D: 'Cantó un salmo',
     },
     correctAnswer: 'A',
@@ -44,7 +44,7 @@ export const LEVEL_2: Question[] = [
     id: 'atonement-n2-3',
     question: '¿Qué dos efectos de la Caída vence la Expiación de Jesucristo?',
     options: {
-      A: 'La pobreza y la enfermedad',
+      A: 'La pobreza y la enfermedad del cuerpo',
       B: 'La muerte física y la muerte espiritual',
       C: 'El hambre y la guerra',
       D: 'El dolor y el cansancio',
@@ -78,10 +78,10 @@ export const LEVEL_2: Question[] = [
     id: 'atonement-n2-5',
     question: '¿Por qué Juan el Bautista llamó a Jesús "el Cordero de Dios"?',
     options: {
-      A: 'Por Su mansedumbre al hablar',
+      A: 'Por Su mansedumbre y humildad al hablar con los pecadores',
       B: 'Porque nació entre pastores',
       C: 'Porque sería el sacrificio que los corderos de la ley de Moisés simbolizaban',
-      D: 'Porque cuidaba ovejas en Galilea',
+      D: 'Porque cuidaba los rebaños de ovejas en los montes de Galilea',
     },
     correctAnswer: 'C',
     explanation:
@@ -109,7 +109,7 @@ export const LEVEL_2: Question[] = [
     id: 'restoration-n2-2',
     question: '¿Por qué fue necesaria una restauración y no solo una reforma de las iglesias existentes?',
     options: {
-      A: 'Porque la Biblia se había perdido por completo',
+      A: 'Porque la Biblia se había perdido por completo en Europa',
       B: 'Porque la autoridad del sacerdocio se perdió en la Gran Apostasía',
       C: 'Porque faltaban edificios religiosos',
       D: 'Porque no había suficientes creyentes',
@@ -158,7 +158,7 @@ export const LEVEL_2: Question[] = [
       A: 'El Salvador, Moisés, Elías y Elías el Profeta',
       B: 'Solo el ángel Moroni',
       C: 'Adán y Eva',
-      D: 'Pedro, Santiago y Juan',
+      D: 'Pedro, Santiago y Juan con las llaves del reino',
     },
     correctAnswer: 'A',
     explanation:
@@ -177,7 +177,7 @@ export const LEVEL_2: Question[] = [
       A: 'Porque no existió',
       B: 'Para que caminemos por fe y seamos probados',
       C: 'Porque Dios nos castigó',
-      D: 'Por un accidente del nacimiento',
+      D: 'Por un accidente natural del nacimiento humano',
     },
     correctAnswer: 'B',
     explanation:
@@ -191,7 +191,7 @@ export const LEVEL_2: Question[] = [
     id: 'plan_of_salvation-n2-2',
     question: '¿Qué es la muerte espiritual?',
     options: {
-      A: 'Dejar de respirar',
+      A: 'Dejar de respirar definitivamente',
       B: 'El fin del espíritu',
       C: 'La separación de la presencia de Dios',
       D: 'Un sueño profundo',
@@ -208,10 +208,10 @@ export const LEVEL_2: Question[] = [
     id: 'plan_of_salvation-n2-3',
     question: 'Según Abraham 3:25, ¿para qué fuimos enviados a la tierra?',
     options: {
-      A: 'Para acumular bienes',
+      A: 'Para acumular bienes y experiencia terrenal',
       B: 'Para probarnos, y ver si haremos todo lo que el Señor nos mande',
       C: 'Para olvidar a Dios',
-      D: 'Para vivir sin leyes',
+      D: 'Para vivir sin leyes ni mandamientos por un tiempo',
     },
     correctAnswer: 'B',
     explanation:
@@ -243,7 +243,7 @@ export const LEVEL_2: Question[] = [
     question: '¿Qué propuso Lucifer en el concilio preterrenal?',
     options: {
       A: 'Salvar a todos quitando el albedrío y tomar la gloria para sí',
-      B: 'Respetar la libertad de elegir',
+      B: 'Respetar la libertad de elegir de cada espíritu',
       C: 'Crear más mundos',
       D: 'No participar en el plan',
     },
@@ -329,7 +329,7 @@ export const LEVEL_2: Question[] = [
     id: 'book_of_mormon-n2-5',
     question: '¿Qué señal acompañó el nacimiento de Cristo en el continente americano?',
     options: {
-      A: 'Tres días de oscuridad',
+      A: 'Tres días completos de oscuridad total',
       B: 'Un gran terremoto',
       C: 'Un día, una noche y un día sin oscuridad',
       D: 'Lluvia de fuego',
@@ -348,10 +348,10 @@ export const LEVEL_2: Question[] = [
     id: 'prophets-n2-1',
     question: '¿Qué sucede con la dirección de la Iglesia cuando fallece el profeta?',
     options: {
-      A: 'Se convoca a elecciones generales',
-      B: 'El Cuórum de los Doce preside, y el apóstol de mayor antigüedad llega a ser presidente',
+      A: 'Se convoca a elecciones generales entre los miembros',
+      B: 'El apóstol de mayor antigüedad llega a ser el nuevo presidente',
       C: 'Cada estaca se gobierna sola',
-      D: 'La Primera Presidencia continúa sin cambios',
+      D: 'La Primera Presidencia continúa sin ningún cambio',
     },
     correctAnswer: 'B',
     explanation:
@@ -365,9 +365,9 @@ export const LEVEL_2: Question[] = [
     id: 'prophets-n2-2',
     question: '¿Qué es una dispensación del Evangelio?',
     options: {
-      A: 'Un período en que Dios revela Su evangelio mediante profetas autorizados',
+      A: 'Un período en que Dios revela Su evangelio mediante profetas',
       B: 'Un programa de la Escuela Dominical',
-      C: 'Una región administrativa de la Iglesia',
+      C: 'Una de las regiones administrativas de la Iglesia en el mundo',
       D: 'Un libro de Escrituras',
     },
     correctAnswer: 'A',
@@ -381,7 +381,7 @@ export const LEVEL_2: Question[] = [
   {
     id: 'prophets-n2-3',
     question: '¿Qué profeta testificó de Cristo desde la muralla de Zarahemla?',
-    options: { A: 'Abinadí', B: 'Alma', C: 'Helamán', D: 'Samuel el Lamanita' },
+    options: { A: 'El profeta Abinadí', B: 'Alma, el juez superior', C: 'Helamán', D: 'Samuel el Lamanita' },
     correctAnswer: 'D',
     explanation:
       'Samuel el Lamanita profetizó desde la muralla las señales del nacimiento y la muerte de Cristo (Helamán 13–14).',
@@ -394,7 +394,7 @@ export const LEVEL_2: Question[] = [
     id: 'prophets-n2-4',
     question: '¿En qué se distingue el presidente de la Iglesia de cualquier otra persona que recibe revelación?',
     options: {
-      A: 'En que nunca se equivoca en nada',
+      A: 'En que nunca se equivoca en ninguna decisión',
       B: 'En que vive en el templo',
       C: 'En que solo él recibe revelación para toda la Iglesia',
       D: 'En que no necesita orar',
@@ -412,7 +412,7 @@ export const LEVEL_2: Question[] = [
     question: '¿Cómo se llama la dispensación en la que vivimos?',
     options: {
       A: 'La dispensación del cumplimiento de los tiempos',
-      B: 'La dispensación de Adán',
+      B: 'La dispensación del profeta Adán, el primer hombre',
       C: 'La dispensación mosaica',
       D: 'La dispensación apostólica',
     },
@@ -430,7 +430,7 @@ export const LEVEL_2: Question[] = [
     id: 'ordinances-n2-1',
     question: '¿Cuál es el orden correcto de estas ordenanzas?',
     options: {
-      A: 'Confirmación → bautismo → investidura',
+      A: 'Confirmación → bautismo → investidura → Santa Cena',
       B: 'Bautismo → confirmación → investidura → sellamiento',
       C: 'Investidura → bautismo → confirmación',
       D: 'Santa Cena → bautismo → confirmación',
@@ -447,7 +447,7 @@ export const LEVEL_2: Question[] = [
     id: 'ordinances-n2-2',
     question: 'Según las oraciones sacramentales, ¿qué prometemos al participar de la Santa Cena?',
     options: {
-      A: 'Asistir a todas las reuniones',
+      A: 'Asistir puntualmente a todas las reuniones de la Iglesia',
       B: 'Pagar el diezmo',
       C: 'Ayunar cada semana',
       D: 'Recordarle siempre, tomar Su nombre y guardar Sus mandamientos',
@@ -465,8 +465,8 @@ export const LEVEL_2: Question[] = [
     question: '¿Qué promete Dios a quienes guardan sus convenios sacramentales?',
     options: {
       A: 'Que siempre tendrán Su Espíritu consigo',
-      B: 'Riquezas y abundancia',
-      C: 'Una vida sin pruebas',
+      B: 'Riquezas y abundancia material',
+      C: 'Una vida libre de pruebas y dolor',
       D: 'Salud perfecta',
     },
     correctAnswer: 'A',
@@ -482,8 +482,8 @@ export const LEVEL_2: Question[] = [
     question: '¿Por qué se efectúan bautismos por los muertos en los templos?',
     options: {
       A: 'Es solo un símbolo sin efecto real',
-      B: 'Para honrar la memoria de los antepasados',
-      C: 'Porque muchos murieron sin la oportunidad de recibir esta ordenanza esencial',
+      B: 'Para honrar la memoria de los antepasados ilustres',
+      C: 'Porque muchos murieron sin la oportunidad de recibirla',
       D: 'Por tradición del Antiguo Testamento',
     },
     correctAnswer: 'C',
@@ -498,7 +498,7 @@ export const LEVEL_2: Question[] = [
     id: 'ordinances-n2-5',
     question: '¿Qué se requiere para que una ordenanza sea válida ante Dios?',
     options: {
-      A: 'Que se realice en público',
+      A: 'Que se realice en público ante la congregación',
       B: 'Que la efectúe alguien con autoridad del sacerdocio',
       C: 'Que se realice en domingo',
       D: 'Que haya muchos testigos',
@@ -534,8 +534,8 @@ export const LEVEL_2: Question[] = [
     id: 'priesthood-n2-2',
     question: '¿Por qué el sacerdocio mayor se llama "de Melquisedec"?',
     options: {
-      A: 'Para evitar la repetición frecuente del nombre de Dios, se nombró por el gran sumo sacerdote Melquisedec',
-      B: 'Porque Melquisedec lo inventó',
+      A: 'Para evitar la repetición frecuente del nombre de Dios',
+      B: 'Porque Melquisedec fue quien lo instituyó por primera vez',
       C: 'Por mandato del rey David',
       D: 'Porque así se llamaba el primer templo',
     },
@@ -551,8 +551,8 @@ export const LEVEL_2: Question[] = [
     id: 'priesthood-n2-3',
     question: 'Según D. y C. 13, ¿qué llaves tiene el Sacerdocio Aarónico?',
     options: {
-      A: 'Las llaves del sellamiento eterno',
-      B: 'Las del ministerio de ángeles, del evangelio de arrepentimiento y del bautismo',
+      A: 'Las llaves del sellamiento eterno de las familias en el templo',
+      B: 'Las del ministerio de ángeles, del arrepentimiento y del bautismo',
       C: 'Las llaves del recogimiento de Israel',
       D: 'Las llaves de la investidura',
     },
@@ -605,8 +605,8 @@ export const LEVEL_2: Question[] = [
     question: '¿Qué elementos forman parte de un arrepentimiento sincero?',
     options: {
       A: 'Reconocer, confesar y abandonar el pecado, y restituir el daño',
-      B: 'Solo sentirse triste un tiempo',
-      C: 'Esperar a que pase el tiempo',
+      B: 'Sentirse triste por un tiempo y luego olvidarlo todo',
+      C: 'Esperar a que el tiempo borre los errores',
       D: 'Hacer una donación',
     },
     correctAnswer: 'A',
@@ -622,8 +622,8 @@ export const LEVEL_2: Question[] = [
     question: '¿Qué llevó a Enós a orar con tanta intensidad?',
     options: {
       A: 'Una tormenta en el mar',
-      B: 'Las palabras de su padre sobre la vida eterna penetraron su corazón',
-      C: 'La visita de un ángel',
+      B: 'Las palabras de su padre sobre la vida eterna',
+      C: 'La visita de un ángel durante la noche',
       D: 'Una enfermedad grave',
     },
     correctAnswer: 'B',
@@ -638,7 +638,7 @@ export const LEVEL_2: Question[] = [
     id: 'faith_repentance-n2-3',
     question: 'En Alma 32, ¿cómo sabes que la semilla —la palabra— es buena?',
     options: {
-      A: 'Porque otros lo afirman',
+      A: 'Porque otras personas con experiencia lo afirman con mucha seguridad',
       B: 'Porque produce riquezas',
       C: 'Porque hincha el pecho, ensancha el alma e ilumina el entendimiento',
       D: 'Porque crece sin esfuerzo',
@@ -655,10 +655,10 @@ export const LEVEL_2: Question[] = [
     id: 'faith_repentance-n2-4',
     question: '¿Qué experimentó el pueblo del rey Benjamín después de su discurso?',
     options: {
-      A: 'Construyeron una nueva ciudad',
+      A: 'Construyeron una nueva ciudad junto al templo',
       B: 'Se dividieron en tribus',
-      C: 'Salieron a la guerra',
-      D: 'Un potente cambio de corazón, sin más disposición a obrar mal',
+      C: 'Salieron a la guerra contra los lamanitas',
+      D: 'Un potente cambio de corazón en todo el pueblo',
     },
     correctAnswer: 'D',
     explanation:
@@ -708,9 +708,9 @@ export const LEVEL_2: Question[] = [
     id: 'baptism-n2-2',
     question: '¿Qué simboliza la inmersión completa en el agua?',
     options: {
-      A: 'La limpieza del cuerpo físico',
+      A: 'La limpieza completa del cuerpo físico ante la congregación',
       B: 'El valor del converso',
-      C: 'La muerte y sepultura del "hombre viejo" y el nacimiento a una vida nueva',
+      C: 'La muerte del "hombre viejo" y el nacimiento a una vida nueva',
       D: 'El paso del mar Rojo',
     },
     correctAnswer: 'C',
@@ -725,9 +725,9 @@ export const LEVEL_2: Question[] = [
     id: 'baptism-n2-3',
     question: 'Según Mosíah 18:8–9, ¿qué prometemos al entrar en el convenio del bautismo?',
     options: {
-      A: 'Leer las Escrituras una hora diaria',
-      B: 'Llevar las cargas los unos de los otros, llorar con los que lloran y ser testigos de Dios',
-      C: 'Servir una misión de tiempo completo',
+      A: 'Leer las Escrituras durante una hora todos los días',
+      B: 'Llevar las cargas los unos de los otros y ser testigos de Dios',
+      C: 'Servir una misión de tiempo completo en la juventud',
       D: 'No volver a equivocarnos jamás',
     },
     correctAnswer: 'B',
@@ -742,7 +742,7 @@ export const LEVEL_2: Question[] = [
     id: 'baptism-n2-4',
     question: '¿Qué es el "bautismo de fuego"?',
     options: {
-      A: 'Una ceremonia antigua con antorchas',
+      A: 'Una ceremonia antigua que se celebraba con antorchas en el templo',
       B: 'Una prueba difícil de la vida',
       C: 'Un símbolo del juicio final',
       D: 'La purificación y santificación que efectúa el Espíritu Santo',
@@ -760,7 +760,7 @@ export const LEVEL_2: Question[] = [
     question: '¿Qué funciones cumple el Espíritu Santo como "el Consolador"?',
     options: {
       A: 'Enseña, testifica de la verdad, consuela y nos guía',
-      B: 'Solo consuela en los funerales',
+      B: 'Solo consuela a los que lloran en los funerales',
       C: 'Reemplaza la necesidad de orar',
       D: 'Castiga a los desobedientes',
     },
@@ -778,9 +778,9 @@ export const LEVEL_2: Question[] = [
     id: 'eternal_family-n2-1',
     question: '¿Qué significa casarse "por el tiempo y por toda la eternidad"?',
     options: {
-      A: 'Tener una ceremonia más larga',
+      A: 'Tener una ceremonia más larga y solemne en la capilla',
       B: 'Renovar los votos cada año',
-      C: 'Que el convenio matrimonial, sellado con la debida autoridad, continúa después de la muerte',
+      C: 'Que el convenio matrimonial continúa después de la muerte',
       D: 'Vivir cerca del templo',
     },
     correctAnswer: 'C',
@@ -795,8 +795,8 @@ export const LEVEL_2: Question[] = [
     id: 'eternal_family-n2-2',
     question: '¿Qué profetizó Malaquías acerca de Elías el Profeta?',
     options: {
-      A: 'Que construiría un templo en Jerusalén',
-      B: 'Que haría volver el corazón de los padres a los hijos y el de los hijos a los padres',
+      A: 'Que construiría un nuevo templo en Jerusalén',
+      B: 'Que haría volver el corazón de los padres a los hijos',
       C: 'Que escribiría un nuevo libro de Escrituras',
       D: 'Que reuniría a los ejércitos de Israel',
     },
@@ -829,9 +829,9 @@ export const LEVEL_2: Question[] = [
     id: 'eternal_family-n2-4',
     question: '¿Qué relación hay entre la historia familiar y la obra del templo?',
     options: {
-      A: 'Encontramos los nombres de nuestros antepasados para efectuar por ellos las ordenanzas vicarias',
+      A: 'Encontramos a nuestros antepasados para ofrecerles las ordenanzas',
       B: 'Ninguna; son programas separados',
-      C: 'La historia familiar es solo un pasatiempo cultural',
+      C: 'La historia familiar es solo un pasatiempo cultural interesante',
       D: 'Solo sirve para decorar el árbol genealógico',
     },
     correctAnswer: 'A',
