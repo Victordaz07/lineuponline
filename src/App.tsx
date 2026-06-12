@@ -19,6 +19,7 @@ const EpisodeGeneratorPage = lazy(() => import('@/pages/EpisodeGeneratorPage'))
 const SQAdminPage = lazy(() => import('@/features/scripture-quest/admin/SQAdminPage'))
 const CountdownPage = lazy(() => import('@/features/scripture-quest/components/CountdownPage'))
 const BadgesDemoPage = lazy(() => import('@/features/scripture-quest/components/BadgesScreen'))
+const SQTutorialPage = lazy(() => import('@/features/scripture-quest/components/TutorialPage'))
 
 function PageLoader() {
   return (
@@ -51,6 +52,7 @@ function AppRoutes() {
             <Route path="/host/:roomId/countdown" element={<CountdownPage />} />
             <Route path="/play/:roomId/countdown" element={<CountdownPage />} />
             <Route path="/games/scripture-quest/badges-demo" element={<BadgesDemoPage />} />
+            <Route path="/games/scripture-quest/como-jugar" element={<SQTutorialPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/registro" element={<Navigate to="/login" replace />} />
             <Route path="/notas" element={<Navigate to="/my-notes" replace />} />

@@ -10,6 +10,7 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 import { LoadingSpinner } from '@/components/common/LoadingSpinner'
 import { CountdownScreen } from './CountdownScreen'
+import { SQWelcomeModal, useSQWelcome } from './SQWelcomeModal'
 import {
   subscribeRoom,
   pauseCountdown,
@@ -32,6 +33,7 @@ const SOLO_CONFIG: GameConfig = {
 function SoloCountdown() {
   const navigate = useNavigate()
   const { user } = useAuth()
+  const { showWelcome, closeWelcome } = useSQWelcome()
 
   const [endsAt, setEndsAt] = useState<string | null>(null)
   const [started, setStarted] = useState(false)
@@ -64,25 +66,28 @@ function SoloCountdown() {
   }
 
   return (
-    <div className="fixed inset-0 z-50">
-      <CountdownScreen
-        countdown={countdown}
-        config={SOLO_CONFIG}
-        players={[soloPlayer]}
-        isHost={true}
-        onPause={(secsLeft) => {
-          setPausedSecsLeft(secsLeft)
-          setEndsAt(null)
-        }}
-        onResume={(secsLeft) => {
-          setPausedSecsLeft(null)
-          setEndsAt(new Date(Date.now() + secsLeft * 1000).toISOString())
-        }}
-        onStartNow={handleDone}
-        onCancel={() => navigate('/games/scripture-quest')}
-        onDone={handleDone}
-      />
-    </div>
+    <>
+      {showWelcome && <SQWelcomeModal onClose={closeWelcome} />}
+      <div className="fixed inset-0 z-50">
+        <CountdownScreen
+          countdown={countdown}
+          config={SOLO_CONFIG}
+          players={[soloPlayer]}
+          isHost={true}
+          onPause={(secsLeft) => {
+            setPausedSecsLeft(secsLeft)
+            setEndsAt(null)
+          }}
+          onResume={(secsLeft) => {
+            setPausedSecsLeft(null)
+            setEndsAt(new Date(Date.now() + secsLeft * 1000).toISOString())
+          }}
+          onStartNow={handleDone}
+          onCancel={() => navigate('/games/scripture-quest')}
+          onDone={handleDone}
+        />
+      </div>
+    </>
   )
 }
 
