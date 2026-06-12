@@ -92,5 +92,24 @@ service cloud.firestore {
     match /episodes/{episodeId} {
       allow read, write: if isAdmin();
     }
+
+    // Scripture Quest — public read for approved questions, admin write
+    match /scripturequest_questions/{questionId} {
+      allow read: if isAuthenticated() && (
+        resource == null || resource.data.status == 'approved' || isAdmin()
+      );
+      allow write: if isAdmin();
+    }
+
+    // Scripture Quest — audio playlists (admin only)
+    match /scripturequest_audio/{stageId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    // Scripture Quest — game rooms (future gameplay)
+    match /scripturequest_rooms/{roomId} {
+      allow read, write: if isAuthenticated();
+    }
   }
 }
