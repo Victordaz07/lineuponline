@@ -4,7 +4,7 @@
  * ambientes: festivo (concurso) y reverente (domingos).
  */
 
-import type { MusicMode } from '../types'
+import type { AudioStage, MusicMode, RoomStatus } from '../types'
 
 export type { MusicMode }
 
@@ -17,6 +17,12 @@ class SoundManager {
   private musicTimer: ReturnType<typeof setTimeout> | null = null
   private currentMusic: MusicMode = 'silencio'
   private lastTickAt = 0
+  /** Pistas subidas por el anfitrión (Suno) agrupadas por etapa. */
+  private stagePlaylists: Partial<Record<AudioStage, string[]>> = {}
+  private audioEl: HTMLAudioElement | null = null
+  private currentStage: AudioStage | null = null
+  private queue: string[] = []
+  private pendingOpening = false
   enabled: boolean = (() => {
     try {
       return localStorage.getItem(STORAGE_KEY) !== '0'
@@ -101,12 +107,14 @@ class SoundManager {
   }
   correct() {
     if (!this.enabled) return
+    if (this.playOneShot('correct')) return
     ;[523.25, 659.25, 783.99, 1046.5].forEach((f, i) =>
       this.tone(f, 0.16, { volume: 0.35, when: i * 0.09 }),
     )
   }
   wrong() {
     if (!this.enabled) return
+    if (this.playOneShot('wrong')) return
     this.tone(220, 0.28, { type: 'sawtooth', volume: 0.22, glideTo: 150 })
   }
   reveal() {
@@ -115,6 +123,7 @@ class SoundManager {
   }
   join() {
     if (!this.enabled) return
+    if (this.playOneShot('player_join')) return
     this.tone(660, 0.08, { type: 'sine', volume: 0.25, glideTo: 880 })
   }
   fanfare() {
@@ -125,6 +134,114 @@ class SoundManager {
     ]
     for (const [f, t] of seq) this.tone(f, 0.3, { volume: 0.35, when: t })
     for (const [f, t] of seq) this.tone(f / 2, 0.34, { type: 'sine', volume: 0.2, when: t })
+  }
+
+  /* ── Pistas personalizadas (Suno) por etapa ── */
+
+  /** Registra las playlists subidas por el admin; reinicia si la etapa actual cambió. */
+  setStagePlaylists(playlists: Partial<Record<AudioStage, string[]>>) {
+    this.stagePlaylists = playlists
+    if (this.currentStage && !this.audioEl) {
+      // Estábamos en respaldo sintetizado y ahora hay pistas: cambiar en vivo
+      const stage = this.currentStage
+      const fallback = this.currentMusic
+      this.currentStage = null
+      this.playStageLoop(stage, fallback)
+    }
+  }
+
+  private tracksFor(stage: AudioStage): string[] {
+    return this.stagePlaylists[stage] ?? []
+  }
+
+  /** Efecto de una sola vez desde la playlist de la etapa (true si sonó pista). */
+  private playOneShot(stage: AudioStage): boolean {
+    const tracks = this.tracksFor(stage)
+    if (tracks.length === 0) return false
+    const url = tracks[Math.floor(Math.random() * tracks.length)]
+    const el = new Audio(url)
+    el.volume = 0.8
+    void el.play().catch(() => undefined)
+    return true
+  }
+
+  private shuffled(urls: string[]): string[] {
+    const arr = [...urls]
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[arr[i], arr[j]] = [arr[j], arr[i]]
+    }
+    return arr
+  }
+
+  /**
+   * Loop de música por etapa: pistas aleatorias sin repetir hasta agotar la
+   * lista; si la etapa no tiene pistas, respaldo sintetizado (festivo/reverente).
+   */
+  playStageLoop(stage: AudioStage, fallback: MusicMode) {
+    if (!this.enabled) return
+    if (this.currentStage === stage && (this.audioEl || this.currentMusic === fallback)) return
+    this.stopMusic()
+    this.currentStage = stage
+    const tracks = this.tracksFor(stage)
+    if (tracks.length === 0) {
+      // Respaldo: música generativa
+      this.playMusic(fallback)
+      this.currentStage = stage
+      return
+    }
+    this.queue = this.shuffled(tracks)
+    if (this.pendingOpening) {
+      this.pendingOpening = false
+      const opening = this.tracksFor('opening')
+      if (opening.length > 0) {
+        this.queue.unshift(opening[Math.floor(Math.random() * opening.length)])
+      }
+    }
+    this.playNextInQueue(stage, tracks)
+  }
+
+  private playNextInQueue(stage: AudioStage, source: string[]) {
+    if (this.currentStage !== stage || !this.enabled) return
+    if (this.queue.length === 0) this.queue = this.shuffled(source)
+    const url = this.queue.shift()
+    if (!url) return
+    const el = new Audio(url)
+    el.volume = 0.45
+    this.audioEl = el
+    el.onended = () => this.playNextInQueue(stage, source)
+    void el.play().catch(() => {
+      // Autoplay bloqueado: reintenta con el primer gesto del usuario
+      const retry = () => {
+        document.removeEventListener('pointerdown', retry)
+        if (this.audioEl === el && this.currentStage === stage) void el.play().catch(() => undefined)
+      }
+      document.addEventListener('pointerdown', retry)
+    })
+  }
+
+  /**
+   * Mapea el estado de la sala + ambiente elegido a la etapa musical:
+   * festivo → lobby/question/podium · reverente → reverent · silencio → nada.
+   */
+  playForRoom(status: RoomStatus, mode: MusicMode) {
+    if (mode === 'silencio' || !this.enabled) {
+      this.stopMusic()
+      return
+    }
+    if (mode === 'reverente') {
+      this.playStageLoop('reverent', 'reverente')
+      return
+    }
+    // Festivo
+    if (status === 'lobby') {
+      this.playStageLoop('lobby', 'festivo')
+    } else if (status === 'ended') {
+      this.playStageLoop('podium', 'festivo')
+    } else {
+      if (this.currentStage === 'lobby') this.pendingOpening = true
+      this.playStageLoop('question', 'festivo')
+    }
   }
 
   /* ── Música generativa de fondo ── */
@@ -144,9 +261,15 @@ class SoundManager {
 
   stopMusic() {
     this.currentMusic = 'silencio'
+    this.currentStage = null
     if (this.musicTimer) {
       clearTimeout(this.musicTimer)
       this.musicTimer = null
+    }
+    if (this.audioEl) {
+      this.audioEl.onended = null
+      this.audioEl.pause()
+      this.audioEl = null
     }
   }
 

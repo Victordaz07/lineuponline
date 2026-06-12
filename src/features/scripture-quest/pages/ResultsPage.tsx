@@ -10,6 +10,8 @@ import { usePlayers } from '../hooks/usePlayers'
 import { useRoom } from '../hooks/useRoom'
 import { finalizeGameForPlayer } from '../services/historyService'
 import { useGameStore } from '../store/gameStore'
+import { loadAudioLibrary } from '../services/audioLibrary'
+import { sound } from '../utils/sound'
 import type { BadgeId, Question } from '../types'
 import { roundToStudyQuestion } from '../utils/scoreCalculator'
 
@@ -51,6 +53,19 @@ export default function ResultsPage() {
       wonGame: topScore > 0 && ownScore === topScore,
     }
   }, [room, me, players, teams])
+
+  // Música de podio (pantalla grande del anfitrión / espectadores)
+  useEffect(() => {
+    if (!room || room.status !== 'ended' || me) return
+    let cancelled = false
+    void loadAudioLibrary().then(() => {
+      if (!cancelled) sound.playForRoom('ended', room.musicMode ?? 'festivo')
+    })
+    return () => {
+      cancelled = true
+      sound.stopMusic()
+    }
+  }, [room, me])
 
   const myRank = useMemo(() => {
     if (!me) return 0

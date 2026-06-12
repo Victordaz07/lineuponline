@@ -77,6 +77,12 @@ service cloud.firestore {
       allow read, write: if isAuthenticated();
     }
 
+    // Scripture Quest: playlists de audio por etapa (lectura jugadores, escritura admin)
+    match /scripturequest_audio/{stageId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
     match /topics/{topicId} {
       allow read: if isAuthenticated();
       allow write: if false;
