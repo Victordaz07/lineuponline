@@ -5,6 +5,23 @@ import type { AudioStage, AudioTrack, StagePlaylist } from '../types'
 import { subscribeStagePlaylist, addTrackToStage, removeTrackFromStage, renameTrack } from '../services/sqAudio.service'
 import { uploadSQAudio, deleteSQFile } from '../services/sqStorage.service'
 
+// ─── Preview player: solo una pista a la vez en todo el admin ─────────────────
+type PreviewHandle = { audio: HTMLAudioElement; onStop: () => void }
+
+let activePreview: PreviewHandle | null = null
+
+function stopActivePreview(): void {
+  if (!activePreview) return
+  activePreview.audio.pause()
+  activePreview.onStop()
+  activePreview = null
+}
+
+function registerPreview(audio: HTMLAudioElement, onStop: () => void): void {
+  stopActivePreview()
+  activePreview = { audio, onStop }
+}
+
 // ─── Single track row ─────────────────────────────────────────────────────────
 function TrackRow({
   track,
@@ -22,27 +39,50 @@ function TrackRow({
   const [name, setName] = useState(track.name)
   const [deleting, setDeleting] = useState(false)
 
+  useEffect(() => {
+    return () => {
+      if (activePreview?.audio === audioRef.current) {
+        activePreview.audio.pause()
+        activePreview = null
+      }
+    }
+  }, [])
+
   async function togglePlay() {
     if (!audioRef.current) {
       const a = new Audio()
       a.crossOrigin = 'anonymous'
       a.src = track.url
-      a.onended = () => setPlaying(false)
-      a.onerror = () => { setPlaying(false); setAudioError(true) }
-      audioRef.current = a
-    }
-    if (playing) {
-      audioRef.current.pause()
-      setPlaying(false)
-    } else {
-      setAudioError(false)
-      try {
-        await audioRef.current.play()
-        setPlaying(true)
-      } catch {
+      a.onended = () => {
+        setPlaying(false)
+        if (activePreview?.audio === a) activePreview = null
+      }
+      a.onerror = () => {
         setPlaying(false)
         setAudioError(true)
+        if (activePreview?.audio === a) activePreview = null
       }
+      audioRef.current = a
+    }
+
+    const audio = audioRef.current
+
+    if (playing) {
+      audio.pause()
+      setPlaying(false)
+      if (activePreview?.audio === audio) activePreview = null
+      return
+    }
+
+    stopActivePreview()
+    setAudioError(false)
+    try {
+      await audio.play()
+      setPlaying(true)
+      registerPreview(audio, () => setPlaying(false))
+    } catch {
+      setPlaying(false)
+      setAudioError(true)
     }
   }
 
