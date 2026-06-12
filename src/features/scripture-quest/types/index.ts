@@ -142,6 +142,9 @@ export type BankQuestion = RoundContent & {
 
 export type RoomStatus = 'lobby' | 'playing' | 'question' | 'results' | 'ended'
 
+/** Ambiente musical elegido por el anfitrión (sincronizado a la pantalla TV). */
+export type MusicMode = 'festivo' | 'reverente' | 'silencio'
+
 export type Room = {
   hostId: string
   status: RoomStatus
@@ -155,6 +158,8 @@ export type Room = {
   selectedQuestionIds: string[]
   createdAt: Timestamp | null
   teamMode: boolean
+  /** Música de fondo para las pantallas grandes. */
+  musicMode: MusicMode
   /** Server-side timer anchor: clients derive remaining time from this. */
   questionStartedAt: Timestamp | null
 }

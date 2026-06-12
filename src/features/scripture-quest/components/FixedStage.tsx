@@ -31,13 +31,13 @@ export function FixedStage({ children }: { children: ReactNode }) {
       style={{ minHeight: 'min(72vh, 720px)' }}
     >
       <div
+        className="sq-live-bg"
         style={{
           width: STAGE_W,
           height: STAGE_H,
           transform: `scale(${scale})`,
           transformOrigin: 'center center',
           flexShrink: 0,
-          background: 'var(--navy)',
           borderRadius: 24,
           padding: 40,
           overflow: 'hidden',

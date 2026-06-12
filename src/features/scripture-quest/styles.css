@@ -103,3 +103,84 @@
   transition: border-color 0.15s ease;
 }
 .sq-code-box:focus { border-color: var(--gold); }
+
+/* ── Animaciones extra (vida y juego) ────────────────────────────────── */
+@keyframes sq-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-7px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(3px); }
+}
+@keyframes sq-bounce {
+  0% { transform: scale(0.3) translateY(30px); opacity: 0; }
+  55% { transform: scale(1.12) translateY(-6px); opacity: 1; }
+  75% { transform: scale(0.96) translateY(2px); }
+  100% { transform: scale(1) translateY(0); }
+}
+@keyframes sq-glow {
+  0%, 100% { box-shadow: 0 0 0 2px var(--gold), 0 0 18px rgba(212, 175, 98, 0.25); }
+  50% { box-shadow: 0 0 0 3px var(--gold-glow), 0 0 36px rgba(232, 200, 122, 0.6); }
+}
+@keyframes sq-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-4deg); }
+  75% { transform: rotate(4deg); }
+}
+@keyframes sq-stripes {
+  from { background-position: 0 0; }
+  to { background-position: 28px 0; }
+}
+@keyframes sq-bg-drift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes sq-points-fly {
+  0% { transform: translateY(0) scale(0.8); opacity: 0; }
+  25% { transform: translateY(-8px) scale(1.15); opacity: 1; }
+  100% { transform: translateY(-34px) scale(1); opacity: 0; }
+}
+@keyframes sq-heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.12); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.18); }
+}
+
+.sq-shake { animation: sq-shake 0.5s ease-in-out both; }
+.sq-bounce { animation: sq-bounce 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.sq-glow { animation: sq-glow 1.6s ease-in-out infinite; }
+.sq-wiggle { animation: sq-wiggle 0.9s ease-in-out infinite; }
+.sq-heartbeat { animation: sq-heartbeat 1s ease-in-out infinite; }
+.sq-points-fly { animation: sq-points-fly 1.4s ease-out both; }
+
+/* Fondo animado del escenario */
+.sq-live-bg {
+  background: linear-gradient(120deg, #0d1b2a, #16283f, #0d1b2a, #1d3050, #0d1b2a);
+  background-size: 300% 300%;
+  animation: sq-bg-drift 16s ease-in-out infinite;
+}
+
+/* ── Barra de tiempo ─────────────────────────────────────────────────── */
+.sq-timebar-track {
+  position: relative;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(36, 59, 85, 0.6);
+  overflow: hidden;
+  border: 1px solid var(--navy-light);
+}
+.sq-timebar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.25s linear, background-color 0.4s ease;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.18) 25%, transparent 25%,
+    transparent 50%, rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.18) 75%, transparent 75%, transparent
+  );
+  background-size: 28px 28px;
+  animation: sq-stripes 0.8s linear infinite;
+}
+.sq-timebar-low .sq-timebar-fill { animation: sq-stripes 0.35s linear infinite; }

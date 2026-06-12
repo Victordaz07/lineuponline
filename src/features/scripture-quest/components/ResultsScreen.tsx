@@ -1,4 +1,6 @@
+import { useEffect } from 'react'
 import type { GameRound, Player, Team } from '../types'
+import { sound } from '../utils/sound'
 import { ROUND_TYPE_LABELS } from '../data/badges'
 import { roundAnswerText, roundExplanation } from '../utils/scoreCalculator'
 import { LiveLeaderboard } from './LiveLeaderboard'
@@ -28,14 +30,22 @@ export function ResultsScreen({
   nextIn,
   nextRoundType,
 }: Props) {
+  // Sonido de revelación: acierto/error en el teléfono, "ta-da" en la TV
+  useEffect(() => {
+    if (myResult === undefined || myResult === null) sound.reveal()
+    else if (myResult.correct) sound.correct()
+    else sound.wrong()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <div className="space-y-6">
       {myResult !== undefined && myResult !== null && (
         <div
-          className={`sq-pop rounded-2xl p-5 text-center ${
+          className={`rounded-2xl p-5 text-center ${
             myResult.correct
-              ? 'bg-emerald-500/15 ring-1 ring-emerald-400'
-              : 'bg-rose-500/15 ring-1 ring-rose-400'
+              ? 'sq-bounce bg-emerald-500/15 ring-1 ring-emerald-400'
+              : 'sq-shake bg-rose-500/15 ring-1 ring-rose-400'
           }`}
         >
           <p className="text-4xl" aria-hidden>
@@ -45,7 +55,7 @@ export function ResultsScreen({
             {myResult.correct ? '¡Correcto!' : 'Incorrecto'}
           </p>
           {myResult.points > 0 && (
-            <p className="font-ui text-sg-gold-bright">
+            <p className="sq-points-fly font-display text-2xl font-bold text-sg-gold-bright">
               +{myResult.points.toLocaleString('es')} pts
             </p>
           )}

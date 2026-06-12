@@ -7,6 +7,8 @@ import type { AnswerOption, GameRound, Player, Team } from '../types'
 import { TIMER_BY_TYPE, WHO_AM_I_CLUE_SECONDS, whoAmIPoints } from '../utils/scoreCalculator'
 import { AnswerPanel } from './AnswerPanel'
 import { TeamVotingPanel } from './TeamVotingPanel'
+import { TimerBar } from './TimerBar'
+import type { RoundType } from '../types'
 
 export type RoundPanelProps = {
   round: GameRound
@@ -20,14 +22,10 @@ export type RoundPanelProps = {
   onConfirm: (answer: string) => void
 }
 
-function TimerBubble({ remaining }: { remaining: number }) {
+function TimerBubble({ remaining, roundType }: { remaining: number; roundType: RoundType }) {
   return (
-    <div
-      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full font-display text-xl font-bold ${
-        remaining <= 5 ? 'bg-rose-600 text-white sq-pulse' : 'bg-sg-gold text-navy-deep'
-      }`}
-    >
-      {remaining}
+    <div className="w-36 shrink-0">
+      <TimerBar remaining={remaining} duration={TIMER_BY_TYPE[roundType]} />
     </div>
   )
 }
@@ -96,7 +94,7 @@ function FillBlankPanel(p: RoundPanelProps) {
         <p className="font-ui text-xs uppercase tracking-widest text-sg-gold-light">
           Completa el versículo · {p.round.content.reference}
         </p>
-        <TimerBubble remaining={p.remaining} />
+        <TimerBubble remaining={p.remaining} roundType={p.round.roundType} />
       </div>
       <blockquote className="sq-card p-5 font-display text-2xl font-bold leading-snug text-warm-white">
         {p.round.content.verse.split('[BLANK]').map((part, i, arr) => (
@@ -130,7 +128,7 @@ function TrueFalsePanel(p: RoundPanelProps) {
         <p className="font-ui text-xs uppercase tracking-widest text-sg-gold-light">
           ¿Verdadero o falso?
         </p>
-        <TimerBubble remaining={p.remaining} />
+        <TimerBubble remaining={p.remaining} roundType={p.round.roundType} />
       </div>
       <h2 className="font-display text-2xl font-bold leading-snug text-warm-white">
         {p.round.content.statement}
@@ -140,7 +138,7 @@ function TrueFalsePanel(p: RoundPanelProps) {
           type="button"
           disabled={locked}
           onClick={() => p.onAnswer('true')}
-          className={`min-h-24 rounded-xl font-ui text-xl font-bold text-white transition sq-ans-d ${
+          className={`sq-bounce min-h-24 rounded-xl font-ui text-xl font-bold text-white transition sq-ans-d ${
             locked && selected !== 'true' ? 'opacity-40' : ''
           } ${selected === 'true' ? 'ring-4 ring-warm-white' : ''}`}
         >
@@ -150,7 +148,7 @@ function TrueFalsePanel(p: RoundPanelProps) {
           type="button"
           disabled={locked}
           onClick={() => p.onAnswer('false')}
-          className={`min-h-24 rounded-xl font-ui text-xl font-bold text-white transition sq-ans-a ${
+          className={`sq-bounce sq-rise-1 min-h-24 rounded-xl font-ui text-xl font-bold text-white transition sq-ans-a ${
             locked && selected !== 'false' ? 'opacity-40' : ''
           } ${selected === 'false' ? 'ring-4 ring-warm-white' : ''}`}
         >
@@ -174,7 +172,7 @@ function ImageGuessPanel(p: RoundPanelProps) {
         <p className="font-ui text-xs uppercase tracking-widest text-sg-gold-light">
           ¿Qué representa esta imagen?
         </p>
-        <TimerBubble remaining={p.remaining} />
+        <TimerBubble remaining={p.remaining} roundType={p.round.roundType} />
       </div>
       <img
         src={p.round.content.imageUrl}
@@ -214,7 +212,7 @@ function MimePanel(p: RoundPanelProps) {
           <p className="font-ui text-xs uppercase tracking-widest text-sg-gold-light">
             🎭 Eres quien actúa — ¡que tu equipo no vea tu pantalla!
           </p>
-          <TimerBubble remaining={p.remaining} />
+          <TimerBubble remaining={p.remaining} roundType={p.round.roundType} />
         </div>
         <img
           src={p.round.content.imageUrl}
@@ -241,7 +239,7 @@ function MimePanel(p: RoundPanelProps) {
         <p className="font-ui text-xs uppercase tracking-widest text-sg-gold-light">
           🎭 ¡Adivina lo que actúa {p.players.find((x) => x.uid === p.myTeam?.leaderId)?.name ?? 'tu compañero'}!
         </p>
-        <TimerBubble remaining={p.remaining} />
+        <TimerBubble remaining={p.remaining} roundType={p.round.roundType} />
       </div>
       <TextAnswerForm
         locked={locked}
@@ -275,7 +273,7 @@ function WhoAmIPanel(p: RoundPanelProps) {
             Vale {currentPoints.toLocaleString('es')} pts
           </p>
         </div>
-        <TimerBubble remaining={p.remaining} />
+        <TimerBubble remaining={p.remaining} roundType={p.round.roundType} />
       </div>
       <ol className="space-y-2">
         {p.round.content.clues.slice(0, cluesShown).map((clue, i) => (
@@ -322,7 +320,7 @@ function OrderEventsPanel(p: RoundPanelProps) {
         <p className="font-ui text-xs uppercase tracking-widest text-sg-gold-light">
           Toca los eventos en orden cronológico
         </p>
-        <TimerBubble remaining={p.remaining} />
+        <TimerBubble remaining={p.remaining} roundType={p.round.roundType} />
       </div>
       <ul className="space-y-2">
         {shuffled.map((event) => {

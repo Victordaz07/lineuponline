@@ -16,6 +16,8 @@ import { useGameTimer } from '../hooks/useGameTimer'
 import { usePlayers } from '../hooks/usePlayers'
 import { useRoom } from '../hooks/useRoom'
 import { TIMER_BY_TYPE } from '../utils/scoreCalculator'
+import { sound } from '../utils/sound'
+import { useEffect } from 'react'
 
 export default function TvPage() {
   const { roomId } = useParams<{ roomId: string }>()
@@ -26,6 +28,16 @@ export default function TvPage() {
   const duration = round ? TIMER_BY_TYPE[round.roundType] : 20
   const timer = useGameTimer(room?.questionStartedAt, duration)
   const topic = room ? getTopicById(room.topic) : undefined
+
+  // La TV reproduce la música que el anfitrión eligió para la sala
+  useEffect(() => {
+    if (room && room.status !== 'ended') {
+      sound.playMusic(room.musicMode ?? 'festivo')
+    } else {
+      sound.stopMusic()
+    }
+    return () => sound.stopMusic()
+  }, [room?.musicMode, room?.status, room])
   const nextRound = room ? room.rounds[room.currentQuestion + 1] : undefined
 
   return (
@@ -92,7 +104,6 @@ export default function TvPage() {
                   teams={teams}
                   teamMode={room.teamMode}
                   remaining={timer.remaining}
-                  progress={timer.progress}
                 />
               </FixedStage>
             )}

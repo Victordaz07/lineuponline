@@ -1,5 +1,7 @@
 import type { GameRound, Player, Team } from '../types'
+import { TIMER_BY_TYPE } from '../utils/scoreCalculator'
 import { SQAvatar } from './SQIcon'
+import { TimerBar } from './TimerBar'
 
 type Props = {
   round: GameRound
@@ -79,14 +81,9 @@ export function TeamVotingPanel({
             Equipo <span className="font-semibold">{team.name}</span>
           </span>
         </div>
-        <div
-          className={`flex h-12 w-12 items-center justify-center rounded-full font-display text-xl font-bold ${
-            remaining <= 5 ? 'bg-rose-600 text-white sq-pulse' : 'bg-sg-gold text-navy-deep'
-          }`}
-        >
-          {remaining}
-        </div>
       </div>
+
+      <TimerBar remaining={remaining} duration={TIMER_BY_TYPE[round.roundType]} />
 
       <h2 className="font-display text-2xl font-bold leading-snug text-warm-white">{prompt}</h2>
 

@@ -23,6 +23,7 @@ import {
   roundExplanation,
   roundToStudyQuestion,
 } from '../utils/scoreCalculator'
+import { sound } from '../utils/sound'
 
 const ROUNDS_PER_GAME = 10
 
@@ -104,6 +105,8 @@ export default function SoloPage() {
     if (!round || state.phase !== 'question') return
     const answeredAt = (Date.now() - state.startedAt) / 1000
     const evaluation = evaluateAnswer(round, answer, answeredAt, state.streak)
+    if (evaluation.correct) sound.correct()
+    else sound.wrong()
     const newStreak = evaluation.correct ? state.streak + 1 : 0
     setState((s) => ({
       ...s,
@@ -146,6 +149,11 @@ export default function SoloPage() {
       .map(roundToStudyQuestion)
     return { correct, missed, passed: isPassing(correct, rounds.length) }
   }, [state.results, rounds])
+
+  // Fanfarria al llegar al resumen final
+  useEffect(() => {
+    if (state.phase === 'end' && rounds.length > 0) sound.fanfare()
+  }, [state.phase, rounds.length])
 
   // Guardar historial e insignias al terminar (una sola vez)
   useEffect(() => {

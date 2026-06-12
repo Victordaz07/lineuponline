@@ -47,9 +47,10 @@ export function LiveLeaderboard({ players, teams, teamMode, highlightUid, limit 
         {visible.map((row, i) => (
           <li
             key={row.key}
-            className={`flex items-center justify-between rounded-xl px-4 py-2.5 font-ui ${
+            className={`sq-rise flex items-center justify-between rounded-xl px-4 py-2.5 font-ui ${
               row.highlighted ? 'bg-sg-gold/20 ring-1 ring-sg-gold' : 'bg-navy-light/60'
             }`}
+            style={{ animationDelay: `${Math.min(i, 6) * 0.07}s` }}
           >
             <span className="flex items-center gap-3 text-warm-white">
               <span className="w-7 text-center text-lg">{MEDALS[i] ?? `${i + 1}.`}</span>

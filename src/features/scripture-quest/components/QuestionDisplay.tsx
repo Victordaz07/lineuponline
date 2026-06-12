@@ -10,6 +10,7 @@ import {
   whoAmIPoints,
 } from '../utils/scoreCalculator'
 import { SQAvatar } from './SQIcon'
+import { TimerBar } from './TimerBar'
 
 type Props = {
   round: GameRound
@@ -19,7 +20,8 @@ type Props = {
   teams: Team[]
   teamMode: boolean
   remaining: number
-  progress: number
+  /** Silencia el tic-tac local (p. ej. cuando otra pantalla ya lo emite). */
+  muteTick?: boolean
 }
 
 const OPTION_KEYS = ['A', 'B', 'C', 'D'] as const
@@ -94,7 +96,7 @@ export function QuestionDisplay({
   teams,
   teamMode,
   remaining,
-  progress,
+  muteTick = false,
 }: Props) {
   const duration = TIMER_BY_TYPE[round.roundType]
   const elapsed = Math.max(0, duration - remaining)
@@ -113,26 +115,12 @@ export function QuestionDisplay({
 
   return (
     <div className="flex h-full flex-col justify-between gap-6">
-      <div className="flex items-center justify-between gap-4">
-        <div className="font-ui text-sm uppercase tracking-widest text-sg-gold-light">
-          Ronda {questionNumber} de {totalQuestions} · {ROUND_TYPE_LABELS[round.roundType]} ·
-          Nivel {round.level}
-        </div>
-        <div
-          className={`flex h-16 w-16 items-center justify-center rounded-full font-display text-3xl font-bold ${
-            remaining <= 5 ? 'bg-rose-600 text-white sq-pulse' : 'bg-sg-gold text-navy-deep'
-          }`}
-        >
-          {remaining}
-        </div>
+      <div className="font-ui text-sm uppercase tracking-widest text-sg-gold-light sq-rise">
+        Ronda {questionNumber} de {totalQuestions} · {ROUND_TYPE_LABELS[round.roundType]} ·
+        Nivel {round.level}
       </div>
 
-      <div className="h-2 overflow-hidden rounded-full bg-navy-light">
-        <div
-          className="h-full rounded-full bg-sg-gold transition-[width] duration-300 ease-linear"
-          style={{ width: `${progress * 100}%` }}
-        />
-      </div>
+      <TimerBar remaining={remaining} duration={duration} size="lg" muteTick={muteTick} />
 
       <div className="flex-1 space-y-6">
         {round.roundType === 'classic' && (

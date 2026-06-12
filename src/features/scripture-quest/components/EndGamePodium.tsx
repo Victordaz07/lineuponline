@@ -2,11 +2,12 @@
  * Podio final (pantalla del anfitrión): confeti, podio de 3 columnas y
  * franja de insignias otorgadas durante la sesión.
  */
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import type { Player, Team } from '../types'
 import { BADGES } from '../data/badges'
 import type { BadgeId } from '../types'
 import { SQAvatar, SQIcon } from './SQIcon'
+import { sound } from '../utils/sound'
 
 type PodiumRow = { key: string; label: string; avatar: string | null; score: number }
 
@@ -50,6 +51,10 @@ function Confetti() {
 }
 
 export function EndGamePodium({ players, teams, teamMode, awardedBadges = [] }: Props) {
+  useEffect(() => {
+    sound.fanfare()
+  }, [])
+
   const rows: PodiumRow[] = teamMode
     ? [...teams]
         .sort((a, b) => b.score - a.score)
