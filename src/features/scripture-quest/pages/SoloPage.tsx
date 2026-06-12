@@ -13,6 +13,7 @@ import { BADGES, ROUND_TYPE_LABELS } from '../data/badges'
 import { getTopicById } from '../data/topics'
 import { fetchApprovedRounds, selectRounds } from '../services/bankService'
 import { finalizeGameForPlayer } from '../services/historyService'
+import { loadAudioLibrary } from '../services/audioLibrary'
 import { useGameStore } from '../store/gameStore'
 import type { BadgeId, GameRound, Player, QuestLevel } from '../types'
 import {
@@ -66,6 +67,21 @@ export default function SoloPage() {
   const [newBadges, setNewBadges] = useState<BadgeId[]>([])
   const [saving, setSaving] = useState(false)
   const finalizedRef = useRef(false)
+
+  // Carga playlists de audio del admin al montar
+  useEffect(() => {
+    void loadAudioLibrary()
+    return () => sound.stopMusic()
+  }, [])
+
+  // Música de fondo según fase
+  useEffect(() => {
+    if (state.phase === 'question' || state.phase === 'reveal') {
+      sound.playStageLoop('question', 'festivo')
+    } else if (state.phase === 'end') {
+      sound.playStageLoop('podium', 'festivo')
+    }
+  }, [state.phase])
 
   // Sorteo de rondas al entrar (sin mímica: teamMode false)
   useEffect(() => {
