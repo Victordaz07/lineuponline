@@ -152,6 +152,24 @@ function UserMenu() {
               <span className="ml-auto text-parchment/55 text-xs">›</span>
             </Link>
             <Link
+              to="/games/scripture-quest"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-3 px-4 py-2.5 font-ui text-sm text-parchment/80 transition hover:bg-navy-deep/50"
+            >
+              <span className="text-base" aria-hidden="true">⚔️</span>
+              Scripture Quest
+              <span className="ml-auto text-parchment/55 text-xs">›</span>
+            </Link>
+            <Link
+              to="/profile/scripture-quest"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-3 px-4 py-2.5 font-ui text-sm text-parchment/80 transition hover:bg-navy-deep/50"
+            >
+              <span className="text-base" aria-hidden="true">🏆</span>
+              Mis insignias
+              <span className="ml-auto text-parchment/55 text-xs">›</span>
+            </Link>
+            <Link
               to="/community"
               onClick={() => setOpen(false)}
               className="flex items-center gap-3 px-4 py-2.5 font-ui text-sm text-parchment/80 transition hover:bg-navy-deep/50"

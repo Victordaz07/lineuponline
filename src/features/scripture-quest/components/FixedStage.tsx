@@ -41,12 +41,16 @@ export function FixedStage({ children, className = '' }: Props) {
       style={{ width: '100%', height: '100%' }}
     >
       <div
+        className="sq-live-bg"
         style={{
           width: STAGE_W,
           height: STAGE_H,
           transform: `scale(${scale})`,
           transformOrigin: 'center center',
           flexShrink: 0,
+          borderRadius: 24,
+          padding: 40,
+          overflow: 'hidden',
         }}
       >
         {children}
