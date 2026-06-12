@@ -1,0 +1,38 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && (
+        request.auth.token.admin == true ||
+        request.auth.uid in ['rrl3eojMMthlp6P6PjQDFIWo9Qg2', 'O2ttkJj8VlNLT26Z5OhTRwL8nqK2']
+      );
+    }
+
+    // Scripture Quest — images for questions (admin upload, authenticated read)
+    match /scripture-quest/images/{filename} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    // Scripture Quest — audio tracks per stage (admin upload, authenticated read)
+    match /scripture-quest/audio/{stage}/{filename} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    // Episode generator audio
+    match /episodes/{allPaths=**} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    // Deny everything else
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

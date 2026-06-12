@@ -55,6 +55,26 @@ function arraysEqualOrder(a: readonly number[], b: readonly number[]): boolean {
   return a.every((v, i) => v === b[i])
 }
 
+/** Fisher-Yates shuffle that guarantees the result is NOT the identity order
+ *  AND NOT the correct answer order — so the player actually has to work. */
+function shuffleDeranged(arr: number[], correctOrder?: readonly number[]): number[] {
+  if (arr.length <= 1) return arr
+  let result: number[]
+  let attempts = 0
+  do {
+    result = [...arr]
+    for (let i = result.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[result[i], result[j]] = [result[j], result[i]]
+    }
+    attempts++
+  } while (
+    attempts < 20 &&
+    (arraysEqualOrder(result, arr) || (correctOrder != null && arraysEqualOrder(result, correctOrder)))
+  )
+  return result
+}
+
 /**
  * Quiz interactivo con feedback inmediato y micro-celebración visual.
  */
@@ -63,9 +83,10 @@ export function QuizBlockComponent({ block, lessonId, onComplete }: QuizBlockCom
   const quizKey = useMemo(() => `${lessonId}:${quizId}`, [lessonId, quizId])
   const [done, setDone] = useState(false)
   const [feedback, setFeedback] = useState<'correct' | 'wrong' | null>(null)
-  const [sortOrder, setSortOrder] = useState<number[]>(() =>
-    quizQuestion.kind === 'sort_items' ? quizQuestion.items.map((_, i) => i) : [],
-  )
+  const [sortOrder, setSortOrder] = useState<number[]>(() => {
+    if (quizQuestion.kind !== 'sort_items') return []
+    return shuffleDeranged(quizQuestion.items.map((_, i) => i), quizQuestion.correctOrder)
+  })
 
   const q = quizQuestion
 
