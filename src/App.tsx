@@ -23,6 +23,7 @@ const SQAdminPage = lazy(() => import('@/features/scripture-quest/admin/SQAdminP
 const CountdownPage = lazy(() => import('@/features/scripture-quest/components/CountdownPage'))
 const BadgesDemoPage = lazy(() => import('@/features/scripture-quest/components/BadgesScreen'))
 const SQTutorialPage = lazy(() => import('@/features/scripture-quest/components/TutorialPage'))
+const SoloPrepPage = lazy(() => import('@/features/scripture-quest/pages/SoloPrepPage'))
 
 // Scripture Quest — game module (loaded as one chunk through its entry point)
 const sq = () => import('@/features/scripture-quest')
@@ -68,6 +69,7 @@ function AppRoutes() {
             <Route path="/games/scripture-quest/results/:roomId" element={<SQResults />} />
             <Route path="/games/scripture-quest/study" element={<SQStudy />} />
             <Route path="/games/scripture-quest/solo" element={<SQSolo />} />
+            <Route path="/games/scripture-quest/solo/prep" element={<SoloPrepPage />} />
             <Route path="/games/scripture-quest/tv/:roomId" element={<SQTv />} />
             <Route path="/profile/scripture-quest" element={<SQProfile />} />
 

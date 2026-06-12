@@ -176,7 +176,7 @@ export default function LandingPage() {
             />
             <button
               type="button"
-              onClick={() => navigate(`/games/scripture-quest/solo?topic=${topicId}&level=${level}`)}
+              onClick={() => navigate(`/games/scripture-quest/solo/prep?topic=${topicId}&level=${level}`)}
               className="w-full rounded-xl bg-sg-gold py-4 font-ui text-base font-bold uppercase tracking-wide text-navy-deep transition hover:bg-sg-gold-light"
             >
               Comenzar práctica
