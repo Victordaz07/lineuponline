@@ -6,8 +6,6 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { QuestAuthGate, QuestShell } from '../components/QuestShell'
 import { getTopicById } from '../data/topics'
-import { loadAudioLibrary } from '../services/audioLibrary'
-import { sound } from '../utils/sound'
 import type { QuestLevel } from '../types'
 
 const DURATION = 7
@@ -26,19 +24,13 @@ export default function SoloPrepPage() {
   const goToSolo = () =>
     navigate(`/games/scripture-quest/solo?topic=${topicId}&level=${level}`, { replace: true })
 
-  // Música de lobby mientras espera
-  useEffect(() => {
-    void loadAudioLibrary().then(() => sound.playStageLoop('lobby', 'festivo'))
-    return () => sound.stopMusic()
-  }, [])
-
   // Temporizador
   useEffect(() => {
     const start = Date.now()
     const id = setInterval(() => {
       const left = Math.max(0, DURATION - (Date.now() - start) / 1000)
       setRemaining(left)
-      if (left === 0) {
+      if (left <= 0) {
         clearInterval(id)
         navigate(`/games/scripture-quest/solo?topic=${topicId}&level=${level}`, { replace: true })
       }
