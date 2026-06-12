@@ -1,0 +1,22 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "scripturequest_questions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "roundType", "order": "ASCENDING" },
+        { "fieldPath": "level",     "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "scripturequest_questions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "status",    "order": "ASCENDING" },
+        { "fieldPath": "roundType", "order": "ASCENDING" },
+        { "fieldPath": "level",     "order": "ASCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

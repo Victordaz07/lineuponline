@@ -1,0 +1,18 @@
+[
+  {
+    "origin": [
+      "https://lineuponline-a7eda.web.app",
+      "https://lineuponline-a7eda.firebaseapp.com",
+      "http://localhost:5173",
+      "http://localhost:3000"
+    ],
+    "method": ["GET", "PUT", "POST", "DELETE", "HEAD", "OPTIONS"],
+    "responseHeader": [
+      "Content-Type",
+      "Access-Control-Allow-Origin",
+      "Authorization",
+      "x-goog-resumable"
+    ],
+    "maxAgeSeconds": 3600
+  }
+]
