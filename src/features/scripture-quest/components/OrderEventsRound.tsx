@@ -6,6 +6,7 @@
  * Scoring: 100% correct → full points; each out-of-place event → −25% (min 0).
  */
 import { useCallback, useMemo, useState } from 'react'
+import { formatDisplayScore } from '../utils/scoreDisplay'
 
 export interface OrderEvent {
   id: string
@@ -209,7 +210,7 @@ export function OrderEventsRound({
                 : 'Orden incorrecto'}
           </p>
           <p className="mt-1 font-ui text-sm text-parchment/60">
-            {Math.round(scorePercent * basePoints).toLocaleString()} pts
+            {formatDisplayScore(Math.round(scorePercent * basePoints))} pts
           </p>
           {explanation && (
             <p className="mt-3 font-ui text-sm text-parchment/50">{explanation}</p>
