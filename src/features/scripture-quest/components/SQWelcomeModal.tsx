@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const STORAGE_KEY = 'sq_welcome_v1'
@@ -201,14 +201,16 @@ export function SQWelcomeModal({ onClose }: { onClose: () => void }) {
 
 // ─── Hook ──────────────────────────────────────────────────────────────────────
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useSQWelcome() {
-  const [showWelcome, setShowWelcome] = useState(false)
-
-  useEffect(() => {
-    if (!localStorage.getItem(STORAGE_KEY)) {
-      setShowWelcome(true)
+  // Estado inicial perezoso: evita setState dentro de un efecto
+  const [showWelcome, setShowWelcome] = useState(() => {
+    try {
+      return !localStorage.getItem(STORAGE_KEY)
+    } catch {
+      return false
     }
-  }, [])
+  })
 
   return { showWelcome, closeWelcome: () => setShowWelcome(false) }
 }

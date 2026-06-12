@@ -348,7 +348,12 @@ export function ImageManager() {
     }
   }
 
-  useEffect(() => { load() }, [])
+  useEffect(() => {
+    // Diferido para que el setState corra fuera del cuerpo del efecto
+    const t = setTimeout(() => void load(), 0)
+    return () => clearTimeout(t)
+     
+  }, [])
 
   async function handleSeed() {
     if (!confirm('Esto crea las 36 preguntas predefinidas como borradores. ¿Continuar?')) return

@@ -38,7 +38,7 @@ export function FixedStage({ children, className = '' }: Props) {
     <div
       ref={containerRef}
       className={`flex items-center justify-center overflow-hidden ${className}`}
-      style={{ width: '100%', height: '100%' }}
+      style={{ width: '100%', height: '100%', minHeight: 'min(72vh, 720px)' }}
     >
       <div
         className="sq-live-bg"

@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { FixedStage } from './FixedStage'
 import { useCountdown } from '../hooks/useCountdown'
-import type { CountdownState, SQPlayer, GameConfig } from '../types'
+import type { CountdownState, SQPlayer, GameConfig } from '../types/multiRound'
 
 // ─── Avatar bubble ────────────────────────────────────────────────────────────
 
@@ -108,20 +108,23 @@ function CountNumber({ n, isPaused }: { n: number; isPaused: boolean }) {
 // ─── Starfield background ─────────────────────────────────────────────────────
 
 function Starfield() {
-  const stars = useRef(
-    Array.from({ length: 60 }, (_, i) => ({
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: Math.random() * 2 + 0.5,
-      opacity: Math.random() * 0.5 + 0.1,
-      duration: Math.random() * 3 + 2,
-      delay: i * 0.1,
-    })),
+  // Pseudoaleatorio determinista: sin funciones impuras durante el render
+  const stars = useMemo(
+    () =>
+      Array.from({ length: 60 }, (_, i) => ({
+        x: (i * 137.5) % 100,
+        y: (i * 61.8 + 13) % 100,
+        size: ((i * 7) % 20) / 10 + 0.5,
+        opacity: ((i * 11) % 50) / 100 + 0.1,
+        duration: ((i * 13) % 30) / 10 + 2,
+        delay: i * 0.1,
+      })),
+    [],
   )
 
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {stars.current.map((s, i) => (
+      {stars.map((s, i) => (
         <div
           key={i}
           className="absolute rounded-full bg-sg-gold-light"

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import type { CountdownState } from '../types'
+import type { CountdownState } from '../types/multiRound'
 
 interface UseCountdownResult {
   secsLeft: number
@@ -19,8 +19,10 @@ export function useCountdown(
 ): UseCountdownResult {
   const [secsLeft, setSecsLeft] = useState(defaultDuration)
   const onDoneRef = useRef(onDone)
-  onDoneRef.current = onDone
   const calledDone = useRef(false)
+  useEffect(() => {
+    onDoneRef.current = onDone
+  })
 
   const isPaused =
     countdown != null &&
@@ -32,12 +34,15 @@ export function useCountdown(
     countdown.endsAt !== null &&
     countdown.pausedSecsLeft === null
 
-  // Compute once for the paused case (no interval needed)
+  // Compute once for the paused case (no interval needed; deferred setState)
   useEffect(() => {
-    if (isPaused && countdown?.pausedSecsLeft != null) {
-      setSecsLeft(countdown.pausedSecsLeft)
+    if (!isPaused || countdown?.pausedSecsLeft == null) return
+    const secs = countdown.pausedSecsLeft
+    const t = setTimeout(() => {
+      setSecsLeft(secs)
       calledDone.current = false
-    }
+    }, 0)
+    return () => clearTimeout(t)
   }, [isPaused, countdown?.pausedSecsLeft])
 
   // Tick while running
@@ -59,19 +64,24 @@ export function useCountdown(
       }
     }
 
-    tick()
+    const first = setTimeout(tick, 0)
     const id = setInterval(tick, 100)
-    return () => clearInterval(id)
+    return () => {
+      clearTimeout(first)
+      clearInterval(id)
+    }
   // Only re-run when the endsAt timestamp changes (new countdown or resume)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+   
   }, [countdown?.endsAt, isRunning])
 
-  // Reset to full duration when not started
+  // Reset to full duration when not started (deferred setState)
   useEffect(() => {
-    if (!countdown || (!countdown.endsAt && countdown.pausedSecsLeft === null)) {
+    if (countdown && (countdown.endsAt || countdown.pausedSecsLeft !== null)) return
+    const t = setTimeout(() => {
       setSecsLeft(defaultDuration)
       calledDone.current = false
-    }
+    }, 0)
+    return () => clearTimeout(t)
   }, [countdown, defaultDuration])
 
   return {

@@ -17,6 +17,7 @@ import { usePlayers } from '../hooks/usePlayers'
 import { useRoom } from '../hooks/useRoom'
 import { TIMER_BY_TYPE } from '../utils/scoreCalculator'
 import { sound } from '../utils/sound'
+import { loadAudioLibrary } from '../services/audioLibrary'
 import { useEffect } from 'react'
 
 export default function TvPage() {
@@ -30,9 +31,14 @@ export default function TvPage() {
   const topic = room ? getTopicById(room.topic) : undefined
 
   // La TV reproduce la música que el anfitrión eligió para la sala
+  // (pistas subidas por etapa, con respaldo sintetizado)
   useEffect(() => {
-    if (room && room.status !== 'ended') {
-      sound.playMusic(room.musicMode ?? 'festivo')
+    void loadAudioLibrary()
+  }, [])
+
+  useEffect(() => {
+    if (room) {
+      sound.playForRoom(room.status, room.musicMode ?? 'festivo')
     } else {
       sound.stopMusic()
     }

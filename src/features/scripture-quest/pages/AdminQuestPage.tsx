@@ -119,6 +119,12 @@ export default function AdminQuestPage() {
           <h2 className="font-display text-3xl font-bold text-warm-white">
             Banco de preguntas
           </h2>
+          <a
+            href="/admin/scripture-quest/contenido"
+            className="rounded-xl border border-sg-gold px-4 py-2.5 font-ui text-xs font-bold uppercase tracking-wide text-sg-gold-bright transition hover:bg-sg-gold hover:text-navy-deep"
+          >
+            🖼️🎵 Imágenes y música (Suno)
+          </a>
           <button
             type="button"
             disabled={busy !== null}

@@ -21,6 +21,7 @@ import {
 } from '../services/roomService'
 import { useGameStore } from '../store/gameStore'
 import { setRoomMusic } from '../services/roomService'
+import { loadAudioLibrary } from '../services/audioLibrary'
 import { TIMER_BY_TYPE } from '../utils/scoreCalculator'
 import { sound } from '../utils/sound'
 
@@ -111,10 +112,15 @@ export default function HostPage() {
     }
   }, [room?.status, roomId, navigate])
 
-  // Música de fondo: solo cuando este dispositivo es la pantalla grande
+  // Música de fondo: solo cuando este dispositivo es la pantalla grande.
+  // Usa las pistas subidas (Suno) por etapa, con respaldo sintetizado.
+  useEffect(() => {
+    void loadAudioLibrary()
+  }, [])
+
   useEffect(() => {
     if (isHost && displayMode === 'stage' && room && room.status !== 'ended') {
-      sound.playMusic(room.musicMode ?? 'festivo')
+      sound.playForRoom(room.status, room.musicMode ?? 'festivo')
     } else {
       sound.stopMusic()
     }

@@ -10,10 +10,24 @@ import {
   registerStudiedQuestion,
 } from '../services/historyService'
 import type { Question } from '../types'
+import { loadAudioLibrary } from '../services/audioLibrary'
+import { sound } from '../utils/sound'
 
 /** Study mode: review every missed question from the saved game history. */
 export default function StudyPage() {
   const { user } = useAuth()
+
+  // Música suave de estudio si el admin subió pistas a esa etapa
+  useEffect(() => {
+    let cancelled = false
+    void loadAudioLibrary().then(() => {
+      if (!cancelled) sound.playStageLoop('study', 'silencio')
+    })
+    return () => {
+      cancelled = true
+      sound.stopMusic()
+    }
+  }, [])
   const addToast = useToastStore((s) => s.addToast)
 
   const [questions, setQuestions] = useState<Question[]>([])

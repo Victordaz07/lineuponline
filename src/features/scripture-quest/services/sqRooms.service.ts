@@ -7,7 +7,7 @@ import {
 } from 'firebase/firestore'
 import { getDb } from '@/lib/firebase'
 import { nanoid } from '@/lib/nanoid'
-import type { GameRoom, GameConfig, SQPlayer, RoomStatus } from '../types'
+import type { GameRoom, GameConfig, SQPlayer, RoomStatus } from '../types/multiRound'
 
 const COL = 'scripturequest_rooms'
 

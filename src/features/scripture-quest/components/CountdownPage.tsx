@@ -18,7 +18,7 @@ import {
   startNow,
   backToLobby,
 } from '../services/sqRooms.service'
-import type { GameRoom, SQPlayer, GameConfig, CountdownState } from '../types'
+import type { GameRoom, SQPlayer, GameConfig, CountdownState } from '../types/multiRound'
 
 // ─── Solo mode ────────────────────────────────────────────────────────────────
 
@@ -53,12 +53,14 @@ function SoloCountdown() {
     isConnected: true,
   }
 
-  // Auto-start on mount
+  // Auto-start on mount (diferido: setState fuera del cuerpo del efecto)
   useEffect(() => {
-    if (!started) {
+    if (started) return
+    const t = setTimeout(() => {
       setStarted(true)
       setEndsAt(new Date(Date.now() + soloDuration * 1000).toISOString())
-    }
+    }, 0)
+    return () => clearTimeout(t)
   }, [started, soloDuration])
 
   function handleDone() {
