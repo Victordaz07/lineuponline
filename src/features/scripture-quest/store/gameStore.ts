@@ -5,6 +5,9 @@ const DEFAULT_AVATAR = 'lion'
 
 type Role = 'host' | 'player'
 
+/** Dónde muestra el anfitrión la pantalla grande del juego. */
+export type HostDisplayMode = 'stage' | 'remote'
+
 type GameState = {
   /** Player identity reused across games (persisted locally). */
   playerName: string
@@ -15,6 +18,9 @@ type GameState = {
   role: Role | null
   setActiveRoom: (roomId: string, role: Role) => void
   clearActiveRoom: () => void
+  /** 'stage': este dispositivo proyecta; 'remote': controla y la TV muestra. */
+  hostDisplayMode: HostDisplayMode
+  setHostDisplayMode: (mode: HostDisplayMode) => void
 }
 
 export const useGameStore = create<GameState>()(
@@ -27,6 +33,8 @@ export const useGameStore = create<GameState>()(
       role: null,
       setActiveRoom: (activeRoomId, role) => set({ activeRoomId, role }),
       clearActiveRoom: () => set({ activeRoomId: null, role: null }),
+      hostDisplayMode: 'stage',
+      setHostDisplayMode: (hostDisplayMode) => set({ hostDisplayMode }),
     }),
     { name: 'scripture-quest-store' },
   ),

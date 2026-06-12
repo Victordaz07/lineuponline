@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
+import { QRCodeSVG } from 'qrcode.react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
+import { useToastStore } from '@/stores/toastStore'
 import { FixedStage } from '../components/FixedStage'
 import { HostLobby } from '../components/HostLobby'
+import { HostRemote } from '../components/HostRemote'
 import { QuestionDisplay } from '../components/QuestionDisplay'
 import { ResultsScreen } from '../components/ResultsScreen'
 import { QuestAuthGate, QuestShell } from '../components/QuestShell'
@@ -16,6 +19,7 @@ import {
   setRoomRounds,
   startGame,
 } from '../services/roomService'
+import { useGameStore } from '../store/gameStore'
 import { TIMER_BY_TYPE } from '../utils/scoreCalculator'
 
 const RESULTS_SECONDS = 5
@@ -32,6 +36,10 @@ export default function HostPage() {
   const round = room?.rounds[room.currentQuestion]
   const duration = round ? TIMER_BY_TYPE[round.roundType] : 20
   const timer = useGameTimer(room?.questionStartedAt, duration)
+
+  const addToast = useToastStore((s) => s.addToast)
+  const displayMode = useGameStore((s) => s.hostDisplayMode)
+  const setDisplayMode = useGameStore((s) => s.setHostDisplayMode)
 
   const [reshuffling, setReshuffling] = useState(false)
   const [nextIn, setNextIn] = useState<number | null>(null)
@@ -117,8 +125,26 @@ export default function HostPage() {
     }
   }
 
+  // Dirección manual desde el control remoto
+  function handleForceReveal() {
+    if (!roomId || !room || room.status !== 'question' || !round) return
+    if (revealedIndexRef.current === room.currentQuestion) return
+    revealedIndexRef.current = room.currentQuestion
+    void revealResults(roomId, room.currentQuestion, round, players, teams)
+  }
+
+  function handleForceAdvance() {
+    if (!roomId || !room || room.status !== 'results') return
+    if (advancedIndexRef.current === room.currentQuestion) return
+    advancedIndexRef.current = room.currentQuestion
+    void advanceGame(roomId, room, players, teams)
+  }
+
   const isHost = Boolean(room && user && room.hostId === user.uid)
   const nextRound = room ? room.rounds[room.currentQuestion + 1] : undefined
+  const tvUrl = roomId
+    ? `${window.location.origin}/games/scripture-quest/tv/${roomId}`
+    : ''
 
   return (
     <QuestShell>
@@ -140,44 +166,142 @@ export default function HostPage() {
         {!loading && room && roomId && isHost && (
           <>
             {room.status === 'lobby' && (
-              <HostLobby
-                roomId={roomId}
-                room={room}
-                players={players}
-                teams={teams}
-                reshuffling={reshuffling}
-                onReshuffleRounds={() => void handleReshuffle()}
-                onStartGame={() => void startGame(roomId, players, teams)}
-              />
-            )}
+              <div className="space-y-6">
+                {/* ¿Dónde se mostrará el juego? */}
+                <div className="sq-card p-4">
+                  <p className="mb-3 font-ui text-sm font-medium text-sg-gold-light">
+                    ¿Dónde se mostrará la pantalla del juego?
+                  </p>
+                  <div className="grid gap-2 sm:grid-cols-2">
+                    <button
+                      type="button"
+                      onClick={() => setDisplayMode('stage')}
+                      className={`rounded-xl border p-3 text-left transition ${
+                        displayMode === 'stage'
+                          ? 'border-sg-gold bg-gold-dim'
+                          : 'border-navy-light bg-navy-light/40 hover:border-sg-gold/50'
+                      }`}
+                    >
+                      <p className="font-ui text-sm font-bold text-warm-white">
+                        📺 En esta pantalla
+                      </p>
+                      <p className="font-ui text-xs text-warm-white/60">
+                        Este dispositivo proyecta el juego (HDMI, espejo o pantalla propia).
+                      </p>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setDisplayMode('remote')}
+                      className={`rounded-xl border p-3 text-left transition ${
+                        displayMode === 'remote'
+                          ? 'border-sg-gold bg-gold-dim'
+                          : 'border-navy-light bg-navy-light/40 hover:border-sg-gold/50'
+                      }`}
+                    >
+                      <p className="font-ui text-sm font-bold text-warm-white">
+                        📱 En otra pantalla
+                      </p>
+                      <p className="font-ui text-xs text-warm-white/60">
+                        Este dispositivo será el control remoto; otra pantalla muestra el juego.
+                      </p>
+                    </button>
+                  </div>
 
-            {(room.status === 'playing' || room.status === 'question') && round && (
-              <FixedStage>
-                <QuestionDisplay
-                  round={round}
-                  questionNumber={room.currentQuestion + 1}
-                  totalQuestions={room.rounds.length}
+                  {displayMode === 'remote' && (
+                    <div className="sq-rise mt-4 flex flex-wrap items-center gap-4 rounded-xl border border-sg-gold/40 bg-navy-light/40 p-4">
+                      <span className="rounded-lg bg-white p-2">
+                        <QRCodeSVG value={tvUrl} size={88} fgColor="#0D1B2A" />
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <p className="font-ui text-xs font-bold uppercase tracking-wide text-sg-gold-bright">
+                          Abre esto en la TV / proyector
+                        </p>
+                        <p className="break-all font-ui text-xs text-warm-white/80">{tvUrl}</p>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            void navigator.clipboard
+                              .writeText(tvUrl)
+                              .then(() => addToast('Enlace de la TV copiado.', 'success'))
+                              .catch(() => addToast(tvUrl, 'info'))
+                          }}
+                          className="mt-2 rounded-lg border border-sg-gold px-3 py-1.5 font-ui text-[11px] font-bold uppercase tracking-wide text-sg-gold-bright transition hover:bg-sg-gold hover:text-navy-deep"
+                        >
+                          Copiar enlace
+                        </button>
+                        <p className="mt-1 font-ui text-[11px] text-warm-white/50">
+                          Requiere iniciar sesión en ese dispositivo. Solo muestra; no controla.
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                <HostLobby
+                  roomId={roomId}
+                  room={room}
                   players={players}
                   teams={teams}
-                  teamMode={room.teamMode}
+                  reshuffling={reshuffling}
+                  onReshuffleRounds={() => void handleReshuffle()}
+                  onStartGame={() => void startGame(roomId, players, teams)}
+                />
+              </div>
+            )}
+
+            {(room.status === 'playing' || room.status === 'question') &&
+              round &&
+              (displayMode === 'remote' ? (
+                <HostRemote
+                  room={room}
+                  round={round}
+                  players={players}
+                  teams={teams}
                   remaining={timer.remaining}
-                  progress={timer.progress}
+                  nextIn={nextIn}
+                  onForceReveal={handleForceReveal}
+                  onForceAdvance={handleForceAdvance}
                 />
-              </FixedStage>
-            )}
+              ) : (
+                <FixedStage>
+                  <QuestionDisplay
+                    round={round}
+                    questionNumber={room.currentQuestion + 1}
+                    totalQuestions={room.rounds.length}
+                    players={players}
+                    teams={teams}
+                    teamMode={room.teamMode}
+                    remaining={timer.remaining}
+                    progress={timer.progress}
+                  />
+                </FixedStage>
+              ))}
 
-            {room.status === 'results' && round && (
-              <FixedStage>
-                <ResultsScreen
+            {room.status === 'results' &&
+              round &&
+              (displayMode === 'remote' ? (
+                <HostRemote
+                  room={room}
                   round={round}
                   players={players}
                   teams={teams}
-                  teamMode={room.teamMode}
+                  remaining={timer.remaining}
                   nextIn={nextIn}
-                  nextRoundType={nextRound?.roundType ?? null}
+                  onForceReveal={handleForceReveal}
+                  onForceAdvance={handleForceAdvance}
                 />
-              </FixedStage>
-            )}
+              ) : (
+                <FixedStage>
+                  <ResultsScreen
+                    round={round}
+                    players={players}
+                    teams={teams}
+                    teamMode={room.teamMode}
+                    nextIn={nextIn}
+                    nextRoundType={nextRound?.roundType ?? null}
+                  />
+                </FixedStage>
+              ))}
           </>
         )}
       </QuestAuthGate>
