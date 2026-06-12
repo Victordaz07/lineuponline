@@ -44,6 +44,10 @@ export default function PlayerPage() {
   const myTeam = me?.teamId ? teams.find((t) => t.id === me.teamId) : undefined
 
   useEffect(() => {
+    sound.setProfile('player')
+  }, [])
+
+  useEffect(() => {
     if (room?.status === 'ended' && roomId) {
       navigate(`/games/scripture-quest/results/${roomId}`)
     }

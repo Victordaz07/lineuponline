@@ -18,7 +18,7 @@ import { useRoom } from '../hooks/useRoom'
 import { TIMER_BY_TYPE } from '../utils/scoreCalculator'
 import { sound } from '../utils/sound'
 import { loadAudioLibrary } from '../services/audioLibrary'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 export default function TvPage() {
   const { roomId } = useParams<{ roomId: string }>()
@@ -29,10 +29,19 @@ export default function TvPage() {
   const duration = round ? TIMER_BY_TYPE[round.roundType] : 20
   const timer = useGameTimer(room?.questionStartedAt, duration)
   const topic = room ? getTopicById(room.topic) : undefined
+  const prevPlayerCount = useRef(0)
+
+  useEffect(() => {
+    if (room?.status === 'lobby' && players.length > prevPlayerCount.current) {
+      sound.join()
+    }
+    prevPlayerCount.current = players.length
+  }, [players.length, room?.status])
 
   // La TV reproduce la música que el anfitrión eligió para la sala
   // (pistas subidas por etapa, con respaldo sintetizado)
   useEffect(() => {
+    sound.setProfile('stage')
     void loadAudioLibrary()
   }, [])
 

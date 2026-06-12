@@ -8,6 +8,13 @@ import type { AudioStage, MusicMode, RoomStatus } from '../types'
 
 export type { MusicMode }
 
+/**
+ * stage — pantalla grande / TV / host en modo escenario: música + SFX completos.
+ * player — móvil del jugador en multijugador: solo SFX de acción (sin loops).
+ * solo — práctica individual: música de escenario + SFX en el mismo dispositivo.
+ */
+export type AudioProfile = 'stage' | 'player' | 'solo'
+
 const STORAGE_KEY = 'sq-sound-enabled'
 
 class SoundManager {
@@ -17,6 +24,7 @@ class SoundManager {
   private musicTimer: ReturnType<typeof setTimeout> | null = null
   private currentMusic: MusicMode = 'silencio'
   private lastTickAt = 0
+  private profile: AudioProfile = 'stage'
   /** Pistas subidas por el anfitrión (Suno) agrupadas por etapa. */
   private stagePlaylists: Partial<Record<AudioStage, string[]>> = {}
   private audioEl: HTMLAudioElement | null = null
@@ -68,6 +76,23 @@ class SoundManager {
     if (!on) this.stopMusic()
   }
 
+  setProfile(profile: AudioProfile) {
+    this.profile = profile
+    if (profile === 'player') this.stopMusic()
+  }
+
+  getProfile(): AudioProfile {
+    return this.profile
+  }
+
+  private allowsStageMusic(): boolean {
+    return this.profile === 'stage' || this.profile === 'solo'
+  }
+
+  private allowsStageAmbience(): boolean {
+    return this.profile === 'stage'
+  }
+
   /** Nota corta. type/freq/dur/vol con envolvente simple. */
   private tone(
     freq: number,
@@ -94,7 +119,7 @@ class SoundManager {
 
   /* ── Efectos ── */
   tick() {
-    if (!this.enabled) return
+    if (!this.enabled || this.profile === 'player') return
     const now = Date.now()
     if (now - this.lastTickAt < 700) return
     this.lastTickAt = now
@@ -118,16 +143,16 @@ class SoundManager {
     this.tone(220, 0.28, { type: 'sawtooth', volume: 0.22, glideTo: 150 })
   }
   reveal() {
-    if (!this.enabled) return
+    if (!this.enabled || !this.allowsStageAmbience()) return
     this.tone(320, 0.22, { type: 'triangle', volume: 0.28, glideTo: 640 })
   }
   join() {
-    if (!this.enabled) return
+    if (!this.enabled || !this.allowsStageAmbience()) return
     if (this.playOneShot('player_join')) return
     this.tone(660, 0.08, { type: 'sine', volume: 0.25, glideTo: 880 })
   }
   fanfare() {
-    if (!this.enabled) return
+    if (!this.enabled || !this.allowsStageMusic()) return
     const seq: [number, number][] = [
       [523.25, 0], [659.25, 0.12], [783.99, 0.24], [1046.5, 0.38],
       [783.99, 0.6], [1046.5, 0.74], [1318.5, 0.92],
@@ -179,7 +204,7 @@ class SoundManager {
    * lista; si la etapa no tiene pistas, respaldo sintetizado (festivo/reverente).
    */
   playStageLoop(stage: AudioStage, fallback: MusicMode) {
-    if (!this.enabled) return
+    if (!this.enabled || !this.allowsStageMusic()) return
     if (this.currentStage === stage && (this.audioEl || this.currentMusic === fallback)) return
     this.stopMusic()
     this.currentStage = stage
@@ -225,6 +250,7 @@ class SoundManager {
    * festivo → lobby/question/podium · reverente → reverent · silencio → nada.
    */
   playForRoom(status: RoomStatus, mode: MusicMode) {
+    if (!this.allowsStageMusic()) return
     if (mode === 'silencio' || !this.enabled) {
       this.stopMusic()
       return
@@ -246,6 +272,7 @@ class SoundManager {
 
   /* ── Música generativa de fondo ── */
   playMusic(mode: MusicMode) {
+    if (!this.allowsStageMusic()) return
     if (mode === this.currentMusic) return
     this.stopMusic()
     this.currentMusic = mode

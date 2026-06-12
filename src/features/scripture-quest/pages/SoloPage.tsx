@@ -23,6 +23,7 @@ import {
   roundExplanation,
   roundToStudyQuestion,
 } from '../utils/scoreCalculator'
+import { loadAudioLibrary } from '../services/audioLibrary'
 import { sound } from '../utils/sound'
 
 const ROUNDS_PER_GAME = 10
@@ -66,6 +67,31 @@ export default function SoloPage() {
   const [newBadges, setNewBadges] = useState<BadgeId[]>([])
   const [saving, setSaving] = useState(false)
   const finalizedRef = useRef(false)
+  const openingQueuedRef = useRef(false)
+
+  useEffect(() => {
+    sound.setProfile('solo')
+    void loadAudioLibrary()
+    return () => sound.stopMusic()
+  }, [])
+
+  // Música de escenario en solitario: tensión, apertura (1ª ronda) y podio final
+  useEffect(() => {
+    if (rounds.length === 0) return
+    if (state.phase === 'end') {
+      sound.playForRoom('ended', 'festivo')
+    } else if (state.phase === 'question') {
+      if (state.index === 0 && !openingQueuedRef.current) {
+        openingQueuedRef.current = true
+        sound.playForRoom('lobby', 'festivo')
+        sound.playForRoom('question', 'festivo')
+      } else {
+        sound.playForRoom('question', 'festivo')
+      }
+    } else if (state.phase === 'reveal') {
+      sound.stopMusic()
+    }
+  }, [state.phase, state.index, rounds.length])
 
   // Sorteo de rondas al entrar (sin mímica: teamMode false)
   useEffect(() => {

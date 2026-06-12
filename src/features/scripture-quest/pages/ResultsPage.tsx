@@ -54,6 +54,10 @@ export default function ResultsPage() {
     }
   }, [room, me, players, teams])
 
+  useEffect(() => {
+    sound.setProfile(me ? 'player' : 'stage')
+  }, [me])
+
   // Música de podio (pantalla grande del anfitrión / espectadores)
   useEffect(() => {
     if (!room || room.status !== 'ended' || me) return

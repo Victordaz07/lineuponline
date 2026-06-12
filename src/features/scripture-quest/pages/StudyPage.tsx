@@ -19,6 +19,7 @@ export default function StudyPage() {
 
   // Música suave de estudio si el admin subió pistas a esa etapa
   useEffect(() => {
+    sound.setProfile('stage')
     let cancelled = false
     void loadAudioLibrary().then(() => {
       if (!cancelled) sound.playStageLoop('study', 'silencio')

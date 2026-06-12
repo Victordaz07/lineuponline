@@ -119,6 +119,10 @@ export default function HostPage() {
   }, [])
 
   useEffect(() => {
+    sound.setProfile(isHost && displayMode === 'stage' ? 'stage' : 'player')
+  }, [isHost, displayMode])
+
+  useEffect(() => {
     if (isHost && displayMode === 'stage' && room && room.status !== 'ended') {
       sound.playForRoom(room.status, room.musicMode ?? 'festivo')
     } else {
