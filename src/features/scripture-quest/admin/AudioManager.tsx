@@ -17,21 +17,32 @@ function TrackRow({
 }) {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [playing, setPlaying] = useState(false)
+  const [audioError, setAudioError] = useState(false)
   const [editing, setEditing] = useState(false)
   const [name, setName] = useState(track.name)
   const [deleting, setDeleting] = useState(false)
 
-  function togglePlay() {
+  async function togglePlay() {
     if (!audioRef.current) {
-      audioRef.current = new Audio(track.url)
-      audioRef.current.onended = () => setPlaying(false)
+      const a = new Audio()
+      a.crossOrigin = 'anonymous'
+      a.src = track.url
+      a.onended = () => setPlaying(false)
+      a.onerror = () => { setPlaying(false); setAudioError(true) }
+      audioRef.current = a
     }
     if (playing) {
       audioRef.current.pause()
       setPlaying(false)
     } else {
-      audioRef.current.play()
-      setPlaying(true)
+      setAudioError(false)
+      try {
+        await audioRef.current.play()
+        setPlaying(true)
+      } catch {
+        setPlaying(false)
+        setAudioError(true)
+      }
     }
   }
 
@@ -61,10 +72,14 @@ function TrackRow({
     <div className="flex items-center gap-3 rounded-xl border border-sg-gold/10 bg-navy-deep/40 px-3 py-2">
       <button
         onClick={togglePlay}
-        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sg-gold/15 text-sg-gold-light transition hover:bg-sg-gold/25"
-        title={playing ? 'Pausar' : 'Reproducir'}
+        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition ${
+          audioError
+            ? 'bg-red-500/15 text-red-400'
+            : 'bg-sg-gold/15 text-sg-gold-light hover:bg-sg-gold/25'
+        }`}
+        title={audioError ? 'Error al reproducir — verifica CORS de Storage' : playing ? 'Pausar' : 'Reproducir'}
       >
-        {playing ? '⏸' : '▶'}
+        {audioError ? '✕' : playing ? '⏸' : '▶'}
       </button>
 
       <div className="min-w-0 flex-1">
