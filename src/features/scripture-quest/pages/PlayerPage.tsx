@@ -20,6 +20,7 @@ import {
 } from '../services/roomService'
 import { useGameStore } from '../store/gameStore'
 import { TIMER_BY_TYPE } from '../utils/scoreCalculator'
+import { sound } from '../utils/sound'
 
 /** Vista del jugador (móvil): unirse → sala de espera → rondas → resultados. */
 export default function PlayerPage() {
@@ -162,17 +163,20 @@ export default function PlayerPage() {
                 players={players}
                 remaining={timer.remaining}
                 expired={timer.expired}
-                onAnswer={(answer) =>
+                onAnswer={(answer) => {
+                  sound.select()
                   void submitAnswer(roomId, me.uid, answer, elapsed).catch(() =>
                     addToast('No se pudo enviar tu respuesta.', 'error'),
                   )
-                }
-                onVote={(answer) =>
-                  myTeam && void voteTeamAnswer(roomId, myTeam.id, me.uid, answer)
-                }
-                onConfirm={(answer) =>
-                  myTeam && void confirmTeamAnswer(roomId, myTeam.id, me.uid, answer, elapsed)
-                }
+                }}
+                onVote={(answer) => {
+                  sound.select()
+                  if (myTeam) void voteTeamAnswer(roomId, myTeam.id, me.uid, answer)
+                }}
+                onConfirm={(answer) => {
+                  sound.select()
+                  if (myTeam) void confirmTeamAnswer(roomId, myTeam.id, me.uid, answer, elapsed)
+                }}
               />
             )}
 

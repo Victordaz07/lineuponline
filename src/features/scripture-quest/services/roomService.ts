@@ -14,7 +14,7 @@ import {
   writeBatch,
 } from 'firebase/firestore'
 import { getDb } from '@/lib/firebase'
-import type { GameRound, Player, QuestLevel, Room, Team } from '../types'
+import type { GameRound, MusicMode, Player, QuestLevel, Room, Team } from '../types'
 import { generateRoomCode } from '../utils/roomCodeGenerator'
 import { TIMER_BY_TYPE, evaluateAnswer } from '../utils/scoreCalculator'
 
@@ -55,6 +55,7 @@ export async function createRoom(params: {
       rounds: params.rounds,
       selectedQuestionIds: params.rounds.map((r) => r.id),
       teamMode: params.teamMode,
+      musicMode: 'festivo',
     }
     await setDoc(ref, {
       ...room,
@@ -64,6 +65,11 @@ export async function createRoom(params: {
     return code
   }
   throw new Error('No se pudo generar un código de sala único. Intenta de nuevo.')
+}
+
+/** Anfitrión: cambia el ambiente musical (festivo/reverente/silencio). */
+export async function setRoomMusic(roomId: string, musicMode: MusicMode): Promise<void> {
+  await updateDoc(roomRef(roomId), { musicMode })
 }
 
 export async function fetchRoom(roomId: string): Promise<Room | null> {

@@ -1,4 +1,7 @@
+import { useEffect, useRef } from 'react'
 import { getTopicById } from '../data/topics'
+import type { MusicMode } from '../types'
+import { MUSIC_LABELS, sound } from '../utils/sound'
 import { ROUND_TYPE_LABELS } from '../data/badges'
 import type { Player, Room, Team } from '../types'
 import { QRJoinCode } from './QRJoinCode'
@@ -12,6 +15,7 @@ type Props = {
   reshuffling: boolean
   onReshuffleRounds: () => void
   onStartGame: () => void
+  onSetMusic: (mode: MusicMode) => void
 }
 
 /** Host lobby: QR + código, jugadores conectados y resumen de rondas del banco. */
@@ -23,8 +27,16 @@ export function HostLobby({
   reshuffling,
   onReshuffleRounds,
   onStartGame,
+  onSetMusic,
 }: Props) {
   const topic = getTopicById(room.topic)
+
+  // Pop sonoro cuando entra un jugador nuevo
+  const prevCount = useRef(players.length)
+  useEffect(() => {
+    if (players.length > prevCount.current) sound.join()
+    prevCount.current = players.length
+  }, [players.length])
   const canStart = room.rounds.length > 0 && players.length > 0
 
   const typeCounts = room.rounds.reduce<Record<string, number>>((acc, r) => {
@@ -111,6 +123,31 @@ export function HostLobby({
           </div>
           <p className="font-ui text-xs text-warm-white/50">
             Las rondas provienen del banco de preguntas aprobadas — la partida no consume IA.
+          </p>
+        </div>
+
+        {/* Ambiente musical de la sala (suena en la pantalla grande) */}
+        <div className="sq-rise sq-rise-4 space-y-2 rounded-2xl border border-navy-light bg-navy-light/30 p-5">
+          <p className="font-ui font-semibold text-warm-white">🎵 Música de la actividad</p>
+          <div className="flex flex-wrap gap-2">
+            {(['festivo', 'reverente', 'silencio'] as MusicMode[]).map((mode) => (
+              <button
+                key={mode}
+                type="button"
+                onClick={() => onSetMusic(mode)}
+                className={`rounded-xl px-4 py-2 font-ui text-sm font-bold transition ${
+                  (room.musicMode ?? 'festivo') === mode
+                    ? 'bg-sg-gold text-navy-deep'
+                    : 'bg-navy-light/60 text-warm-white/70 hover:text-warm-white'
+                }`}
+              >
+                {MUSIC_LABELS[mode]}
+              </button>
+            ))}
+          </div>
+          <p className="font-ui text-xs text-warm-white/50">
+            "Reverente" usa acordes suaves estilo himno — ideal para domingos. Suena en la
+            pantalla grande; puedes cambiarlo en cualquier momento.
           </p>
         </div>
 

@@ -2,10 +2,12 @@
  * Tarjeta final del jugador (móvil): posición, puntos, insignias nuevas con
  * animación de desbloqueo y acceso al modo estudio con conteo de falladas.
  */
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { BADGES } from '../data/badges'
 import type { BadgeId, Player } from '../types'
 import { SQAvatar, SQIcon } from './SQIcon'
+import { sound } from '../utils/sound'
 
 type Props = {
   me: Player
@@ -17,6 +19,10 @@ type Props = {
 }
 
 export function PlayerEndCard({ me, rank, totalPlayers, newBadges, missedCount, saving }: Props) {
+  useEffect(() => {
+    sound.fanfare()
+  }, [])
+
   return (
     <div className="mx-auto max-w-sm space-y-5">
       <div className="sq-pop sq-card relative overflow-hidden p-6 text-center">

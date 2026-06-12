@@ -6,8 +6,10 @@
 import { ROUND_TYPE_LABELS } from '../data/badges'
 import type { GameRound, Player, Room, Team } from '../types'
 import { roundAnswerText, roundPromptText } from '../utils/scoreCalculator'
+import { TIMER_BY_TYPE } from '../utils/scoreCalculator'
 import { LiveLeaderboard } from './LiveLeaderboard'
 import { SQAvatar } from './SQIcon'
+import { TimerBar } from './TimerBar'
 
 type Props = {
   room: Room
@@ -62,24 +64,16 @@ export function HostRemote({
 
       {inQuestion && (
         <>
-          <div className="flex items-center justify-between gap-3">
-            <div className="sq-card flex flex-1 items-center justify-between px-4 py-3">
-              <span className="font-ui text-sm text-warm-white">
-                Respuestas: {answered.length}/{players.length}
-              </span>
-              <span className="flex -space-x-2">
-                {answered.slice(0, 6).map((p) => (
-                  <SQAvatar key={p.uid} id={p.avatar} size={26} className="sq-pop" />
-                ))}
-              </span>
-            </div>
-            <div
-              className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full font-display text-xl font-bold ${
-                remaining <= 5 ? 'bg-rose-600 text-white sq-pulse' : 'bg-sg-gold text-navy-deep'
-              }`}
-            >
-              {remaining}
-            </div>
+          {round && <TimerBar remaining={remaining} duration={TIMER_BY_TYPE[round.roundType]} muteTick />}
+          <div className="sq-card flex items-center justify-between px-4 py-3">
+            <span className="font-ui text-sm text-warm-white">
+              Respuestas: {answered.length}/{players.length}
+            </span>
+            <span className="flex -space-x-2">
+              {answered.slice(0, 6).map((p) => (
+                <SQAvatar key={p.uid} id={p.avatar} size={26} className="sq-pop" />
+              ))}
+            </span>
           </div>
           <button
             type="button"

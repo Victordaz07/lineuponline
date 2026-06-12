@@ -1,4 +1,6 @@
 import type { AnswerOption, Question } from '../types'
+import { TIMER_BY_TYPE } from '../utils/scoreCalculator'
+import { TimerBar } from './TimerBar'
 
 type Props = {
   question: Question
@@ -22,28 +24,20 @@ export function AnswerPanel({ question, remaining, expired, selected, onAnswer }
   const locked = selected !== null || expired
   return (
     <div className="space-y-4 sq-rise">
-      <div className="flex items-center justify-end">
-        <div
-          className={`flex h-12 w-12 items-center justify-center rounded-full font-display text-xl font-bold ${
-            remaining <= 5 ? 'bg-rose-600 text-white sq-pulse' : 'bg-sg-gold text-navy-deep'
-          }`}
-        >
-          {remaining}
-        </div>
-      </div>
+      <TimerBar remaining={remaining} duration={TIMER_BY_TYPE.classic} />
 
       <h2 className="font-display text-2xl font-bold leading-snug text-warm-white">
         {question.question}
       </h2>
 
       <div className="grid grid-cols-1 gap-3">
-        {OPTIONS.map((option) => (
+        {OPTIONS.map((option, i) => (
           <button
             key={option}
             type="button"
             disabled={locked}
             onClick={() => onAnswer(option)}
-            className={`flex min-h-16 items-center gap-3 rounded-xl px-4 py-3 text-left font-ui text-base font-medium text-white transition ${OPTION_CLASSES[option]} ${
+            className={`sq-bounce sq-rise-${i} flex min-h-16 items-center gap-3 rounded-xl px-4 py-3 text-left font-ui text-base font-medium text-white transition active:scale-95 ${OPTION_CLASSES[option]} ${
               locked && selected !== option ? 'opacity-40' : ''
             } ${selected === option ? 'ring-4 ring-warm-white' : ''}`}
           >

@@ -20,7 +20,9 @@ import {
   startGame,
 } from '../services/roomService'
 import { useGameStore } from '../store/gameStore'
+import { setRoomMusic } from '../services/roomService'
 import { TIMER_BY_TYPE } from '../utils/scoreCalculator'
+import { sound } from '../utils/sound'
 
 const RESULTS_SECONDS = 5
 const ROUNDS_PER_GAME = 10
@@ -46,6 +48,7 @@ export default function HostPage() {
 
   const revealedIndexRef = useRef<number | null>(null)
   const advancedIndexRef = useRef<number | null>(null)
+  const isHost = Boolean(room && user && room.hostId === user.uid)
 
   // Latest players/teams for timer callbacks (avoids stale closures)
   const playersRef = useRef(players)
@@ -108,6 +111,16 @@ export default function HostPage() {
     }
   }, [room?.status, roomId, navigate])
 
+  // Música de fondo: solo cuando este dispositivo es la pantalla grande
+  useEffect(() => {
+    if (isHost && displayMode === 'stage' && room && room.status !== 'ended') {
+      sound.playMusic(room.musicMode ?? 'festivo')
+    } else {
+      sound.stopMusic()
+    }
+    return () => sound.stopMusic()
+  }, [isHost, displayMode, room?.musicMode, room?.status, room])
+
   async function handleReshuffle() {
     if (!roomId || !room) return
     setReshuffling(true)
@@ -140,7 +153,6 @@ export default function HostPage() {
     void advanceGame(roomId, room, players, teams)
   }
 
-  const isHost = Boolean(room && user && room.hostId === user.uid)
   const nextRound = room ? room.rounds[room.currentQuestion + 1] : undefined
   const tvUrl = roomId
     ? `${window.location.origin}/games/scripture-quest/tv/${roomId}`
@@ -245,6 +257,7 @@ export default function HostPage() {
                   reshuffling={reshuffling}
                   onReshuffleRounds={() => void handleReshuffle()}
                   onStartGame={() => void startGame(roomId, players, teams)}
+                  onSetMusic={(mode) => void setRoomMusic(roomId, mode)}
                 />
               </div>
             )}
@@ -272,7 +285,6 @@ export default function HostPage() {
                     teams={teams}
                     teamMode={room.teamMode}
                     remaining={timer.remaining}
-                    progress={timer.progress}
                   />
                 </FixedStage>
               ))}
