@@ -42,4 +42,4 @@ jobs:
           VITE_ELEVENLABS_API_KEY: ${{ secrets.VITE_ELEVENLABS_API_KEY }}
 
       - name: Deploy a Firebase
-        run: npx firebase-tools@14.19.1 deploy --only hosting,firestore:rules --project lineuponline-a7eda --non-interactive --token "$FIREBASE_TOKEN"
+        run: npx firebase-tools@14.19.1 deploy --only hosting,firestore:rules,storage --project lineuponline-a7eda --non-interactive --token "$FIREBASE_TOKEN"
