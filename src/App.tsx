@@ -25,6 +25,7 @@ const SQPlayer = lazy(() => sq().then((m) => ({ default: m.ScriptureQuestPlayerP
 const SQResults = lazy(() => sq().then((m) => ({ default: m.ScriptureQuestResultsPage })))
 const SQStudy = lazy(() => sq().then((m) => ({ default: m.ScriptureQuestStudyPage })))
 const SQSolo = lazy(() => sq().then((m) => ({ default: m.ScriptureQuestSoloPage })))
+const SQTv = lazy(() => sq().then((m) => ({ default: m.ScriptureQuestTvPage })))
 const SQProfile = lazy(() => sq().then((m) => ({ default: m.ScriptureQuestProfilePage })))
 const SQAdmin = lazy(() => sq().then((m) => ({ default: m.ScriptureQuestAdminPage })))
 
@@ -58,6 +59,7 @@ function AppRoutes() {
             <Route path="/games/scripture-quest/results/:roomId" element={<SQResults />} />
             <Route path="/games/scripture-quest/study" element={<SQStudy />} />
             <Route path="/games/scripture-quest/solo" element={<SQSolo />} />
+            <Route path="/games/scripture-quest/tv/:roomId" element={<SQTv />} />
             <Route path="/profile/scripture-quest" element={<SQProfile />} />
             <Route path="/admin/scripture-quest" element={<SQAdmin />} />
             <Route path="/login" element={<LoginPage />} />

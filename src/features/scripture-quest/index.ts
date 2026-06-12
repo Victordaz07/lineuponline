@@ -11,6 +11,7 @@ export { default as ScriptureQuestPlayerPage } from './pages/PlayerPage'
 export { default as ScriptureQuestResultsPage } from './pages/ResultsPage'
 export { default as ScriptureQuestStudyPage } from './pages/StudyPage'
 export { default as ScriptureQuestSoloPage } from './pages/SoloPage'
+export { default as ScriptureQuestTvPage } from './pages/TvPage'
 export { default as ScriptureQuestProfilePage } from './pages/QuestProfilePage'
 export { default as ScriptureQuestAdminPage } from './pages/AdminQuestPage'
 
