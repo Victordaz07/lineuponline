@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scripture Quest × Seeker Gospel — Mapa de Contenido</title>
+<style>
+  :root {
+    --navy-deep: #0D1B2A;
+    --navy-mid: #1A2E45;
+    --navy-light: #243B55;
+    --gold: #B8923A;
+    --gold-light: #E8C87A;
+    --gold-bright: #F5E6B2;
+    --warm-white: #F5EFE0;
+    --emerald: #34D399;
+    --amber: #F59E0B;
+    --red: #F87171;
+    --purple: #A78BFA;
+    --blue: #60A5FA;
+    --teal: #2DD4BF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--navy-deep);
+    color: var(--warm-white);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 2rem 1rem;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(184,146,58,0.3);
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--gold-bright);
+    letter-spacing: -0.02em;
+  }
+
+  .page-header p {
+    margin-top: 0.5rem;
+    color: rgba(245,239,224,0.6);
+    font-size: 0.9rem;
+  }
+
+  .stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .stat-pill {
+    background: rgba(184,146,58,0.12);
+    border: 1px solid rgba(184,146,58,0.25);
+    border-radius: 999px;
+    padding: 0.4rem 1.2rem;
+    font-size: 0.8rem;
+    color: var(--gold-light);
+    font-weight: 600;
+  }
+
+  .stat-pill span { color: var(--gold-bright); font-size: 1.1em; }
+
+  .legend {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+    padding: 1rem;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    color: rgba(245,239,224,0.7);
+  }
+
+  .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dot-green  { background: var(--emerald); }
+  .dot-gold   { background: var(--gold); }
+  .dot-amber  { background: var(--amber); }
+  .dot-red    { background: var(--red); }
+  .dot-purple { background: var(--purple); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(520px, 1fr));
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .topic-card {
+    background: var(--navy-mid);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .topic-header {
+    padding: 1.1rem 1.3rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .topic-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
+
+  .topic-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--warm-white);
+  }
+
+  .topic-id {
+    font-size: 0.7rem;
+    font-family: 'Courier New', monospace;
+    color: rgba(245,239,224,0.35);
+    margin-top: 2px;
+  }
+
+  .current-link {
+    margin: 0.9rem 1.3rem;
+    padding: 0.6rem 0.9rem;
+    background: rgba(52,211,153,0.08);
+    border: 1px solid rgba(52,211,153,0.25);
+    border-radius: 8px;
+    font-size: 0.75rem;
+  }
+
+  .current-link-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--emerald);
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .current-link-path {
+    font-family: 'Courier New', monospace;
+    color: rgba(245,239,224,0.85);
+    word-break: break-all;
+  }
+
+  .section-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    padding: 0.5rem 1.3rem 0.3rem;
+    color: rgba(245,239,224,0.35);
+  }
+
+  .lessons-group {
+    padding: 0 1.3rem 0.5rem;
+  }
+
+  .module-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .mod-doctrina-fundamental   { background: rgba(96,165,250,0.15); color: #93C5FD; border: 1px solid rgba(96,165,250,0.2); }
+  .mod-historia-restauracion  { background: rgba(167,139,250,0.15); color: #C4B5FD; border: 1px solid rgba(167,139,250,0.2); }
+  .mod-doctrina-avanzada-carne{ background: rgba(251,191,36,0.12); color: #FCD34D; border: 1px solid rgba(251,191,36,0.2); }
+  .mod-personajes-escrituras  { background: rgba(45,212,191,0.12); color: #5EEAD4; border: 1px solid rgba(45,212,191,0.2); }
+  .mod-sacerdocio             { background: rgba(248,113,113,0.12); color: #FCA5A5; border: 1px solid rgba(248,113,113,0.2); }
+  .mod-discursos              { background: rgba(134,239,172,0.12); color: #86EFAC; border: 1px solid rgba(134,239,172,0.2); }
+  .mod-temas-profundos        { background: rgba(192,132,252,0.12); color: #E9D5FF; border: 1px solid rgba(192,132,252,0.2); }
+  .mod-vida-familiar          { background: rgba(249,168,212,0.12); color: #FBCFE8; border: 1px solid rgba(249,168,212,0.2); }
+  .mod-lideres-misioneros     { background: rgba(253,186,116,0.12); color: #FED7AA; border: 1px solid rgba(253,186,116,0.2); }
+
+  .lesson-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-bottom: 0.5rem;
+  }
+
+  .lesson-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    transition: background 0.15s;
+  }
+
+  .lesson-item:hover { background: rgba(255,255,255,0.04); }
+
+  .lesson-status {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .status-core    { background: var(--emerald); }
+  .status-related { background: var(--gold); }
+  .status-deep    { background: var(--purple); }
+  .status-wip     { background: var(--amber); border: 1px dashed var(--amber); background: transparent; }
+
+  .lesson-title { color: var(--warm-white); font-weight: 500; }
+  .lesson-id    { font-family: 'Courier New', monospace; font-size: 0.68rem; color: rgba(245,239,224,0.35); margin-left: auto; white-space: nowrap; }
+
+  .missing-section {
+    margin: 0.5rem 1.3rem 1rem;
+    padding: 0.7rem 0.9rem;
+    background: rgba(248,113,113,0.06);
+    border: 1px dashed rgba(248,113,113,0.25);
+    border-radius: 8px;
+  }
+
+  .missing-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--red);
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+  }
+
+  .missing-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .missing-list li {
+    font-size: 0.76rem;
+    color: rgba(245,239,224,0.65);
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .missing-list li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    opacity: 0.6;
+  }
+
+  .divider {
+    height: 1px;
+    background: rgba(255,255,255,0.05);
+    margin: 0 1.3rem;
+  }
+
+  .score-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.68rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    margin-left: auto;
+    font-weight: 700;
+  }
+
+  .score-high   { background: rgba(52,211,153,0.15); color: var(--emerald); border: 1px solid rgba(52,211,153,0.25); }
+  .score-medium { background: rgba(251,191,36,0.15); color: var(--amber); border: 1px solid rgba(251,191,36,0.25); }
+  .score-low    { background: rgba(248,113,113,0.15); color: var(--red); border: 1px solid rgba(248,113,113,0.25); }
+
+  footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(184,146,58,0.15);
+    font-size: 0.75rem;
+    color: rgba(245,239,224,0.3);
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>📖 Scripture Quest × Seeker Gospel</h1>
+  <p>Mapa de contenido por tema — lo que existe, lo que falta, lo que se puede enlazar</p>
+  <div class="stats-row">
+    <div class="stat-pill">Temas SQ: <span>10</span></div>
+    <div class="stat-pill">Módulos SG: <span>10</span></div>
+    <div class="stat-pill">Lecciones publicadas: <span>304</span></div>
+    <div class="stat-pill">En construcción: <span>2</span></div>
+  </div>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="dot dot-green"></div> Enlace actual (principal)</div>
+  <div class="legend-item"><div class="dot dot-gold"></div> Relacionado directamente</div>
+  <div class="legend-item"><div class="dot dot-purple"></div> Profundización avanzada</div>
+  <div class="legend-item"><div class="dot dot-amber"></div> En construcción</div>
+  <div class="legend-item"><div class="dot dot-red"></div> Falta crear</div>
+</div>
+
+<div class="grid">
+
+  <!-- ══════════════════════════════════════════════════════ EXPIACIÓN -->
+  <div class="topic-card">
+    <div class="topic-header">
+      <div class="topic-icon">✝️</div>
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;">
+          <div class="topic-title">La Expiación de Jesucristo</div>
+          <div class="score-badge score-high">Cobertura alta</div>
+        </div>
+        <div class="topic-id">topic: atonement</div>
+      </div>
+    </div>
+
+    <div class="current-link">
+      <div class="current-link-label">✅ Enlace actual</div>
+      <div class="current-link-path">/lesson/doctrina-fundamental/la-expiacion-del-salvador</div>
+    </div>
+
+    <div class="section-label">Lecciones disponibles en SG</div>
+
+    <div class="lessons-group">
+      <div class="module-tag mod-doctrina-fundamental">Doctrina Fundamental</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-core"></div>
+          <div class="lesson-title">La Expiación del Salvador</div>
+          <div class="lesson-id">la-expiacion-del-salvador</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Cristo y la Santa Cena</div>
+          <div class="lesson-id">sc-cristo-santa-cena</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">La Promesa del Espíritu</div>
+          <div class="lesson-id">sc-promesa-espiritu</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-doctrina-avanzada-carne">Doctrina Avanzada</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Justicia y Misericordia</div>
+          <div class="lesson-id">justicia-y-misericordia</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-personajes-escrituras">Personajes de las Escrituras</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Jesús el Hombre</div>
+          <div class="lesson-id">jesus-el-hombre</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Jesús el Cristo</div>
+          <div class="lesson-id">jesus-el-cristo</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">La Resurrección de Cristo</div>
+          <div class="lesson-id">la-resurreccion-de-cristo</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Cristo: Libro de Mormón vs. Biblia</div>
+          <div class="lesson-id">cristo-libro-de-mormon-vs-biblia</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Cristo el Gran Sumo Sacerdote</div>
+          <div class="lesson-id">cristo-el-gran-sumo-sacerdote</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Los Yo Soy de Cristo</div>
+          <div class="lesson-id">los-yo-soy-de-cristo</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Isaac — El tipo de Cristo más completo</div>
+          <div class="lesson-id">isaac-el-sacrificio</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-discursos">Discursos Clásicos</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Su Gracia es Suficiente (Brad Wilcox)</div>
+          <div class="lesson-id">su-gracia-es-suficiente</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">El Domingo Llegará (Holland)</div>
+          <div class="lesson-id">el-domingo-llegara</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">El Sumo Sacerdote de los Bienes Venideros</div>
+          <div class="lesson-id">sumo-sacerdote-bienes-venideros</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-temas-profundos">Temas Profundos</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">El Gran Plan de la Felicidad</div>
+          <div class="lesson-id">el-gran-plan-de-la-felicidad</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Fechando la Muerte de Cristo</div>
+          <div class="lesson-id">fechando-la-muerte-de-cristo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ RESTAURACIÓN -->
+  <div class="topic-card">
+    <div class="topic-header">
+      <div class="topic-icon">🌟</div>
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;">
+          <div class="topic-title">La Restauración del Evangelio</div>
+          <div class="score-badge score-high">Cobertura alta</div>
+        </div>
+        <div class="topic-id">topic: restoration</div>
+      </div>
+    </div>
+
+    <div class="current-link">
+      <div class="current-link-label">✅ Enlace actual</div>
+      <div class="current-link-path">/lesson/personajes-escrituras/jose-smith-la-primera-vision</div>
+    </div>
+
+    <div class="section-label">Lecciones disponibles en SG</div>
+
+    <div class="lessons-group">
+      <div class="module-tag mod-historia-restauracion">Historia y Restauración</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">La Primera Visión (módulo Historia)</div>
+          <div class="lesson-id">primera-vision</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">La Gran Apostasía</div>
+          <div class="lesson-id">gran-apostasia</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Libro de Mormón — Piedra Angular</div>
+          <div class="lesson-id">libro-de-mormon-reliquia</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-personajes-escrituras">Personajes — José Smith</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-core"></div>
+          <div class="lesson-title">La Primera Visión</div>
+          <div class="lesson-id">jose-smith-la-primera-vision</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Traductor</div>
+          <div class="lesson-id">jose-smith-el-traductor</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Profeta Sellador</div>
+          <div class="lesson-id">jose-smith-el-profeta</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Mártir</div>
+          <div class="lesson-id">jose-smith-el-martir</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">José Smith y la Restauración</div>
+          <div class="lesson-id">jose-smith-y-la-restauracion</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-personajes-escrituras">Personajes — Contemporáneos</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Oliver Cowdery — El co-fundador</div>
+          <div class="lesson-id">oliver-cowdery-el-escribiente … (5 lecciones)</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Emma Smith — La Elegida</div>
+          <div class="lesson-id">emma-smith-la-elegida … (5 lecciones)</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Hyrum Smith — El Mártir</div>
+          <div class="lesson-id">hyrum-smith-el-hermano … (5 lecciones)</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Brigham Young — El León de Israel</div>
+          <div class="lesson-id">brigham-young-la-conversion … (5 lecciones)</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Juan el Bautista — Restauró el Sacerdocio</div>
+          <div class="lesson-id">juan-bautista-el-precursor … (5 lecciones)</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Pedro — Restauró las llaves de Melquisedec</div>
+          <div class="lesson-id">pedro-el-pescador … (5 lecciones)</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-discursos">Discursos Clásicos</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">El Sermón de King Follett</div>
+          <div class="lesson-id">king-follett</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Permanecer Para Siempre (Corbridge)</div>
+          <div class="lesson-id">permanecer-para-siempre</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ PLAN DE SALVACIÓN -->
+  <div class="topic-card">
+    <div class="topic-header">
+      <div class="topic-icon">🗺️</div>
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;">
+          <div class="topic-title">El Plan de Salvación</div>
+          <div class="score-badge score-high">Cobertura alta</div>
+        </div>
+        <div class="topic-id">topic: plan_of_salvation</div>
+      </div>
+    </div>
+
+    <div class="current-link">
+      <div class="current-link-label">✅ Enlace actual</div>
+      <div class="current-link-path">/lesson/doctrina-avanzada-carne/plan-de-salvacion</div>
+    </div>
+
+    <div class="section-label">Lecciones disponibles en SG</div>
+
+    <div class="lessons-group">
+      <div class="module-tag mod-doctrina-avanzada-carne">Doctrina Avanzada</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-core"></div>
+          <div class="lesson-title">El Plan de Salvación</div>
+          <div class="lesson-id">plan-de-salvacion</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">La Preexistencia</div>
+          <div class="lesson-id">preexistencia</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Justicia y Misericordia</div>
+          <div class="lesson-id">justicia-y-misericordia</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-doctrina-fundamental">Doctrina Fundamental</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">La Resurrección y los Tres Reinos de Gloria</div>
+          <div class="lesson-id">resurreccion-tres-reinos</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-discursos">Discursos Clásicos</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">La Visión — Doctrina y Convenios 76</div>
+          <div class="lesson-id">vision-dc-76</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Los Tres Reinos de Gloria — Estudio Profundo</div>
+          <div class="lesson-id">vision-tres-reinos</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-temas-profundos">Temas Profundos</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">El Gran Plan de la Felicidad</div>
+          <div class="lesson-id">el-gran-plan-de-la-felicidad</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">El Mundo de los Espíritus</div>
+          <div class="lesson-id">el-mundo-de-los-espiritus</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">La Salvación de los No Bautizados</div>
+          <div class="lesson-id">la-salvacion-de-los-no-bautizados</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Lucifer — El Adversario</div>
+          <div class="lesson-id">lucifer</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Elohim — El Padre Celestial</div>
+          <div class="lesson-id">elohim-el-padre-celestial</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">La Divinidad</div>
+          <div class="lesson-id">la-divinidad</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-personajes-escrituras">Personajes — Adán y Eva</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Adán — Miguel el Arcángel</div>
+          <div class="lesson-id">adan-miguel-arcangel</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">La Caída — El Acto más Valiente</div>
+          <div class="lesson-id">la-caida-el-acto-mas-valiente</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Eva — La Madre que Entendió Primero</div>
+          <div class="lesson-id">eva-la-madre-que-entendio-primero</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Adán-ondi-Ahmán</div>
+          <div class="lesson-id">adan-ondi-ahman</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ LIBRO DE MORMÓN -->
+  <div class="topic-card">
+    <div class="topic-header">
+      <div class="topic-icon">📜</div>
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;">
+          <div class="topic-title">El Libro de Mormón</div>
+          <div class="score-badge score-high">Cobertura alta</div>
+        </div>
+        <div class="topic-id">topic: book_of_mormon</div>
+      </div>
+    </div>
+
+    <div class="current-link">
+      <div class="current-link-label">✅ Enlace actual</div>
+      <div class="current-link-path">/lesson/historia-restauracion/libro-de-mormon-reliquia</div>
+    </div>
+
+    <div class="section-label">Lecciones disponibles en SG</div>
+
+    <div class="lessons-group">
+      <div class="module-tag mod-historia-restauracion">Historia y Restauración</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-core"></div>
+          <div class="lesson-title">El Libro de Mormón — Piedra Angular</div>
+          <div class="lesson-id">libro-de-mormon-reliquia</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-personajes-escrituras">Personajes del Libro de Mormón</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Lehi — El Patriarca (5 lecciones)</div>
+          <div class="lesson-id">lehi-el-profeta …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Nefi — Ire y Haré (5 lecciones)</div>
+          <div class="lesson-id">nefi-ire-y-hare …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Hermano de Jared (5 lecciones)</div>
+          <div class="lesson-id">hermano-jared-la-torre …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Ammón — El Misionero (5 lecciones)</div>
+          <div class="lesson-id">ammon-la-mision …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Rey Benjamín (5 lecciones)</div>
+          <div class="lesson-id">rey-benjamin-el-rey-siervo …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Mormón — El General y Compilador (5 lecciones)</div>
+          <div class="lesson-id">mormon-el-general …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Moroni — El Sobreviviente (5 lecciones)</div>
+          <div class="lesson-id">moroni-el-sobreviviente …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Alma el Joven</div>
+          <div class="lesson-id">alma-el-joven</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-wip"></div>
+          <div class="lesson-title">Capitán Moroni ⚠️ En construcción</div>
+          <div class="lesson-id">capitan-moroni</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-wip"></div>
+          <div class="lesson-title">Samuel el Lamanita ⚠️ En construcción</div>
+          <div class="lesson-id">samuel-el-lamanita</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-personajes-escrituras">Cristo en el Libro de Mormón</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Cristo: Libro de Mormón vs. Biblia</div>
+          <div class="lesson-id">cristo-libro-de-mormon-vs-biblia</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Isaías en el Libro de Mormón</div>
+          <div class="lesson-id">isaias-en-el-libro-de-mormon</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="missing-section">
+      <div class="missing-label">⚠️ Por completar</div>
+      <ul class="missing-list">
+        <li>Capitán Moroni — en construcción, alta relevancia para preguntas de guerra nefita</li>
+        <li>Samuel el Lamanita — en construcción, profecías mesiánicas del BdeM</li>
+        <li>Jacob (hijo de Lehi) — no existe como personaje propio, solo como patriarca bíblico</li>
+        <li>Abinadi — no existe lección propia (mártir del BdeM, maestro de Alma)</li>
+        <li>Helaman — no existe lección propia (padre de Moroni, ejército de jóvenes)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ PROFETAS -->
+  <div class="topic-card">
+    <div class="topic-header">
+      <div class="topic-icon">🔭</div>
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;">
+          <div class="topic-title">Profetas y Revelación Continua</div>
+          <div class="score-badge score-high">Cobertura alta</div>
+        </div>
+        <div class="topic-id">topic: prophets</div>
+      </div>
+    </div>
+
+    <div class="current-link">
+      <div class="current-link-label">✅ Enlace actual</div>
+      <div class="current-link-path">/lesson/personajes-escrituras/jose-smith-el-profeta</div>
+    </div>
+
+    <div class="section-label">Lecciones disponibles en SG</div>
+
+    <div class="lessons-group">
+      <div class="module-tag mod-personajes-escrituras">Profetas del Antiguo Testamento</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Moisés — El Libertador (5 lecciones)</div>
+          <div class="lesson-id">moises-el-principe …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Isaías — El Mesiánico (5 lecciones)</div>
+          <div class="lesson-id">isaias-el-profeta …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Jeremías — El Profeta que Lloró (5 lecciones)</div>
+          <div class="lesson-id">jeremias-el-llamamiento …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Ezequiel — Las Visiones del Trono (5 lecciones)</div>
+          <div class="lesson-id">ezequiel-la-vision …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Daniel — En el Foso de los Leones (5 lecciones)</div>
+          <div class="lesson-id">daniel-el-cautivo …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Elías — El Celo del Señor (5 lecciones)</div>
+          <div class="lesson-id">elias-el-celo …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Enoc — El que Caminó con Dios (5 lecciones)</div>
+          <div class="lesson-id">enoc-el-llamamiento …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Abraham — El Padre de la Fe</div>
+          <div class="lesson-id">abraham</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-personajes-escrituras">Profetas de la Restauración</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-core"></div>
+          <div class="lesson-title">José Smith — El Profeta Sellador</div>
+          <div class="lesson-id">jose-smith-el-profeta</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">José Smith — 5 lecciones completas</div>
+          <div class="lesson-id">jose-smith-la-primera-vision … el-martir</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Brigham Young — El León de Israel (5 lecciones)</div>
+          <div class="lesson-id">brigham-young-la-conversion …</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-discursos">Discursos Clásicos</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">El Sermón de King Follett</div>
+          <div class="lesson-id">king-follett</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="missing-section">
+      <div class="missing-label">⚠️ Por crear</div>
+      <ul class="missing-list">
+        <li>Samuel — profeta del AT, Elí y Samuel complementarios al sacerdocio</li>
+        <li>Noé como profeta — existe lección pero enfocada en el Diluvio, no en su ministerio profético</li>
+        <li>Éter — profeta jaredita, no existe lección propia</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ ORDENANZAS Y CONVENIOS -->
+  <div class="topic-card">
+    <div class="topic-header">
+      <div class="topic-icon">🔗</div>
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;">
+          <div class="topic-title">Las Ordenanzas y los Convenios</div>
+          <div class="score-badge score-medium">Cobertura media</div>
+        </div>
+        <div class="topic-id">topic: ordinances</div>
+      </div>
+    </div>
+
+    <div class="current-link">
+      <div class="current-link-label">✅ Enlace actual</div>
+      <div class="current-link-path">/lesson/doctrina-avanzada-carne/convenios-eternos</div>
+    </div>
+
+    <div class="section-label">Lecciones disponibles en SG</div>
+
+    <div class="lessons-group">
+      <div class="module-tag mod-doctrina-avanzada-carne">Doctrina Avanzada</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-core"></div>
+          <div class="lesson-title">Los Convenios Eternos</div>
+          <div class="lesson-id">convenios-eternos</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Templo — La Casa del Señor</div>
+          <div class="lesson-id">templo-casa-del-senor</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-doctrina-fundamental">Doctrina Fundamental</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Bautismo</div>
+          <div class="lesson-id">bautismo</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Don del Espíritu Santo</div>
+          <div class="lesson-id">don-espiritu-santo</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Arrepentimiento Real</div>
+          <div class="lesson-id">arrepentimiento</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">La Santa Cena y el Arrepentimiento</div>
+          <div class="lesson-id">sc-arrepentimiento</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-sacerdocio">Sacerdocio</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">La Santa Cena — Convenio y Poder</div>
+          <div class="lesson-id">santa-cena</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-vida-familiar">Vida Familiar</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Sellamiento</div>
+          <div class="lesson-id">el-sellamiento</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-temas-profundos">Temas Profundos</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">La Salvación de los No Bautizados</div>
+          <div class="lesson-id">la-salvacion-de-los-no-bautizados</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="missing-section">
+      <div class="missing-label">⚠️ Por crear</div>
+      <ul class="missing-list">
+        <li>La Bendición de los Enfermos — ordenanza del sacerdocio, no existe lección específica</li>
+        <li>La Dedicación del Hogar — ordenanza frecuente, sin lección propia</li>
+        <li>Las Ordenanzas del Templo (endowment) — solo existe la lección general del templo</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ SACERDOCIO -->
+  <div class="topic-card">
+    <div class="topic-header">
+      <div class="topic-icon">🔑</div>
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;">
+          <div class="topic-title">El Sacerdocio</div>
+          <div class="score-badge score-high">Cobertura alta</div>
+        </div>
+        <div class="topic-id">topic: priesthood</div>
+      </div>
+    </div>
+
+    <div class="current-link">
+      <div class="current-link-label">✅ Enlace actual</div>
+      <div class="current-link-path">/lesson/sacerdocio/sacerdocio-autoridad-poder</div>
+    </div>
+
+    <div class="section-label">Lecciones disponibles en SG (módulo Sacerdocio completo)</div>
+
+    <div class="lessons-group">
+      <div class="module-tag mod-sacerdocio">Módulo Sacerdocio — 15 lecciones</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-core"></div>
+          <div class="lesson-title">El Sacerdocio — Autoridad y Poder</div>
+          <div class="lesson-id">sacerdocio-autoridad-poder</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Sacerdocio Aarónico</div>
+          <div class="lesson-id">sacerdocio-aaonico</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Diácono · El Maestro · El Presbítero</div>
+          <div class="lesson-id">el-diacono / el-maestro / el-presbitero</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Élder</div>
+          <div class="lesson-id">el-elder</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Sumo Sacerdote</div>
+          <div class="lesson-id">el-sumo-sacerdote</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Patriarca</div>
+          <div class="lesson-id">el-patriarca</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Obispo · El Apóstol · El Presidente de la Iglesia</div>
+          <div class="lesson-id">el-obispo / el-apostol / el-presidente-de-la-iglesia</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Sacerdocio y Poder de la Mujer</div>
+          <div class="lesson-id">sacerdocio-poder-mujer</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Cristo el Gran Sumo Sacerdote</div>
+          <div class="lesson-id">cristo-el-gran-sumo-sacerdote</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-personajes-escrituras">Personajes que restauraron el Sacerdocio</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Juan el Bautista — Sacerdocio Aarónico (5 lecciones)</div>
+          <div class="lesson-id">juan-bautista-el-precursor …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Pedro — Restauró Melquisedec (5 lecciones)</div>
+          <div class="lesson-id">pedro-el-pescador …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Melquisedec — El Rey-Sacerdote (5 lecciones)</div>
+          <div class="lesson-id">melquisedec-el-rey …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Aarón — El Sumo Sacerdote (5 lecciones)</div>
+          <div class="lesson-id">aaron-la-voz …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Oliver Cowdery — La Restauración del Sacerdocio</div>
+          <div class="lesson-id">oliver-cowdery-el-sacerdocio</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ FE Y ARREPENTIMIENTO -->
+  <div class="topic-card">
+    <div class="topic-header">
+      <div class="topic-icon">🌱</div>
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;">
+          <div class="topic-title">La Fe y el Arrepentimiento</div>
+          <div class="score-badge score-medium">Cobertura media</div>
+        </div>
+        <div class="topic-id">topic: faith_repentance</div>
+      </div>
+    </div>
+
+    <div class="current-link">
+      <div class="current-link-label">✅ Enlace actual</div>
+      <div class="current-link-path">/lesson/doctrina-fundamental/fe-principio-poder</div>
+    </div>
+
+    <div class="section-label">Lecciones disponibles en SG</div>
+
+    <div class="lessons-group">
+      <div class="module-tag mod-doctrina-fundamental">Doctrina Fundamental</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-core"></div>
+          <div class="lesson-title">La Fe como Principio de Poder</div>
+          <div class="lesson-id">fe-principio-poder</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Arrepentimiento Real</div>
+          <div class="lesson-id">arrepentimiento</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">La Santa Cena y el Arrepentimiento</div>
+          <div class="lesson-id">sc-arrepentimiento</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-discursos">Discursos Clásicos</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Su Gracia es Suficiente (Brad Wilcox)</div>
+          <div class="lesson-id">su-gracia-es-suficiente</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Permanecer Para Siempre (Corbridge)</div>
+          <div class="lesson-id">permanecer-para-siempre</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Pensar de Manera Celestial</div>
+          <div class="lesson-id">pensar-de-manera-celestial</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-personajes-escrituras">Modelos de Fe y Arrepentimiento</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Alma el Joven — Del destructor al apóstol</div>
+          <div class="lesson-id">alma-el-joven</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">El Hermano de Jared — Fe que movió montañas</div>
+          <div class="lesson-id">hermano-jared-las-piedras</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Job — El Sufrimiento del Justo (5 lecciones)</div>
+          <div class="lesson-id">job-el-justo …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">David — La Caída (arrepentimiento y consecuencias)</div>
+          <div class="lesson-id">david-la-caida</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-temas-profundos">Temas Profundos</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">¿Por qué Dios Permite el Sufrimiento?</div>
+          <div class="lesson-id">por-que-dios-permite-el-sufrimiento</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="missing-section">
+      <div class="missing-label">⚠️ Por crear</div>
+      <ul class="missing-list">
+        <li>La esperanza — virtud entre fe y caridad, no tiene lección propia</li>
+        <li>La caridad — definida en Moroni 7, no tiene lección propia aunque se menciona en varias</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ BAUTISMO -->
+  <div class="topic-card">
+    <div class="topic-header">
+      <div class="topic-icon">💧</div>
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;">
+          <div class="topic-title">Bautismo y Don del Espíritu Santo</div>
+          <div class="score-badge score-medium">Cobertura media</div>
+        </div>
+        <div class="topic-id">topic: baptism</div>
+      </div>
+    </div>
+
+    <div class="current-link">
+      <div class="current-link-label">✅ Enlace actual</div>
+      <div class="current-link-path">/lesson/doctrina-fundamental/bautismo</div>
+    </div>
+
+    <div class="section-label">Lecciones disponibles en SG</div>
+
+    <div class="lessons-group">
+      <div class="module-tag mod-doctrina-fundamental">Doctrina Fundamental</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-core"></div>
+          <div class="lesson-title">El Bautismo</div>
+          <div class="lesson-id">bautismo</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Don del Espíritu Santo</div>
+          <div class="lesson-id">don-espiritu-santo</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Arrepentimiento Real (paso previo al bautismo)</div>
+          <div class="lesson-id">arrepentimiento</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">La Fe como Principio de Poder</div>
+          <div class="lesson-id">fe-principio-poder</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">La Promesa del Espíritu (Santa Cena)</div>
+          <div class="lesson-id">sc-promesa-espiritu</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-sacerdocio">Sacerdocio</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Sacerdocio Aarónico (autoridad de bautizar)</div>
+          <div class="lesson-id">sacerdocio-aaonico</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Presbítero (bautiza y confirma)</div>
+          <div class="lesson-id">el-presbitero</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-personajes-escrituras">Personajes</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">Juan el Bautista — El Bautismo de Jesús</div>
+          <div class="lesson-id">juan-bautista-el-bautismo</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-temas-profundos">Temas Profundos</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">La Salvación de los No Bautizados</div>
+          <div class="lesson-id">la-salvacion-de-los-no-bautizados</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="missing-section">
+      <div class="missing-label">⚠️ Por crear</div>
+      <ul class="missing-list">
+        <li>El Bautismo por los Muertos — se menciona en la lección de los no bautizados, pero merece lección propia</li>
+        <li>La Confirmación — se menciona pero no tiene lección independiente del don del Espíritu Santo</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ FAMILIA ETERNA -->
+  <div class="topic-card">
+    <div class="topic-header">
+      <div class="topic-icon">👨‍👩‍👧‍👦</div>
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;">
+          <div class="topic-title">La Familia Eterna</div>
+          <div class="score-badge score-medium">Cobertura media</div>
+        </div>
+        <div class="topic-id">topic: eternal_family</div>
+      </div>
+    </div>
+
+    <div class="current-link">
+      <div class="current-link-label">✅ Enlace actual</div>
+      <div class="current-link-path">/lesson/doctrina-avanzada-carne/convenios-eternos</div>
+    </div>
+
+    <div class="section-label">Lecciones disponibles en SG</div>
+
+    <div class="lessons-group">
+      <div class="module-tag mod-vida-familiar">Vida Familiar y Personal</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">La Proclamación sobre la Familia</div>
+          <div class="lesson-id">proclamacion-familia</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Sellamiento</div>
+          <div class="lesson-id">el-sellamiento</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Ministerio en el Hogar</div>
+          <div class="lesson-id">ministerio-en-el-hogar</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-doctrina-avanzada-carne">Doctrina Avanzada</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-core"></div>
+          <div class="lesson-title">Los Convenios Eternos</div>
+          <div class="lesson-id">convenios-eternos</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-related"></div>
+          <div class="lesson-title">El Templo — La Casa del Señor</div>
+          <div class="lesson-id">templo-casa-del-senor</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-temas-profundos">Temas Profundos</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">La Salvación de los No Bautizados (trabajo vicario familiar)</div>
+          <div class="lesson-id">la-salvacion-de-los-no-bautizados</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Elohim — El Padre Celestial (nuestro modelo de familia)</div>
+          <div class="lesson-id">elohim-el-padre-celestial</div>
+        </div>
+      </div>
+
+      <div class="module-tag mod-personajes-escrituras">Modelos de Familia en las Escrituras</div>
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Sara — La Madre de la Fe</div>
+          <div class="lesson-id">sara-la-madre</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Adán y Eva — Los Primeros Padres (5 lecciones)</div>
+          <div class="lesson-id">adan-miguel-arcangel …</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Lehi — Bendiciones Patriarcales a sus hijos</div>
+          <div class="lesson-id">lehi-las-bendiciones</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-status status-deep"></div>
+          <div class="lesson-title">Emma Smith — La Elegida (costo de ser familia del profeta)</div>
+          <div class="lesson-id">emma-smith-la-elegida … (5 lecciones)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="missing-section">
+      <div class="missing-label">⚠️ Por crear</div>
+      <ul class="missing-list">
+        <li>La historia familiar y la genealogía — misión del corazón de los hijos hacia los padres</li>
+        <li>El patriarcado y matriarcado en el evangelio — roles y corresponsabilidad</li>
+        <li>La familia en el plan de salvación — ¿qué significa "familia eterna" concretamente?</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- RESUMEN EJECUTIVO -->
+<div style="max-width:1400px;margin:3rem auto 0;padding:2rem;background:rgba(184,146,58,0.06);border:1px solid rgba(184,146,58,0.2);border-radius:16px;">
+  <h2 style="color:var(--gold-bright);font-size:1.1rem;font-weight:700;margin-bottom:1.5rem;">📋 Resumen Ejecutivo — ¿Qué hacer?</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;">
+
+    <div>
+      <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--emerald);font-weight:700;margin-bottom:0.5rem;">Inmediato (código)</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;font-size:0.78rem;color:rgba(245,239,224,0.8);">
+        <li>→ Cambiar el enlace único por una lista de 2-3 lecciones por pregunta, seleccionando la más específica según el contenido de la pregunta</li>
+        <li>→ Para preguntas de personajes (Book of Mormon, prophets) enlazar directamente al personaje específico, no a la lección general</li>
+        <li>→ Para sacerdocio, enlazar al oficio específico (diácono, élder, etc.) cuando la pregunta sea sobre ese oficio</li>
+      </ul>
+    </div>
+
+    <div>
+      <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--amber);font-weight:700;margin-bottom:0.5rem;">Prioridad alta (crear en SG)</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;font-size:0.78rem;color:rgba(245,239,224,0.8);">
+        <li>→ Completar Capitán Moroni (en construcción) — Book of Mormon warfare questions</li>
+        <li>→ Completar Samuel el Lamanita (en construcción) — profecías mesiánicas del BdeM</li>
+        <li>→ Abinadi — mártir clave, maestro de Alma, no existe lección propia</li>
+        <li>→ Helaman — ejército de los jóvenes guerreros, pregunta frecuente</li>
+        <li>→ El Bautismo por los Muertos — lección propia, muy referenciada en preguntas</li>
+      </ul>
+    </div>
+
+    <div>
+      <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--purple);font-weight:700;margin-bottom:0.5rem;">Prioridad media (crear en SG)</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;font-size:0.78rem;color:rgba(245,239,224,0.8);">
+        <li>→ La Caridad (Moroni 7) — enlazada en preguntas de fe, sin lección propia</li>
+        <li>→ La Esperanza como virtud teológica — complemento a fe y caridad</li>
+        <li>→ La Historia Familiar y Genealogía — related to eternal family topic</li>
+        <li>→ Las Ordenanzas del Templo (endowment detallado)</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  Generado para Scripture Quest × Seeker Gospel · Junio 2026 · <span style="color:var(--gold);">lineuponline</span>
+</footer>
+
+</body>
+</html>
