@@ -279,6 +279,17 @@ function WhoAmIPanel(p: RoundPanelProps) {
         </div>
         <TimerBubble remaining={p.remaining} roundType={p.round.roundType} />
       </div>
+
+      {/* Instrucción del personaje */}
+      <div className="rounded-xl border border-sg-gold/30 bg-sg-gold/8 px-4 py-3 text-center">
+        <p className="font-display text-lg font-semibold text-warm-white">
+          🧩 Adivina quién soy basándote en las pistas
+        </p>
+        <p className="mt-0.5 font-ui text-xs text-warm-white/50">
+          Soy un personaje de las Escrituras — ¿quién soy?
+        </p>
+      </div>
+
       <ol className="space-y-2">
         {p.round.content.clues.slice(0, cluesShown).map((clue, i) => (
           <li key={i} className="sq-card sq-rise p-3 font-ui text-warm-white">
@@ -290,7 +301,7 @@ function WhoAmIPanel(p: RoundPanelProps) {
       <TextAnswerForm
         locked={locked}
         expired={p.expired}
-        placeholder="¿Quién es?"
+        placeholder="Escribe el nombre del personaje…"
         onSubmit={p.onAnswer}
       />
       <p className="text-center font-ui text-xs text-warm-white/60">
