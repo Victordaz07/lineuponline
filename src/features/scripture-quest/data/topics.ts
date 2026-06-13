@@ -18,63 +18,63 @@ export const TOPICS: TopicDef[] = [
     label: 'La Restauración del Evangelio',
     description:
       'La Primera Visión, la salida a luz del Libro de Mormón y la restauración de la Iglesia.',
-    studyModuleId: null,
+    studyModuleId: 'jose-smith-la-primera-vision',
   },
   {
     id: 'plan_of_salvation',
     label: 'El Plan de Salvación',
     description:
       'La vida preterrenal, el propósito de la vida terrenal y los reinos de gloria.',
-    studyModuleId: null,
+    studyModuleId: 'el-plan-de-salvacion',
   },
   {
     id: 'book_of_mormon',
     label: 'El Libro de Mormón',
     description:
       'Otro testamento de Jesucristo: sus profetas, pueblos y enseñanzas.',
-    studyModuleId: null,
+    studyModuleId: 'el-libro-de-mormon',
   },
   {
     id: 'prophets',
     label: 'Profetas y Revelación Continua',
     description:
       'El llamamiento de profetas vivientes y cómo Dios revela Su voluntad hoy.',
-    studyModuleId: null,
+    studyModuleId: 'jose-smith-el-profeta',
   },
   {
     id: 'ordinances',
     label: 'Las Ordenanzas y los Convenios',
     description:
       'Las ordenanzas de salvación y los convenios que nos unen a Dios.',
-    studyModuleId: null,
+    studyModuleId: 'los-convenios-eternos',
   },
   {
     id: 'priesthood',
     label: 'El Sacerdocio',
     description:
       'La autoridad y el poder de Dios delegados al hombre para bendecir a Sus hijos.',
-    studyModuleId: null,
+    studyModuleId: 'el-sacerdocio',
   },
   {
     id: 'faith_repentance',
     label: 'La Fe y el Arrepentimiento',
     description:
       'Los primeros principios del Evangelio: fe en Jesucristo y el cambio de corazón.',
-    studyModuleId: null,
+    studyModuleId: 'la-fe-principio-de-poder',
   },
   {
     id: 'baptism',
     label: 'Bautismo y Don del Espíritu Santo',
     description:
       'La puerta del convenio: el bautismo por inmersión y el don del Espíritu Santo.',
-    studyModuleId: null,
+    studyModuleId: 'el-bautismo',
   },
   {
     id: 'eternal_family',
     label: 'La Familia Eterna',
     description:
       'El matrimonio en el templo y la doctrina de las familias selladas por la eternidad.',
-    studyModuleId: null,
+    studyModuleId: 'los-convenios-eternos',
   },
 ]
 
