@@ -3,7 +3,7 @@
  * juego (sin sala ni Firestore por ronda). Misma puntuación que el modo
  * multijugador; al final guarda historial e insignias como cualquier partida.
  */
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState, useCallback } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 import { QuestAuthGate, QuestShell } from '../components/QuestShell'
@@ -27,6 +27,88 @@ import {
 import { sound } from '../utils/sound'
 
 const ROUNDS_PER_GAME = 10
+
+// ─── Confetti ─────────────────────────────────────────────────────────────────
+const COLORS = ['#E8C87A', '#D4AF62', '#F5EFE0', '#ffffff', '#B8923A', '#fbbf24']
+
+function Confetti() {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+
+  const launch = useCallback(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+
+    type Particle = {
+      x: number; y: number; vx: number; vy: number
+      angle: number; spin: number; size: number
+      color: string; shape: 'rect' | 'circle'
+      alpha: number
+    }
+
+    const particles: Particle[] = Array.from({ length: 140 }, () => ({
+      x: Math.random() * canvas.width,
+      y: -10 - Math.random() * 200,
+      vx: (Math.random() - 0.5) * 4,
+      vy: 2 + Math.random() * 4,
+      angle: Math.random() * Math.PI * 2,
+      spin: (Math.random() - 0.5) * 0.2,
+      size: 6 + Math.random() * 8,
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      shape: Math.random() > 0.4 ? 'rect' : 'circle',
+      alpha: 1,
+    }))
+
+    let raf: number
+    const tick = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      let alive = false
+      for (const p of particles) {
+        p.x += p.vx
+        p.y += p.vy
+        p.vy += 0.07
+        p.angle += p.spin
+        if (p.y > canvas.height * 0.7) p.alpha = Math.max(0, p.alpha - 0.025)
+        if (p.alpha <= 0) continue
+        alive = true
+        ctx.save()
+        ctx.globalAlpha = p.alpha
+        ctx.fillStyle = p.color
+        ctx.translate(p.x, p.y)
+        ctx.rotate(p.angle)
+        if (p.shape === 'rect') {
+          ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2)
+        } else {
+          ctx.beginPath()
+          ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2)
+          ctx.fill()
+        }
+        ctx.restore()
+      }
+      if (alive) raf = requestAnimationFrame(tick)
+      else ctx.clearRect(0, 0, canvas.width, canvas.height)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+  }, [])
+
+  useEffect(() => {
+    const stop = launch()
+    return stop
+  }, [launch])
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="pointer-events-none fixed inset-0 z-50"
+      aria-hidden
+    />
+  )
+}
 
 type Phase = 'loading' | 'question' | 'reveal' | 'end'
 
@@ -317,6 +399,7 @@ export default function SoloPage() {
 
         {state.phase === 'end' && (
           <div className="mx-auto max-w-sm space-y-5">
+            {summary.passed && <Confetti />}
             <div className="sq-pop sq-card p-6 text-center">
               <p className="text-5xl" aria-hidden>
                 {summary.passed ? '🏆' : '💪'}
