@@ -174,11 +174,11 @@ function ImageGuessPanel(p: RoundPanelProps) {
         </p>
         <TimerBubble remaining={p.remaining} roundType={p.round.roundType} />
       </div>
-      <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl border border-navy-light">
+      <div className="flex w-full items-center justify-center overflow-hidden rounded-2xl border border-navy-light bg-navy-deep/70" style={{minHeight: '220px', maxHeight: '320px'}}>
         <img
           src={p.round.content.imageUrl}
           alt="Adivina la imagen"
-          className="h-full w-full object-cover"
+          className="max-h-80 w-full object-contain"
         />
       </div>
       {showHint && (
@@ -216,11 +216,11 @@ function MimePanel(p: RoundPanelProps) {
           </p>
           <TimerBubble remaining={p.remaining} roundType={p.round.roundType} />
         </div>
-        <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl border border-sg-gold sq-gold-ring">
+        <div className="flex w-full items-center justify-center overflow-hidden rounded-2xl border border-sg-gold bg-navy-deep/70 sq-gold-ring" style={{minHeight: '220px', maxHeight: '320px'}}>
           <img
             src={p.round.content.imageUrl}
             alt="Para actuar"
-            className="h-full w-full object-cover"
+            className="max-h-80 w-full object-contain"
           />
         </div>
         <div className="sq-card p-4">
