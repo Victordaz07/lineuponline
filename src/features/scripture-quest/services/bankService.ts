@@ -72,6 +72,7 @@ export type RoundSelection = {
  * niveles vecinos del mismo tema y finalmente con el mismo nivel de otros
  * temas. Con el tema Mixto, cualquier tema cuenta como coincidencia.
  * Omite rondas exclusivas de equipos cuando no hay equipos.
+ * Aplica un cap por roundType para que ningún tipo domine la partida.
  */
 export function selectRounds(pool: GameRound[], params: RoundSelection): GameRound[] {
   const usable = pool.filter(
@@ -79,27 +80,52 @@ export function selectRounds(pool: GameRound[], params: RoundSelection): GameRou
   )
   const matchesTopic = (r: GameRound) =>
     params.topicId === MIXED_TOPIC_ID || r.topic === params.topicId
-  const picked: GameRound[] = []
-  const pickedIds = new Set<string>()
-  const take = (candidates: GameRound[]) => {
-    for (const round of shuffle(candidates)) {
-      if (picked.length >= params.count) return
-      if (pickedIds.has(round.id)) continue
-      pickedIds.add(round.id)
-      picked.push(round)
+
+  // Recopilar candidatos únicos en orden de prioridad
+  const seenIds = new Set<string>()
+  const ordered: GameRound[] = []
+  const addAll = (rounds: GameRound[]) => {
+    for (const r of shuffle(rounds)) {
+      if (!seenIds.has(r.id)) {
+        seenIds.add(r.id)
+        ordered.push(r)
+      }
     }
   }
 
-  take(usable.filter((r) => matchesTopic(r) && r.level === params.level))
-  // Niveles vecinos del mismo tema, del más cercano al más lejano
+  addAll(usable.filter((r) => matchesTopic(r) && r.level === params.level))
   const byDistance = [1, 2, 3]
     .flatMap((d) => [params.level - d, params.level + d])
     .filter((l): l is QuestLevel => l >= 1 && l <= 4)
   for (const level of byDistance) {
-    take(usable.filter((r) => matchesTopic(r) && r.level === level))
+    addAll(usable.filter((r) => matchesTopic(r) && r.level === level))
   }
-  take(usable.filter((r) => r.level === params.level))
-  take(usable)
+  addAll(usable.filter((r) => r.level === params.level))
+  addAll(usable)
+
+  // Máximo por tipo: ≤25 % de la partida (mínimo 2).
+  // Para 10 rondas → máx 2 de imagen, 2 mímica, etc.
+  const MAX_PER_TYPE = Math.max(2, Math.floor(params.count / 4))
+  const typeCounts: Partial<Record<string, number>> = {}
+  const picked: GameRound[] = []
+  const overflow: GameRound[] = []
+
+  for (const r of ordered) {
+    const n = typeCounts[r.roundType] ?? 0
+    if (n < MAX_PER_TYPE) {
+      typeCounts[r.roundType] = n + 1
+      picked.push(r)
+    } else {
+      overflow.push(r)
+    }
+    if (picked.length >= params.count) break
+  }
+
+  // Si el pool no tiene suficiente variedad, rellena con los excedentes
+  for (const r of overflow) {
+    if (picked.length >= params.count) break
+    picked.push(r)
+  }
 
   return shuffle(picked)
 }
