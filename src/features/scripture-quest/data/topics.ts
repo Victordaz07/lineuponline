@@ -25,14 +25,14 @@ export const TOPICS: TopicDef[] = [
     label: 'El Plan de Salvación',
     description:
       'La vida preterrenal, el propósito de la vida terrenal y los reinos de gloria.',
-    studyModuleId: 'el-plan-de-salvacion',
+    studyModuleId: 'plan-de-salvacion',
   },
   {
     id: 'book_of_mormon',
     label: 'El Libro de Mormón',
     description:
       'Otro testamento de Jesucristo: sus profetas, pueblos y enseñanzas.',
-    studyModuleId: 'el-libro-de-mormon',
+    studyModuleId: 'libro-de-mormon-reliquia',
   },
   {
     id: 'prophets',
@@ -46,35 +46,35 @@ export const TOPICS: TopicDef[] = [
     label: 'Las Ordenanzas y los Convenios',
     description:
       'Las ordenanzas de salvación y los convenios que nos unen a Dios.',
-    studyModuleId: 'los-convenios-eternos',
+    studyModuleId: 'convenios-eternos',
   },
   {
     id: 'priesthood',
     label: 'El Sacerdocio',
     description:
       'La autoridad y el poder de Dios delegados al hombre para bendecir a Sus hijos.',
-    studyModuleId: 'el-sacerdocio',
+    studyModuleId: 'sacerdocio-autoridad-poder',
   },
   {
     id: 'faith_repentance',
     label: 'La Fe y el Arrepentimiento',
     description:
       'Los primeros principios del Evangelio: fe en Jesucristo y el cambio de corazón.',
-    studyModuleId: 'la-fe-principio-de-poder',
+    studyModuleId: 'fe-principio-poder',
   },
   {
     id: 'baptism',
     label: 'Bautismo y Don del Espíritu Santo',
     description:
       'La puerta del convenio: el bautismo por inmersión y el don del Espíritu Santo.',
-    studyModuleId: 'el-bautismo',
+    studyModuleId: 'bautismo',
   },
   {
     id: 'eternal_family',
     label: 'La Familia Eterna',
     description:
       'El matrimonio en el templo y la doctrina de las familias selladas por la eternidad.',
-    studyModuleId: 'los-convenios-eternos',
+    studyModuleId: 'convenios-eternos',
   },
 ]
 

@@ -9,17 +9,17 @@ type Props = {
   onStudied: (question: Question) => void
 }
 
-/** Slug → moduleId mapping para construir la ruta /lesson/:moduleId/:lessonId */
+/** lessonId → moduleId mapping para construir la ruta /lesson/:moduleId/:lessonId */
 const LESSON_MODULE: Record<string, string> = {
   'la-expiacion-del-salvador':    'doctrina-fundamental',
   'jose-smith-la-primera-vision': 'personajes-escrituras',
-  'el-plan-de-salvacion':         'doctrina-avanzada-carne',
-  'el-libro-de-mormon':           'historia-restauracion',
+  'plan-de-salvacion':            'doctrina-avanzada-carne',
+  'libro-de-mormon-reliquia':     'historia-restauracion',
   'jose-smith-el-profeta':        'personajes-escrituras',
-  'los-convenios-eternos':        'doctrina-avanzada-carne',
-  'el-sacerdocio':                'doctrina-avanzada-carne',
-  'la-fe-principio-de-poder':     'doctrina-fundamental',
-  'el-bautismo':                  'doctrina-fundamental',
+  'convenios-eternos':            'doctrina-avanzada-carne',
+  'sacerdocio-autoridad-poder':   'sacerdocio',
+  'fe-principio-poder':           'doctrina-fundamental',
+  'bautismo':                     'doctrina-fundamental',
 }
 
 /** Extrae referencias de escritura del texto de explicación, e.g. (2 Nefi 25:23) */
