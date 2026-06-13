@@ -67,46 +67,27 @@ export default function SoloPage() {
   const [newBadges, setNewBadges] = useState<BadgeId[]>([])
   const [saving, setSaving] = useState(false)
   const finalizedRef = useRef(false)
-  const openingQueuedRef = useRef(false)
 
   useEffect(() => {
     sound.setProfile('solo')
     void loadAudioLibrary()
-    return () => sound.stopMusic()
+    return () => {
+      sound.stopMusic()
+      sound.setProfile('player')
+    }
   }, [])
 
-  // Música de escenario en solitario: tensión, apertura (1ª ronda) y podio final
+  // Música de fondo: comienza con la primera pregunta y no se interrumpe entre rondas
   useEffect(() => {
     if (rounds.length === 0) return
-    if (state.phase === 'end') {
-      sound.playForRoom('ended', 'festivo')
-    } else if (state.phase === 'question') {
-      if (state.index === 0 && !openingQueuedRef.current) {
-        openingQueuedRef.current = true
-        sound.playForRoom('lobby', 'festivo')
-        sound.playForRoom('question', 'festivo')
-      } else {
-        sound.playForRoom('question', 'festivo')
-      }
-    } else if (state.phase === 'reveal') {
-      sound.stopMusic()
-    }
-  }, [state.phase, state.index, rounds.length])
-
-  // Carga playlists de audio del admin al montar
-  useEffect(() => {
-    void loadAudioLibrary()
-    return () => sound.stopMusic()
-  }, [])
-
-  // Música de fondo según fase
-  useEffect(() => {
-    if (state.phase === 'question' || state.phase === 'reveal') {
-      sound.playStageLoop('question', 'festivo')
+    if (state.phase === 'question') {
+      // playForRoom usa el guard interno para no reiniciar si ya está sonando
+      sound.playForRoom('playing', 'festivo')
     } else if (state.phase === 'end') {
-      sound.playStageLoop('podium', 'festivo')
+      sound.playForRoom('ended', 'festivo')
     }
-  }, [state.phase])
+    // reveal: la música continúa sin interrupciones
+  }, [state.phase, rounds.length])
 
   // Sorteo de rondas al entrar (sin mímica: teamMode false)
   useEffect(() => {

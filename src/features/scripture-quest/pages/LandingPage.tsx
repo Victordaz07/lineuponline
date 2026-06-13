@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 import { useToastStore } from '@/stores/toastStore'
@@ -10,6 +10,8 @@ import { createRoom } from '../services/roomService'
 import { useGameStore } from '../store/gameStore'
 import type { QuestLevel } from '../types'
 import { isValidRoomCode } from '../utils/roomCodeGenerator'
+import { loadAudioLibrary } from '../services/audioLibrary'
+import { sound } from '../utils/sound'
 
 const ROUNDS_PER_GAME = 10
 
@@ -97,6 +99,16 @@ export default function LandingPage() {
   const [teamMode, setTeamMode] = useState(false)
   const [creating, setCreating] = useState(false)
   const [joinCode, setJoinCode] = useState('')
+
+  // Música de lobby mientras el usuario está en el menú del juego
+  useEffect(() => {
+    sound.setProfile('stage')
+    void loadAudioLibrary().then(() => sound.playForRoom('lobby', 'festivo'))
+    return () => {
+      sound.stopMusic()
+      sound.setProfile('player')
+    }
+  }, [])
 
   async function handleCreate() {
     if (!user) return

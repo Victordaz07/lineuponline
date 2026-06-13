@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { QuestAuthGate, QuestShell } from '../components/QuestShell'
 import { getTopicById } from '../data/topics'
+import { sound } from '../utils/sound'
 import type { QuestLevel } from '../types'
 
 const DURATION = 7
@@ -23,6 +24,17 @@ export default function SoloPrepPage() {
 
   const goToSolo = () =>
     navigate(`/games/scripture-quest/solo?topic=${topicId}&level=${level}`, { replace: true })
+
+  // Continúa la música de lobby que viene del LandingPage (o la inicia si llega directo)
+  useEffect(() => {
+    sound.setProfile('stage')
+    sound.playForRoom('lobby', 'festivo')
+    return () => {
+      // Parar sincrónico: cuando navegamos al juego, SoloPage toma el control
+      sound.stopMusic()
+      sound.setProfile('player')
+    }
+  }, [])
 
   // Temporizador
   useEffect(() => {
