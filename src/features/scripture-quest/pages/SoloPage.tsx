@@ -24,7 +24,6 @@ import {
   roundExplanation,
   roundToStudyQuestion,
 } from '../utils/scoreCalculator'
-import { loadAudioLibrary } from '../services/audioLibrary'
 import { sound } from '../utils/sound'
 
 const ROUNDS_PER_GAME = 10
