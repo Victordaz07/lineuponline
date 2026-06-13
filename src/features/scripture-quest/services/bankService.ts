@@ -39,14 +39,18 @@ export function bankDocToRound(data: BankQuestion): GameRound {
   } as GameRound
 }
 
-/** Rondas aprobadas en Firestore; si el banco está vacío, usa la semilla local. */
+/** Rondas aprobadas en Firestore mezcladas con el banco local de semilla.
+ *  Las preguntas remotas con el mismo ID tienen precedencia sobre las locales.
+ *  Así el juego siempre tiene variedad de tipos aunque Firestore solo tenga imágenes. */
 export async function fetchApprovedRounds(): Promise<GameRound[]> {
   try {
     const snap = await getDocs(query(bankCol(), where('status', '==', 'approved')))
     if (snap.empty) return LOCAL_ROUNDS
-    return snap.docs.map((d) => bankDocToRound({ ...(d.data() as BankQuestion), id: d.id }))
+    const remote = snap.docs.map((d) => bankDocToRound({ ...(d.data() as BankQuestion), id: d.id }))
+    // Mezclar: preguntas locales que no estén ya en Firestore se añaden al pool
+    const remoteIds = new Set(remote.map((r) => r.id))
+    return [...remote, ...LOCAL_ROUNDS.filter((r) => !remoteIds.has(r.id))]
   } catch {
-    // Sin conexión o sin permisos: el juego sigue funcionando con la semilla
     return LOCAL_ROUNDS
   }
 }
