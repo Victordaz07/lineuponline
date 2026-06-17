@@ -38,6 +38,7 @@ import { visionTresReinos as lessonVisionTresReinos } from '@/data/lessons/visio
 import { juanTresNefitasApostasia as lessonJuanTresNefitas } from '@/data/lessons/juan-tres-nefitas-apostasia'
 import { porQueDiosPermiteElSufrimiento as lessonSufrimiento } from '@/data/lessons/por-que-dios-permite-el-sufrimiento'
 import { laSalvacionDeLosNoBautizados as lessonNoBautizados } from '@/data/lessons/la-salvacion-de-los-no-bautizados'
+import { cuandoLaMisionNoEsLoQueEsperabas as lessonMisionExpectativa } from '@/data/lessons/cuando-la-mision-no-es-lo-que-esperabas'
 import { almaElJoven as lessonAlmaElJoven } from '@/data/lessons/alma-el-joven'
 import { joseDeEgipto as lessonJoseDeEgipto } from '@/data/lessons/jose-de-egipto'
 import { abraham as lessonAbraham } from '@/data/lessons/abraham'
@@ -1263,6 +1264,19 @@ const LESSON_ROWS: LessonRow[] = [
     status: 'PUBLISHED',
   },
   {
+    id: 'cuando-la-mision-no-es-lo-que-esperabas',
+    moduleId: 'temas-profundos',
+    title: 'Cuando la Misión No Es Lo Que Esperabas',
+    subtitle: 'La brecha entre expectativa y realidad — y lo que el Señor enseñó a los primeros misioneros',
+    description:
+      'En 1831, misioneros llenos de fe caminaron de Ohio a Missouri esperando ver el regreso inminente de Cristo. Encontraron un pueblo fronterizo y la apostasía pública de uno de los suyos. DyC 71, 75 y 121-122 como mapa para sobrevivir la brecha entre lo que esperas y lo que encuentras en el servicio.',
+    level: 'AVANZADO',
+    icon: '🧭',
+    duration: 85,
+    order: 8,
+    status: 'PUBLISHED',
+  },
+  {
     id: 'jesus-el-hombre',
     moduleId: 'personajes-escrituras',
     submoduleGroup: 'jesucristo',
@@ -2020,6 +2034,7 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'cristo-el-gran-sumo-sacerdote': lessonCristoSumoSacerdote,
   'por-que-dios-permite-el-sufrimiento': lessonSufrimiento,
   'la-salvacion-de-los-no-bautizados': lessonNoBautizados,
+  'cuando-la-mision-no-es-lo-que-esperabas': lessonMisionExpectativa,
   'alma-el-joven': lessonAlmaElJoven,
   'jose-de-egipto': lessonJoseDeEgipto,
   'abraham': lessonAbraham,
