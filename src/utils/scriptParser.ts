@@ -9,7 +9,7 @@ export function parseScript(rawScript: string): Omit<EpisodeSegment, 'status' | 
   let order = 0
 
   function flush() {
-    const text = buffer.join(' ').trim()
+    const text = buffer.join(' ').replace(/\*\*/g, '').trim()
     if (currentSpeaker && text) {
       results.push({
         id: crypto.randomUUID(),
@@ -28,8 +28,8 @@ export function parseScript(rawScript: string): Omit<EpisodeSegment, 'status' | 
     if (!line) continue
     if (line.startsWith('[')) continue // stage directions
 
-    // Match "SPEAKER: rest of line" — speaker must start with uppercase letter
-    const match = line.match(/^([A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑ0-9 _-]*):\s*(.*)$/)
+    // Match "SPEAKER: rest of line" — tolera **negritas** de markdown y mayúsc./minúsc. mixtas
+    const match = line.match(/^\*{0,2}([A-Za-zÁÉÍÓÚÑáéíóúñ][A-Za-zÁÉÍÓÚÑáéíóúñ0-9 _-]*)\s*:\s*\*{0,2}\s*(.*)$/)
     if (match) {
       flush()
       const speaker = match[1].trim().toUpperCase()
