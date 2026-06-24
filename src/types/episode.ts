@@ -32,13 +32,13 @@ export type Episode = {
 }
 
 export const EPISODE_VOICES: Record<string, { voiceId: string; label: string; desc: string }> = {
-  SETH:      { voiceId: 'wjrQEr0z3BYSfZrA9Ocm', label: 'Seth',      desc: 'Masculina · profunda' },
-  MIA:       { voiceId: 'jGNV8IcRZI3IzSWm7roR', label: 'Mia',       desc: 'Femenina · clara'    },
-  NARRADOR:  { voiceId: 'wjrQEr0z3BYSfZrA9Ocm', label: 'Narrador',  desc: 'Masculina · profunda' },
-  NARRADORA: { voiceId: 'jGNV8IcRZI3IzSWm7roR', label: 'Narradora', desc: 'Femenina · clara'    },
+  SETH:      { voiceId: 'Czw3Dn181ypdrCOnPfif', label: 'Seth',      desc: 'Masculina · español' },
+  MIA:       { voiceId: 'FXGrCtY3PEyfqczBAlqm', label: 'Mia',       desc: 'Femenina · español'  },
+  NARRADOR:  { voiceId: 'Czw3Dn181ypdrCOnPfif', label: 'Narrador',  desc: 'Masculina · español' },
+  NARRADORA: { voiceId: 'FXGrCtY3PEyfqczBAlqm', label: 'Narradora', desc: 'Femenina · español'  },
 }
 
-export const FALLBACK_VOICE_ID = 'wjrQEr0z3BYSfZrA9Ocm'
+export const FALLBACK_VOICE_ID = 'Czw3Dn181ypdrCOnPfif'
 
 export type ElevenLabsSubscription = {
   characterCount: number
