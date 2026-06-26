@@ -152,5 +152,16 @@ service cloud.firestore {
     match /bitacora_ideas/{ideaId} {
       allow read, write: if isAdmin();
     }
+
+    // Seeker Gospel Music System: personajes (datos internos, nunca expuestos directamente al público)
+    match /characters/{characterId} {
+      allow read, write: if isAdmin();
+    }
+
+    // Seeker Gospel Music System: tracks — lectura pública solo si ya está publicado
+    match /tracks/{trackId} {
+      allow read: if (resource.data.status == 'PUBLISHED') || isAdmin();
+      allow write: if isAdmin();
+    }
   }
 }
