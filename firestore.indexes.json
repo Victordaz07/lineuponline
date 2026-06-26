@@ -16,6 +16,22 @@
         { "fieldPath": "roundType", "order": "ASCENDING" },
         { "fieldPath": "level",     "order": "ASCENDING" }
       ]
+    },
+    {
+      "collectionGroup": "bitacora_tasks",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "date",      "order": "ASCENDING" },
+        { "fieldPath": "createdAt", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "bitacora_ideas",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "convertedToTaskDate", "order": "ASCENDING" },
+        { "fieldPath": "createdAt",           "order": "DESCENDING" }
+      ]
     }
   ],
   "fieldOverrides": []

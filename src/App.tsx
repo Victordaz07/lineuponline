@@ -16,6 +16,7 @@ const ProfilePage = lazy(() => import('@/pages/ProfilePage'))
 const CommunityPage = lazy(() => import('@/pages/CommunityPage'))
 const AdminPage = lazy(() => import('@/pages/AdminPage'))
 const EpisodeGeneratorPage = lazy(() => import('@/pages/EpisodeGeneratorPage'))
+const BitacoraPage = lazy(() => import('@/pages/BitacoraPage'))
 
 // Scripture Quest — content admin (images + audio)
 const SQAdminPage = lazy(() => import('@/features/scripture-quest/admin/SQAdminPage'))
@@ -60,6 +61,7 @@ function AppRoutes() {
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/community" element={<CommunityPage />} />
             <Route path="/admin" element={<AdminPage />} />
+            <Route path="/admin/bitacora" element={<BitacoraPage />} />
             <Route path="/tools/episode-generator" element={<EpisodeGeneratorPage />} />
 
             {/* Scripture Quest — game pages */}

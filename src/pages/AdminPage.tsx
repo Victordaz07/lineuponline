@@ -77,8 +77,21 @@ export default function AdminPage() {
           </p>
         </div>
         <Link
-          to="/tools/episode-generator"
+          to="/admin/bitacora"
           className="flex items-center gap-4 px-5 py-4 transition hover:bg-navy-deep/40"
+        >
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-sg-gold/10 text-xl">
+            🗒️
+          </span>
+          <div className="min-w-0 flex-1">
+            <p className="font-ui text-sm font-semibold text-parchment/85">Bitácora-Planner</p>
+            <p className="font-ui text-xs text-parchment/45">Planeación y registro diario de productividad personal</p>
+          </div>
+          <span className="text-parchment/30">›</span>
+        </Link>
+        <Link
+          to="/tools/episode-generator"
+          className="flex items-center gap-4 px-5 py-4 transition hover:bg-navy-deep/40 border-t border-sg-gold/10"
         >
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-sg-gold/10 text-xl">
             🎙️
