@@ -61,6 +61,7 @@ function toTrack(id: string, data: Record<string, unknown>): Track {
 
     audioStatus: (data.audioStatus as Track['audioStatus']) ?? 'PENDING',
     audioProviderJobId: (data.audioProviderJobId as string | null) ?? null,
+    audioUrl: (data.audioUrl as string | null) ?? null,
     coverStatus: (data.coverStatus as Track['coverStatus']) ?? 'PENDING',
     coverUrl: (data.coverUrl as string | null) ?? null,
 
@@ -115,6 +116,7 @@ export async function addTrack(input: {
 
     audioStatus: 'PENDING',
     audioProviderJobId: null,
+    audioUrl: null,
     coverStatus: 'PENDING',
     coverUrl: null,
 

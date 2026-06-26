@@ -14,6 +14,7 @@
     "deploy:rules": "npx firebase-tools deploy --only firestore:rules",
     "admin:set": "tsx scripts/setAdminClaim.ts --set",
     "admin:unset": "tsx scripts/setAdminClaim.ts --unset",
+    "youtube:refresh-token": "tsx scripts/getYoutubeRefreshToken.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui"

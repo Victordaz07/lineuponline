@@ -95,6 +95,7 @@ export type Track = {
 
   audioStatus: AssetStatus
   audioProviderJobId: string | null
+  audioUrl: string | null
   coverStatus: AssetStatus
   coverUrl: string | null
 

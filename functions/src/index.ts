@@ -1,3 +1,10 @@
+import { execFile } from 'node:child_process'
+import { createReadStream } from 'node:fs'
+import { writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { randomUUID } from 'node:crypto'
+import { promisify } from 'node:util'
 import { onRequest } from 'firebase-functions/v2/https'
 import { defineSecret } from 'firebase-functions/params'
 import { initializeApp, getApps } from 'firebase-admin/app'
@@ -5,11 +12,18 @@ import { getAuth, type DecodedIdToken } from 'firebase-admin/auth'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import OpenAI from 'openai'
 import Anthropic from '@anthropic-ai/sdk'
+import ffmpegPath from 'ffmpeg-static'
+import { google } from 'googleapis'
 
 if (getApps().length === 0) initializeApp()
 
+const execFileAsync = promisify(execFile)
+
 const openaiKey = defineSecret('OPENAI_API_KEY')
 const anthropicKey = defineSecret('ANTHROPIC_API_KEY')
+const youtubeClientId = defineSecret('YOUTUBE_CLIENT_ID')
+const youtubeClientSecret = defineSecret('YOUTUBE_CLIENT_SECRET')
+const youtubeRefreshToken = defineSecret('YOUTUBE_REFRESH_TOKEN')
 
 /** Misma allowlist que firestore.rules / src/config/admin.ts — Cloud Functions no tiene acceso directo a esas reglas. */
 const PRIMARY_ADMIN_UIDS = ['rrl3eojMMthlp6P6PjQDFIWo9Qg2', 'O2ttkJj8VlNLT26Z5OhTRwL8nqK2']
@@ -455,14 +469,59 @@ export const generateCover = onRequest(
   },
 )
 
-/** Stub: requiere credenciales OAuth de YouTube Data API (pendientes). Aplica el gate del Covenant sin excepción. */
+async function downloadToTmp(url: string, filename: string): Promise<string> {
+  const res = await fetch(url)
+  if (!res.ok) throw new Error(`Failed to download ${url}: HTTP ${res.status}`)
+  const buffer = Buffer.from(await res.arrayBuffer())
+  const filePath = join(tmpdir(), filename)
+  await writeFile(filePath, buffer)
+  return filePath
+}
+
+/** Combina la portada (imagen fija) y el audio en un mp4 simple con ffmpeg, listo para subir a YouTube. */
+async function buildVideoFile(audioUrl: string, coverUrl: string): Promise<string> {
+  if (!ffmpegPath) throw new Error('ffmpeg binary not available in this runtime')
+  const id = randomUUID()
+  const audioPath = await downloadToTmp(audioUrl, `${id}-audio.mp3`)
+  const coverPath = await downloadToTmp(coverUrl, `${id}-cover.jpg`)
+  const outputPath = join(tmpdir(), `${id}-output.mp4`)
+
+  await execFileAsync(ffmpegPath, [
+    '-loop', '1',
+    '-i', coverPath,
+    '-i', audioPath,
+    '-c:v', 'libx264',
+    '-tune', 'stillimage',
+    '-c:a', 'aac',
+    '-b:a', '192k',
+    '-pix_fmt', 'yuv420p',
+    '-shortest',
+    '-y',
+    outputPath,
+  ])
+
+  return outputPath
+}
+
+function buildVideoDescription(track: Record<string, unknown>): string {
+  const ref = String(track.scriptureRef ?? '')
+  return [
+    ref,
+    '',
+    'Seeker Gospel Music — música inspirada en las Escrituras.',
+    'Letra y dirección creativa con autoría y revisión humana documentadas; producción musical asistida por IA.',
+  ].join('\n')
+}
+
+/** Sube el video resultante a YouTube (OAuth refresh token). Aplica el gate del Covenant sin excepción. */
 export const publishToYouTube = onRequest(
   {
+    secrets: [youtubeClientId, youtubeClientSecret, youtubeRefreshToken],
     cors: ALLOWED_ORIGINS,
     invoker: 'public',
     region: 'us-central1',
-    memory: '256MiB',
-    timeoutSeconds: 30,
+    memory: '1GiB',
+    timeoutSeconds: 540,
   },
   async (req, res) => {
     if (req.method === 'OPTIONS') {
@@ -495,7 +554,9 @@ export const publishToYouTube = onRequest(
       res.status(400).json({ error: 'trackId is required' })
       return
     }
-    const trackSnap = await getFirestore().collection('tracks').doc(trackId).get()
+    const db = getFirestore()
+    const trackRef = db.collection('tracks').doc(trackId)
+    const trackSnap = await trackRef.get()
     if (!trackSnap.exists) {
       res.status(404).json({ error: 'Track not found' })
       return
@@ -503,16 +564,59 @@ export const publishToYouTube = onRequest(
     const track = trackSnap.data() ?? {}
 
     if (!checkCovenantGate(track.covenantCheck as Record<string, unknown> | undefined)) {
-      res.status(400).json({ error: 'Creator\'s Covenant checklist is not fully approved' })
+      res.status(400).json({ error: "Creator's Covenant checklist is not fully approved" })
       return
     }
     if (track.syntheticContentDisclosed !== true) {
       res.status(400).json({ error: 'syntheticContentDisclosed must be true before publishing' })
       return
     }
+    if (track.audioStatus !== 'READY' || typeof track.audioUrl !== 'string' || !track.audioUrl) {
+      res.status(400).json({ error: 'audio must be READY with a valid audioUrl before publishing' })
+      return
+    }
+    if (track.coverStatus !== 'READY' || typeof track.coverUrl !== 'string' || !track.coverUrl) {
+      res.status(400).json({ error: 'cover must be READY with a valid coverUrl before publishing' })
+      return
+    }
 
-    res.status(501).json({
-      error: 'publishToYouTube not implemented: missing YouTube Data API OAuth credentials',
-    })
+    await trackRef.update({ youtubeStatus: 'UPLOADING', updatedAt: FieldValue.serverTimestamp() })
+
+    try {
+      const videoPath = await buildVideoFile(track.audioUrl, track.coverUrl)
+
+      const oauth2 = new google.auth.OAuth2(youtubeClientId.value(), youtubeClientSecret.value())
+      oauth2.setCredentials({ refresh_token: youtubeRefreshToken.value() })
+      const youtube = google.youtube({ version: 'v3', auth: oauth2 })
+
+      const upload = await youtube.videos.insert({
+        part: ['snippet', 'status'],
+        requestBody: {
+          snippet: {
+            title: String(track.title ?? 'Seeker Gospel Music'),
+            description: buildVideoDescription(track),
+            categoryId: '10',
+          },
+          status: {
+            privacyStatus: 'unlisted',
+            selfDeclaredMadeForKids: false,
+          },
+        },
+        media: { body: createReadStream(videoPath) },
+      })
+
+      const videoId = upload.data.id ?? null
+      await trackRef.update({
+        youtubeStatus: 'PUBLISHED',
+        youtubeVideoId: videoId,
+        status: 'PUBLISHED',
+        updatedAt: FieldValue.serverTimestamp(),
+      })
+      res.json({ videoId })
+    } catch (err) {
+      console.error('YouTube publish error:', err)
+      await trackRef.update({ youtubeStatus: 'FAILED', updatedAt: FieldValue.serverTimestamp() })
+      res.status(500).json({ error: 'Video assembly or upload failed' })
+    }
   },
 )
