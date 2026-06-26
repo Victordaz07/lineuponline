@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type ChangeEvent } from 'react'
 import { Card } from '@/components/common/Card'
 import { Button } from '@/components/common/Button'
 import { CovenantChecklist } from '../components/CovenantChecklist'
@@ -9,6 +9,8 @@ import {
   updateTrack,
   deleteTrack,
   callGenerateLyrics,
+  uploadTrackAudio,
+  uploadTrackCover,
 } from '@/services/tracks.service'
 import type { AssetStatus, Character, Track } from '@/types/music'
 
@@ -23,6 +25,13 @@ const ASSET_LABELS: Record<AssetStatus, string> = {
   PENDING: 'Pendiente',
   GENERATING: 'Generando…',
   READY: 'Listo',
+  FAILED: 'Falló',
+}
+
+const YOUTUBE_LABELS: Record<Track['youtubeStatus'], string> = {
+  NOT_UPLOADED: 'No subido',
+  UPLOADING: 'Subiendo…',
+  PUBLISHED: 'Publicado',
   FAILED: 'Falló',
 }
 
@@ -202,6 +211,98 @@ function LyricsEditor({ track }: { track: Track }) {
   )
 }
 
+/** Subida manual de audio/portada generados fuera de la app (Suno, FLUX, etc.). */
+function AssetsManual({ track }: { track: Track }) {
+  const [uploadingAudio, setUploadingAudio] = useState(false)
+  const [uploadingCover, setUploadingCover] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  async function handleAudio(e: ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0]
+    e.target.value = ''
+    if (!file) return
+    setUploadingAudio(true)
+    setError(null)
+    try {
+      await uploadTrackAudio(track.id, file)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Error al subir el audio.')
+    } finally {
+      setUploadingAudio(false)
+    }
+  }
+
+  async function handleCover(e: ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0]
+    e.target.value = ''
+    if (!file) return
+    setUploadingCover(true)
+    setError(null)
+    try {
+      await uploadTrackCover(track.id, file)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Error al subir la portada.')
+    } finally {
+      setUploadingCover(false)
+    }
+  }
+
+  return (
+    <Card>
+      <h3 className="font-ui text-xs font-semibold uppercase tracking-[0.18em] text-sg-gold">
+        Audio y portada (subida manual)
+      </h3>
+      <p className="mt-1 font-ui text-xs text-parchment/45">
+        Genera la música y la portada donde quieras (Suno, Apiframe, FLUX, etc.) y sube aquí los
+        archivos finales.
+      </p>
+      {error && <p className="mt-2 font-ui text-xs text-red-400">{error}</p>}
+
+      <div className="mt-4 grid gap-4 sm:grid-cols-2">
+        <div>
+          <label className="font-ui text-[11px] uppercase tracking-wider text-parchment/50">
+            Audio ({ASSET_LABELS[track.audioStatus]})
+          </label>
+          {track.audioUrl && <audio controls src={track.audioUrl} className="mt-2 w-full" />}
+          <label className="mt-2 flex cursor-pointer items-center justify-center rounded-lg border border-dashed border-sg-gold/30 px-3 py-2 font-ui text-xs text-sg-gold/70 transition hover:border-sg-gold/60 hover:text-sg-gold">
+            {uploadingAudio ? 'Subiendo…' : track.audioUrl ? 'Reemplazar audio' : 'Subir audio'}
+            <input
+              type="file"
+              accept="audio/*"
+              className="hidden"
+              onChange={handleAudio}
+              disabled={uploadingAudio}
+            />
+          </label>
+        </div>
+
+        <div>
+          <label className="font-ui text-[11px] uppercase tracking-wider text-parchment/50">
+            Portada ({ASSET_LABELS[track.coverStatus]})
+          </label>
+          {track.coverUrl && (
+            <img
+              src={track.coverUrl}
+              alt="Portada"
+              className="mt-2 h-32 w-32 rounded-lg border border-sg-gold/15 object-cover"
+            />
+          )}
+          <label className="mt-2 flex cursor-pointer items-center justify-center rounded-lg border border-dashed border-sg-gold/30 px-3 py-2 font-ui text-xs text-sg-gold/70 transition hover:border-sg-gold/60 hover:text-sg-gold">
+            {uploadingCover ? 'Subiendo…' : track.coverUrl ? 'Reemplazar portada' : 'Subir portada'}
+            <input
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={handleCover}
+              disabled={uploadingCover}
+            />
+          </label>
+        </div>
+      </div>
+    </Card>
+  )
+}
+
 function TrackRow({ track, character }: { track: Track; character: Character | undefined }) {
   const [expanded, setExpanded] = useState(false)
 
@@ -228,6 +329,9 @@ function TrackRow({ track, character }: { track: Track; character: Character | u
         <span className="shrink-0 rounded-full border border-sg-gold/20 px-2 py-0.5 font-ui text-[10px] text-sg-gold/70">
           Portada: {ASSET_LABELS[track.coverStatus]}
         </span>
+        <span className="shrink-0 rounded-full border border-sg-gold/20 px-2 py-0.5 font-ui text-[10px] text-sg-gold/70">
+          YouTube: {YOUTUBE_LABELS[track.youtubeStatus]}
+        </span>
         <button onClick={remove} className="shrink-0 font-ui text-xs text-red-400/70 hover:text-red-400">
           Eliminar
         </button>
@@ -236,6 +340,7 @@ function TrackRow({ track, character }: { track: Track; character: Character | u
       {expanded && (
         <div className="space-y-4 border-t border-sg-gold/10 bg-navy-deep/30 px-5 py-4">
           <LyricsEditor key={track.lyrics} track={track} />
+          <AssetsManual track={track} />
           <CovenantChecklist track={track} />
         </div>
       )}

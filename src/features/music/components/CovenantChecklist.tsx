@@ -7,6 +7,7 @@ import {
   setHumanAuthorshipLog,
   setSyntheticContentDisclosed,
   callPublishToYouTube,
+  setManualYoutubePublish,
 } from '@/services/tracks.service'
 import { COVENANT_GATE_KEYS, type CovenantCheck, type Track } from '@/types/music'
 
@@ -59,11 +60,17 @@ export function CovenantChecklist({ track }: { track: Track }) {
   const [savingNotes, setSavingNotes] = useState(false)
   const [publishing, setPublishing] = useState(false)
   const [publishError, setPublishError] = useState<string | null>(null)
+  const [manualVideoInput, setManualVideoInput] = useState('')
+  const [manualPublishing, setManualPublishing] = useState(false)
+  const [manualPublishError, setManualPublishError] = useState<string | null>(null)
 
   const reviewer = user?.email ?? user?.displayName ?? user?.uid ?? 'admin'
   const notesFilled = track.humanAuthorshipLog.creativeDirectionNotes.trim() !== ''
   const gateComplete = isGateComplete(track.covenantCheck)
   const canPublish = gateComplete && notesFilled && track.syntheticContentDisclosed
+  const assetsReady =
+    track.audioStatus === 'READY' && !!track.audioUrl && track.coverStatus === 'READY' && !!track.coverUrl
+  const canPublishManually = canPublish && assetsReady
 
   async function toggle(key: GateKey, value: boolean) {
     setPendingKey(key)
@@ -92,6 +99,19 @@ export function CovenantChecklist({ track }: { track: Track }) {
       setPublishError(err instanceof Error ? err.message : 'Error al publicar.')
     } finally {
       setPublishing(false)
+    }
+  }
+
+  async function handleManualPublish() {
+    setManualPublishing(true)
+    setManualPublishError(null)
+    try {
+      await setManualYoutubePublish(track.id, manualVideoInput)
+      setManualVideoInput('')
+    } catch (err) {
+      setManualPublishError(err instanceof Error ? err.message : 'Error al registrar el video.')
+    } finally {
+      setManualPublishing(false)
     }
   }
 
@@ -188,8 +208,53 @@ export function CovenantChecklist({ track }: { track: Track }) {
         {publishError ? <p className="mt-2 font-ui text-xs text-red-400">{publishError}</p> : null}
         <div className="mt-3 flex justify-end">
           <Button onClick={handlePublish} disabled={!canPublish} loading={publishing}>
-            Publicar en YouTube
+            Publicar en YouTube (automático)
           </Button>
+        </div>
+
+        <div className="mt-4 border-t border-sg-gold/10 pt-4">
+          <p className="font-ui text-xs text-parchment/45">
+            Mientras la publicación automática no esté disponible: sube el video a YouTube tú mismo
+            (descarga el audio/portada de arriba, súbelo en youtube.com) y pega aquí el link o el ID
+            para registrarlo. Sigue exigiendo el Covenant completo y los assets listos.
+          </p>
+          {track.youtubeVideoId && (
+            <p className="mt-2 font-ui text-xs text-parchment/60">
+              Video actual:{' '}
+              <a
+                href={`https://youtu.be/${track.youtubeVideoId}`}
+                target="_blank"
+                rel="noreferrer"
+                className="text-sg-gold underline"
+              >
+                youtu.be/{track.youtubeVideoId}
+              </a>
+            </p>
+          )}
+          <div className="mt-2 flex gap-2">
+            <input
+              value={manualVideoInput}
+              onChange={(e) => setManualVideoInput(e.target.value)}
+              placeholder="https://youtube.com/watch?v=... o solo el ID"
+              className="flex-1 rounded-lg bg-navy-deep px-3 py-2 font-ui text-xs text-parchment placeholder:text-parchment/30 outline-none ring-1 ring-sg-gold/20 focus:ring-sg-gold/50"
+            />
+            <Button
+              variant="secondary"
+              onClick={handleManualPublish}
+              disabled={!canPublishManually || !manualVideoInput.trim()}
+              loading={manualPublishing}
+            >
+              Registrar como publicado
+            </Button>
+          </div>
+          {!assetsReady && (
+            <p className="mt-1 font-ui text-xs text-parchment/40">
+              Sube primero el audio y la portada listos para habilitar esto.
+            </p>
+          )}
+          {manualPublishError ? (
+            <p className="mt-1 font-ui text-xs text-red-400">{manualPublishError}</p>
+          ) : null}
         </div>
       </Card>
     </div>

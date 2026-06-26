@@ -12,7 +12,8 @@ import {
   Timestamp,
   type Unsubscribe,
 } from 'firebase/firestore'
-import { getDb, getFirebaseAuth } from '@/lib/firebase'
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import { getDb, getFirebaseAuth, getFirebaseStorage } from '@/lib/firebase'
 import {
   EMPTY_COVENANT_CHECK,
   EMPTY_HUMAN_AUTHORSHIP_LOG,
@@ -143,6 +144,56 @@ export async function updateTrack(
 
 export async function deleteTrack(trackId: string): Promise<void> {
   await deleteDoc(doc(getDb(), TRACKS_COL, trackId))
+}
+
+// ── Subida manual de assets (mientras no haya generación automática) ────────
+
+function fileExtension(filename: string): string {
+  const match = /\.([a-zA-Z0-9]+)$/.exec(filename)
+  return match ? match[1].toLowerCase() : 'bin'
+}
+
+/** Sube un archivo de audio generado fuera de la app (Suno, etc.) y lo asocia al track. */
+export async function uploadTrackAudio(trackId: string, file: File): Promise<string> {
+  const storage = getFirebaseStorage()
+  const storageRef = ref(storage, `tracks/${trackId}/audio.${fileExtension(file.name)}`)
+  await uploadBytes(storageRef, file, { contentType: file.type || 'audio/mpeg' })
+  const audioUrl = await getDownloadURL(storageRef)
+  await updateTrack(trackId, { audioUrl, audioStatus: 'READY' })
+  return audioUrl
+}
+
+/** Sube una portada generada fuera de la app y la asocia al track. */
+export async function uploadTrackCover(trackId: string, file: File): Promise<string> {
+  const storage = getFirebaseStorage()
+  const storageRef = ref(storage, `tracks/${trackId}/cover.${fileExtension(file.name)}`)
+  await uploadBytes(storageRef, file, { contentType: file.type || 'image/jpeg' })
+  const coverUrl = await getDownloadURL(storageRef)
+  await updateTrack(trackId, { coverUrl, coverStatus: 'READY' })
+  return coverUrl
+}
+
+function parseYoutubeVideoId(input: string): string | null {
+  const trimmed = input.trim()
+  if (!trimmed) return null
+  const urlMatch = /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|shorts\/|embed\/))([a-zA-Z0-9_-]{6,})/.exec(
+    trimmed,
+  )
+  if (urlMatch) return urlMatch[1]
+  return /^[a-zA-Z0-9_-]{6,}$/.test(trimmed) ? trimmed : null
+}
+
+/**
+ * Registra un video que el admin ya subió manualmente a YouTube (fuera de la app).
+ * No omite ningún requisito del Covenant: la UI solo habilita esto cuando el gate,
+ * la divulgación de contenido sintético y los assets ya están completos.
+ */
+export async function setManualYoutubePublish(trackId: string, videoIdOrUrl: string): Promise<void> {
+  const youtubeVideoId = parseYoutubeVideoId(videoIdOrUrl)
+  if (!youtubeVideoId) {
+    throw new Error('No se pudo reconocer el ID o el link de YouTube.')
+  }
+  await updateTrack(trackId, { youtubeVideoId, youtubeStatus: 'PUBLISHED', status: 'PUBLISHED' })
 }
 
 // ── Cloud Function calls ─────────────────────────────────────────────────────

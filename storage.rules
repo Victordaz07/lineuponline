@@ -30,6 +30,12 @@ service firebase.storage {
       allow write: if isAdmin();
     }
 
+    // Seeker Gospel Music: audio/cover subidos manualmente por el admin
+    match /tracks/{trackId}/{filename} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
     // Deny everything else
     match /{allPaths=**} {
       allow read, write: if false;
