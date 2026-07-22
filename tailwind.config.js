@@ -26,6 +26,7 @@ export default {
       fontFamily: {
         display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
         ui: ['Inter', 'system-ui', 'sans-serif'],
+        ceremonial: ['Cinzel', 'Georgia', 'serif'],
         // legacy aliases
         title: ['"Cormorant Garamond"', 'Georgia', 'serif'],
         reading: ['"Cormorant Garamond"', 'Georgia', 'serif'],

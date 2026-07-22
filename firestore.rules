@@ -163,5 +163,17 @@ service cloud.firestore {
       allow read: if (resource.data.status == 'PUBLISHED') || isAdmin();
       allow write: if isAdmin();
     }
+
+    // Módulo de música (álbumes + canciones de YouTube): lectura pública,
+    // escritura solo admin. Colecciones propias, independientes de
+    // characters/tracks (esas son del pipeline de IA de arriba).
+    match /discographyAlbums/{albumId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /discographyTracks/{trackId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
   }
 }
