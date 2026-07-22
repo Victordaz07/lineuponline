@@ -6,9 +6,10 @@ const items = [
     end: true,
     label: 'Inicio',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M3 9.5L11 3l8 6.5V19a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" />
-        <path d="M8 20v-7h6v7" />
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M3 11.5L12 4l9 7.5" />
+        <path d="M5.5 10v9a1 1 0 001 1h11a1 1 0 001-1v-9" />
+        <path d="M9.5 20v-6h5v6" />
       </svg>
     ),
   },
@@ -17,34 +18,9 @@ const items = [
     end: false,
     label: 'Estudio',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M4 19V5a2 2 0 012-2h11a1 1 0 011 1v13" />
-        <path d="M4 19a2 2 0 002 2h12a1 1 0 001-1v-1" />
-        <path d="M4 19a2 2 0 012-2h13" />
-        <path d="M9 7h6M9 11h4" />
-      </svg>
-    ),
-  },
-  {
-    to: '/my-notes',
-    end: false,
-    label: 'Notas',
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M12 20H5a2 2 0 01-2-2V6a2 2 0 012-2h12a2 2 0 012 2v6" />
-        <path d="M15 18l2 2 4-4" />
-        <path d="M7 9h8M7 13h5" />
-      </svg>
-    ),
-  },
-  {
-    to: '/search',
-    end: false,
-    label: 'Buscar',
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="10" cy="10" r="7" />
-        <path d="M15.5 15.5L20 20" />
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 6.5c-1.4-1.2-3.4-1.8-6-1.8v13c2.6 0 4.6.6 6 1.8 1.4-1.2 3.4-1.8 6-1.8v-13c-2.6 0-4.6.6-6 1.8z" />
+        <path d="M12 6.5v13" />
       </svg>
     ),
   },
@@ -53,20 +29,11 @@ const items = [
     end: false,
     label: 'Jugar',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M6 3h10v5a5 5 0 01-10 0V3z" />
-        <path d="M6 5H3.5v1.5A3.5 3.5 0 007 10M16 5h2.5v1.5A3.5 3.5 0 0115 10" />
-        <path d="M11 13v3M8 19h6M9.5 16h3v3h-3z" />
-      </svg>
-    ),
-  },
-  {
-    to: '/community',
-    end: false,
-    label: 'Comunidad',
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="2.5" y="8.5" width="19" height="9" rx="4.5" />
+        <path d="M7 11v4M5 13h4" />
+        <circle cx="15.5" cy="11.5" r="1" fill="currentColor" stroke="none" />
+        <circle cx="18" cy="14" r="1" fill="currentColor" stroke="none" />
       </svg>
     ),
   },
@@ -75,10 +42,10 @@ const items = [
     end: false,
     label: 'Música',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="7.5" cy="16.5" r="2.5" />
-        <path d="M10 16.5V4l8-1.5v12" />
-        <circle cx="18" cy="14.5" r="2.5" />
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M9 18V5.5l10-2v12.5" />
+        <circle cx="7" cy="18" r="2.5" />
+        <circle cx="17" cy="16" r="2.5" />
       </svg>
     ),
   },
