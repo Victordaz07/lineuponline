@@ -128,6 +128,19 @@ export default function AdminPage() {
           </div>
           <span className="text-parchment/30">›</span>
         </Link>
+        <Link
+          to="/admin/musica"
+          className="flex items-center gap-4 px-5 py-4 transition hover:bg-navy-deep/40 border-t border-sg-gold/10"
+        >
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-sg-gold/10 text-xl">
+            💿
+          </span>
+          <div className="min-w-0 flex-1">
+            <p className="font-ui text-sm font-semibold text-parchment/85">Música — Álbumes</p>
+            <p className="font-ui text-xs text-parchment/45">Publica álbumes con canciones enlazadas a YouTube</p>
+          </div>
+          <span className="text-parchment/30">›</span>
+        </Link>
       </section>
     </div>
   )

@@ -70,12 +70,24 @@ const items = [
       </svg>
     ),
   },
+  {
+    to: '/musica',
+    end: false,
+    label: 'Música',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="7.5" cy="16.5" r="2.5" />
+        <path d="M10 16.5V4l8-1.5v12" />
+        <circle cx="18" cy="14.5" r="2.5" />
+      </svg>
+    ),
+  },
 ]
 
 export function BottomNav() {
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-40 border-t border-sg-gold/15 bg-navy-deep/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_20px_rgba(0,0,0,0.3)] backdrop-blur-md"
+      className="border-t border-sg-gold/15 bg-navy-deep/95 shadow-[0_-4px_20px_rgba(0,0,0,0.3)] backdrop-blur-md"
       aria-label="Navegación principal"
     >
       <div className="mx-auto flex max-w-lg">

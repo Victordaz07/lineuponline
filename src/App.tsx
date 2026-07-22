@@ -19,6 +19,11 @@ const EpisodeGeneratorPage = lazy(() => import('@/pages/EpisodeGeneratorPage'))
 const BitacoraPage = lazy(() => import('@/pages/BitacoraPage'))
 const MusicAdminPage = lazy(() => import('@/features/music/admin/MusicAdminPage'))
 
+// Música (álbumes + canciones de YouTube) — feature independiente del pipeline de IA de arriba
+const DiscographyPage = lazy(() => import('@/features/discography/pages/DiscographyPage'))
+const AlbumPage = lazy(() => import('@/features/discography/pages/AlbumPage'))
+const DiscographyAdminPage = lazy(() => import('@/features/discography/admin/DiscographyAdminPage'))
+
 // Scripture Quest — content admin (images + audio)
 const SQAdminPage = lazy(() => import('@/features/scripture-quest/admin/SQAdminPage'))
 // Scripture Quest — multi-round additions
@@ -65,6 +70,11 @@ function AppRoutes() {
             <Route path="/admin/bitacora" element={<BitacoraPage />} />
             <Route path="/admin/music" element={<MusicAdminPage />} />
             <Route path="/tools/episode-generator" element={<EpisodeGeneratorPage />} />
+
+            {/* Música — álbumes + canciones de YouTube */}
+            <Route path="/musica" element={<DiscographyPage />} />
+            <Route path="/musica/album/:albumId" element={<AlbumPage />} />
+            <Route path="/admin/musica" element={<DiscographyAdminPage />} />
 
             {/* Scripture Quest — game pages */}
             <Route path="/games/scripture-quest" element={<SQLanding />} />
