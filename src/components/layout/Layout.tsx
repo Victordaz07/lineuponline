@@ -6,6 +6,7 @@ import { useCloudSync } from '@/hooks/useCloudSync'
 import { usePreferencesStore, applyFontSize } from '@/stores/preferencesStore'
 import { AudioMount } from '@/features/discography/components/AudioMount'
 import { FullPlayer } from '@/features/discography/components/FullPlayer'
+import { MediaSessionSync } from '@/features/discography/components/MediaSessionSync'
 import { MiniPlayer } from '@/features/discography/components/MiniPlayer'
 import { YouTubePlayerMount } from '@/features/discography/components/YouTubePlayerMount'
 import { usePlayerStore } from '@/features/discography/store/usePlayerStore'
@@ -36,6 +37,7 @@ export function Layout({ children }: LayoutProps) {
       <main className={`min-w-0 flex-1 px-4 pt-4 sm:px-6 ${hasActiveTrack ? 'pb-40' : 'pb-28'}`}>{children}</main>
       <YouTubePlayerMount />
       <AudioMount />
+      <MediaSessionSync />
       <FullPlayer />
       <div className="fixed inset-x-0 bottom-0 z-40 flex flex-col pb-[env(safe-area-inset-bottom)]">
         <MiniPlayer />
