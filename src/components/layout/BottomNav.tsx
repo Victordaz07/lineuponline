@@ -38,6 +38,17 @@ const items = [
     ),
   },
   {
+    to: '/community',
+    end: false,
+    label: 'Comunidad',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2H9l-4 4v-4H6a2 2 0 01-2-2V6z" />
+        <path d="M8 9h8M8 12.5h5" />
+      </svg>
+    ),
+  },
+  {
     to: '/musica',
     end: false,
     label: 'Música',
