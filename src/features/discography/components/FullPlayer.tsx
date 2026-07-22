@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { usePlayerStore } from '../store/usePlayerStore'
 import { useYoutubeDock } from '../lib/useYoutubeDock'
+import { buildYoutubeWatchVideosUrl } from '../lib/youtubePlaylist'
 import { SongInfoPanel } from './SongInfoPanel'
 
 function formatTime(seconds: number): string {
@@ -12,6 +13,7 @@ function formatTime(seconds: number): string {
 
 export function FullPlayer() {
   const currentTrack = usePlayerStore((s) => s.currentTrack)
+  const queue = usePlayerStore((s) => s.queue)
   const isPlaying = usePlayerStore((s) => s.isPlaying)
   const isFullPlayerOpen = usePlayerStore((s) => s.isFullPlayerOpen)
   const progress = usePlayerStore((s) => s.progress)
@@ -29,6 +31,13 @@ export function FullPlayer() {
   const [showInfo, setShowInfo] = useState(false)
 
   if (!currentTrack || !isFullPlayerOpen) return null
+
+  // Desde la canción actual en adelante, para retomar donde iba en vez de reiniciar el álbum
+  const currentIndex = queue.findIndex((t) => t.id === currentTrack.id)
+  const remainingQueue = currentIndex >= 0 ? queue.slice(currentIndex) : [currentTrack]
+  const watchInYoutubeUrl = buildYoutubeWatchVideosUrl(
+    remainingQueue.filter((t) => t.type === 'youtube' && t.youtubeVideoId).map((t) => t.youtubeVideoId as string),
+  )
 
   // La ficha solo existe para canciones del catálogo musical (no podcast, por ahora)
   const hasSongInfo = currentTrack.type !== 'podcast' && !!currentTrack.songMeta
@@ -110,6 +119,20 @@ export function FullPlayer() {
           ⏭
         </button>
       </div>
+
+      {isYoutube && watchInYoutubeUrl && (
+        <a
+          href={watchInYoutubeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-8 flex items-center gap-1.5 text-xs uppercase tracking-widest text-parchment/50"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.6 15.6V8.4L15.8 12z" />
+          </svg>
+          Escuchar sin cortes en YouTube
+        </a>
+      )}
     </div>
   )
 }

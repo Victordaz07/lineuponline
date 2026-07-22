@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { LoadingSpinner } from '@/components/common/LoadingSpinner'
 import { subscribeAlbum, subscribeTracksByAlbum } from '../services/discography.service'
 import { usePlayerStore } from '../store/usePlayerStore'
+import { buildYoutubeWatchVideosUrl } from '../lib/youtubePlaylist'
 import type { Album, DiscographyTrack } from '../types'
 
 export default function AlbumPage() {
@@ -47,6 +48,10 @@ export default function AlbumPage() {
     )
   }
 
+  const watchAlbumUrl = buildYoutubeWatchVideosUrl(
+    tracks.filter((t) => t.type === 'youtube' && t.youtubeVideoId).map((t) => t.youtubeVideoId as string),
+  )
+
   function handlePlay(track: DiscographyTrack) {
     if (currentTrack?.id === track.id) {
       togglePlay()
@@ -82,6 +87,20 @@ export default function AlbumPage() {
           <p className="font-ui text-xs text-parchment/50">{tracks.length} canciones</p>
         </div>
       </header>
+
+      {watchAlbumUrl && (
+        <a
+          href={watchAlbumUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mb-6 inline-flex items-center gap-1.5 font-ui text-xs uppercase tracking-widest text-parchment/50"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.6 15.6V8.4L15.8 12z" />
+          </svg>
+          Escuchar álbum completo en YouTube
+        </a>
+      )}
 
       {tracks.length === 0 && (
         <p className="rounded-xl border border-sg-gold/15 bg-navy-mid/50 p-6 text-center font-ui text-sm text-parchment/60">
