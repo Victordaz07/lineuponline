@@ -25,7 +25,7 @@ interface YTNamespace {
     elementId: string,
     options: {
       videoId: string
-      playerVars: Record<string, number>
+      playerVars: Record<string, number | string>
       events: {
         onReady: () => void
         onStateChange: (event: YTPlayerEvent) => void
@@ -91,6 +91,10 @@ class YouTubeController {
         modestbranding: 1,
         rel: 0,
         playsinline: 1,
+        enablejsapi: 1,
+        // Declarar el origen reduce las advertencias de postMessage del
+        // IFrame API (recomendación oficial de YouTube).
+        origin: typeof window !== 'undefined' ? window.location.origin : '',
       },
       events: {
         onReady: () => {
