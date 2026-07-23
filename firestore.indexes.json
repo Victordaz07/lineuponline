@@ -32,6 +32,14 @@
         { "fieldPath": "convertedToTaskDate", "order": "ASCENDING" },
         { "fieldPath": "createdAt",           "order": "DESCENDING" }
       ]
+    },
+    {
+      "collectionGroup": "discographyTracks",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "albumId",   "order": "ASCENDING" },
+        { "fieldPath": "createdAt", "order": "ASCENDING" }
+      ]
     }
   ],
   "fieldOverrides": []
