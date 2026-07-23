@@ -25,6 +25,7 @@ interface PlayerState {
   enqueue: (track: DiscographyTrack) => void
   openFullPlayer: () => void
   closeFullPlayer: () => void
+  stop: () => void
   _tick: (progress: number, duration: number) => void
 }
 
@@ -138,6 +139,26 @@ export const usePlayerStore = create<PlayerState>()(
 
       openFullPlayer: () => set({ isFullPlayerOpen: true }),
       closeFullPlayer: () => set({ isFullPlayerOpen: false }),
+
+      // Cierra el reproductor: detiene el audio/vídeo y limpia el track actual,
+      // así el MiniPlayer y el FullPlayer desaparecen y liberan la pantalla.
+      stop: () => {
+        const { currentTrack, audioRef } = get()
+        if (currentTrack?.type === 'youtube') {
+          youtubeController.pause()
+        } else if (audioRef) {
+          audioRef.pause()
+          audioRef.removeAttribute('src')
+        }
+        set({
+          currentTrack: null,
+          queue: [],
+          isPlaying: false,
+          isFullPlayerOpen: false,
+          progress: 0,
+          duration: 0,
+        })
+      },
 
       _tick: (progress, duration) => set({ progress, duration }),
     }),
