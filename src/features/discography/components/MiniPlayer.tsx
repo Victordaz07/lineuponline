@@ -14,6 +14,7 @@ export function MiniPlayer() {
   const duration = usePlayerStore((s) => s.duration)
   const togglePlay = usePlayerStore((s) => s.togglePlay)
   const openFullPlayer = usePlayerStore((s) => s.openFullPlayer)
+  const stop = usePlayerStore((s) => s.stop)
 
   const videoSlotRef = useRef<HTMLDivElement>(null)
   const isYoutube = currentTrack?.type === 'youtube'
@@ -59,6 +60,18 @@ export function MiniPlayer() {
           aria-label={isPlaying ? 'Pausar' : 'Reproducir'}
         >
           {isPlaying ? '❚❚' : '▶'}
+        </button>
+        <button
+          onClick={(e) => {
+            e.stopPropagation()
+            stop()
+          }}
+          className="flex h-9 w-8 shrink-0 items-center justify-center text-parchment/50 hover:text-parchment"
+          aria-label="Cerrar reproductor"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
         </button>
       </div>
     </div>
