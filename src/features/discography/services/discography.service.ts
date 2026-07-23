@@ -68,11 +68,22 @@ function toTrack(id: string, data: Record<string, unknown>): DiscographyTrack {
   }
 }
 
+function logSnapshotError(where: string) {
+  return (err: unknown) => {
+    console.error(`[discography] snapshot error (${where}):`, err)
+  }
+}
+
 export function subscribeAlbums(cb: (albums: Album[]) => void): Unsubscribe {
   const q = query(collection(getDb(), ALBUMS_COL), orderBy('createdAt', 'desc'))
-  return onSnapshot(q, (snap) => {
-    cb(snap.docs.map((d) => toAlbum(d.id, d.data())))
-  })
+  return onSnapshot(
+    q,
+    (snap) => cb(snap.docs.map((d) => toAlbum(d.id, d.data()))),
+    (err) => {
+      logSnapshotError('subscribeAlbums')(err)
+      cb([])
+    },
+  )
 }
 
 export function subscribeAlbum(albumId: string, cb: (album: Album | null) => void): Unsubscribe {
@@ -82,10 +93,23 @@ export function subscribeAlbum(albumId: string, cb: (album: Album | null) => voi
 }
 
 export function subscribeTracksByAlbum(albumId: string, cb: (tracks: DiscographyTrack[]) => void): Unsubscribe {
-  const q = query(collection(getDb(), TRACKS_COL), where('albumId', '==', albumId), orderBy('createdAt', 'asc'))
-  return onSnapshot(q, (snap) => {
-    cb(snap.docs.map((d) => toTrack(d.id, d.data())))
-  })
+  // Filtramos por albumId y ordenamos por fecha en el cliente. Combinar
+  // where + orderBy en Firestore exigiría un índice compuesto; como las
+  // listas de un álbum son pequeñas, ordenar aquí es más simple y evita
+  // ese requisito.
+  const q = query(collection(getDb(), TRACKS_COL), where('albumId', '==', albumId))
+  return onSnapshot(
+    q,
+    (snap) => {
+      const tracks = snap.docs.map((d) => toTrack(d.id, d.data()))
+      tracks.sort((a, b) => a.createdAt.localeCompare(b.createdAt))
+      cb(tracks)
+    },
+    (err) => {
+      logSnapshotError('subscribeTracksByAlbum')(err)
+      cb([])
+    },
+  )
 }
 
 export async function addAlbum(input: { title: string; report: string; coverUrl?: string | null }): Promise<string> {
