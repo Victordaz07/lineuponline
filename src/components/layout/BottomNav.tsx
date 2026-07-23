@@ -1,15 +1,19 @@
 import { NavLink } from 'react-router-dom'
 
+const GOLD = '#B8923A'
+
 const items = [
   {
     to: '/',
     end: true,
     label: 'Inicio',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M3 11.5L12 4l9 7.5" />
-        <path d="M5.5 10v9a1 1 0 001 1h11a1 1 0 001-1v-9" />
-        <path d="M9.5 20v-6h5v6" />
+      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M3.5 11.5 L12 4.5 L20.5 11.5" />
+        <path d="M6 10.5 V20 H18 V10.5" />
+        <path d="M15.5 6.9 V4.5 H17.5 V8.6" />
+        <path d="M10 20 V15.8 A2 2 0 0 1 14 15.8 V20" stroke={GOLD} />
+        <circle cx="12.9" cy="17.6" r="0.5" fill={GOLD} stroke="none" />
       </svg>
     ),
   },
@@ -18,9 +22,10 @@ const items = [
     end: false,
     label: 'Estudio',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M12 6.5c-1.4-1.2-3.4-1.8-6-1.8v13c2.6 0 4.6.6 6 1.8 1.4-1.2 3.4-1.8 6-1.8v-13c-2.6 0-4.6.6-6 1.8z" />
-        <path d="M12 6.5v13" />
+      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="7" y="4.5" width="10" height="13.5" rx="1.2" />
+        <path d="M9.3 4.5 V18" />
+        <path d="M9.5 18 v3 l1.35 -1.1 l1.35 1.1 v-3 z" fill={GOLD} stroke="none" />
       </svg>
     ),
   },
@@ -29,11 +34,13 @@ const items = [
     end: false,
     label: 'Jugar',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <rect x="2.5" y="8.5" width="19" height="9" rx="4.5" />
-        <path d="M7 11v4M5 13h4" />
-        <circle cx="15.5" cy="11.5" r="1" fill="currentColor" stroke="none" />
-        <circle cx="18" cy="14" r="1" fill="currentColor" stroke="none" />
+      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M8 4.5 H16 V7 A4 4 0 0 1 8 7 Z" />
+        <path d="M8 5 H5.5 A2.3 2.3 0 0 0 8.2 8.3" />
+        <path d="M16 5 H18.5 A2.3 2.3 0 0 1 15.8 8.3" />
+        <path d="M12 11 V14" />
+        <path d="M10.5 14 H13.5 V15.5 L15 18 H9 L10.5 15.5 Z" />
+        <path d="M12 5.3 L12.7 7 L14.5 7.1 L13.1 8.3 L13.6 10 L12 9 L10.4 10 L10.9 8.3 L9.5 7.1 L11.3 7 Z" stroke={GOLD} strokeWidth="1.2" />
       </svg>
     ),
   },
@@ -42,9 +49,11 @@ const items = [
     end: false,
     label: 'Comunidad',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2H9l-4 4v-4H6a2 2 0 01-2-2V6z" />
-        <path d="M8 9h8M8 12.5h5" />
+      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="9.5" cy="9" r="2.7" />
+        <path d="M4.5 18.5 V17.5 A5 5 0 0 1 14.5 17.5 V18.5" />
+        <circle cx="16" cy="8.5" r="2.1" stroke={GOLD} />
+        <path d="M15.2 13.4 A4.3 4.3 0 0 1 19.5 18.5" stroke={GOLD} />
       </svg>
     ),
   },
@@ -53,10 +62,13 @@ const items = [
     end: false,
     label: 'Música',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M9 18V5.5l10-2v12.5" />
-        <circle cx="7" cy="18" r="2.5" />
-        <circle cx="17" cy="16" r="2.5" />
+      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M9.5 17 V6" />
+        <path d="M18.5 15 V4" />
+        <path d="M9.5 6 L18.5 4" />
+        <path d="M9.5 8.5 L18.5 6.5" />
+        <circle cx="7.5" cy="17" r="2" stroke={GOLD} />
+        <circle cx="16.5" cy="15" r="2" stroke={GOLD} />
       </svg>
     ),
   },
