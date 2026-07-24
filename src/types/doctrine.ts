@@ -279,6 +279,8 @@ export type Lesson = {
   previousLessonId?: string | null
   nextLessonId?: string | null
   submoduleGroup?: string
+  /** Asuntos que conectan esta lección con otras (ej. 'familias-eternas'). */
+  tags?: string[]
 }
 
 /** Módulo doctrinal con lista ordenada de ids de lección. */

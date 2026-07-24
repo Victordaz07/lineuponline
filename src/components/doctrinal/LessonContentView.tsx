@@ -7,6 +7,7 @@ import { MediaSlot } from '@/components/doctrinal/MediaSlot'
 import { NoteEditor } from '@/components/doctrinal/NoteEditor'
 import { QuickFacts } from '@/components/doctrinal/QuickFacts'
 import { ScriptureBlock } from '@/components/doctrinal/ScriptureBlock'
+import { RelatedLessons } from '@/components/doctrinal/RelatedLessons'
 import { StudyJournal } from '@/components/doctrinal/StudyJournal'
 import { LessonAudioPlayer } from '@/components/doctrinal/LessonAudioPlayer'
 import { LessonSectionHeader } from '@/components/doctrinal/LessonSectionHeader'
@@ -414,6 +415,8 @@ export function LessonContentView({
           Marcar como completada
         </button>
       ) : null}
+
+      <RelatedLessons lesson={lesson} />
 
       <nav
         className="flex flex-col gap-3 border-t border-sg-gold/20 pt-6 sm:flex-row sm:justify-between"

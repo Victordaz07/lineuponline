@@ -9,6 +9,7 @@ import Dashboard from '@/pages/Dashboard'
 
 const ModuleView = lazy(() => import('@/pages/ModuleView'))
 const LessonView = lazy(() => import('@/pages/LessonView'))
+const TagPage = lazy(() => import('@/pages/TagPage'))
 const LoginPage = lazy(() => import('@/pages/LoginPage'))
 const MyNotes = lazy(() => import('@/pages/MyNotes'))
 const Search = lazy(() => import('@/pages/Search'))
@@ -62,6 +63,7 @@ function AppRoutes() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/module/:moduleId" element={<ModuleView />} />
             <Route path="/lesson/:moduleId/:lessonId" element={<LessonView />} />
+            <Route path="/tema/:tag" element={<TagPage />} />
             <Route path="/my-notes" element={<MyNotes />} />
             <Route path="/search" element={<Search />} />
             <Route path="/profile" element={<ProfilePage />} />

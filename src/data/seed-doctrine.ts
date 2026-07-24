@@ -326,6 +326,7 @@ type LessonRow = {
   order: number
   status: LessonStatus
   submoduleGroup?: string
+  tags?: string[]
 }
 
 export const SUBMODULE_GROUPS: Record<string, { title: string; description: string; icon: string; label?: string }> = {
@@ -2277,6 +2278,71 @@ function lessonIdsForModule(moduleId: string): string[] {
     .map((l) => l.id)
 }
 
+/**
+ * Etiquetas (asuntos) por lección — fuente principal para conectar temas.
+ * Al subir una lección nueva, agregar aquí una línea `'id-leccion': [...]`.
+ * Slugs deben existir en `TAGS` (o se muestran humanizados). Una fila en
+ * `LESSON_ROWS` puede sobreescribir esto con su propio campo `tags`.
+ */
+const LESSON_TAGS: Record<string, string[]> = {
+  // ── Doctrina fundamental ────────────────────────────────────────────────
+  'sc-cristo-santa-cena': ['santa-cena', 'jesucristo', 'convenios'],
+  'sc-que-simboliza': ['santa-cena', 'convenios'],
+  'sc-como-servir': ['santa-cena', 'sacerdocio'],
+  'sc-arrepentimiento': ['santa-cena', 'arrepentimiento', 'perdon'],
+  'sc-vida-sin-santa-cena': ['santa-cena', 'arrepentimiento'],
+  'sc-promesa-espiritu': ['santa-cena', 'espiritu-santo'],
+  bautismo: ['bautismo', 'convenios', 'espiritu-santo'],
+  arrepentimiento: ['arrepentimiento', 'expiacion', 'perdon'],
+  'don-espiritu-santo': ['espiritu-santo', 'revelacion'],
+  'fe-principio-poder': ['fe', 'discipulado'],
+  'la-expiacion-del-salvador': ['expiacion', 'jesucristo', 'plan-de-salvacion'],
+  'resurreccion-tres-reinos': ['plan-de-salvacion', 'jesucristo'],
+  // ── Temas profundos ─────────────────────────────────────────────────────
+  'juan-tres-nefitas-apostasia': ['restauracion', 'profetas'],
+  'por-que-dios-permite-el-sufrimiento': ['adversidad', 'esperanza', 'fe'],
+  'la-salvacion-de-los-no-bautizados': ['plan-de-salvacion', 'bautismo', 'templo'],
+  'el-gran-plan-de-la-felicidad': ['plan-de-salvacion', 'jesucristo'],
+  'fechando-la-muerte-de-cristo': ['jesucristo', 'escrituras'],
+  lucifer: ['plan-de-salvacion'],
+  'el-mundo-de-los-espiritus': ['plan-de-salvacion'],
+  'elohim-el-padre-celestial': ['divinidad', 'plan-de-salvacion'],
+  'la-divinidad': ['divinidad', 'jesucristo', 'espiritu-santo'],
+  // ── Vida familiar y personal ────────────────────────────────────────────
+  'proclamacion-familia': ['familias-eternas', 'templo', 'convenios'],
+  'la-oracion': ['oracion', 'revelacion'],
+  'estudio-escrituras': ['escrituras', 'revelacion'],
+  'ministerio-en-el-hogar': ['ministracion', 'familias-eternas'],
+  'el-sellamiento': ['familias-eternas', 'templo', 'convenios'],
+  'como-dar-un-testimonio': ['discipulado'],
+  'como-hacer-una-oracion': ['oracion'],
+  // ── Sacerdocio ──────────────────────────────────────────────────────────
+  'santa-cena': ['santa-cena', 'sacerdocio', 'convenios'],
+  'vestimenta-sacerdocio': ['sacerdocio'],
+  'sacerdocio-autoridad-poder': ['sacerdocio', 'convenios'],
+  'sacerdocio-aaonico': ['sacerdocio'],
+  'el-diacono': ['sacerdocio'],
+  'el-maestro': ['sacerdocio', 'ministracion'],
+  'el-presbitero': ['sacerdocio'],
+  'el-elder': ['sacerdocio'],
+  'el-sumo-sacerdote': ['sacerdocio'],
+  'el-patriarca': ['sacerdocio', 'familias-eternas'],
+  'sacerdocio-poder-mujer': ['sacerdocio', 'templo'],
+  'el-obispo': ['sacerdocio', 'liderazgo'],
+  'el-apostol': ['sacerdocio', 'profetas', 'liderazgo'],
+  'el-presidente-de-la-iglesia': ['profetas', 'liderazgo', 'revelacion'],
+  'cristo-el-gran-sumo-sacerdote': ['sacerdocio', 'jesucristo'],
+  // ── Discursos y sermones clásicos ───────────────────────────────────────
+  'king-follett': ['plan-de-salvacion', 'divinidad'],
+  'vision-dc-76': ['plan-de-salvacion', 'revelacion'],
+  'vision-tres-reinos': ['plan-de-salvacion'],
+  'su-gracia-es-suficiente': ['expiacion', 'jesucristo', 'esperanza'],
+  'permanecer-para-siempre': ['plan-de-salvacion', 'familias-eternas'],
+  'pensar-de-manera-celestial': ['discipulado', 'esperanza'],
+  'sumo-sacerdote-bienes-venideros': ['sacerdocio', 'jesucristo', 'expiacion'],
+  'el-domingo-llegara': ['expiacion', 'jesucristo', 'esperanza'],
+}
+
 function buildSeedLessons(): Record<string, Lesson> {
   const byModule = new Map<string, LessonRow[]>()
   for (const row of LESSON_ROWS) {
@@ -2304,6 +2370,7 @@ function buildSeedLessons(): Record<string, Lesson> {
         previousLessonId: prevId,
         nextLessonId: nextId,
         submoduleGroup: row.submoduleGroup,
+        tags: row.tags ?? LESSON_TAGS[row.id] ?? ported.tags,
       }
     } else {
       out[row.id] = {
@@ -2322,6 +2389,7 @@ function buildSeedLessons(): Record<string, Lesson> {
         previousLessonId: prevId,
         nextLessonId: nextId,
         submoduleGroup: row.submoduleGroup,
+        tags: row.tags ?? LESSON_TAGS[row.id],
       }
     }
   }
@@ -2377,4 +2445,49 @@ export function getCatalogStats(): {
   const published = LESSON_ROWS.filter((l) => l.status === 'PUBLISHED').length
   const percentRounded = totalLessons === 0 ? 0 : Math.round((published / totalLessons) * 100)
   return { totalLessons, published, percentRounded }
+}
+
+/**
+ * Registro de etiquetas (asuntos) para conectar lecciones entre sí.
+ * La clave es el slug que se usa en `Lesson.tags` y en la URL `/tema/:tag`;
+ * `label` es el nombre bonito y `description` encabeza la página del asunto.
+ * Agregar aquí una etiqueta es opcional: si un slug no está registrado, la UI
+ * lo humaniza automáticamente (ver `tagLabel`).
+ */
+export const TAGS: Record<string, { label: string; description?: string }> = {
+  'familias-eternas': { label: 'Familias eternas', description: 'El plan de Dios para la familia: sellamientos, la obra del templo y las promesas eternas del hogar.' },
+  templo: { label: 'El templo', description: 'Ordenanzas, convenios y bendiciones de la casa del Señor.' },
+  convenios: { label: 'Convenios', description: 'Las promesas sagradas entre Dios y sus hijos, y lo que significa guardarlas.' },
+  expiacion: { label: 'La Expiación', description: 'El sacrificio de Jesucristo y su poder para sanar, perdonar y transformar.' },
+  arrepentimiento: { label: 'Arrepentimiento', description: 'El cambio de corazón que nos acerca a Dios a través de Cristo.' },
+  'santa-cena': { label: 'La Santa Cena', description: 'La ordenanza semanal que renueva nuestros convenios bautismales.' },
+  bautismo: { label: 'El bautismo', description: 'La puerta del convenio y el primer paso en el evangelio de Jesucristo.' },
+  'espiritu-santo': { label: 'El Espíritu Santo', description: 'El don, la guía y el testimonio del tercer miembro de la Trinidad.' },
+  sacerdocio: { label: 'El sacerdocio', description: 'La autoridad y el poder de Dios delegados para bendecir y servir.' },
+  fe: { label: 'La fe', description: 'El principio de acción y poder que comienza toda conversión.' },
+  oracion: { label: 'La oración', description: 'La conversación con el Padre Celestial y cómo recibir respuestas.' },
+  revelacion: { label: 'Revelación', description: 'Cómo Dios comunica su voluntad a profetas y a cada persona.' },
+  profetas: { label: 'Profetas', description: 'La voz del Señor a través de sus siervos escogidos, antiguos y modernos.' },
+  restauracion: { label: 'La Restauración', description: 'El regreso del evangelio y de la Iglesia de Jesucristo en los últimos días.' },
+  'plan-de-salvacion': { label: 'El plan de salvación', description: 'El plan del Padre para el progreso eterno de sus hijos.' },
+  'jesucristo': { label: 'Jesucristo', description: 'La vida, misión y divinidad del Salvador del mundo.' },
+  'obra-misional': { label: 'Obra misional', description: 'Compartir el evangelio e invitar a otros a venir a Cristo.' },
+  liderazgo: { label: 'Liderazgo', description: 'Servir, dirigir y ministrar según el modelo del Salvador.' },
+  ministracion: { label: 'Ministración', description: 'Cuidar a los demás uno por uno, como lo hizo Jesús.' },
+  discipulado: { label: 'Discipulado', description: 'Lo que significa seguir a Jesucristo cada día.' },
+  perdon: { label: 'El perdón', description: 'Recibir y ofrecer perdón a la manera del Señor.' },
+  esperanza: { label: 'Esperanza', description: 'La confianza en las promesas de Dios en medio de la prueba.' },
+  adversidad: { label: 'Adversidad', description: 'Encontrar sentido y crecimiento en el sufrimiento y la prueba.' },
+  escrituras: { label: 'Las Escrituras', description: 'Estudiar y atesorar la palabra de Dios.' },
+  divinidad: { label: 'La Divinidad', description: 'El Padre, el Hijo y el Espíritu Santo: quiénes son y cómo obran.' },
+}
+
+/** Nombre legible de una etiqueta: usa el registro o humaniza el slug. */
+export function tagLabel(slug: string): string {
+  const known = TAGS[slug]
+  if (known) return known.label
+  return slug
+    .split('-')
+    .map((w) => (w ? w[0]!.toUpperCase() + w.slice(1) : w))
+    .join(' ')
 }

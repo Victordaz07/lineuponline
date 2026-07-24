@@ -2,7 +2,7 @@
  * Acceso a datos doctrinales (módulos y lecciones).
  * Actualmente respaldado por datos semilla; Firestore puede integrarse aquí después.
  */
-import { findSeedLesson, findSeedModule, seedModules } from '@/data/seed-doctrine'
+import { findSeedLesson, findSeedModule, seedLessons, seedModules, tagLabel } from '@/data/seed-doctrine'
 import type { DoctrinalModule, Lesson } from '@/types/doctrine'
 
 /**
@@ -51,4 +51,43 @@ export async function fetchLessonsForModule(moduleId: string): Promise<Lesson[]>
   return mod.lessonIds
     .map((id) => findSeedLesson(moduleId, id))
     .filter((l): l is Lesson => Boolean(l))
+}
+
+// ── Etiquetas (asuntos) ───────────────────────────────────────────────────────
+
+/**
+ * Lecciones publicadas relacionadas con la dada por asunto compartido.
+ * Se calcula automáticamente: comparten ≥1 etiqueta, se ordenan por número de
+ * etiquetas compartidas (desc) y luego por `order`, excluyendo la propia.
+ */
+export function getRelatedLessons(lesson: Lesson, limit = 6): Lesson[] {
+  const tags = lesson.tags
+  if (!tags || tags.length === 0) return []
+  const tagSet = new Set(tags)
+
+  const scored = Object.values(seedLessons)
+    .filter((l) => l.id !== lesson.id && l.status === 'PUBLISHED' && l.tags?.some((t) => tagSet.has(t)))
+    .map((l) => ({ lesson: l, shared: l.tags!.filter((t) => tagSet.has(t)).length }))
+
+  scored.sort((a, b) => b.shared - a.shared || a.lesson.order - b.lesson.order)
+  return scored.slice(0, limit).map((s) => s.lesson)
+}
+
+/** Todas las lecciones publicadas con una etiqueta dada, ordenadas. */
+export function getLessonsByTag(tag: string): Lesson[] {
+  return Object.values(seedLessons)
+    .filter((l) => l.status === 'PUBLISHED' && l.tags?.includes(tag))
+    .sort((a, b) => a.moduleId.localeCompare(b.moduleId) || a.order - b.order)
+}
+
+/** Inventario de etiquetas presentes en lecciones publicadas, con conteo. */
+export function getAllTags(): { slug: string; label: string; count: number }[] {
+  const counts = new Map<string, number>()
+  for (const l of Object.values(seedLessons)) {
+    if (l.status !== 'PUBLISHED' || !l.tags) continue
+    for (const t of l.tags) counts.set(t, (counts.get(t) ?? 0) + 1)
+  }
+  return [...counts.entries()]
+    .map(([slug, count]) => ({ slug, label: tagLabel(slug), count }))
+    .sort((a, b) => a.label.localeCompare(b.label))
 }
