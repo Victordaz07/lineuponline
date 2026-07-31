@@ -33,6 +33,7 @@ import { justiciaYMisericordia as lessonJusticiaMisericordia } from '@/data/less
 import { losConveniosEternos as lessonConvenios } from '@/data/lessons/los-convenios-eternos'
 import { liderazgoSegunElEvangelio as lessonLiderazgo } from '@/data/lessons/liderazgo-segun-el-evangelio'
 import { misionYTestimonio as lessonMisionTestimonio } from '@/data/lessons/mision-y-testimonio'
+import { guiaEscriturasClaveMisioneros as lessonGuiaEscriturasMisioneros } from '@/data/lessons/guia-escrituras-clave-misioneros'
 import { visionDC76 as lessonVisionDC76 } from '@/data/lessons/vision-dc-76'
 import { visionTresReinos as lessonVisionTresReinos } from '@/data/lessons/vision-tres-reinos'
 import { juanTresNefitasApostasia as lessonJuanTresNefitas } from '@/data/lessons/juan-tres-nefitas-apostasia'
@@ -1176,6 +1177,18 @@ const LESSON_ROWS: LessonRow[] = [
     status: 'PUBLISHED',
   },
   {
+    id: 'guia-escrituras-clave-misioneros',
+    moduleId: 'lideres-misioneros',
+    title: 'Guía de Escrituras Clave para Misioneros',
+    subtitle: 'Escrituras ancla, raíces originales y respuestas para el campo',
+    description: 'Nueve tópicos centrales del mensaje restaurado con versículo ancla, escrituras clave, estudio de raíces hebreas y griegas, sugerencias de enseñanza y respuestas a las objeciones más comunes de los investigadores.',
+    level: 'INTERMEDIO',
+    icon: '📖',
+    duration: 95,
+    order: 3,
+    status: 'PUBLISHED',
+  },
+  {
     id: 'king-follett',
     moduleId: 'discursos-sermones-clasicos',
     title: 'El Sermón de King Follett',
@@ -2000,6 +2013,7 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'convenios-eternos': lessonConvenios,
   'liderazgo-segun-el-evangelio': lessonLiderazgo,
   'mision-y-testimonio': lessonMisionTestimonio,
+  'guia-escrituras-clave-misioneros': lessonGuiaEscriturasMisioneros,
   'vision-dc-76': lessonVisionDC76,
   'vision-tres-reinos': lessonVisionTresReinos,
   'juan-tres-nefitas-apostasia': lessonJuanTresNefitas,
