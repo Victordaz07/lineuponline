@@ -34,6 +34,8 @@ import { losConveniosEternos as lessonConvenios } from '@/data/lessons/los-conve
 import { liderazgoSegunElEvangelio as lessonLiderazgo } from '@/data/lessons/liderazgo-segun-el-evangelio'
 import { misionYTestimonio as lessonMisionTestimonio } from '@/data/lessons/mision-y-testimonio'
 import { guiaEscriturasClaveMisioneros as lessonGuiaEscriturasMisioneros } from '@/data/lessons/guia-escrituras-clave-misioneros'
+import { preparacionMisionalJovenes as lessonPreparacionMisionalJovenes } from '@/data/lessons/preparacion-misional-jovenes'
+import { preparacionMisionalPadres as lessonPreparacionMisionalPadres } from '@/data/lessons/preparacion-misional-padres'
 import { visionDC76 as lessonVisionDC76 } from '@/data/lessons/vision-dc-76'
 import { visionTresReinos as lessonVisionTresReinos } from '@/data/lessons/vision-tres-reinos'
 import { juanTresNefitasApostasia as lessonJuanTresNefitas } from '@/data/lessons/juan-tres-nefitas-apostasia'
@@ -940,6 +942,18 @@ const LESSON_ROWS: LessonRow[] = [
     submoduleGroup: 'participacion-dominical',
   },
   {
+    id: 'preparacion-misional-padres',
+    moduleId: 'vida-familiar-personal',
+    title: 'Preparación Misional: Guía para Padres',
+    subtitle: 'Cómo apoyar a un hijo o hija que se prepara para servir',
+    description: 'Cómo apoyar espiritual, financiera y emocionalmente a un hijo o hija antes, durante y después de la misión: preparar sin presionar, cultivar una fe propia, habilidades prácticas, finanzas familiares, cartas, dejar ir con fe y el regreso a casa.',
+    level: 'BÁSICO',
+    icon: '🤝',
+    duration: 90,
+    order: 9,
+    status: 'PUBLISHED',
+  },
+  {
     id: 'vestimenta-sacerdocio',
     moduleId: 'sacerdocio',
     title: 'Vestimenta y Preparación para el Sacerdocio',
@@ -1186,6 +1200,18 @@ const LESSON_ROWS: LessonRow[] = [
     icon: '📖',
     duration: 95,
     order: 3,
+    status: 'PUBLISHED',
+  },
+  {
+    id: 'preparacion-misional-jovenes',
+    moduleId: 'lideres-misioneros',
+    title: 'Preparación Misional para Jóvenes',
+    subtitle: 'Espíritu, carácter, cuerpo y corazón antes de servir',
+    description: 'Diez áreas de preparación integral antes de servir: requisitos y edades actuales, conversión personal, dignidad, obediencia y sacrificio, preparación física, despedidas, autodisciplina, amor por los extraños, manejo del rechazo, y el proceso de solicitud paso a paso.',
+    level: 'INTERMEDIO',
+    icon: '🎒',
+    duration: 100,
+    order: 4,
     status: 'PUBLISHED',
   },
   {
@@ -2014,6 +2040,8 @@ const PORTED: Partial<Record<string, Lesson>> = {
   'liderazgo-segun-el-evangelio': lessonLiderazgo,
   'mision-y-testimonio': lessonMisionTestimonio,
   'guia-escrituras-clave-misioneros': lessonGuiaEscriturasMisioneros,
+  'preparacion-misional-jovenes': lessonPreparacionMisionalJovenes,
+  'preparacion-misional-padres': lessonPreparacionMisionalPadres,
   'vision-dc-76': lessonVisionDC76,
   'vision-tres-reinos': lessonVisionTresReinos,
   'juan-tres-nefitas-apostasia': lessonJuanTresNefitas,
