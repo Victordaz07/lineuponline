@@ -197,7 +197,7 @@ export function LessonContentView({
           <LevelBadge level={lesson.level} />
         </div>
         <div className="border-t border-sg-gold/15 pt-4">
-          <LessonPodcastPlayer lessonId={lessonId} />
+          <LessonPodcastPlayer lessonId={lessonId} lessonTitle={title} />
         </div>
         {isRich ? (
           <div className="flex flex-col gap-2 border-t border-sg-gold/15 pt-4 sm:flex-row sm:items-center sm:justify-between">
