@@ -138,10 +138,6 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
-    match /episodes/{episodeId} {
-      allow read, write: if isAdmin();
-    }
-
     // Bitácora-Planner: planeación/registro personal del admin (un solo usuario)
     match /bitacora_days/{dateId} {
       allow read, write: if isAdmin();
@@ -173,6 +169,13 @@ service cloud.firestore {
     }
     match /discographyTracks/{trackId} {
       allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Podcast/audio por lección (archivo subido o URL de YouTube):
+    // lectura para usuarios autenticados, escritura solo admin.
+    match /lessonAudio/{lessonId} {
+      allow read: if isAuthenticated();
       allow write: if isAdmin();
     }
   }

@@ -16,7 +16,6 @@ const Search = lazy(() => import('@/pages/Search'))
 const ProfilePage = lazy(() => import('@/pages/ProfilePage'))
 const CommunityPage = lazy(() => import('@/pages/CommunityPage'))
 const AdminPage = lazy(() => import('@/pages/AdminPage'))
-const EpisodeGeneratorPage = lazy(() => import('@/pages/EpisodeGeneratorPage'))
 const BitacoraPage = lazy(() => import('@/pages/BitacoraPage'))
 const MusicAdminPage = lazy(() => import('@/features/music/admin/MusicAdminPage'))
 
@@ -71,7 +70,6 @@ function AppRoutes() {
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/admin/bitacora" element={<BitacoraPage />} />
             <Route path="/admin/music" element={<MusicAdminPage />} />
-            <Route path="/tools/episode-generator" element={<EpisodeGeneratorPage />} />
 
             {/* Música — álbumes + canciones de YouTube */}
             <Route path="/musica" element={<DiscographyPage />} />

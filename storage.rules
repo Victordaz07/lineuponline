@@ -24,8 +24,8 @@ service firebase.storage {
       allow write: if isAdmin();
     }
 
-    // Episode generator audio
-    match /episodes/{allPaths=**} {
+    // Podcast/audio por lección (admin upload, authenticated read)
+    match /lessonAudio/{allPaths=**} {
       allow read: if isAuthenticated();
       allow write: if isAdmin();
     }

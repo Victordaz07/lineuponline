@@ -1,5 +1,4 @@
 import type { LessonSection, LessonTopic } from '@/types/doctrine'
-import type { TtsParagraph } from '@/components/doctrinal/TextToSpeechButton'
 
 /**
  * Cuenta temas en todas las secciones.
@@ -34,23 +33,6 @@ export function allTopicQuizzesCompleted(
     return false
   }
   return keys.every((k) => isQuizCompleted(k))
-}
-
-/**
- * Párrafos de la sección activa para TTS con ids estables.
- */
-export function paragraphsForSectionTts(section: LessonSection): TtsParagraph[] {
-  const out: TtsParagraph[] = []
-  let fallback = 0
-  for (const topic of section.topics) {
-    for (const block of topic.blocks) {
-      if (block.type === 'paragraph') {
-        const id = block.blockId ?? `${topic.id}-p-${fallback++}`
-        out.push({ id, text: block.text })
-      }
-    }
-  }
-  return out
 }
 
 /**
