@@ -161,7 +161,7 @@ export function LessonPodcastPlayer({ lessonId, lessonTitle }: LessonPodcastPlay
               type="button"
               onClick={handlePlayPause}
               disabled={!activeTrack}
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sg-gold text-navy-deep shadow transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-40"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sg-gold text-ink shadow transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-40"
               aria-label={isActiveTrackPlaying ? 'Pausar' : 'Reproducir'}
             >
               {isActiveTrackPlaying ? <PauseIcon /> : <PlayIcon />}
@@ -434,7 +434,7 @@ function LessonPodcastSlotEditor({
             type="button"
             onClick={() => void handleSaveYoutube()}
             disabled={busy || !youtubeUrl.trim()}
-            className="shrink-0 rounded-lg bg-sg-gold px-2.5 py-1 font-ui text-[0.65rem] font-semibold text-navy-deep disabled:opacity-50"
+            className="shrink-0 rounded-lg bg-sg-gold px-2.5 py-1 font-ui text-[0.65rem] font-semibold text-ink disabled:opacity-50"
           >
             Guardar
           </button>

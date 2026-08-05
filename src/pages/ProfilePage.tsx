@@ -58,7 +58,7 @@ function AvatarUploader({
       >
         {uploading
           ? <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
-          : <span className="text-sm text-navy-deep" aria-hidden="true">📷</span>
+          : <span className="text-sm text-ink" aria-hidden="true">📷</span>
         }
       </button>
 
@@ -236,7 +236,7 @@ export default function ProfilePage() {
                   type="button"
                   onClick={() => void saveName()}
                   disabled={nameSaving}
-                  className="rounded-xl bg-sg-gold px-3 py-2 font-ui text-xs font-semibold text-navy-deep transition hover:brightness-90 disabled:opacity-60"
+                  className="rounded-xl bg-sg-gold px-3 py-2 font-ui text-xs font-semibold text-ink transition hover:brightness-90 disabled:opacity-60"
                 >
                   {nameSaving ? '…' : 'Guardar'}
                 </button>

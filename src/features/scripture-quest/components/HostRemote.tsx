@@ -39,7 +39,7 @@ export function HostRemote({
   return (
     <div className="mx-auto max-w-sm space-y-4">
       <div className="flex items-center justify-between">
-        <span className="rounded-full bg-sg-gold px-3 py-1 font-ui text-[10px] font-bold uppercase tracking-wider text-navy-deep">
+        <span className="rounded-full bg-sg-gold px-3 py-1 font-ui text-[10px] font-bold uppercase tracking-wider text-ink">
           🎛️ Control remoto
         </span>
         <span className="font-ui text-xs uppercase tracking-widest text-sg-gold-light">
@@ -78,7 +78,7 @@ export function HostRemote({
           <button
             type="button"
             onClick={onForceReveal}
-            className="w-full rounded-xl border border-sg-gold py-3 font-ui text-sm font-bold uppercase tracking-wide text-sg-gold-bright transition hover:bg-sg-gold hover:text-navy-deep"
+            className="w-full rounded-xl border border-sg-gold py-3 font-ui text-sm font-bold uppercase tracking-wide text-sg-gold-bright transition hover:bg-sg-gold hover:text-ink"
           >
             Cerrar ronda y revelar ahora
           </button>
@@ -102,7 +102,7 @@ export function HostRemote({
           <button
             type="button"
             onClick={onForceAdvance}
-            className="w-full rounded-xl bg-sg-gold py-3 font-ui text-sm font-bold uppercase tracking-wide text-navy-deep transition hover:bg-sg-gold-light"
+            className="w-full rounded-xl bg-sg-gold py-3 font-ui text-sm font-bold uppercase tracking-wide text-ink transition hover:bg-sg-gold-light"
           >
             {nextRound ? 'Siguiente ronda ahora' : 'Terminar partida ahora'}
           </button>

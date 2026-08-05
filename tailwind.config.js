@@ -1,27 +1,41 @@
 /** @type {import('tailwindcss').Config} */
+
+// Los colores del tema se definen como variables CSS (tripletas RGB) en
+// src/index.css, con dos juegos: oscuro (por defecto) y claro ([data-theme='light']).
+// Aquí solo se referencian con rgb(var(--x) / <alpha-value>) para que los
+// modificadores de opacidad de Tailwind (p. ej. bg-navy-deep/95) sigan funcionando.
+const themed = (name) => `rgb(var(--${name}) / <alpha-value>)`
+
 export default {
+  darkMode: ['selector', '[data-theme="dark"]'],
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors: {
-        'navy-deep': '#0D1B2A',
-        'navy-mid': '#1A2E45',
-        'navy-light': '#243B55',
-        'sg-gold': '#B8923A',
-        'sg-gold-light': '#D4AF62',
-        'sg-gold-bright': '#E8C87A',
-        'parchment': '#F5EFE0',
-        'warm-white': '#E8E2D4',
-        'bg-base': '#FFFFFF',
+        // Superficies (fondo de página → tarjetas → elevado). Se invierten en claro.
+        'navy-deep': themed('navy-deep'),
+        'navy-mid': themed('navy-mid'),
+        'navy-light': themed('navy-light'),
+        // Texto (primario / secundario). Se invierten en claro.
+        'parchment': themed('parchment'),
+        'warm-white': themed('warm-white'),
+        // Acento de marca (dorado). Se mantiene dorado en ambos temas (más profundo en claro).
+        'sg-gold': themed('sg-gold'),
+        'sg-gold-light': themed('sg-gold-light'),
+        'sg-gold-bright': themed('sg-gold-bright'),
+        // "Tinta" constante: texto oscuro sobre superficies doradas/claras (igual en ambos temas).
+        'ink': themed('ink'),
         // legacy aliases kept for backward-compat with existing components
-        'bg-surface': '#FDFBF7',
-        'bg-elevated': '#F5F2EB',
-        'gold-main': '#B8923A',
-        'gold-bright': '#D4AF62',
-        'gold-dim': 'rgba(184, 146, 58, 0.08)',
+        'bg-base': themed('navy-deep'),
+        'bg-surface': themed('navy-mid'),
+        'bg-elevated': themed('navy-light'),
+        'gold-main': themed('sg-gold'),
+        'gold-bright': themed('sg-gold-light'),
+        'gold-dim': 'rgb(var(--sg-gold) / 0.08)',
+        // constante (texto oscuro sobre azul claro / degradado oscuro fijo)
         'blue-accent': '#1A2E45',
-        'text-main': '#2C363F',
-        'text-muted': '#718096',
+        'text-main': themed('parchment'),
+        'text-muted': themed('text-muted'),
       },
       fontFamily: {
         display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
@@ -30,6 +44,11 @@ export default {
         // legacy aliases
         title: ['"Cormorant Garamond"', 'Georgia', 'serif'],
         reading: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+      },
+      boxShadow: {
+        card: '0 1px 3px rgb(var(--shadow) / 0.35), 0 10px 30px -14px rgb(var(--shadow) / 0.45)',
+        'card-hover': '0 6px 16px rgb(var(--shadow) / 0.4), 0 20px 44px -18px rgb(var(--shadow) / 0.55)',
+        player: '0 -10px 44px -14px rgb(var(--shadow) / 0.55)',
       },
     },
   },

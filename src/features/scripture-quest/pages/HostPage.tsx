@@ -247,7 +247,7 @@ export default function HostPage() {
                               .then(() => addToast('Enlace de la TV copiado.', 'success'))
                               .catch(() => addToast(tvUrl, 'info'))
                           }}
-                          className="mt-2 rounded-lg border border-sg-gold px-3 py-1.5 font-ui text-[11px] font-bold uppercase tracking-wide text-sg-gold-bright transition hover:bg-sg-gold hover:text-navy-deep"
+                          className="mt-2 rounded-lg border border-sg-gold px-3 py-1.5 font-ui text-[11px] font-bold uppercase tracking-wide text-sg-gold-bright transition hover:bg-sg-gold hover:text-ink"
                         >
                           Copiar enlace
                         </button>

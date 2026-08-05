@@ -45,8 +45,8 @@ export const ANNOUNCEMENT_TYPE_LABELS: Record<AnnouncementType, string> = {
 }
 
 export const ANNOUNCEMENT_TYPE_COLORS: Record<AnnouncementType, string> = {
-  announcement: 'bg-sg-gold text-navy-deep',
-  update: 'bg-sg-gold-light text-navy-deep',
+  announcement: 'bg-sg-gold text-ink',
+  update: 'bg-sg-gold-light text-ink',
   new_content: 'bg-emerald-600 text-white',
 }
 

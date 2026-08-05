@@ -73,7 +73,7 @@ export function MessageForm({ onSubmit }: MessageFormProps) {
               className={[
                 'rounded-full border px-3.5 py-1.5 font-ui text-sm font-medium transition',
                 t === type
-                  ? 'border-sg-gold bg-sg-gold text-navy-deep shadow-sm'
+                  ? 'border-sg-gold bg-sg-gold text-ink shadow-sm'
                   : 'border-sg-gold/20 bg-navy-deep/40 text-parchment/75 hover:border-sg-gold/50 hover:bg-sg-gold/5',
               ].join(' ')}
             >
@@ -159,7 +159,7 @@ export function MessageForm({ onSubmit }: MessageFormProps) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-lg border border-sg-gold bg-sg-gold px-4 py-2.5 font-ui text-sm font-semibold text-navy-deep shadow-sm transition hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sg-gold disabled:cursor-not-allowed disabled:opacity-50"
+        className="w-full rounded-lg border border-sg-gold bg-sg-gold px-4 py-2.5 font-ui text-sm font-semibold text-ink shadow-sm transition hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sg-gold disabled:cursor-not-allowed disabled:opacity-50"
       >
         {loading ? (
           <span className="inline-flex items-center justify-center gap-2">

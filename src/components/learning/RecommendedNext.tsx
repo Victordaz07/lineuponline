@@ -43,7 +43,7 @@ export function RecommendedNext({ moduleId, lessonId, title, moduleTitle, icon, 
       </div>
       <Link
         to={`/lesson/${moduleId}/${lessonId}`}
-        className="mt-5 inline-flex items-center gap-2 rounded-lg bg-sg-gold px-5 py-2.5 font-ui text-sm font-semibold text-navy-deep transition hover:brightness-95"
+        className="mt-5 inline-flex items-center gap-2 rounded-lg bg-sg-gold px-5 py-2.5 font-ui text-sm font-semibold text-ink transition hover:brightness-95"
       >
         Continuar estudio →
       </Link>

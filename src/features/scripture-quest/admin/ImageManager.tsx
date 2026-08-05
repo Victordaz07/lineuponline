@@ -182,7 +182,7 @@ function NewQuestionForm({ onCreated }: { onCreated: () => void }) {
         <button
           onClick={handleSave}
           disabled={saving || !form.answer.trim()}
-          className="rounded-xl bg-sg-gold px-5 py-2 font-ui text-xs font-semibold text-navy-deep transition hover:bg-sg-gold-light disabled:opacity-40"
+          className="rounded-xl bg-sg-gold px-5 py-2 font-ui text-xs font-semibold text-ink transition hover:bg-sg-gold-light disabled:opacity-40"
         >
           {saving ? 'Guardando…' : 'Crear pregunta'}
         </button>
@@ -404,7 +404,7 @@ export function ImageManager() {
           <button
             onClick={handleSeed}
             disabled={seeding}
-            className="rounded-xl bg-sg-gold px-5 py-2.5 font-ui text-sm font-semibold text-navy-deep transition hover:bg-sg-gold-light disabled:opacity-40"
+            className="rounded-xl bg-sg-gold px-5 py-2.5 font-ui text-sm font-semibold text-ink transition hover:bg-sg-gold-light disabled:opacity-40"
           >
             {seeding ? 'Inicializando…' : '📋 Inicializar banco (36 preguntas)'}
           </button>
@@ -421,7 +421,7 @@ export function ImageManager() {
               onClick={() => setFilter((f) => ({ ...f, type: t }))}
               className={`rounded-full px-3 py-1 font-ui text-xs transition ${
                 filter.type === t
-                  ? 'bg-sg-gold text-navy-deep font-semibold'
+                  ? 'bg-sg-gold text-ink font-semibold'
                   : 'border border-sg-gold/20 text-parchment/50 hover:text-parchment'
               }`}
             >
@@ -435,7 +435,7 @@ export function ImageManager() {
               onClick={() => setFilter((f) => ({ ...f, status: s }))}
               className={`rounded-full px-3 py-1 font-ui text-xs transition ${
                 filter.status === s
-                  ? 'bg-sg-gold text-navy-deep font-semibold'
+                  ? 'bg-sg-gold text-ink font-semibold'
                   : 'border border-sg-gold/20 text-parchment/50 hover:text-parchment'
               }`}
             >

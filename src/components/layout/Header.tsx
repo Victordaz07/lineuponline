@@ -3,8 +3,41 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 import { useAdmin } from '@/hooks/useAdmin'
 import { signOut } from '@/services/authService'
-import { usePreferencesStore, type FontSize } from '@/stores/preferencesStore'
+import { usePreferencesStore, resolveTheme, type FontSize, type ThemeMode } from '@/stores/preferencesStore'
 import { SeekerLogo } from '@/components/common/SeekerLogo'
+
+const THEME_OPTIONS: { value: ThemeMode; label: string; icon: string }[] = [
+  { value: 'light', label: 'Claro', icon: '☀️' },
+  { value: 'system', label: 'Auto', icon: '💻' },
+  { value: 'dark', label: 'Oscuro', icon: '🌙' },
+]
+
+function ThemeToggle() {
+  const theme = usePreferencesStore((s) => s.theme)
+  const setTheme = usePreferencesStore((s) => s.setTheme)
+  const resolved = resolveTheme(theme)
+  const goingLight = resolved === 'dark'
+  return (
+    <button
+      type="button"
+      onClick={() => setTheme(goingLight ? 'light' : 'dark')}
+      aria-label={goingLight ? 'Activar modo claro' : 'Activar modo oscuro'}
+      title={goingLight ? 'Modo claro' : 'Modo oscuro'}
+      className="flex h-8 w-8 items-center justify-center rounded-full text-sg-gold-light transition hover:bg-navy-mid active:scale-95"
+    >
+      {goingLight ? (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+        </svg>
+      ) : (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+        </svg>
+      )}
+    </button>
+  )
+}
 
 function BackButton() {
   const navigate = useNavigate()
@@ -45,6 +78,8 @@ function UserMenu() {
 
   const fontSize = usePreferencesStore((s) => s.fontSize)
   const setFontSize = usePreferencesStore((s) => s.setFontSize)
+  const theme = usePreferencesStore((s) => s.theme)
+  const setTheme = usePreferencesStore((s) => s.setTheme)
 
   const initial =
     user?.displayName?.[0]?.toUpperCase() ??
@@ -104,7 +139,7 @@ function UserMenu() {
         aria-label="Mi cuenta"
         aria-expanded={open}
         aria-haspopup="menu"
-        className="flex h-8 w-8 items-center justify-center rounded-full bg-sg-gold font-ui text-sm font-bold text-navy-deep shadow-sm transition hover:brightness-90 focus-visible:ring-2 focus-visible:ring-sg-gold focus-visible:ring-offset-2"
+        className="flex h-8 w-8 items-center justify-center rounded-full bg-sg-gold font-ui text-sm font-bold text-ink shadow-sm transition hover:brightness-90 focus-visible:ring-2 focus-visible:ring-sg-gold focus-visible:ring-offset-2"
       >
         {user?.photoURL ? (
           <img src={user.photoURL} alt={displayName} className="h-8 w-8 rounded-full object-cover" referrerPolicy="no-referrer" />
@@ -116,7 +151,7 @@ function UserMenu() {
       {open && (
         <div className="absolute right-0 top-10 z-50 w-64 overflow-hidden rounded-2xl border border-sg-gold/15 bg-navy-mid shadow-xl">
           <div className="flex items-center gap-3 border-b border-sg-gold/15 bg-navy-deep px-4 py-3.5">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sg-gold font-ui text-base font-bold text-navy-deep shadow-sm">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sg-gold font-ui text-base font-bold text-ink shadow-sm">
               {user?.photoURL ? (
                 <img src={user.photoURL} alt={displayName} className="h-10 w-10 rounded-full object-cover" referrerPolicy="no-referrer" />
               ) : (
@@ -213,10 +248,35 @@ function UserMenu() {
                   onClick={() => setFontSize(value)}
                   className={`flex-1 rounded-lg border py-1.5 font-ui font-semibold transition ${
                     fontSize === value
-                      ? 'border-sg-gold bg-sg-gold text-navy-deep'
+                      ? 'border-sg-gold bg-sg-gold text-ink'
                       : 'border-sg-gold/20 text-parchment/65 hover:border-sg-gold/40 hover:bg-navy-deep/40'
                   } ${value === 'sm' ? 'text-xs' : value === 'lg' ? 'text-base' : 'text-sm'}`}
                 >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="border-b border-sg-gold/15 px-4 py-3">
+            <p className="mb-2 font-ui text-[10px] font-semibold uppercase tracking-widest text-parchment/50">
+              Apariencia
+            </p>
+            <div className="flex gap-1.5">
+              {THEME_OPTIONS.map(({ value, label, icon }) => (
+                <button
+                  key={value}
+                  type="button"
+                  aria-label={`Tema ${label}`}
+                  aria-pressed={theme === value}
+                  onClick={() => setTheme(value)}
+                  className={`flex flex-1 flex-col items-center gap-0.5 rounded-lg border py-1.5 font-ui text-[11px] font-semibold transition ${
+                    theme === value
+                      ? 'border-sg-gold bg-sg-gold text-ink'
+                      : 'border-sg-gold/20 text-parchment/65 hover:border-sg-gold/40 hover:bg-navy-deep/40'
+                  }`}
+                >
+                  <span className="text-sm" aria-hidden="true">{icon}</span>
                   {label}
                 </button>
               ))}
@@ -253,12 +313,13 @@ export function Header() {
             <p className="font-ui text-[9px] font-medium uppercase tracking-[0.18em] leading-none text-sg-gold">
               Deep Gospel Study
             </p>
-            <span className="font-display text-[19px] font-semibold leading-tight text-parchment" style={{ color: '#F5EFE0' }}>
+            <span className="font-display text-[19px] font-semibold leading-tight text-parchment">
               Seeker Gospel
             </span>
           </div>
         </Link>
-        <div className="ml-auto">
+        <div className="ml-auto flex items-center gap-1">
+          <ThemeToggle />
           <UserMenu />
         </div>
       </div>

@@ -105,18 +105,39 @@ export function FullPlayer() {
 
       {/* Controles */}
       <div className="flex items-center gap-8">
-        <button onClick={prev} className="text-2xl text-parchment" aria-label="Anterior">
-          ⏮
+        <button
+          onClick={prev}
+          className="flex h-12 w-12 items-center justify-center rounded-full text-parchment/80 transition hover:bg-navy-mid hover:text-parchment active:scale-95"
+          aria-label="Anterior"
+        >
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M7 6a1 1 0 0 1 2 0v4.7l8.5-5.1A1 1 0 0 1 19 6.5v11a1 1 0 0 1-1.5.9L9 13.3V18a1 1 0 1 1-2 0V6z" />
+          </svg>
         </button>
         <button
           onClick={togglePlay}
-          className="flex h-16 w-16 items-center justify-center rounded-full bg-sg-gold text-2xl text-navy-deep"
+          className="flex h-16 w-16 items-center justify-center rounded-full bg-sg-gold text-ink shadow-xl transition hover:brightness-105 active:scale-95"
           aria-label={isPlaying ? 'Pausar' : 'Reproducir'}
         >
-          {isPlaying ? '❚❚' : '▶'}
+          {isPlaying ? (
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <rect x="6" y="5" width="4" height="14" rx="1" />
+              <rect x="14" y="5" width="4" height="14" rx="1" />
+            </svg>
+          ) : (
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ marginLeft: 2 }}>
+              <path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.29-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z" />
+            </svg>
+          )}
         </button>
-        <button onClick={next} className="text-2xl text-parchment" aria-label="Siguiente">
-          ⏭
+        <button
+          onClick={next}
+          className="flex h-12 w-12 items-center justify-center rounded-full text-parchment/80 transition hover:bg-navy-mid hover:text-parchment active:scale-95"
+          aria-label="Siguiente"
+        >
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17 6a1 1 0 0 0-2 0v4.7L6.5 5.6A1 1 0 0 0 5 6.5v11a1 1 0 0 0 1.5.9L15 13.3V18a1 1 0 0 0 2 0V6z" />
+          </svg>
         </button>
       </div>
 

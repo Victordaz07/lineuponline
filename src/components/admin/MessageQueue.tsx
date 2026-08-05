@@ -44,7 +44,7 @@ function FilterButton({ active, onClick, children }: FilterButtonProps) {
       className={`rounded-full border px-3 py-1 font-ui text-xs font-semibold transition
         ${
           active
-            ? 'border-sg-gold bg-sg-gold text-navy-deep'
+            ? 'border-sg-gold bg-sg-gold text-ink'
             : 'border-sg-gold/20 bg-transparent text-parchment/55 hover:border-sg-gold/50 hover:text-parchment/80'
         }`}
     >
@@ -178,7 +178,7 @@ function MessageCard({ message }: MessageCardProps) {
             type="button"
             onClick={handleReply}
             disabled={sending || !replyText.trim()}
-            className="rounded-lg border border-sg-gold bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-navy-deep shadow-sm transition hover:brightness-95 disabled:opacity-50"
+            className="rounded-lg border border-sg-gold bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-ink shadow-sm transition hover:brightness-95 disabled:opacity-50"
           >
             {sending ? 'Enviando…' : 'Enviar respuesta'}
           </button>

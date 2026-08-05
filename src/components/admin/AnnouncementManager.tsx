@@ -123,7 +123,7 @@ function NewAnnouncementForm({ onClose }: NewAnnouncementFormProps) {
         <button
           type="submit"
           disabled={submitting || !title.trim() || !content.trim()}
-          className="rounded-lg border border-sg-gold bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-navy-deep shadow-sm transition hover:brightness-95 disabled:opacity-50"
+          className="rounded-lg border border-sg-gold bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-ink shadow-sm transition hover:brightness-95 disabled:opacity-50"
         >
           {submitting ? 'Publicando…' : 'Publicar anuncio'}
         </button>
@@ -238,7 +238,7 @@ export function AnnouncementManager() {
           <button
             type="button"
             onClick={() => setShowForm(true)}
-            className="rounded-lg border border-sg-gold bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-navy-deep shadow-sm transition hover:brightness-95"
+            className="rounded-lg border border-sg-gold bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-ink shadow-sm transition hover:brightness-95"
           >
             + Nuevo anuncio
           </button>

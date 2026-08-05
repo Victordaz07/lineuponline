@@ -101,7 +101,7 @@ export default function ModuleView() {
             type="button"
             onClick={() => setLevelFilter('ALL')}
             className={`rounded-full px-3 py-1 font-ui text-xs font-semibold transition ${
-              levelFilter === 'ALL' ? 'bg-sg-gold text-navy-deep' : 'border border-sg-gold/20 bg-transparent text-parchment/60 hover:border-sg-gold/40'
+              levelFilter === 'ALL' ? 'bg-sg-gold text-ink' : 'border border-sg-gold/20 bg-transparent text-parchment/60 hover:border-sg-gold/40'
             }`}
           >
             Todos
@@ -112,7 +112,7 @@ export default function ModuleView() {
               type="button"
               onClick={() => setLevelFilter(lvl)}
               className={`rounded-full px-3 py-1 font-ui text-xs font-semibold transition ${
-                levelFilter === lvl ? 'bg-sg-gold text-navy-deep' : 'border border-sg-gold/30 bg-transparent text-parchment/60 hover:border-sg-gold/50'
+                levelFilter === lvl ? 'bg-sg-gold text-ink' : 'border border-sg-gold/30 bg-transparent text-parchment/60 hover:border-sg-gold/50'
               }`}
             >
               {LEVEL_LABEL[lvl]}

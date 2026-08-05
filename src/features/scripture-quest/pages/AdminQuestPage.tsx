@@ -121,7 +121,7 @@ export default function AdminQuestPage() {
           </h2>
           <a
             href="/admin/scripture-quest/contenido"
-            className="rounded-xl border border-sg-gold px-4 py-2.5 font-ui text-xs font-bold uppercase tracking-wide text-sg-gold-bright transition hover:bg-sg-gold hover:text-navy-deep"
+            className="rounded-xl border border-sg-gold px-4 py-2.5 font-ui text-xs font-bold uppercase tracking-wide text-sg-gold-bright transition hover:bg-sg-gold hover:text-ink"
           >
             🖼️🎵 Imágenes y música (Suno)
           </a>
@@ -134,7 +134,7 @@ export default function AdminQuestPage() {
                 addToast(`Banco local sembrado: ${n} preguntas aprobadas.`, 'success')
               })
             }
-            className="rounded-xl border border-sg-gold px-4 py-2.5 font-ui text-xs font-bold uppercase tracking-wide text-sg-gold-bright transition hover:bg-sg-gold hover:text-navy-deep disabled:opacity-40"
+            className="rounded-xl border border-sg-gold px-4 py-2.5 font-ui text-xs font-bold uppercase tracking-wide text-sg-gold-bright transition hover:bg-sg-gold hover:text-ink disabled:opacity-40"
           >
             {busy === 'sembrar' ? 'Sembrando…' : 'Sembrar banco local en Firestore'}
           </button>
@@ -204,7 +204,7 @@ export default function AdminQuestPage() {
                   addToast(`${n} borradores generados para revisión.`, 'success')
                 })
               }
-              className="rounded-xl bg-sg-gold px-4 py-2 font-ui text-xs font-bold uppercase tracking-wide text-navy-deep hover:bg-sg-gold-light disabled:opacity-40"
+              className="rounded-xl bg-sg-gold px-4 py-2 font-ui text-xs font-bold uppercase tracking-wide text-ink hover:bg-sg-gold-light disabled:opacity-40"
             >
               {busy === 'generar' ? 'Generando…' : 'Generar más'}
             </button>
@@ -237,7 +237,7 @@ export default function AdminQuestPage() {
                 <option key={l} value={l}>Nivel {l}</option>
               ))}
             </select>
-            <input type="file" accept="image/*" onChange={(e) => setImgFile(e.target.files?.[0] ?? null)} className="font-ui text-sm text-warm-white file:mr-3 file:rounded-lg file:border-0 file:bg-sg-gold file:px-3 file:py-1.5 file:font-bold file:text-navy-deep" />
+            <input type="file" accept="image/*" onChange={(e) => setImgFile(e.target.files?.[0] ?? null)} className="font-ui text-sm text-warm-white file:mr-3 file:rounded-lg file:border-0 file:bg-sg-gold file:px-3 file:py-1.5 file:font-bold file:text-ink" />
             <input type="text" value={imgAnswer} onChange={(e) => setImgAnswer(e.target.value)} placeholder="Respuesta correcta" className="rounded-xl border border-navy-light bg-navy-light/50 px-3 py-2 font-ui text-sm text-warm-white placeholder:text-warm-white/40" />
             <input type="text" value={imgVariants} onChange={(e) => setImgVariants(e.target.value)} placeholder="Variantes aceptadas (coma)" className="rounded-xl border border-navy-light bg-navy-light/50 px-3 py-2 font-ui text-sm text-warm-white placeholder:text-warm-white/40" />
             <input type="text" value={imgHint} onChange={(e) => setImgHint(e.target.value)} placeholder={imgKind === 'image_guess' ? 'Pista (a los 15 s)' : 'Instrucciones para el actor'} className="rounded-xl border border-navy-light bg-navy-light/50 px-3 py-2 font-ui text-sm text-warm-white placeholder:text-warm-white/40" />
@@ -266,7 +266,7 @@ export default function AdminQuestPage() {
                 addToast('Pregunta con imagen creada como borrador.', 'success')
               })
             }
-            className="rounded-xl bg-sg-gold px-4 py-2 font-ui text-xs font-bold uppercase tracking-wide text-navy-deep hover:bg-sg-gold-light disabled:opacity-40"
+            className="rounded-xl bg-sg-gold px-4 py-2 font-ui text-xs font-bold uppercase tracking-wide text-ink hover:bg-sg-gold-light disabled:opacity-40"
           >
             {busy === 'imagen' ? 'Subiendo…' : 'Crear borrador con imagen'}
           </button>

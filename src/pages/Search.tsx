@@ -66,7 +66,7 @@ export default function Search() {
         />
         <button
           type="submit"
-          className="rounded-xl bg-sg-gold px-5 py-3 font-ui text-sm font-semibold text-navy-deep shadow-sm hover:brightness-95"
+          className="rounded-xl bg-sg-gold px-5 py-3 font-ui text-sm font-semibold text-ink shadow-sm hover:brightness-95"
         >
           Buscar
         </button>

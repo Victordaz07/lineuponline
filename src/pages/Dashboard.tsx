@@ -119,7 +119,7 @@ export default function Dashboard() {
           {completedCount === 0 ? (
             <Link
               to="/lesson/doctrina-fundamental/santa-cena"
-              className="flex items-center gap-2 rounded-lg bg-sg-gold px-4 py-2.5 font-ui text-sm font-semibold text-navy-deep shadow-sm transition hover:brightness-95"
+              className="flex items-center gap-2 rounded-lg bg-sg-gold px-4 py-2.5 font-ui text-sm font-semibold text-ink shadow-sm transition hover:brightness-95"
             >
               🏁 Empezar desde el principio
             </Link>
@@ -127,7 +127,7 @@ export default function Dashboard() {
             nextLessonInfo && (
               <Link
                 to={`/module/${nextLessonInfo.moduleId}`}
-                className="flex items-center gap-2 rounded-lg bg-sg-gold px-4 py-2.5 font-ui text-sm font-semibold text-navy-deep shadow-sm transition hover:brightness-95"
+                className="flex items-center gap-2 rounded-lg bg-sg-gold px-4 py-2.5 font-ui text-sm font-semibold text-ink shadow-sm transition hover:brightness-95"
               >
                 📂 Módulo actual
               </Link>

@@ -229,7 +229,7 @@ export function OrderEventsRound({
           </button>
           <button
             onClick={handleConfirm}
-            className="flex-1 rounded-2xl bg-sg-gold py-2.5 font-ui text-sm font-bold text-navy-deep shadow transition hover:bg-sg-gold-light active:scale-95"
+            className="flex-1 rounded-2xl bg-sg-gold py-2.5 font-ui text-sm font-bold text-ink shadow transition hover:bg-sg-gold-light active:scale-95"
           >
             Confirmar orden
           </button>

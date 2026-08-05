@@ -32,7 +32,7 @@ export function UnderConstruction({ lessonTitle, moduleId }: UnderConstructionPr
       <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
         <Link
           to="/"
-          className="inline-block w-full rounded-md border border-sg-gold bg-sg-gold px-4 py-2.5 font-ui text-sm font-bold text-navy-deep shadow-sm transition hover:brightness-95 sm:w-auto"
+          className="inline-block w-full rounded-md border border-sg-gold bg-sg-gold px-4 py-2.5 font-ui text-sm font-bold text-ink shadow-sm transition hover:brightness-95 sm:w-auto"
         >
           Volver al inicio
         </Link>

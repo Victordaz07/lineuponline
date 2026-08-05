@@ -116,7 +116,7 @@ export function HostLobby({
               type="button"
               disabled={reshuffling}
               onClick={onReshuffleRounds}
-              className="shrink-0 rounded-xl border border-sg-gold px-4 py-2.5 font-ui text-sm font-bold uppercase tracking-wide text-sg-gold-bright transition hover:bg-sg-gold hover:text-navy-deep disabled:opacity-40"
+              className="shrink-0 rounded-xl border border-sg-gold px-4 py-2.5 font-ui text-sm font-bold uppercase tracking-wide text-sg-gold-bright transition hover:bg-sg-gold hover:text-ink disabled:opacity-40"
             >
               {reshuffling ? 'Sorteando…' : 'Sortear otras rondas'}
             </button>
@@ -137,7 +137,7 @@ export function HostLobby({
                 onClick={() => onSetMusic(mode)}
                 className={`rounded-xl px-4 py-2 font-ui text-sm font-bold transition ${
                   (room.musicMode ?? 'festivo') === mode
-                    ? 'bg-sg-gold text-navy-deep'
+                    ? 'bg-sg-gold text-ink'
                     : 'bg-navy-light/60 text-warm-white/70 hover:text-warm-white'
                 }`}
               >
@@ -155,7 +155,7 @@ export function HostLobby({
           type="button"
           disabled={!canStart}
           onClick={onStartGame}
-          className="w-full rounded-xl bg-sg-gold py-4 font-ui text-lg font-bold uppercase tracking-wide text-navy-deep transition hover:bg-sg-gold-light disabled:opacity-40"
+          className="w-full rounded-xl bg-sg-gold py-4 font-ui text-lg font-bold uppercase tracking-wide text-ink transition hover:bg-sg-gold-light disabled:opacity-40"
         >
           Comenzar partida
         </button>

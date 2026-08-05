@@ -51,7 +51,7 @@ export function LessonList({ lessons, moduleId }: LessonListProps) {
               {published ? (
                 <Link
                   to={`/lesson/${moduleId}/${lesson.id}`}
-                  className="rounded-lg bg-sg-gold px-3 py-1.5 font-ui text-xs font-semibold text-navy-deep shadow-sm transition hover:brightness-95"
+                  className="rounded-lg bg-sg-gold px-3 py-1.5 font-ui text-xs font-semibold text-ink shadow-sm transition hover:brightness-95"
                 >
                   Abrir
                 </Link>

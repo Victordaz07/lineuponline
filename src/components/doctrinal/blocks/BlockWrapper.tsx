@@ -95,7 +95,7 @@ export function BlockWrapper({ children, blockKey, lessonId, topicId, blockType 
                   }}
                 />
                 <div className="flex items-center gap-2">
-                  <button type="button" onClick={commitEdit} className="rounded-lg bg-sg-gold px-3 py-1 font-ui text-xs font-semibold text-navy-deep">
+                  <button type="button" onClick={commitEdit} className="rounded-lg bg-sg-gold px-3 py-1 font-ui text-xs font-semibold text-ink">
                     Guardar
                   </button>
                   <button type="button" onClick={() => { setEditingId(null); setEditDraft('') }} className="font-ui text-xs text-parchment/55">
@@ -139,7 +139,7 @@ export function BlockWrapper({ children, blockKey, lessonId, topicId, blockType 
             }}
           />
           <div className="flex items-center gap-2">
-            <button type="button" onClick={handleSave} className="rounded-lg bg-sg-gold px-4 py-1.5 font-ui text-xs font-semibold text-navy-deep shadow-sm hover:brightness-95">
+            <button type="button" onClick={handleSave} className="rounded-lg bg-sg-gold px-4 py-1.5 font-ui text-xs font-semibold text-ink shadow-sm hover:brightness-95">
               Guardar nota
             </button>
             <button type="button" onClick={() => { setShowInput(false); setDraft('') }} className="font-ui text-xs text-parchment/55">

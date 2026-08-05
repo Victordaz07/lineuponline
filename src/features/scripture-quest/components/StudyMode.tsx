@@ -176,7 +176,7 @@ export function StudyMode({ questions, studiedIds, onStudied }: Props) {
                   <button
                     type="button"
                     onClick={() => onStudied(q)}
-                    className="w-full rounded-xl bg-sg-gold py-3 font-ui text-sm font-bold uppercase tracking-wide text-navy-deep transition hover:bg-sg-gold-light"
+                    className="w-full rounded-xl bg-sg-gold py-3 font-ui text-sm font-bold uppercase tracking-wide text-ink transition hover:bg-sg-gold-light"
                   >
                     Marcar como repasada ✓
                   </button>

@@ -195,7 +195,7 @@ export function DayDetail({ date }: DayDetailProps) {
           />
           <button
             type="submit"
-            className="rounded-lg border border-sg-gold bg-sg-gold px-3 py-2 font-ui text-xs font-semibold text-navy-deep transition hover:brightness-95"
+            className="rounded-lg border border-sg-gold bg-sg-gold px-3 py-2 font-ui text-xs font-semibold text-ink transition hover:brightness-95"
           >
             Agregar
           </button>
@@ -210,7 +210,7 @@ export function DayDetail({ date }: DayDetailProps) {
           <button
             type="button"
             onClick={handlePauseOrStart}
-            className="rounded-lg border border-sg-gold bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-navy-deep transition hover:brightness-95"
+            className="rounded-lg border border-sg-gold bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-ink transition hover:brightness-95"
           >
             {running ? 'Pausar' : seconds > 0 ? 'Continuar' : 'Iniciar'}
           </button>
