@@ -9,14 +9,13 @@ import { QuickFacts } from '@/components/doctrinal/QuickFacts'
 import { ScriptureBlock } from '@/components/doctrinal/ScriptureBlock'
 import { RelatedLessons } from '@/components/doctrinal/RelatedLessons'
 import { StudyJournal } from '@/components/doctrinal/StudyJournal'
-import { LessonAudioPlayer } from '@/components/doctrinal/LessonAudioPlayer'
+import { LessonPodcastPlayer } from '@/components/doctrinal/LessonPodcastPlayer'
 import { LessonSectionHeader } from '@/components/doctrinal/LessonSectionHeader'
 import { LessonSectionNav } from '@/components/doctrinal/LessonSectionNav'
 import { LessonTopicCard } from '@/components/doctrinal/LessonTopicCard'
 import {
   allTopicQuizzesCompleted,
   countTopicsInSections,
-  paragraphsForSectionTts,
   topicHasQuiz,
 } from '@/lib/lessonRichUtils'
 import { splitPlainParagraphs } from '@/lib/utils'
@@ -53,7 +52,6 @@ export function LessonContentView({
   const [showNotes, setShowNotes] = useState(false)
   const [journalOpen, setJournalOpen] = useState(false)
   const [activeSectionId, setActiveSectionId] = useState<string>('')
-  const [activeParagraphId, setActiveParagraphId] = useState<string | null>(null)
 
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({})
 
@@ -64,14 +62,7 @@ export function LessonContentView({
   const studyParagraphs = useMemo(() => splitPlainParagraphs(lesson.studyBodyPlain), [lesson.studyBodyPlain])
   const originalParagraphs = useMemo(() => splitPlainParagraphs(lesson.originalBodyPlain), [lesson.originalBodyPlain])
 
-  const ttsText =
-    tab === 'study' ? lesson.studyBodyPlain : lesson.originalBodyPlain
   const displayParagraphs = tab === 'study' ? studyParagraphs : originalParagraphs
-
-  const ttsAllParagraphs = useMemo(
-    () => sections.flatMap((sec) => paragraphsForSectionTts(sec)),
-    [sections],
-  )
 
   const totalTopics = useMemo(() => countTopicsInSections(sections), [sections])
 
@@ -205,6 +196,9 @@ export function LessonContentView({
           </div>
           <LevelBadge level={lesson.level} />
         </div>
+        <div className="border-t border-sg-gold/15 pt-4">
+          <LessonPodcastPlayer lessonId={lessonId} />
+        </div>
         {isRich ? (
           <div className="flex flex-col gap-2 border-t border-sg-gold/15 pt-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3">
@@ -286,15 +280,6 @@ export function LessonContentView({
 
       <div className="space-y-3">
         <div className="flex flex-wrap items-center gap-3">
-          {tab === 'study' && isRich && ttsAllParagraphs.length > 0 ? (
-            <LessonAudioPlayer
-              text={ttsAllParagraphs.map((p) => p.text).join('\n\n')}
-              paragraphs={ttsAllParagraphs}
-              onParagraphActive={setActiveParagraphId}
-            />
-          ) : (
-            <LessonAudioPlayer text={ttsText} />
-          )}
           <button
             type="button"
             onClick={() => setShowNotes((v) => !v)}
@@ -335,7 +320,6 @@ export function LessonContentView({
                       lessonId={lessonId}
                       moduleId={moduleId}
                       topic={topic}
-                      activeParagraphId={activeParagraphId}
                       isVisited={isTopicVisited(`${lessonId}:${topic.id}`)}
                       hasQuiz={topicHasQuiz(topic)}
                       quizCompleted={allTopicQuizzesCompleted(lessonId, topic, isQuizCompleted)}
