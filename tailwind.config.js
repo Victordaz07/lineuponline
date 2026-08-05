@@ -25,6 +25,11 @@ export default {
         'sg-gold-bright': themed('sg-gold-bright'),
         // "Tinta" constante: texto oscuro sobre superficies doradas/claras (igual en ambos temas).
         'ink': themed('ink'),
+        // Acentos por categoría (temáticos: tono claro en oscuro, profundo en claro).
+        'terracotta': themed('terracotta'),
+        'jade': themed('jade'),
+        'purple': themed('purple'),
+        'info': themed('info'),
         // legacy aliases kept for backward-compat with existing components
         'bg-base': themed('navy-deep'),
         'bg-surface': themed('navy-mid'),
@@ -38,12 +43,12 @@ export default {
         'text-muted': themed('text-muted'),
       },
       fontFamily: {
-        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        display: ['Lora', 'Georgia', 'serif'],
         ui: ['Inter', 'system-ui', 'sans-serif'],
         ceremonial: ['Cinzel', 'Georgia', 'serif'],
         // legacy aliases
-        title: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        reading: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        title: ['Lora', 'Georgia', 'serif'],
+        reading: ['Lora', 'Georgia', 'serif'],
       },
       boxShadow: {
         card: '0 1px 3px rgb(var(--shadow) / 0.35), 0 10px 30px -14px rgb(var(--shadow) / 0.45)',

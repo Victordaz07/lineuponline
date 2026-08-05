@@ -49,7 +49,10 @@ export function FullPlayer() {
   }
 
   return (
-    <div className="fixed inset-0 z-30 flex flex-col items-center justify-center bg-navy-deep px-6 py-10 font-ui">
+    <div
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center px-6 py-10 font-ui"
+      style={{ background: 'radial-gradient(circle at 50% 0%, rgb(var(--sg-gold) / 0.16), rgb(var(--navy-deep)) 60%)' }}
+    >
       <button
         onClick={closeFullPlayer}
         className="absolute left-6 top-6 flex items-center gap-1.5 text-xs uppercase tracking-widest text-parchment/60"
@@ -75,18 +78,36 @@ export function FullPlayer() {
         </button>
       )}
 
-      {/* Slot visual: si es youtube, el iframe real se acopla aquí encima */}
+      {/* Funda + disco: si es youtube, el iframe real se acopla encima */}
       <div
         ref={videoSlotRef}
-        className="relative mb-8 aspect-square w-full max-w-sm overflow-hidden rounded-2xl bg-navy-mid shadow-2xl"
+        className="vinyl-sleeve relative mb-8 flex aspect-square w-full max-w-[17rem] items-center justify-center overflow-hidden rounded-[22px] shadow-2xl ring-1 ring-sg-gold/25"
       >
         {!isYoutube && (
-          <img src={currentTrack.coverUrl} alt={currentTrack.title} className="h-full w-full object-cover" />
+          <div
+            className="vinyl-disc flex items-center justify-center rounded-full border-[3px] border-sg-gold/45 shadow-2xl"
+            style={{
+              width: '62%',
+              height: '62%',
+              animation: 'spinVinyl 4s linear infinite',
+              animationPlayState: isPlaying ? 'running' : 'paused',
+            }}
+          >
+            {currentTrack.coverUrl ? (
+              <img
+                src={currentTrack.coverUrl}
+                alt={currentTrack.title}
+                className="h-[38%] w-[38%] rounded-full border border-sg-gold/40 object-cover"
+              />
+            ) : (
+              <span className="text-3xl" aria-hidden="true">🎙️</span>
+            )}
+          </div>
         )}
       </div>
 
-      <h1 className="mb-1 text-center font-display text-3xl text-parchment">{currentTrack.title}</h1>
-      <p className="mb-8 text-sm text-sg-gold">{currentTrack.subtitle}</p>
+      <h1 className="mb-1 text-center font-display text-3xl font-semibold text-parchment">{currentTrack.title}</h1>
+      <p className="mb-8 text-sm font-semibold text-sg-gold">{currentTrack.subtitle}</p>
 
       {/* Scrubber */}
       <input

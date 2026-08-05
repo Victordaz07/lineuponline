@@ -77,17 +77,16 @@ export function MiniPlayer() {
         >
           <div
             ref={videoSlotRef}
-            className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-navy-light shadow-md ring-1 ring-sg-gold/20"
+            className="vinyl-sleeve relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl shadow-md ring-1 ring-sg-gold/25"
           >
             {!isYoutube && (
-              <img src={currentTrack.coverUrl} alt="" className="h-full w-full object-cover" />
-            )}
-            {isPlaying && (
-              <span className="pointer-events-none absolute inset-0 flex items-end justify-center gap-0.5 bg-navy-deep/30 pb-1">
-                <span className="h-2 w-0.5 animate-[eq_0.9s_ease-in-out_infinite] rounded-full bg-sg-gold-bright" />
-                <span className="h-3 w-0.5 animate-[eq_0.9s_ease-in-out_infinite_0.2s] rounded-full bg-sg-gold-bright" />
-                <span className="h-1.5 w-0.5 animate-[eq_0.9s_ease-in-out_infinite_0.4s] rounded-full bg-sg-gold-bright" />
-              </span>
+              <div
+                className="vinyl-disc h-7 w-7 rounded-full border border-sg-gold/50 shadow-inner"
+                style={{
+                  animation: 'spinVinyl 3.2s linear infinite',
+                  animationPlayState: isPlaying ? 'running' : 'paused',
+                }}
+              />
             )}
           </div>
           <div className="min-w-0 flex-1">
@@ -98,6 +97,15 @@ export function MiniPlayer() {
             </p>
           </div>
         </div>
+
+        {/* Ecualizador (indica reproducción) */}
+        {isPlaying && (
+          <div className="flex h-4 shrink-0 items-end gap-0.5" aria-hidden="true">
+            <span className="h-2 w-0.5 origin-bottom animate-[eq_0.9s_ease-in-out_infinite] rounded-full bg-sg-gold-light" />
+            <span className="h-3.5 w-0.5 origin-bottom animate-[eq_0.9s_ease-in-out_infinite_0.2s] rounded-full bg-sg-gold-light" />
+            <span className="h-2.5 w-0.5 origin-bottom animate-[eq_0.9s_ease-in-out_infinite_0.4s] rounded-full bg-sg-gold-light" />
+          </div>
+        )}
 
         {/* Controles */}
         <div className="flex shrink-0 items-center gap-1">
