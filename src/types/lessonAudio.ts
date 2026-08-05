@@ -33,3 +33,11 @@ export type LessonAudioDoc = {
   lessonId: string
   slots: Partial<Record<LessonAudioSlotKey, LessonAudioSlot>>
 }
+
+/** Etiqueta legible por defecto de cada slot (se usa en el admin y como subtítulo del episodio en Música). */
+export const LESSON_AUDIO_SLOT_LABELS: Record<LessonAudioSlotKey, string> = {
+  'es-larga': 'Español · versión larga',
+  'es-corta': 'Español · versión corta',
+  'en-larga': 'English · long version',
+  'en-corta': 'English · short version',
+}

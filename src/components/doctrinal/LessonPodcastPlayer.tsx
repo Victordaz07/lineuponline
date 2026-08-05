@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useAdmin } from '@/hooks/useAdmin'
 import { isFirebaseConfigured } from '@/lib/firebase'
+import { usePlayerStore } from '@/features/discography/store/usePlayerStore'
 import {
+  buildPodcastTrack,
   deleteLessonAudioSlot,
   saveLessonAudioFile,
   saveLessonAudioYoutube,
@@ -9,6 +11,7 @@ import {
 } from '@/services/lessonAudio.service'
 import {
   LESSON_AUDIO_SLOT_KEYS,
+  LESSON_AUDIO_SLOT_LABELS,
   type LessonAudioDoc,
   type LessonAudioLanguage,
   type LessonAudioLength,
@@ -17,26 +20,25 @@ import {
 
 export type LessonPodcastPlayerProps = {
   lessonId: string
-}
-
-const SLOT_LABELS: Record<LessonAudioSlotKey, string> = {
-  'es-larga': 'Español · versión larga',
-  'es-corta': 'Español · versión corta',
-  'en-larga': 'English · long version',
-  'en-corta': 'English · short version',
+  lessonTitle: string
 }
 
 function slotKey(language: LessonAudioLanguage, length: LessonAudioLength): LessonAudioSlotKey {
   return `${language}-${length}`
 }
 
-export function LessonPodcastPlayer({ lessonId }: LessonPodcastPlayerProps) {
+export function LessonPodcastPlayer({ lessonId, lessonTitle }: LessonPodcastPlayerProps) {
   const { isAdmin } = useAdmin()
   const [audio, setAudio] = useState<LessonAudioDoc | null>(null)
   const [expanded, setExpanded] = useState(false)
   const [editorOpen, setEditorOpen] = useState(false)
   const [language, setLanguage] = useState<LessonAudioLanguage>('es')
   const [length, setLength] = useState<LessonAudioLength>('larga')
+
+  const currentTrack = usePlayerStore((s) => s.currentTrack)
+  const isPlaying = usePlayerStore((s) => s.isPlaying)
+  const playTrack = usePlayerStore((s) => s.playTrack)
+  const togglePlay = usePlayerStore((s) => s.togglePlay)
 
   useEffect(() => {
     if (!isFirebaseConfigured()) {
@@ -53,6 +55,11 @@ export function LessonPodcastPlayer({ lessonId }: LessonPodcastPlayerProps) {
     [slots],
   )
   const hasAnyAudio = configuredKeys.length > 0
+
+  const queueTracks = useMemo(
+    () => configuredKeys.map((key) => buildPodcastTrack(lessonId, lessonTitle, key, slots[key]!)),
+    [configuredKeys, lessonId, lessonTitle, slots],
+  )
 
   const availableLanguages = useMemo(() => {
     const langs = new Set<LessonAudioLanguage>()
@@ -79,7 +86,19 @@ export function LessonPodcastPlayer({ lessonId }: LessonPodcastPlayerProps) {
     ? length
     : ((availableLengths.values().next().value as LessonAudioLength | undefined) ?? length)
 
-  const activeSlot = slots[slotKey(effectiveLanguage, effectiveLength)]
+  const activeKey = slotKey(effectiveLanguage, effectiveLength)
+  const activeSlot = slots[activeKey]
+  const activeTrack = activeSlot ? buildPodcastTrack(lessonId, lessonTitle, activeKey, activeSlot) : null
+  const isActiveTrackPlaying = !!activeTrack && currentTrack?.id === activeTrack.id && isPlaying
+
+  function handlePlayPause() {
+    if (!activeTrack) return
+    if (currentTrack?.id === activeTrack.id) {
+      togglePlay()
+    } else {
+      playTrack(activeTrack, queueTracks)
+    }
+  }
 
   if (!hasAnyAudio && !isAdmin) {
     return null
@@ -136,42 +155,39 @@ export function LessonPodcastPlayer({ lessonId }: LessonPodcastPlayerProps) {
             />
           </div>
 
-          <div className="p-4">
-            {activeSlot ? (
-              activeSlot.sourceType === 'youtube' && activeSlot.youtubeVideoId ? (
-                <div className="aspect-video w-full overflow-hidden rounded-xl bg-black">
-                  <iframe
-                    key={activeSlot.youtubeVideoId}
-                    src={`https://www.youtube-nocookie.com/embed/${activeSlot.youtubeVideoId}`}
-                    title={activeSlot.label ?? SLOT_LABELS[slotKey(effectiveLanguage, effectiveLength)]}
-                    className="h-full w-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
+          <div className="flex items-center gap-3 p-4">
+            <button
+              type="button"
+              onClick={handlePlayPause}
+              disabled={!activeTrack}
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sg-gold text-navy-deep shadow transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-40"
+              aria-label={isActiveTrackPlaying ? 'Pausar' : 'Reproducir'}
+            >
+              {isActiveTrackPlaying ? <PauseIcon /> : <PlayIcon />}
+            </button>
+            <div className="min-w-0 flex-1">
+              {activeSlot ? (
+                <>
+                  <p className="truncate font-ui text-sm font-semibold text-parchment/85">
+                    {activeSlot.label?.trim() || LESSON_AUDIO_SLOT_LABELS[activeKey]}
+                  </p>
+                  <p className="font-ui text-xs text-parchment/50">
+                    {isActiveTrackPlaying ? '▶ Reproduciendo en el mini-player' : 'Sigue sonando aunque cambies de pantalla'}
+                  </p>
+                </>
               ) : (
-                <audio
-                  key={activeSlot.url}
-                  controls
-                  controlsList="nodownload noremoteplayback"
-                  preload="none"
-                  src={activeSlot.url}
-                  className="w-full"
-                  onContextMenu={(e) => e.preventDefault()}
-                >
-                  Tu navegador no soporta la reproducción de audio.
-                </audio>
-              )
-            ) : (
-              <p className="font-ui text-xs text-parchment/50">
-                No hay un audio disponible para esta combinación de idioma/duración.
-              </p>
-            )}
+                <p className="font-ui text-xs text-parchment/50">
+                  No hay un audio disponible para esta combinación de idioma/duración.
+                </p>
+              )}
+            </div>
           </div>
         </div>
       ) : null}
 
-      {editorOpen && isAdmin ? <LessonPodcastAdminEditor lessonId={lessonId} slots={slots} /> : null}
+      {editorOpen && isAdmin ? (
+        <LessonPodcastAdminEditor lessonId={lessonId} lessonTitle={lessonTitle} slots={slots} />
+      ) : null}
     </div>
   )
 }
@@ -213,11 +229,30 @@ function LanguageLengthToggle({
   )
 }
 
+function PlayIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
+      <path d="M3 2.5l8 4.5-8 4.5z" />
+    </svg>
+  )
+}
+
+function PauseIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
+      <rect x="2.5" y="2" width="3.5" height="10" rx="1" />
+      <rect x="8" y="2" width="3.5" height="10" rx="1" />
+    </svg>
+  )
+}
+
 function LessonPodcastAdminEditor({
   lessonId,
+  lessonTitle,
   slots,
 }: {
   lessonId: string
+  lessonTitle: string
   slots: LessonAudioDoc['slots']
 }) {
   return (
@@ -227,7 +262,13 @@ function LessonPodcastAdminEditor({
       </p>
       <div className="grid gap-3 sm:grid-cols-2">
         {LESSON_AUDIO_SLOT_KEYS.map((key) => (
-          <LessonPodcastSlotEditor key={key} lessonId={lessonId} slotKey={key} slot={slots[key]} />
+          <LessonPodcastSlotEditor
+            key={key}
+            lessonId={lessonId}
+            lessonTitle={lessonTitle}
+            slotKey={key}
+            slot={slots[key]}
+          />
         ))}
       </div>
     </div>
@@ -236,10 +277,12 @@ function LessonPodcastAdminEditor({
 
 function LessonPodcastSlotEditor({
   lessonId,
+  lessonTitle,
   slotKey: key,
   slot,
 }: {
   lessonId: string
+  lessonTitle: string
   slotKey: LessonAudioSlotKey
   slot: LessonAudioDoc['slots'][LessonAudioSlotKey]
 }) {
@@ -256,7 +299,7 @@ function LessonPodcastSlotEditor({
     setBusy(true)
     setError(null)
     try {
-      await saveLessonAudioFile(lessonId, key, file, label)
+      await saveLessonAudioFile(lessonId, lessonTitle, key, file, label)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error al subir el archivo')
     } finally {
@@ -270,7 +313,7 @@ function LessonPodcastSlotEditor({
     setBusy(true)
     setError(null)
     try {
-      await saveLessonAudioYoutube(lessonId, key, youtubeUrl, label)
+      await saveLessonAudioYoutube(lessonId, lessonTitle, key, youtubeUrl, label)
       setYoutubeUrl('')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error al guardar la URL')
@@ -296,7 +339,7 @@ function LessonPodcastSlotEditor({
   return (
     <div className="space-y-2 rounded-xl border border-sg-gold/10 bg-navy-mid/60 p-3">
       <div className="flex items-center justify-between gap-2">
-        <p className="font-ui text-xs font-semibold text-parchment/80">{SLOT_LABELS[key]}</p>
+        <p className="font-ui text-xs font-semibold text-parchment/80">{LESSON_AUDIO_SLOT_LABELS[key]}</p>
         {slot?.url ? (
           <span className="font-ui text-[0.65rem] font-semibold text-emerald-400">✓ Cargado</span>
         ) : (

@@ -8,6 +8,7 @@ import {
   orderBy,
   query,
   serverTimestamp,
+  setDoc,
   Timestamp,
   updateDoc,
   where,
@@ -190,4 +191,55 @@ export async function addTracksFromImport(albumId: string, subtitle: string, son
 
 export async function deleteTrack(trackId: string): Promise<void> {
   await deleteDoc(doc(getDb(), TRACKS_COL, trackId))
+}
+
+// --- Podcasts de lecciones ---------------------------------------------
+// Los episodios que un admin sube por lección (LessonPodcastPlayer) se
+// guardan como DiscographyTrack (type: 'podcast') para reutilizar el mismo
+// reproductor persistente/mini-player que las canciones. No usan un álbum
+// real: `albumId` es solo una etiqueta de agrupación, no hay documento en
+// `discographyAlbums` ni aparecen en la grilla de álbumes de /musica.
+
+export const PODCAST_ALBUM_ID = 'podcast-lecciones'
+
+/** Crea o actualiza (por id estable) el track de un episodio de podcast. */
+export async function upsertPodcastTrack(track: DiscographyTrack): Promise<void> {
+  await setDoc(
+    doc(getDb(), TRACKS_COL, track.id),
+    {
+      albumId: track.albumId,
+      type: track.type,
+      title: track.title,
+      titleEn: track.titleEn,
+      subtitle: track.subtitle,
+      coverUrl: track.coverUrl,
+      youtubeUrl: track.youtubeUrl,
+      youtubeVideoId: track.youtubeVideoId,
+      storageUrl: track.storageUrl,
+      duration: track.duration,
+      songMeta: track.songMeta,
+      updatedAt: serverTimestamp(),
+    },
+    { merge: true },
+  )
+}
+
+export async function removePodcastTrack(trackId: string): Promise<void> {
+  await deleteDoc(doc(getDb(), TRACKS_COL, trackId))
+}
+
+export function subscribePodcastTracks(cb: (tracks: DiscographyTrack[]) => void): Unsubscribe {
+  const q = query(collection(getDb(), TRACKS_COL), where('type', '==', 'podcast'))
+  return onSnapshot(
+    q,
+    (snap) => {
+      const tracks = snap.docs.map((d) => toTrack(d.id, d.data()))
+      tracks.sort((a, b) => a.title.localeCompare(b.title) || a.subtitle.localeCompare(b.subtitle))
+      cb(tracks)
+    },
+    (err) => {
+      logSnapshotError('subscribePodcastTracks')(err)
+      cb([])
+    },
+  )
 }
