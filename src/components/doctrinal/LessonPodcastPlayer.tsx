@@ -153,9 +153,11 @@ export function LessonPodcastPlayer({ lessonId }: LessonPodcastPlayerProps) {
                 <audio
                   key={activeSlot.url}
                   controls
+                  controlsList="nodownload noremoteplayback"
                   preload="none"
                   src={activeSlot.url}
                   className="w-full"
+                  onContextMenu={(e) => e.preventDefault()}
                 >
                   Tu navegador no soporta la reproducción de audio.
                 </audio>
