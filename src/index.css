@@ -192,6 +192,16 @@
   }
 }
 
+/* Brillo que barre (botones destacados) */
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-120%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(220%) skewX(-15deg);
+  }
+}
+
 /* ============================================================
    Patrón de fondo (mosaico de símbolos bíblicos). El PNG del tema
    activo se inyecta vía la variable --pattern. .bg-pattern rellena
