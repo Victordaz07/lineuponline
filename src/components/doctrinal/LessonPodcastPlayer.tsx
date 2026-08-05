@@ -8,6 +8,7 @@ import {
   saveLessonAudioFile,
   saveLessonAudioYoutube,
   subscribeLessonAudio,
+  syncLessonAudioToDiscography,
 } from '@/services/lessonAudio.service'
 import {
   LESSON_AUDIO_SLOT_KEYS,
@@ -255,11 +256,46 @@ function LessonPodcastAdminEditor({
   lessonTitle: string
   slots: LessonAudioDoc['slots']
 }) {
+  const [syncing, setSyncing] = useState(false)
+  const [syncMessage, setSyncMessage] = useState<string | null>(null)
+  const hasAnySlot = LESSON_AUDIO_SLOT_KEYS.some((key) => slots[key]?.url)
+
+  async function handleSync() {
+    setSyncing(true)
+    setSyncMessage(null)
+    try {
+      const count = await syncLessonAudioToDiscography(lessonId, lessonTitle, slots)
+      setSyncMessage(
+        count > 0
+          ? `${count} audio${count === 1 ? '' : 's'} sincronizado${count === 1 ? '' : 's'} con Música.`
+          : 'No hay audios cargados todavía para sincronizar.',
+      )
+    } catch (err) {
+      setSyncMessage(err instanceof Error ? err.message : 'Error al sincronizar con Música.')
+    } finally {
+      setSyncing(false)
+    }
+  }
+
   return (
     <div className="w-full space-y-3 rounded-2xl border border-sg-gold/20 bg-navy-deep p-4">
-      <p className="font-ui text-xs font-semibold uppercase tracking-wider text-parchment/50">
-        Audios del podcast (4 espacios: español/inglés × larga/corta)
-      </p>
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="font-ui text-xs font-semibold uppercase tracking-wider text-parchment/50">
+          Audios del podcast (4 espacios: español/inglés × larga/corta)
+        </p>
+        {hasAnySlot ? (
+          <button
+            type="button"
+            onClick={() => void handleSync()}
+            disabled={syncing}
+            className="shrink-0 rounded-full border border-sg-gold/30 bg-navy-mid px-3 py-1 font-ui text-[0.65rem] font-semibold text-sg-gold-light transition hover:bg-sg-gold/10 disabled:cursor-not-allowed disabled:opacity-50"
+            title="Vuelve a publicar en Música los audios ya subidos (útil si se subieron antes de que existiera esta lista)"
+          >
+            {syncing ? 'Sincronizando…' : '🔄 Sincronizar con Música'}
+          </button>
+        ) : null}
+      </div>
+      {syncMessage ? <p className="font-ui text-[0.65rem] text-parchment/60">{syncMessage}</p> : null}
       <div className="grid gap-3 sm:grid-cols-2">
         {LESSON_AUDIO_SLOT_KEYS.map((key) => (
           <LessonPodcastSlotEditor

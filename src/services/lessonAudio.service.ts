@@ -157,6 +157,27 @@ export async function saveLessonAudioYoutube(
   await upsertPodcastTrack(buildPodcastTrack(lessonId, lessonTitle, slotKey, slot))
 }
 
+/**
+ * Reconstruye en Música (discographyTracks) los episodios ya guardados en
+ * `lessonAudio` para esta lección, sin volver a subir nada. Sirve para
+ * "backfillear" audios cargados antes de que existiera la sincronización
+ * automática (que corre en saveLessonAudioFile/saveLessonAudioYoutube).
+ */
+export async function syncLessonAudioToDiscography(
+  lessonId: string,
+  lessonTitle: string,
+  slots: LessonAudioDoc['slots'],
+): Promise<number> {
+  const entries = Object.entries(slots) as [LessonAudioSlotKey, LessonAudioSlot | undefined][]
+  let synced = 0
+  for (const [slotKey, slot] of entries) {
+    if (!slot?.url) continue
+    await upsertPodcastTrack(buildPodcastTrack(lessonId, lessonTitle, slotKey, slot))
+    synced += 1
+  }
+  return synced
+}
+
 export async function deleteLessonAudioSlot(
   lessonId: string,
   slotKey: LessonAudioSlotKey,
