@@ -4,7 +4,6 @@ import { LessonList } from '@/components/learning/LessonList'
 import { SubmoduleHeroSection } from '@/components/learning/SubmoduleHeroSection'
 import { LoadingSpinner } from '@/components/common/LoadingSpinner'
 import { MediaSlot } from '@/components/doctrinal/MediaSlot'
-import { ProgressBar } from '@/components/learning/ProgressBar'
 import { useModule } from '@/hooks/useModule'
 import { useLessonProgressStore } from '@/stores/lessonProgressStore'
 import type { DifficultyLevel, Lesson } from '@/types/doctrine'
@@ -67,23 +66,36 @@ export default function ModuleView() {
     )
   }
 
+  const doneCount = lessons.filter((l) => hasAnyVisited(l.id)).length
+
   return (
-    <div className="mx-auto max-w-3xl space-y-8">
-      <header className="space-y-4">
-        <div className="flex flex-wrap items-center gap-3">
-          <span className="text-4xl" aria-hidden="true">
-            {module.icon ?? '📖'}
+    <div className="relative mx-auto max-w-3xl space-y-8">
+      <div
+        aria-hidden="true"
+        className="bg-pattern-fade pointer-events-none absolute inset-x-0 -top-4 h-56 opacity-60"
+      />
+      <header className="relative space-y-4">
+        {module.categoryLabel && (
+          <span className="inline-flex items-center rounded-full bg-sg-gold/15 px-3 py-1 font-ui text-[11px] font-bold uppercase tracking-[0.1em] text-sg-gold-light">
+            {module.categoryLabel}
           </span>
-          <div>
-            {module.categoryLabel && (
-              <p className="font-ui text-xs font-semibold uppercase tracking-[0.2em] text-sg-gold">
-                {module.categoryLabel}
-              </p>
-            )}
-            <h1 className="font-display text-3xl text-parchment">{module.title}</h1>
-            <p className="mt-2 max-w-prose font-display text-base text-parchment/60">{module.description}</p>
+        )}
+        <div className="flex items-center gap-4">
+          <div
+            className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-3xl shadow-md"
+            style={{ background: 'linear-gradient(160deg, rgb(var(--sg-gold-bright)), rgb(var(--sg-gold)))' }}
+            aria-hidden="true"
+          >
+            {module.icon ?? '📖'}
+          </div>
+          <div className="min-w-0">
+            <h1 className="font-display text-3xl font-semibold text-parchment">{module.title}</h1>
+            <p className="mt-1 font-ui text-xs font-medium uppercase tracking-wide text-parchment/45">
+              {lessons.length} {lessons.length === 1 ? 'lección' : 'lecciones'}
+            </p>
           </div>
         </div>
+        <p className="max-w-prose font-display text-base leading-relaxed text-parchment/70">{module.description}</p>
         {module.heroImageUrl ? (
           <MediaSlot
             src={module.heroImageUrl}
@@ -91,7 +103,15 @@ export default function ModuleView() {
             caption="Imagen del módulo"
           />
         ) : null}
-        <ProgressBar value={progressValue} label="Tu avance en este módulo" />
+        <div className="flex items-center gap-3">
+          <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-navy-light">
+            <div
+              className="h-full rounded-full bg-gradient-to-r from-sg-gold to-sg-gold-light transition-all"
+              style={{ width: `${Math.round(progressValue * 100)}%` }}
+            />
+          </div>
+          <span className="font-ui text-xs font-semibold text-parchment/55">{doneCount}/{lessons.length}</span>
+        </div>
       </header>
 
       <section aria-label="Filtro por nivel">

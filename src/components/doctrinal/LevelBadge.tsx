@@ -7,17 +7,17 @@ const levelMeta: Record<
   BÁSICO: {
     label: 'Básico',
     emoji: '🌱',
-    className: 'border-emerald-600/30 bg-emerald-50 text-emerald-900',
+    className: 'border-jade/40 bg-jade/15 text-jade',
   },
   INTERMEDIO: {
     label: 'Intermedio',
     emoji: '📘',
-    className: 'border-blue-accent/30 bg-blue-50 text-blue-accent',
+    className: 'border-info/40 bg-info/15 text-info',
   },
   AVANZADO: {
     label: 'Avanzado',
     emoji: '✨',
-    className: 'border-purple-700/30 bg-purple-50 text-purple-900',
+    className: 'border-purple/40 bg-purple/15 text-purple',
   },
 }
 
