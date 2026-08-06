@@ -3,6 +3,20 @@ import { BADGE_DEFS } from '../badges/badgeDefinitions'
 import { BADGE_IDS, emptyBadgeMap } from '../badges/badgeTypes'
 import type { BadgeId, BadgeLevel, BadgeLevelEntry, BadgeMap } from '../badges/badgeTypes'
 
+// Degradado del hexágono por categoría de insignia (medallón decorativo).
+const BADGE_GRADIENT: Record<BadgeId, string> = {
+  racha_sagrada: 'linear-gradient(160deg,#C1633D,#8a4127)',
+  llama_viva: 'linear-gradient(160deg,#DE8F63,#a5502a)',
+  escriba: 'linear-gradient(160deg,#B8923A,#7c5f22)',
+  campeon_mes: 'linear-gradient(160deg,#E8C87A,#9a7420)',
+  explorador: 'linear-gradient(160deg,#4F9686,#245349)',
+  estudioso: 'linear-gradient(160deg,#5aa896,#2b6154)',
+  velocista: 'linear-gradient(160deg,#7C5CBF,#4a3573)',
+  defensor_fe: 'linear-gradient(160deg,#3E8ED0,#285a86)',
+}
+
+const HEXAGON_CLIP = 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'
+
 // ─── Level dot row ────────────────────────────────────────────────────────────
 
 function LevelDots({ current, max = 7 }: { current: BadgeLevel; max?: number }) {
@@ -73,13 +87,31 @@ function BadgeCard({ badgeId, entry }: { badgeId: BadgeId; entry: BadgeLevelEntr
       <div className="flex flex-col gap-3 p-5">
         {/* Icon + level pill row */}
         <div className="flex items-start justify-between gap-2">
-          <span
-            className={`text-4xl leading-none transition-all ${
-              isEarned ? '' : 'grayscale opacity-30'
-            }`}
-            style={isMaxed ? { filter: 'drop-shadow(0 0 8px rgba(212,175,98,0.7))' } : undefined}
-          >
-            {def.icon}
+          <span className="relative inline-flex">
+            {isMaxed && (
+              <span
+                aria-hidden="true"
+                className="absolute -inset-1"
+                style={{
+                  clipPath: HEXAGON_CLIP,
+                  background: 'linear-gradient(160deg,#E8C87A,#B8923A)',
+                  filter: 'blur(3px)',
+                  opacity: 0.7,
+                }}
+              />
+            )}
+            <span
+              className={`relative flex h-14 w-14 items-center justify-center text-2xl transition-all ${
+                isEarned ? '' : 'opacity-40 grayscale'
+              }`}
+              style={{
+                clipPath: HEXAGON_CLIP,
+                background: isEarned ? BADGE_GRADIENT[badgeId] : 'rgb(var(--navy-light))',
+                boxShadow: isEarned ? 'inset 0 1px 2px rgba(255,255,255,0.25)' : undefined,
+              }}
+            >
+              {def.icon}
+            </span>
           </span>
 
           {isEarned && (
