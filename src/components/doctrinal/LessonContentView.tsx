@@ -8,7 +8,7 @@ import { NoteEditor } from '@/components/doctrinal/NoteEditor'
 import { QuickFacts } from '@/components/doctrinal/QuickFacts'
 import { ScriptureBlock } from '@/components/doctrinal/ScriptureBlock'
 import { RelatedLessons } from '@/components/doctrinal/RelatedLessons'
-import { StudyJournal } from '@/components/doctrinal/StudyJournal'
+import { FloatingNotes } from '@/components/doctrinal/FloatingNotes'
 import { LessonPodcastPlayer } from '@/components/doctrinal/LessonPodcastPlayer'
 import { LessonSectionHeader } from '@/components/doctrinal/LessonSectionHeader'
 import { LessonSectionNav } from '@/components/doctrinal/LessonSectionNav'
@@ -50,7 +50,6 @@ export function LessonContentView({
 }: LessonContentViewProps) {
   const [tab, setTab] = useState<TabId>('study')
   const [showNotes, setShowNotes] = useState(false)
-  const [journalOpen, setJournalOpen] = useState(false)
   const [activeSectionId, setActiveSectionId] = useState<string>('')
 
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({})
@@ -220,21 +219,6 @@ export function LessonContentView({
       {/* Reproductor de la lección (fuera de la tarjeta) */}
       <LessonPodcastPlayer lessonId={lessonId} lessonTitle={title} />
 
-      {/* Mis notas — a la derecha, como en el diseño */}
-      <div className="flex justify-end">
-        <button
-          type="button"
-          onClick={() => setJournalOpen(true)}
-          className="flex items-center gap-2 rounded-full px-3.5 py-2 font-ui text-sm font-semibold text-sg-gold-light transition hover:bg-sg-gold/10"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M12 20h9" />
-            <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
-          </svg>
-          Mis notas
-        </button>
-      </div>
-
       {hasOriginal ? (
         <div
           role="tablist"
@@ -367,10 +351,7 @@ export function LessonContentView({
         />
       ) : null}
 
-      <StudyJournal
-        open={journalOpen}
-        onClose={() => setJournalOpen(false)}
-        lessonId={lessonId}
+      <FloatingNotes
         lessonTitle={title}
         entries={journalEntries}
         uniqueTopicTitles={journalTopicTitles}

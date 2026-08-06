@@ -213,6 +213,17 @@
     transform: scale(1);
   }
 }
+/* Burbuja de notas estilo chat — aparece desde la esquina inferior derecha */
+@keyframes bubblePop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 
 /* Brillo que barre (botones destacados) */
 @keyframes shimmerSweep {
