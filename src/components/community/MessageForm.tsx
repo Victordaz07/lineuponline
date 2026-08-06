@@ -159,10 +159,20 @@ export function MessageForm({ onSubmit }: MessageFormProps) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-lg border border-sg-gold bg-sg-gold px-4 py-2.5 font-ui text-sm font-semibold text-ink shadow-sm transition hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sg-gold disabled:cursor-not-allowed disabled:opacity-50"
+        className="relative w-full overflow-hidden rounded-full bg-sg-gold px-4 py-2.5 font-ui text-sm font-bold text-ink shadow-md transition hover:brightness-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sg-gold disabled:cursor-not-allowed disabled:opacity-50"
       >
+        {!loading && (
+          <span
+            aria-hidden="true"
+            className="absolute inset-y-0 left-0 w-3/5"
+            style={{
+              background: 'linear-gradient(100deg, transparent, rgba(255,255,255,0.5), transparent)',
+              animation: 'shimmerSweep 3.4s ease-in-out infinite',
+            }}
+          />
+        )}
         {loading ? (
-          <span className="inline-flex items-center justify-center gap-2">
+          <span className="relative inline-flex items-center justify-center gap-2">
             <svg
               className="h-4 w-4 animate-spin"
               viewBox="0 0 24 24"
@@ -186,7 +196,7 @@ export function MessageForm({ onSubmit }: MessageFormProps) {
             Enviando…
           </span>
         ) : (
-          'Enviar mensaje'
+          <span className="relative">Enviar mensaje</span>
         )}
       </button>
     </form>
