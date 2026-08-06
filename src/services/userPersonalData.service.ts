@@ -146,3 +146,7 @@ export async function syncJournalEntries(
 export async function loadJournalEntries(userId: string): Promise<StudyJournalEntry[]> {
   return safeLoadAll(`user_journal/${userId}/entries`, studyJournalEntrySchema)
 }
+
+export async function deleteJournalEntry(userId: string, entryId: string): Promise<void> {
+  await deleteDoc(doc(getDb(), `user_journal/${userId}/entries`, entryId))
+}
