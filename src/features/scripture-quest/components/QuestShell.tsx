@@ -14,7 +14,15 @@ export function QuestShell({ children }: { children: ReactNode }) {
             <p className="font-ui text-[10px] uppercase tracking-[0.35em] text-sg-gold-light">
               Seeker Gospel
             </p>
-            <h1 className="font-display text-2xl font-bold text-warm-white transition group-hover:text-sg-gold-bright">
+            <h1
+              className="font-ceremonial text-2xl font-black tracking-[0.05em] transition group-hover:opacity-90"
+              style={{
+                background: 'linear-gradient(90deg, #E8C87A, #C1633D)',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                color: 'transparent',
+              }}
+            >
               Scripture Quest
             </h1>
           </Link>
