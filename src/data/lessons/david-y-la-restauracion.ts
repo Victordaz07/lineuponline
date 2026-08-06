@@ -1,4 +1,5 @@
 import type { Lesson } from '@/types/doctrine'
+import { davidAssets } from '@/data/davidAssets'
 
 export const davidYLaRestauracion: Lesson = {
   id: 'david-y-la-restauracion',
@@ -10,6 +11,11 @@ export const davidYLaRestauracion: Lesson = {
     'Dios hizo a David un pacto eterno: su trono duraría para siempre. Cada profecía del Nuevo Testamento sobre el "hijo de David" cumple ese pacto en Cristo. La Restauración añade el retrato más completo: DyC 113 identifica al Vástago de Isaí, y la misericordia de Dios sobre David tiene precisión doctrinal que la Biblia sola no puede dar.',
   level: 'AVANZADO',
   icon: '✨',
+  iconImage: davidAssets.lessons.restauracion.icon,
+  heroImage: {
+    url: davidAssets.lessons.restauracion.hero,
+    alt: 'El pacto eterno de David y su cumplimiento en Cristo',
+  },
   duration: 25,
   order: 4214,
   status: 'PUBLISHED',
@@ -49,6 +55,18 @@ export const davidYLaRestauracion: Lesson = {
                 'Ese descendiente tendría una relación especial padre-hijo con Dios',
                 'Si pecaba, sería disciplinado — pero la misericordia no se apartaría de él',
                 'El trono de David sería "estable eternamente" — una promesa sin fecha de expiración',
+              ],
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: davidAssets.lessons.restauracion.covenantTree,
+              alt: 'Árbol del pacto davídico: de David a Cristo',
+              caption: 'El pacto davídico — de la promesa a Salomón hasta su cumplimiento pleno en Cristo.',
+              markers: [
+                { x: 50, y: 88, label: 'David — 2 Samuel 7:12-16' },
+                { x: 28, y: 55, label: 'Salomón — construye el templo', align: 'left' },
+                { x: 50, y: 15, label: 'Cristo — "su reino no tendrá fin" (Lucas 1:33)' },
               ],
             },
             {

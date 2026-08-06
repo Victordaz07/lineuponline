@@ -1,4 +1,5 @@
 import type { Lesson } from '@/types/doctrine'
+import { davidAssets } from '@/data/davidAssets'
 
 export const davidLaCaida: Lesson = {
   id: 'david-la-caida',
@@ -10,6 +11,11 @@ export const davidLaCaida: Lesson = {
     'David estaba en la cima de su poder cuando cometió los pecados que definirían su legado eterno. La espiral: ver, desear, tomar, encubrir, matar. Natán y la parábola de la oveja. El Salmo 51 como el arrepentimiento más honesto de la Escritura. DyC 132:39 como el veredicto que no se revocó.',
   level: 'AVANZADO',
   icon: '💔',
+  iconImage: davidAssets.lessons.caida.icon,
+  heroImage: {
+    url: davidAssets.lessons.caida.hero,
+    alt: 'David en el momento de su caída',
+  },
   duration: 35,
   order: 4213,
   status: 'PUBLISHED',
@@ -104,6 +110,13 @@ export const davidLaCaida: Lesson = {
               text: 'Por tu vida, y por la vida de tu alma, que yo no haré tal cosa.',
               attribution: 'Urías el heteo, respondiendo al rey David — 2 Samuel 11:11',
             },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: davidAssets.lessons.caida.uriahLetter,
+              alt: 'La carta sellada que David envió con Urías a Joab',
+              caption: 'David encubre su pecado con una orden escrita que sentenció a Urías (2 Samuel 11:14-15).',
+            },
           ],
         },
       ],
@@ -138,6 +151,13 @@ export const davidLaCaida: Lesson = {
               text: 'Entonces dijo Natán a David: Tú eres aquel hombre.',
             },
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: davidAssets.lessons.caida.nathan,
+              alt: 'El profeta Natán confronta al rey David',
+              caption: 'Natán confronta a David con la parábola de la oveja — 2 Samuel 12:1-7.',
+            },
+            {
               type: 'paragraph',
               text: 'La parábola funcionó porque activó el sentido de justicia de David antes de que se pudiera defender. Cuando Natán reveló la correspondencia — el hombre rico era David, el hombre pobre era Urías, la oveja era Betsabé — David no tenía cómo discutir. Él mismo había pronunciado el veredicto: "digno de muerte." La parábola de Natán es el ejemplo más brillante de comunicación profética en toda la Escritura.',
             },
@@ -156,6 +176,13 @@ export const davidLaCaida: Lesson = {
               type: 'highlight_verse',
               reference: 'Salmo 51:1-4, 10',
               text: 'Ten piedad de mí, oh Dios, conforme a tu misericordia; conforme a la multitud de tus piedades borra mis rebeliones. Lávame más y más de mi maldad, y límpiame de mi pecado. Porque yo reconozco mis rebeliones, y mi pecado está siempre delante de mí. Contra ti, contra ti solo he pecado, y he hecho lo malo delante de tus ojos... Crea en mí, oh Dios, un corazón limpio, y renueva un espíritu recto dentro de mí.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: davidAssets.lessons.caida.repentance,
+              alt: 'David en arrepentimiento ante Dios',
+              caption: 'El Salmo 51 — el arrepentimiento más honesto de la Escritura.',
             },
             {
               type: 'paragraph',

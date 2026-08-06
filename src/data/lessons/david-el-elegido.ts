@@ -1,4 +1,5 @@
 import type { Lesson } from '@/types/doctrine'
+import { davidAssets } from '@/data/davidAssets'
 
 export const davidElElegido: Lesson = {
   id: 'david-el-elegido',
@@ -10,6 +11,11 @@ export const davidElElegido: Lesson = {
     'Cuando Samuel llegó a Belén a ungir a un rey, Jesse presentó a siete hijos. Todos fueron rechazados. El octavo, que estaba en el campo cuidando ovejas, fue el elegido. 1 Samuel 16:7 establece el principio eterno: Dios no mira lo que mira el hombre.',
   level: 'INTERMEDIO',
   icon: '👑',
+  iconImage: davidAssets.lessons.elegido.icon,
+  heroImage: {
+    url: davidAssets.lessons.elegido.hero,
+    alt: 'David, joven pastor, es ungido por el profeta Samuel',
+  },
   duration: 30,
   order: 4210,
   status: 'PUBLISHED',
@@ -35,6 +41,13 @@ export const davidElElegido: Lesson = {
               type: 'highlight_verse',
               reference: '1 Samuel 16:7',
               text: 'Y Jehová respondió a Samuel: No mires a su parecer, ni a lo grande de su estatura, porque yo lo desecho; porque Jehová no mira lo que mira el hombre; pues el hombre mira lo que está delante de sus ojos, pero Jehová mira el corazón.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: davidAssets.lessons.elegido.heart,
+              alt: 'Contraste entre la apariencia exterior y el corazón, según 1 Samuel 16:7',
+              caption: '"Jehová no mira lo que mira el hombre... Jehová mira el corazón" — 1 Samuel 16:7.',
             },
             {
               type: 'paragraph',

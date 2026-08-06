@@ -1,4 +1,5 @@
 import type { Lesson } from '@/types/doctrine'
+import { davidAssets } from '@/data/davidAssets'
 
 export const davidYGoliat: Lesson = {
   id: 'david-y-goliat',
@@ -10,9 +11,10 @@ export const davidYGoliat: Lesson = {
     'Durante 40 días, el gigante filisteo Goliat desafió al ejército de Israel y nadie respondió. Un muchacho que llegó a llevar comida a sus hermanos hizo la pregunta que nadie se había atrevido a hacer. Su argumento no era sobre habilidad — era sobre la naturaleza de Dios.',
   level: 'INTERMEDIO',
   icon: '⚡',
+  iconImage: davidAssets.lessons.goliat.icon,
   duration: 30,
   heroImage: {
-    url: '/assets/modules/david/goliat-hero.svg',
+    url: davidAssets.lessons.goliat.hero,
     alt: 'David enfrenta a Goliat en el valle de Ela',
   },
   order: 4211,
@@ -62,16 +64,14 @@ export const davidYGoliat: Lesson = {
             {
               type: 'media_slot',
               kind: 'image',
-              src: '/assets/modules/david/goliat-valle-ela.svg',
-              alt: 'Panorámica del Valle de Ela con los dos ejércitos enfrentados',
+              src: davidAssets.lessons.goliat.map,
+              alt: 'Panorámica del Valle de Ela con los campamentos de Israel y los filisteos',
               caption: 'El Valle de Ela — Israel y los filisteos, separados por el riachuelo, durante 40 días.',
-            },
-            {
-              type: 'media_slot',
-              kind: 'image',
-              src: '/assets/modules/david/map-ela.svg',
-              alt: 'Mapa del Valle de Ela entre Israel y Filistea',
-              caption: 'Mapa de referencia — Valle de Ela (1 Samuel 17).',
+              markers: [
+                { x: 22, y: 28, label: 'Campamento de Israel', align: 'left' },
+                { x: 78, y: 28, label: 'Campamento filisteo', align: 'right' },
+                { x: 50, y: 72, label: 'El riachuelo — cinco piedras lisas' },
+              ],
             },
           ],
         },
@@ -179,6 +179,17 @@ export const davidYGoliat: Lesson = {
               text: 'Saúl ofreció a David su propia armadura — la del rey, la mejor disponible en Israel. David la probó, intentó caminar, y la devolvió: "Yo no puedo andar con esto, porque nunca lo practiqué" (1 Samuel 17:39). Esta decisión es profundamente importante: David rechazó los recursos del sistema establecido y eligió sus propios instrumentos.',
             },
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: davidAssets.lessons.goliat.objects,
+              alt: 'Comparación entre el equipo de David y el de Goliat',
+              caption: 'David: honda y cinco piedras — Goliat: espada, lanza, jabalina y armadura de bronce.',
+              markers: [
+                { x: 4, y: 90, label: 'David — honda y piedras', align: 'left' },
+                { x: 96, y: 90, label: 'Goliat — espada, lanza, armadura', align: 'right' },
+              ],
+            },
+            {
               type: 'key_points',
               title: 'Lo que el rechazo de la armadura revela',
               points: [
@@ -187,6 +198,13 @@ export const davidYGoliat: Lesson = {
                 'Las cinco piedras lisas del arroyo eran simples, no militares — Dios no necesita instrumentos impresionantes',
                 'La victoria con la honda haría más evidente que fue Dios quien ganó, no el armamento de Israel',
               ],
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: davidAssets.lessons.goliat.stones,
+              alt: 'Las cinco piedras lisas que David tomó del arroyo',
+              caption: 'Cinco piedras lisas del arroyo — preparación, fe y habilidad juntas (1 Samuel 17:40).',
             },
           ],
         },

@@ -150,6 +150,7 @@ export default function ModuleView() {
                 group={groupKey}
                 lessons={groupLessons}
                 moduleId={module.id}
+                allComplete={groupLessons.every((l) => hasAnyVisited(l.id))}
               />
             ))}
             {ungrouped.length > 0 && (
