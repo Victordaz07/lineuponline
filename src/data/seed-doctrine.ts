@@ -1,6 +1,7 @@
 /**
  * Datos semilla: catálogo unificado de módulos y lecciones (sin iframes).
  */
+import { davidAssets } from '@/data/davidAssets'
 import { elSellamiento as lessonElSellamiento } from '@/data/lessons/el-sellamiento'
 import { sacerdocioAaonico as lessonSacerdocioAaonico } from '@/data/lessons/sacerdocio-aaonico'
 import { elDiacono as lessonElDiacono } from '@/data/lessons/el-diacono'
@@ -332,7 +333,27 @@ type LessonRow = {
   tags?: string[]
 }
 
-export const SUBMODULE_GROUPS: Record<string, { title: string; description: string; icon: string; label?: string; heroImage?: string; iconImage?: string }> = {
+export type SubmoduleGroupMeta = {
+  title: string
+  description: string
+  icon: string
+  label?: string
+  heroImage?: string
+  /** Fondo alterno para pantallas pequeñas (si no está, se usa `heroImage` en todos los tamaños). */
+  heroImageMobile?: string
+  heroImagePosition?: string
+  iconImage?: string
+  /** Franja de progreso/actos debajo de la descripción. */
+  timelineImage?: string
+  /** Separador ornamental entre la descripción y la lista de lecciones. */
+  dividerImage?: string
+  /** Textura de fondo muy sutil (opacidad ~0.05) detrás de todo el submódulo. */
+  patternImage?: string
+  /** Se muestra cuando todas las lecciones del submódulo están visitadas. */
+  conclusionImage?: string
+}
+
+export const SUBMODULE_GROUPS: Record<string, SubmoduleGroupMeta> = {
   // ── DOCTRINA FUNDAMENTAL ──────────────────────────────────────────────────
   'la-santa-cena': {
     title: 'La Santa Cena',
@@ -507,8 +528,14 @@ export const SUBMODULE_GROUPS: Record<string, { title: string; description: stri
     description:
       'Mató a Goliat a los 17 años, escribió los Salmos más profundos de la historia, y a los 50 destruyó su legado con Betsabé y Urías. DyC 132:39 da el veredicto eterno. Un estudio de la fe, la caída y la gracia.',
     icon: '🎵',
-    heroImage: '/assets/modules/david/submodule-hero.svg',
-    iconImage: '/assets/modules/david/icon.svg',
+    heroImage: davidAssets.module.heroDesktop,
+    heroImageMobile: davidAssets.module.hero,
+    heroImagePosition: davidAssets.module.heroObjectPosition,
+    iconImage: davidAssets.module.icon,
+    timelineImage: davidAssets.module.timeline,
+    dividerImage: davidAssets.module.divider,
+    patternImage: davidAssets.module.pattern,
+    conclusionImage: davidAssets.module.conclusion,
   },
   sara: {
     title: 'Sara — La Madre de la Fe',

@@ -51,10 +51,41 @@ export function MediaSlotBlock({ block }: MediaSlotBlockProps) {
     )
   }
 
+  const hasMarkers = hasSrc && Boolean(block.markers?.length)
+
   return (
     <figure className="overflow-hidden rounded-2xl border border-sg-gold/25 bg-navy-mid shadow-sm">
       {hasSrc ? (
-        <img src={block.src} alt={block.alt ?? ''} loading="lazy" className="block h-auto w-full" />
+        hasMarkers ? (
+          <div className="relative">
+            <img
+              src={block.src}
+              alt={block.alt ?? ''}
+              loading="lazy"
+              className="block h-auto w-full"
+              style={block.objectPosition ? { objectPosition: block.objectPosition } : undefined}
+            />
+            {block.markers?.map((marker, i) => (
+              <span
+                key={`${marker.label}-${i}`}
+                className={`absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full border border-sg-gold/50 bg-navy-deep/85 px-2.5 py-1 font-ui text-[11px] font-semibold text-sg-gold-light shadow-md backdrop-blur-sm ${
+                  marker.align === 'left' ? '!translate-x-0' : marker.align === 'right' ? '!-translate-x-full' : ''
+                }`}
+                style={{ left: `${marker.x}%`, top: `${marker.y}%` }}
+              >
+                {marker.label}
+              </span>
+            ))}
+          </div>
+        ) : (
+          <img
+            src={block.src}
+            alt={block.alt ?? ''}
+            loading="lazy"
+            className="block h-auto w-full"
+            style={block.objectPosition ? { objectPosition: block.objectPosition } : undefined}
+          />
+        )
       ) : (
         <div className="flex aspect-video w-full items-center justify-center bg-gradient-to-b from-navy-mid to-navy-deep">
           <p className="px-4 text-center font-ui text-sm text-parchment/50">Contenido visual próximamente</p>

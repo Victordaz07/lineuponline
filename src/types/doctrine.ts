@@ -125,6 +125,14 @@ export type MediaContextCard = {
   label?: string
 }
 
+/** Etiqueta posicionada en HTML/React sobre una imagen (mapas, diagramas). Coordenadas en % del contenedor. */
+export type MediaMarker = {
+  x: number
+  y: number
+  label: string
+  align?: 'left' | 'right' | 'center'
+}
+
 export type MediaSlotBlock = {
   type: 'media_slot'
   kind: MediaKind
@@ -132,6 +140,9 @@ export type MediaSlotBlock = {
   alt?: string
   caption?: string
   contextCard?: MediaContextCard
+  /** Etiquetas/marcadores superpuestos en HTML — la imagen base no lleva texto incrustado. */
+  markers?: MediaMarker[]
+  objectPosition?: string
 }
 
 /** Columna de comparación: títulos como `title` o `label`, viñetas como `items` o `points`. */
@@ -264,6 +275,8 @@ export type Lesson = {
   description: string
   level: DifficultyLevel
   icon?: string
+  /** Icono ilustrado (reemplaza el emoji `icon` en las tarjetas cuando está presente). */
+  iconImage?: string
   duration?: number
   order: number
   status: LessonStatus

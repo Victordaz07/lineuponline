@@ -1,4 +1,5 @@
 import type { Lesson } from '@/types/doctrine'
+import { davidAssets } from '@/data/davidAssets'
 
 export const davidElPoeta: Lesson = {
   id: 'david-el-poeta',
@@ -10,6 +11,11 @@ export const davidElPoeta: Lesson = {
     'David escribió al menos 73 de los 150 Salmos. El Salmo 22 describe la crucifixión con detalles anatómicos y rituales que no tenían precedente en la experiencia de David — 1,000 años antes de que la crucifixión existiera como método de ejecución. Jesús lo citó desde la cruz. El Salmo 23 es el texto más consolador del Antiguo Testamento.',
   level: 'AVANZADO',
   icon: '🎵',
+  iconImage: davidAssets.lessons.poeta.icon,
+  heroImage: {
+    url: davidAssets.lessons.poeta.hero,
+    alt: 'David componiendo un salmo',
+  },
   duration: 35,
   order: 4212,
   status: 'PUBLISHED',
@@ -55,6 +61,13 @@ export const davidElPoeta: Lesson = {
               quote: 'Los Salmos son el más profundo libro de devoción que jamás se ha escrito, porque en ellos se ve el corazón del hombre en su relación con Dios — no idealizado, sino real, con toda su queja y toda su alabanza.',
               name: 'C.S. Lewis',
               role: 'Reflexiones sobre los Salmos',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: davidAssets.lessons.poeta.writing,
+              alt: 'David escribiendo un salmo',
+              caption: 'La composición como oración: lamento, confianza y alabanza en un solo instrumento.',
             },
           ],
         },

@@ -32,10 +32,14 @@ export function LessonList({ lessons, moduleId }: LessonListProps) {
         const inner = (
           <div className="flex items-center gap-4 px-4 py-3.5">
             <div
-              className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-xl ring-1 ${tint}`}
+              className={`flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl text-xl ring-1 ${tint}`}
               aria-hidden="true"
             >
-              {lesson.icon ?? '📖'}
+              {lesson.iconImage ? (
+                <img src={lesson.iconImage} alt="" className="h-full w-full object-cover" />
+              ) : (
+                lesson.icon ?? '📖'
+              )}
             </div>
             <div className="min-w-0 flex-1">
               <p className={`font-ui text-[15px] font-bold ${published ? 'text-parchment' : 'text-parchment/45'}`}>
