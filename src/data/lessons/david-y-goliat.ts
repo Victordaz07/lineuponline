@@ -11,6 +11,10 @@ export const davidYGoliat: Lesson = {
   level: 'INTERMEDIO',
   icon: '⚡',
   duration: 30,
+  heroImage: {
+    url: '/assets/modules/david/goliat-hero.svg',
+    alt: 'David enfrenta a Goliat en el valle de Ela',
+  },
   order: 4211,
   status: 'PUBLISHED',
   studyBodyPlain: '',
@@ -54,6 +58,20 @@ export const davidYGoliat: Lesson = {
             {
               type: 'paragraph',
               text: 'El número cuarenta en la Escritura hebrea no es casual. Cuarenta años en el desierto, cuarenta días de diluvio, cuarenta días de Moisés en el Sinaí, cuarenta días de tentación de Jesús. El cuarenta representa una prueba que dura lo suficiente para revelar el carácter real de alguien. Israel falló su prueba de cuarenta días. David la resolvió en el primer momento que tuvo información sobre ella.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/david/goliat-valle-ela.svg',
+              alt: 'Panorámica del Valle de Ela con los dos ejércitos enfrentados',
+              caption: 'El Valle de Ela — Israel y los filisteos, separados por el riachuelo, durante 40 días.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/david/map-ela.svg',
+              alt: 'Mapa del Valle de Ela entre Israel y Filistea',
+              caption: 'Mapa de referencia — Valle de Ela (1 Samuel 17).',
             },
           ],
         },

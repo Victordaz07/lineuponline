@@ -332,7 +332,7 @@ type LessonRow = {
   tags?: string[]
 }
 
-export const SUBMODULE_GROUPS: Record<string, { title: string; description: string; icon: string; label?: string }> = {
+export const SUBMODULE_GROUPS: Record<string, { title: string; description: string; icon: string; label?: string; heroImage?: string; iconImage?: string }> = {
   // ── DOCTRINA FUNDAMENTAL ──────────────────────────────────────────────────
   'la-santa-cena': {
     title: 'La Santa Cena',
@@ -507,6 +507,8 @@ export const SUBMODULE_GROUPS: Record<string, { title: string; description: stri
     description:
       'Mató a Goliat a los 17 años, escribió los Salmos más profundos de la historia, y a los 50 destruyó su legado con Betsabé y Urías. DyC 132:39 da el veredicto eterno. Un estudio de la fe, la caída y la gracia.',
     icon: '🎵',
+    heroImage: '/assets/modules/david/submodule-hero.svg',
+    iconImage: '/assets/modules/david/icon.svg',
   },
   sara: {
     title: 'Sara — La Madre de la Fe',
