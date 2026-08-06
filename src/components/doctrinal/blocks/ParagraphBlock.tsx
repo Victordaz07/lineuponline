@@ -1,3 +1,4 @@
+import type React from 'react'
 import type { ParagraphBlock as ParagraphBlockType } from '@/types/doctrine'
 import type { HighlightColor } from '@/stores/highlightsStore'
 import { useTextHighlight } from '@/hooks/useTextHighlight'
@@ -23,8 +24,18 @@ export function ParagraphBlock({ block, highlightId, blockKey, lessonId, topicId
   const blockId = block.blockId ?? undefined
   const isTtsOn = blockId != null && highlightId != null && blockId === highlightId
 
-  const { sel, setSel, toolbarRef, handleMouseUp, saveHighlight, activeHL, setActiveHL, renderSegments } =
-    useTextHighlight(blockKey, lessonId, topicId, block.text)
+  const {
+    sel,
+    setSel,
+    toolbarRef,
+    containerRef,
+    handleMouseUp,
+    saveHighlight,
+    saveNote,
+    activeHL,
+    setActiveHL,
+    renderSegments,
+  } = useTextHighlight(blockKey, lessonId, topicId, block.text)
 
   return (
     <div className="relative">
@@ -32,17 +43,20 @@ export function ParagraphBlock({ block, highlightId, blockKey, lessonId, topicId
         sel={sel}
         toolbarRef={toolbarRef}
         onSave={saveHighlight}
+        onSaveNote={saveNote}
         onDismiss={() => { window.getSelection()?.removeAllRanges(); setSel(null) }}
       />
       {activeHL && (
         <HighlightDetailPanel activeHL={activeHL} onClose={() => setActiveHL(null)} />
       )}
       <p
+        ref={containerRef as React.RefObject<HTMLParagraphElement>}
         id={blockId ? `p-${blockId}` : undefined}
         className={`select-text text-reading text-base leading-relaxed text-parchment/80 transition-all duration-300 ${
           isTtsOn ? 'rounded-lg bg-sg-gold/15 px-3 py-2 ring-2 ring-sg-gold' : ''
         }`}
         onMouseUp={handleMouseUp}
+        onTouchEnd={handleMouseUp}
       >
         {renderSegments(COLOR_CLASSES)}
       </p>

@@ -248,6 +248,12 @@ export function LessonContentView({
         />
       ) : null}
 
+      {tab === 'study' && isRich ? (
+        <p className="text-center font-ui text-[11px] italic text-parchment/35">
+          Mantén presionado cualquier frase para anotar
+        </p>
+      ) : null}
+
       <div
         role="tabpanel"
         aria-label={tab === 'study' ? 'Contenido de estudio' : 'Texto original'}
