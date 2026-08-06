@@ -182,57 +182,51 @@ export function LessonContentView({
         <p className="font-ui text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-parchment/50">
           {tab === 'study' ? 'Estudio guiado' : 'Texto completo · discurso original'}
         </p>
-        <div className="flex flex-wrap items-start justify-between gap-3">
-          <div>
-            <h1 className="font-display text-3xl text-parchment sm:text-4xl">{title}</h1>
-            {lesson.author ? (
-              <p className="mt-2 font-ui text-sm text-parchment/50">
-                por <span className="font-semibold text-parchment/80">{lesson.author}</span>
-              </p>
-            ) : null}
-            {lesson.description ? (
-              <p className="mt-3 max-w-prose font-display text-base text-parchment/70">{lesson.description}</p>
-            ) : null}
-          </div>
+        <h1 className="font-display text-3xl font-semibold leading-tight text-parchment sm:text-4xl">{title}</h1>
+        {lesson.author ? (
+          <p className="font-ui text-sm text-parchment/50">
+            por <span className="font-semibold text-parchment/80">{lesson.author}</span>
+          </p>
+        ) : null}
+        {lesson.description ? (
+          <p className="max-w-prose font-display text-base leading-relaxed text-parchment/70">{lesson.description}</p>
+        ) : null}
+        <div className="flex flex-wrap items-center gap-2.5">
           <LevelBadge level={lesson.level} />
+          {isComplete ? (
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-jade/15 px-3 py-1 font-ui text-xs font-bold text-jade">
+              ✓ Completada
+            </span>
+          ) : isRich ? (
+            <span className="font-ui text-xs text-parchment/55">
+              Progreso:{' '}
+              <span className="font-semibold text-sg-gold-light">
+                {visitedTopicsCount}/{totalTopics} temas
+              </span>
+            </span>
+          ) : null}
         </div>
         <div className="border-t border-sg-gold/15 pt-4">
           <LessonPodcastPlayer lessonId={lessonId} lessonTitle={title} />
         </div>
         {isRich ? (
-          <div className="flex flex-col gap-2 border-t border-sg-gold/15 pt-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-center gap-3">
-              {isComplete ? (
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-jade/15 px-3 py-1 font-ui text-xs font-semibold text-jade">
-                  ✓ Completada
-                </span>
-              ) : (
-                <div className="font-ui text-sm text-parchment/70">
-                  Progreso:{' '}
-                  <span className="font-semibold text-sg-gold-light">
-                    {visitedTopicsCount} de {totalTopics} temas
-                  </span>
-                </div>
-              )}
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {!isComplete && onMarkComplete ? (
-                <button
-                  type="button"
-                  onClick={onMarkComplete}
-                  className="rounded-full border border-jade/40 bg-jade/15 px-4 py-2 font-ui text-sm font-semibold text-jade transition hover:bg-jade/25"
-                >
-                  Marcar como completada
-                </button>
-              ) : null}
+          <div className="flex flex-wrap gap-2 border-t border-sg-gold/15 pt-4">
+            {!isComplete && onMarkComplete ? (
               <button
                 type="button"
-                onClick={() => setJournalOpen(true)}
-                className="rounded-full border border-sg-gold/30 bg-sg-gold/10 px-4 py-2 font-ui text-sm font-semibold text-sg-gold-light shadow-sm transition hover:bg-sg-gold/20"
+                onClick={onMarkComplete}
+                className="rounded-full border border-jade/40 bg-jade/15 px-4 py-2 font-ui text-sm font-semibold text-jade transition hover:bg-jade/25"
               >
-                Diario de estudio
+                Marcar como completada
               </button>
-            </div>
+            ) : null}
+            <button
+              type="button"
+              onClick={() => setJournalOpen(true)}
+              className="rounded-full border border-sg-gold/30 bg-sg-gold/10 px-4 py-2 font-ui text-sm font-semibold text-sg-gold-light shadow-sm transition hover:bg-sg-gold/20"
+            >
+              Diario de estudio
+            </button>
           </div>
         ) : null}
       </header>

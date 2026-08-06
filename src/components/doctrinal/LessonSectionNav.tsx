@@ -7,52 +7,73 @@ export type LessonSectionNavProps = {
 }
 
 /**
- * Navegación entre secciones de una lección.
- *
- * En vez de pestañas con títulos recortados, muestra el título COMPLETO de la
- * sección activa (en Lora) más un "stepper" de numerales para saltar, con estado
- * visual hecho / actual / pendiente — coherente con la estética del rediseño.
+ * Navegación entre secciones de una lección — "riel de progreso":
+ * nodos numerados conectados por una línea, con avance en dorado hasta la
+ * sección actual y una etiqueta corta bajo cada nodo. El título completo de la
+ * sección se muestra en el contenido, debajo.
  */
 export function LessonSectionNav({ sections, activeIndex, onSelect }: LessonSectionNavProps) {
-  const active = sections[activeIndex]
-  const numeral = active?.intro?.romanNumeral ?? String(activeIndex + 1)
+  const total = sections.length
+  const progress = total > 1 ? activeIndex / (total - 1) : 0
 
   return (
     <nav
       className="sticky top-0 z-20 -mx-6 border-b border-sg-gold/15 bg-navy-mid/95 px-6 py-3 backdrop-blur-md sm:-mx-8 sm:px-8"
       aria-label="Secciones de la lección"
     >
-      <p className="font-ui text-[10px] font-bold uppercase tracking-[0.16em] text-sg-gold">
-        Sección {activeIndex + 1} de {sections.length}
-      </p>
-      <h3 className="mt-0.5 font-display text-lg font-semibold leading-snug text-parchment">
-        <span className="text-sg-gold-light">{numeral}</span>
-        <span className="mx-1.5 text-sg-gold/40">·</span>
-        {active?.title}
-      </h3>
+      <div className="mb-3 flex items-baseline justify-between">
+        <p className="font-ui text-[10px] font-bold uppercase tracking-[0.14em] text-parchment/45">
+          Progreso de la lección
+        </p>
+        <p className="font-ui text-[11px] font-bold text-sg-gold-light tabular-nums">
+          {activeIndex + 1} / {total}
+        </p>
+      </div>
 
-      <ol className="mt-2.5 flex flex-wrap items-center gap-1.5" aria-label="Ir a una sección">
+      <ol className="relative flex justify-between" aria-label="Ir a una sección">
+        {/* Riel base */}
+        <span
+          aria-hidden="true"
+          className="absolute left-[14px] right-[14px] top-[14px] h-0.5 rounded-full bg-parchment/12"
+        />
+        {/* Avance en dorado hasta el nodo activo */}
+        <span
+          aria-hidden="true"
+          className="absolute left-[14px] top-[14px] h-0.5 rounded-full bg-gradient-to-r from-sg-gold to-sg-gold-light transition-[width] duration-300"
+          style={{ width: `calc((100% - 28px) * ${progress})` }}
+        />
+
         {sections.map((s, i) => {
           const isActive = i === activeIndex
           const isDone = i < activeIndex
-          const label = s.intro?.romanNumeral ?? String(i + 1)
+          const numeral = s.intro?.romanNumeral ?? String(i + 1)
           return (
-            <li key={s.id}>
+            <li key={s.id} className="relative z-10 flex min-w-0 flex-1 justify-center">
               <button
                 type="button"
                 onClick={() => onSelect(i)}
                 aria-current={isActive ? 'step' : undefined}
-                title={s.title}
                 aria-label={`Sección ${i + 1}: ${s.title}`}
-                className={`flex h-8 min-w-8 items-center justify-center rounded-lg px-2 font-display text-sm font-semibold transition ${
-                  isActive
-                    ? 'bg-sg-gold text-ink shadow-sm'
-                    : isDone
-                      ? 'bg-sg-gold/15 text-sg-gold-light hover:bg-sg-gold/25'
-                      : 'bg-navy-light/60 text-parchment/45 hover:bg-navy-light hover:text-parchment/70'
-                }`}
+                className="group flex w-full flex-col items-center gap-1.5"
               >
-                {label}
+                <span
+                  className={`flex h-7 w-7 items-center justify-center rounded-full font-display text-[13px] font-bold leading-none transition ${
+                    isActive
+                      ? 'bg-sg-gold text-ink shadow-[0_0_0_4px_rgb(var(--navy-mid))]'
+                      : isDone
+                        ? 'bg-navy-mid text-sg-gold-light ring-2 ring-sg-gold/60'
+                        : 'bg-navy-mid text-parchment/40 ring-2 ring-parchment/20 group-hover:ring-sg-gold/40'
+                  }`}
+                >
+                  {numeral}
+                </span>
+                <span
+                  className={`max-w-full truncate px-0.5 font-ui text-[9.5px] font-semibold leading-tight ${
+                    isActive ? 'text-sg-gold-light' : isDone ? 'text-parchment/55' : 'text-parchment/35'
+                  }`}
+                >
+                  {s.intro?.title ?? s.title}
+                </span>
               </button>
             </li>
           )
