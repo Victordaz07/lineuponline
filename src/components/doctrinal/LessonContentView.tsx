@@ -79,21 +79,6 @@ export function LessonContentView({
     [journalEntriesRaw, lessonId],
   )
 
-  const journalTopicTitles = useMemo(() => {
-    const seen = new Set<string>()
-    const titles: string[] = []
-    for (const e of journalEntriesRaw) {
-      if (e.lessonId !== lessonId) {
-        continue
-      }
-      if (!seen.has(e.topicId)) {
-        seen.add(e.topicId)
-        titles.push(e.topicTitle)
-      }
-    }
-    return titles
-  }, [journalEntriesRaw, lessonId])
-
   const addJournalEntry = useStudyJournalStore((s) => s.addEntry)
 
   const visitedTopicsCount = useMemo(() => {
@@ -352,9 +337,13 @@ export function LessonContentView({
       ) : null}
 
       <FloatingNotes
+        lessonId={lessonId}
+        moduleId={moduleId}
         lessonTitle={title}
         entries={journalEntries}
-        uniqueTopicTitles={journalTopicTitles}
+        sections={sections}
+        activeIndex={activeIndex}
+        onGoToSection={scrollToSection}
       />
 
       {/* Completion banner / manual button */}

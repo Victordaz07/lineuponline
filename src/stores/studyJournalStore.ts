@@ -16,6 +16,8 @@ export type StudyJournalEntry = {
 type StudyJournalState = {
   entries: StudyJournalEntry[]
   addEntry: (entry: StudyJournalEntry) => void
+  updateEntry: (entryId: string, answerText: string) => void
+  removeEntry: (entryId: string) => void
   getForLesson: (lessonId: string) => StudyJournalEntry[]
   uniqueTopicTitles: (lessonId: string) => string[]
   setEntries: (entries: StudyJournalEntry[]) => void
@@ -29,6 +31,16 @@ export const useStudyJournalStore = create<StudyJournalState>()(
         set((s) => ({
           entries: [entry, ...s.entries.filter((e) => e.entryId !== entry.entryId)],
         })),
+      updateEntry: (entryId, answerText) =>
+        set((s) => ({
+          entries: s.entries.map((e) =>
+            e.entryId === entryId
+              ? { ...e, answerText, clientUpdatedAt: new Date().toISOString() }
+              : e,
+          ),
+        })),
+      removeEntry: (entryId) =>
+        set((s) => ({ entries: s.entries.filter((e) => e.entryId !== entryId) })),
       getForLesson: (lessonId) =>
         get()
           .entries.filter((e) => e.lessonId === lessonId)
