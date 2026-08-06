@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/Header'
 import { Toaster } from '@/components/common/Toaster'
 import { useCloudSync } from '@/hooks/useCloudSync'
 import { usePreferencesStore, applyFontSize, applyTheme } from '@/stores/preferencesStore'
+import { useStreakStore } from '@/stores/streakStore'
 import { AudioMount } from '@/features/discography/components/AudioMount'
 import { FullPlayer } from '@/features/discography/components/FullPlayer'
 import { MediaSessionSync } from '@/features/discography/components/MediaSessionSync'
@@ -23,6 +24,12 @@ function CloudSyncManager() {
 function FontSizeManager() {
   const fontSize = usePreferencesStore((s) => s.fontSize)
   useEffect(() => { applyFontSize(fontSize) }, [fontSize])
+  return null
+}
+
+function StreakManager() {
+  const recordActivity = useStreakStore((s) => s.recordActivity)
+  useEffect(() => { recordActivity() }, [recordActivity])
   return null
 }
 
@@ -48,6 +55,7 @@ export function Layout({ children }: LayoutProps) {
       <CloudSyncManager />
       <FontSizeManager />
       <ThemeManager />
+      <StreakManager />
       <Header />
       <main className={`min-w-0 flex-1 px-4 pt-4 sm:px-6 ${hasActiveTrack ? 'pb-40' : 'pb-28'}`}>{children}</main>
       <YouTubePlayerMount />

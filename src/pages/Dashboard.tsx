@@ -10,6 +10,7 @@ import { useLessonProgressStore } from '@/stores/lessonProgressStore'
 import { useStudyJournalStore } from '@/stores/studyJournalStore'
 import { seedLessons, seedModules } from '@/data/seed-doctrine'
 import { useAuth } from '@/hooks/useAuth'
+import { useStreakStore } from '@/stores/streakStore'
 
 export default function Dashboard() {
   const [modules, setModules] = useState<DoctrinalModule[]>([])
@@ -29,6 +30,7 @@ export default function Dashboard() {
     user?.displayName?.split(' ')[0] ?? user?.email?.split('@')[0] ?? 'Bienvenido'
   const initial =
     user?.displayName?.[0]?.toUpperCase() ?? user?.email?.[0]?.toUpperCase() ?? '✦'
+  const streak = useStreakStore((s) => s.currentStreak)
   const visitedTopics = useLessonProgressStore((s) => s.visitedTopics)
   const completedQuizzes = useLessonProgressStore((s) => s.completedQuizzes)
   const journalEntries = useStudyJournalStore((s) => s.entries)
@@ -87,12 +89,23 @@ export default function Dashboard() {
           <p className="font-ui text-[11px] font-bold uppercase tracking-[0.16em] text-sg-gold">{greeting}</p>
           <p className="mt-0.5 font-display text-2xl font-semibold text-parchment">{displayName}</p>
         </div>
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full bg-sg-gold font-ui text-lg font-extrabold text-ink shadow-md ring-2 ring-sg-gold/30">
-          {user?.photoURL ? (
-            <img src={user.photoURL} alt={displayName} className="h-full w-full object-cover" referrerPolicy="no-referrer" />
-          ) : (
-            initial
+        <div className="flex items-center gap-2.5">
+          {streak > 0 && (
+            <div
+              className="flex items-center gap-1.5 rounded-full border border-terracotta/40 bg-terracotta/15 px-3 py-1.5"
+              title={`Racha de estudio: ${streak} ${streak === 1 ? 'día' : 'días'}`}
+            >
+              <span className="text-sm" style={{ animation: 'flamePulse 1.6s ease-in-out infinite' }} aria-hidden="true">🔥</span>
+              <span className="font-ui text-xs font-extrabold text-terracotta">{streak}</span>
+            </div>
           )}
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full bg-sg-gold font-ui text-lg font-extrabold text-ink shadow-md ring-2 ring-sg-gold/30">
+            {user?.photoURL ? (
+              <img src={user.photoURL} alt={displayName} className="h-full w-full object-cover" referrerPolicy="no-referrer" />
+            ) : (
+              initial
+            )}
+          </div>
         </div>
       </header>
 
