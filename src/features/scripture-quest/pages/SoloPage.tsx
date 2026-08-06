@@ -386,7 +386,7 @@ export default function SoloPage() {
                 <button
                   type="button"
                   onClick={nextRound}
-                  className="w-full rounded-xl bg-sg-gold py-4 font-ui text-base font-bold uppercase tracking-wide text-navy-deep transition hover:bg-sg-gold-light"
+                  className="w-full rounded-xl bg-sg-gold py-4 font-ui text-base font-bold uppercase tracking-wide text-ink transition hover:bg-sg-gold-light"
                 >
                   {state.index + 1 >= rounds.length
                     ? 'Ver mi resultado'
@@ -472,13 +472,13 @@ export default function SoloPage() {
                   setNewBadges([])
                   navigate(0)
                 }}
-                className="rounded-xl bg-sg-gold px-5 py-2.5 font-ui text-xs font-bold uppercase tracking-wide text-navy-deep transition hover:bg-sg-gold-light"
+                className="rounded-xl bg-sg-gold px-5 py-2.5 font-ui text-xs font-bold uppercase tracking-wide text-ink transition hover:bg-sg-gold-light"
               >
                 Otra práctica
               </button>
               <Link
                 to="/games/scripture-quest"
-                className="rounded-xl border border-sg-gold px-5 py-2.5 font-ui text-xs font-bold uppercase tracking-wide text-sg-gold-bright transition hover:bg-sg-gold hover:text-navy-deep"
+                className="rounded-xl border border-sg-gold px-5 py-2.5 font-ui text-xs font-bold uppercase tracking-wide text-sg-gold-bright transition hover:bg-sg-gold hover:text-ink"
               >
                 Menú del juego
               </Link>

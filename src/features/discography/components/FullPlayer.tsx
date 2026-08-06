@@ -49,7 +49,10 @@ export function FullPlayer() {
   }
 
   return (
-    <div className="fixed inset-0 z-30 flex flex-col items-center justify-center bg-navy-deep px-6 py-10 font-ui">
+    <div
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center px-6 py-10 font-ui"
+      style={{ background: 'radial-gradient(circle at 50% 0%, rgb(var(--sg-gold) / 0.16), rgb(var(--navy-deep)) 60%)' }}
+    >
       <button
         onClick={closeFullPlayer}
         className="absolute left-6 top-6 flex items-center gap-1.5 text-xs uppercase tracking-widest text-parchment/60"
@@ -75,18 +78,36 @@ export function FullPlayer() {
         </button>
       )}
 
-      {/* Slot visual: si es youtube, el iframe real se acopla aquí encima */}
+      {/* Funda + disco: si es youtube, el iframe real se acopla encima */}
       <div
         ref={videoSlotRef}
-        className="relative mb-8 aspect-square w-full max-w-sm overflow-hidden rounded-2xl bg-navy-mid shadow-2xl"
+        className="vinyl-sleeve relative mb-8 flex aspect-square w-full max-w-[17rem] items-center justify-center overflow-hidden rounded-[22px] shadow-2xl ring-1 ring-sg-gold/25"
       >
         {!isYoutube && (
-          <img src={currentTrack.coverUrl} alt={currentTrack.title} className="h-full w-full object-cover" />
+          <div
+            className="vinyl-disc flex items-center justify-center rounded-full border-[3px] border-sg-gold/45 shadow-2xl"
+            style={{
+              width: '62%',
+              height: '62%',
+              animation: 'spinVinyl 4s linear infinite',
+              animationPlayState: isPlaying ? 'running' : 'paused',
+            }}
+          >
+            {currentTrack.coverUrl ? (
+              <img
+                src={currentTrack.coverUrl}
+                alt={currentTrack.title}
+                className="h-[38%] w-[38%] rounded-full border border-sg-gold/40 object-cover"
+              />
+            ) : (
+              <span className="text-3xl" aria-hidden="true">🎙️</span>
+            )}
+          </div>
         )}
       </div>
 
-      <h1 className="mb-1 text-center font-display text-3xl text-parchment">{currentTrack.title}</h1>
-      <p className="mb-8 text-sm text-sg-gold">{currentTrack.subtitle}</p>
+      <h1 className="mb-1 text-center font-display text-3xl font-semibold text-parchment">{currentTrack.title}</h1>
+      <p className="mb-8 text-sm font-semibold text-sg-gold">{currentTrack.subtitle}</p>
 
       {/* Scrubber */}
       <input
@@ -105,18 +126,39 @@ export function FullPlayer() {
 
       {/* Controles */}
       <div className="flex items-center gap-8">
-        <button onClick={prev} className="text-2xl text-parchment" aria-label="Anterior">
-          ⏮
+        <button
+          onClick={prev}
+          className="flex h-12 w-12 items-center justify-center rounded-full text-parchment/80 transition hover:bg-navy-mid hover:text-parchment active:scale-95"
+          aria-label="Anterior"
+        >
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M7 6a1 1 0 0 1 2 0v4.7l8.5-5.1A1 1 0 0 1 19 6.5v11a1 1 0 0 1-1.5.9L9 13.3V18a1 1 0 1 1-2 0V6z" />
+          </svg>
         </button>
         <button
           onClick={togglePlay}
-          className="flex h-16 w-16 items-center justify-center rounded-full bg-sg-gold text-2xl text-navy-deep"
+          className="flex h-16 w-16 items-center justify-center rounded-full bg-sg-gold text-ink shadow-xl transition hover:brightness-105 active:scale-95"
           aria-label={isPlaying ? 'Pausar' : 'Reproducir'}
         >
-          {isPlaying ? '❚❚' : '▶'}
+          {isPlaying ? (
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <rect x="6" y="5" width="4" height="14" rx="1" />
+              <rect x="14" y="5" width="4" height="14" rx="1" />
+            </svg>
+          ) : (
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ marginLeft: 2 }}>
+              <path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.29-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z" />
+            </svg>
+          )}
         </button>
-        <button onClick={next} className="text-2xl text-parchment" aria-label="Siguiente">
-          ⏭
+        <button
+          onClick={next}
+          className="flex h-12 w-12 items-center justify-center rounded-full text-parchment/80 transition hover:bg-navy-mid hover:text-parchment active:scale-95"
+          aria-label="Siguiente"
+        >
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17 6a1 1 0 0 0-2 0v4.7L6.5 5.6A1 1 0 0 0 5 6.5v11a1 1 0 0 0 1.5.9L15 13.3V18a1 1 0 0 0 2 0V6z" />
+          </svg>
         </button>
       </div>
 

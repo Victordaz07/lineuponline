@@ -86,7 +86,7 @@ function BadgeCard({ badgeId, entry }: { badgeId: BadgeId; entry: BadgeLevelEntr
             <span
               className={`shrink-0 rounded-full px-2.5 py-1 font-ui text-[10px] font-bold uppercase tracking-wider ${
                 isMaxed
-                  ? 'bg-sg-gold text-navy-deep shadow-[0_0_12px_rgba(212,175,98,0.4)]'
+                  ? 'bg-sg-gold text-ink shadow-[0_0_12px_rgba(212,175,98,0.4)]'
                   : 'bg-sg-gold/15 text-sg-gold'
               }`}
             >

@@ -74,7 +74,7 @@ export function TeamVotingPanel({
     <div className="space-y-4 sq-rise">
       <div className="flex items-center justify-between gap-3">
         <div className="flex items-center gap-2">
-          <span className="rounded-full bg-sg-gold px-3 py-1 font-ui text-[10px] font-bold uppercase tracking-wider text-navy-deep">
+          <span className="rounded-full bg-sg-gold px-3 py-1 font-ui text-[10px] font-bold uppercase tracking-wider text-ink">
             {isLeader ? '⭐ Líder' : 'Integrante'}
           </span>
           <span className="font-ui text-sm text-sg-gold-light">
@@ -117,7 +117,7 @@ export function TeamVotingPanel({
                   <button
                     type="button"
                     onClick={() => onConfirm(option.key)}
-                    className="shrink-0 rounded-lg bg-sg-gold px-3 py-2.5 font-ui text-xs font-bold uppercase tracking-wide text-navy-deep hover:bg-sg-gold-light"
+                    className="shrink-0 rounded-lg bg-sg-gold px-3 py-2.5 font-ui text-xs font-bold uppercase tracking-wide text-ink hover:bg-sg-gold-light"
                   >
                     Confirmar
                   </button>

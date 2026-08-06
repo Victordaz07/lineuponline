@@ -254,7 +254,7 @@ export function QuizBlockComponent({ block, lessonId, onComplete }: QuizBlockCom
         type="button"
         disabled={done}
         onClick={() => verifySort()}
-        className="mt-4 rounded-full bg-sg-gold px-5 py-2 font-ui text-sm font-semibold text-navy-deep hover:opacity-90 disabled:opacity-50"
+        className="mt-4 rounded-full bg-sg-gold px-5 py-2 font-ui text-sm font-semibold text-ink hover:opacity-90 disabled:opacity-50"
       >
         Comprobar orden
       </button>

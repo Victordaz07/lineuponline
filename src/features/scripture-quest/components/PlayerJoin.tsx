@@ -60,7 +60,7 @@ export function PlayerJoin({ joining, onJoin }: Props) {
           stored.setIdentity(name.trim(), avatar)
           onJoin(name.trim(), avatar)
         }}
-        className="w-full rounded-xl bg-sg-gold py-3.5 font-ui text-base font-bold uppercase tracking-wide text-navy-deep transition hover:bg-sg-gold-light disabled:opacity-40"
+        className="w-full rounded-xl bg-sg-gold py-3.5 font-ui text-base font-bold uppercase tracking-wide text-ink transition hover:bg-sg-gold-light disabled:opacity-40"
       >
         {joining ? 'Entrando…' : 'Entrar a la sala'}
       </button>

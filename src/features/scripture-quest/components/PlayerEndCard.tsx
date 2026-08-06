@@ -91,7 +91,7 @@ export function PlayerEndCard({ me, rank, totalPlayers, newBadges, missedCount, 
       <div className="flex justify-center gap-3">
         <Link
           to="/games/scripture-quest"
-          className="rounded-xl border border-sg-gold px-5 py-2.5 font-ui text-xs font-bold uppercase tracking-wide text-sg-gold-bright transition hover:bg-sg-gold hover:text-navy-deep"
+          className="rounded-xl border border-sg-gold px-5 py-2.5 font-ui text-xs font-bold uppercase tracking-wide text-sg-gold-bright transition hover:bg-sg-gold hover:text-ink"
         >
           Jugar otra vez
         </Link>

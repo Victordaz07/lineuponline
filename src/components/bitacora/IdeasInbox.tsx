@@ -47,7 +47,7 @@ function IdeaRow({ idea }: { idea: BitacoraIdea }) {
           type="button"
           onClick={() => void handleConvert()}
           disabled={converting}
-          className="rounded-lg border border-sg-gold bg-sg-gold px-3 py-1.5 font-ui text-xs font-semibold text-navy-deep transition hover:brightness-95 disabled:opacity-50"
+          className="rounded-lg border border-sg-gold bg-sg-gold px-3 py-1.5 font-ui text-xs font-semibold text-ink transition hover:brightness-95 disabled:opacity-50"
         >
           Convertir en tarea
         </button>
@@ -124,7 +124,7 @@ export function IdeasInbox() {
           />
           <button
             type="submit"
-            className="rounded-lg border border-sg-gold bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-navy-deep transition hover:brightness-95"
+            className="rounded-lg border border-sg-gold bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-ink transition hover:brightness-95"
           >
             Guardar
           </button>

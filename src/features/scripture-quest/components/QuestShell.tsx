@@ -65,7 +65,7 @@ export function QuestAuthGate({ children }: { children: ReactNode }) {
         <button
           type="button"
           onClick={() => void signInWithGoogle()}
-          className="rounded-xl bg-sg-gold px-6 py-3 font-ui text-sm font-bold uppercase tracking-wide text-navy-deep transition hover:bg-sg-gold-light"
+          className="rounded-xl bg-sg-gold px-6 py-3 font-ui text-sm font-bold uppercase tracking-wide text-ink transition hover:bg-sg-gold-light"
         >
           Iniciar sesión con Google
         </button>

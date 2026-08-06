@@ -231,7 +231,7 @@ function HostControls({
 
       <button
         onClick={onStartNow}
-        className="flex items-center gap-2 rounded-2xl bg-sg-gold px-8 py-2.5 font-ui text-base font-bold text-navy-deep shadow-lg transition hover:bg-sg-gold-light active:scale-95"
+        className="flex items-center gap-2 rounded-2xl bg-sg-gold px-8 py-2.5 font-ui text-base font-bold text-ink shadow-lg transition hover:bg-sg-gold-light active:scale-95"
       >
         Iniciar ya ▶▶
       </button>

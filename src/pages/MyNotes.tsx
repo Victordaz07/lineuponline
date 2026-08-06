@@ -60,7 +60,7 @@ function TagFilter({ allTags, active, onToggle }: {
           onClick={() => onToggle(tag)}
           className={`rounded-full px-2.5 py-0.5 font-ui text-xs font-medium transition ${
             active.includes(tag)
-              ? 'bg-sg-gold text-navy-deep'
+              ? 'bg-sg-gold text-ink'
               : 'border border-sg-gold/20 bg-transparent text-parchment/70 hover:border-sg-gold/40'
           }`}
         >

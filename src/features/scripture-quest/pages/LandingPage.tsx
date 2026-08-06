@@ -162,7 +162,7 @@ export default function LandingPage() {
               onClick={() => setTab(key)}
               className={`rounded-xl px-4 py-2.5 font-ui text-sm font-bold uppercase tracking-wide transition ${
                 tab === key
-                  ? 'bg-sg-gold text-navy-deep'
+                  ? 'bg-sg-gold text-ink'
                   : 'bg-navy-light/50 text-warm-white/70 hover:text-warm-white'
               }`}
             >
@@ -189,7 +189,7 @@ export default function LandingPage() {
             <button
               type="button"
               onClick={() => navigate(`/games/scripture-quest/solo/prep?topic=${topicId}&level=${level}`)}
-              className="w-full rounded-xl bg-sg-gold py-4 font-ui text-base font-bold uppercase tracking-wide text-navy-deep transition hover:bg-sg-gold-light"
+              className="w-full rounded-xl bg-sg-gold py-4 font-ui text-base font-bold uppercase tracking-wide text-ink transition hover:bg-sg-gold-light"
             >
               Comenzar práctica
             </button>
@@ -224,7 +224,7 @@ export default function LandingPage() {
               type="button"
               disabled={creating}
               onClick={() => void handleCreate()}
-              className="w-full rounded-xl bg-sg-gold py-4 font-ui text-base font-bold uppercase tracking-wide text-navy-deep transition hover:bg-sg-gold-light disabled:opacity-40"
+              className="w-full rounded-xl bg-sg-gold py-4 font-ui text-base font-bold uppercase tracking-wide text-ink transition hover:bg-sg-gold-light disabled:opacity-40"
             >
               {creating ? 'Sorteando rondas…' : 'Crear sala'}
             </button>
@@ -241,7 +241,7 @@ export default function LandingPage() {
               type="button"
               onClick={() => handleJoin()}
               disabled={!isValidRoomCode(joinCode)}
-              className="w-full rounded-xl bg-sg-gold py-4 font-ui text-base font-bold uppercase tracking-wide text-navy-deep transition hover:bg-sg-gold-light disabled:opacity-40"
+              className="w-full rounded-xl bg-sg-gold py-4 font-ui text-base font-bold uppercase tracking-wide text-ink transition hover:bg-sg-gold-light disabled:opacity-40"
             >
               Unirme
             </button>

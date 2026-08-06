@@ -35,7 +35,7 @@ function StreakBar() {
               <span className="font-ui text-[10px] text-parchment/35">{weekdayLabel(date)}</span>
               <span
                 className={`flex h-7 w-7 items-center justify-center rounded-full font-ui text-xs ${
-                  done ? 'bg-sg-gold text-navy-deep' : 'border border-sg-gold/20 text-parchment/30'
+                  done ? 'bg-sg-gold text-ink' : 'border border-sg-gold/20 text-parchment/30'
                 }`}
               >
                 {done ? '✓' : ''}

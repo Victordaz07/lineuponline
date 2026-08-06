@@ -128,7 +128,7 @@ export default function PlayerPage() {
                           <button
                             type="button"
                             onClick={() => void joinTeam(roomId, t, me.uid)}
-                            className="rounded-lg bg-sg-gold px-3 py-1.5 font-ui text-xs font-bold uppercase text-navy-deep hover:bg-sg-gold-light"
+                            className="rounded-lg bg-sg-gold px-3 py-1.5 font-ui text-xs font-bold uppercase text-ink hover:bg-sg-gold-light"
                           >
                             Unirme
                           </button>
@@ -148,7 +148,7 @@ export default function PlayerPage() {
                         <button
                           type="button"
                           onClick={() => void handleCreateTeam()}
-                          className="rounded-xl bg-sg-gold px-4 py-2.5 font-ui text-xs font-bold uppercase text-navy-deep hover:bg-sg-gold-light"
+                          className="rounded-xl bg-sg-gold px-4 py-2.5 font-ui text-xs font-bold uppercase text-ink hover:bg-sg-gold-light"
                         >
                           Crear
                         </button>

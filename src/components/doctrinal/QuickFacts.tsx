@@ -14,17 +14,17 @@ export function QuickFacts({ facts }: QuickFactsProps) {
   }
   return (
     <aside
-      className="rounded-2xl border border-amber-200 bg-amber-50/90 p-5 shadow-sm"
+      className="rounded-2xl border border-jade/25 bg-navy-mid p-5 shadow-card"
       aria-label="Hechos clave"
     >
-      <p className="mb-3 font-ui text-xs font-semibold uppercase tracking-wide text-amber-900/80">
+      <p className="mb-3 font-ui text-xs font-semibold uppercase tracking-wide text-parchment/55">
         Datos rápidos
       </p>
       <ul className="space-y-2">
         {facts.map((fact, index) => (
-          <li key={index} className="flex gap-2 font-reading text-sm text-amber-950">
-            <span className="text-gold-main" aria-hidden="true">
-              ✓
+          <li key={index} className="flex gap-2.5 font-reading text-sm text-parchment/80">
+            <span className="mt-0.5 text-jade" aria-hidden="true">
+              ◆
             </span>
             <span>{fact}</span>
           </li>

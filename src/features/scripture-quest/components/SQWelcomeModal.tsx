@@ -160,7 +160,7 @@ export function SQWelcomeModal({ onClose }: { onClose: () => void }) {
               </button>
               <button
                 onClick={dismiss}
-                className="flex-1 rounded-xl bg-sg-gold py-3 font-ui text-sm font-semibold text-navy-deep hover:brightness-110 transition-all"
+                className="flex-1 rounded-xl bg-sg-gold py-3 font-ui text-sm font-semibold text-ink hover:brightness-110 transition-all"
               >
                 ¡A jugar!
               </button>
@@ -175,7 +175,7 @@ export function SQWelcomeModal({ onClose }: { onClose: () => void }) {
               </button>
               <button
                 onClick={() => setSlide((v) => v + 1)}
-                className="flex-1 rounded-xl bg-sg-gold py-3 font-ui text-sm font-semibold text-navy-deep hover:brightness-110 transition-all"
+                className="flex-1 rounded-xl bg-sg-gold py-3 font-ui text-sm font-semibold text-ink hover:brightness-110 transition-all"
               >
                 Siguiente →
               </button>

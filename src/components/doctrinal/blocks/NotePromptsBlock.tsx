@@ -93,7 +93,7 @@ export function NotePromptsBlock({
                   type="button"
                   disabled={Boolean(saved[p.id]) || busyId === p.id || !(drafts[p.id] ?? '').trim()}
                   onClick={() => void handleSave(p.id, p.question)}
-                  className="rounded-full bg-sg-gold px-4 py-1.5 font-ui text-xs font-semibold text-navy-deep hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="rounded-full bg-sg-gold px-4 py-1.5 font-ui text-xs font-semibold text-ink hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {saved[p.id] ? 'Guardado' : busyId === p.id ? 'Guardando…' : 'Guardar nota'}
                 </button>

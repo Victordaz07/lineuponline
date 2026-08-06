@@ -11,7 +11,7 @@ export type AnnouncementBannerProps = {
 const LEFT_BORDER_COLOR: Record<AnnouncementType, string> = {
   announcement: 'border-l-sg-gold',
   update: 'border-l-sg-gold',
-  new_content: 'border-l-green-600',
+  new_content: 'border-l-jade',
 }
 
 function relativeDate(iso: string): string {

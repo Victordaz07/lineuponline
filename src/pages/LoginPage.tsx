@@ -290,7 +290,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={emailLoading}
-                className="w-full rounded-xl bg-sg-gold py-3 font-ui text-sm font-semibold text-navy-deep shadow-sm transition hover:brightness-95 disabled:opacity-60"
+                className="w-full rounded-xl bg-sg-gold py-3 font-ui text-sm font-semibold text-ink shadow-sm transition hover:brightness-95 disabled:opacity-60"
               >
                 {emailLoading
                   ? 'Un momento…'
@@ -338,7 +338,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={phoneLoading}
-                className="w-full rounded-xl bg-sg-gold py-3 font-ui text-sm font-semibold text-navy-deep shadow-sm transition hover:brightness-95 disabled:opacity-60"
+                className="w-full rounded-xl bg-sg-gold py-3 font-ui text-sm font-semibold text-ink shadow-sm transition hover:brightness-95 disabled:opacity-60"
               >
                 {phoneLoading ? 'Enviando…' : 'Enviar código SMS'}
               </button>
@@ -371,7 +371,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={phoneLoading || otp.length !== 6}
-                className="w-full rounded-xl bg-sg-gold py-3 font-ui text-sm font-semibold text-navy-deep shadow-sm transition hover:brightness-95 disabled:opacity-60"
+                className="w-full rounded-xl bg-sg-gold py-3 font-ui text-sm font-semibold text-ink shadow-sm transition hover:brightness-95 disabled:opacity-60"
               >
                 {phoneLoading ? 'Verificando…' : 'Confirmar código'}
               </button>

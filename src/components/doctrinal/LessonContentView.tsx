@@ -203,7 +203,7 @@ export function LessonContentView({
           <div className="flex flex-col gap-2 border-t border-sg-gold/15 pt-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3">
               {isComplete ? (
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-900/40 px-3 py-1 font-ui text-xs font-semibold text-emerald-300">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-jade/15 px-3 py-1 font-ui text-xs font-semibold text-jade">
                   ✓ Completada
                 </span>
               ) : (
@@ -220,7 +220,7 @@ export function LessonContentView({
                 <button
                   type="button"
                   onClick={onMarkComplete}
-                  className="rounded-full border border-emerald-700/50 bg-emerald-900/30 px-4 py-2 font-ui text-sm font-semibold text-emerald-300 transition hover:bg-emerald-900/50"
+                  className="rounded-full border border-jade/40 bg-jade/15 px-4 py-2 font-ui text-sm font-semibold text-jade transition hover:bg-jade/25"
                 >
                   Marcar como completada
                 </button>
@@ -383,18 +383,18 @@ export function LessonContentView({
 
       {/* Completion banner / manual button for plain-text lessons */}
       {isComplete ? (
-        <div className="flex items-center gap-3 rounded-2xl border border-emerald-700/40 bg-emerald-900/20 px-5 py-4">
+        <div className="flex items-center gap-3 rounded-2xl border border-jade/40 bg-jade/12 px-5 py-4">
           <span className="text-2xl" aria-hidden="true">✓</span>
           <div>
-            <p className="font-ui text-sm font-semibold text-emerald-300">Lección completada</p>
-            <p className="font-ui text-xs text-emerald-300/60">Esta lección ya cuenta en tu progreso general.</p>
+            <p className="font-ui text-sm font-semibold text-jade">Lección completada</p>
+            <p className="font-ui text-xs text-jade/70">Esta lección ya cuenta en tu progreso general.</p>
           </div>
         </div>
       ) : onMarkComplete && !isRich ? (
         <button
           type="button"
           onClick={onMarkComplete}
-          className="w-full rounded-2xl border border-emerald-700/50 bg-emerald-900/30 py-3 font-ui text-sm font-semibold text-emerald-300 transition hover:bg-emerald-900/50"
+          className="w-full rounded-2xl border border-jade/40 bg-jade/15 py-3 font-ui text-sm font-semibold text-jade transition hover:bg-jade/25"
         >
           Marcar como completada
         </button>

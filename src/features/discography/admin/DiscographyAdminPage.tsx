@@ -226,7 +226,7 @@ export default function DiscographyAdminPage() {
             <button
               onClick={handleSaveAlbum}
               disabled={loading}
-              className="rounded-lg bg-sg-gold px-5 py-2.5 font-ui text-sm font-semibold text-navy-deep disabled:opacity-60"
+              className="rounded-lg bg-sg-gold px-5 py-2.5 font-ui text-sm font-semibold text-ink disabled:opacity-60"
             >
               {loading ? 'Guardando...' : 'Crear álbum'}
             </button>
@@ -328,7 +328,7 @@ export default function DiscographyAdminPage() {
                 <button
                   onClick={handleSaveTrack}
                   disabled={loading || !detectedVideoId}
-                  className="rounded-lg bg-sg-gold px-5 py-2.5 font-ui text-sm font-semibold text-navy-deep disabled:opacity-50"
+                  className="rounded-lg bg-sg-gold px-5 py-2.5 font-ui text-sm font-semibold text-ink disabled:opacity-50"
                 >
                   {loading ? 'Guardando...' : 'Agregar canción'}
                 </button>
@@ -408,7 +408,7 @@ export default function DiscographyAdminPage() {
               <button
                 onClick={handleConfirmImport}
                 disabled={importing || !selectedAlbumId}
-                className="rounded-lg bg-sg-gold px-5 py-2.5 font-ui text-sm font-semibold text-navy-deep disabled:opacity-50"
+                className="rounded-lg bg-sg-gold px-5 py-2.5 font-ui text-sm font-semibold text-ink disabled:opacity-50"
               >
                 {importing ? 'Importando...' : `Importar ${importPreview.filter((s) => s.valid).length} canciones`}
               </button>

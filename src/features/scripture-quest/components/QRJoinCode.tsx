@@ -14,13 +14,13 @@ export function QRJoinCode({ roomId }: Props) {
         <p className="font-ui text-xs uppercase tracking-widest text-text-muted">
           Código de sala
         </p>
-        <p className="font-display text-4xl font-bold tracking-[0.3em] text-navy-deep">
+        <p className="font-display text-4xl font-bold tracking-[0.3em] text-ink">
           {roomId}
         </p>
       </div>
       <p className="max-w-[220px] text-center font-ui text-xs text-text-muted">
         Escanea el código QR o ingresa el código en{' '}
-        <span className="font-semibold text-navy-deep">/games/scripture-quest</span>
+        <span className="font-semibold text-ink">/games/scripture-quest</span>
       </p>
     </div>
   )

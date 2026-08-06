@@ -76,7 +76,7 @@ function TextAnswerForm({
         type="button"
         disabled={locked || text.trim().length === 0}
         onClick={send}
-        className="w-full rounded-xl bg-sg-gold py-3 font-ui text-sm font-bold uppercase tracking-wide text-navy-deep transition hover:bg-sg-gold-light disabled:opacity-40"
+        className="w-full rounded-xl bg-sg-gold py-3 font-ui text-sm font-bold uppercase tracking-wide text-ink transition hover:bg-sg-gold-light disabled:opacity-40"
       >
         Enviar respuesta
       </button>
@@ -354,7 +354,7 @@ function OrderEventsPanel(p: RoundPanelProps) {
               >
                 <span
                   className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full font-display text-base font-bold ${
-                    position >= 0 ? 'bg-sg-gold text-navy-deep' : 'bg-navy-light text-warm-white/50'
+                    position >= 0 ? 'bg-sg-gold text-ink' : 'bg-navy-light text-warm-white/50'
                   }`}
                 >
                   {position >= 0 ? position + 1 : '·'}
@@ -378,7 +378,7 @@ function OrderEventsPanel(p: RoundPanelProps) {
           type="button"
           disabled={locked || order.length !== shuffled.length}
           onClick={() => p.onAnswer(order.join(','))}
-          className="flex-1 rounded-xl bg-sg-gold py-2.5 font-ui text-sm font-bold uppercase tracking-wide text-navy-deep hover:bg-sg-gold-light disabled:opacity-40"
+          className="flex-1 rounded-xl bg-sg-gold py-2.5 font-ui text-sm font-bold uppercase tracking-wide text-ink hover:bg-sg-gold-light disabled:opacity-40"
         >
           Confirmar orden
         </button>

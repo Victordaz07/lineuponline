@@ -139,7 +139,7 @@ export default function ResultsPage() {
               <div className="mt-4 flex justify-center">
                 <Link
                   to="/games/scripture-quest"
-                  className="rounded-xl border border-sg-gold px-6 py-3 font-ui text-sm font-bold uppercase tracking-wide text-sg-gold-bright transition hover:bg-sg-gold hover:text-navy-deep"
+                  className="rounded-xl border border-sg-gold px-6 py-3 font-ui text-sm font-bold uppercase tracking-wide text-sg-gold-bright transition hover:bg-sg-gold hover:text-ink"
                 >
                   Nueva partida
                 </Link>

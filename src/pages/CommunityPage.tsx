@@ -77,7 +77,7 @@ export default function CommunityPage() {
             onClick={() => setTab(id)}
             className={`flex-1 rounded-xl px-3 py-2 font-ui text-xs font-semibold transition ${
               tab === id
-                ? 'bg-sg-gold text-navy-deep shadow-sm'
+                ? 'bg-sg-gold text-ink shadow-sm'
                 : 'text-parchment/50 hover:text-parchment/80'
             }`}
           >
@@ -116,7 +116,7 @@ export default function CommunityPage() {
               <button
                 type="button"
                 onClick={() => navigate('/login')}
-                className="rounded-full bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-navy-deep"
+                className="rounded-full bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-ink"
               >
                 Iniciar sesión
               </button>
