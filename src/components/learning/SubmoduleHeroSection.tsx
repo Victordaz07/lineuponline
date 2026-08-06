@@ -103,18 +103,6 @@ export function SubmoduleHeroSection({ group, lessons, moduleId, allComplete = f
           </div>
         )}
 
-        {meta.dividerImage && (
-          <div className="mt-1 overflow-hidden" aria-hidden="true">
-            <img
-              src={meta.dividerImage}
-              alt=""
-              className="mx-auto block w-full max-w-md select-none opacity-90"
-              style={{ marginTop: '-40%', marginBottom: '-40%' }}
-              draggable={false}
-            />
-          </div>
-        )}
-
         <div className="mt-5">
           <LessonList lessons={lessons} moduleId={moduleId} />
         </div>
