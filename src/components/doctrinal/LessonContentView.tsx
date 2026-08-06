@@ -209,39 +209,31 @@ export function LessonContentView({
         </div>
       </header>
 
-      {/* Hero — protagonista, debajo de la tarjeta */}
+      {/* Hero — protagonista, debajo de la tarjeta (sin leyenda) */}
       {heroImageUrl || lesson.heroImage?.url ? (
         <MediaSlot
           src={heroImageUrl ?? lesson.heroImage?.url}
           alt={lesson.heroImage?.alt ?? 'Imagen de la lección'}
-          caption="Imagen ilustrativa del tema"
         />
       ) : null}
 
       {/* Reproductor de la lección (fuera de la tarjeta) */}
       <LessonPodcastPlayer lessonId={lessonId} lessonTitle={title} />
 
-      {/* Acciones a la derecha, como en el diseño */}
-      {isRich ? (
-        <div className="flex flex-wrap items-center justify-end gap-2">
-          {!isComplete && onMarkComplete ? (
-            <button
-              type="button"
-              onClick={onMarkComplete}
-              className="rounded-full border border-jade/40 bg-jade/15 px-4 py-2 font-ui text-sm font-semibold text-jade transition hover:bg-jade/25"
-            >
-              Marcar como completada
-            </button>
-          ) : null}
-          <button
-            type="button"
-            onClick={() => setJournalOpen(true)}
-            className="flex items-center gap-1.5 rounded-full px-3 py-2 font-ui text-sm font-semibold text-sg-gold-light transition hover:bg-sg-gold/10"
-          >
-            <span aria-hidden="true">📝</span> Mis notas
-          </button>
-        </div>
-      ) : null}
+      {/* Mis notas — a la derecha, como en el diseño */}
+      <div className="flex justify-end">
+        <button
+          type="button"
+          onClick={() => setJournalOpen(true)}
+          className="flex items-center gap-2 rounded-full px-3.5 py-2 font-ui text-sm font-semibold text-sg-gold-light transition hover:bg-sg-gold/10"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M12 20h9" />
+            <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
+          </svg>
+          Mis notas
+        </button>
+      </div>
 
       {hasOriginal ? (
         <div
@@ -276,18 +268,16 @@ export function LessonContentView({
         </div>
       ) : null}
 
-      <div className="flex flex-wrap items-center justify-end gap-3">
-        <button
-          type="button"
-          onClick={() => setShowNotes((v) => !v)}
-          className="rounded-full border border-sg-gold/30 px-3.5 py-1.5 font-ui text-xs font-semibold text-parchment/60 transition hover:border-sg-gold/50 hover:text-parchment/80"
-          aria-expanded={showNotes}
-        >
-          {showNotes ? 'Ocultar notas al margen' : 'Notas al margen'}
-        </button>
-      </div>
-
       {tab === 'study' && lesson.quickFacts?.length ? <QuickFacts facts={lesson.quickFacts} /> : null}
+
+      {/* Riel de progreso — tarjeta propia, integrada antes del contenido */}
+      {tab === 'study' && isRich && sections.length > 1 ? (
+        <LessonSectionNav
+          sections={sections}
+          activeIndex={activeIndex}
+          onSelect={(i) => scrollToSection(sections[i].id)}
+        />
+      ) : null}
 
       <div
         role="tabpanel"
@@ -296,11 +286,6 @@ export function LessonContentView({
       >
         {tab === 'study' && isRich ? (
           <div className="space-y-10">
-            <LessonSectionNav
-              sections={sections}
-              activeIndex={activeIndex}
-              onSelect={(i) => scrollToSection(sections[i].id)}
-            />
             {sections.map((section) => (
               <div
                 key={section.id}
@@ -359,6 +344,20 @@ export function LessonContentView({
         ) : null}
       </div>
 
+      {/* Acciones de la lección — notas al margen (junto al pie) */}
+      {onSaveNote ? (
+        <div className="flex flex-wrap items-center justify-end gap-3">
+          <button
+            type="button"
+            onClick={() => setShowNotes((v) => !v)}
+            className="rounded-full border border-sg-gold/30 px-3.5 py-1.5 font-ui text-xs font-semibold text-parchment/60 transition hover:border-sg-gold/50 hover:text-parchment/80"
+            aria-expanded={showNotes}
+          >
+            {showNotes ? 'Ocultar notas al margen' : 'Notas al margen'}
+          </button>
+        </div>
+      ) : null}
+
       {showNotes && onSaveNote ? (
         <NoteEditor
           moduleId={moduleId}
@@ -377,7 +376,7 @@ export function LessonContentView({
         uniqueTopicTitles={journalTopicTitles}
       />
 
-      {/* Completion banner / manual button for plain-text lessons */}
+      {/* Completion banner / manual button */}
       {isComplete ? (
         <div className="flex items-center gap-3 rounded-2xl border border-jade/40 bg-jade/12 px-5 py-4">
           <span className="text-2xl" aria-hidden="true">✓</span>
@@ -386,7 +385,7 @@ export function LessonContentView({
             <p className="font-ui text-xs text-jade/70">Esta lección ya cuenta en tu progreso general.</p>
           </div>
         </div>
-      ) : onMarkComplete && !isRich ? (
+      ) : onMarkComplete ? (
         <button
           type="button"
           onClick={onMarkComplete}

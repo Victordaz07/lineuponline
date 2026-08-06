@@ -8,9 +8,9 @@ export type LessonSectionNavProps = {
 
 /**
  * Navegación entre secciones de una lección — "riel de progreso":
- * nodos numerados conectados por una línea, con avance en dorado hasta la
- * sección actual y una etiqueta corta bajo cada nodo. El título completo de la
- * sección se muestra en el contenido, debajo.
+ * tarjeta autocontenida con nodos numerados conectados por una línea, avance en
+ * dorado hasta la sección actual y una etiqueta corta bajo cada nodo. El título
+ * completo de la sección se muestra en el contenido, debajo.
  */
 export function LessonSectionNav({ sections, activeIndex, onSelect }: LessonSectionNavProps) {
   const total = sections.length
@@ -18,10 +18,10 @@ export function LessonSectionNav({ sections, activeIndex, onSelect }: LessonSect
 
   return (
     <nav
-      className="sticky top-0 z-20 -mx-6 border-b border-sg-gold/15 bg-navy-mid/95 px-6 py-3 backdrop-blur-md sm:-mx-8 sm:px-8"
+      className="rounded-2xl border border-sg-gold/15 bg-navy-mid p-5 shadow-card"
       aria-label="Secciones de la lección"
     >
-      <div className="mb-3 flex items-baseline justify-between">
+      <div className="mb-4 flex items-baseline justify-between">
         <p className="font-ui text-[10px] font-bold uppercase tracking-[0.14em] text-parchment/45">
           Progreso de la lección
         </p>
