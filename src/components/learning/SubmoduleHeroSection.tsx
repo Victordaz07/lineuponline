@@ -78,21 +78,6 @@ export function SubmoduleHeroSection({ group, lessons, moduleId, allComplete = f
           </div>
         </div>
 
-        {meta.timelineImage && (
-          <div className="mt-3 overflow-hidden">
-            {/* El arte es un lienzo cuadrado con la franja centrada: se muestra a
-                ancho completo y se recorta el transparente superior/inferior con
-                márgenes negativos (los % son relativos al ancho). */}
-            <img
-              src={meta.timelineImage}
-              alt="Los cinco actos del estudio de David, en orden"
-              className="block w-full select-none"
-              style={{ marginTop: '-26%', marginBottom: '-26%' }}
-              draggable={false}
-            />
-          </div>
-        )}
-
         {allComplete && meta.conclusionImage && (
           <div className="relative mt-5 overflow-hidden rounded-xl border border-jade/40">
             <img src={meta.conclusionImage} alt="" aria-hidden="true" className="h-28 w-full object-cover sm:h-32" />
