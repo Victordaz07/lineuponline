@@ -191,10 +191,11 @@ export function LessonContentView({
         {lesson.description ? (
           <p className="max-w-prose font-display text-base leading-relaxed text-parchment/70">{lesson.description}</p>
         ) : null}
-        <div className="flex flex-wrap items-center gap-2.5">
+        {/* Badges a los extremos, como en el diseño: nivel a la izquierda, estado a la derecha */}
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <LevelBadge level={lesson.level} />
           {isComplete ? (
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-jade/15 px-3 py-1 font-ui text-xs font-bold text-jade">
+            <span className="inline-flex items-center gap-1.5 font-ui text-xs font-bold text-jade">
               ✓ Completada
             </span>
           ) : isRich ? (
@@ -206,37 +207,40 @@ export function LessonContentView({
             </span>
           ) : null}
         </div>
-        <div className="border-t border-sg-gold/15 pt-4">
-          <LessonPodcastPlayer lessonId={lessonId} lessonTitle={title} />
-        </div>
-        {isRich ? (
-          <div className="flex flex-wrap gap-2 border-t border-sg-gold/15 pt-4">
-            {!isComplete && onMarkComplete ? (
-              <button
-                type="button"
-                onClick={onMarkComplete}
-                className="rounded-full border border-jade/40 bg-jade/15 px-4 py-2 font-ui text-sm font-semibold text-jade transition hover:bg-jade/25"
-              >
-                Marcar como completada
-              </button>
-            ) : null}
-            <button
-              type="button"
-              onClick={() => setJournalOpen(true)}
-              className="rounded-full border border-sg-gold/30 bg-sg-gold/10 px-4 py-2 font-ui text-sm font-semibold text-sg-gold-light shadow-sm transition hover:bg-sg-gold/20"
-            >
-              Diario de estudio
-            </button>
-          </div>
-        ) : null}
       </header>
 
+      {/* Hero — protagonista, debajo de la tarjeta */}
       {heroImageUrl || lesson.heroImage?.url ? (
         <MediaSlot
           src={heroImageUrl ?? lesson.heroImage?.url}
           alt={lesson.heroImage?.alt ?? 'Imagen de la lección'}
           caption="Imagen ilustrativa del tema"
         />
+      ) : null}
+
+      {/* Reproductor de la lección (fuera de la tarjeta) */}
+      <LessonPodcastPlayer lessonId={lessonId} lessonTitle={title} />
+
+      {/* Acciones a la derecha, como en el diseño */}
+      {isRich ? (
+        <div className="flex flex-wrap items-center justify-end gap-2">
+          {!isComplete && onMarkComplete ? (
+            <button
+              type="button"
+              onClick={onMarkComplete}
+              className="rounded-full border border-jade/40 bg-jade/15 px-4 py-2 font-ui text-sm font-semibold text-jade transition hover:bg-jade/25"
+            >
+              Marcar como completada
+            </button>
+          ) : null}
+          <button
+            type="button"
+            onClick={() => setJournalOpen(true)}
+            className="flex items-center gap-1.5 rounded-full px-3 py-2 font-ui text-sm font-semibold text-sg-gold-light transition hover:bg-sg-gold/10"
+          >
+            <span aria-hidden="true">📝</span> Mis notas
+          </button>
+        </div>
       ) : null}
 
       {hasOriginal ? (
@@ -272,17 +276,15 @@ export function LessonContentView({
         </div>
       ) : null}
 
-      <div className="space-y-3">
-        <div className="flex flex-wrap items-center gap-3">
-          <button
-            type="button"
-            onClick={() => setShowNotes((v) => !v)}
-            className="rounded-full border border-sg-gold/40 bg-sg-gold/10 px-4 py-2 font-ui text-sm font-semibold text-sg-gold-light transition hover:bg-sg-gold/20"
-            aria-expanded={showNotes}
-          >
-            {showNotes ? 'Ocultar notas' : 'Mis notas'}
-          </button>
-        </div>
+      <div className="flex flex-wrap items-center justify-end gap-3">
+        <button
+          type="button"
+          onClick={() => setShowNotes((v) => !v)}
+          className="rounded-full border border-sg-gold/30 px-3.5 py-1.5 font-ui text-xs font-semibold text-parchment/60 transition hover:border-sg-gold/50 hover:text-parchment/80"
+          aria-expanded={showNotes}
+        >
+          {showNotes ? 'Ocultar notas al margen' : 'Notas al margen'}
+        </button>
       </div>
 
       {tab === 'study' && lesson.quickFacts?.length ? <QuickFacts facts={lesson.quickFacts} /> : null}
