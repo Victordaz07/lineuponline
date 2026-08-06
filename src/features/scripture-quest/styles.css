@@ -9,10 +9,11 @@
   --gold-glow: #e8c87a;
   --parchment: #f5efe0;
   --warm-white: #e8e2d4;
-  --ans-a: #e2574c;
-  --ans-b: #3e8ed0;
-  --ans-c: #e0a431;
-  --ans-d: #43a06b;
+  /* Colores de respuesta alineados a los acentos de marca (terracota / jade / púrpura / dorado) */
+  --ans-a: #c1633d;
+  --ans-b: #2e8b78;
+  --ans-c: #7c5cbf;
+  --ans-d: #b8923a;
   --ok: #43a06b;
   --bad: #e2574c;
   --sq-radius: 16px;

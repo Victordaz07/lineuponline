@@ -16,10 +16,10 @@ export const MESSAGE_STATUS_LABELS: Record<MessageStatus, string> = {
 }
 
 export const MESSAGE_STATUS_COLORS: Record<MessageStatus, string> = {
-  pending: 'bg-amber-100 text-amber-700',
-  read: 'bg-blue-100 text-blue-700',
-  replied: 'bg-green-100 text-green-700',
-  resolved: 'bg-gray-100 text-gray-500',
+  pending: 'bg-amber-500/15 text-amber-500',
+  read: 'bg-info/15 text-info',
+  replied: 'bg-jade/15 text-jade',
+  resolved: 'bg-navy-light text-parchment/50',
 }
 
 export type CommunityMessage = {
