@@ -4,6 +4,7 @@ import { useAuth } from '@/hooks/useAuth'
 import { useAdmin } from '@/hooks/useAdmin'
 import { signOut } from '@/services/authService'
 import { usePreferencesStore, resolveTheme, type FontSize, type ThemeMode } from '@/stores/preferencesStore'
+import { useImmersiveStore } from '@/stores/immersiveStore'
 import { SeekerLogo } from '@/components/common/SeekerLogo'
 
 const THEME_OPTIONS: { value: ThemeMode; label: string; icon: string }[] = [
@@ -302,9 +303,14 @@ function UserMenu() {
 export function Header() {
   const { pathname } = useLocation()
   const isNested = pathname !== '/'
+  const isImmersive = useImmersiveStore((s) => s.isImmersive)
 
   return (
-    <header className="sticky top-0 z-30 border-b border-sg-gold/20 bg-navy-deep/95 px-4 py-3 backdrop-blur-md sm:px-6">
+    <header
+      className={`z-30 border-b border-sg-gold/20 bg-navy-deep/95 px-4 py-3 backdrop-blur-md transition-transform duration-300 ease-in-out sm:px-6 ${
+        isImmersive ? 'fixed inset-x-0 top-0 -translate-y-full' : 'sticky top-0 translate-y-0'
+      }`}
+    >
       <div className="mx-auto flex max-w-5xl items-center gap-3">
         {isNested ? <BackButton /> : null}
         <Link to="/" className="flex items-center gap-2.5">
