@@ -276,18 +276,39 @@ export default function MyNotes() {
           ) : (
             <ul className="space-y-3">
               {filteredHighlights.map((h) => (
-                <li key={h.id} className={`relative rounded-2xl border-l-4 bg-navy-mid p-5 shadow-sm ${HIGHLIGHT_BORDER[h.color]}`}>
+                <li
+                  key={h.id}
+                  className={`relative rounded-2xl border-l-4 bg-navy-mid p-5 shadow-sm ${
+                    h.kind === 'note' ? 'border-l-sg-gold' : HIGHLIGHT_BORDER[h.color]
+                  }`}
+                >
                   <button
                     type="button"
                     onClick={() => removeHighlight(h.id)}
-                    aria-label="Eliminar resaltado"
+                    aria-label={h.kind === 'note' ? 'Eliminar nota' : 'Eliminar resaltado'}
                     className="absolute right-3 top-3 rounded-full p-1 text-parchment/40 transition hover:text-red-400"
                   >
                     ×
                   </button>
-                  <p className={`inline rounded px-1 font-display text-base leading-relaxed ${HIGHLIGHT_BG[h.color]}`}>
+                  {h.kind === 'note' ? (
+                    <span className="mb-1.5 inline-flex items-center gap-1 rounded-full bg-sg-gold/15 px-2 py-0.5 font-ui text-[10px] font-bold text-sg-gold-light">
+                      📝 Nota
+                    </span>
+                  ) : null}
+                  <p
+                    className={
+                      h.kind === 'note'
+                        ? 'font-display text-base leading-relaxed text-parchment underline decoration-sg-gold decoration-2 decoration-dashed underline-offset-4'
+                        : `inline rounded px-1 font-display text-base leading-relaxed ${HIGHLIGHT_BG[h.color]}`
+                    }
+                  >
                     {h.selectedText}
                   </p>
+                  {h.kind === 'note' && h.note ? (
+                    <p className="mt-2 whitespace-pre-wrap font-ui text-sm leading-relaxed text-parchment/70">
+                      {h.note}
+                    </p>
+                  ) : null}
                   <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1">
                     <Link
                       to={`/lesson/${h.lessonId.split(':')[0] ?? h.lessonId}/${h.lessonId}`}

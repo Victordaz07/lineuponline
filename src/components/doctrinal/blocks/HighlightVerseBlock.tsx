@@ -1,3 +1,4 @@
+import type React from 'react'
 import type { HighlightVerseBlock as HighlightVerseBlockType } from '@/types/doctrine'
 import type { HighlightColor } from '@/stores/highlightsStore'
 import { useFavoritesStore } from '@/stores/favoritesStore'
@@ -30,8 +31,18 @@ export function HighlightVerseBlock({
   const addFavorite = useFavoritesStore((s) => s.addFavorite)
   const removeFavorite = useFavoritesStore((s) => s.removeFavorite)
 
-  const { sel, setSel, toolbarRef, handleMouseUp, saveHighlight, activeHL, setActiveHL, renderSegments } =
-    useTextHighlight(blockKey, lessonId, topicId, block.text)
+  const {
+    sel,
+    setSel,
+    toolbarRef,
+    containerRef,
+    handleMouseUp,
+    saveHighlight,
+    saveNote,
+    activeHL,
+    setActiveHL,
+    renderSegments,
+  } = useTextHighlight(blockKey, lessonId, topicId, block.text)
 
   const canBookmark = Boolean(lessonId && moduleId)
   const saved = canBookmark ? isFavorite(block.reference, lessonId!) : false
@@ -58,6 +69,7 @@ export function HighlightVerseBlock({
         sel={sel}
         toolbarRef={toolbarRef}
         onSave={saveHighlight}
+        onSaveNote={saveNote}
         onDismiss={() => { window.getSelection()?.removeAllRanges(); setSel(null) }}
       />
       {activeHL && (
@@ -76,8 +88,10 @@ export function HighlightVerseBlock({
       ) : null}
 
       <blockquote
+        ref={containerRef as React.RefObject<HTMLQuoteElement>}
         className="select-text pr-8 font-reading text-lg font-medium leading-relaxed"
         onMouseUp={handleMouseUp}
+        onTouchEnd={handleMouseUp}
       >
         &ldquo;{renderSegments(VERSE_COLOR_CLASSES)}&rdquo;
       </blockquote>

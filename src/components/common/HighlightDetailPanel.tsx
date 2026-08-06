@@ -57,6 +57,8 @@ export function HighlightDetailPanel({ activeHL, onClose }: Props) {
 
   if (!highlight) return null
 
+  const isNote = highlight.kind === 'note'
+
   function handleRemove() {
     removeHighlight(activeHL.id)
     onClose()
@@ -70,31 +72,41 @@ export function HighlightDetailPanel({ activeHL, onClose }: Props) {
       className="fixed z-50 w-72 rounded-2xl border border-sg-gold/25 bg-navy-mid shadow-xl"
       style={{ top, left }}
     >
-      {/* Header: color + remove */}
+      {/* Header: color/marcador + eliminar */}
       <div className="flex items-center gap-2 border-b border-sg-gold/10 px-3 py-2.5">
-        <span className="font-ui text-xs font-semibold uppercase tracking-wide text-parchment/55">
-          Resaltado
-        </span>
+        {isNote ? (
+          <span className="flex items-center gap-1.5 font-ui text-xs font-semibold uppercase tracking-wide text-sg-gold-light">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M12 20h9" /><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
+            </svg>
+            Nota
+          </span>
+        ) : (
+          <span className="font-ui text-xs font-semibold uppercase tracking-wide text-parchment/55">
+            Resaltado
+          </span>
+        )}
         <div className="ml-auto flex items-center gap-1.5">
-          {COLORS.map((color) => (
-            <button
-              key={color}
-              type="button"
-              aria-label={`Cambiar a ${color}`}
-              onMouseDown={(e) => e.preventDefault()}
-              onClick={() => updateColor(activeHL.id, color)}
-              className={`h-5 w-5 rounded-full transition-transform hover:scale-110 ${SWATCH[color]} ${
-                highlight.color === color ? `ring-2 ring-offset-1 ${RING[color]}` : ''
-              }`}
-            />
-          ))}
+          {!isNote &&
+            COLORS.map((color) => (
+              <button
+                key={color}
+                type="button"
+                aria-label={`Cambiar a ${color}`}
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={() => updateColor(activeHL.id, color)}
+                className={`h-5 w-5 rounded-full transition-transform hover:scale-110 ${SWATCH[color]} ${
+                  highlight.color === color ? `ring-2 ring-offset-1 ${RING[color]}` : ''
+                }`}
+              />
+            ))}
           <button
             type="button"
-            aria-label="Quitar resaltado"
+            aria-label={isNote ? 'Quitar nota' : 'Quitar resaltado'}
             onMouseDown={(e) => e.preventDefault()}
             onClick={handleRemove}
             className="ml-1.5 flex h-6 w-6 items-center justify-center rounded-full text-sm text-rose-400 transition hover:bg-red-950/40 hover:text-rose-400"
-            title="Quitar resaltado"
+            title={isNote ? 'Quitar nota' : 'Quitar resaltado'}
           >
             🗑
           </button>
@@ -117,9 +129,12 @@ export function HighlightDetailPanel({ activeHL, onClose }: Props) {
 
       {/* Note */}
       <div className="px-3 pb-3 pt-2">
-        <p className="mb-1 font-ui text-xs font-semibold text-parchment/55">Nota personal</p>
+        <p className="mb-1 font-ui text-xs font-semibold text-parchment/55">
+          {isNote ? 'Tu nota' : 'Nota personal'}
+        </p>
         <textarea
           rows={2}
+          autoFocus={isNote}
           value={highlight.note}
           onChange={(e) => updateNote(activeHL.id, e.target.value)}
           placeholder="Escribe tu reflexión sobre este versículo…"

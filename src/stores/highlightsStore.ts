@@ -3,6 +3,9 @@ import { persist } from 'zustand/middleware'
 
 export type HighlightColor = 'yellow' | 'green' | 'blue' | 'pink'
 
+/** 'highlight' = franja de color; 'note' = marcador dorado con nota, sin teñir el texto. */
+export type HighlightKind = 'highlight' | 'note'
+
 export type TextHighlight = {
   id: string
   lessonId: string
@@ -11,6 +14,7 @@ export type TextHighlight = {
   blockKey: string
   selectedText: string
   color: HighlightColor
+  kind: HighlightKind
   tags: string[]
   note: string
   savedAt: string
@@ -18,7 +22,8 @@ export type TextHighlight = {
 
 type HighlightsState = {
   highlights: TextHighlight[]
-  addHighlight: (h: Omit<TextHighlight, 'id' | 'savedAt' | 'note'>) => void
+  addHighlight: (h: Omit<TextHighlight, 'id' | 'savedAt' | 'note' | 'kind'>) => void
+  addNote: (h: Omit<TextHighlight, 'id' | 'savedAt' | 'note' | 'kind' | 'color'>, note: string) => void
   removeHighlight: (id: string) => void
   getForBlock: (blockKey: string) => TextHighlight[]
   updateTags: (id: string, tags: string[]) => void
@@ -33,7 +38,19 @@ export const useHighlightsStore = create<HighlightsState>()(
       addHighlight: (h) => {
         const id = `hl-${crypto.randomUUID()}`
         set((s) => ({
-          highlights: [{ ...h, id, note: '', savedAt: new Date().toISOString() }, ...s.highlights],
+          highlights: [
+            { ...h, id, kind: 'highlight', note: '', savedAt: new Date().toISOString() },
+            ...s.highlights,
+          ],
+        }))
+      },
+      addNote: (h, note) => {
+        const id = `hl-${crypto.randomUUID()}`
+        set((s) => ({
+          highlights: [
+            { ...h, id, color: 'yellow', kind: 'note', note, savedAt: new Date().toISOString() },
+            ...s.highlights,
+          ],
         }))
       },
       removeHighlight: (id) =>

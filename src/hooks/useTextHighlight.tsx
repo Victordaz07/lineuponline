@@ -1,6 +1,6 @@
-import { useRef, useState, useCallback } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import type React from 'react'
-import type { HighlightColor, TextHighlight } from '@/stores/highlightsStore'
+import type { HighlightColor, HighlightKind, TextHighlight } from '@/stores/highlightsStore'
 import { useHighlightsStore } from '@/stores/highlightsStore'
 
 type SelectionState = { text: string; top: number; left: number; height?: number }
@@ -12,12 +12,13 @@ export type ActiveHighlight = {
   left: number
 }
 
-type Segment = { text: string; color: HighlightColor | null; hlId: string | null }
+type Segment = { text: string; color: HighlightColor | null; kind: HighlightKind | null; hlId: string | null }
 
 function buildSegments(fullText: string, highlights: TextHighlight[]): Segment[] {
-  if (!highlights.length) return [{ text: fullText, color: null, hlId: null }]
+  if (!highlights.length) return [{ text: fullText, color: null, kind: null, hlId: null }]
 
   const colors: (HighlightColor | null)[] = new Array(fullText.length).fill(null)
+  const kinds: (HighlightKind | null)[] = new Array(fullText.length).fill(null)
   const ids: (string | null)[] = new Array(fullText.length).fill(null)
 
   for (const hl of highlights) {
@@ -25,6 +26,7 @@ function buildSegments(fullText: string, highlights: TextHighlight[]): Segment[]
     if (idx === -1) continue
     for (let i = idx; i < idx + hl.selectedText.length; i++) {
       colors[i] = hl.color
+      kinds[i] = hl.kind
       ids[i] = hl.id
     }
   }
@@ -33,14 +35,34 @@ function buildSegments(fullText: string, highlights: TextHighlight[]): Segment[]
   let i = 0
   while (i < fullText.length) {
     const color = colors[i]
+    const kind = kinds[i]
     const hlId = ids[i]
     let j = i + 1
-    while (j < fullText.length && colors[j] === color && ids[j] === hlId) j++
-    segments.push({ text: fullText.slice(i, j), color, hlId })
+    while (j < fullText.length && colors[j] === color && kinds[j] === kind && ids[j] === hlId) j++
+    segments.push({ text: fullText.slice(i, j), color, kind, hlId })
     i = j
   }
   return segments
 }
+
+/** Icono de marcador dorado (JSX inline, no un componente, para no romper Fast Refresh en este archivo). */
+const NOTE_MARKER_ICON = (
+  <svg
+    width="11"
+    height="11"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.3"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="ml-0.5 inline-block shrink-0 align-[-1px] text-sg-gold-light"
+    aria-hidden="true"
+  >
+    <path d="M12 20h9" />
+    <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
+  </svg>
+)
 
 export function useTextHighlight(
   blockKey: string | undefined,
@@ -51,25 +73,22 @@ export function useTextHighlight(
   const [sel, setSel] = useState<SelectionState | null>(null)
   const [activeHL, setActiveHL] = useState<ActiveHighlight | null>(null)
   const toolbarRef = useRef<HTMLDivElement | null>(null)
+  const containerRef = useRef<HTMLElement | null>(null)
 
   const addHighlight = useHighlightsStore((s) => s.addHighlight)
+  const addNote = useHighlightsStore((s) => s.addNote)
   const allHighlights = useHighlightsStore((s) => s.highlights)
   const blockHighlights = blockKey
     ? allHighlights.filter((h) => h.blockKey === blockKey)
     : []
 
-  const handleMouseUp = useCallback(() => {
+  const evaluateSelection = useCallback(() => {
     const selection = window.getSelection()
-    if (!selection || selection.isCollapsed) {
-      // Don't clear sel here — let clicks on marks handle activeHL separately
-      return
-    }
+    if (!selection || selection.isCollapsed) return
+    if (!containerRef.current || !selection.anchorNode) return
+    if (!containerRef.current.contains(selection.anchorNode)) return
     const selectedText = selection.toString().trim()
-    if (!selectedText) {
-      setSel(null)
-      return
-    }
-    // Close any open highlight detail panel when selecting new text
+    if (!selectedText) return
     setActiveHL(null)
     const range = selection.getRangeAt(0)
     const rect = range.getBoundingClientRect()
@@ -80,6 +99,26 @@ export function useTextHighlight(
       height: rect.height,
     })
   }, [])
+
+  const handleMouseUp = useCallback(() => {
+    evaluateSelection()
+  }, [evaluateSelection])
+
+  // Selección táctil (mantener presionado + arrastrar los tiradores nativos):
+  // `touchend` llega antes de que la selección se asiente en algunos navegadores,
+  // así que además escuchamos `selectionchange` con un pequeño debounce.
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout> | undefined
+    const onSelectionChange = () => {
+      if (timer) clearTimeout(timer)
+      timer = setTimeout(evaluateSelection, 220)
+    }
+    document.addEventListener('selectionchange', onSelectionChange)
+    return () => {
+      document.removeEventListener('selectionchange', onSelectionChange)
+      if (timer) clearTimeout(timer)
+    }
+  }, [evaluateSelection])
 
   const saveHighlight = useCallback(
     (color: HighlightColor) => {
@@ -93,6 +132,21 @@ export function useTextHighlight(
       setSel(null)
     },
     [sel, blockKey, lessonId, topicId, addHighlight],
+  )
+
+  const saveNote = useCallback(
+    (noteText: string) => {
+      const trimmed = noteText.trim()
+      if (!sel || !blockKey || !lessonId || !topicId || !trimmed) {
+        window.getSelection()?.removeAllRanges()
+        setSel(null)
+        return
+      }
+      addNote({ lessonId, topicId, blockKey, selectedText: sel.text, tags: [] }, trimmed)
+      window.getSelection()?.removeAllRanges()
+      setSel(null)
+    },
+    [sel, blockKey, lessonId, topicId, addNote],
   )
 
   const handleMarkClick = useCallback((e: React.MouseEvent, hlId: string) => {
@@ -111,23 +165,45 @@ export function useTextHighlight(
   const renderSegments = useCallback(
     (colorClasses: Record<HighlightColor, string>): React.ReactNode => {
       const segments = buildSegments(text, blockHighlights)
-      return segments.map((seg, i) =>
-        seg.color && seg.hlId
-          ? (
+      return segments.map((seg, i) => {
+        if (!seg.hlId) return <span key={i}>{seg.text}</span>
+        if (seg.kind === 'note') {
+          return (
             <mark
               key={i}
-              className={`cursor-pointer ${colorClasses[seg.color]}`}
+              className="cursor-pointer rounded-sm bg-transparent text-inherit underline decoration-sg-gold decoration-2 decoration-dashed underline-offset-4"
               onClick={(e) => handleMarkClick(e, seg.hlId!)}
             >
               {seg.text}
+              {NOTE_MARKER_ICON}
             </mark>
           )
-          : <span key={i}>{seg.text}</span>,
-      )
+        }
+        return (
+          <mark
+            key={i}
+            className={`cursor-pointer ${seg.color ? colorClasses[seg.color] : ''}`}
+            onClick={(e) => handleMarkClick(e, seg.hlId!)}
+          >
+            {seg.text}
+          </mark>
+        )
+      })
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [text, allHighlights, blockKey, handleMarkClick],
   )
 
-  return { sel, setSel, toolbarRef, handleMouseUp, saveHighlight, activeHL, setActiveHL, renderSegments }
+  return {
+    sel,
+    setSel,
+    toolbarRef,
+    containerRef,
+    handleMouseUp,
+    saveHighlight,
+    saveNote,
+    activeHL,
+    setActiveHL,
+    renderSegments,
+  }
 }
