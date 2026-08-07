@@ -6,6 +6,7 @@ import { LoadingSpinner } from '@/components/common/LoadingSpinner'
 import { MediaSlot } from '@/components/doctrinal/MediaSlot'
 import { useModule } from '@/hooks/useModule'
 import { useLessonProgressStore } from '@/stores/lessonProgressStore'
+import { useModuleMediaStore } from '@/stores/moduleMediaStore'
 import type { DifficultyLevel, Lesson } from '@/types/doctrine'
 import { DIFFICULTY_LEVELS } from '@/lib/constants'
 
@@ -19,6 +20,7 @@ export default function ModuleView() {
   const { moduleId } = useParams<{ moduleId: string }>()
   const { module, lessons, loading, error } = useModule(moduleId)
   const hasAnyVisited = useLessonProgressStore((s) => s.hasAnyVisited)
+  const moduleMedia = useModuleMediaStore((s) => (moduleId ? s.media[moduleId] : undefined))
   const [levelFilter, setLevelFilter] = useState<DifficultyLevel | 'ALL'>('ALL')
 
   const filteredLessons = useMemo(() => {
@@ -81,13 +83,19 @@ export default function ModuleView() {
           </span>
         )}
         <div className="flex items-center gap-4">
-          <div
-            className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-3xl shadow-md"
-            style={{ background: 'linear-gradient(160deg, rgb(var(--sg-gold-bright)), rgb(var(--sg-gold)))' }}
-            aria-hidden="true"
-          >
-            {module.icon ?? '📖'}
-          </div>
+          {moduleMedia?.iconImage ? (
+            <div className="h-16 w-16 shrink-0 overflow-hidden rounded-2xl shadow-md">
+              <img src={moduleMedia.iconImage} alt="" className="h-full w-full object-cover" />
+            </div>
+          ) : (
+            <div
+              className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-3xl shadow-md"
+              style={{ background: 'linear-gradient(160deg, rgb(var(--sg-gold-bright)), rgb(var(--sg-gold)))' }}
+              aria-hidden="true"
+            >
+              {module.icon ?? '📖'}
+            </div>
+          )}
           <div className="min-w-0">
             <h1 className="font-display text-3xl font-semibold text-parchment">{module.title}</h1>
             <p className="mt-1 font-ui text-xs font-medium uppercase tracking-wide text-parchment/45">
@@ -96,13 +104,11 @@ export default function ModuleView() {
           </div>
         </div>
         <p className="max-w-prose font-display text-base leading-relaxed text-parchment/70">{module.description}</p>
-        {module.heroImageUrl ? (
-          <MediaSlot
-            src={module.heroImageUrl}
-            alt={`Imagen representativa del módulo ${module.title}`}
-            caption="Imagen del módulo"
-          />
-        ) : null}
+        <MediaSlot
+          src={moduleMedia?.heroImage ?? module.heroImageUrl}
+          alt={`Imagen representativa del módulo ${module.title}`}
+          placeholderIcon={module.icon ?? '📖'}
+        />
         <div className="flex items-center gap-3">
           <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-navy-light">
             <div

@@ -5,10 +5,41 @@ import { useAuth } from '@/hooks/useAuth'
 import { GroupImageCard } from '@/components/admin/moduleImages/GroupImageCard'
 import { LessonImageRow } from '@/components/admin/moduleImages/LessonImageRow'
 import { SUBMODULE_GROUPS, seedLessons, seedModules } from '@/data/seed-doctrine'
+import type { ModuleMediaSlot } from '@/services/moduleMedia.service'
 import { useModuleMediaStore } from '@/stores/moduleMediaStore'
 import { useLessonMediaStore } from '@/stores/lessonMediaStore'
 
-type TabId = 'groups' | 'lessons'
+type TabId = 'modules' | 'groups' | 'lessons'
+
+const MODULE_SLOTS: { key: ModuleMediaSlot; label: string; wide: boolean }[] = [
+  { key: 'heroImage', label: 'Hero', wide: true },
+  { key: 'iconImage', label: 'Ícono', wide: false },
+]
+
+function ModulesTab() {
+  const media = useModuleMediaStore((s) => s.media)
+  const modules = useMemo(() => [...seedModules].sort((a, b) => a.title.localeCompare(b.title)), [])
+  const uploadedCount = modules.filter((m) => media[m.id]?.heroImage).length
+
+  return (
+    <div className="space-y-4">
+      <p className="font-ui text-xs text-parchment/45">
+        Los 10 módulos principales (categorías) — {uploadedCount}/{modules.length} con hero subido.
+      </p>
+      <div className="grid gap-4 sm:grid-cols-2">
+        {modules.map((m) => (
+          <GroupImageCard
+            key={m.id}
+            groupId={m.id}
+            meta={{ title: m.title, icon: m.icon }}
+            media={media[m.id]}
+            slots={MODULE_SLOTS}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
 
 function GroupsTab() {
   const [query, setQuery] = useState('')
@@ -106,12 +137,13 @@ function LessonsTab() {
 export default function ModuleImagesAdminPage() {
   const { user, authLoading } = useAuth()
   const { isAdmin } = useAdmin()
-  const [tab, setTab] = useState<TabId>('groups')
+  const [tab, setTab] = useState<TabId>('modules')
 
   if (authLoading) return null
   if (!user || !isAdmin) return <Navigate to="/" replace />
 
   const tabs: { id: TabId; label: string }[] = [
+    { id: 'modules', label: 'Módulos' },
     { id: 'groups', label: 'Personajes y temas' },
     { id: 'lessons', label: 'Lecciones' },
   ]
@@ -148,7 +180,7 @@ export default function ModuleImagesAdminPage() {
         ))}
       </div>
 
-      {tab === 'groups' ? <GroupsTab /> : <LessonsTab />}
+      {tab === 'modules' ? <ModulesTab /> : tab === 'groups' ? <GroupsTab /> : <LessonsTab />}
     </div>
   )
 }
