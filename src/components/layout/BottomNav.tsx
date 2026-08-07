@@ -1,102 +1,103 @@
+import { useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
-const GOLD = '#B8923A'
+const PATHS = {
+  Inicio:
+    'M222.14,105.85l-80-80a20,20,0,0,0-28.28,0l-80,80A19.86,19.86,0,0,0,28,120v96a12,12,0,0,0,12,12h64a12,12,0,0,0,12-12V164h24v52a12,12,0,0,0,12,12h64a12,12,0,0,0,12-12V120A19.86,19.86,0,0,0,222.14,105.85ZM204,204H164V152a12,12,0,0,0-12-12H104a12,12,0,0,0-12,12v52H52V121.65l76-76,76,76Z',
+  Estudio:
+    'M232,44H160a43.86,43.86,0,0,0-32,13.85A43.86,43.86,0,0,0,96,44H24A12,12,0,0,0,12,56V200a12,12,0,0,0,12,12H96a20,20,0,0,1,20,20,12,12,0,0,0,24,0,20,20,0,0,1,20-20h72a12,12,0,0,0,12-12V56A12,12,0,0,0,232,44ZM96,188H36V68H96a20,20,0,0,1,20,20V192.81A43.79,43.79,0,0,0,96,188Zm124,0H160a43.71,43.71,0,0,0-20,4.83V88a20,20,0,0,1,20-20h60Z',
+  Jugar:
+    'M176,116H152a12,12,0,0,1,0-24h24a12,12,0,0,1,0,24ZM104,92h-4V88a12,12,0,0,0-24,0v4H72a12,12,0,0,0,0,24h4v4a12,12,0,0,0,24,0v-4h4a12,12,0,0,0,0-24ZM244.76,202.94a40,40,0,0,1-61,5.35,7,7,0,0,1-.53-.56L144.67,164H111.33L72.81,207.73c-.17.19-.35.38-.53.56A40,40,0,0,1,4.62,173.05a1.18,1.18,0,0,1,0-.2L21,88.79A63.88,63.88,0,0,1,83.88,36H172a64.08,64.08,0,0,1,62.93,52.48,1.8,1.8,0,0,1,0,.19l16.36,84.17a1.77,1.77,0,0,1,0,.2A39.74,39.74,0,0,1,244.76,202.94ZM172,140a40,40,0,0,0,0-80H83.89A39.9,39.9,0,0,0,44.62,93.06a1.55,1.55,0,0,0,0,.21l-16.34,84a16,16,0,0,0,13,18.44,16.07,16.07,0,0,0,13.86-4.21L96.9,144.07a12,12,0,0,1,9-4.07Zm55.76,37.31-7-35.95a63.84,63.84,0,0,1-44.27,22.46l24.41,27.72a16,16,0,0,0,26.85-14.23Z',
+  Comunidad:
+    'M164.38,181.1a52,52,0,1,0-72.76,0,75.89,75.89,0,0,0-30,28.89,12,12,0,0,0,20.78,12,53,53,0,0,1,91.22,0,12,12,0,1,0,20.78-12A75.89,75.89,0,0,0,164.38,181.1ZM100,144a28,28,0,1,1,28,28A28,28,0,0,1,100,144Zm147.21,9.59a12,12,0,0,1-16.81-2.39c-8.33-11.09-19.85-19.59-29.33-21.64a12,12,0,0,1-1.82-22.91,20,20,0,1,0-24.78-28.3,12,12,0,1,1-21-11.6,44,44,0,1,1,73.28,48.35,92.18,92.18,0,0,1,22.85,21.69A12,12,0,0,1,247.21,153.59Zm-192.28-24c-9.48,2.05-21,10.55-29.33,21.65A12,12,0,0,1,6.41,136.79,92.37,92.37,0,0,1,29.26,115.1a44,44,0,1,1,73.28-48.35,12,12,0,1,1-21,11.6,20,20,0,1,0-24.78,28.3,12,12,0,0,1-1.82,22.91Z',
+  Música:
+    'M215.38,14.54a12,12,0,0,0-10.29-2.18l-128,32A12,12,0,0,0,68,56V159.35A40,40,0,1,0,92,196V113.37l104-26v40A40,40,0,1,0,220,164V24A12,12,0,0,0,215.38,14.54ZM52,212a16,16,0,1,1,16-16A16,16,0,0,1,52,212ZM92,88.63V65.37l104-26V62.63ZM180,180a16,16,0,1,1,16-16A16,16,0,0,1,180,180Z',
+} as const
 
-const items = [
-  {
-    to: '/',
-    end: true,
-    label: 'Inicio',
-    icon: (
-      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M3.5 11.5 L12 4.5 L20.5 11.5" />
-        <path d="M6 10.5 V20 H18 V10.5" />
-        <path d="M15.5 6.9 V4.5 H17.5 V8.6" />
-        <path d="M10 20 V15.8 A2 2 0 0 1 14 15.8 V20" stroke={GOLD} />
-        <circle cx="12.9" cy="17.6" r="0.5" fill={GOLD} stroke="none" />
-      </svg>
-    ),
-  },
-  {
-    to: '/module/doctrina-fundamental',
-    end: false,
-    label: 'Estudio',
-    icon: (
-      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <rect x="7" y="4.5" width="10" height="13.5" rx="1.2" />
-        <path d="M9.3 4.5 V18" />
-        <path d="M9.5 18 v3 l1.35 -1.1 l1.35 1.1 v-3 z" fill={GOLD} stroke="none" />
-      </svg>
-    ),
-  },
-  {
-    to: '/games/scripture-quest',
-    end: false,
-    label: 'Jugar',
-    icon: (
-      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M8 4.5 H16 V7 A4 4 0 0 1 8 7 Z" />
-        <path d="M8 5 H5.5 A2.3 2.3 0 0 0 8.2 8.3" />
-        <path d="M16 5 H18.5 A2.3 2.3 0 0 1 15.8 8.3" />
-        <path d="M12 11 V14" />
-        <path d="M10.5 14 H13.5 V15.5 L15 18 H9 L10.5 15.5 Z" />
-        <path d="M12 5.3 L12.7 7 L14.5 7.1 L13.1 8.3 L13.6 10 L12 9 L10.4 10 L10.9 8.3 L9.5 7.1 L11.3 7 Z" stroke={GOLD} strokeWidth="1.2" />
-      </svg>
-    ),
-  },
-  {
-    to: '/community',
-    end: false,
-    label: 'Comunidad',
-    icon: (
-      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="9.5" cy="9" r="2.7" />
-        <path d="M4.5 18.5 V17.5 A5 5 0 0 1 14.5 17.5 V18.5" />
-        <circle cx="16" cy="8.5" r="2.1" stroke={GOLD} />
-        <path d="M15.2 13.4 A4.3 4.3 0 0 1 19.5 18.5" stroke={GOLD} />
-      </svg>
-    ),
-  },
-  {
-    to: '/musica',
-    end: false,
-    label: 'Música',
-    icon: (
-      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M9.5 17 V6" />
-        <path d="M18.5 15 V4" />
-        <path d="M9.5 6 L18.5 4" />
-        <path d="M9.5 8.5 L18.5 6.5" />
-        <circle cx="7.5" cy="17" r="2" stroke={GOLD} />
-        <circle cx="16.5" cy="15" r="2" stroke={GOLD} />
-      </svg>
-    ),
-  },
+type IconKey = keyof typeof PATHS
+
+const items: { to: string; end: boolean; label: string; icon: IconKey }[] = [
+  { to: '/', end: true, label: 'Inicio', icon: 'Inicio' },
+  { to: '/module/doctrina-fundamental', end: false, label: 'Estudio', icon: 'Estudio' },
+  { to: '/games/scripture-quest', end: false, label: 'Jugar', icon: 'Jugar' },
+  { to: '/community', end: false, label: 'Comunidad', icon: 'Comunidad' },
+  { to: '/admin/music', end: false, label: 'Música', icon: 'Música' },
 ]
 
 export function BottomNav() {
+  const [bumped, setBumped] = useState<string | null>(null)
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  function handleTap(to: string) {
+    if (timerRef.current) clearTimeout(timerRef.current)
+    setBumped(to)
+    timerRef.current = setTimeout(() => setBumped(null), 340)
+  }
+
   return (
     <nav
-      className="border-t border-sg-gold/15 bg-navy-deep/95 shadow-[0_-4px_20px_rgba(0,0,0,0.3)] backdrop-blur-md"
+      className="fixed bottom-0 left-0 right-0 z-40 bg-navy-deep/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_20px_rgba(0,0,0,0.35)] backdrop-blur-md"
+      style={{ borderRadius: '24px 24px 0 0' }}
       aria-label="Navegación principal"
     >
-      <div className="mx-auto flex max-w-lg">
+      <div className="mx-auto flex max-w-lg px-2.5 pb-3 pt-4">
         {items.map(({ to, end, label, icon }) => (
           <NavLink
             key={to}
             to={to}
             end={end}
+            onClick={() => handleTap(to)}
             className={({ isActive }) =>
-              `flex min-w-0 flex-1 flex-col items-center gap-1 px-2 py-3 font-ui text-[0.65rem] font-semibold transition-colors ${
-                isActive ? 'text-sg-gold-light' : 'text-parchment/40 hover:text-parchment/70'
+              `flex min-w-0 flex-1 flex-col items-center gap-1.5 ${
+                isActive ? 'text-sg-gold-light' : 'text-parchment/[0.42]'
               }`
             }
             aria-label={label}
           >
             {({ isActive }) => (
               <>
-                <span className={`transition-transform ${isActive ? 'scale-110' : ''}`}>{icon}</span>
-                <span>{label}</span>
+                <span className="relative flex items-center justify-center">
+                  <span
+                    style={
+                      bumped === to
+                        ? { animation: 'navPop 0.32s ease-out', display: 'block' }
+                        : { display: 'block' }
+                    }
+                  >
+                    <svg
+                      width="25"
+                      height="25"
+                      viewBox="0 0 256 256"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d={PATHS[icon]} />
+                    </svg>
+                  </span>
+
+                  {isActive && (
+                    <span
+                      className="bg-sg-gold-light"
+                      style={{
+                        position: 'absolute',
+                        bottom: '-8px',
+                        left: '50%',
+                        width: '16px',
+                        height: '3px',
+                        borderRadius: '100px',
+                        transform: 'translateX(-50%)',
+                        animation: 'navPill 0.28s ease-out',
+                      }}
+                    />
+                  )}
+                </span>
+
+                <span
+                  className="font-ui text-[0.6rem] leading-none"
+                  style={{ fontWeight: isActive ? 700 : 600 }}
+                >
+                  {label}
+                </span>
               </>
             )}
           </NavLink>
