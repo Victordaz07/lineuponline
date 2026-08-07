@@ -687,6 +687,7 @@ const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
     order: 1,
     level: 'BÁSICO',
     usePurpleAccent: false,
+    heroImageUrl: '/assets/modules/covers/doctrina-fundamental.webp',
   },
   {
     id: 'vida-familiar-personal',
@@ -696,6 +697,7 @@ const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
     order: 2,
     level: 'BÁSICO',
     usePurpleAccent: false,
+    heroImageUrl: '/assets/modules/covers/vida-familiar-personal.webp',
   },
   {
     id: 'historia-restauracion',
@@ -705,6 +707,7 @@ const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
     order: 3,
     level: 'INTERMEDIO',
     usePurpleAccent: false,
+    heroImageUrl: '/assets/modules/covers/historia-restauracion.webp',
   },
   {
     id: 'doctrina-avanzada-carne',
@@ -714,6 +717,7 @@ const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
     order: 4,
     level: 'AVANZADO',
     usePurpleAccent: true,
+    heroImageUrl: '/assets/modules/covers/doctrina-avanzada-carne.webp',
   },
   {
     id: 'lideres-misioneros',
@@ -723,6 +727,7 @@ const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
     order: 5,
     level: 'INTERMEDIO',
     usePurpleAccent: false,
+    heroImageUrl: '/assets/modules/covers/lideres-misioneros.webp',
   },
   {
     id: 'discursos-sermones-clasicos',
@@ -732,6 +737,7 @@ const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
     order: 6,
     level: 'AVANZADO',
     usePurpleAccent: true,
+    heroImageUrl: '/assets/modules/covers/discursos-sermones-clasicos.webp',
   },
   {
     id: 'temas-profundos',
@@ -742,6 +748,7 @@ const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
     order: 7,
     level: 'AVANZADO',
     usePurpleAccent: true,
+    heroImageUrl: '/assets/modules/covers/temas-profundos.webp',
   },
   {
     id: 'personajes-escrituras',
@@ -753,6 +760,7 @@ const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
     level: 'INTERMEDIO',
     usePurpleAccent: false,
     categoryLabel: 'PERSONAJE PRINCIPAL',
+    heroImageUrl: '/assets/modules/covers/personajes-escrituras.webp',
   },
   {
     id: 'capacitacion-liderazgo',
@@ -763,6 +771,7 @@ const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
     order: 22,
     level: 'BÁSICO',
     usePurpleAccent: false,
+    heroImageUrl: '/assets/modules/covers/capacitacion-liderazgo.webp',
   },
   {
     id: 'sacerdocio',
@@ -774,6 +783,7 @@ const MODULE_ROWS: Omit<DoctrinalModule, 'lessonIds'>[] = [
     level: 'INTERMEDIO',
     usePurpleAccent: true,
     categoryLabel: 'OFICIO',
+    heroImageUrl: '/assets/modules/covers/sacerdocio.webp',
   },
 ]
 
