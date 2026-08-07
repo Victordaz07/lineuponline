@@ -90,6 +90,19 @@ export default function AdminPage() {
           <span className="text-parchment/30">›</span>
         </Link>
         <Link
+          to="/admin/imagenes"
+          className="flex items-center gap-4 border-t border-sg-gold/10 px-5 py-4 transition hover:bg-navy-deep/40"
+        >
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-sg-gold/10 text-xl">
+            🖼️
+          </span>
+          <div className="min-w-0 flex-1">
+            <p className="font-ui text-sm font-semibold text-parchment/85">Imágenes del catálogo</p>
+            <p className="font-ui text-xs text-parchment/45">Sube el arte de cada personaje/tema y lección</p>
+          </div>
+          <span className="text-parchment/30">›</span>
+        </Link>
+        <Link
           to="/admin/scripture-quest"
           className="flex items-center gap-4 px-5 py-4 transition hover:bg-navy-deep/40 border-t border-sg-gold/10"
         >

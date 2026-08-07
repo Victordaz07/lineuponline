@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import type { DifficultyLevel, Lesson } from '@/types/doctrine'
 import { LevelBadge } from '@/components/doctrinal/LevelBadge'
+import { useLessonMediaStore } from '@/stores/lessonMediaStore'
 
 export type LessonListProps = {
   lessons: Lesson[]
@@ -15,6 +16,8 @@ const iconTint: Record<DifficultyLevel, string> = {
 }
 
 export function LessonList({ lessons, moduleId }: LessonListProps) {
+  const lessonMedia = useLessonMediaStore((s) => s.media)
+
   if (lessons.length === 0) {
     return (
       <p className="rounded-2xl border border-dashed border-sg-gold/20 bg-navy-mid p-6 text-center font-ui text-sm text-parchment/40">
@@ -28,6 +31,7 @@ export function LessonList({ lessons, moduleId }: LessonListProps) {
       {lessons.map((lesson) => {
         const published = lesson.status === 'PUBLISHED'
         const tint = iconTint[lesson.level] ?? 'bg-sg-gold/15 ring-sg-gold/25'
+        const iconImage = lessonMedia[lesson.id]?.iconImage ?? lesson.iconImage
 
         const inner = (
           <div className="flex items-center gap-4 px-4 py-3.5">
@@ -35,8 +39,8 @@ export function LessonList({ lessons, moduleId }: LessonListProps) {
               className={`flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl text-xl ring-1 ${tint}`}
               aria-hidden="true"
             >
-              {lesson.iconImage ? (
-                <img src={lesson.iconImage} alt="" className="h-full w-full object-cover" />
+              {iconImage ? (
+                <img src={iconImage} alt="" className="h-full w-full object-cover" />
               ) : (
                 lesson.icon ?? '📖'
               )}

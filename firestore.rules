@@ -178,5 +178,18 @@ service cloud.firestore {
       allow read: if isAuthenticated();
       allow write: if isAdmin();
     }
+
+    // Imágenes de personajes/temas (hero, ícono, patrón, conclusión) y de
+    // lecciones individuales, subidas desde el panel de Admin. Identidad
+    // visual básica del catálogo: lectura pública (incluye invitados sin
+    // sesión), escritura solo admin — mismo criterio que discographyAlbums.
+    match /moduleMedia/{groupId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /lessonMedia/{lessonId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
   }
 }

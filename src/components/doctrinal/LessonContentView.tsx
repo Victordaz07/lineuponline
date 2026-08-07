@@ -22,6 +22,7 @@ import { splitPlainParagraphs } from '@/lib/utils'
 import { LessonDisclaimer } from '@/components/doctrinal/LessonDisclaimer'
 import { OriginalTextRenderer } from '@/components/doctrinal/OriginalTextRenderer'
 import { useLessonProgressStore } from '@/stores/lessonProgressStore'
+import { useLessonMediaStore } from '@/stores/lessonMediaStore'
 import { useStudyJournalStore } from '@/stores/studyJournalStore'
 import type { UserNoteInput } from '@/types/userNotes'
 
@@ -53,6 +54,9 @@ export function LessonContentView({
   const [activeSectionId, setActiveSectionId] = useState<string>('')
 
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({})
+
+  const lessonMedia = useLessonMediaStore((s) => s.media[lessonId])
+  const resolvedHeroUrl = lessonMedia?.heroImage ?? heroImageUrl ?? lesson.heroImage?.url
 
   const sections = useMemo(() => lesson.studySections ?? [], [lesson.studySections])
   const isRich = Boolean(sections.length > 0)
@@ -193,13 +197,13 @@ export function LessonContentView({
         </div>
       </header>
 
-      {/* Hero — protagonista, debajo de la tarjeta (sin leyenda) */}
-      {heroImageUrl || lesson.heroImage?.url ? (
-        <MediaSlot
-          src={heroImageUrl ?? lesson.heroImage?.url}
-          alt={lesson.heroImage?.alt ?? 'Imagen de la lección'}
-        />
-      ) : null}
+      {/* Hero — protagonista, debajo de la tarjeta (sin leyenda). Placeholder
+          con degradado + emoji mientras no se suba el arte real en Admin. */}
+      <MediaSlot
+        src={resolvedHeroUrl}
+        alt={lessonMedia?.heroImageAlt ?? lesson.heroImage?.alt ?? 'Imagen de la lección'}
+        placeholderIcon={lesson.icon ?? '📖'}
+      />
 
       {/* Reproductor de la lección (fuera de la tarjeta) */}
       <LessonPodcastPlayer lessonId={lessonId} lessonTitle={title} />
