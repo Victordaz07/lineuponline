@@ -21,7 +21,7 @@ const items: { to: string; end: boolean; label: string; icon: IconKey }[] = [
   { to: '/module/doctrina-fundamental', end: false, label: 'Estudio', icon: 'Estudio' },
   { to: '/games/scripture-quest', end: false, label: 'Jugar', icon: 'Jugar' },
   { to: '/community', end: false, label: 'Comunidad', icon: 'Comunidad' },
-  { to: '/music', end: false, label: 'Música', icon: 'Música' },
+  { to: '/musica', end: false, label: 'Música', icon: 'Música' },
 ]
 
 export function BottomNav() {
