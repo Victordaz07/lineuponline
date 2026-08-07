@@ -21,7 +21,7 @@ const items: { to: string; end: boolean; label: string; icon: IconKey }[] = [
   { to: '/module/doctrina-fundamental', end: false, label: 'Estudio', icon: 'Estudio' },
   { to: '/games/scripture-quest', end: false, label: 'Jugar', icon: 'Jugar' },
   { to: '/community', end: false, label: 'Comunidad', icon: 'Comunidad' },
-  { to: '/admin/music', end: false, label: 'Música', icon: 'Música' },
+  { to: '/music', end: false, label: 'Música', icon: 'Música' },
 ]
 
 export function BottomNav() {
@@ -48,7 +48,7 @@ export function BottomNav() {
             end={end}
             onClick={() => handleTap(to)}
             className={({ isActive }) =>
-              `flex min-w-0 flex-1 flex-col items-center gap-1.5 ${
+              `flex min-w-0 flex-1 flex-col items-center gap-0 ${
                 isActive ? 'text-sg-gold-light' : 'text-parchment/[0.42]'
               }`
             }
@@ -56,42 +56,37 @@ export function BottomNav() {
           >
             {({ isActive }) => (
               <>
-                <span className="relative flex items-center justify-center">
-                  <span
-                    style={
-                      bumped === to
-                        ? { animation: 'navPop 0.32s ease-out', display: 'block' }
-                        : { display: 'block' }
-                    }
+                {/* Icon with tap bounce */}
+                <span
+                  className="block"
+                  style={bumped === to ? { animation: 'navPop 0.32s ease-out' } : undefined}
+                >
+                  <svg
+                    width="25"
+                    height="25"
+                    viewBox="0 0 256 256"
+                    fill="currentColor"
+                    aria-hidden="true"
                   >
-                    <svg
-                      width="25"
-                      height="25"
-                      viewBox="0 0 256 256"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path d={PATHS[icon]} />
-                    </svg>
-                  </span>
+                    <path d={PATHS[icon]} />
+                  </svg>
+                </span>
 
+                {/* Pill slot — fixed height so active/inactive items are the same size */}
+                <span className="relative flex h-[7px] w-full items-center justify-center">
                   {isActive && (
                     <span
-                      className="bg-sg-gold-light"
+                      className="rounded-full bg-sg-gold-light"
                       style={{
-                        position: 'absolute',
-                        bottom: '-8px',
-                        left: '50%',
                         width: '16px',
                         height: '3px',
-                        borderRadius: '100px',
-                        transform: 'translateX(-50%)',
                         animation: 'navPill 0.28s ease-out',
                       }}
                     />
                   )}
                 </span>
 
+                {/* Label */}
                 <span
                   className="font-ui text-[0.6rem] leading-none"
                   style={{ fontWeight: isActive ? 700 : 600 }}
