@@ -1,8 +1,10 @@
 import type { Lesson } from '@/types/doctrine'
+import { jesusAssets } from '@/data/jesusAssets'
 
 export const jesusElCristo: Lesson = {
   id: 'jesus-el-cristo',
-  moduleId: 'jesucristo-centro-de-todo',
+  moduleId: 'personajes-escrituras',
+  submoduleGroup: 'jesucristo',
   title: 'Jesús el Cristo',
   subtitle: 'Su naturaleza divina revelada',
   author:
@@ -11,8 +13,13 @@ export const jesusElCristo: Lesson = {
     'Cristo no es solo un maestro extraordinario ni un profeta elevado. Es el Creador de mundos, el Jehová del Antiguo Testamento, el Unigénito del Padre, y el único que tiene poder de dar vida eterna. Esta lección examina su naturaleza divina desde Juan 1 hasta 3 Nefi 11.',
   level: 'AVANZADO',
   icon: '🌅',
+  iconImage: jesusAssets.lessonIcons['jesus-el-cristo'],
+  heroImage: {
+    url: jesusAssets.lessons['jesus-el-cristo'].hero,
+    alt: 'Jesucristo resucitado, glorioso, con luz irradiando a su alrededor',
+  },
   duration: 90,
-  order: 2,
+  order: 11,
   status: 'PUBLISHED',
   studyBodyPlain: '',
   originalBodyPlain: '',
@@ -182,9 +189,154 @@ export const jesusElCristo: Lesson = {
     },
     {
       id: 's4',
-      title: 'La Visita Más Documentada de Cristo',
+      title: 'Manifestaciones de su Divinidad en la Tierra',
       intro: {
         romanNumeral: 'IV',
+        title: 'Manifestaciones de su Divinidad en la Tierra',
+        paragraphs: [
+          'Antes de ser reconocido como el Verbo eterno o el Jehová del Antiguo Testamento, su divinidad se manifestó en momentos concretos de su ministerio terrenal: una voz del cielo, un rostro transfigurado, el poder sobre la muerte misma, una autoridad que nadie más tenía, y una confesión que cambió el rumbo de la Iglesia.',
+        ],
+      },
+      topics: [
+        {
+          id: 't1',
+          title: 'Tierra Santa en tiempos de Jesús',
+          subtitle: 'El escenario geográfico de todo su ministerio.',
+          blocks: [
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['jesus-el-cristo'].maps.tierraSanta,
+              alt: 'Mapa de la Tierra Santa en tiempos del Nuevo Testamento',
+              caption: 'Tierra Santa en tiempos de Jesús',
+            },
+            {
+              type: 'key_points',
+              title: 'Tierra Santa — Mapa bíblico 11',
+              points: [
+                'Tiro y Sidón (Mateo 11:20–22; 15:21–28)',
+                'Monte de la Transfiguración (Mateo 17:1–9). Lugar exacto no indicado; se han propuesto Hermón y Tabor.',
+                'Cesarea de Filipo (Mateo 16:13–28)',
+                'Región de Galilea (Mateo 4:23–25; 5–7)',
+                'Mar de Galilea (Lucas 5; Mateo 14; Juan 21)',
+                'Betsaida (Lucas 9:10–17; Marcos 8:22–26)',
+                'Capernaúm (Mateo 8–9; Juan 6)',
+                'Magdala (Mateo 15:39; Marcos 16:9)',
+                'Caná (Juan 2:1–11; 4:46–54)',
+                'Nazaret (Lucas 1:26–38; 2:51–52; 4)',
+                'Jericó (Lucas 18:35–43; 19:1–10)',
+                'Betábara / Jordán (Juan 1:19–34)',
+                'Desierto de Judea (Mateo 3:1–4; 4:1–11)',
+                'Emaús (Lucas 24:13–32). Identificación moderna discutida.',
+                'Betfagé (Mateo 21:1–11)',
+                'Betania (Lucas 10:38–42; Juan 11–12)',
+                'Belén (Lucas 2:1–20; Mateo 2)',
+              ],
+            },
+          ],
+        },
+        {
+          id: 't2',
+          title: 'Una voz del cielo lo confirmó',
+          subtitle: 'El bautismo — el Padre mismo da testimonio de su Hijo.',
+          blocks: [
+            {
+              type: 'highlight_verse',
+              reference: 'Mateo 3:16-17',
+              text: 'Y Jesús, después que fue bautizado, subió luego del agua; y he aquí los cielos le fueron abiertos, y vio al Espíritu de Dios que descendía como paloma, y venía sobre él. Y hubo una voz de los cielos, que decía: Este es mi Hijo amado, en quien tengo complacencia.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['jesus-el-cristo'].images.bautismo,
+              alt: 'El bautismo de Jesús en el Jordán, con el Espíritu descendiendo y una luz celestial',
+              caption: 'El bautismo — Mateo 3:16-17',
+            },
+          ],
+        },
+        {
+          id: 't3',
+          title: 'Su rostro resplandeció',
+          subtitle: 'La Transfiguración — un vistazo momentáneo a su gloria.',
+          blocks: [
+            {
+              type: 'highlight_verse',
+              reference: 'Mateo 17:1-2',
+              text: 'Seis días después, Jesús tomó a Pedro, a Jacobo, y a Juan su hermano, y los llevó aparte a un monte alto; y se transfiguró delante de ellos, y resplandeció su rostro como el sol, y sus vestidos se hicieron blancos como la luz.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['jesus-el-cristo'].images.transfiguracion,
+              alt: 'Jesús transfigurado, con su rostro resplandeciente, ante Pedro, Jacobo y Juan',
+              caption: 'La Transfiguración — Mateo 17:1-2. Lugar exacto no indicado; se han propuesto Hermón y Tabor.',
+            },
+          ],
+        },
+        {
+          id: 't4',
+          title: 'Autoridad sobre la muerte misma',
+          subtitle: 'Nadie más habla a los muertos y estos obedecen.',
+          blocks: [
+            {
+              type: 'highlight_verse',
+              reference: 'Juan 11:43-44',
+              text: 'Y habiendo dicho esto, clamó a gran voz: ¡Lázaro, ven fuera! Y el que había muerto salió, atadas las manos y los pies con vendas, y su rostro estaba envuelto en un sudario. Jesús les dijo: Desatadle, y dejadle ir.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['jesus-el-cristo'].images.poderSobreMuerte,
+              alt: 'Jesús con autoridad ante la muerte, luz divina irradiando de él',
+              caption: 'Autoridad sobre la muerte — Juan 11:43-44',
+            },
+          ],
+        },
+        {
+          id: 't5',
+          title: 'Enseñaba con autoridad propia',
+          subtitle: 'No como los escribas — como quien tiene el poder mismo.',
+          blocks: [
+            {
+              type: 'highlight_verse',
+              reference: 'Mateo 7:28-29',
+              text: 'Y cuando terminó Jesús estas palabras, la gente se admiraba de su doctrina; porque les enseñaba como quien tiene autoridad, y no como los escribas.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['jesus-el-cristo'].images.autoridadEnsenanza,
+              alt: 'Jesús enseñando a una multitud con autoridad divina',
+              caption: 'Autoridad en su enseñanza — Mateo 7:28-29',
+            },
+          ],
+        },
+        {
+          id: 't6',
+          title: 'La confesión de Pedro',
+          subtitle: 'El primer testigo apostólico en declararlo en voz alta.',
+          blocks: [
+            {
+              type: 'highlight_verse',
+              reference: 'Mateo 16:15-17',
+              text: 'Él les dijo: Y vosotros, ¿quién decís que soy yo? Respondiendo Simón Pedro, dijo: Tú eres el Cristo, el Hijo del Dios viviente. Entonces le respondió Jesús: Bienaventurado eres, Simón, hijo de Jonás, porque no te lo reveló carne ni sangre, sino mi Padre que está en los cielos.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['jesus-el-cristo'].images.confesionTestigos,
+              alt: 'Pedro confesando a Jesús como el Cristo en Cesarea de Filipo',
+              caption: 'La confesión de Pedro — Mateo 16:15-17',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 's5',
+      title: 'La Visita Más Documentada de Cristo',
+      intro: {
+        romanNumeral: 'V',
         title: 'La Visita Más Documentada de Cristo',
         paragraphs: [
           '3 Nefi 11 registra algo que ningún otro texto bíblico o restaurado iguala en detalle: una visita personal de Jesucristo resucitado a más de dos mil quinientas personas. No fue una visión. No fue una voz del cielo. Fue él, en cuerpo, descendiendo del cielo, invitando a cada persona a tocar sus heridas.',
@@ -240,13 +392,13 @@ export const jesusElCristo: Lesson = {
       ],
     },
     {
-      id: 's5',
+      id: 's6',
       title: 'Evaluación y Reflexión',
       intro: {
-        romanNumeral: 'V',
+        romanNumeral: 'VI',
         title: 'Evaluación y Reflexión',
         paragraphs: [
-          'Hemos recorrido cuatro dimensiones de la naturaleza divina de Jesucristo: el Logos eterno del prólogo de Juan, el Jehová del Antiguo Testamento, el Creador de mundos sin número, y el Cristo resucitado que se apareció personalmente en el continente americano. Ahora es tiempo de consolidar y reflexionar.',
+          'Hemos recorrido varias dimensiones de la naturaleza divina de Jesucristo: el Logos eterno del prólogo de Juan, el Jehová del Antiguo Testamento, el Creador de mundos sin número, las manifestaciones de su divinidad durante su ministerio terrenal, y el Cristo resucitado que se apareció personalmente en el continente americano. Ahora es tiempo de consolidar y reflexionar.',
         ],
       },
       topics: [

@@ -1,4 +1,5 @@
 import type { Lesson } from '@/types/doctrine'
+import { jesusAssets } from '@/data/jesusAssets'
 
 export const cristoLibroDeMormonVsBiblia: Lesson = {
   id: 'cristo-libro-de-mormon-vs-biblia',
@@ -11,6 +12,11 @@ export const cristoLibroDeMormonVsBiblia: Lesson = {
     'El Libro de Mormón menciona a Cristo más de 2,500 veces. No es un libro sobre América — es un libro sobre Cristo. Esta lección compara lo que cada escritura aporta al retrato del Salvador y por qué la Restauración produce el testimonio más completo de Cristo que existe en ninguna tradición religiosa.',
   level: 'INTERMEDIO',
   icon: '📚',
+  iconImage: jesusAssets.lessonIcons['cristo-libro-de-mormon-vs-biblia'],
+  heroImage: {
+    url: jesusAssets.lessons['cristo-libro-de-mormon-vs-biblia'].hero,
+    alt: 'La Biblia y el Libro de Mormón lado a lado, ambos testificando de Jesucristo',
+  },
   duration: 70,
   order: 12,
   status: 'PUBLISHED',
@@ -86,6 +92,13 @@ export const cristoLibroDeMormonVsBiblia: Lesson = {
               reference: 'Mosíah 3:5 (profecía del rey Benjamín, ~124 a.C.)',
             },
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['cristo-libro-de-mormon-vs-biblia'].images.visionNatividad,
+              alt: 'Visión profética del nacimiento de Cristo, siglos antes de que ocurriera',
+              caption: 'Profecías del nacimiento — visión de Nefi (1 Nefi 11)',
+            },
+            {
               type: 'highlight_verse',
               text: 'Y he aquí, vendrá a pasar que el Hijo de Dios vendrá en su gloria; y su gloria será la gloria del Unigénito del Padre, plena de gracia, equidad y verdad, llena de paciencia y misericordia y longanimidad, rápido para oir los clamores de su pueblo y responder a sus oraciones.',
               reference: 'Alma 7:9-10',
@@ -119,6 +132,18 @@ export const cristoLibroDeMormonVsBiblia: Lesson = {
               title: 'Alma 7:11-12 — la doctrina que solo el LdM tiene',
               body: 'Alma 7:11-12 dice que Cristo tomó sobre sí "no solo los pecados de su pueblo, sino también sus dolores y enfermedades; y su pueblo sufre toda clase de dolores... para que sus entrañas se llenen de misericordia... para que sepa cómo socorrer a su pueblo según sus enfermedades." Esta doctrina — que Cristo absorbió también el dolor físico, la enfermedad y el sufrimiento — no aparece con esta claridad en el Nuevo Testamento. Es una aportación doctrinal única del Libro de Mormón.',
             },
+            {
+              type: 'highlight_verse',
+              text: 'He aquí, os doy una señal; porque cinco años más, y he aquí, vendrá el Hijo de Dios... he aquí, se levantará una nueva estrella, tal como nunca habéis visto; y esto también será una señal para vosotros.',
+              reference: 'Helamán 14:2-5 (profecía de Samuel el Lamanita, ~6 a.C.)',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['cristo-libro-de-mormon-vs-biblia'].images.samuelLamanita,
+              alt: 'Samuel el Lamanita profetizando desde el muro de la ciudad sobre las señales del nacimiento de Cristo',
+              caption: 'Samuel el Lamanita y las señales profetizadas — Helamán 14',
+            },
           ],
         },
       ],
@@ -141,6 +166,13 @@ export const cristoLibroDeMormonVsBiblia: Lesson = {
             {
               type: 'paragraph',
               text: 'En el Nuevo Testamento, las apariciones post-resurrección son breves, urgentes, focalizadas. Cristo aparece en cuartos cerrados, en caminos, junto a un sepulcro. Siempre hay una comisión — una misión que dar. En 3 Nefi, Cristo llega y se queda. No hay prisa. Repite las bienaventuranzas con variaciones. Sana a los enfermos uno por uno. Ora con la multitud. Llora. Toca a los niños. Organiza la Iglesia. Enseña el sacerdocio. Regresa al día siguiente.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['cristo-libro-de-mormon-vs-biblia'].images.sermonBiblia,
+              alt: 'Jesús enseñando el Sermón del Monte a una multitud en Galilea',
+              caption: 'Sus enseñanzas en la Biblia — el Sermón del Monte',
             },
             {
               type: 'compare_grid',
@@ -170,6 +202,27 @@ export const cristoLibroDeMormonVsBiblia: Lesson = {
               type: 'highlight_verse',
               text: 'Y aconteció que Jesús bendijo a cada uno de ellos a medida que le presentaban a sus hijitos. Y después de esto, Jesús lloró, y la multitud lo vio y oyó su testimonio; y él los amaba.',
               reference: '3 Nefi 17:21-22',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['cristo-libro-de-mormon-vs-biblia'].images.ensenanzaTemplo,
+              alt: 'Jesús enseñando junto al templo en la tierra de Abundancia',
+              caption: 'Su enseñanza en contexto de templo — 3 Nefi 11',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['cristo-libro-de-mormon-vs-biblia'].images.abundancia,
+              alt: 'Jesucristo resucitado apareciendo a la multitud en la tierra de Abundancia',
+              caption: 'Su aparición en la tierra de Abundancia — 3 Nefi 11',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['cristo-libro-de-mormon-vs-biblia'].maps.dosTestamentos,
+              alt: 'Ilustración simbólica de la Biblia y el Libro de Mormón como dos testamentos de un mismo Salvador',
+              caption: 'Biblia y Libro de Mormón: dos testamentos, un Salvador. No se traza una ruta geográfica entre Tierra Santa y Abundancia — 3 Nefi identifica un templo en Abundancia, pero no revela una ubicación moderna.',
             },
           ],
         },
@@ -227,6 +280,13 @@ export const cristoLibroDeMormonVsBiblia: Lesson = {
           id: 't5-1',
           title: 'Cinco diferencias doctrinales clave',
           blocks: [
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['cristo-libro-de-mormon-vs-biblia'].images.paraleloEnsenanzas,
+              alt: 'Representación simbólica de los paralelos doctrinales entre la Biblia y el Libro de Mormón',
+              caption: 'Paralelos doctrinales entre ambos testamentos',
+            },
             {
               type: 'doctrine_box',
               title: '1. La naturaleza de Dios — Nicea vs. la Restauración',

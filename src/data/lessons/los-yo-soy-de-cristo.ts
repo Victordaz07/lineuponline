@@ -1,4 +1,5 @@
 import type { Lesson } from '@/types/doctrine'
+import { jesusAssets } from '@/data/jesusAssets'
 
 export const losYoSoyDeCristo: Lesson = {
   id: 'los-yo-soy-de-cristo',
@@ -11,6 +12,11 @@ export const losYoSoyDeCristo: Lesson = {
     'En el Evangelio de Juan, Jesús hace siete declaraciones "Yo soy + atributo": pan de vida, luz del mundo, la puerta, el buen pastor, la resurrección y la vida, el camino la verdad y la vida, la vid verdadera. Cada una es un eco del nombre divino de Éxodo 3:14 — y cada una revela una dimensión diferente de quién es Cristo.',
   level: 'AVANZADO',
   icon: '🔆',
+  iconImage: jesusAssets.lessonIcons['los-yo-soy-de-cristo'],
+  heroImage: {
+    url: jesusAssets.lessons['los-yo-soy-de-cristo'].hero,
+    alt: 'Jesucristo rodeado de luz dorada, representando las siete declaraciones "Yo Soy" de Juan',
+  },
   duration: 65,
   order: 13,
   status: 'PUBLISHED',
@@ -90,6 +96,13 @@ export const losYoSoyDeCristo: Lesson = {
               title: 'La Santa Cena como cumplimiento',
               body: 'Juan 6:53-56 lleva la metáfora a su cumplimiento ritual: "Si no coméis la carne del Hijo del Hombre, y bebéis su sangre, no tenéis vida en vosotros." La Santa Cena no es un símbolo vacío — es la acción que recuerda y renueva el convenio de tomar a Cristo en nuestra vida. El pan de trigo que partimos cada semana apunta al Pan de vida que tomamos en nuestro corazón.',
             },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['los-yo-soy-de-cristo'].images.panDeVida,
+              alt: 'Jesús sosteniendo pan, ilustrando "Yo soy el pan de vida"',
+              caption: '"Yo soy el pan de vida" — Juan 6:35',
+            },
           ],
         },
       ],
@@ -113,6 +126,13 @@ export const losYoSoyDeCristo: Lesson = {
               type: 'highlight_verse',
               text: 'Otra vez Jesús les habló, diciendo: Yo soy la luz del mundo; el que me sigue, no andará en tinieblas, sino que tendrá la luz de la vida.',
               reference: 'Juan 8:12',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['los-yo-soy-de-cristo'].images.luzDelMundo,
+              alt: 'Jesús irradiando luz en medio de la oscuridad, ilustrando "Yo soy la luz del mundo"',
+              caption: '"Yo soy la luz del mundo" — Juan 8:12',
             },
             {
               type: 'highlight_verse',
@@ -151,10 +171,10 @@ export const losYoSoyDeCristo: Lesson = {
     },
     {
       id: 's4',
-      title: '"Yo soy el buen pastor" y "la resurrección" — Juan 10-11',
+      title: '"La puerta", "el buen pastor" y "la resurrección" — Juan 10-11',
       intro: {
         romanNumeral: 'IV',
-        title: '"Yo soy el buen pastor" y "la resurrección" — Juan 10-11',
+        title: '"La puerta", "el buen pastor" y "la resurrección" — Juan 10-11',
         paragraphs: [
           'Las declaraciones tercera (la puerta), cuarta (el buen pastor) y quinta (la resurrección) están separadas por pocos capítulos pero son tres de las más ricas en implicaciones doctrinales. La del pastor conecta con el Salmo 23. La de la resurrección ocurre ante la tumba de Lázaro.',
         ],
@@ -162,12 +182,31 @@ export const losYoSoyDeCristo: Lesson = {
       topics: [
         {
           id: 't4-1',
-          title: 'El pastor que da su vida',
+          title: 'La puerta y el pastor que da su vida',
           blocks: [
+            {
+              type: 'highlight_verse',
+              text: 'Volvió Jesús a decirles: De cierto, de cierto os digo: Yo soy la puerta de las ovejas... Yo soy la puerta; el que por mí entrare, será salvo; y entrará, y saldrá, y hallará pastos.',
+              reference: 'Juan 10:7, 9',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['los-yo-soy-de-cristo'].images.laPuerta,
+              alt: 'Una puerta radiante de luz, ilustrando "Yo soy la puerta"',
+              caption: '"Yo soy la puerta" — Juan 10:7, 9',
+            },
             {
               type: 'highlight_verse',
               text: 'Yo soy el buen pastor; el buen pastor su vida da por las ovejas. Mas el asalariado, y que no es el pastor, de quien no son propias las ovejas, ve venir al lobo y deja las ovejas y huye, y el lobo arrebata las ovejas y las dispersa.',
               reference: 'Juan 10:11-12',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['los-yo-soy-de-cristo'].images.buenPastor,
+              alt: 'Jesús como el buen pastor, cargando una oveja, ilustrando "Yo soy el buen pastor"',
+              caption: '"Yo soy el buen pastor" — Juan 10:11-12',
             },
             {
               type: 'doctrine_box',
@@ -178,6 +217,13 @@ export const losYoSoyDeCristo: Lesson = {
               type: 'highlight_verse',
               text: 'Le dijo Jesús: Yo soy la resurrección y la vida; el que cree en mí, aunque esté muerto, vivirá. Y todo aquel que vive y cree en mí, no morirá eternamente. ¿Crees esto?',
               reference: 'Juan 11:25-26',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['los-yo-soy-de-cristo'].images.resurreccionYVida,
+              alt: 'Jesús resucitando a Lázaro, ilustrando "Yo soy la resurrección y la vida"',
+              caption: '"Yo soy la resurrección y la vida" — Juan 11:25-26',
             },
             {
               type: 'paragraph',
@@ -208,6 +254,13 @@ export const losYoSoyDeCristo: Lesson = {
               reference: 'Juan 14:6',
             },
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['los-yo-soy-de-cristo'].images.caminoVerdadVida,
+              alt: 'Un camino de luz llevando hacia Cristo, ilustrando "Yo soy el camino, la verdad y la vida"',
+              caption: '"Yo soy el camino, la verdad y la vida" — Juan 14:6',
+            },
+            {
               type: 'doctrine_box',
               title: '¿Por qué "nadie viene al Padre sino por mí"?',
               body: 'Esta es la afirmación más exclusiva del Nuevo Testamento — y la más cuestionada. La teología de la Restauración responde la objeción de la injusticia: "nadie" sin oportunidad no significa "nadie condenado sin oportunidad." El trabajo vicario del templo, la misión al mundo de los espíritus (DyC 138), y la enseñanza del evangelio postmortal garantizan que cada persona tenga acceso a Cristo. "Nadie" se vuelve inclusivo en el tiempo eterno de Dios. La exclusividad es sobre quién salva — no sobre quién puede ser salvo.',
@@ -216,6 +269,13 @@ export const losYoSoyDeCristo: Lesson = {
               type: 'highlight_verse',
               text: 'Yo soy la vid verdadera, y mi Padre es el labrador... Permaneced en mí, y yo en vosotros. Como el pámpano no puede llevar fruto por sí mismo, si no permanece en la vid, así tampoco vosotros, si no permanecéis en mí.',
               reference: 'Juan 15:1, 4',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['los-yo-soy-de-cristo'].images.vidVerdadera,
+              alt: 'Una vid frondosa con pámpanos, ilustrando "Yo soy la vid verdadera"',
+              caption: '"Yo soy la vid verdadera" — Juan 15:1, 4',
             },
             {
               type: 'paragraph',
@@ -257,6 +317,13 @@ export const losYoSoyDeCristo: Lesson = {
               type: 'highlight_verse',
               text: 'Jesús les dijo: De cierto, de cierto os digo: Antes que Abraham fuese, yo soy. Entonces tomaron piedras para arrojárselas; pero Jesús se escondió y salió del templo.',
               reference: 'Juan 8:58-59',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['los-yo-soy-de-cristo'].images.antesDeAbraham,
+              alt: 'Jesús declarando "Antes que Abraham fuese, yo soy", con una presencia eterna y luminosa',
+              caption: '"Antes que Abraham fuese, Yo Soy" — Juan 8:58',
             },
             {
               type: 'highlight_verse',
