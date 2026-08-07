@@ -1,4 +1,5 @@
 import type { Lesson } from '@/types/doctrine'
+import { jesusAssets } from '@/data/jesusAssets'
 
 /**
  * NOTAS DE INVESTIGACIÓN HISTÓRICAS Y ESCRITURALES COMPLETAS
@@ -36,6 +37,11 @@ export const elCirculoDeJesus: Lesson = {
     'Un estudio histórico-escritural exhaustivo de todos los que rodearon a Jesús durante su ministerio mortal: su familia nuclear y extendida, las Marías, los apóstoles-familiares, los personajes en las sombras, y los desposyni — descendientes de la familia de Jesús — que lideraron la Iglesia primitiva. Con referencias a Josefo, Hegesipo, Eusebio, la Traducción de José Smith, el Libro de Mormón y DyC.',
   level: 'AVANZADO',
   icon: '🕊️',
+  iconImage: jesusAssets.lessonIcons['el-circulo-de-jesus'],
+  heroImage: {
+    url: jesusAssets.lessons['el-circulo-de-jesus'].hero,
+    alt: 'Mosaico de personas alrededor de Jesús — familia, discípulos, mujeres y amigos que formaron su círculo',
+  },
   duration: 120,
   order: 11,
   status: 'PUBLISHED',
@@ -63,6 +69,20 @@ export const elCirculoDeJesus: Lesson = {
           id: 't1-1',
           title: 'La Última Mención de José — y lo que el Silencio Implica',
           blocks: [
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].images.familia,
+              alt: 'La familia de Jesús — José, María y los hermanos y hermanas reunidos',
+              caption: 'La familia de Nazaret',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.jose,
+              alt: 'Retrato artístico de José de Nazaret',
+              caption: 'José de Nazaret — representación artística, no reconstrucción histórica verificada',
+            },
             {
               type: 'highlight_verse',
               text: 'Y sus padres iban todos los años a Jerusalén en la fiesta de la pascua. Y cuando tuvo doce años, subieron a Jerusalén conforme a la costumbre de la fiesta.',
@@ -139,6 +159,13 @@ export const elCirculoDeJesus: Lesson = {
           id: 't2-1',
           title: 'El Linaje de María — ¿Judá, Leví, o Ambos?',
           blocks: [
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.maria,
+              alt: 'Retrato artístico de María, madre de Jesús',
+              caption: 'María — representación artística, no reconstrucción histórica verificada',
+            },
             {
               type: 'paragraph',
               text: 'El Nuevo Testamento no declara explícitamente el linaje de María. Lo que sí declara es que Jesús es "del linaje de David según la carne" (Romanos 1:3) y "de la simiente de David" (2 Timoteo 2:8). Si Jesús es Hijo de Dios biológicamente (concepción virginal sin paternidad de José), entonces su linaje davídico debe venir de María. Esto coloca a María en la tribu de Judá, línea de David.',
@@ -410,6 +437,13 @@ export const elCirculoDeJesus: Lesson = {
               text: '"Yo no le conocía" (Juan 1:31, 33) es uno de los versículos más desconcertantes del evangelio de Juan. Si Juan y Jesús eran parientes (sus madres eran kinswoman — Lucas 1:36), ¿cómo es posible que Juan no lo reconociera? Las respuestas académicas son varias: (1) Siendo primos y viviendo en regiones distintas (Elisabet en la región montañosa de Judea, María en Galilea), pudieron haberse visto raramente o nunca de adultos. (2) "No le conocía" puede referirse al conocimiento espiritual revelado — Juan sabía quién era Jesús en términos familiares, pero no sabía que era el Mesías hasta la revelación del bautismo. (3) La diferencia de edad (6 meses, Lucas 1:26, 36) y la distancia geográfica entre Galilea y Judea (unos 100 km) hacen plausible que apenas se conocieran personalmente.',
             },
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.juanElBautista,
+              alt: 'Retrato artístico de Juan el Bautista',
+              caption: 'Juan el Bautista — representación artística, no reconstrucción histórica verificada',
+            },
+            {
               type: 'doctrine_box',
               title: 'DyC 84:27-28 — Lo que la Restauración añade sobre Juan',
               body: 'DyC 84:27-28: "Y Juan fue bautizado estando aún en su infancia, y fue ordenado al poder de este sacerdocio [Aarónico] por el ángel de Dios en el tiempo en que su padre Zacarías administraba el ministerio del templo." Esto añade detalles sin precedente bíblico: Juan fue bautizado en su infancia, fue ordenado al sacerdocio Aarónico por un ángel (posiblemente Gabriel, quien había anunciado su nacimiento), y esta ordenación ocurrió cuando Zacarías aún vivía y servía en el Templo. La revelación conecta la ordenación de Juan con el ministerio sacerdotal de su padre.',
@@ -510,6 +544,13 @@ export const elCirculoDeJesus: Lesson = {
           title: 'María Magdalena — La Primera Testigo y la Víctima de la Confusión Papal',
           blocks: [
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].images.mujeresDiscipulas,
+              alt: 'Grupo de mujeres discípulas que siguieron a Jesús y sostuvieron su ministerio',
+              caption: 'Las mujeres que siguieron a Jesús',
+            },
+            {
               type: 'highlight_verse',
               text: 'Y estaban también algunas mujeres mirando de lejos, entre las cuales estaba María Magdalena, de quien había echado siete demonios.',
               reference: 'Marcos 15:40; Lucas 8:2',
@@ -530,6 +571,13 @@ export const elCirculoDeJesus: Lesson = {
               ],
             },
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.mariaMagdalena,
+              alt: 'Retrato artístico de María Magdalena',
+              caption: 'María Magdalena — representación artística, no reconstrucción histórica verificada',
+            },
+            {
               type: 'key_points',
               title: 'Los siete demonios de Lucas 8:2 — ¿Qué significa esto?',
               points: [
@@ -547,6 +595,13 @@ export const elCirculoDeJesus: Lesson = {
           title: 'María y Marta de Betania — Fe, Contemplación y una Resurrección',
           blocks: [
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].images.betania,
+              alt: 'Marta, María y Lázaro en su hogar de Betania',
+              caption: 'La casa de Betania',
+            },
+            {
               type: 'highlight_verse',
               text: 'Le dijo Jesús: Yo soy la resurrección y la vida; el que cree en mí, aunque esté muerto, vivirá. Y todo aquel que vive y cree en mí, no morirá eternamente. ¿Crees esto? Le dijo: Sí, Señor; yo he creído que tú eres el Cristo, el Hijo de Dios, que has venido al mundo.',
               reference: 'Juan 11:25-27',
@@ -563,6 +618,27 @@ export const elCirculoDeJesus: Lesson = {
             {
               type: 'paragraph',
               text: 'Respecto a su riqueza: Juan 12:3 menciona que María usó "una libra de perfume de nardo puro, de mucho precio" — cuyo costo Judas Iscariote calcula en 300 denarios (Juan 12:5), equivalente a casi un año del salario de un trabajador. Esta es una suma extraordinaria. La familia de Lázaro era de los acaudalados de Betania — un pueblo a solo 3 km de Jerusalén, en la ruta principal de la Ciudad Santa. Las ruinas arqueológicas de Betania (actual Al-Eizariya, "el lugar de Lázaro") confirman que era un asentamiento bien establecido.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.marta,
+              alt: 'Retrato artístico de Marta de Betania',
+              caption: 'Marta de Betania — representación artística, no reconstrucción histórica verificada',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.mariaDeBetania,
+              alt: 'Retrato artístico de María de Betania',
+              caption: 'María de Betania — representación artística, no reconstrucción histórica verificada',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.lazaro,
+              alt: 'Retrato artístico de Lázaro de Betania',
+              caption: 'Lázaro de Betania — representación artística, no reconstrucción histórica verificada',
             },
           ],
         },
@@ -603,8 +679,29 @@ export const elCirculoDeJesus: Lesson = {
           title: 'Santiago y Juan hijo de Zebedeo — Los Primos Tronantes',
           blocks: [
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].images.llamamientoPescadores,
+              alt: 'Jesús llamando a los pescadores junto al Mar de Galilea',
+              caption: 'El llamamiento de los pescadores',
+            },
+            {
               type: 'paragraph',
               text: 'Si la identificación de Salomé como hermana de María es correcta (ver Sección IV), Santiago y Juan hijo de Zebedeo eran primos de Jesús. Marcos 3:17 registra que Jesús los llamó Boanerges, "hijos del trueno" — un apodo que sugiere temperamentos fuertes y quizás un privilegio de cercanía. Santiago fue el primer apóstol mártir (Hechos 12:2, Herodes Agripa I, 44 d.C.). Juan es el apóstol amado, custodio de María, y según DyC 7 un ser traducido que permanece en la tierra.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.santiagoHijoDeZebedeo,
+              alt: 'Retrato artístico de Santiago, hijo de Zebedeo',
+              caption: 'Santiago, hijo de Zebedeo — representación artística, no reconstrucción histórica verificada',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.juan,
+              alt: 'Retrato artístico del apóstol Juan',
+              caption: 'Juan, hijo de Zebedeo — representación artística, no reconstrucción histórica verificada',
             },
             {
               type: 'highlight_verse',
@@ -633,6 +730,13 @@ export const elCirculoDeJesus: Lesson = {
           title: 'Simón Pedro — La Familia del Cefas',
           blocks: [
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.pedro,
+              alt: 'Retrato artístico del apóstol Pedro',
+              caption: 'Simón Pedro — representación artística, no reconstrucción histórica verificada',
+            },
+            {
               type: 'highlight_verse',
               text: '¿No tenemos derecho de traer con nosotros una hermana, una mujer creyente, como también los otros apóstoles, y los hermanos del Señor, y Cefas?',
               reference: '1 Corintios 9:5',
@@ -645,6 +749,81 @@ export const elCirculoDeJesus: Lesson = {
               type: 'doctrine_box',
               title: 'El hogar de Pedro en Cafarnaúm — confirmado arqueológicamente',
               body: 'Las excavaciones en Cafarnaúm han descubierto lo que los arqueólogos identifican como la casa de Pedro. La estructura del siglo I muestra evidencia de uso doméstico, seguida de una fase del siglo II donde el espacio fue reconvertido en un lugar de reunión, y luego una iglesia del siglo IV construida sobre los mismos cimientos. Los graffiti en las paredes incluyen invocaciones a Pedro. La continuidad del sitio desde el siglo I hasta la iglesia cristiana es uno de los hallazgos arqueológicos más significativos relacionados con los personajes del NT.',
+            },
+          ],
+        },
+        {
+          id: 't6-4',
+          title: 'Andrés y los Demás del Círculo Apostólico',
+          blocks: [
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.andres,
+              alt: 'Retrato artístico del apóstol Andrés',
+              caption: 'Andrés — representación artística, no reconstrucción histórica verificada',
+            },
+            {
+              type: 'highlight_verse',
+              text: 'Éste [Andrés] halló primero a su hermano Simón, y le dijo: Hemos hallado al Mesías (que traducido es, el Cristo). Y le trajo a Jesús.',
+              reference: 'Juan 1:40-42',
+            },
+            {
+              type: 'paragraph',
+              text: 'Andrés, hermano de Simón Pedro, fue de los primeros en seguir a Jesús — y el primero en llevarle a otro. No todos los del círculo apostólico eran familia de sangre de Jesús; varios llegaron por invitación de otro discípulo, como Andrés trajo a su hermano, o como Felipe trajo a Natanael (Bartolomé).',
+            },
+            {
+              type: 'highlight_verse',
+              text: 'Felipe... halló a Natanael, y le dijo: Hemos hallado a aquel de quien escribió Moisés en la ley, así como los profetas: a Jesús, el hijo de José, de Nazaret... Le dijo Natanael: ¿De Nazaret puede haber algo de bueno? Le dijo Felipe: Ven y ve.',
+              reference: 'Juan 1:45-46',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.felipe,
+              alt: 'Retrato artístico del apóstol Felipe',
+              caption: 'Felipe — representación artística, no reconstrucción histórica verificada',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.bartolome,
+              alt: 'Retrato artístico del apóstol Bartolomé (Natanael)',
+              caption: 'Bartolomé (Natanael) — representación artística, no reconstrucción histórica verificada',
+            },
+            {
+              type: 'paragraph',
+              text: 'Mateo, el publicano llamado desde su mesa de cobro de impuestos (Mateo 9:9), y Tomás, cuya lealtad se manifestó antes de la resurrección — "Vamos también nosotros, para que muramos con él" (Juan 11:16) — completan el grupo de los Doce cuya presencia en la vida de Jesús no dependía de un lazo de sangre, sino de una decisión de seguirlo.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.mateo,
+              alt: 'Retrato artístico del apóstol Mateo',
+              caption: 'Mateo — representación artística, no reconstrucción histórica verificada',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.tomas,
+              alt: 'Retrato artístico del apóstol Tomás',
+              caption: 'Tomás — representación artística, no reconstrucción histórica verificada',
+            },
+            {
+              type: 'key_points',
+              title: 'Judas Iscariote — un nombre, dos personas distintas',
+              points: [
+                'Marcos 3:19 nombra entre los Doce a "Judas Iscariote, el que le entregó" — un apóstol distinto de Judas/Judá, hermano de Jesús (ver Sección III).',
+                'La coincidencia de nombre (Judá/Yehudah era uno de los más comunes en la Palestina del siglo I) generó confusión en parte de la tradición posterior, pero los evangelios los distinguen con claridad: uno es de los Doce, el otro es de la familia de Jesús.',
+                'El Evangelio de Felipe (texto gnóstico de Nag Hammadi, s. III) y otros textos apócrifos tardíos especulan sobre el personaje de Judas Iscariote, pero no son fuente histórica confiable para el siglo I.',
+              ],
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.judasIscariote,
+              alt: 'Retrato artístico de Judas Iscariote',
+              caption: 'Judas Iscariote — representación artística, no reconstrucción histórica verificada',
             },
           ],
         },
@@ -669,6 +848,13 @@ export const elCirculoDeJesus: Lesson = {
           id: 't7-1',
           title: 'Nicodemo — El Fariseo que Llegó de Noche',
           blocks: [
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].images.nicodemo,
+              alt: 'Nicodemo visitando a Jesús de noche',
+              caption: 'Nicodemo llega de noche — Juan 3:1-2',
+            },
             {
               type: 'highlight_verse',
               text: 'Había un hombre de los fariseos que se llamaba Nicodemo, un principal entre los judíos. Este vino a Jesús de noche, y le dijo: Rabí, sabemos que has venido de Dios como maestro; porque nadie puede hacer estas señales que tú haces, si no está Dios con él.',
@@ -707,12 +893,26 @@ export const elCirculoDeJesus: Lesson = {
                 '100 libras romanas (librae) = unos 32 kilogramos de mirra y áloes. Era una cantidad reservada para los funerales de reyes o personas de la más alta posición social. El costo habría sido inmenso. Este no es el gesto discreto de un seguidor secreto — es una declaración pública de lealtad en el momento más peligroso posible. Nicodemo salió del armario a la vista de todos.',
               ],
             },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.nicodemo,
+              alt: 'Retrato artístico de Nicodemo',
+              caption: 'Nicodemo — representación artística, no reconstrucción histórica verificada',
+            },
           ],
         },
         {
           id: 't7-2',
           title: 'José de Arimatea — El Hombre del Sepulcro Nuevo',
           blocks: [
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.joseDeArimatea,
+              alt: 'Retrato artístico de José de Arimatea',
+              caption: 'José de Arimatea — representación artística, no reconstrucción histórica verificada',
+            },
             {
               type: 'highlight_verse',
               text: 'Un hombre rico de Arimatea, llamado José, que también había sido discípulo de Jesús. Este fue a Pilato y pidió el cuerpo de Jesús... Y José tomó el cuerpo, lo envolvió en una sábana limpia, y lo puso en su sepulcro nuevo, que había labrado en la peña; y después de hacer rodar una gran piedra a la entrada del sepulcro, se fue.',
@@ -772,6 +972,54 @@ export const elCirculoDeJesus: Lesson = {
                 'ZAQUEO (Lucas 19): Sí tiene nombre en el texto — "jefe de los publicanos," hombre rico de Jericó. La tradición eclesiástica tardía (Clemente de Roma, Constituciones Apostólicas) lo identifica como el primer obispo de Cesárea. No hay confirmación en el NT.',
                 'EL HOMBRE RICO (Marcos 10:17): "El joven rico" que se fue triste — anónimo. La tradición siríaca lo llama Barnabe; la copta lo llama por otros nombres. Irrelevante para el texto.',
               ],
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.mujerSamaritana,
+              alt: 'Retrato artístico de la mujer samaritana del pozo de Jacob',
+              caption: 'La mujer samaritana — representación artística, no reconstrucción histórica verificada',
+            },
+          ],
+        },
+        {
+          id: 't7-5',
+          title: 'Las Autoridades que Cruzaron su Camino',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'No todos los que rodearon a Jesús fueron familia, discípulos o amigos. Algunos de los rostros más recordados del relato de la Pasión son los de las autoridades que presidieron su proceso — figuras históricas reales, documentadas también fuera del NT, cuyo papel en el relato es indispensable para entenderlo.',
+            },
+            {
+              type: 'highlight_verse',
+              text: 'Y los que prendieron a Jesús le llevaron a Caifás sumo sacerdote, adonde estaban reunidos los escribas y los ancianos.',
+              reference: 'Mateo 26:57',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.caifas,
+              alt: 'Retrato artístico de Caifás, sumo sacerdote',
+              caption: 'Caifás — representación artística, no reconstrucción histórica verificada',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.poncioPilato,
+              alt: 'Retrato artístico de Poncio Pilato',
+              caption: 'Poncio Pilato — representación artística, no reconstrucción histórica verificada',
+            },
+            {
+              type: 'highlight_verse',
+              text: 'Y como supo que era de la jurisdicción de Herodes, le remitió a Herodes, que en aquellos días también estaba en Jerusalén.',
+              reference: 'Lucas 23:6-7',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.herodesAntipas,
+              alt: 'Retrato artístico de Herodes Antipas',
+              caption: 'Herodes Antipas — representación artística, no reconstrucción histórica verificada',
             },
           ],
         },
@@ -952,6 +1200,27 @@ export const elCirculoDeJesus: Lesson = {
               ],
             },
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].maps.redRelacional,
+              alt: 'Mapa de la red de personas, acontecimientos y lugares relacionados con Jesucristo',
+              caption: 'Red de personas y acontecimientos alrededor de Jesucristo',
+            },
+            {
+              type: 'key_points',
+              title: 'La red del círculo de Jesús — agrupada por cercanía',
+              points: [
+                'Familia: María, José, Santiago, hermanos y hermanas.',
+                'Los Doce: Pedro, Andrés, Santiago, Juan, Felipe, Bartolomé, Mateo, Tomás, otros apóstoles.',
+                'Mujeres discípulas: María Magdalena, Juana, Susana, Marta, María de Betania, otras mujeres.',
+                'Amigos y buscadores: Lázaro, Nicodemo, José de Arimatea, Zaqueo, mujer samaritana.',
+                'Testigos de la Resurrección: María Magdalena, Pedro y discípulos, Tomás, más de 500, Santiago, Pablo.',
+                'Discípulos nefitas: multitud en Abundancia, Nefi, los doce discípulos, los niños.',
+                'Autoridades y opositores: Anás, Caifás, Pilato, Herodes Antipas, fariseos, saduceos, Judas Iscariote.',
+                '(Mateo; Marcos; Lucas; Juan; Hechos 1; 1 Corintios 15; 3 Nefi 11–28)',
+              ],
+            },
+            {
               type: 'central_quote',
               text: '"Conocer a las personas que rodearon a Jesús no es curiosidad histórica — es entender cómo Dios opera: a través de familias, de conversiones inesperadas, de personas que empiezan como escépticos y terminan como mártires, de primos que se convierten en testigos, de campesinos con manos callosas que convencen a emperadores."',
               attribution: 'Reflexión doctrinal',
@@ -976,6 +1245,51 @@ export const elCirculoDeJesus: Lesson = {
                   question: '¿Qué añade a tu testimonio el hecho de que Mosíah 3:8 registra el nombre "María" siglos antes de su nacimiento?',
                 },
               ],
+            },
+          ],
+        },
+        {
+          id: 't9-2',
+          title: 'El Círculo se Extiende — Nefitas y Pablo',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'El círculo de Jesús no terminó con su ascensión ni se limitó a Jerusalén. Las escrituras registran que el Cristo resucitado ministró y llamó discípulos también entre los nefitas, y se apareció a un antiguo perseguidor de la Iglesia que se convirtió en uno de sus testigos más influyentes.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].images.nefitas,
+              alt: 'El Cristo resucitado ministrando a una multitud de discípulos nefitas en Abundancia',
+              caption: 'Cristo entre los nefitas — 3 Nefi 11',
+            },
+            {
+              type: 'highlight_verse',
+              text: 'Y sucedió que cuando Jesús hubo dicho estas palabras, escogió a doce de entre ellos, y les dio poder para bautizar... Y les dio poder para dar el don del Espíritu Santo.',
+              reference: '3 Nefi 11:18-22; 12:1',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.nefi,
+              alt: 'Retrato artístico de Nefi, discípulo nefita elegido por Cristo',
+              caption: 'Nefi, hijo de Nefi — discípulo nefita elegido en 3 Nefi 11:18-22 (distinto del profeta Nefi, hijo de Lehi, autor de 1 Nefi) — representación artística, no reconstrucción histórica verificada',
+            },
+            {
+              type: 'highlight_verse',
+              text: 'Y al último de todos, como a un abortivo, me apareció a mí también.',
+              reference: '1 Corintios 15:8',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['el-circulo-de-jesus'].portraits.pablo,
+              alt: 'Retrato artístico del apóstol Pablo',
+              caption: 'Pablo — representación artística, no reconstrucción histórica verificada',
+            },
+            {
+              type: 'paragraph',
+              text: 'Pablo no caminó con Jesús en Galilea ni compartió su mesa como los Doce. Sin embargo, el Cristo resucitado se le apareció (Hechos 9:3-6) y lo integró a su círculo de testigos, tal como en el otro extremo del mundo eligió a doce discípulos nefitas para continuar su obra. El círculo de Jesús, en ese sentido, nunca dejó de crecer.',
             },
           ],
         },

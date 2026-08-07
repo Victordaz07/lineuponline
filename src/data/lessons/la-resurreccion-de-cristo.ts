@@ -1,4 +1,5 @@
 import type { Lesson } from '@/types/doctrine'
+import { jesusAssets } from '@/data/jesusAssets'
 
 export const laResurreccionDeCristo: Lesson = {
   id: 'la-resurreccion-de-cristo',
@@ -11,6 +12,11 @@ export const laResurreccionDeCristo: Lesson = {
     'Pablo lo dijo sin rodeos: "Si Cristo no resucitó, vuestra fe es vana; aún estáis en vuestros pecados." La Resurrección no es el final feliz de una historia triste — es el eje sobre el que gira toda la fe cristiana. Esta lección recorre las apariciones del Cristo resucitado: desde María Magdalena hasta 3 Nefi, desde Tomás hasta José Smith.',
   level: 'INTERMEDIO',
   icon: '🌄',
+  iconImage: jesusAssets.lessonIcons['la-resurreccion-de-cristo'],
+  heroImage: {
+    url: jesusAssets.lessons['la-resurreccion-de-cristo'].hero,
+    alt: 'El sepulcro vacío al amanecer, con luz radiante emanando de su interior',
+  },
   duration: 65,
   order: 14,
   status: 'PUBLISHED',
@@ -87,6 +93,82 @@ export const laResurreccionDeCristo: Lesson = {
       },
       topics: [
         {
+          id: 't2-0',
+          title: 'La mañana del tercer día',
+          subtitle: 'Sepultura, guardia, y las primeras en llegar al sepulcro vacío.',
+          blocks: [
+            {
+              type: 'highlight_verse',
+              text: 'Y cuando llegó la noche, vino un hombre rico de Arimatea, llamado José... Este fue a Pilato y pidió el cuerpo de Jesús... Y tomando José el cuerpo, lo envolvió en una sábana limpia, y lo puso en su sepulcro nuevo, que había labrado en la peña.',
+              reference: 'Mateo 27:57-60',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['la-resurreccion-de-cristo'].images.sepultura,
+              alt: 'José de Arimatea y Nicodemo colocando el cuerpo de Jesús en el sepulcro nuevo',
+              caption: 'La sepultura — José de Arimatea y Nicodemo (Mateo 27:57-60)',
+            },
+            {
+              type: 'highlight_verse',
+              text: 'Fueron, pues, y aseguraron el sepulcro, sellando la piedra, y poniendo la guardia.',
+              reference: 'Mateo 27:66',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['la-resurreccion-de-cristo'].images.guardiaSepulcro,
+              alt: 'El sepulcro sellado con una piedra grande y guardia romana vigilando',
+              caption: 'El sepulcro sellado y la guardia (Mateo 27:66)',
+            },
+            {
+              type: 'highlight_verse',
+              text: 'María Magdalena y María la madre de Jacobo llevaban las especias aromáticas para ir a ungirle. Y muy de mañana, el primer día de la semana, vinieron al sepulcro, ya salido el sol.',
+              reference: 'Marcos 16:1-2',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['la-resurreccion-de-cristo'].images.mujeresSepulcro,
+              alt: 'Las mujeres llegando al sepulcro vacío al amanecer, con especias aromáticas',
+              caption: 'Las mujeres llegan al sepulcro (Marcos 16:1-2)',
+            },
+            {
+              type: 'highlight_verse',
+              text: 'Salió, pues, Pedro, y el otro discípulo, y fueron al sepulcro... corrían los dos juntos; pero el otro discípulo corrió más aprisa que Pedro, y llegó primero al sepulcro.',
+              reference: 'Juan 20:3-4',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['la-resurreccion-de-cristo'].images.pedroJuanSepulcro,
+              alt: 'Pedro y Juan corriendo hacia el sepulcro vacío',
+              caption: 'Pedro y Juan corren al sepulcro vacío (Juan 20:3-4)',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['la-resurreccion-de-cristo'].maps.jerusalenUltimaSemana,
+              alt: 'Mapa de Jerusalén durante la última semana de Jesús',
+              caption: 'Jerusalén durante la última semana',
+            },
+            {
+              type: 'key_points',
+              title: 'Jerusalén durante la última semana — Mapa bíblico 12',
+              points: [
+                'Entrada triunfal (Mateo 21:1–11)',
+                'Templo (Mateo 21–23)',
+                'Última Cena (Lucas 22). El edificio exacto no está indicado.',
+                'Getsemaní (Mateo 26:36–56)',
+                'Caifás (Mateo 26:57–68). Sitio tradicional.',
+                'Procedimientos romanos (Juan 18–19). Se han propuesto distintos sitios.',
+                'Gólgota (Mateo 27:33–50). Ubicación posible/tradicional.',
+                'Sepulcro (Juan 19:38–42; 20:1–18). Ubicación posible/tradicional.',
+              ],
+            },
+          ],
+        },
+        {
           id: 't2-1',
           title: 'Juan 20 — el jardín antes del amanecer',
           blocks: [
@@ -94,6 +176,13 @@ export const laResurreccionDeCristo: Lesson = {
               type: 'highlight_verse',
               text: 'María se quedó fuera llorando junto al sepulcro; y mientras lloraba, se inclinó para mirar dentro del sepulcro. Y ve a dos ángeles con vestiduras blancas, que estaban sentados el uno a la cabecera, y el otro a los pies, donde el cuerpo de Jesús había sido puesto.',
               reference: 'Juan 20:11-12',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['la-resurreccion-de-cristo'].images.mariaMagdalena,
+              alt: 'Jesús resucitado apareciéndose a María Magdalena en el jardín',
+              caption: 'La aparición a María Magdalena — Juan 20:16-17',
             },
             {
               type: 'highlight_verse',
@@ -135,6 +224,13 @@ export const laResurreccionDeCristo: Lesson = {
               reference: 'Lucas 24:15-16',
             },
             {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['la-resurreccion-de-cristo'].images.emaus,
+              alt: 'Jesús resucitado caminando con dos discípulos por el camino a Emaús',
+              caption: 'El camino a Emaús — Lucas 24:15-16. Identificación moderna discutida.',
+            },
+            {
               type: 'paragraph',
               text: 'Dos discípulos caminan 11 kilómetros de Jerusalén a Emaús, tristes y confusos. Un hombre se une a ellos y les pregunta de qué hablan. Se sorprenden de que no sepa lo que pasó — "tú solo eres forastero en Jerusalén" (v.18). El desconocido entonces les explica la Biblia completa con referencia a Cristo. Y llegan al destino. Ellos le invitan a cenar. Él parte el pan.',
             },
@@ -169,8 +265,31 @@ export const laResurreccionDeCristo: Lesson = {
           blocks: [
             {
               type: 'highlight_verse',
+              text: 'Y siendo la tarde de aquel mismo día, el primero de la semana, estando las puertas cerradas... vino Jesús, y se puso en medio, y les dijo: Paz a vosotros. Y como diciendo esto, les mostró las manos y el costado. Y los discípulos se regocijaron viendo al Señor.',
+              reference: 'Juan 20:19-20',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['la-resurreccion-de-cristo'].images.aparicionDiscipulos,
+              alt: 'Jesús resucitado apareciéndose a los discípulos reunidos en el aposento alto',
+              caption: 'Aparición a los discípulos reunidos — Juan 20:19-20',
+            },
+            {
+              type: 'paragraph',
+              text: 'Tomás no estaba presente esa primera noche. Cuando los demás le contaron lo que habían visto, respondió que no creería sin ver y tocar las heridas él mismo. Ocho días después, Cristo volvió a aparecerse — esta vez con Tomás presente.',
+            },
+            {
+              type: 'highlight_verse',
               text: 'Entonces le dijo a Tomás: Pon aquí tu dedo, y mira mis manos; y acerca tu mano, y métela en mi costado; y no seas incrédulo, sino creyente. Entonces Tomás respondió y le dijo: ¡Señor mío, y Dios mío!',
               reference: 'Juan 20:27-28',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['la-resurreccion-de-cristo'].images.tomas,
+              alt: 'Tomás tocando las heridas de Jesús resucitado, exclamando "¡Señor mío, y Dios mío!"',
+              caption: 'Tomás y las señales de las heridas — Juan 20:27-28',
             },
             {
               type: 'doctrine_box',
@@ -247,6 +366,26 @@ export const laResurreccionDeCristo: Lesson = {
                   'La forma — en gloria vs. como caminante en un camino',
                 ],
               },
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['la-resurreccion-de-cristo'].maps.aparicionesResurreccion,
+              alt: 'Mapa de las apariciones de Jesucristo resucitado, desde Jerusalén hasta la tierra de Abundancia',
+              caption: 'Apariciones después de la Resurrección',
+            },
+            {
+              type: 'key_points',
+              title: 'Apariciones después de la Resurrección — Mapa bíblico',
+              points: [
+                'Sepulcro / María Magdalena (Juan 20:1–18)',
+                'Jerusalén (Lucas 24:36–49; Juan 20:19–29)',
+                'Emaús (Lucas 24:13–35). Identificación moderna discutida.',
+                'Mar de Tiberíades (Juan 21:1–14)',
+                'Monte en Galilea (Mateo 28:16–20). Mateo no nombra el monte.',
+                'Betania / monte de los Olivos (Lucas 24:50–53; Hechos 1:9–12)',
+                'Tierra de Abundancia (3 Nefi 11:1–17). Ubicación moderna no identificada oficialmente.',
+              ],
             },
           ],
         },

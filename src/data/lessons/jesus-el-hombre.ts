@@ -1,8 +1,10 @@
 import type { Lesson } from '@/types/doctrine'
+import { jesusAssets } from '@/data/jesusAssets'
 
 export const jesusElHombre: Lesson = {
   id: 'jesus-el-hombre',
-  moduleId: 'jesucristo-centro-de-todo',
+  moduleId: 'personajes-escrituras',
+  submoduleGroup: 'jesucristo',
   title: 'Jesús el Hombre',
   subtitle: 'La humanidad del que también fue Dios',
   author: 'Fuentes: Marcos 6; Lucas 2-4; Juan 11; 15; Mateo 26; Hebreos 4:15',
@@ -10,8 +12,13 @@ export const jesusElHombre: Lesson = {
     'Antes de ser el Cristo resucitado, fue un niño en una aldea de Galilea, un τέκτων con callos en las manos, hermano de Santiago, amigo de Lázaro, el hombre que lloró. Esta lección recorre su vida mortal sin saltar a la doctrina — solo la humanidad de un hombre que también fue Dios.',
   level: 'BÁSICO',
   icon: '🧑',
+  iconImage: jesusAssets.lessonIcons['jesus-el-hombre'],
+  heroImage: {
+    url: jesusAssets.lessons['jesus-el-hombre'].hero,
+    alt: 'Jesús contemplando el Mar de Galilea al atardecer, con discípulos y un pueblo antiguo al fondo',
+  },
   duration: 60,
-  order: 1,
+  order: 10,
   status: 'PUBLISHED',
   studyBodyPlain: '',
   originalBodyPlain: '',
@@ -55,11 +62,27 @@ export const jesusElHombre: Lesson = {
             {
               type: 'media_slot',
               kind: 'image',
-              contextCard: {
-                year: 'Circa 6 a.C. – 26 d.C.',
-                place: 'Nazaret, Galilea',
-                label: 'Los años ocultos',
-              },
+              src: jesusAssets.lessons['jesus-el-hombre'].images.nazaretTaller,
+              alt: 'Jesús joven trabajando la madera en un taller de carpintería en Nazaret',
+              caption: 'Los años ocultos — Nazaret, Galilea',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['jesus-el-hombre'].maps.nacimientoInfancia,
+              alt: 'Mapa del nacimiento e infancia de Jesucristo: Nazaret, Belén, Jerusalén y Egipto',
+              caption: 'Nacimiento e infancia de Jesucristo',
+            },
+            {
+              type: 'key_points',
+              title: 'Nacimiento e infancia — Mapa bíblico',
+              points: [
+                'Nazaret — Anunciación (Lucas 1:26–38)',
+                'Belén — Nacimiento (Lucas 2:1–20; Mateo 2:1–12)',
+                'Jerusalén — Presentación en el templo (Lucas 2:22–38)',
+                'Egipto — Huida (Mateo 2:13–15). La ciudad y la ruta exacta no están indicadas.',
+                'Nazaret — Regreso y crianza (Mateo 2:19–23; Lucas 2:39–52)',
+              ],
             },
           ],
         },
@@ -114,6 +137,93 @@ export const jesusElHombre: Lesson = {
             },
           ],
         },
+        {
+          id: 't2',
+          title: 'Cansado junto al pozo',
+          subtitle: 'Juan 4 — el cuerpo real de un caminante real.',
+          blocks: [
+            {
+              type: 'highlight_verse',
+              reference: 'Juan 4:6-7',
+              text: 'Y estaba allí el pozo de Jacob. Entonces Jesús, cansado del camino, se sentó así junto al pozo. Era como la hora sexta. Vino una mujer de Samaria a sacar agua; y Jesús le dijo: Dame de beber.',
+            },
+            {
+              type: 'paragraph',
+              text: 'No es un detalle incidental. Juan se detiene a anotar que Jesús estaba cansado del camino — el mismo cansancio físico de cualquier viajero que ha caminado horas bajo el sol de Samaria. El Creador de mundos, sediento, sentado en el borde de un pozo, pidiendo agua a una extraña.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['jesus-el-hombre'].images.pozoJacob,
+              alt: 'Jesús cansado y sediento, sentado junto al pozo de Jacob, hablando con la mujer samaritana',
+              caption: 'El pozo de Jacob, Samaria — Juan 4:6-7',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['jesus-el-hombre'].maps.judeaSamaria,
+              alt: 'Mapa de los viajes de Jesús por Judea y Samaria',
+              caption: 'Viajes por Judea y Samaria',
+            },
+            {
+              type: 'key_points',
+              title: 'Viajes por Judea y Samaria — Mapa bíblico',
+              points: [
+                'Sicar / Samaria — Mujer samaritana (Juan 4:4–42)',
+                'Jericó — Ciego y Zaqueo (Lucas 18:35–43; 19:1–10)',
+                'Betania — Marta, María y Lázaro (Lucas 10; Juan 11–12)',
+                'Betfagé — Entrada triunfal (Mateo 21:1–11)',
+                'Jerusalén — Templo y última semana (Mateo 21–28)',
+                'Jordán / Betábara — Bautismo y testimonio de Juan (Juan 1:19–34)',
+              ],
+            },
+          ],
+        },
+        {
+          id: 't3',
+          title: 'Dormido en la tempestad',
+          subtitle: 'Marcos 4 — tan cansado que el mar embravecido no lo despertó.',
+          blocks: [
+            {
+              type: 'highlight_verse',
+              reference: 'Marcos 4:37-38',
+              text: 'Y se levantó una gran tempestad de viento, y echaba las olas en la barca, de tal manera que ya se anegaba. Y él estaba en la popa, durmiendo sobre un cabezal; y le despertaron, y le dijeron: Maestro, ¿no tienes cuidado que perecemos?',
+            },
+            {
+              type: 'paragraph',
+              text: 'Un cuerpo verdaderamente humano se agota. Después de un día entero enseñando a las multitudes, Jesús se durmió tan profundamente que ni las olas entrando a la barca lo despertaron. Sus discípulos, pescadores experimentados, tuvieron que sacudirlo. Momentos después reprendería al viento y al mar — pero primero, durmió como cualquier hombre exhausto.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['jesus-el-hombre'].images.tormentaBarca,
+              alt: 'Jesús dormido en la popa de la barca durante una tempestad en el Mar de Galilea',
+              caption: 'La tempestad en el Mar de Galilea — Marcos 4:37-38',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['jesus-el-hombre'].maps.ministerioGalilea,
+              alt: 'Mapa del ministerio de Jesús en Galilea',
+              caption: 'Ministerio en Galilea',
+            },
+            {
+              type: 'key_points',
+              title: 'Ministerio en Galilea — Mapa bíblico',
+              points: [
+                'Nazaret (Lucas 4:14–32)',
+                'Caná (Juan 2:1–11)',
+                'Capernaúm (Mateo 4:13; 8–9)',
+                'Betsaida (Lucas 9:10–17)',
+                'Corazín (Mateo 11:21)',
+                'Magdala (Mateo 15:39)',
+                'Tiberíades / mar (Juan 6; 21)',
+                'Naín (Lucas 7:11–17)',
+                'Las conexiones entre lugares no constituyen un itinerario diario completo.',
+              ],
+            },
+          ],
+        },
       ],
     },
     {
@@ -146,6 +256,13 @@ export const jesusElHombre: Lesson = {
               title: 'Dos verbos griegos distintos',
               body: 'Juan usa dos palabras que ninguna traducción puede capturar plenamente en una sola. Primero: ἐνεβριμήσατο (enebrimēsato) — un verbo que describe un quejido profundo, indignación visceral, ira santa ante el dolor y la muerte. No es simpatía educada; es la reacción de alguien que detesta genuinamente el sufrimiento. Luego: ἐδάκρυσεν (edakrysen) — lágrimas silenciosas, no el llanto en voz alta de María y las plañideras. Dos respuestas simultáneas: la ira ante la injusticia del dolor humano, y las lágrimas calladas del amigo. Ambas son completamente humanas. Ambas son completamente divinas.',
               icon: '👁️',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['jesus-el-hombre'].images.llantoLazaro,
+              alt: 'Jesús con lágrimas ante la tumba de Lázaro, rodeado de dolientes',
+              caption: 'Ante la tumba de Lázaro — Juan 11:33-36',
             },
             {
               type: 'highlight_verse',
@@ -182,6 +299,13 @@ export const jesusElHombre: Lesson = {
               type: 'highlight_verse',
               reference: 'Mateo 26:37-39',
               text: 'Y tomando a Pedro, y a los dos hijos de Zebedeo, comenzó a entristecerse y a angustiarse en gran manera. Entonces Jesús les dijo: Mi alma está muy afligida, hasta la muerte; quedaos aquí, y velad conmigo. Yendo un poco más adelante, se postró sobre su rostro, orando y diciendo: Padre mío, si es posible, pase de mí esta copa; pero no sea como yo quiero, sino como tú.',
+            },
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: jesusAssets.lessons['jesus-el-hombre'].images.getsemani,
+              alt: 'Jesús orando angustiado en el jardín de Getsemaní mientras los discípulos duermen',
+              caption: 'Getsemaní — Mateo 26:37-39',
             },
             {
               type: 'doctrine_box',

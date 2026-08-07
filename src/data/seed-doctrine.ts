@@ -2,6 +2,7 @@
  * Datos semilla: catálogo unificado de módulos y lecciones (sin iframes).
  */
 import { davidAssets } from '@/data/davidAssets'
+import { jesusAssets } from '@/data/jesusAssets'
 import { elSellamiento as lessonElSellamiento } from '@/data/lessons/el-sellamiento'
 import { sacerdocioAaonico as lessonSacerdocioAaonico } from '@/data/lessons/sacerdocio-aaonico'
 import { elDiacono as lessonElDiacono } from '@/data/lessons/el-diacono'
@@ -432,6 +433,10 @@ export const SUBMODULE_GROUPS: Record<string, SubmoduleGroupMeta> = {
       'El Salvador del mundo visto desde todos los ángulos: su vida mortal, su naturaleza divina, su presencia en los cuatro evangelios, en 3 Nefi y en la voz de los profetas.',
     icon: '🌅',
     label: 'PERSONAJE PRINCIPAL',
+    heroImage: jesusAssets.module.hero,
+    iconImage: jesusAssets.module.icon,
+    patternImage: jesusAssets.module.pattern,
+    conclusionImage: jesusAssets.module.conclusion,
   },
   'adan-eva': {
     title: 'Adán y Eva — Los Primeros Padres',
