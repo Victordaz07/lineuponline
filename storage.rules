@@ -30,6 +30,17 @@ service firebase.storage {
       allow write: if isAdmin();
     }
 
+    // Imágenes de personajes/temas y de lecciones (admin upload, public read —
+    // identidad visual básica del catálogo, visible incluso sin sesión)
+    match /moduleMedia/{groupId}/{filename} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /lessonMedia/{lessonId}/{filename} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
     // Deny everything else
     match /{allPaths=**} {
       allow read, write: if false;

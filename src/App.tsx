@@ -17,6 +17,7 @@ const ProfilePage = lazy(() => import('@/pages/ProfilePage'))
 const CommunityPage = lazy(() => import('@/pages/CommunityPage'))
 const AdminPage = lazy(() => import('@/pages/AdminPage'))
 const BitacoraPage = lazy(() => import('@/pages/BitacoraPage'))
+const ModuleImagesAdminPage = lazy(() => import('@/pages/ModuleImagesAdminPage'))
 const MusicAdminPage = lazy(() => import('@/features/music/admin/MusicAdminPage'))
 
 // Música (álbumes + canciones de YouTube) — feature independiente del pipeline de IA de arriba
@@ -69,6 +70,7 @@ function AppRoutes() {
             <Route path="/community" element={<CommunityPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/admin/bitacora" element={<BitacoraPage />} />
+            <Route path="/admin/imagenes" element={<ModuleImagesAdminPage />} />
             <Route path="/admin/music" element={<MusicAdminPage />} />
 
             {/* Música — álbumes + canciones de YouTube */}

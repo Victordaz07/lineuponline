@@ -6,8 +6,13 @@ import { Toaster } from '@/components/common/Toaster'
 import { useCloudSync } from '@/hooks/useCloudSync'
 import { useImmersiveDoubleTap } from '@/hooks/useImmersiveDoubleTap'
 import { useIsMobileViewport } from '@/hooks/useIsMobileViewport'
+import { isFirebaseConfigured } from '@/lib/firebase'
+import { subscribeModuleMedia } from '@/services/moduleMedia.service'
+import { subscribeLessonMedia } from '@/services/lessonMedia.service'
 import { usePreferencesStore, applyFontSize, applyTheme } from '@/stores/preferencesStore'
 import { useImmersiveStore } from '@/stores/immersiveStore'
+import { useModuleMediaStore } from '@/stores/moduleMediaStore'
+import { useLessonMediaStore } from '@/stores/lessonMediaStore'
 import { useStreakStore } from '@/stores/streakStore'
 import { AudioMount } from '@/features/discography/components/AudioMount'
 import { FullPlayer } from '@/features/discography/components/FullPlayer'
@@ -85,6 +90,28 @@ function ImmersiveManager() {
   return null
 }
 
+/**
+ * Sincroniza en tiempo real las imágenes de personajes/temas y de lecciones
+ * subidas desde /admin/imagenes (dos colecciones, un solo listener cada una
+ * para toda la app, en vez de uno por tarjeta/lección renderizada).
+ */
+function MediaSyncManager() {
+  const setModuleMedia = useModuleMediaStore((s) => s.setAll)
+  const setLessonMedia = useLessonMediaStore((s) => s.setAll)
+
+  useEffect(() => {
+    if (!isFirebaseConfigured()) return
+    const unsubModule = subscribeModuleMedia(setModuleMedia)
+    const unsubLesson = subscribeLessonMedia(setLessonMedia)
+    return () => {
+      unsubModule()
+      unsubLesson()
+    }
+  }, [setModuleMedia, setLessonMedia])
+
+  return null
+}
+
 export function Layout({ children }: LayoutProps) {
   const hasActiveTrack = usePlayerStore((s) => !!s.currentTrack)
   const isImmersive = useImmersiveStore((s) => s.isImmersive)
@@ -97,6 +124,7 @@ export function Layout({ children }: LayoutProps) {
       <ThemeManager />
       <StreakManager />
       <ImmersiveManager />
+      <MediaSyncManager />
       <Header />
       <main
         onClick={handleImmersiveTap}
