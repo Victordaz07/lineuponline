@@ -15,7 +15,8 @@ function blockToText(block: LessonBlock): string {
 
     case 'doctrine_box':
       lines.push(`[${block.title}]`)
-      lines.push(block.body)
+      // body can contain embedded \n for multi-paragraph boxes — keep as-is
+      if (block.body) lines.push(block.body)
       break
 
     case 'key_points':
@@ -49,24 +50,64 @@ function blockToText(block: LessonBlock): string {
       lines.push(`Reflexión: ${block.prompt}`)
       break
 
-    case 'media_slot':
-      if (block.caption) lines.push(`[Imagen: ${block.caption}]`)
-      else if (block.alt) lines.push(`[Imagen: ${block.alt}]`)
+    case 'media_slot': {
+      // Context card (shows dates, places, labels when there's no image src)
+      if (block.contextCard) {
+        const { year, place, label } = block.contextCard
+        if (label) lines.push(label)
+        if (year) lines.push(year)
+        if (place) lines.push(place)
+      }
+      // Caption or alt text for the image/video
+      if (block.caption) lines.push(`[${block.caption}]`)
+      else if (block.alt) lines.push(`[${block.alt}]`)
+      // Labeled annotations overlaid on the image (map labels, diagram labels, etc.)
+      if (block.markers?.length) {
+        for (const m of block.markers) lines.push(`• ${m.label}`)
+      }
       break
+    }
 
     case 'quiz': {
       const q = block as Record<string, unknown>
+      // Shorthand formats: question is a plain string
       if (typeof q.question === 'string') {
         lines.push(`Pregunta: ${q.question}`)
+        // Shorthand true_false: answer is boolean
+        if (q.quizType === 'true_false' && typeof q.answer === 'boolean') {
+          lines.push(`Respuesta: ${q.answer ? 'Verdadero' : 'Falso'}`)
+        }
+        // Shorthand fill_blank: answer is the correct answer text
+        if (q.quizType === 'fill_blank' && typeof q.answer === 'string') {
+          lines.push(`Respuesta: ${q.answer}`)
+        }
         if (typeof q.explanation === 'string') lines.push(`Explicación: ${q.explanation}`)
       } else if (q.question && typeof q.question === 'object') {
+        // Standard format: question is a QuizQuestion object
         const qo = q.question as Record<string, unknown>
-        if (qo.kind === 'true_false') lines.push(`Pregunta V/F: ${qo.statement}`)
-        else if (qo.kind === 'fill_blank') {
+        if (qo.kind === 'true_false') {
+          lines.push(`Pregunta V/F: ${qo.statement}`)
+          if (typeof qo.correctAnswer === 'boolean') {
+            lines.push(`Respuesta: ${qo.correctAnswer ? 'Verdadero' : 'Falso'}`)
+          }
+        } else if (qo.kind === 'fill_blank') {
           lines.push(`Pregunta: ${qo.prompt}`)
-          if (Array.isArray(qo.options)) lines.push(`Opciones: ${(qo.options as string[]).join(' / ')}`)
+          if (Array.isArray(qo.options)) {
+            const options = qo.options as string[]
+            lines.push(`Opciones: ${options.join(' / ')}`)
+            if (typeof qo.correctIndex === 'number' && options[qo.correctIndex]) {
+              lines.push(`Respuesta: ${options[qo.correctIndex]}`)
+            }
+          }
         } else if (qo.kind === 'sort_items') {
-          if (Array.isArray(qo.items)) lines.push(`Ordenar: ${(qo.items as string[]).join(' → ')}`)
+          if (Array.isArray(qo.items)) {
+            const items = qo.items as string[]
+            lines.push(`Ordenar: ${items.join(' → ')}`)
+            if (Array.isArray(qo.correctOrder)) {
+              const ordered = (qo.correctOrder as number[]).map((i) => items[i]).filter(Boolean)
+              if (ordered.length) lines.push(`Orden correcto: ${ordered.join(' → ')}`)
+            }
+          }
         }
         if (typeof qo.explanation === 'string') lines.push(`Explicación: ${qo.explanation}`)
       }
@@ -84,10 +125,15 @@ function blockToText(block: LessonBlock): string {
 
     case 'compare_grid': {
       if (block.title) lines.push(block.title)
+      // Table variant with column headers
+      if (block.columns?.length) {
+        lines.push(block.columns.join(' | '))
+      }
+      // Two-column side-by-side variant
       if (block.left && block.right) {
         const lt = block.left.title ?? block.left.label ?? 'A'
         const rt = block.right.title ?? block.right.label ?? 'B'
-        lines.push(`${lt} vs ${rt}`)
+        lines.push(`${lt} | ${rt}`)
         const lItems = block.left.items ?? block.left.points ?? []
         const rItems = block.right.items ?? block.right.points ?? []
         const max = Math.max(lItems.length, rItems.length)
@@ -95,6 +141,7 @@ function blockToText(block: LessonBlock): string {
           lines.push(`• ${lItems[i] ?? ''} | ${rItems[i] ?? ''}`)
         }
       }
+      // Table rows
       if (block.rows) {
         for (const row of block.rows) {
           if (Array.isArray(row)) lines.push(`${row[0]}: ${row[1]} | ${row[2]}`)
@@ -128,36 +175,38 @@ function blockToText(block: LessonBlock): string {
 export function extractLessonText(lesson: Lesson): string {
   const parts: string[] = []
 
-  // Encabezado
+  // ── Encabezado ───────────────────────────────────────────────────────────────
   parts.push(lesson.title.toUpperCase())
+  if (lesson.subtitle) parts.push(lesson.subtitle)
   if (lesson.author) parts.push(`por ${lesson.author}`)
   if (lesson.description) parts.push(lesson.description)
   parts.push('')
 
-  // Quick facts
+  // ── Puntos clave (datos rápidos) ─────────────────────────────────────────────
   if (lesson.quickFacts?.length) {
     parts.push('PUNTOS CLAVE:')
     for (const f of lesson.quickFacts) parts.push(`• ${f}`)
     parts.push('')
   }
 
-  // Escrituras relacionadas
+  // ── Escrituras relacionadas ──────────────────────────────────────────────────
   if (lesson.scriptures?.length) {
     parts.push('ESCRITURAS RELACIONADAS:')
     for (const s of lesson.scriptures) parts.push(`• ${s.reference}`)
     parts.push('')
   }
 
-  // Estudio en texto plano (si no hay secciones ricas)
+  // ── Estudio en texto plano (fallback sin secciones ricas) ────────────────────
   if (lesson.studyBodyPlain?.trim() && !lesson.studySections?.length) {
     parts.push('CONTENIDO DE ESTUDIO:')
     parts.push(lesson.studyBodyPlain.trim())
     parts.push('')
   }
 
-  // Secciones ricas (temas expandibles)
+  // ── Secciones ricas (temas expandibles — TODO el contenido, abierto o cerrado)
   if (lesson.studySections?.length) {
     for (const section of lesson.studySections) {
+      // Intro de sección (número romano + título + párrafos de contexto)
       if (section.intro) {
         const prefix = section.intro.romanNumeral ? `${section.intro.romanNumeral}. ` : ''
         parts.push(`=== ${prefix}${section.intro.title} ===`)
@@ -167,10 +216,12 @@ export function extractLessonText(lesson: Lesson): string {
         parts.push('')
       }
 
+      // Temas (collapsibles) — todos, sin importar si están abiertos o cerrados
       for (const topic of section.topics) {
         parts.push(`--- ${topic.title} ---`)
         if (topic.subtitle) parts.push(topic.subtitle)
 
+        // Bloques dentro del tema — incluye deep_dive, doctrine_box, párrafos, etc.
         for (const block of topic.blocks) {
           const text = blockToText(block)
           if (text) parts.push(text)
@@ -180,7 +231,7 @@ export function extractLessonText(lesson: Lesson): string {
     }
   }
 
-  // Texto original
+  // ── Texto original (discurso completo, si existe) ────────────────────────────
   if (lesson.originalBodyPlain?.trim()) {
     parts.push('TEXTO ORIGINAL:')
     parts.push(lesson.originalBodyPlain.trim())
