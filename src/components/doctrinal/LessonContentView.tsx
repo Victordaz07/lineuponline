@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import type { Lesson } from '@/types/doctrine'
+import { useAdmin } from '@/hooks/useAdmin'
+import { extractLessonText } from '@/lib/lessonTextExtractor'
 import { ExplanationPanel } from '@/components/doctrinal/ExplanationPanel'
 import { LevelBadge } from '@/components/doctrinal/LevelBadge'
 import { MediaSlot } from '@/components/doctrinal/MediaSlot'
@@ -52,6 +54,20 @@ export function LessonContentView({
   const [tab, setTab] = useState<TabId>('study')
   const [showNotes, setShowNotes] = useState(false)
   const [activeSectionId, setActiveSectionId] = useState<string>('')
+  const [copyState, setCopyState] = useState<'idle' | 'copied' | 'error'>('idle')
+
+  const { isAdmin } = useAdmin()
+
+  async function handleCopyAll() {
+    try {
+      await navigator.clipboard.writeText(extractLessonText(lesson))
+      setCopyState('copied')
+      setTimeout(() => setCopyState('idle'), 2500)
+    } catch {
+      setCopyState('error')
+      setTimeout(() => setCopyState('idle'), 2500)
+    }
+  }
 
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({})
 
@@ -324,16 +340,48 @@ export function LessonContentView({
       </div>
 
       {/* Acciones de la lección — notas al margen (junto al pie) */}
-      {onSaveNote ? (
-        <div className="flex flex-wrap items-center justify-end gap-3">
-          <button
-            type="button"
-            onClick={() => setShowNotes((v) => !v)}
-            className="rounded-full border border-sg-gold/30 px-3.5 py-1.5 font-ui text-xs font-semibold text-parchment/60 transition hover:border-sg-gold/50 hover:text-parchment/80"
-            aria-expanded={showNotes}
-          >
-            {showNotes ? 'Ocultar notas al margen' : 'Notas al margen'}
-          </button>
+      {(onSaveNote || isAdmin) ? (
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          {onSaveNote ? (
+            <button
+              type="button"
+              onClick={() => setShowNotes((v) => !v)}
+              className="rounded-full border border-sg-gold/30 px-3.5 py-1.5 font-ui text-xs font-semibold text-parchment/60 transition hover:border-sg-gold/50 hover:text-parchment/80"
+              aria-expanded={showNotes}
+            >
+              {showNotes ? 'Ocultar notas al margen' : 'Notas al margen'}
+            </button>
+          ) : <span />}
+
+          {isAdmin ? (
+            <button
+              type="button"
+              onClick={handleCopyAll}
+              disabled={copyState !== 'idle'}
+              className={`flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 font-ui text-xs font-semibold transition ${
+                copyState === 'copied'
+                  ? 'border-jade/50 text-jade'
+                  : copyState === 'error'
+                    ? 'border-red-400/50 text-red-400'
+                    : 'border-sg-gold/30 text-parchment/60 hover:border-sg-gold/50 hover:text-parchment/80'
+              }`}
+              title="Solo visible para admins — copia todo el texto de la lección"
+            >
+              {copyState === 'copied' ? (
+                <>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  Copiado
+                </>
+              ) : copyState === 'error' ? (
+                'Error al copiar'
+              ) : (
+                <>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                  Copiar todo (LLM)
+                </>
+              )}
+            </button>
+          ) : null}
         </div>
       ) : null}
 
