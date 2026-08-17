@@ -8,21 +8,33 @@ type GameLayoutProps = {
   status?: ReactNode
   onRestart?: () => void
   children: ReactNode
+  /** A dónde vuelve el botón "←". Por defecto, el hub de juegos. */
+  backTo?: string
+  /** Texto del botón de volver. Por defecto, "Juegos". */
+  backLabel?: string
 }
 
 /**
  * Envoltorio visual compartido por los mini-juegos: botón de volver,
  * título, indicador de estado y botón de reiniciar.
  */
-export function GameLayout({ title, emoji, status, onRestart, children }: GameLayoutProps) {
+export function GameLayout({
+  title,
+  emoji,
+  status,
+  onRestart,
+  children,
+  backTo = '/games',
+  backLabel = 'Juegos',
+}: GameLayoutProps) {
   return (
     <div className="mx-auto flex max-w-2xl flex-col gap-5 px-4 py-6">
       <div className="flex items-center justify-between gap-3">
         <Link
-          to="/games"
+          to={backTo}
           className="flex items-center gap-1.5 font-ui text-sm font-medium text-parchment/70 transition hover:text-sg-gold-light"
         >
-          <span aria-hidden="true">←</span> Juegos
+          <span aria-hidden="true">←</span> {backLabel}
         </Link>
         {onRestart && (
           <button

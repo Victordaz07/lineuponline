@@ -1,238 +1,152 @@
-import { useEffect, useMemo, useState } from 'react'
-import { GameLayout } from '../components/GameLayout'
-import { pickRandomWords } from '../data/wordBank'
+import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { ACHIEVEMENTS } from '../data/wordSearchAchievements'
+import { WORD_SEARCH_STAGES } from '../data/wordSearchStages'
+import { dayKey } from '../lib/rng'
+import { useWordSearchStore } from '../store/wordSearchStore'
 
-const GRID_SIZE = 10
-const WORD_COUNT = 7
-const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-const DIRECTIONS: [number, number][] = [
-  [0, 1],
-  [0, -1],
-  [1, 0],
-  [-1, 0],
-  [1, 1],
-  [1, -1],
-  [-1, 1],
-  [-1, -1],
-]
-
-type Cell = [number, number]
-
-type PlacedWord = {
-  word: string
-  cells: Cell[]
+function StarRow({ stars }: { stars: number }) {
+  return (
+    <span className="flex gap-0.5 text-sm" aria-label={`${stars} de 3 estrellas`}>
+      {[1, 2, 3].map((n) => (
+        <span key={n} aria-hidden="true">
+          {n <= stars ? '⭐' : '☆'}
+        </span>
+      ))}
+    </span>
+  )
 }
 
-function cellKey([r, c]: Cell) {
-  return `${r},${c}`
-}
-
-function buildPuzzle() {
-  const words = pickRandomWords(WORD_COUNT).map((w) => w.word)
-  const grid: string[][] = Array.from({ length: GRID_SIZE }, () => Array(GRID_SIZE).fill(''))
-  const placed: PlacedWord[] = []
-
-  for (const word of words) {
-    let ok = false
-    for (let attempt = 0; attempt < 300 && !ok; attempt++) {
-      const [dr, dc] = DIRECTIONS[Math.floor(Math.random() * DIRECTIONS.length)]
-      const row = Math.floor(Math.random() * GRID_SIZE)
-      const col = Math.floor(Math.random() * GRID_SIZE)
-      const endRow = row + dr * (word.length - 1)
-      const endCol = col + dc * (word.length - 1)
-      if (endRow < 0 || endRow >= GRID_SIZE || endCol < 0 || endCol >= GRID_SIZE) continue
-
-      const cells: Cell[] = []
-      let fits = true
-      for (let i = 0; i < word.length; i++) {
-        const r = row + dr * i
-        const c = col + dc * i
-        const existing = grid[r][c]
-        if (existing && existing !== word[i]) {
-          fits = false
-          break
-        }
-        cells.push([r, c])
-      }
-      if (!fits) continue
-
-      cells.forEach(([r, c], i) => {
-        grid[r][c] = word[i]
-      })
-      placed.push({ word, cells })
-      ok = true
-    }
-  }
-
-  for (let r = 0; r < GRID_SIZE; r++) {
-    for (let c = 0; c < GRID_SIZE; c++) {
-      if (!grid[r][c]) grid[r][c] = LETTERS[Math.floor(Math.random() * LETTERS.length)]
-    }
-  }
-
-  return { grid, placed }
-}
-
-/** Sopa de letras: encuentra las palabras escondidas en la grilla. */
+/** Mapa de etapas de la sopa de letras: camino temático con estrellas, reto diario y logros. */
 export default function WordSearch() {
-  const [puzzle, setPuzzle] = useState(() => buildPuzzle())
-  const [found, setFound] = useState<Set<string>>(new Set())
-  const [foundCells, setFoundCells] = useState<Set<string>>(new Set())
-  const [selecting, setSelecting] = useState(false)
-  const [start, setStart] = useState<Cell | null>(null)
-  const [current, setCurrent] = useState<Cell[]>([])
+  const stageProgress = useWordSearchStore((s) => s.stageProgress)
+  const isStageUnlocked = useWordSearchStore((s) => s.isStageUnlocked)
+  const dailyStreak = useWordSearchStore((s) => s.dailyStreak)
+  const lastDailyDay = useWordSearchStore((s) => s.lastDailyDay)
+  const unlockedAchievements = useWordSearchStore((s) => s.unlockedAchievements)
 
-  const won = puzzle.placed.length > 0 && found.size === puzzle.placed.length
+  const [showAchievements, setShowAchievements] = useState(false)
 
-  function restart() {
-    setPuzzle(buildPuzzle())
-    setFound(new Set())
-    setFoundCells(new Set())
-    setSelecting(false)
-    setStart(null)
-    setCurrent([])
-  }
-
-  function cellFromPoint(x: number, y: number): Cell | null {
-    const el = document.elementFromPoint(x, y) as HTMLElement | null
-    const target = el?.closest('[data-row]') as HTMLElement | null
-    if (!target) return null
-    const r = Number(target.dataset.row)
-    const c = Number(target.dataset.col)
-    if (Number.isNaN(r) || Number.isNaN(c)) return null
-    return [r, c]
-  }
-
-  function lineBetween(a: Cell, b: Cell): Cell[] {
-    const dr = Math.sign(b[0] - a[0])
-    const dc = Math.sign(b[1] - a[1])
-    const rowDiff = Math.abs(b[0] - a[0])
-    const colDiff = Math.abs(b[1] - a[1])
-    // solo líneas rectas u horizontales/verticales/diagonales perfectas
-    if (dr !== 0 && dc !== 0 && rowDiff !== colDiff) return [a]
-    const steps = Math.max(rowDiff, colDiff)
-    const cells: Cell[] = []
-    for (let i = 0; i <= steps; i++) {
-      cells.push([a[0] + dr * i, a[1] + dc * i])
-    }
-    return cells
-  }
-
-  useEffect(() => {
-    if (!selecting) return
-
-    function handleMove(e: PointerEvent) {
-      if (!start) return
-      const cell = cellFromPoint(e.clientX, e.clientY)
-      if (cell) setCurrent(lineBetween(start, cell))
-    }
-
-    function handleUp() {
-      setSelecting(false)
-      if (current.length > 1) {
-        const forward = current.map(([r, c]) => puzzle.grid[r][c]).join('')
-        const backward = [...forward].reverse().join('')
-        const match = puzzle.placed.find(
-          (p) => !found.has(p.word) && (p.word === forward || p.word === backward),
-        )
-        if (match) {
-          setFound((f) => new Set(f).add(match.word))
-          setFoundCells((f) => {
-            const next = new Set(f)
-            match.cells.forEach((cell) => next.add(cellKey(cell)))
-            return next
-          })
-        }
-      }
-      setCurrent([])
-      setStart(null)
-    }
-
-    window.addEventListener('pointermove', handleMove)
-    window.addEventListener('pointerup', handleUp)
-    return () => {
-      window.removeEventListener('pointermove', handleMove)
-      window.removeEventListener('pointerup', handleUp)
-    }
-  }, [selecting, start, current, found, puzzle])
-
-  const currentSet = useMemo(() => new Set(current.map(cellKey)), [current])
+  const playedDailyToday = lastDailyDay === dayKey()
+  const totalStars = useMemo(
+    () => Object.values(stageProgress).reduce((sum, p) => sum + p.stars, 0),
+    [stageProgress],
+  )
+  const maxStars = WORD_SEARCH_STAGES.length * 3
 
   return (
-    <GameLayout
-      title="Sopa de letras"
-      emoji="🔎"
-      status={`Encontradas: ${found.size}/${puzzle.placed.length}`}
-      onRestart={restart}
-    >
-      {won && (
-        <div className="mb-1 flex flex-col items-center gap-2 rounded-2xl border border-jade/40 bg-jade/10 p-5 text-center">
-          <p className="text-3xl" aria-hidden="true">
-            🎉
-          </p>
-          <p className="font-display text-lg font-bold text-parchment">¡Encontraste todas las palabras!</p>
-          <button
-            type="button"
-            onClick={restart}
-            className="rounded-lg border border-sg-gold bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-ink shadow-sm transition hover:brightness-95"
-          >
-            Jugar de nuevo
-          </button>
+    <div className="mx-auto flex max-w-2xl flex-col gap-5 px-4 py-6">
+      <div className="flex items-center justify-between gap-3">
+        <Link
+          to="/games"
+          className="flex items-center gap-1.5 font-ui text-sm font-medium text-parchment/70 transition hover:text-sg-gold-light"
+        >
+          <span aria-hidden="true">←</span> Juegos
+        </Link>
+        <button
+          type="button"
+          onClick={() => setShowAchievements((v) => !v)}
+          className="flex items-center gap-1.5 rounded-full border border-sg-gold/40 bg-transparent px-3 py-1.5 font-ui text-xs font-semibold text-sg-gold-light transition hover:bg-sg-gold/10"
+        >
+          🏅 {unlockedAchievements.length}/{ACHIEVEMENTS.length}
+        </button>
+      </div>
+
+      <div className="text-center">
+        <h1 className="font-display text-2xl font-bold text-parchment sm:text-3xl">🔎 Sopa de Letras</h1>
+        <p className="mt-1 font-ui text-sm text-parchment/65">
+          Encuentra las palabras escondidas y avanza por el mapa de etapas.
+        </p>
+        <p className="mt-2 font-ui text-xs font-semibold text-sg-gold-light">
+          ⭐ {totalStars}/{maxStars} estrellas totales
+        </p>
+      </div>
+
+      {showAchievements && (
+        <div className="rounded-2xl border border-sg-gold/20 bg-navy-mid p-4">
+          <h2 className="mb-3 font-display text-base font-bold text-parchment">Logros</h2>
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+            {ACHIEVEMENTS.map((a) => {
+              const unlocked = unlockedAchievements.includes(a.id)
+              return (
+                <div
+                  key={a.id}
+                  title={a.description}
+                  className={`flex flex-col items-center gap-1 rounded-xl border p-3 text-center transition ${
+                    unlocked
+                      ? 'border-sg-gold/40 bg-sg-gold/10'
+                      : 'border-parchment/10 bg-navy-deep/40 opacity-50'
+                  }`}
+                >
+                  <span className="text-2xl" aria-hidden="true">
+                    {unlocked ? a.emoji : '🔒'}
+                  </span>
+                  <span className="font-ui text-[11px] font-semibold text-parchment">{a.title}</span>
+                </div>
+              )
+            })}
+          </div>
         </div>
       )}
 
-      <div
-        className="mx-auto grid touch-none select-none gap-0.5 rounded-xl border border-sg-gold/15 bg-navy-mid p-2"
-        style={{ gridTemplateColumns: `repeat(${GRID_SIZE}, minmax(0, 1fr))`, maxWidth: 420 }}
+      <Link
+        to="/games/sopa-de-letras/diario"
+        className="group flex items-center gap-4 rounded-2xl border border-sg-gold/30 bg-gradient-to-br from-navy-mid to-navy-light p-5 shadow-sm transition hover:border-sg-gold/60"
       >
-        {puzzle.grid.map((row, r) =>
-          row.map((letter, c) => {
-            const key = `${r},${c}`
-            const isFound = foundCells.has(key)
-            const isCurrent = currentSet.has(key)
-            return (
-              <button
-                key={key}
-                type="button"
-                data-row={r}
-                data-col={c}
-                onPointerDown={() => {
-                  setSelecting(true)
-                  setStart([r, c])
-                  setCurrent([[r, c]])
-                }}
-                className={`flex aspect-square items-center justify-center rounded-sm font-ui text-[11px] font-bold transition sm:text-sm ${
-                  isFound
-                    ? 'bg-jade/40 text-ink'
-                    : isCurrent
-                      ? 'bg-sg-gold text-ink'
-                      : 'text-parchment/85 hover:bg-navy-light'
-                }`}
-              >
-                {letter}
-              </button>
-            )
-          }),
-        )}
-      </div>
-
-      <div className="flex flex-wrap justify-center gap-2">
-        {puzzle.placed.map((p) => (
-          <span
-            key={p.word}
-            className={`rounded-full border px-3 py-1 font-ui text-xs font-semibold transition ${
-              found.has(p.word)
-                ? 'border-jade/40 bg-jade/15 text-jade line-through'
-                : 'border-sg-gold/25 bg-navy-mid text-parchment/75'
-            }`}
-          >
-            {p.word}
+        <span className="text-4xl" aria-hidden="true">
+          📅
+        </span>
+        <div className="flex-1">
+          <p className="font-display text-lg font-bold text-parchment">Reto diario</p>
+          <p className="font-ui text-sm text-parchment/65">
+            {playedDailyToday ? 'Ya jugaste hoy — vuelve mañana' : 'Un puzzle nuevo cada día. ¡No rompas tu racha!'}
+          </p>
+        </div>
+        {dailyStreak > 0 && (
+          <span className="flex items-center gap-1 rounded-full border border-terracotta/40 bg-terracotta/15 px-3 py-1 font-ui text-sm font-bold text-terracotta">
+            🔥 {dailyStreak}
           </span>
-        ))}
+        )}
+      </Link>
+
+      <div className="flex flex-col gap-3">
+        {WORD_SEARCH_STAGES.map((stage, i) => {
+          const progress = stageProgress[stage.id]
+          const unlocked = isStageUnlocked(stage.id)
+          const content = (
+            <div
+              className={`flex items-center gap-4 rounded-2xl border p-4 shadow-sm transition ${
+                unlocked
+                  ? 'border-sg-gold/15 bg-navy-mid hover:border-sg-gold/40 hover:-translate-y-0.5'
+                  : 'border-parchment/10 bg-navy-deep/40 opacity-60'
+              }`}
+            >
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-sg-gold/25 bg-navy-deep text-xl" aria-hidden="true">
+                {unlocked ? stage.emoji : '🔒'}
+              </span>
+              <div className="flex-1">
+                <p className="font-ui text-[11px] font-semibold uppercase tracking-wide text-sg-gold-light">
+                  Etapa {i + 1}
+                </p>
+                <p className="font-display text-base font-bold text-parchment">{stage.title}</p>
+                <p className="font-ui text-xs text-parchment/55">
+                  {stage.wordCount} palabras · grilla {stage.size}×{stage.size}
+                </p>
+              </div>
+              {progress && <StarRow stars={progress.stars} />}
+            </div>
+          )
+          return unlocked ? (
+            <Link key={stage.id} to={`/games/sopa-de-letras/etapa/${stage.id}`}>
+              {content}
+            </Link>
+          ) : (
+            <div key={stage.id} aria-disabled="true">
+              {content}
+            </div>
+          )
+        })}
       </div>
-      <p className="text-center font-ui text-xs text-parchment/50">
-        Arrastra desde la primera hasta la última letra de cada palabra.
-      </p>
-    </GameLayout>
+    </div>
   )
 }

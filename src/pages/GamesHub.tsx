@@ -31,8 +31,8 @@ const GAMES: GameCard[] = [
     to: '/games/sopa-de-letras',
     emoji: '🔎',
     title: 'Sopa de letras',
-    description: 'Encuentra las palabras escondidas en la grilla arrastrando el dedo o el mouse.',
-    tag: 'Para niños',
+    description: 'Avanza por etapas temáticas, gana estrellas, mantén tu racha con el reto diario y desbloquea logros.',
+    tag: 'Con niveles',
     tagClass: 'border-jade/40 bg-jade/15 text-jade',
   },
   {

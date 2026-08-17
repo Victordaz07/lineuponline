@@ -10,6 +10,7 @@ import Dashboard from '@/pages/Dashboard'
 const GamesHub = lazy(() => import('@/pages/GamesHub'))
 const MemoryMatch = lazy(() => import('@/features/mini-games/games/MemoryMatch'))
 const WordSearch = lazy(() => import('@/features/mini-games/games/WordSearch'))
+const WordSearchPlay = lazy(() => import('@/features/mini-games/games/WordSearchPlay'))
 const GuessWord = lazy(() => import('@/features/mini-games/games/GuessWord'))
 
 const ModuleView = lazy(() => import('@/pages/ModuleView'))
@@ -89,6 +90,8 @@ function AppRoutes() {
             <Route path="/games" element={<GamesHub />} />
             <Route path="/games/memoria" element={<MemoryMatch />} />
             <Route path="/games/sopa-de-letras" element={<WordSearch />} />
+            <Route path="/games/sopa-de-letras/diario" element={<WordSearchPlay />} />
+            <Route path="/games/sopa-de-letras/etapa/:stageId" element={<WordSearchPlay />} />
             <Route path="/games/adivina-la-palabra" element={<GuessWord />} />
 
             {/* Scripture Quest — game pages */}
