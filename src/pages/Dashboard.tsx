@@ -167,10 +167,10 @@ export default function Dashboard() {
           🔍 Explorar
         </a>
         <Link
-          to="/games/scripture-quest"
+          to="/games"
           className="flex items-center gap-2 rounded-full border border-terracotta/50 bg-terracotta/20 px-4 py-2 font-ui text-sm font-bold text-terracotta transition hover:bg-terracotta/30"
         >
-          ⚔️ Jugar
+          🎮 Jugar
         </Link>
         {completedCount > 0 && nextLessonInfo && (
           <Link

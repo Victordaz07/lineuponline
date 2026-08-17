@@ -19,7 +19,7 @@ type IconKey = keyof typeof PATHS
 const items: { to: string; end: boolean; label: string; icon: IconKey }[] = [
   { to: '/', end: true, label: 'Inicio', icon: 'Inicio' },
   { to: '/module/doctrina-fundamental', end: false, label: 'Estudio', icon: 'Estudio' },
-  { to: '/games/scripture-quest', end: false, label: 'Jugar', icon: 'Jugar' },
+  { to: '/games', end: false, label: 'Jugar', icon: 'Jugar' },
   { to: '/community', end: false, label: 'Comunidad', icon: 'Comunidad' },
   { to: '/musica', end: false, label: 'Música', icon: 'Música' },
 ]

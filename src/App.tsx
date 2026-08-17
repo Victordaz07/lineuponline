@@ -7,6 +7,11 @@ import { LoadingSpinner } from '@/components/common/LoadingSpinner'
 import { useFirestoreSync } from '@/hooks/useFirestoreSync'
 import Dashboard from '@/pages/Dashboard'
 
+const GamesHub = lazy(() => import('@/pages/GamesHub'))
+const MemoryMatch = lazy(() => import('@/features/mini-games/games/MemoryMatch'))
+const WordSearch = lazy(() => import('@/features/mini-games/games/WordSearch'))
+const GuessWord = lazy(() => import('@/features/mini-games/games/GuessWord'))
+
 const ModuleView = lazy(() => import('@/pages/ModuleView'))
 const LessonView = lazy(() => import('@/pages/LessonView'))
 const TagPage = lazy(() => import('@/pages/TagPage'))
@@ -79,6 +84,12 @@ function AppRoutes() {
             <Route path="/musica" element={<DiscographyPage />} />
             <Route path="/musica/album/:albumId" element={<AlbumPage />} />
             <Route path="/admin/musica" element={<DiscographyAdminPage />} />
+
+            {/* Games hub — mini-juegos casuales */}
+            <Route path="/games" element={<GamesHub />} />
+            <Route path="/games/memoria" element={<MemoryMatch />} />
+            <Route path="/games/sopa-de-letras" element={<WordSearch />} />
+            <Route path="/games/adivina-la-palabra" element={<GuessWord />} />
 
             {/* Scripture Quest — game pages */}
             <Route path="/games/scripture-quest" element={<SQLanding />} />
