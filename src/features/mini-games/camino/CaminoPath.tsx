@@ -13,14 +13,15 @@ function StageNode({
   unlocked,
   stars,
   isNext,
+  isFinal,
 }: {
   stage: CaminoStage
   unlocked: boolean
   stars: number | undefined
   isNext: boolean
+  isFinal: boolean
 }) {
   const playable = stage.status === 'ready' && unlocked
-  const isFinal = stage.order === 8
 
   // Colores fijos (no relativos al tema claro/oscuro de la app): el nodo va
   // sobre arte fotográfico, no sobre el fondo de la app, y debe leerse igual
@@ -101,6 +102,7 @@ export default function CaminoPath() {
 
   const volume = volumeId ? getVolume(volumeId) : undefined
   const stages = useMemo(() => (volumeId ? stagesForVolume(volumeId) : []), [volumeId])
+  const maxOrder = useMemo(() => Math.max(0, ...stages.map((s) => s.order)), [stages])
 
   const totalStars = useMemo(
     () => Object.values(stageProgress).reduce((sum, p) => sum + p.stars, 0),
@@ -192,6 +194,7 @@ export default function CaminoPath() {
             unlocked={isStageUnlocked(stage.id)}
             stars={stageProgress[stage.id]?.stars}
             isNext={stage.id === targetStage?.id}
+            isFinal={stage.order === maxOrder}
           />
         ))}
 
