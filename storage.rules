@@ -30,6 +30,18 @@ service firebase.storage {
       allow write: if isAdmin();
     }
 
+    // Música — MP3 subidos directamente a un álbum (admin upload, authenticated read)
+    match /discography/audio/{albumId}/{filename} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    // Música — portadas de álbum subidas como imagen (admin upload, authenticated read)
+    match /discography/covers/{albumId}/{filename} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
     // Imágenes de personajes/temas y de lecciones (admin upload, public read —
     // identidad visual básica del catálogo, visible incluso sin sesión)
     match /moduleMedia/{groupId}/{filename} {

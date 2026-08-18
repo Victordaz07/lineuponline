@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import { useAdmin } from '@/hooks/useAdmin'
 import { useAuth } from '@/hooks/useAuth'
@@ -8,11 +8,18 @@ import {
   addAlbum,
   addTrack,
   addTracksFromImport,
+  addUploadedTrack,
   deleteAlbum,
   deleteTrack,
+  newAlbumId,
+  nextTrackOrder,
+  reorderTrack,
   subscribeAlbums,
   subscribeTracksByAlbum,
+  updateAlbum,
+  updateTrack,
 } from '../services/discography.service'
+import { uploadDiscographyAudio, uploadDiscographyCover } from '../services/discographyStorage.service'
 import type { Album, DiscographyTrack } from '../types'
 
 type Tab = 'albums' | 'tracks' | 'import'
@@ -27,11 +34,18 @@ export default function DiscographyAdminPage() {
   const [tracks, setTracks] = useState<DiscographyTrack[]>([])
   const [loading, setLoading] = useState(false)
 
+  const [editingAlbumId, setEditingAlbumId] = useState<string | null>(null)
   const [albumTitle, setAlbumTitle] = useState('')
+  const [albumDescription, setAlbumDescription] = useState('')
   const [albumReport, setAlbumReport] = useState('')
-  const [albumCover, setAlbumCover] = useState('')
+  const [albumCoverUrl, setAlbumCoverUrl] = useState('')
+  const [albumCoverFile, setAlbumCoverFile] = useState<File | null>(null)
+  const [albumCoverPreview, setAlbumCoverPreview] = useState<string | null>(null)
 
+  const [songSource, setSongSource] = useState<'youtube' | 'upload'>('youtube')
   const [songUrl, setSongUrl] = useState('')
+  const [audioFile, setAudioFile] = useState<File | null>(null)
+  const [uploadStatus, setUploadStatus] = useState('')
   const [songTitle, setSongTitle] = useState('')
   const [songTitleEn, setSongTitleEn] = useState('')
   const [songCharacter, setSongCharacter] = useState('')
@@ -39,6 +53,10 @@ export default function DiscographyAdminPage() {
   const [songArc, setSongArc] = useState('')
   const [songScripture, setSongScripture] = useState('')
   const [songSignature, setSongSignature] = useState('')
+
+  const [bulkUploading, setBulkUploading] = useState(false)
+  const [bulkStatus, setBulkStatus] = useState('')
+  const bulkInputRef = useRef<HTMLInputElement>(null)
 
   const [importText, setImportText] = useState('')
   const [importPreview, setImportPreview] = useState<ParsedSong[]>([])
@@ -58,8 +76,39 @@ export default function DiscographyAdminPage() {
     return subscribeTracksByAlbum(selectedAlbumId, setTracks)
   }, [selectedAlbumId])
 
+  // Vista previa local del archivo de portada elegido, antes de subirlo.
+  useEffect(() => {
+    if (!albumCoverFile) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setAlbumCoverPreview(null)
+      return
+    }
+    const url = URL.createObjectURL(albumCoverFile)
+    setAlbumCoverPreview(url)
+    return () => URL.revokeObjectURL(url)
+  }, [albumCoverFile])
+
   if (authLoading) return null
   if (!user || !isAdmin) return <Navigate to="/" replace />
+
+  function resetAlbumFields() {
+    setEditingAlbumId(null)
+    setAlbumTitle('')
+    setAlbumDescription('')
+    setAlbumReport('')
+    setAlbumCoverUrl('')
+    setAlbumCoverFile(null)
+  }
+
+  function startEditAlbum(album: Album) {
+    setEditingAlbumId(album.id)
+    setAlbumTitle(album.title)
+    setAlbumDescription(album.description)
+    setAlbumReport('')
+    setAlbumCoverUrl(album.coverUrl ?? '')
+    setAlbumCoverFile(null)
+    setTab('albums')
+  }
 
   async function handleSaveAlbum() {
     if (!albumTitle.trim()) {
@@ -68,10 +117,28 @@ export default function DiscographyAdminPage() {
     }
     setLoading(true)
     try {
-      const id = await addAlbum({ title: albumTitle.trim(), report: albumReport.trim(), coverUrl: albumCover })
-      setAlbumTitle('')
-      setAlbumReport('')
-      setAlbumCover('')
+      const id = editingAlbumId ?? newAlbumId()
+      let coverUrl = albumCoverUrl
+      if (albumCoverFile) {
+        coverUrl = await uploadDiscographyCover(albumCoverFile, id)
+      }
+
+      if (editingAlbumId) {
+        await updateAlbum(editingAlbumId, {
+          title: albumTitle.trim(),
+          description: albumDescription.trim(),
+          coverUrl: coverUrl.trim() || null,
+        })
+      } else {
+        await addAlbum({
+          id,
+          title: albumTitle.trim(),
+          description: albumDescription.trim(),
+          report: albumReport.trim(),
+          coverUrl,
+        })
+      }
+      resetAlbumFields()
       setSelectedAlbumId(id)
       setTab('tracks')
     } finally {
@@ -83,6 +150,19 @@ export default function DiscographyAdminPage() {
     if (!confirm(`¿Eliminar el álbum "${album.title}" y todas sus canciones?`)) return
     await deleteAlbum(album.id)
     if (selectedAlbumId === album.id) setSelectedAlbumId('')
+    if (editingAlbumId === album.id) resetAlbumFields()
+  }
+
+  function resetSongFields() {
+    setSongUrl('')
+    setAudioFile(null)
+    setSongTitle('')
+    setSongTitleEn('')
+    setSongCharacter('')
+    setSongEra('')
+    setSongArc('')
+    setSongScripture('')
+    setSongSignature('')
   }
 
   async function handleSaveTrack() {
@@ -90,12 +170,52 @@ export default function DiscographyAdminPage() {
       alert('Primero selecciona o crea un álbum.')
       return
     }
-    if (!detectedVideoId) {
-      alert('No pude reconocer esa URL de YouTube. Revisa el link.')
-      return
-    }
     if (!songTitle.trim()) {
       alert('Falta el título de la canción.')
+      return
+    }
+    const songMeta = {
+      era: songEra.trim(),
+      character: songCharacter.trim(),
+      titleEn: songTitleEn.trim() || null,
+      arc: songArc.trim(),
+      scriptureRef: songScripture.trim(),
+      signatureSound: songSignature.trim(),
+    }
+
+    if (songSource === 'upload') {
+      if (!audioFile) {
+        alert('Selecciona un archivo MP3 para subir.')
+        return
+      }
+      setLoading(true)
+      setUploadStatus(`Subiendo ${audioFile.name}...`)
+      try {
+        const { url, storagePath } = await uploadDiscographyAudio(audioFile, selectedAlbumId)
+        await addUploadedTrack({
+          albumId: selectedAlbumId,
+          subtitle: selectedAlbum?.title ?? '',
+          title: songTitle.trim(),
+          titleEn: songTitleEn.trim() || null,
+          storageUrl: url,
+          storagePath,
+          order: nextTrackOrder(tracks),
+          coverUrl: selectedAlbum?.coverUrl,
+          songMeta,
+        })
+        resetSongFields()
+      } catch (e) {
+        console.error(e)
+        alert('Error al subir el archivo.')
+      } finally {
+        setLoading(false)
+        setUploadStatus('')
+      }
+      return
+    }
+
+    if (!detectedVideoId) {
+      alert('No pude reconocer esa URL de YouTube. Revisa el link.')
       return
     }
     setLoading(true)
@@ -107,31 +227,46 @@ export default function DiscographyAdminPage() {
         titleEn: songTitleEn.trim() || null,
         youtubeUrl: songUrl.trim(),
         youtubeVideoId: detectedVideoId,
-        songMeta: {
-          era: songEra.trim(),
-          character: songCharacter.trim(),
-          titleEn: songTitleEn.trim() || null,
-          arc: songArc.trim(),
-          scriptureRef: songScripture.trim(),
-          signatureSound: songSignature.trim(),
-        },
+        order: nextTrackOrder(tracks),
+        songMeta,
       })
-      setSongUrl('')
-      setSongTitle('')
-      setSongTitleEn('')
-      setSongCharacter('')
-      setSongEra('')
-      setSongArc('')
-      setSongScripture('')
-      setSongSignature('')
+      resetSongFields()
     } finally {
       setLoading(false)
     }
   }
 
-  async function handleDeleteTrack(trackId: string) {
+  async function handleBulkUpload(files: FileList | null) {
+    if (!files || files.length === 0 || !selectedAlbumId) return
+    setBulkUploading(true)
+    let order = nextTrackOrder(tracks)
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i]
+      setBulkStatus(`Subiendo ${i + 1}/${files.length}: ${file.name}`)
+      try {
+        const { url, storagePath } = await uploadDiscographyAudio(file, selectedAlbumId)
+        await addUploadedTrack({
+          albumId: selectedAlbumId,
+          subtitle: selectedAlbum?.title ?? '',
+          title: file.name.replace(/\.[^.]+$/, ''),
+          storageUrl: url,
+          storagePath,
+          order: order++,
+          coverUrl: selectedAlbum?.coverUrl,
+        })
+      } catch (e) {
+        console.error(e)
+        alert(`Error subiendo ${file.name}`)
+      }
+    }
+    setBulkUploading(false)
+    setBulkStatus('')
+    if (bulkInputRef.current) bulkInputRef.current.value = ''
+  }
+
+  async function handleDeleteTrack(track: DiscographyTrack) {
     if (!confirm('¿Eliminar esta canción?')) return
-    await deleteTrack(trackId)
+    await deleteTrack(track.id, track.storagePath)
   }
 
   function handleProcessImport() {
@@ -145,7 +280,7 @@ export default function DiscographyAdminPage() {
     }
     setImporting(true)
     try {
-      const count = await addTracksFromImport(selectedAlbumId, selectedAlbum?.title ?? '', importPreview)
+      const count = await addTracksFromImport(selectedAlbumId, selectedAlbum?.title ?? '', importPreview, nextTrackOrder(tracks))
       if (count === 0) {
         alert('No hay canciones válidas para importar.')
         return
@@ -179,7 +314,7 @@ export default function DiscographyAdminPage() {
 
       <header className="space-y-1">
         <h1 className="font-display text-3xl text-parchment">Música</h1>
-        <p className="font-ui text-sm text-parchment/50">Carga álbumes y canciones de YouTube sin tocar código.</p>
+        <p className="font-ui text-sm text-parchment/50">Carga álbumes y canciones de YouTube o tus propios MP3, sin tocar código.</p>
       </header>
 
       <div role="tablist" className="flex gap-1 rounded-2xl border border-sg-gold/15 bg-navy-mid p-1">
@@ -202,6 +337,10 @@ export default function DiscographyAdminPage() {
       {tab === 'albums' && (
         <div className="space-y-6">
           <div className="rounded-xl border border-sg-gold/15 bg-navy-mid p-5">
+            <p className="mb-3 font-ui text-xs font-semibold uppercase tracking-wider text-sg-gold-light">
+              {editingAlbumId ? 'Editando álbum' : 'Nuevo álbum'}
+            </p>
+
             <label className={labelClass}>Título del álbum</label>
             <input
               className={inputClass}
@@ -209,27 +348,72 @@ export default function DiscographyAdminPage() {
               onChange={(e) => setAlbumTitle(e.target.value)}
               placeholder="Mis Otras Ovejas · Temporada 1"
             />
-            <label className={labelClass}>Portada (URL, opcional)</label>
-            <input
-              className={inputClass}
-              value={albumCover}
-              onChange={(e) => setAlbumCover(e.target.value)}
-              placeholder="https://..."
-            />
-            <label className={labelClass}>Informe / contexto del álbum (opcional)</label>
+
+            <label className={labelClass}>Descripción (se muestra a los usuarios)</label>
             <textarea
-              className={`${inputClass} min-h-[140px] resize-y font-mono text-xs`}
-              value={albumReport}
-              onChange={(e) => setAlbumReport(e.target.value)}
-              placeholder="Temporada, eras, notas de producción, lo que sea..."
+              className={`${inputClass} min-h-[70px] resize-y`}
+              value={albumDescription}
+              onChange={(e) => setAlbumDescription(e.target.value)}
+              placeholder="De qué trata este álbum, en una o dos frases."
             />
-            <button
-              onClick={handleSaveAlbum}
-              disabled={loading}
-              className="rounded-lg bg-sg-gold px-5 py-2.5 font-ui text-sm font-semibold text-ink disabled:opacity-60"
-            >
-              {loading ? 'Guardando...' : 'Crear álbum'}
-            </button>
+
+            <label className={labelClass}>Portada</label>
+            <div className="mb-3 flex items-center gap-3">
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-navy-deep">
+                {albumCoverPreview || albumCoverUrl ? (
+                  <img src={albumCoverPreview ?? albumCoverUrl} alt="" className="h-full w-full object-cover" />
+                ) : (
+                  <span className="text-2xl" aria-hidden="true">🖼️</span>
+                )}
+              </div>
+              <div className="flex-1">
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => setAlbumCoverFile(e.target.files?.[0] ?? null)}
+                  className="mb-1.5 w-full font-ui text-xs text-parchment/70 file:mr-2 file:rounded-lg file:border-0 file:bg-sg-gold/15 file:px-2.5 file:py-1.5 file:font-ui file:text-xs file:font-semibold file:text-sg-gold-light"
+                />
+                <input
+                  className="w-full rounded-lg border border-sg-gold/20 bg-navy-deep px-2.5 py-1.5 font-ui text-xs text-parchment placeholder:text-parchment/30 focus:border-sg-gold/50 focus:outline-none"
+                  value={albumCoverUrl}
+                  onChange={(e) => {
+                    setAlbumCoverUrl(e.target.value)
+                    setAlbumCoverFile(null)
+                  }}
+                  placeholder="...o pega una URL de imagen"
+                />
+              </div>
+            </div>
+
+            {!editingAlbumId && (
+              <>
+                <label className={labelClass}>Notas internas para importar canciones (opcional, ver pestaña 3)</label>
+                <textarea
+                  className={`${inputClass} min-h-[100px] resize-y font-mono text-xs`}
+                  value={albumReport}
+                  onChange={(e) => setAlbumReport(e.target.value)}
+                  placeholder="Temporada, eras, notas de producción, lo que sea..."
+                />
+              </>
+            )}
+
+            <div className="flex gap-2">
+              <button
+                onClick={handleSaveAlbum}
+                disabled={loading}
+                className="rounded-lg bg-sg-gold px-5 py-2.5 font-ui text-sm font-semibold text-ink disabled:opacity-60"
+              >
+                {loading ? 'Guardando...' : editingAlbumId ? 'Guardar cambios' : 'Crear álbum'}
+              </button>
+              {editingAlbumId && (
+                <button
+                  onClick={resetAlbumFields}
+                  className="rounded-lg border border-sg-gold/30 px-4 py-2.5 font-ui text-sm text-parchment/70"
+                >
+                  Cancelar
+                </button>
+              )}
+            </div>
           </div>
 
           <div>
@@ -238,16 +422,26 @@ export default function DiscographyAdminPage() {
               {albums.map((a) => (
                 <div
                   key={a.id}
-                  className="flex items-center justify-between rounded-lg bg-navy-mid px-3 py-2.5"
+                  className="flex items-center gap-2 rounded-lg bg-navy-mid px-3 py-2.5"
                 >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-md bg-navy-deep">
+                    {a.coverUrl ? (
+                      <img src={a.coverUrl} alt="" className="h-full w-full object-cover" />
+                    ) : (
+                      <span className="text-sm" aria-hidden="true">💿</span>
+                    )}
+                  </div>
                   <button
                     onClick={() => {
                       setSelectedAlbumId(a.id)
                       setTab('tracks')
                     }}
-                    className="flex-1 text-left font-ui text-sm text-parchment"
+                    className="flex-1 truncate text-left font-ui text-sm text-parchment"
                   >
                     {a.title}
+                  </button>
+                  <button onClick={() => startEditAlbum(a)} className="font-ui text-xs text-sg-gold-light">
+                    Editar
                   </button>
                   <button
                     onClick={() => handleDeleteAlbum(a)}
@@ -281,17 +475,50 @@ export default function DiscographyAdminPage() {
           {selectedAlbumId && (
             <>
               <div className="rounded-xl border border-sg-gold/15 bg-navy-mid p-5">
-                <label className={labelClass}>URL de YouTube</label>
-                <input
-                  className={inputClass}
-                  value={songUrl}
-                  onChange={(e) => setSongUrl(e.target.value)}
-                  placeholder="https://youtube.com/watch?v=..."
-                />
-                {songUrl && (
-                  <p className={`mb-3 -mt-2 font-ui text-xs ${detectedVideoId ? 'text-sg-gold-light' : 'text-red-400'}`}>
-                    {detectedVideoId ? `✓ Video detectado: ${detectedVideoId}` : '✗ No reconozco esa URL'}
-                  </p>
+                <label className={labelClass}>Fuente</label>
+                <div className="mb-3 flex gap-1 rounded-xl border border-sg-gold/15 bg-navy-deep p-1">
+                  {(['youtube', 'upload'] as const).map((source) => (
+                    <button
+                      key={source}
+                      type="button"
+                      onClick={() => setSongSource(source)}
+                      className={`flex-1 rounded-lg px-3 py-2 font-ui text-xs font-semibold transition ${
+                        songSource === source ? 'bg-navy-light text-parchment shadow-sm' : 'text-parchment/40 hover:text-parchment/70'
+                      }`}
+                    >
+                      {source === 'youtube' ? 'URL de YouTube' : 'Subir MP3'}
+                    </button>
+                  ))}
+                </div>
+
+                {songSource === 'youtube' ? (
+                  <>
+                    <label className={labelClass}>URL de YouTube</label>
+                    <input
+                      className={inputClass}
+                      value={songUrl}
+                      onChange={(e) => setSongUrl(e.target.value)}
+                      placeholder="https://youtube.com/watch?v=..."
+                    />
+                    {songUrl && (
+                      <p className={`mb-3 -mt-2 font-ui text-xs ${detectedVideoId ? 'text-sg-gold-light' : 'text-red-400'}`}>
+                        {detectedVideoId ? `✓ Video detectado: ${detectedVideoId}` : '✗ No reconozco esa URL'}
+                      </p>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    <label className={labelClass}>Archivo MP3</label>
+                    <input
+                      type="file"
+                      accept="audio/*,.mp3,.wav,.ogg,.m4a"
+                      onChange={(e) => setAudioFile(e.target.files?.[0] ?? null)}
+                      className="mb-1 w-full font-ui text-xs text-parchment/70 file:mr-3 file:rounded-lg file:border-0 file:bg-sg-gold/15 file:px-3 file:py-2 file:font-ui file:text-xs file:font-semibold file:text-sg-gold-light"
+                    />
+                    <p className="mb-3 font-ui text-xs text-parchment/40">
+                      {audioFile ? `✓ ${audioFile.name} (${(audioFile.size / 1024 / 1024).toFixed(1)} MB)` : 'Elige un archivo de tu computadora.'}
+                    </p>
+                  </>
                 )}
 
                 <label className={labelClass}>Título (español)</label>
@@ -327,27 +554,49 @@ export default function DiscographyAdminPage() {
 
                 <button
                   onClick={handleSaveTrack}
-                  disabled={loading || !detectedVideoId}
+                  disabled={loading || (songSource === 'youtube' ? !detectedVideoId : !audioFile)}
                   className="rounded-lg bg-sg-gold px-5 py-2.5 font-ui text-sm font-semibold text-ink disabled:opacity-50"
                 >
-                  {loading ? 'Guardando...' : 'Agregar canción'}
+                  {loading ? uploadStatus || 'Guardando...' : 'Agregar canción'}
                 </button>
               </div>
 
+              <div className="rounded-xl border border-dashed border-sg-gold/25 bg-navy-mid/50 p-4">
+                <p className="mb-2 font-ui text-xs font-semibold text-parchment/70">
+                  Subir un álbum completo de una vez
+                </p>
+                <p className="mb-3 font-ui text-xs text-parchment/45">
+                  Elige varios MP3 a la vez — se agregan en el orden en que los selecciones, con el nombre del
+                  archivo como título (lo puedes renombrar después).
+                </p>
+                {bulkUploading ? (
+                  <p className="font-ui text-xs text-sg-gold animate-pulse">{bulkStatus}</p>
+                ) : (
+                  <input
+                    ref={bulkInputRef}
+                    type="file"
+                    accept="audio/*,.mp3,.wav,.ogg,.m4a"
+                    multiple
+                    onChange={(e) => handleBulkUpload(e.target.files)}
+                    className="w-full font-ui text-xs text-parchment/70 file:mr-3 file:rounded-lg file:border-0 file:bg-sg-gold/15 file:px-3 file:py-2 file:font-ui file:text-xs file:font-semibold file:text-sg-gold-light"
+                  />
+                )}
+              </div>
+
               <div>
-                <h3 className="mb-2 font-ui text-sm text-parchment/70">Canciones en este álbum ({tracks.length})</h3>
+                <h3 className="mb-2 font-ui text-sm text-parchment/70">
+                  Canciones en este álbum ({tracks.length}) — usa las flechas para ordenarlas
+                </h3>
                 <div className="flex flex-col gap-2">
-                  {tracks.map((t) => (
-                    <div key={t.id} className="flex items-center gap-3 rounded-lg bg-navy-mid p-2.5">
-                      <img src={t.coverUrl} alt="" className="h-10 w-10 rounded-md object-cover" />
-                      <div className="min-w-0 flex-1">
-                        <p className="truncate font-ui text-sm text-parchment">{t.title}</p>
-                        <p className="truncate font-ui text-xs text-parchment/50">{t.songMeta?.character}</p>
-                      </div>
-                      <button onClick={() => handleDeleteTrack(t.id)} className="font-ui text-xs text-red-400">
-                        Eliminar
-                      </button>
-                    </div>
+                  {tracks.map((t, i) => (
+                    <TrackRow
+                      key={t.id}
+                      track={t}
+                      isFirst={i === 0}
+                      isLast={i === tracks.length - 1}
+                      onMove={(direction) => reorderTrack(tracks, t.id, direction)}
+                      onDelete={() => handleDeleteTrack(t)}
+                    />
                   ))}
                 </div>
               </div>
@@ -416,6 +665,82 @@ export default function DiscographyAdminPage() {
           )}
         </div>
       )}
+    </div>
+  )
+}
+
+function TrackRow({
+  track,
+  isFirst,
+  isLast,
+  onMove,
+  onDelete,
+}: {
+  track: DiscographyTrack
+  isFirst: boolean
+  isLast: boolean
+  onMove: (direction: 'up' | 'down') => void
+  onDelete: () => void
+}) {
+  const [editing, setEditing] = useState(false)
+  const [title, setTitle] = useState(track.title)
+
+  async function handleRename() {
+    setEditing(false)
+    if (title.trim() && title.trim() !== track.title) {
+      await updateTrack(track.id, { title: title.trim() })
+    } else {
+      setTitle(track.title)
+    }
+  }
+
+  return (
+    <div className="flex items-center gap-2 rounded-lg bg-navy-mid p-2.5">
+      <div className="flex shrink-0 flex-col">
+        <button
+          onClick={() => onMove('up')}
+          disabled={isFirst}
+          className="flex h-4 w-5 items-center justify-center text-parchment/40 hover:text-sg-gold-light disabled:opacity-20"
+          title="Subir"
+        >
+          ▲
+        </button>
+        <button
+          onClick={() => onMove('down')}
+          disabled={isLast}
+          className="flex h-4 w-5 items-center justify-center text-parchment/40 hover:text-sg-gold-light disabled:opacity-20"
+          title="Bajar"
+        >
+          ▼
+        </button>
+      </div>
+      {track.coverUrl ? (
+        <img src={track.coverUrl} alt="" className="h-10 w-10 shrink-0 rounded-md object-cover" />
+      ) : (
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-navy-deep text-lg" aria-hidden="true">
+          🎵
+        </span>
+      )}
+      <div className="min-w-0 flex-1">
+        {editing ? (
+          <input
+            autoFocus
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            onBlur={handleRename}
+            onKeyDown={(e) => e.key === 'Enter' && handleRename()}
+            className="w-full rounded-lg bg-navy-deep px-2 py-1 font-ui text-sm text-parchment outline-none ring-1 ring-sg-gold/40"
+          />
+        ) : (
+          <button className="block truncate text-left font-ui text-sm text-parchment" onClick={() => setEditing(true)} title="Clic para renombrar">
+            {track.title}
+          </button>
+        )}
+        <p className="truncate font-ui text-xs text-parchment/50">{track.songMeta?.character}</p>
+      </div>
+      <button onClick={onDelete} className="shrink-0 font-ui text-xs text-red-400">
+        Eliminar
+      </button>
     </div>
   )
 }

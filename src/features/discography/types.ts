@@ -28,6 +28,9 @@ export const EMPTY_SONG_META: SongMeta = {
 export interface Album {
   id: string
   title: string
+  /** Descripción pública, visible para quien escucha el álbum. */
+  description: string
+  /** Texto para importar canciones en lote (ver parseAlbumReport) — no se muestra al usuario. */
   report: string
   coverUrl: string | null
   createdAt: string
@@ -45,7 +48,11 @@ export interface DiscographyTrack {
   youtubeUrl: string | null
   youtubeVideoId: string | null
   storageUrl: string | null
+  /** Ruta en Firebase Storage del MP3 subido (para poder borrarlo junto con el track). Null si no aplica (youtube, o audio gestionado en otra colección como lessonAudio). */
+  storagePath: string | null
   duration: number | null
+  /** Posición dentro del álbum (menor = antes). Los tracks legado sin este campo caen al final, ordenados por fecha. */
+  order: number
   songMeta: SongMeta | null
   createdAt: string
   updatedAt: string

@@ -88,6 +88,10 @@ export default function AlbumPage() {
         </div>
       </header>
 
+      {album.description && (
+        <p className="mb-6 font-ui text-sm text-parchment/70">{album.description}</p>
+      )}
+
       {watchAlbumUrl && (
         <a
           href={watchAlbumUrl}
