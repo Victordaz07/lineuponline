@@ -60,6 +60,14 @@ export const laOracion: Lesson = {
               type: 'paragraph',
               text: 'Holland pronunció ese discurso habiendo sobrevivido una crisis médica seria que lo hospitalizó durante semanas — ocurrida apenas 48 horas después del funeral de su esposa Pat. Lo que lo sostuvo durante esas semanas fue exactamente lo que estaba describiendo: la oración como la hora más dulce, el lugar donde Dios te responde. Esas palabras no vinieron de la teoría.',
             },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/la-oracion/01-conversacion-con-el-padre.webp',
+              alt: 'Un joven arrodillado junto a su cama ora en silencio al amanecer.',
+              caption: 'La oración es el privilegio de conversar personalmente con nuestro Padre Celestial.',
+            },
           ],
         },
         {
@@ -159,6 +167,14 @@ export const laOracion: Lesson = {
                 'La Primera Visión es la respuesta a una oración de un adolescente. Toda la dispensación de la plenitud de los tiempos comenzó porque un muchacho creyó que Santiago 1:5 era real y actuó en consecuencia.',
               ],
             },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/la-oracion/02-getsemani-oracion-perfecta.webp',
+              alt: 'Una figura con túnica ora de rodillas entre olivos bajo la luz nocturna.',
+              caption: 'En Getsemaní, el Salvador mostró la entrega perfecta de la voluntad en oración.',
+            },
           ],
         },
       ],
@@ -209,6 +225,14 @@ export const laOracion: Lesson = {
                 'Al terminar esa oración de pura gratitud, la familia se dio cuenta de que durante la oración habían recibido inspiración sobre las mismas preguntas urgentes que no habían mencionado. No porque Dios no los hubiera escuchado la semana anterior — sino porque esa noche, al soltar el control y simplemente agradecer, se pusieron en la postura correcta para recibir.',
                 '"La oración se vuelve más significativa cuando expresamos gratitud sincera de corazón." Hay una diferencia entre agradecer mecánicamente al principio de la oración y dedicar toda una oración a la gratitud. La segunda postura dice: "Dios, confío en ti lo suficiente para no pedirte nada esta vez. Solo quiero reconocer lo que ya has hecho."',
               ],
+            },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/la-oracion/03-orar-en-todo-lugar.webp',
+              alt: 'Una mujer ora mientras recorre un sendero entre el hogar, los campos y una ciudad distante.',
+              caption: 'Amulek enseñó que podemos elevar el corazón a Dios en todo lugar y circunstancia.',
             },
           ],
         },
@@ -274,6 +298,14 @@ export const laOracion: Lesson = {
               type: 'doctrine_box',
               title: 'Cuándo la oración "no funciona"',
               body: 'Scott enseñó que si sientes que Dios se ha alejado, puede haber muchas razones — y continúa: "Cualquiera que sea la causa, al seguir suplicando ayuda, Él te guiará a hacer lo que restaurará tu confianza en que Él está cerca." La distancia que sentimos no es de Dios alejándose. Es nuestra percepción nublada por el dolor, el pecado no resuelto, o simplemente la fatiga espiritual. "No te preocupes por los sentimientos que expresas torpemente. Simplemente habla con tu compasivo y comprensivo Padre." — Richard G. Scott.',
+            },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/la-oracion/04-cuando-el-cielo-callado.webp',
+              alt: 'Una mujer espera en una habitación oscura mientras observa el amanecer por la ventana.',
+              caption: 'La fe continúa mirando hacia la luz aun cuando la respuesta parece tardar.',
             },
           ],
         },
@@ -374,6 +406,14 @@ export const laOracion: Lesson = {
             {
               type: 'reflection',
               prompt: '¿Cómo describirías honestamente tu vida de oración ahora mismo? ¿Qué diferencia hay entre hacer oraciones y vivir en oración? ¿Hay una oración que llevas tiempo queriendo hacer y no has hecho? ¿Qué te detiene?',
+            },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/la-oracion/05-vigilantes-en-oracion.webp',
+              alt: 'Una familia ora reunida dentro de un hogar rodeado por una luz dorada protectora.',
+              caption: 'Vivir vigilantes en oración fortalece espiritualmente a cada integrante del hogar.',
             },
           ],
         },

@@ -64,6 +64,14 @@ export const elEstudioEscrituras: Lesson = {
               name: 'David A. Bednar',
               role: '"A Reservoir of Living Water", Devocional del SAE en BYU, 4 de febrero de 2007 (trad.)',
             },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/estudio-escrituras/01-dios-habla-en-las-escrituras.webp',
+              alt: 'Una mujer estudia un pasaje iluminado de las Escrituras en una mesa de madera.',
+              caption: 'Al estudiar con intención, las palabras de Cristo pueden hablar directamente a nuestra situación.',
+            },
           ],
         },
       ],
@@ -120,6 +128,14 @@ export const elEstudioEscrituras: Lesson = {
                 'Mormón y Moroni, al abreviar los registros de siglos, eligieron qué incluir. No eligieron al azar. El Espíritu les guió a incluir exactamente lo que los lectores del siglo XXI necesitarían. El principio de la fe (Alma 32), la expiación (Alma 34, 36, 42), el arrepentimiento (3 Nefi 9:22), la oración (Moroni 7), el Espíritu Santo (3 Nefi 11) — todo está ahí, dicho con una claridad que la Biblia, traducida y retranslada a través de siglos, a veces no puede igualar.',
                 'Cuando lees el Libro de Mormón con sinceridad, estás usando el instrumento que Dios diseñó específicamente para tu época. Por eso la promesa de Moroni 10:4 es tan directa: si pides con sincero corazón y verdadera intención, la respuesta vendrá. El libro fue escrito para ser probado.',
               ],
+            },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/estudio-escrituras/02-libro-de-mormon-piedra-angular.webp',
+              alt: 'Un volumen de Escrituras descansa como piedra angular entre otros libros sagrados.',
+              caption: 'El Libro de Mormón sostiene y centra el testimonio de la doctrina restaurada.',
             },
           ],
         },
@@ -196,6 +212,14 @@ export const elEstudioEscrituras: Lesson = {
                 'Busca aplicación inmediata — ¿qué de esto puedo hacer hoy?',
               ],
             },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/estudio-escrituras/03-banquetear-en-la-palabra.webp',
+              alt: 'Una familia estudia atentamente varios libros de Escrituras alrededor de una mesa.',
+              caption: 'Banquetear en la palabra requiere tiempo, atención y el deseo real de nutrirse.',
+            },
           ],
         },
       ],
@@ -251,6 +275,14 @@ export const elEstudioEscrituras: Lesson = {
               quote: 'Si quieres hablar con Dios, ora. Si quieres que Dios te hable, lee las Escrituras. Esa es la fórmula. No hay sustituto. El Espíritu Santo obra a través de las palabras escritas para llevar revelación al corazón del lector — pero eso requiere que el lector esté ahí, lápiz en mano, con corazón dispuesto.',
               name: 'Howard W. Hunter',
               role: '"Reading the Scriptures", Ensign, noviembre 1979 (trad.)',
+            },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/estudio-escrituras/04-el-espiritu-ensena.webp',
+              alt: 'Un joven medita frente a unas Escrituras abiertas mientras una luz cálida cruza la habitación.',
+              caption: 'El Espíritu transforma la lectura en revelación personal y enseñanza viva.',
             },
           ],
         },
@@ -337,6 +369,14 @@ export const elEstudioEscrituras: Lesson = {
             {
               type: 'reflection',
               prompt: '¿Cuándo fue la última vez que una escritura específica te dijo exactamente lo que necesitabas escuchar? ¿Qué diferencia hay entre cómo estudias las Escrituras ahora y cómo te gustaría estudiarlas? ¿Qué cambio concreto harás esta semana?',
+            },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/estudio-escrituras/05-habito-diario.webp',
+              alt: 'Unas Escrituras abiertas, un cuaderno y un olivo joven reciben la luz de la mañana.',
+              caption: 'La constancia diaria permite que la palabra crezca y forme un depósito espiritual duradero.',
             },
           ],
         },

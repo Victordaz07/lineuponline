@@ -58,6 +58,14 @@ export const elMinisterioEnElHogar: Lesson = {
               name: 'Russell M. Nelson',
               role: '"Becoming Exemplary Latter-day Saints", Conferencia General, octubre 2018 (trad.)',
             },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/ministerio-en-el-hogar/01-hogar-centro-del-aprendizaje.webp',
+              alt: 'Padres e hijos estudian las Escrituras en la mesa del hogar con una capilla al fondo.',
+              caption: 'El aprendizaje del evangelio encuentra su centro en el hogar y el apoyo en la Iglesia.',
+            },
           ],
         },
       ],
@@ -126,6 +134,14 @@ export const elMinisterioEnElHogar: Lesson = {
               name: 'Jeffrey R. Holland',
               role: '"A Prayer for the Children", Conferencia General, abril 2003 (trad.)',
             },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/ministerio-en-el-hogar/02-hablar-de-cristo-cotidiano.webp',
+              alt: 'Una madre conversa con su hija mientras ambas preparan pan en la cocina.',
+              caption: 'Hablar de Cristo puede integrarse con naturalidad en los momentos más sencillos del día.',
+            },
           ],
         },
       ],
@@ -178,6 +194,14 @@ export const elMinisterioEnElHogar: Lesson = {
                 'Silencio + escucha — dejar espacio para que el Espíritu hable, no llenar cada momento con palabras',
               ],
             },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/ministerio-en-el-hogar/03-momento-espontaneo.webp',
+              alt: 'Un padre se arrodilla para escuchar y consolar a su hija en un pasillo del hogar.',
+              caption: 'Los momentos espontáneos abren espacio para que el Espíritu enseñe con ternura.',
+            },
           ],
         },
       ],
@@ -227,6 +251,14 @@ export const elMinisterioEnElHogar: Lesson = {
               quote: 'El mayor trabajo que harás jamás se hará dentro de las paredes de tu propio hogar. El mundo quiere que creas que el trabajo importante sucede afuera — en la oficina, en la capilla, en el servicio público. El Señor dice que el trabajo más eterno y transformador ocurre en la cena familiar, en las oraciones de la mañana, en las conversaciones al acostar a los hijos.',
               name: 'Harold B. Lee',
               role: 'Charla en Conferencia General, 1973 (trad.)',
+            },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/ministerio-en-el-hogar/04-noche-de-hogar-sencilla.webp',
+              alt: 'Una familia participa relajada en una actividad de noche de hogar alrededor de la mesa.',
+              caption: 'La noche de hogar edifica cuando es sencilla, constante y adecuada a la familia real.',
             },
           ],
         },
@@ -300,6 +332,14 @@ export const elMinisterioEnElHogar: Lesson = {
             {
               type: 'reflection',
               prompt: '¿En qué momento del día tiene tu familia mayor apertura espiritual — la mañana, la cena, la noche? ¿Estás usando ese momento? ¿Qué conversación sobre el evangelio has estado postergando con alguno de tus hijos o con tu cónyuge? ¿Qué pasaría si la tuvieras esta semana, simple, sin agenda, solo presente?',
+            },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/ministerio-en-el-hogar/05-ensenar-en-el-camino.webp',
+              alt: 'Un padre conversa con sus hijos mientras caminan juntos hacia el atardecer.',
+              caption: 'El ministerio familiar ocurre al caminar, conversar y compartir la vida cotidiana.',
             },
           ],
         },

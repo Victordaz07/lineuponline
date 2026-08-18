@@ -60,6 +60,14 @@ export const laProclamacionFamilia: Lesson = {
               name: 'Dallin H. Oaks',
               role: '"No Other Gods", Conferencia General, octubre 2013 (trad.)',
             },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/proclamacion-familia/01-proclamacion-en-el-hogar.webp',
+              alt: 'Una familia de varias generaciones contempla reunida la Proclamación sobre la Familia.',
+              caption: 'Una proclamación profética se convierte en guía viva cuando la familia la estudia unida.',
+            },
           ],
         },
         {
@@ -88,6 +96,14 @@ export const laProclamacionFamilia: Lesson = {
                 'Job 38:7 describe a los "hijos de Dios" que "aclamaban con júbilo" cuando se pusieron los cimientos de la tierra. Abraham 3 describe la vida premortal donde Dios conocía a las almas antes de que nacieran. No llegamos a la tierra como extraños — llegamos como hijos e hijas que ya teníamos identidad, carácter y género.',
                 'Esto significa que la familia no fue inventada en la tierra para conveniencia social. Fue trasladada del cielo a la tierra, y la expiación y las ordenanzas del templo permiten que se traslade de vuelta al cielo — eterna.',
               ],
+            },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/proclamacion-familia/02-familia-centro-del-plan.webp',
+              alt: 'Una familia contempla un cielo profundo unido por puntos de luz dorada.',
+              caption: 'La familia no es un arreglo temporal: ocupa un lugar central en el plan eterno de Dios.',
             },
           ],
         },
@@ -199,6 +215,14 @@ export const laProclamacionFamilia: Lesson = {
                 'Esto no es una posición política — es una declaración sobre la naturaleza del plan de salvación. Los profetas no la negocian porque no es suya para negociar.',
               ],
             },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/proclamacion-familia/03-matrimonio-en-el-templo.webp',
+              alt: 'Una pareja recién casada permanece tomada de las manos frente a un templo iluminado.',
+              caption: 'El matrimonio ordenado por Dios mira más allá del contrato civil hacia una unión eterna.',
+            },
           ],
         },
       ],
@@ -270,6 +294,14 @@ export const laProclamacionFamilia: Lesson = {
             {
               type: 'paragraph',
               text: 'La Proclamación también reconoce la realidad: "Las circunstancias individuales pueden necesitar adaptación." Familias con un solo padre, o donde el padre no puede proveer, o donde la madre trabaja por necesidad — Dios no las condena. El ideal existe para guiar hacia él, no para juzgar a quienes las circunstancias de la mortalidad impiden alcanzarlo perfectamente.',
+            },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/proclamacion-familia/04-companeros-iguales.webp',
+              alt: 'Un padre ayuda a su hijo mientras la madre prepara alimentos en un hogar cálido.',
+              caption: 'Padre y madre actúan como compañeros iguales al compartir las responsabilidades sagradas del hogar.',
             },
           ],
         },
@@ -365,6 +397,14 @@ export const laProclamacionFamilia: Lesson = {
             {
               type: 'reflection',
               prompt: '¿Qué aspecto de la Proclamación sobre la Familia me habla más directamente hoy? ¿Qué cambio práctico puedo hacer en mi hogar esta semana para acercarme al ideal que el Señor describe? ¿Qué papel juega el templo en el plan que tengo para mi familia?',
+            },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/proclamacion-familia/05-fundamento-del-hogar.webp',
+              alt: 'Padres e hijos colocan juntos piedras sin inscripciones en el fundamento de un hogar luminoso.',
+              caption: 'La fe, la oración, el arrepentimiento, el perdón y el amor se convierten en el fundamento cotidiano del hogar.',
             },
           ],
         },
