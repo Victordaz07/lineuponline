@@ -71,13 +71,16 @@ function SelectionTrail({ cells, size }: { cells: Cell[]; size: number }) {
 function WordBurst({ word }: { word: string }) {
   return (
     <div className="pointer-events-none absolute inset-0 z-30 flex items-center justify-center overflow-hidden" aria-live="polite">
-      <div className="motion-safe:animate-[word-found-pop_0.85s_ease-out_forwards] rounded-full border border-sg-gold-bright/60 bg-navy-deep/90 px-5 py-2 font-display text-lg font-bold text-sg-gold-bright shadow-[0_0_32px_rgba(232,200,122,0.45)]">
-        ✦ {word} ✦
+      {/* z-10 propio: sin esto, las chispas (position:absolute) pintan por
+          encima del texto (sin position) apenas empiezan la animación, justo
+          en el centro — se veía como un punto suelto sobre/bajo la palabra. */}
+      <div className="relative z-10 motion-safe:animate-[word-found-pop_0.85s_ease-out_forwards] rounded-full border border-sg-gold-bright/60 bg-navy-deep/90 px-5 py-2 font-display text-lg font-bold text-sg-gold-bright shadow-[0_0_32px_rgba(232,200,122,0.45)]">
+        {word}
       </div>
       {Array.from({ length: 10 }, (_, i) => (
         <span
           key={i}
-          className="absolute left-1/2 top-1/2 h-1.5 w-1.5 rounded-full bg-sg-gold-bright motion-safe:animate-[word-spark_0.8s_ease-out_forwards]"
+          className="absolute left-1/2 top-1/2 z-0 h-1.5 w-1.5 rounded-full bg-sg-gold-bright motion-safe:animate-[word-spark_0.8s_ease-out_forwards]"
           style={{ '--spark-angle': `${i * 36}deg`, animationDelay: `${i * 18}ms` } as CSSProperties}
         />
       ))}
@@ -386,7 +389,7 @@ export function CaminoWordSearch({ stage, challenge }: CaminoWordSearchProps) {
 
       <style>{`
         @keyframes word-found-pop { 0% { transform: scale(.45); opacity: 0; } 32% { transform: scale(1.08); opacity: 1; } 75% { transform: scale(1); opacity: 1; } 100% { transform: translateY(-18px) scale(.92); opacity: 0; } }
-        @keyframes word-spark { 0% { transform: translate(-50%,-50%) rotate(var(--spark-angle)) translateX(8px) scale(1); opacity: 1; } 100% { transform: translate(-50%,-50%) rotate(var(--spark-angle)) translateX(92px) scale(0); opacity: 0; } }
+        @keyframes word-spark { 0% { transform: translate(-50%,-50%) rotate(var(--spark-angle)) translateX(38px) scale(1); opacity: 1; } 100% { transform: translate(-50%,-50%) rotate(var(--spark-angle)) translateX(92px) scale(0); opacity: 0; } }
         @keyframes pilgrim-cheer { 0% { transform: translateY(8px) scale(.92); } 55% { transform: translateY(-10px) scale(1.08) rotate(-2deg); } 100% { transform: none; } }
         @keyframes pilgrim-breathe { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
       `}</style>
