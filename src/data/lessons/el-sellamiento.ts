@@ -57,6 +57,14 @@ export const elSellamiento: Lesson = {
               type: 'paragraph',
               text: 'Esta revelación es radical: ningún lazo tiene validez eterna a menos que sea sellado por la autoridad correcta. Esto incluye el matrimonio, la adopción, los convenios entre padres e hijos. Sin el sello del sacerdocio, todas las relaciones humanas mueren con el cuerpo. Con él, se vuelven eternas.',
             },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/el-sellamiento/01-atado-tierra-y-cielo.webp',
+              alt: 'Las manos unidas de una pareja y dos anillos se reflejan frente a un templo iluminado.',
+              caption: 'El poder sellador da alcance celestial a los convenios realizados fielmente en la tierra.',
+            },
           ],
         },
         {
@@ -188,6 +196,14 @@ export const elSellamiento: Lesson = {
               type: 'paragraph',
               text: 'El hecho de que Elías no murió tiene implicaciones prácticas: al tener un cuerpo físico traducido, podía imponer manos sobre José y Oliver para conferir las llaves. Un espíritu sin cuerpo no puede imponer manos físicas. La preparación divina incluyó este detalle técnico siglos antes de que fuera necesario.',
             },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/el-sellamiento/02-llaves-en-kirtland.webp',
+              alt: 'Dos hombres con ropa del siglo diecinueve contemplan una luz intensa dentro del Templo de Kirtland.',
+              caption: 'En Kirtland fueron restauradas las llaves que permiten unir a las familias por la eternidad.',
+            },
           ],
         },
       ],
@@ -231,6 +247,14 @@ export const elSellamiento: Lesson = {
             {
               type: 'paragraph',
               text: 'Hay una excepción importante: los niños menores de 8 años pueden entrar sin recomendación para ser sellados a sus padres. Esta excepción refleja la doctrina de que los niños no son responsables moralmente hasta la edad de responsabilidad — están cubiertos por la Expiación automáticamente, sin necesidad de bautismo ni recomendación.',
+            },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/el-sellamiento/03-cuarto-del-sellamiento.webp',
+              alt: 'Un cuarto de sellamiento vacío muestra el altar central y espejos enfrentados.',
+              caption: 'El entorno del sellamiento dirige la mirada hacia convenios que trascienden el tiempo.',
             },
           ],
         },
@@ -384,6 +408,14 @@ export const elSellamiento: Lesson = {
               type: 'reflection',
               prompt: '¿Conoces el nombre de tus bisabuelos? ¿Están registrados en FamilySearch? ¿Han recibido sus ordenanzas del templo vicariamente? La cadena pasa literalmente a través de tu árbol genealógico.',
             },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/el-sellamiento/04-cadena-generacional.webp',
+              alt: 'Varias generaciones de una familia avanzan tomadas de las manos hacia un templo luminoso.',
+              caption: 'El sellamiento forma una cadena que enlaza a hijos y padres a través de las generaciones.',
+            },
           ],
         },
       ],
@@ -533,6 +565,14 @@ export const elSellamiento: Lesson = {
             {
               type: 'paragraph',
               text: 'La visión de Joseph F. Smith (DyC 138) registra que Cristo mismo, entre su crucifixión y resurrección, visitó el mundo de los espíritus para organizar el trabajo misionero allí. Los fieles que habían muerto sin el evangelio completo son enseñados por misioneros espirituales — y pueden aceptar las ordenanzas que sus descendientes realizan por ellos en los templos.',
+            },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/el-sellamiento/05-obra-vicaria.webp',
+              alt: 'Una mujer organiza fotografías familiares antiguas mientras un templo brilla tras la ventana.',
+              caption: 'La historia familiar prepara nombres y corazones para la obra vicaria del templo.',
             },
           ],
         },

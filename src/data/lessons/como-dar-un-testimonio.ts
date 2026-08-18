@@ -72,6 +72,14 @@ export const comoDarUnTestimonio: Lesson = {
                 'No hay que tener un testimonio "perfecto" para compartirlo — compartirlo lo fortalece',
               ],
             },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/como-dar-un-testimonio/01-testimonio-sincero.webp',
+              alt: 'Una mujer expresa con serenidad su testimonio ante una congregación atenta.',
+              caption: 'Un testimonio es una declaración sencilla y sincera de la verdad recibida por el Espíritu.',
+            },
           ],
         },
       ],
@@ -116,6 +124,14 @@ export const comoDarUnTestimonio: Lesson = {
               type: 'paragraph',
               text: 'Moroni 10:4-5 no es solo la promesa del Libro de Mormón — es la descripción del proceso por el que cada testimonio nace: preguntar con sinceridad, recibir por el Espíritu, y luego declarar lo que se sabe. Compartir tu testimonio completa ese ciclo.',
             },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/como-dar-un-testimonio/02-tres-partes-del-testimonio.webp',
+              alt: 'Una mujer comparte una convicción personal mientras la luz alcanza a quienes la escuchan.',
+              caption: 'La experiencia, la verdad doctrinal y el testimonio directo se unen para edificar a otros.',
+            },
           ],
         },
         {
@@ -136,6 +152,14 @@ export const comoDarUnTestimonio: Lesson = {
                 'Practica decirlo en voz alta — al espejo, en tu auto — para que el día de ayuno fluya',
                 'El día de ayuno: levántate apenas el micrófono esté disponible — no esperes "el momento perfecto"',
               ],
+            },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/como-dar-un-testimonio/03-preparar-el-testimonio.webp',
+              alt: 'Una joven ora junto a un cuaderno y unas Escrituras abiertas durante su preparación personal.',
+              caption: 'Prepararse durante la semana ayuda a expresar con claridad lo que el Espíritu ya ha confirmado.',
             },
           ],
         },
@@ -187,6 +211,14 @@ export const comoDarUnTestimonio: Lesson = {
                 { id: 'np1', question: '¿Cuándo fue la última vez que compartiste tu testimonio en la reunión de ayuno? ¿Qué te ha impedido hacerlo si ha pasado mucho tiempo?' },
                 { id: 'np2', question: 'Escribe el testimonio completo que compartirías este domingo — en 5 oraciones o menos. Guárdalo en tu teléfono para tenerlo listo.' },
               ],
+            },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/como-dar-un-testimonio/04-vencer-el-miedo.webp',
+              alt: 'Un joven camina desde su asiento hacia un micrófono con el apoyo silencioso de la congregación.',
+              caption: 'El valor para compartir el testimonio crece cuando damos el primer paso y nos levantamos.',
             },
           ],
         },

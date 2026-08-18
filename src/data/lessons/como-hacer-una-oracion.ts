@@ -72,6 +72,20 @@ export const comoHacerUnaOracion: Lesson = {
                 '"Amén" lo dicen todos los presentes al final — no solo quien oró',
               ],
             },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/como-hacer-una-oracion/01-cuatro-partes-oracion.webp',
+              alt: 'Composición simbólica de una persona que se dirige a Dios, agradece, pide y concluye su oración.',
+              caption: 'Un patrón sencillo ayuda a ordenar la oración sin convertirla en una fórmula mecánica.',
+              markers: [
+                { x: 23, y: 18, label: 'Dirigirse al Padre', align: 'center' },
+                { x: 77, y: 18, label: 'Dar gracias', align: 'center' },
+                { x: 23, y: 77, label: 'Pedir bendiciones', align: 'center' },
+                { x: 77, y: 77, label: 'Cerrar en el nombre de Jesucristo', align: 'center' },
+              ],
+            },
           ],
         },
       ],
@@ -129,6 +143,14 @@ export const comoHacerUnaOracion: Lesson = {
                 'Recuerda: cierra siempre con "En el nombre de Jesucristo, amén"',
               ],
             },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/como-hacer-una-oracion/02-oracion-personal-y-grupal.webp',
+              alt: 'Una persona ora a solas y una familia ora reunida en dos espacios de una misma habitación.',
+              caption: 'La oración personal expresa el corazón individual; la oración grupal incluye y representa a todos.',
+            },
           ],
         },
       ],
@@ -185,6 +207,14 @@ export const comoHacerUnaOracion: Lesson = {
                 { id: 'np1', question: '¿Cuál de los errores mencionados reconoces en tus propias oraciones? Escribe qué cambio concreto harás esta semana.' },
                 { id: 'np2', question: 'La próxima vez que ores en voz alta por un grupo (familia, clase, reunión), ¿qué cosa específica de gratitud y qué petición concreta llevarás preparada?' },
               ],
+            },
+
+            {
+              type: 'media_slot',
+              kind: 'image',
+              src: '/assets/modules/vida-familiar-personal/lessons/como-hacer-una-oracion/03-oracion-sincera.webp',
+              alt: 'Una mujer ora concentrada ante un teléfono apagado y unas Escrituras cerradas.',
+              caption: 'La reverencia, la atención y la sinceridad corrigen los hábitos que vuelven mecánica la oración.',
             },
           ],
         },
