@@ -1,4 +1,7 @@
+import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { useIsMobileViewport } from '@/hooks/useIsMobileViewport'
+import { useImmersiveStore } from '@/stores/immersiveStore'
 import { GameLayout } from '../components/GameLayout'
 import { getStage } from '../data/caminoStages'
 import { getVolume } from '../data/scriptureVolumes'
@@ -11,6 +14,16 @@ export default function CaminoChallenge() {
   const { stageId } = useParams<{ stageId: string }>()
   const stage = stageId ? getStage(stageId) : undefined
   const volume = stage ? getVolume(stage.volumeId) : undefined
+
+  const isMobile = useIsMobileViewport()
+  const setImmersive = useImmersiveStore((s) => s.setImmersive)
+  useEffect(() => {
+    // La cabecera y la barra inferior del sitio no aportan nada mientras se
+    // juega — le quitan espacio vertical al tablero. Se ocultan solo en
+    // móvil, igual que el resto del modo inmersivo de la app.
+    if (isMobile) setImmersive(true)
+    return () => setImmersive(false)
+  }, [isMobile, setImmersive])
 
   if (!stage || !volume || stage.status !== 'ready' || !stage.challenge) {
     return (

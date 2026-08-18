@@ -307,7 +307,7 @@ export function CaminoWordSearch({ stage, challenge }: CaminoWordSearchProps) {
             </div>
           </div>
 
-          <div className="mb-3 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none]">
+          <div className="mb-3 flex flex-wrap gap-2">
             {puzzle.placed.map((placed) => (
               <span
                 key={placed.word}

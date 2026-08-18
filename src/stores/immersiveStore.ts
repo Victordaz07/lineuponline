@@ -9,6 +9,10 @@ type ImmersiveState = {
   /** El navegador ya navegó "atrás" (gesto/botón físico) — solo limpiar el estado. */
   exitFromPopState: () => void
   toggle: () => void
+  /** Fija el modo inmersivo sin tocar el historial — para pantallas (como un
+   *  minijuego) que deben ocupar toda la pantalla mientras están montadas,
+   *  en vez de alternarse con el gesto de doble-tap. */
+  setImmersive: (value: boolean) => void
 }
 
 /**
@@ -41,5 +45,9 @@ export const useImmersiveStore = create<ImmersiveState>((set, get) => ({
   toggle: () => {
     if (get().isImmersive) get().exit()
     else get().enter()
+  },
+  setImmersive: (value) => {
+    if (get().isImmersive === value) return
+    set({ isImmersive: value })
   },
 }))
