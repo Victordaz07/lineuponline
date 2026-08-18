@@ -28,7 +28,9 @@ export function GameLayout({
   backLabel = 'Juegos',
 }: GameLayoutProps) {
   return (
-    <div className="mx-auto flex max-w-2xl flex-col gap-5 px-4 py-6">
+    // Sin padding horizontal propio: el `main` de Layout.tsx ya aplica
+    // px-4/sm:px-6, y duplicarlo aquí le quitaba ancho de sobra al tablero.
+    <div className="mx-auto flex max-w-2xl flex-col gap-2 py-2">
       <div className="flex items-center justify-between gap-3">
         <Link
           to={backTo}
@@ -48,7 +50,7 @@ export function GameLayout({
       </div>
 
       <div className="text-center">
-        <h1 className="font-display text-2xl font-bold text-parchment sm:text-3xl">
+        <h1 className="font-display text-lg font-bold text-parchment sm:text-2xl">
           <span aria-hidden="true">{emoji}</span> {title}
         </h1>
         {status && <p className="mt-1 font-ui text-sm text-parchment/65">{status}</p>}
