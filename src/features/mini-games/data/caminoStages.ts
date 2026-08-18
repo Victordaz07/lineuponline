@@ -20,7 +20,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -87,7 +87,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [50, 100],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -120,7 +120,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [50, 100],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -181,7 +181,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [50, 100],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -214,7 +214,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -283,7 +283,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [50, 100],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -330,7 +330,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [50, 100],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -365,7 +365,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [50, 100],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -400,7 +400,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -447,7 +447,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -498,7 +498,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -548,7 +548,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -595,7 +595,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -647,7 +647,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -680,7 +680,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -765,7 +765,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -827,7 +827,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [50, 100],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -929,7 +929,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -990,7 +990,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -1023,7 +1023,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [50, 100],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -1074,7 +1074,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [50, 100],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -1109,7 +1109,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -1170,7 +1170,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -1203,7 +1203,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [50, 100],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -1268,7 +1268,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -1301,7 +1301,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -1362,7 +1362,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -1395,7 +1395,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [50, 100],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -1485,7 +1485,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -1518,7 +1518,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [50, 100],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -1579,7 +1579,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -1612,7 +1612,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -1677,7 +1677,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [50, 100],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
@@ -1710,7 +1710,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     starTimes: [45, 90],
     challenge: {
       kind: 'word_search',
-      size: 24,
+      size: 16,
       allowDiagonal: true,
       allowReverse: true,
       words: [
