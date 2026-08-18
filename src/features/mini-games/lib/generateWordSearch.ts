@@ -4,9 +4,14 @@
  * tablero — clave para el reto diario.
  */
 
-import type { WordEntry } from '../data/wordBank'
-
 export type Cell = [number, number]
+
+/** Forma mínima que necesita una palabra candidata (WordEntry y StageWordEntry son compatibles). */
+export type WordCandidate = {
+  word: string
+  hint: string
+  emoji: string
+}
 
 export type PlacedWord = {
   word: string
@@ -38,8 +43,8 @@ export function cellKey([r, c]: Cell): string {
 
 export type GenerateOptions = {
   size: number
-  /** Palabras candidatas (ya filtradas por categoría). */
-  words: WordEntry[]
+  /** Palabras candidatas (ya filtradas por categoría o curadas a mano). */
+  words: WordCandidate[]
   /** Cuántas colocar como máximo. */
   count: number
   /** Permitir diagonales. */
