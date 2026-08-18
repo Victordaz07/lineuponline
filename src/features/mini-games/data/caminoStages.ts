@@ -1710,6 +1710,20 @@ export const CAMINO_STAGES: CaminoStage[] = [
       ],
     },
   },
+  {
+    id: 'pgp-15',
+    volumeId: 'perla-gran-precio',
+    order: 15,
+    position: { x: 55.7, y: 16.4 },
+    title: 'Las señales de los últimos días',
+    status: 'ready',
+    starTimes: [40, 80],
+    challenge: {
+      kind: 'hangman',
+      word: 'VENIDA',
+      hint: 'Lo que anuncian las señales de los postreros días, según la traducción de José Smith de Mateo 24',
+    },
+  },
 ]
 
 export function stagesForVolume(volumeId: string): CaminoStage[] {
