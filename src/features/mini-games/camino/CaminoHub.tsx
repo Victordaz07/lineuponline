@@ -9,6 +9,58 @@ import { PilgrimPicker } from './PilgrimPicker'
 
 const STAR_COUNT = 26
 
+const CONVERGE_LINES = [
+  { x2: 200, y2: 175 },
+  { x2: 118, y2: 165 },
+  { x2: 282, y2: 165 },
+  { x2: 40, y2: 138 },
+  { x2: 360, y2: 138 },
+]
+
+/** Los 5 caminos (uno por volumen de escritura) convergiendo en un solo
+ *  punto — el mismo concepto visual que atraviesa toda esta sección. */
+function ConvergingPaths() {
+  return (
+    <svg
+      className="pointer-events-none absolute inset-0 h-full w-full motion-reduce:[&_.camino-hub-vertex]:animate-none"
+      viewBox="0 0 400 200"
+      preserveAspectRatio="xMidYMin slice"
+      aria-hidden="true"
+    >
+      <defs>
+        <radialGradient id="camino-hub-converge-glow" cx="50%" cy="72%" r="55%">
+          <stop offset="0%" stopColor="rgb(var(--sg-gold))" stopOpacity="0.32" />
+          <stop offset="100%" stopColor="rgb(var(--sg-gold))" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+      <rect x="0" y="0" width="400" height="200" fill="url(#camino-hub-converge-glow)" />
+      {CONVERGE_LINES.map((line, i) => (
+        <line
+          key={i}
+          x1="200"
+          y1="46"
+          x2={line.x2}
+          y2={line.y2}
+          stroke="rgb(var(--sg-gold-bright))"
+          strokeWidth="0.6"
+          strokeOpacity="0.4"
+        />
+      ))}
+      {[{ x: 200, y: 46, r: 2.4 }, ...CONVERGE_LINES.map((l) => ({ x: l.x2, y: l.y2, r: 1.6 }))].map((v, i) => (
+        <circle
+          key={i}
+          className="camino-hub-vertex"
+          cx={v.x}
+          cy={v.y}
+          r={v.r}
+          fill="rgb(var(--sg-gold-bright))"
+          style={{ animation: `camino-hub-twinkle ${2400 + (i % 4) * 500}ms ease-in-out ${i * 220}ms infinite` }}
+        />
+      ))}
+    </svg>
+  )
+}
+
 function Starfield() {
   // Inicializador perezoso: la posición/temporización aleatoria de cada
   // estrella se calcula una sola vez al montar, no en cada render.
@@ -58,17 +110,16 @@ export default function CaminoHub() {
     <div className="relative isolate mx-auto flex max-w-2xl flex-col gap-5 py-2">
       <div
         className="pointer-events-none absolute -inset-x-4 -top-2 -z-10 h-72 overflow-hidden rounded-b-[40%] sm:-inset-x-6"
-        style={{ background: 'radial-gradient(circle at 50% 0%, rgb(var(--sg-gold) / 0.18), transparent 68%)' }}
+        style={{ background: 'rgb(var(--navy-deep))' }}
       >
+        {/* Los 5 caminos convergiendo en un punto — el motivo central de esta
+            sección, con estrellas titilantes en cada vértice y un resplandor
+            cálido donde confluyen. */}
+        <ConvergingPaths />
         <Starfield />
         <span
           aria-hidden="true"
-          className="absolute -left-10 top-6 h-40 w-40 rounded-full opacity-40 blur-3xl motion-safe:animate-[camino-hub-drift-a_9s_ease-in-out_infinite] motion-reduce:hidden"
-          style={{ background: 'rgb(var(--sg-gold) / 0.5)' }}
-        />
-        <span
-          aria-hidden="true"
-          className="absolute -right-6 top-16 h-32 w-32 rounded-full opacity-30 blur-3xl motion-safe:animate-[camino-hub-drift-b_11s_ease-in-out_infinite] motion-reduce:hidden"
+          className="absolute -right-8 top-10 h-28 w-28 rounded-full opacity-25 blur-3xl motion-safe:animate-[camino-hub-drift-b_11s_ease-in-out_infinite] motion-reduce:hidden"
           style={{ background: 'rgb(var(--jade) / 0.6)' }}
         />
       </div>
@@ -193,10 +244,6 @@ export default function CaminoHub() {
         @keyframes camino-hub-twinkle {
           0%, 100% { opacity: 0.15; }
           50% { opacity: 0.9; }
-        }
-        @keyframes camino-hub-drift-a {
-          0%, 100% { transform: translate(0, 0); }
-          50% { transform: translate(18px, 12px); }
         }
         @keyframes camino-hub-drift-b {
           0%, 100% { transform: translate(0, 0); }
