@@ -24,7 +24,7 @@ export default function CaminoChallenge() {
 
   return (
     <GameLayout title={stage.title} emoji={volume.emoji} backTo={`/games/sopa-de-letras/camino/${volume.id}`} backLabel={volume.title}>
-      {bannerSrc && (
+      {bannerSrc && stage.challenge.kind !== 'word_search' && (
         <div className="mx-auto -mt-2 mb-1 overflow-hidden rounded-2xl border border-sg-gold/20 shadow-sm" style={{ maxWidth: 420 }}>
           <img src={bannerSrc} alt="" className="block h-auto w-full" loading="lazy" />
         </div>
