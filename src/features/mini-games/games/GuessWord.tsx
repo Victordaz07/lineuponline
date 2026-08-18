@@ -1,110 +1,79 @@
-import { useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { GameLayout } from '../components/GameLayout'
 import { pickRandomWord, type WordEntry } from '../data/wordBank'
+import './guess-word.css'
 
+const KEYS = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
 const MAX_LIVES = 6
-const KEYBOARD = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+const CATEGORIES = { virtudes: 'Virtudes', personajes: 'Personajes', lugares: 'Lugares', ordenanzas: 'Ordenanzas', escrituras: 'Escrituras' }
 
-function newRound(): WordEntry {
-  return pickRandomWord()
-}
-
-/** Adivina la palabra: descubre la palabra letra por letra antes de perder tus vidas. */
 export default function GuessWord() {
-  const [entry, setEntry] = useState<WordEntry>(() => newRound())
+  const [entry, setEntry] = useState<WordEntry>(() => pickRandomWord())
   const [guessed, setGuessed] = useState<Set<string>>(new Set())
-
+  const [score, setScore] = useState(0)
+  const [streak, setStreak] = useState(0)
+  const [round, setRound] = useState(1)
+  const [hintUsed, setHintUsed] = useState(false)
+  const [impact, setImpact] = useState('')
   const letters = useMemo(() => [...entry.word], [entry])
-  const wrongGuesses = useMemo(
-    () => [...guessed].filter((l) => !letters.includes(l)),
-    [guessed, letters],
-  )
-  const lives = MAX_LIVES - wrongGuesses.length
-  const won = letters.every((l) => guessed.has(l))
-  const lost = lives <= 0
-  const over = won || lost
+  const wrong = [...guessed].filter((letter) => !letters.includes(letter)).length
+  const lives = MAX_LIVES - wrong
+  const won = letters.every((letter) => guessed.has(letter))
+  const over = won || lives <= 0
+  const unique = [...new Set(letters)]
+  const found = unique.filter((letter) => guessed.has(letter)).length
+  const progress = won ? 100 : Math.round(found / unique.length * 100)
 
-  function restart() {
-    setEntry(newRound())
-    setGuessed(new Set())
+  const guess = useCallback((letter: string) => {
+    if (over || guessed.has(letter)) return
+    const correct = letters.includes(letter)
+    setGuessed((current) => new Set(current).add(letter))
+    setScore((value) => Math.max(0, value + (correct ? 120 + streak * 20 : -35)))
+    setStreak((value) => correct ? value + 1 : 0)
+    setImpact(correct ? 'correct' : 'wrong')
+    window.setTimeout(() => setImpact(''), 380)
+  }, [guessed, letters, over, streak])
+
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => { const key = event.key.toUpperCase(); if (KEYS.includes(key)) guess(key) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [guess])
+
+  function next(resetScore = false) {
+    setEntry(pickRandomWord()); setGuessed(new Set()); setHintUsed(false); setImpact('')
+    setRound((value) => resetScore ? 1 : value + 1)
+    if (resetScore) { setScore(0); setStreak(0) }
   }
 
-  function guess(letter: string) {
-    if (over || guessed.has(letter)) return
-    setGuessed((g) => new Set(g).add(letter))
+  function reveal() {
+    const hidden = unique.filter((letter) => !guessed.has(letter))
+    if (hintUsed || !hidden.length) return
+    setHintUsed(true); setScore((value) => Math.max(0, value - 100))
+    setGuessed((current) => new Set(current).add(hidden[Math.floor(Math.random() * hidden.length)]))
   }
 
   return (
-    <GameLayout
-      title="Adivina la palabra"
-      emoji="🔤"
-      status={`Vidas: ${'❤️'.repeat(Math.max(lives, 0))}${'🤍'.repeat(MAX_LIVES - Math.max(lives, 0))}`}
-      onRestart={restart}
-    >
-      <div className="rounded-2xl border border-sg-gold/15 bg-navy-mid p-6 text-center">
-        <p className="mb-4 font-ui text-sm text-parchment/65">💡 Pista: {entry.hint}</p>
-        <div className="flex flex-wrap justify-center gap-2 font-display text-2xl font-bold tracking-widest text-parchment sm:text-3xl">
-          {letters.map((l, i) => {
-            const revealed = guessed.has(l) || over
-            return (
-              <span
-                key={i}
-                className={`flex h-10 w-8 items-center justify-center border-b-2 sm:h-12 sm:w-10 ${
-                  revealed ? 'border-sg-gold text-sg-gold-light' : 'border-parchment/30'
-                }`}
-              >
-                {revealed ? l : ''}
-              </span>
-            )
-          })}
-        </div>
-      </div>
+    <GameLayout title="Adivina la palabra" emoji="✦" status={<span className="gw-kicker">REVELA EL CAMINO · RONDA {round}</span>} onRestart={() => next(true)} wide>
+      <main className={`gw-shell ${impact}`}>
+        <section className="gw-scene" aria-label={`Escena revelada al ${progress}%`}>
+          <div className="gw-picture" /><div className="gw-hidden" style={{ clipPath: `inset(0 0 ${progress}% 0)` }} />
+          <div className="gw-night" style={{ opacity: Math.max(.05, .7 - progress / 150) }} /><div className="gw-light" style={{ opacity: progress / 100 }} />
+          {Array.from({ length: Math.ceil(progress / 17) }).map((_, i) => <i key={i} className={`gw-spark s${i + 1}`} />)}
+          <header><span>{CATEGORIES[entry.category]}</span><b>{score.toLocaleString('es')} <small>pts</small></b></header>
+          <footer><span>CAMINO REVELADO</span><b>{progress}%</b><div><i style={{ width: `${progress}%` }} /></div></footer>
+        </section>
 
-      {over && (
-        <div
-          className={`flex flex-col items-center gap-2 rounded-2xl border p-5 text-center ${
-            won ? 'border-jade/40 bg-jade/10' : 'border-terracotta/40 bg-terracotta/10'
-          }`}
-        >
-          <p className="text-3xl" aria-hidden="true">
-            {won ? '🎉' : '💛'}
-          </p>
-          <p className="font-display text-lg font-bold text-parchment">
-            {won ? '¡Lo lograste!' : `La palabra era: ${entry.word}`}
-          </p>
-          <button
-            type="button"
-            onClick={restart}
-            className="rounded-lg border border-sg-gold bg-sg-gold px-4 py-2 font-ui text-sm font-semibold text-ink shadow-sm transition hover:brightness-95"
-          >
-            Jugar de nuevo
-          </button>
-        </div>
-      )}
-
-      <div className="mx-auto grid max-w-md grid-cols-7 gap-1.5 sm:grid-cols-9">
-        {KEYBOARD.map((letter) => {
-          const used = guessed.has(letter)
-          const correct = used && letters.includes(letter)
-          return (
-            <button
-              key={letter}
-              type="button"
-              disabled={used || over}
-              onClick={() => guess(letter)}
-              className={`aspect-square rounded-lg font-ui text-sm font-bold transition ${
-                used
-                  ? correct
-                    ? 'bg-jade/30 text-jade'
-                    : 'bg-terracotta/20 text-terracotta/70 line-through'
-                  : 'border border-sg-gold/20 bg-navy-mid text-parchment/85 hover:border-sg-gold/50 hover:bg-navy-light'
-              } disabled:cursor-not-allowed`}
-            >
-              {letter}
-            </button>
-          )
-        })}
-      </div>
+        <section className="gw-panel">
+          <div className="gw-stats"><div><small>VIDAS</small><p aria-label={`${lives} vidas`}>{Array.from({ length: MAX_LIVES }).map((_, i) => <i key={i} className={i < lives ? 'on' : ''}>◆</i>)}</p></div><div><small>RACHA</small><strong className={streak > 1 ? 'hot' : ''}>✦ {streak}</strong></div></div>
+          <div className="gw-clue"><b>✦</b><div><small>PISTA</small><p>{entry.hint}</p></div></div>
+          <div className="gw-word">{letters.map((letter, i) => <span key={i} className={guessed.has(letter) || over ? 'shown' : ''}>{guessed.has(letter) || over ? letter : ''}</span>)}</div>
+          {over ? <div className={`gw-result ${won ? 'win' : ''}`} role="status"><b>{won ? '✦' : '◇'}</b><div><small>{won ? 'CAMINO COMPLETADO' : 'EL CAMINO SE OCULTA'}</small><strong>{won ? '¡La luz te guió!' : `Era ${entry.word}`}</strong></div><button onClick={() => next()}>{won ? 'Siguiente viaje' : 'Intentar otra'} →</button></div> : <>
+            <div className="gw-actions"><p>Elige una letra <span>o usa tu teclado</span></p><button onClick={reveal} disabled={hintUsed}>◎ {hintUsed ? 'Pista usada' : 'Revelar letra'} <small>−100</small></button></div>
+            <div className="gw-keys">{KEYS.map((letter) => { const used = guessed.has(letter); return <button key={letter} disabled={used} onClick={() => guess(letter)} className={used ? (letters.includes(letter) ? 'yes' : 'no') : ''}>{letter}</button> })}</div>
+          </>}
+        </section>
+      </main>
     </GameLayout>
   )
 }

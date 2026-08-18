@@ -12,6 +12,8 @@ type GameLayoutProps = {
   backTo?: string
   /** Texto del botón de volver. Por defecto, "Juegos". */
   backLabel?: string
+  /** Permite que juegos con escenario usen un lienzo más amplio. */
+  wide?: boolean
 }
 
 /**
@@ -26,9 +28,10 @@ export function GameLayout({
   children,
   backTo = '/games',
   backLabel = 'Juegos',
+  wide = false,
 }: GameLayoutProps) {
   return (
-    <div className="mx-auto flex max-w-2xl flex-col gap-5 px-4 py-6">
+    <div className={`mx-auto flex flex-col gap-5 px-4 py-6 ${wide ? 'max-w-5xl' : 'max-w-2xl'}`}>
       <div className="flex items-center justify-between gap-3">
         <Link
           to={backTo}
