@@ -48,16 +48,21 @@ function SelectionTrail({ cells, size }: { cells: Cell[]; size: number }) {
   const first = cells[0]
   const last = cells[cells.length - 1]
   return (
-    <svg className="pointer-events-none absolute inset-0 h-full w-full overflow-visible" viewBox={`0 0 ${size} ${size}`} aria-hidden="true">
+    // z-index negativo: el SVG es un elemento posicionado (absolute), así que
+    // sin esto pintaría encima de las celdas del tablero sin importar su
+    // orden en el DOM (las celdas son contenido no posicionado, y CSS pinta
+    // todo elemento posicionado por encima de eso salvo que se le baje el
+    // z-index explícitamente) — eso tapaba las letras mientras se arrastraba.
+    <svg className="pointer-events-none absolute inset-0 -z-10 h-full w-full overflow-visible" viewBox={`0 0 ${size} ${size}`} aria-hidden="true">
       <line
         x1={first[1] + 0.5}
         y1={first[0] + 0.5}
         x2={last[1] + 0.5}
         y2={last[0] + 0.5}
         stroke="#E8C87A"
-        strokeWidth="0.72"
+        strokeWidth="0.35"
         strokeLinecap="round"
-        className="drop-shadow-[0_0_5px_rgba(232,200,122,0.9)]"
+        className="drop-shadow-[0_0_4px_rgba(232,200,122,0.85)]"
       />
     </svg>
   )
@@ -270,24 +275,15 @@ export function CaminoWordSearch({ stage, challenge }: CaminoWordSearchProps) {
         className="relative isolate overflow-hidden rounded-3xl border border-sg-gold/30 bg-navy-mid shadow-[0_18px_50px_rgba(0,0,0,0.3)]"
         style={{ '--volume-accent': volume?.accentColor ?? '#B8923A' } as CSSProperties}
       >
-        <div className="relative min-h-36 overflow-hidden px-4 py-4 sm:min-h-44 sm:px-6">
-          {stage.sceneSrc ? <img src={stage.sceneSrc} alt="" className="absolute inset-0 h-full w-full object-cover" /> : null}
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/80 to-navy-deep/25" />
-          <div className="relative z-10 flex min-h-28 items-end justify-between gap-4 sm:min-h-36">
-            <div className="max-w-sm">
-              <p className="mb-1 font-ui text-[10px] font-bold uppercase tracking-[0.2em] text-sg-gold-bright">{profile.label} · Estación {stage.order}</p>
-              <h2 className="font-display text-xl font-bold text-parchment sm:text-2xl">Tu misión</h2>
-              <p className="mt-1 font-ui text-sm text-parchment/75">Descubre las palabras clave de esta historia y completa la escena.</p>
-            </div>
+        <div className="bg-navy-deep/90 p-3 sm:p-5">
+          <div className="mb-1 flex items-center justify-between font-ui text-[10px] font-bold uppercase tracking-[0.2em] text-sg-gold-bright">
+            <span>{profile.label} · Estación {stage.order}</span>
             <img
               src={pilgrimSpriteSrc(selectedPilgrimId, lastFound ? 'celebrando' : 'reposo')}
               alt={`${pilgrim.name}, tu peregrino`}
-              className={`w-20 shrink-0 drop-shadow-[0_8px_12px_rgba(0,0,0,0.55)] sm:w-24 ${lastFound ? 'motion-safe:animate-[pilgrim-cheer_0.65s_ease-out]' : 'motion-safe:animate-[pilgrim-breathe_2.8s_ease-in-out_infinite]'}`}
+              className={`h-8 w-8 shrink-0 rounded-full object-cover drop-shadow-[0_3px_6px_rgba(0,0,0,0.5)] ${lastFound ? 'motion-safe:animate-[pilgrim-cheer_0.65s_ease-out]' : ''}`}
             />
           </div>
-        </div>
-
-        <div className="border-t border-white/10 bg-navy-deep/90 p-3 sm:p-5">
           <div className="mb-3 grid grid-cols-[1fr_auto_auto] items-center gap-2">
             <div>
               <div className="mb-1 flex items-center justify-between font-ui text-[11px] font-semibold text-parchment/65">
@@ -307,26 +303,12 @@ export function CaminoWordSearch({ stage, challenge }: CaminoWordSearchProps) {
             </div>
           </div>
 
-          <div className="mb-3 flex flex-wrap gap-2">
-            {puzzle.placed.map((placed) => (
-              <span
-                key={placed.word}
-                className={`shrink-0 rounded-full border px-2.5 py-1 font-ui text-[11px] font-semibold transition-all duration-300 ${
-                  found.has(placed.word)
-                    ? 'scale-95 border-jade/40 bg-jade/15 text-jade line-through opacity-65'
-                    : hintedWord === placed.word
-                      ? 'border-sg-gold-bright/70 bg-sg-gold/15 text-sg-gold-bright motion-safe:animate-pulse'
-                      : 'border-white/10 bg-white/5 text-parchment/75'
-                }`}
-              >
-                {placed.emoji} {placed.word}
-              </span>
-            ))}
-          </div>
-
           <div className="relative mx-auto aspect-square w-full max-w-[520px] overflow-hidden rounded-2xl border border-sg-gold/20 bg-[radial-gradient(circle_at_50%_35%,rgba(232,200,122,0.08),transparent_65%)] p-2 shadow-inner sm:p-3">
             {lastFound ? <WordBurst word={lastFound} /> : null}
-            <div className="relative grid h-full w-full touch-none select-none gap-[2px]" style={{ gridTemplateColumns: `repeat(${puzzle.size}, minmax(0, 1fr))` }}>
+            <div className="relative isolate grid h-full w-full touch-none select-none gap-[2px]" style={{ gridTemplateColumns: `repeat(${puzzle.size}, minmax(0, 1fr))` }}>
+              {/* Va antes que las celdas: es solo un hilo conector entre ellas,
+                  no debe pintarse encima ni tapar las letras que se están marcando. */}
+              <SelectionTrail cells={current} size={puzzle.size} />
               {puzzle.grid.map((row, rowIndex) =>
                 row.map((letter, columnIndex) => {
                   const key = `${rowIndex},${columnIndex}`
@@ -358,8 +340,25 @@ export function CaminoWordSearch({ stage, challenge }: CaminoWordSearchProps) {
                   )
                 }),
               )}
-              <SelectionTrail cells={current} size={puzzle.size} />
             </div>
+          </div>
+
+          <div className="mt-3 grid grid-cols-2 gap-x-2 gap-y-1.5 sm:grid-cols-3">
+            {puzzle.placed.map((placed) => (
+              <div
+                key={placed.word}
+                className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 font-ui text-[11px] font-semibold transition-all duration-300 ${
+                  found.has(placed.word)
+                    ? 'border-jade/40 bg-jade/15 text-jade line-through opacity-60'
+                    : hintedWord === placed.word
+                      ? 'border-sg-gold-bright/70 bg-sg-gold/15 text-sg-gold-bright motion-safe:animate-pulse'
+                      : 'border-white/10 bg-white/5 text-parchment/75'
+                }`}
+              >
+                <span aria-hidden="true">{placed.emoji}</span>
+                <span className="truncate">{placed.word}</span>
+              </div>
+            ))}
           </div>
 
           {!won ? (
