@@ -7,6 +7,40 @@ import { starsToPoints } from '../lib/points'
 import { useCaminoStore } from '../store/caminoStore'
 import { PilgrimPicker } from './PilgrimPicker'
 
+const STAR_COUNT = 26
+
+function Starfield() {
+  // Inicializador perezoso: la posición/temporización aleatoria de cada
+  // estrella se calcula una sola vez al montar, no en cada render.
+  const [stars] = useState(() =>
+    Array.from({ length: STAR_COUNT }, (_, i) => ({
+      id: i,
+      left: Math.round(Math.random() * 100),
+      top: Math.round(Math.random() * 100),
+      size: 1 + Math.round(Math.random() * 2),
+      delay: Math.round(Math.random() * 4000),
+      duration: 2600 + Math.round(Math.random() * 2400),
+    })),
+  )
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden motion-reduce:hidden" aria-hidden="true">
+      {stars.map((s) => (
+        <span
+          key={s.id}
+          className="absolute rounded-full bg-sg-gold-bright"
+          style={{
+            left: `${s.left}%`,
+            top: `${s.top}%`,
+            width: s.size,
+            height: s.size,
+            animation: `camino-hub-twinkle ${s.duration}ms ease-in-out ${s.delay}ms infinite`,
+          }}
+        />
+      ))}
+    </div>
+  )
+}
+
 /** Vestíbulo del Camino: elige tu peregrino, revisa tus logros y entra a un volumen. */
 export default function CaminoHub() {
   const stageProgress = useCaminoStore((s) => s.stageProgress)
@@ -21,7 +55,24 @@ export default function CaminoHub() {
   )
 
   return (
-    <div className="mx-auto flex max-w-2xl flex-col gap-5 px-4 py-6">
+    <div className="relative isolate mx-auto flex max-w-2xl flex-col gap-5 py-2">
+      <div
+        className="pointer-events-none absolute -inset-x-4 -top-2 -z-10 h-72 overflow-hidden rounded-b-[40%] sm:-inset-x-6"
+        style={{ background: 'radial-gradient(circle at 50% 0%, rgb(var(--sg-gold) / 0.18), transparent 68%)' }}
+      >
+        <Starfield />
+        <span
+          aria-hidden="true"
+          className="absolute -left-10 top-6 h-40 w-40 rounded-full opacity-40 blur-3xl motion-safe:animate-[camino-hub-drift-a_9s_ease-in-out_infinite] motion-reduce:hidden"
+          style={{ background: 'rgb(var(--sg-gold) / 0.5)' }}
+        />
+        <span
+          aria-hidden="true"
+          className="absolute -right-6 top-16 h-32 w-32 rounded-full opacity-30 blur-3xl motion-safe:animate-[camino-hub-drift-b_11s_ease-in-out_infinite] motion-reduce:hidden"
+          style={{ background: 'rgb(var(--jade) / 0.6)' }}
+        />
+      </div>
+
       <div className="flex items-center justify-between gap-3">
         <Link
           to="/games"
@@ -33,14 +84,14 @@ export default function CaminoHub() {
           <button
             type="button"
             onClick={() => setShowPilgrims((v) => !v)}
-            className="rounded-full border border-sg-gold/40 bg-transparent px-3 py-1.5 font-ui text-xs font-semibold text-sg-gold-light transition hover:bg-sg-gold/10"
+            className="rounded-full border border-sg-gold/40 bg-navy-deep/40 px-3 py-1.5 font-ui text-xs font-semibold text-sg-gold-light backdrop-blur-sm transition hover:bg-sg-gold/10"
           >
             🧑‍🦱 Peregrino
           </button>
           <button
             type="button"
             onClick={() => setShowAchievements((v) => !v)}
-            className="flex items-center gap-1.5 rounded-full border border-sg-gold/40 bg-transparent px-3 py-1.5 font-ui text-xs font-semibold text-sg-gold-light transition hover:bg-sg-gold/10"
+            className="flex items-center gap-1.5 rounded-full border border-sg-gold/40 bg-navy-deep/40 px-3 py-1.5 font-ui text-xs font-semibold text-sg-gold-light backdrop-blur-sm transition hover:bg-sg-gold/10"
           >
             🏅 {unlockedAchievements.length}/{CAMINO_ACHIEVEMENTS.length}
           </button>
@@ -48,7 +99,9 @@ export default function CaminoHub() {
       </div>
 
       <div className="text-center">
-        <h1 className="font-display text-2xl font-bold text-parchment sm:text-3xl">🗺️ El Camino de las Escrituras</h1>
+        <h1 className="font-display text-2xl font-bold text-parchment drop-shadow-sm sm:text-3xl">
+          🗺️ El Camino de las Escrituras
+        </h1>
         <p className="mt-1 font-ui text-sm text-parchment/65">
           Recorre cada volumen, resuelve los retos y avanza estación por estación.
         </p>
@@ -135,6 +188,21 @@ export default function CaminoHub() {
           )
         })}
       </div>
+
+      <style>{`
+        @keyframes camino-hub-twinkle {
+          0%, 100% { opacity: 0.15; }
+          50% { opacity: 0.9; }
+        }
+        @keyframes camino-hub-drift-a {
+          0%, 100% { transform: translate(0, 0); }
+          50% { transform: translate(18px, 12px); }
+        }
+        @keyframes camino-hub-drift-b {
+          0%, 100% { transform: translate(0, 0); }
+          50% { transform: translate(-14px, 10px); }
+        }
+      `}</style>
     </div>
   )
 }
