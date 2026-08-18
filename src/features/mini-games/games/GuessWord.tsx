@@ -17,7 +17,7 @@ const LEVELS: Level[] = [
   { type: 'Palabra', answer: 'TEMPLO', hint: 'La Casa del Señor', reference: 'Salmos 24:3', note: 'Un lugar de convenios, paz y revelación.', image: '/images/games/reveal/lds-temple.png', reveals: ['Jardines', 'Casa del Señor', 'Aguja', 'Ángel Moroni'], scene: 'temple' },
   { type: 'Frase', answer: 'LAS FAMILIAS PUEDEN SER ETERNAS', hint: 'Una promesa que nace de los convenios', reference: 'La Familia: Una Proclamación para el Mundo', note: 'El plan de Dios permite que las relaciones familiares continúen después de esta vida.', image: '/images/games/reveal/eternal-family.png', reveals: ['Familia', 'Unidad', 'Convenios', 'Eternidad'], scene: 'family' },
   { type: 'Versículo', answer: 'IRE Y HARE LO QUE EL SENOR HA MANDADO', hint: 'Nefi responde con fe y decisión', reference: '1 Nefi 3:7', note: 'El Señor prepara la vía para cumplir lo que manda.', image: '/images/games/reveal/gold-plates.png', reveals: ['Registro', 'Planchas', 'Obediencia', 'Prepararé la vía'], scene: 'plates' },
-  { type: 'Referencia', answer: 'JOSE SMITH HISTORIA UNO DIECISEIS', hint: 'El joven José entra en una arboleda para orar', reference: 'José Smith—Historia 1:16', note: 'La oración sincera de José dio paso a la Primera Visión.', image: '/images/games/reveal/sacred-grove.png', reveals: ['Arboleda', 'Oración', 'Primavera de 1820', 'Primera Visión'], scene: 'grove' },
+  { type: 'Versículo', answer: 'VI UNA COLUMNA DE LUZ MAS BRILLANTE QUE EL SOL', hint: 'Una oración sincera abrió los cielos en la primavera de 1820', reference: 'José Smith—Historia 1:16', note: 'La oración sincera de José dio paso a la Primera Visión.', image: '/images/games/reveal/sacred-grove.png', reveals: ['Arboleda', 'Oración', 'Columna de luz', 'Primera Visión'], scene: 'grove' },
   { type: 'Historia', answer: 'LOS PIONEROS LLEGAN AL VALLE', hint: 'Fe para seguir adelante a pesar del sacrificio', reference: 'Doctrina y Convenios 136', note: 'Miles de Santos cruzaron las llanuras para congregarse y edificar Sion.', image: '/images/games/reveal/pioneer-handcart.png', reveals: ['Carromato', 'Camino', 'Sacrificio', 'Valle del Lago Salado'], scene: 'pioneers' },
   { type: 'Frase', answer: 'CREEMOS EN DIOS EL ETERNO PADRE', hint: 'El primero de trece declaraciones de creencia', reference: 'Artículo de Fe 1', note: 'Creemos en Dios el Eterno Padre, en Su Hijo Jesucristo y en el Espíritu Santo.', image: '/images/games/reveal/article-faith-1.png', reveals: ['Padre', 'Hijo', 'Espíritu Santo', 'Divinidad'], scene: 'divinity' },
   { type: 'Frase', answer: 'POR LA EXPIACION DE CRISTO PODEMOS SALVARNOS', hint: 'La salvación es posible mediante Jesucristo', reference: 'Artículo de Fe 3', note: 'La Expiación de Cristo hace posible la salvación mediante la obediencia al Evangelio.', image: '/images/games/reveal/atonement-christ.png', reveals: ['Jesucristo', 'Expiación', 'Obediencia', 'Salvación'], scene: 'atonement' },
@@ -39,9 +39,9 @@ const LEVELS: Level[] = [
 const KEYS = [...'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789']
 type Difficulty = 'nuevo' | 'discipulo' | 'maestro'
 const DIFFICULTIES = {
+  maestro: { label: 'Maestro', reveal: 0, lives: 4, description: 'Mensaje oculto' },
   nuevo: { label: 'Nuevo', reveal: .62, lives: 8, description: 'Muchas letras visibles' },
   discipulo: { label: 'Discípulo', reveal: .32, lives: 6, description: 'Una ayuda inicial' },
-  maestro: { label: 'Maestro', reveal: 0, lives: 4, description: 'Mensaje oculto' },
 } as const
 const guessable = (char: string) => /[A-ZÑ0-9]/.test(char)
 
@@ -63,8 +63,8 @@ function initialLetters(level: Level, difficulty: Difficulty): Set<string> {
 export default function GuessWord() {
   const [levels, setLevels] = useState<Level[]>(shuffledLevels)
   const [levelIndex, setLevelIndex] = useState(0)
-  const [difficulty, setDifficulty] = useState<Difficulty>('nuevo')
-  const [guessed, setGuessed] = useState<Set<string>>(() => initialLetters(levels[0], 'nuevo'))
+  const [difficulty, setDifficulty] = useState<Difficulty>('maestro')
+  const [guessed, setGuessed] = useState<Set<string>>(() => initialLetters(levels[0], 'maestro'))
   const [completed, setCompleted] = useState<Set<number>>(new Set())
   const [score, setScore] = useState(0)
   const [streak, setStreak] = useState(0)
@@ -102,8 +102,8 @@ export default function GuessWord() {
   function chooseLevel(index: number, mode: Difficulty = difficulty) { setLevelIndex(index); setGuessed(initialLetters(levels[index], mode)); setHintUsed(false); setStreak(0); setImpact('') }
   function restartGame() {
     const nextLevels = shuffledLevels()
-    setLevels(nextLevels); setScore(0); setCompleted(new Set()); setLevelIndex(0)
-    setGuessed(initialLetters(nextLevels[0], difficulty)); setHintUsed(false); setStreak(0); setImpact('')
+    setLevels(nextLevels); setScore(0); setCompleted(new Set()); setLevelIndex(0); setDifficulty('maestro')
+    setGuessed(initialLetters(nextLevels[0], 'maestro')); setHintUsed(false); setStreak(0); setImpact('')
   }
   function chooseDifficulty(mode: Difficulty) { setDifficulty(mode); chooseLevel(levelIndex, mode) }
   function reveal() {
