@@ -389,7 +389,7 @@ export const CAMINO_STAGES: CaminoStage[] = [
     },
   },
 
-  // ── Antiguo Testamento (14) ──────────────────────────────────────────
+  // ── Antiguo Testamento (15) ──────────────────────────────────────────
   {
     id: 'at-1',
     volumeId: 'antiguo-testamento',
@@ -735,8 +735,26 @@ export const CAMINO_STAGES: CaminoStage[] = [
       hint: 'El nombre que significa "Dios con nosotros", profetizado por Isaías',
     },
   },
+  {
+    id: 'at-15',
+    volumeId: 'antiguo-testamento',
+    order: 15,
+    position: { x: 56.1, y: 13.6 },
+    title: 'Malaquías profetiza el regreso de Elías',
+    status: 'ready',
+    starTimes: [45, 90],
+    challenge: {
+      kind: 'connect',
+      pairs: [
+        { left: 'Malaquías', right: 'El último profeta del Antiguo Testamento' },
+        { left: 'Elías', right: 'El profeta que Dios enviaría antes del gran día de Jehová' },
+        { left: 'Diezmos', right: 'Lo que Malaquías invita a traer al alfolí' },
+        { left: 'Corazón de los padres', right: 'Se volverá hacia los hijos, y el de los hijos hacia los padres' },
+      ],
+    },
+  },
 
-  // ── Nuevo Testamento (13) ────────────────────────────────────────────
+  // ── Nuevo Testamento (15) ────────────────────────────────────────────
   {
     id: 'nt-1',
     volumeId: 'nuevo-testamento',
@@ -1028,8 +1046,59 @@ export const CAMINO_STAGES: CaminoStage[] = [
       ],
     },
   },
+  {
+    id: 'nt-14',
+    volumeId: 'nuevo-testamento',
+    order: 14,
+    position: { x: 38.9, y: 17.9 },
+    title: 'Pablo camino a Damasco',
+    status: 'ready',
+    starTimes: [45, 90],
+    challenge: {
+      kind: 'connect',
+      pairs: [
+        { left: 'Saulo de Tarso', right: 'Perseguía a los cristianos antes de su conversión' },
+        { left: 'Luz del cielo', right: 'Lo que cegó a Saulo en el camino a Damasco' },
+        { left: 'Ananías', right: 'El discípulo que sanó los ojos de Saulo' },
+        { left: 'Pablo', right: 'El nuevo nombre y el mayor misionero del Nuevo Testamento' },
+      ],
+    },
+  },
+  {
+    id: 'nt-15',
+    volumeId: 'nuevo-testamento',
+    order: 15,
+    position: { x: 52.4, y: 12.6 },
+    title: 'La visión de Juan en Patmos',
+    status: 'ready',
+    starTimes: [50, 100],
+    challenge: {
+      kind: 'word_search',
+      size: 24,
+      allowDiagonal: true,
+      allowReverse: true,
+      words: [
+        { word: 'APOCALIPSIS', hint: 'El libro que registra la visión de Juan', emoji: '📖' },
+        { word: 'PATMOS', hint: 'La isla donde Juan recibió la revelación', emoji: '🏝️' },
+        { word: 'TRONO', hint: 'Donde Juan vio sentado a Dios en su visión', emoji: '👑' },
+        { word: 'CORDERO', hint: 'El símbolo de Cristo en la visión de Juan', emoji: '🐑' },
+        { word: 'SELLOS', hint: 'Los siete que el Cordero es digno de abrir', emoji: '🔏' },
+        { word: 'TROMPETAS', hint: 'Anuncian los juicios venideros en la visión', emoji: '📯' },
+        { word: 'PLAGAS', hint: 'Los juicios finales derramados sobre la tierra', emoji: '⚡' },
+        { word: 'BABILONIA', hint: 'La gran ciudad que representa la maldad del mundo', emoji: '🏙️' },
+        { word: 'DRAGON', hint: 'El símbolo de Satanás en la visión', emoji: '🐉' },
+        { word: 'BESTIA', hint: 'La figura que hace guerra contra los santos', emoji: '👹' },
+        { word: 'ALFA', hint: 'Junto con Omega, título que Cristo se da a sí mismo', emoji: '🔤' },
+        { word: 'OMEGA', hint: 'El principio y el fin, según Cristo', emoji: '🔚' },
+        { word: 'VENCEDOR', hint: 'Quien recibe las promesas hechas a las siete iglesias', emoji: '🏆' },
+        { word: 'JASPE', hint: 'Una de las piedras preciosas que describen la ciudad santa', emoji: '💎' },
+        { word: 'JERUSALEN', hint: 'La nueva ciudad santa que Juan vio descender del cielo', emoji: '🏛️' },
+        { word: 'VIDA', hint: 'El libro donde están escritos los nombres de los santos', emoji: '📕' },
+      ],
+    },
+  },
 
-  // ── Doctrina y Convenios (15) ────────────────────────────────────────
+  // ── Doctrina y Convenios (16) ────────────────────────────────────────
   {
     id: 'dc-1',
     volumeId: 'doctrina-convenios',
@@ -1385,8 +1454,26 @@ export const CAMINO_STAGES: CaminoStage[] = [
       ],
     },
   },
+  {
+    id: 'dc-16',
+    volumeId: 'doctrina-convenios',
+    order: 16,
+    position: { x: 65.5, y: 13.2 },
+    title: 'El Templo de Salt Lake',
+    status: 'ready',
+    starTimes: [45, 90],
+    challenge: {
+      kind: 'connect',
+      pairs: [
+        { left: '40 años', right: 'El tiempo que tomó construir el Templo de Salt Lake' },
+        { left: 'Piedra angular', right: 'Se colocó en 1853, iniciando la construcción' },
+        { left: 'Ángel Moroni', right: 'La estatua que corona la torre más alta del templo' },
+        { left: '1893', right: 'El año en que finalmente se dedicó el templo' },
+      ],
+    },
+  },
 
-  // ── Perla de Gran Precio (14) ────────────────────────────────────────
+  // ── Perla de Gran Precio (15) ────────────────────────────────────────
   {
     id: 'pgp-1',
     volumeId: 'perla-gran-precio',
