@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useToastStore } from '@/stores/toastStore'
-import { stagesForVolume } from '../data/caminoStages'
+import type { CaminoAchievement } from '../data/caminoAchievements'
 import type { CaminoStage, HangmanChallenge } from '../types/camino'
 import { calcStars } from '../lib/stars'
 import { useCaminoStore } from '../store/caminoStore'
@@ -31,7 +31,9 @@ export function CaminoHangman({ stage, challenge }: CaminoHangmanProps) {
   const [guessed, setGuessed] = useState<Set<string>>(new Set())
   const [seconds, setSeconds] = useState(0)
   const [hintsUsed, setHintsUsed] = useState(0)
-  const [result, setResult] = useState<{ stars: number; isNewBest: boolean } | null>(null)
+  const [result, setResult] = useState<{ stars: number; isNewBest: boolean; newAchievements: CaminoAchievement[] } | null>(
+    null,
+  )
 
   const secondsRef = useRef(0)
   const hintsRef = useRef(0)
@@ -58,7 +60,7 @@ export function CaminoHangman({ stage, challenge }: CaminoHangmanProps) {
     completedRef.current = true
     const stars = calcStars(secondsRef.current, hintsRef.current, stage.starTimes)
     const outcome = completeStage(stage.id, secondsRef.current, hintsRef.current, stars)
-    setResult({ stars: outcome.stars, isNewBest: outcome.isNewBest })
+    setResult({ stars: outcome.stars, isNewBest: outcome.isNewBest, newAchievements: outcome.newAchievements })
     outcome.newAchievements.forEach((a) => addToast(achievementToastMessage(a), 'success'))
   }
 
@@ -92,8 +94,6 @@ export function CaminoHangman({ stage, challenge }: CaminoHangmanProps) {
     if (letters.every((l) => next.has(l))) finishRun()
   }
 
-  const nextStage = stagesForVolume(stage.volumeId).find((s) => s.order > stage.order && s.status === 'ready')
-
   return (
     <div className="flex flex-col gap-4">
       <p className="text-center font-ui text-sm text-parchment/65">
@@ -108,8 +108,8 @@ export function CaminoHangman({ stage, challenge }: CaminoHangmanProps) {
           seconds={seconds}
           hintsUsed={hintsUsed}
           isNewBest={result.isNewBest}
+          newAchievements={result.newAchievements}
           onRestart={restart}
-          onNext={nextStage ? { label: 'Siguiente estación →', onClick: () => navigate(`/games/sopa-de-letras/reto/${nextStage.id}`) } : undefined}
           onBackToPath={() => navigate(`/games/sopa-de-letras/camino/${stage.volumeId}?justCompleted=${stage.id}`)}
         />
       )}

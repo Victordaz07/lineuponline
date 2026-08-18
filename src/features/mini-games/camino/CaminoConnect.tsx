@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useToastStore } from '@/stores/toastStore'
-import { stagesForVolume } from '../data/caminoStages'
+import type { CaminoAchievement } from '../data/caminoAchievements'
 import type { CaminoStage, ConnectChallenge } from '../types/camino'
 import { calcStars } from '../lib/stars'
 import { shuffleWith } from '../data/wordBank'
@@ -35,7 +35,9 @@ export function CaminoConnect({ stage, challenge }: CaminoConnectProps) {
   const [wrongPulse, setWrongPulse] = useState(false)
   const [seconds, setSeconds] = useState(0)
   const [mistakes, setMistakes] = useState(0)
-  const [result, setResult] = useState<{ stars: number; isNewBest: boolean } | null>(null)
+  const [result, setResult] = useState<{ stars: number; isNewBest: boolean; newAchievements: CaminoAchievement[] } | null>(
+    null,
+  )
 
   const secondsRef = useRef(0)
   const mistakesRef = useRef(0)
@@ -58,7 +60,7 @@ export function CaminoConnect({ stage, challenge }: CaminoConnectProps) {
     completedRef.current = true
     const stars = calcStars(secondsRef.current, mistakesRef.current, stage.starTimes)
     const outcome = completeStage(stage.id, secondsRef.current, mistakesRef.current, stars)
-    setResult({ stars: outcome.stars, isNewBest: outcome.isNewBest })
+    setResult({ stars: outcome.stars, isNewBest: outcome.isNewBest, newAchievements: outcome.newAchievements })
     outcome.newAchievements.forEach((a) => addToast(achievementToastMessage(a), 'success'))
   }
 
@@ -123,8 +125,6 @@ export function CaminoConnect({ stage, challenge }: CaminoConnectProps) {
     if (next.size === total) finishRun()
   }
 
-  const nextStage = stagesForVolume(stage.volumeId).find((s) => s.order > stage.order && s.status === 'ready')
-
   function rightMatchedLeft(right: string): string | undefined {
     return challenge.pairs.find((p) => p.right === right && matched.has(p.left))?.left
   }
@@ -142,8 +142,8 @@ export function CaminoConnect({ stage, challenge }: CaminoConnectProps) {
           seconds={seconds}
           hintsUsed={mistakes}
           isNewBest={result.isNewBest}
+          newAchievements={result.newAchievements}
           onRestart={restart}
-          onNext={nextStage ? { label: 'Siguiente estación →', onClick: () => navigate(`/games/sopa-de-letras/reto/${nextStage.id}`) } : undefined}
           onBackToPath={() => navigate(`/games/sopa-de-letras/camino/${stage.volumeId}?justCompleted=${stage.id}`)}
         />
       )}

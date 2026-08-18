@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useToastStore } from '@/stores/toastStore'
-import { stagesForVolume } from '../data/caminoStages'
+import type { CaminoAchievement } from '../data/caminoAchievements'
 import type { CaminoStage, WordSearchChallenge } from '../types/camino'
 import { calcStars } from '../lib/stars'
 import { cellKey, generateWordSearch, type Cell, type WordSearchPuzzle } from '../lib/generateWordSearch'
@@ -49,7 +49,9 @@ export function CaminoWordSearch({ stage, challenge }: CaminoWordSearchProps) {
   const [current, setCurrent] = useState<Cell[]>([])
   const [seconds, setSeconds] = useState(0)
   const [hintsUsed, setHintsUsed] = useState(0)
-  const [result, setResult] = useState<{ stars: number; isNewBest: boolean } | null>(null)
+  const [result, setResult] = useState<{ stars: number; isNewBest: boolean; newAchievements: CaminoAchievement[] } | null>(
+    null,
+  )
 
   const secondsRef = useRef(0)
   const hintsRef = useRef(0)
@@ -72,7 +74,7 @@ export function CaminoWordSearch({ stage, challenge }: CaminoWordSearchProps) {
     completedRef.current = true
     const stars = calcStars(secondsRef.current, hintsRef.current, stage.starTimes)
     const outcome = completeStage(stage.id, secondsRef.current, hintsRef.current, stars)
-    setResult({ stars: outcome.stars, isNewBest: outcome.isNewBest })
+    setResult({ stars: outcome.stars, isNewBest: outcome.isNewBest, newAchievements: outcome.newAchievements })
     outcome.newAchievements.forEach((a) => addToast(achievementToastMessage(a), 'success'))
   }
 
@@ -187,8 +189,6 @@ export function CaminoWordSearch({ stage, challenge }: CaminoWordSearchProps) {
     finishRun(nextFound.size)
   }
 
-  const nextStage = stagesForVolume(stage.volumeId).find((s) => s.order > stage.order && s.status === 'ready')
-
   return (
     <div className="flex flex-col gap-4">
       <p className="text-center font-ui text-sm text-parchment/65">
@@ -202,8 +202,8 @@ export function CaminoWordSearch({ stage, challenge }: CaminoWordSearchProps) {
           seconds={seconds}
           hintsUsed={hintsUsed}
           isNewBest={result.isNewBest}
+          newAchievements={result.newAchievements}
           onRestart={restart}
-          onNext={nextStage ? { label: 'Siguiente estación →', onClick: () => navigate(`/games/sopa-de-letras/reto/${nextStage.id}`) } : undefined}
           onBackToPath={() => navigate(`/games/sopa-de-letras/camino/${stage.volumeId}?justCompleted=${stage.id}`)}
         />
       )}

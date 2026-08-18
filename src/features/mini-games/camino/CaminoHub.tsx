@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { CAMINO_ACHIEVEMENTS } from '../data/caminoAchievements'
 import { stagesForVolume } from '../data/caminoStages'
 import { SCRIPTURE_VOLUMES } from '../data/scriptureVolumes'
+import { starsToPoints } from '../lib/points'
 import { useCaminoStore } from '../store/caminoStore'
 import { PilgrimPicker } from './PilgrimPicker'
 
@@ -51,7 +52,11 @@ export default function CaminoHub() {
         <p className="mt-1 font-ui text-sm text-parchment/65">
           Recorre cada volumen, resuelve los retos y avanza estación por estación.
         </p>
-        <p className="mt-2 font-ui text-xs font-semibold text-sg-gold-light">⭐ {totalStars} estrellas ganadas</p>
+        <p className="mt-2 flex items-center justify-center gap-2 font-ui text-xs font-semibold text-sg-gold-light">
+          <span>⭐ {totalStars} estrellas</span>
+          <span className="text-parchment/30">·</span>
+          <span>✨ {starsToPoints(totalStars)} puntos</span>
+        </p>
       </div>
 
       {showPilgrims && (

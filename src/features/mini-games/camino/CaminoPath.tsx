@@ -1,8 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
+import { CAMINO_ACHIEVEMENTS } from '../data/caminoAchievements'
 import { stagesForVolume } from '../data/caminoStages'
 import { getPilgrim, pilgrimSpriteSrc } from '../data/pilgrims'
 import { getVolume } from '../data/scriptureVolumes'
+import { starsToPoints } from '../lib/points'
 import type { CaminoStage } from '../types/camino'
 import { useCaminoStore } from '../store/caminoStore'
 
@@ -10,10 +12,12 @@ function StageNode({
   stage,
   unlocked,
   stars,
+  isNext,
 }: {
   stage: CaminoStage
   unlocked: boolean
   stars: number | undefined
+  isNext: boolean
 }) {
   const playable = stage.status === 'ready' && unlocked
   const isFinal = stage.order === 8
@@ -37,14 +41,25 @@ function StageNode({
     content = String(stage.order)
   }
 
+  const showPulse = playable && !stars && isNext
+
   const badge = (
-    <div
-      className={`flex items-center justify-center rounded-full font-display font-bold shadow-[0_3px_10px_rgba(0,0,0,0.55)] transition ${
-        isFinal ? 'h-14 w-14 text-base' : 'h-11 w-11 text-sm'
-      } ${playable ? 'hover:scale-110' : ''}`}
-      style={style}
-    >
-      {content}
+    <div className="relative flex items-center justify-center">
+      {showPulse && (
+        <span
+          aria-hidden="true"
+          className="absolute inset-0 -m-1.5 rounded-full motion-safe:animate-[camino-ring-pulse_1.8s_ease-out_infinite]"
+          style={{ border: '2.5px solid #E8C87A' }}
+        />
+      )}
+      <div
+        className={`relative flex items-center justify-center rounded-full font-display font-bold shadow-[0_3px_10px_rgba(0,0,0,0.55)] transition ${
+          isFinal ? 'h-14 w-14 text-base' : 'h-11 w-11 text-sm'
+        } ${playable ? 'hover:scale-110' : ''}`}
+        style={style}
+      >
+        {content}
+      </div>
     </div>
   )
 
@@ -62,6 +77,12 @@ function StageNode({
           {badge}
         </div>
       )}
+      <style>{`
+        @keyframes camino-ring-pulse {
+          0% { transform: scale(1); opacity: 0.9; }
+          100% { transform: scale(1.6); opacity: 0; }
+        }
+      `}</style>
     </div>
   )
 }
@@ -76,9 +97,15 @@ export default function CaminoPath() {
   const stageProgress = useCaminoStore((s) => s.stageProgress)
   const isStageUnlocked = useCaminoStore((s) => s.isStageUnlocked)
   const selectedPilgrimId = useCaminoStore((s) => s.selectedPilgrimId)
+  const unlockedAchievements = useCaminoStore((s) => s.unlockedAchievements)
 
   const volume = volumeId ? getVolume(volumeId) : undefined
   const stages = useMemo(() => (volumeId ? stagesForVolume(volumeId) : []), [volumeId])
+
+  const totalStars = useMemo(
+    () => Object.values(stageProgress).reduce((sum, p) => sum + p.stars, 0),
+    [stageProgress],
+  )
 
   const furthestOrder = useMemo(() => {
     const completed = stages.filter((s) => (stageProgress[s.id]?.stars ?? 0) >= 1)
@@ -90,14 +117,23 @@ export default function CaminoPath() {
 
   const [pos, setPos] = useState(startStage?.position ?? targetStage?.position ?? { x: 50, y: 90 })
   const [walking, setWalking] = useState(Boolean(startStage && targetStage && startStage.id !== targetStage.id))
+  const [showDepartPuff, setShowDepartPuff] = useState(walking)
+  const [showArrivePuff, setShowArrivePuff] = useState(false)
 
   useEffect(() => {
     if (!startStage || !targetStage || startStage.id === targetStage.id) return
-    const t = setTimeout(() => setPos(targetStage.position), 120)
-    const doneT = setTimeout(() => setWalking(false), 1100)
+    const moveT = setTimeout(() => setPos(targetStage.position), 120)
+    const puffOffT = setTimeout(() => setShowDepartPuff(false), 500)
+    const doneT = setTimeout(() => {
+      setWalking(false)
+      setShowArrivePuff(true)
+    }, 1100)
+    const arrivePuffOffT = setTimeout(() => setShowArrivePuff(false), 1700)
     return () => {
-      clearTimeout(t)
+      clearTimeout(moveT)
+      clearTimeout(puffOffT)
       clearTimeout(doneT)
+      clearTimeout(arrivePuffOffT)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -126,9 +162,17 @@ export default function CaminoPath() {
         >
           <span aria-hidden="true">←</span> Volúmenes
         </button>
-        <span className="rounded-full border border-sg-gold/30 bg-navy-mid px-3 py-1 font-ui text-xs font-semibold text-sg-gold-light">
-          {pilgrim.name}
-        </span>
+        <div className="flex items-center gap-2">
+          <span className="rounded-full border border-sg-gold/40 bg-sg-gold/10 px-3 py-1 font-ui text-xs font-bold text-sg-gold-bright">
+            ✨ {starsToPoints(totalStars)}
+          </span>
+          <span className="rounded-full border border-sg-gold/30 bg-navy-mid px-3 py-1 font-ui text-xs font-semibold text-sg-gold-light">
+            🏅 {unlockedAchievements.length}/{CAMINO_ACHIEVEMENTS.length}
+          </span>
+          <span className="hidden rounded-full border border-sg-gold/30 bg-navy-mid px-3 py-1 font-ui text-xs font-semibold text-sg-gold-light sm:inline-block">
+            {pilgrim.name}
+          </span>
+        </div>
       </div>
 
       <div className="text-center">
@@ -147,16 +191,44 @@ export default function CaminoPath() {
             stage={stage}
             unlocked={isStageUnlocked(stage.id)}
             stars={stageProgress[stage.id]?.stars}
+            isNext={stage.id === targetStage?.id}
           />
         ))}
+
+        {(showDepartPuff || showArrivePuff) && (
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 rounded-full motion-safe:animate-[camino-puff_0.6s_ease-out_forwards] motion-reduce:hidden"
+            style={{
+              left: `${showDepartPuff ? startStage?.position.x : targetStage?.position.x}%`,
+              top: `${showDepartPuff ? startStage?.position.y : targetStage?.position.y}%`,
+              width: 46,
+              height: 46,
+              background: 'radial-gradient(circle, rgba(232,200,122,0.65) 0%, rgba(232,200,122,0) 70%)',
+            }}
+          />
+        )}
 
         <img
           src={avatarSrc}
           alt={pilgrim.name}
-          className="pointer-events-none absolute w-[15%] -translate-x-1/2 -translate-y-[85%] drop-shadow-[0_6px_10px_rgba(0,0,0,0.5)] transition-all duration-1000 ease-in-out"
+          className={`pointer-events-none absolute w-[15%] -translate-x-1/2 -translate-y-[85%] drop-shadow-[0_6px_10px_rgba(0,0,0,0.5)] transition-all duration-1000 ease-in-out ${
+            !walking ? 'motion-safe:animate-[camino-idle-bob_2.6s_ease-in-out_infinite]' : ''
+          }`}
           style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
         />
       </div>
+
+      <style>{`
+        @keyframes camino-puff {
+          0% { transform: translate(-50%, -50%) scale(0.4); opacity: 1; }
+          100% { transform: translate(-50%, -50%) scale(1.8); opacity: 0; }
+        }
+        @keyframes camino-idle-bob {
+          0%, 100% { transform: translate(-50%, -85%); }
+          50% { transform: translate(-50%, -89%); }
+        }
+      `}</style>
     </div>
   )
 }
