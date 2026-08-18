@@ -208,37 +208,42 @@ export function CaminoWordSearch({ stage, challenge }: CaminoWordSearchProps) {
         />
       )}
 
-      <div
-        className="mx-auto grid touch-none select-none gap-0.5 rounded-xl border border-sg-gold/15 bg-navy-mid p-2"
-        style={{ gridTemplateColumns: `repeat(${puzzle.size}, minmax(0, 1fr))`, maxWidth: 460 }}
-      >
-        {puzzle.grid.map((row, r) =>
-          row.map((letter, c) => {
-            const key = `${r},${c}`
-            const isFound = foundCells.has(key)
-            const isCurrent = currentSet.has(key)
-            const color = cellColor.get(key)
-            return (
-              <button
-                key={key}
-                type="button"
-                data-row={r}
-                data-col={c}
-                onPointerDown={() => {
-                  setSelecting(true)
-                  setStart([r, c])
-                  setCurrent([[r, c]])
-                }}
-                style={isFound && color ? { backgroundColor: `${color}55`, color } : undefined}
-                className={`flex aspect-square items-center justify-center rounded-sm font-ui text-[10px] font-bold transition sm:text-sm ${
-                  isFound ? '' : isCurrent ? 'bg-sg-gold text-ink' : 'text-parchment/85 hover:bg-navy-light'
-                }`}
-              >
-                {letter}
-              </button>
-            )
-          }),
-        )}
+      <div className="mx-auto w-full overflow-x-auto rounded-xl border border-sg-gold/15 bg-navy-mid p-2">
+        <div
+          className="mx-auto grid touch-none select-none gap-0.5"
+          style={{
+            gridTemplateColumns: `repeat(${puzzle.size}, minmax(0, 1fr))`,
+            width: puzzle.size * 19,
+          }}
+        >
+          {puzzle.grid.map((row, r) =>
+            row.map((letter, c) => {
+              const key = `${r},${c}`
+              const isFound = foundCells.has(key)
+              const isCurrent = currentSet.has(key)
+              const color = cellColor.get(key)
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  data-row={r}
+                  data-col={c}
+                  onPointerDown={() => {
+                    setSelecting(true)
+                    setStart([r, c])
+                    setCurrent([[r, c]])
+                  }}
+                  style={isFound && color ? { backgroundColor: `${color}55`, color } : undefined}
+                  className={`flex aspect-square items-center justify-center rounded-sm font-ui font-bold transition ${
+                    puzzle.size > 20 ? 'text-[8px]' : puzzle.size > 14 ? 'text-[9px]' : 'text-[10px] sm:text-sm'
+                  } ${isFound ? '' : isCurrent ? 'bg-sg-gold text-ink' : 'text-parchment/85 hover:bg-navy-light'}`}
+                >
+                  {letter}
+                </button>
+              )
+            }),
+          )}
+        </div>
       </div>
 
       <div className="flex flex-wrap justify-center gap-2">

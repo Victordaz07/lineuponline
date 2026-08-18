@@ -78,7 +78,9 @@ export function generateWordSearch(opts: GenerateOptions): WordSearchPuzzle {
     const word = entry.word
     let ok = false
 
-    for (let attempt = 0; attempt < 400 && !ok; attempt++) {
+    // 4000 intentos: barato por intento y elimina fallos aleatorios de
+    // colocación en grids grandes (24×24+) con muchas palabras.
+    for (let attempt = 0; attempt < 4000 && !ok; attempt++) {
       const [dr0, dc0] = baseDirs[Math.floor(rng() * baseDirs.length)]
       const reversed = allowReverse && rng() < 0.5
       const dr = reversed ? -dr0 : dr0
