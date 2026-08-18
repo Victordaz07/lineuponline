@@ -113,6 +113,7 @@ function MediaSyncManager() {
 }
 
 export function Layout({ children }: LayoutProps) {
+  const { pathname } = useLocation()
   const hasActiveTrack = usePlayerStore((s) => !!s.currentTrack)
   const isImmersive = useImmersiveStore((s) => s.isImmersive)
   const handleImmersiveTap = useImmersiveDoubleTap()
@@ -125,10 +126,12 @@ export function Layout({ children }: LayoutProps) {
       <StreakManager />
       <ImmersiveManager />
       <MediaSyncManager />
-      <Header />
+      {pathname === '/' ? <Header /> : null}
       <main
         onClick={handleImmersiveTap}
-        className={`min-w-0 flex-1 px-4 pt-4 transition-[padding-bottom] duration-300 ease-in-out sm:px-6 ${
+        className={`min-w-0 flex-1 px-4 transition-[padding-bottom] duration-300 ease-in-out sm:px-6 ${
+          pathname === '/' ? 'pt-4' : 'pt-2 sm:pt-4'
+        } ${
           isImmersive ? 'pb-4' : hasActiveTrack ? 'pb-40' : 'pb-28'
         }`}
       >
