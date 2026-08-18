@@ -29,9 +29,9 @@ const GAMES: GameCard[] = [
   },
   {
     to: '/games/sopa-de-letras',
-    emoji: '🔎',
-    title: 'Sopa de letras',
-    description: 'Avanza por etapas temáticas, gana estrellas, mantén tu racha con el reto diario y desbloquea logros.',
+    emoji: '🗺️',
+    title: 'El Camino de las Escrituras',
+    description: 'Elige tu peregrino y recorre el Libro de Mormón, la Biblia y más — sopas de letras, ahorcado y conecta los elementos.',
     tag: 'Con niveles',
     tagClass: 'border-jade/40 bg-jade/15 text-jade',
   },

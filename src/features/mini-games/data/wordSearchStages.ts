@@ -132,10 +132,4 @@ export function getStage(id: string): WordSearchStage | undefined {
   return WORD_SEARCH_STAGES.find((s) => s.id === id)
 }
 
-/** Calcula estrellas (1–3) según tiempo y pistas usadas. */
-export function calcStars(seconds: number, hintsUsed: number, starTimes: [number, number]): number {
-  let stars = seconds <= starTimes[0] ? 3 : seconds <= starTimes[1] ? 2 : 1
-  if (hintsUsed >= 3) stars = Math.min(stars, 1)
-  else if (hintsUsed >= 1) stars = Math.min(stars, 2)
-  return stars
-}
+export { calcStars } from '../lib/stars'
