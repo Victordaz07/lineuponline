@@ -39,14 +39,14 @@ Las 8 imágenes de heroes/collages quedaron **aprobadas por el usuario** (estilo
 | `jesus-el-hombre/02-pozo-jacob.webp` | E4 | Jesús conversando con la mujer samaritana junto al pozo de Jacob | pendiente | — |
 | `jesus-el-hombre/03-tormenta-barca.webp` | E4 | Jesús calmando la tormenta en la barca, junto a los discípulos | pendiente | — |
 | `jesus-el-hombre/04-llanto-lazaro.webp` | E4 | Jesús llorando ante la tumba de Lázaro, con Marta y María | pendiente | — |
-| `jesus-el-hombre/05-getsemani.webp` | E4 | Jesús orando en el huerto de Getsemaní — **muestra piloto** (ver abajo) | en generación (muestra) | — |
+| `jesus-el-hombre/05-getsemani.webp` | E4 | Jesús orando en el huerto de Getsemaní — **muestra piloto** (ver abajo) | generada | `modules/jesus/_review/jesus-el-hombre/05-getsemani.webp` |
 | `jesus-el-cristo/01-bautismo.webp` | E4 | El bautismo de Jesús por Juan el Bautista en el Jordán, paloma y luz descendiendo | pendiente | — |
 | `jesus-el-cristo/02-transfiguracion.webp` | E4 | La transfiguración de Jesús en el monte, ante Pedro, Santiago y Juan | pendiente | — |
 | `jesus-el-cristo/03-poder-sobre-muerte.webp` | E4 | Jesús mostrando poder sobre la muerte (resurrección de Lázaro) | pendiente | — |
 | `jesus-el-cristo/04-autoridad-ensenanza.webp` | E4 | Jesús enseñando con autoridad a la multitud | pendiente | — |
 | `jesus-el-cristo/05-confesion-testigos.webp` | E4 | Pedro confesando que Jesús es el Cristo | pendiente | — |
 | `biblia-libro-mormon/03-sermon-biblia.webp` | E4 | Jesús enseñando el Sermón del Monte | pendiente | — |
-| `biblia-libro-mormon/04-ensenanza-templo.webp` | E4 | Jesús enseñando a la multitud nefita en el templo americano — **muestra piloto** (ver abajo) | en generación (muestra) | — |
+| `biblia-libro-mormon/04-ensenanza-templo.webp` | E4 | Jesús enseñando a la multitud nefita en el templo americano — **muestra piloto** (ver abajo). Faceteado facial algo más suave que las otras 3 muestras (rostro pequeño en plano general, riesgo bajo) — revisar si se repite en el resto del lote. | generada | `modules/jesus/_review/biblia-libro-mormon/04-ensenanza-templo.webp` |
 | `biblia-libro-mormon/05-abundancia.webp` | E4 | Jesús bendiciendo y sanando en abundancia entre el pueblo nefita | pendiente | — |
 | `biblia-libro-mormon/06-paralelo-ensenanzas.webp` | E4 | Jesús enseñando — paralelo entre sus enseñanzas bíblicas y del Libro de Mormón | pendiente | — |
 | `circulo-de-jesus/01-familia.webp` | E4 | Jesús en el círculo familiar, con María | pendiente | — |
@@ -56,7 +56,7 @@ Las 8 imágenes de heroes/collages quedaron **aprobadas por el usuario** (estilo
 | `circulo-de-jesus/05-nicodemo.webp` | E4 | Jesús conversando de noche con Nicodemo | pendiente | — |
 | `circulo-de-jesus/06-nefitas.webp` | E4 | Jesús con los discípulos nefitas | pendiente | — |
 | `yo-soy/01-pan-de-vida.webp` | E4 | Jesús como el Pan de Vida, con la multitud | pendiente | — |
-| `yo-soy/02-luz-del-mundo.webp` | E4 | Jesús como la Luz del Mundo, escena nocturna con lámparas — **muestra piloto** (ver abajo) | en generación (muestra) | — |
+| `yo-soy/02-luz-del-mundo.webp` | E4 | Jesús como la Luz del Mundo, escena nocturna con lámparas — **muestra piloto** (ver abajo) | generada | `modules/jesus/_review/yo-soy/02-luz-del-mundo.webp` |
 | `yo-soy/03-la-puerta.webp` | E4 | Jesús como la Puerta, junto al redil | pendiente | — |
 | `yo-soy/04-buen-pastor.webp` | E4 | Jesús como el Buen Pastor, con el rebaño | pendiente | — |
 | `yo-soy/05-resurreccion-y-vida.webp` | E4 | Jesús como la Resurrección y la Vida, junto al sepulcro | pendiente | — |
@@ -65,7 +65,7 @@ Las 8 imágenes de heroes/collages quedaron **aprobadas por el usuario** (estilo
 | `yo-soy/08-antes-de-abraham.webp` | E4 | Jesús declarando "antes que Abraham fuese, yo soy" | pendiente | — |
 | `resurreccion/01-sepultura.webp` | E4 | La sepultura de Jesús | pendiente | — |
 | `resurreccion/04-maria-magdalena.webp` | E4 | Jesús resucitado apareciendo a María Magdalena | pendiente | — |
-| `resurreccion/06-emaus.webp` | E4 | Jesús caminando con los discípulos camino a Emaús — **muestra piloto** (ver abajo) | en generación (muestra) | — |
+| `resurreccion/06-emaus.webp` | E4 | Jesús caminando con los discípulos camino a Emaús — **muestra piloto** (ver abajo) | generada | `modules/jesus/_review/resurreccion/06-emaus.webp` |
 | `resurreccion/07-aparicion-discipulos.webp` | E4 | Jesús apareciendo a los discípulos | pendiente | — |
 | `resurreccion/08-tomas.webp` | E4 | Jesús mostrando sus heridas a Tomás | pendiente | — |
 
@@ -80,7 +80,7 @@ Cubren las 4 variantes de escena pedidas (interior, multitud, paisaje, close-up)
 | `yo-soy/02-luz-del-mundo.webp` | Yo Soy | Interior |
 | `resurreccion/06-emaus.webp` | Resurrección | Paisaje |
 
-Prompts entregados al usuario para generación externa — ver mensaje de la conversación. Pendientes de recibir los 4 archivos generados para cargarlos en `_review/` y validar consistencia de estilo.
+**✅ Muestra piloto generada y verificada (20 ago 2026)** — las 4 pasan el criterio de faceteado facial establecido en Fase 1. Única observación: en `biblia-libro-mormon/04-ensenanza-templo.webp` el rostro sale con faceteado algo más suave que en las otras 3 (riesgo bajo por ser un plano general con el rostro pequeño en el encuadre) — a vigilar si se repite en el resto del lote de 33. Pendiente de confirmación final del usuario antes de escalar a las 29 restantes.
 
 **Total: 9 (Fase 1) + 33 (Fase 2) = 42 imágenes.**
 
