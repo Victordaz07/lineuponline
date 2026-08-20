@@ -28,6 +28,9 @@ const BitacoraPage = lazy(() => import('@/pages/BitacoraPage'))
 const ModuleImagesAdminPage = lazy(() => import('@/pages/ModuleImagesAdminPage'))
 const MusicAdminPage = lazy(() => import('@/features/music/admin/MusicAdminPage'))
 const MusicPage = lazy(() => import('@/pages/MusicPage'))
+const DescargablesPage = lazy(() => import('@/pages/DescargablesPage'))
+const DescargableDetailPage = lazy(() => import('@/pages/DescargableDetailPage'))
+const DescargablesAdminPage = lazy(() => import('@/pages/DescargablesAdminPage'))
 
 // Música (álbumes + canciones de YouTube) — feature independiente del pipeline de IA de arriba
 const DiscographyPage = lazy(() => import('@/features/discography/pages/DiscographyPage'))
@@ -82,6 +85,11 @@ function AppRoutes() {
             <Route path="/admin/imagenes" element={<ModuleImagesAdminPage />} />
             <Route path="/music" element={<MusicPage />} />
             <Route path="/admin/music" element={<MusicAdminPage />} />
+
+            {/* Descargables — recursos públicos descargables (PDFs, guías) */}
+            <Route path="/descargables" element={<DescargablesPage />} />
+            <Route path="/descargables/:id" element={<DescargableDetailPage />} />
+            <Route path="/admin/descargables" element={<DescargablesAdminPage />} />
 
             {/* Música — álbumes + canciones de YouTube */}
             <Route path="/musica" element={<DiscographyPage />} />

@@ -172,6 +172,12 @@ export default function Dashboard() {
         >
           🎮 Jugar
         </Link>
+        <Link
+          to="/descargables"
+          className="flex items-center gap-2 rounded-full border border-sg-gold/30 bg-sg-gold/10 px-4 py-2 font-ui text-sm font-semibold text-sg-gold-light transition hover:bg-sg-gold/20"
+        >
+          📄 Descargables
+        </Link>
         {completedCount > 0 && nextLessonInfo && (
           <Link
             to={`/module/${nextLessonInfo.moduleId}`}

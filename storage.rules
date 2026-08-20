@@ -53,6 +53,16 @@ service firebase.storage {
       allow write: if isAdmin();
     }
 
+    // Descargables — archivo público (PDF/doc/etc.) y portada opcional (admin upload, lectura pública)
+    match /downloadables/files/{resourceId}/{filename} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /downloadables/covers/{resourceId}/{filename} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
     // Deny everything else
     match /{allPaths=**} {
       allow read, write: if false;

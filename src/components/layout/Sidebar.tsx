@@ -30,6 +30,12 @@ export function Sidebar() {
         >
           Buscar
         </NavLink>
+        <NavLink
+          to="/descargables"
+          className={({ isActive }) => `${linkBase} ${isActive ? 'bg-sg-gold/10 text-sg-gold-light' : ''}`}
+        >
+          Descargables
+        </NavLink>
       </nav>
     </aside>
   )
