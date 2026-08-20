@@ -25,45 +25,62 @@ Las 8 imágenes de heroes/collages quedaron **aprobadas por el usuario** (estilo
 | `modules/jesus/heroes/lesson-hero-biblia-libro-mormon.webp` | E4 | Jesús con brazos abiertos ante multitud americana, estilo low-poly con rostro faceteado; ciudad-templo mesoamericana al fondo | **aprobada** | `modules/jesus/_review/lesson-hero-biblia-libro-mormon.webp` |
 | `modules/jesus/heroes/lesson-hero-circulo-de-jesus.webp` | E4 | Jesús en el centro de un círculo de discípulos diversos, estilo low-poly con rostro faceteado | **aprobada** | `modules/jesus/_review/lesson-hero-circulo-de-jesus.webp` |
 | `modules/jesus/heroes/module-conclusion.webp` | E4 | Collage de cierre: Jesús protagonista centrado en luz radiante, con viñetas de familia/sepulcro/enseñanza/camino alrededor, estilo low-poly con rostro faceteado | **aprobada** | `modules/jesus/_review/module-conclusion.webp` |
-| `modules/jesus/ui/module-icon-jesus.webp` | E4 → **rediseñado** | ~~Medallón-retrato de Jesús, estilo low-poly con rostro faceteado~~ — **rechazado por el usuario**: rompía la consistencia del set (los 6 hermanos son símbolos planos sin rostro) y perdía legibilidad a tamaño de ícono de navegación (24-32px). Reemplazado por un **cordero** (símbolo distintivo de Cristo no usado por los 6 hermanos: corona, sandalias, lámpara, libro, paloma, tumba), mismo marco de soga dorada y fondo con destello radial, sin rostro ni figura humana | generada (pendiente confirmación final) | `modules/jesus/_review/module-icon-jesus.webp` |
+| `modules/jesus/ui/module-icon-jesus.webp` | E4 → **rediseñado** | ~~Medallón-retrato de Jesús, estilo low-poly con rostro faceteado~~ — **rechazado por el usuario**: rompía la consistencia del set (los 6 hermanos son símbolos planos sin rostro) y perdía legibilidad a tamaño de ícono de navegación (24-32px). Reemplazado por un **cordero** (símbolo distintivo de Cristo no usado por los 6 hermanos: corona, sandalias, lámpara, libro, paloma, tumba), mismo marco de soga dorada y fondo con destello radial, sin rostro ni figura humana | **aprobada** | `modules/jesus/_review/module-icon-jesus.webp` |
+
+**✅ Fase 1 cerrada — 9/9 filas en estado `aprobada` (20 ago 2026).**
 
 ## Fase 2 — Set de lecciones (`modules/jesus/lessons/**`, 33 imágenes)
 
-| Archivo original | Estrategia | Concepto de reemplazo | Estado | Archivo nuevo |
+**Cambio de estrategia (20 ago 2026):** las 33 imágenes pasan de E1/E2/E3 (composición que evita el protagonismo de Cristo) a **E4** — el mismo criterio ya validado y aprobado en Fase 1: Cristo se mantiene como figura protagónica de cada escena, tal como estaba planeado en el concepto original de cada lección, renderizado en **estilo low-poly geométrico facetado** (superficies triangulares planas formando volumen y sombra, sin fotorrealismo, sin textura de piel/pelaje realista, paleta cálida dorada/tierra, iluminación radiante — facetado aplicado también a piel y rostro, no solo a ropa y fondo). No se rediseña la composición de cada escena, solo el estilo de render.
+
+| Archivo original | Estrategia | Concepto de reemplazo (escena original, Cristo protagonista, estilo E4) | Estado | Archivo nuevo |
 |---|---|---|---|---|
-| `jesus-el-hombre/01-nazaret-taller.webp` | E1 | Taller visto desde atrás de Cristo — foco en María y José al fondo, manos trabajando la madera en primer plano | pendiente | — |
-| `jesus-el-hombre/02-pozo-jacob.webp` | E1 | Plano amplio del pozo al atardecer, Cristo de espaldas/perfil lejano; la mujer acercándose es el foco | pendiente | — |
-| `jesus-el-hombre/03-tormenta-barca.webp` | E2 | La tormenta y la barca como protagonistas; Cristo como bulto envuelto/silueta durmiendo en la proa, discípulos luchando con las velas en primer plano | pendiente | — |
-| `jesus-el-hombre/04-llanto-lazaro.webp` | E1 | Grupo de espaldas/perfil ante la tumba de Lázaro; el llanto de Marta y María es el foco emocional | pendiente | — |
-| `jesus-el-hombre/05-getsemani.webp` | E1 | De espaldas, orando bajo el olivo, luz de luna (ya validado por referencia del usuario) | pendiente | — |
-| `jesus-el-cristo/01-bautismo.webp` | E2 | Cámara desde detrás de Juan el Bautista y Cristo (ambos de espaldas o muy de perfil), foco en la paloma y el rayo de luz sobre el agua | pendiente | — |
-| `jesus-el-cristo/02-transfiguracion.webp` | E2 | Foco en la luz/nube brillante en la cima del monte y las tres siluetas a contraluz (sin rasgos faciales distinguibles); discípulos tapándose los ojos en primer plano | pendiente | — |
-| `jesus-el-cristo/03-poder-sobre-muerte.webp` | E1 | Escena vista desde atrás/lateral de Cristo; foco en el rostro de asombro de María ante la tumba | pendiente | — |
-| `jesus-el-cristo/04-autoridad-ensenanza.webp` | E3 | Plano abierto de la multitud sentada en el patio del templo; Cristo como una figura más, de espaldas o muy lejana | pendiente | — |
-| `jesus-el-cristo/05-confesion-testigos.webp` | E1 | Grupo de apóstoles de frente; Cristo de espaldas/perfil, foco en la reacción de Pedro | pendiente | — |
-| `biblia-libro-mormon/03-sermon-biblia.webp` | E3 | Plano desde atrás del círculo de oyentes; Cristo como silueta lejana al centro, foco en los rostros de quienes escuchan | pendiente | — |
-| `biblia-libro-mormon/04-ensenanza-templo.webp` | E2 | Luz descendente sobre la plaza del templo americano como elemento central; multitud arrodillada reaccionando, Cristo en silueta a contraluz | pendiente | — |
-| `biblia-libro-mormon/05-abundancia.webp` | E1 | Foco en las manos extendidas de la gente recibiendo; Cristo de espaldas/perfil parcial | pendiente | — |
-| `biblia-libro-mormon/06-paralelo-ensenanzas.webp` | E3 | Círculo de discípulos visto desde atrás de Cristo, foco en el paisaje y los rostros de los oyentes | pendiente | — |
-| `circulo-de-jesus/01-familia.webp` | E1 | Patio de la casa visto de perfil/espaldas de Cristo; foco en el rostro sonriente de la mujer | pendiente | — |
-| `circulo-de-jesus/02-llamamiento-pescadores.webp` | E1 | Misma orilla, Cristo de espaldas mirando hacia el mar/barca; foco en los pescadores reaccionando | pendiente | — |
-| `circulo-de-jesus/03-mujeres-discipulas.webp` | E3 | Círculo de mujeres visto desde atrás de Cristo, foco en sus rostros | pendiente | — |
-| `circulo-de-jesus/04-betania.webp` | E1 | Escena de sobremesa vista de perfil lejano/espaldas; foco en la fruta compartida y los rostros de los anfitriones | pendiente | — |
-| `circulo-de-jesus/05-nicodemo.webp` | E2 | Nocturna con la ciudad iluminada de fondo; Cristo en silueta a contraluz de la luna, foco en el rostro pensativo de Nicodemo | pendiente | — |
-| `circulo-de-jesus/06-nefitas.webp` | E3 | Multitud reunida vista desde atrás; Cristo como silueta lejana entre el grupo, luz irradiando desde el centro | pendiente | — |
-| `yo-soy/01-pan-de-vida.webp` | E1 | Círculo de discípulos junto al lago, Cristo de espaldas/perfil, foco en la canasta de pan y peces | pendiente | — |
-| `yo-soy/02-luz-del-mundo.webp` | E2 | Interior nocturno con lámparas encendidas como protagonistas; Cristo en silueta a contraluz de la ventana | pendiente | — |
-| `yo-soy/03-la-puerta.webp` | E1 | Redil y puerta de madera como centro de la composición; Cristo de espaldas junto a la puerta, ovejas como foco | pendiente | — |
-| `yo-soy/04-buen-pastor.webp` | E2 | Oveja en brazos y cayado como elemento central; Cristo de espaldas/perfil parcial mirando el rebaño | pendiente | — |
-| `yo-soy/05-resurreccion-y-vida.webp` | E1 | Tumba y flores en primer plano; Cristo de espaldas/perfil hablando con las mujeres | pendiente | — |
-| `yo-soy/06-camino-verdad-vida.webp` | E3 | Multitud vista desde atrás de Cristo, camino y templo al fondo como elementos centrales | pendiente | — |
-| `yo-soy/07-vid-verdadera.webp` | E2 | Viñedo con uvas en primer plano como protagonista; Cristo de espaldas/perfil señalando la vid | pendiente | — |
-| `yo-soy/08-antes-de-abraham.webp` | E1 | Plaza del templo vista de perfil lejano; foco en los sacerdotes/ancianos reaccionando | pendiente | — |
-| `resurreccion/01-sepultura.webp` | E2 | Foco en el lienzo y las manos de José de Arimatea/Nicodemo envolviendo el cuerpo; rostro de Cristo fuera de cuadro o cubierto por el lienzo | pendiente | — |
-| `resurreccion/04-maria-magdalena.webp` | E1 | Jardín del sepulcro visto de espaldas/perfil de Cristo; foco total en el rostro de asombro de María | pendiente | — |
-| `resurreccion/06-emaus.webp` | E3 | Camino visto desde atrás de los tres caminantes; Cristo como una figura más entre los discípulos, sin ser el foco | pendiente | — |
-| `resurreccion/07-aparicion-discipulos.webp` | E1 | Interior en penumbra, Cristo de espaldas/perfil lejano hablando a los discípulos sentados (ya validado por referencia del usuario) | pendiente | — |
-| `resurreccion/08-tomas.webp` | E2 | Foco en la mano de Tomás tocando la herida; Cristo de perfil parcial o con el rostro fuera de cuadro | pendiente | — |
+| `jesus-el-hombre/01-nazaret-taller.webp` | E4 | Jesús joven en el taller de carpintería de Nazaret, con José y María cerca | pendiente | — |
+| `jesus-el-hombre/02-pozo-jacob.webp` | E4 | Jesús conversando con la mujer samaritana junto al pozo de Jacob | pendiente | — |
+| `jesus-el-hombre/03-tormenta-barca.webp` | E4 | Jesús calmando la tormenta en la barca, junto a los discípulos | pendiente | — |
+| `jesus-el-hombre/04-llanto-lazaro.webp` | E4 | Jesús llorando ante la tumba de Lázaro, con Marta y María | pendiente | — |
+| `jesus-el-hombre/05-getsemani.webp` | E4 | Jesús orando en el huerto de Getsemaní — **muestra piloto** (ver abajo) | en generación (muestra) | — |
+| `jesus-el-cristo/01-bautismo.webp` | E4 | El bautismo de Jesús por Juan el Bautista en el Jordán, paloma y luz descendiendo | pendiente | — |
+| `jesus-el-cristo/02-transfiguracion.webp` | E4 | La transfiguración de Jesús en el monte, ante Pedro, Santiago y Juan | pendiente | — |
+| `jesus-el-cristo/03-poder-sobre-muerte.webp` | E4 | Jesús mostrando poder sobre la muerte (resurrección de Lázaro) | pendiente | — |
+| `jesus-el-cristo/04-autoridad-ensenanza.webp` | E4 | Jesús enseñando con autoridad a la multitud | pendiente | — |
+| `jesus-el-cristo/05-confesion-testigos.webp` | E4 | Pedro confesando que Jesús es el Cristo | pendiente | — |
+| `biblia-libro-mormon/03-sermon-biblia.webp` | E4 | Jesús enseñando el Sermón del Monte | pendiente | — |
+| `biblia-libro-mormon/04-ensenanza-templo.webp` | E4 | Jesús enseñando a la multitud nefita en el templo americano — **muestra piloto** (ver abajo) | en generación (muestra) | — |
+| `biblia-libro-mormon/05-abundancia.webp` | E4 | Jesús bendiciendo y sanando en abundancia entre el pueblo nefita | pendiente | — |
+| `biblia-libro-mormon/06-paralelo-ensenanzas.webp` | E4 | Jesús enseñando — paralelo entre sus enseñanzas bíblicas y del Libro de Mormón | pendiente | — |
+| `circulo-de-jesus/01-familia.webp` | E4 | Jesús en el círculo familiar, con María | pendiente | — |
+| `circulo-de-jesus/02-llamamiento-pescadores.webp` | E4 | Jesús llamando a Pedro y Andrés a ser pescadores de hombres | pendiente | — |
+| `circulo-de-jesus/03-mujeres-discipulas.webp` | E4 | Jesús con sus discípulas mujeres | pendiente | — |
+| `circulo-de-jesus/04-betania.webp` | E4 | Jesús en la casa de Betania, con Marta, María y Lázaro | pendiente | — |
+| `circulo-de-jesus/05-nicodemo.webp` | E4 | Jesús conversando de noche con Nicodemo | pendiente | — |
+| `circulo-de-jesus/06-nefitas.webp` | E4 | Jesús con los discípulos nefitas | pendiente | — |
+| `yo-soy/01-pan-de-vida.webp` | E4 | Jesús como el Pan de Vida, con la multitud | pendiente | — |
+| `yo-soy/02-luz-del-mundo.webp` | E4 | Jesús como la Luz del Mundo, escena nocturna con lámparas — **muestra piloto** (ver abajo) | en generación (muestra) | — |
+| `yo-soy/03-la-puerta.webp` | E4 | Jesús como la Puerta, junto al redil | pendiente | — |
+| `yo-soy/04-buen-pastor.webp` | E4 | Jesús como el Buen Pastor, con el rebaño | pendiente | — |
+| `yo-soy/05-resurreccion-y-vida.webp` | E4 | Jesús como la Resurrección y la Vida, junto al sepulcro | pendiente | — |
+| `yo-soy/06-camino-verdad-vida.webp` | E4 | Jesús como el Camino, la Verdad y la Vida | pendiente | — |
+| `yo-soy/07-vid-verdadera.webp` | E4 | Jesús como la Vid Verdadera, en el viñedo | pendiente | — |
+| `yo-soy/08-antes-de-abraham.webp` | E4 | Jesús declarando "antes que Abraham fuese, yo soy" | pendiente | — |
+| `resurreccion/01-sepultura.webp` | E4 | La sepultura de Jesús | pendiente | — |
+| `resurreccion/04-maria-magdalena.webp` | E4 | Jesús resucitado apareciendo a María Magdalena | pendiente | — |
+| `resurreccion/06-emaus.webp` | E4 | Jesús caminando con los discípulos camino a Emaús — **muestra piloto** (ver abajo) | en generación (muestra) | — |
+| `resurreccion/07-aparicion-discipulos.webp` | E4 | Jesús apareciendo a los discípulos | pendiente | — |
+| `resurreccion/08-tomas.webp` | E4 | Jesús mostrando sus heridas a Tomás | pendiente | — |
+
+### Muestra piloto (4 de 33) — validación de consistencia antes de escalar
+
+Cubren las 4 variantes de escena pedidas (interior, multitud, paisaje, close-up) en 4 módulos distintos:
+
+| Archivo | Módulo | Tipo de escena |
+|---|---|---|
+| `jesus-el-hombre/05-getsemani.webp` | Jesús el Hombre | Close-up / íntimo |
+| `biblia-libro-mormon/04-ensenanza-templo.webp` | Biblia/Libro de Mormón | Multitud |
+| `yo-soy/02-luz-del-mundo.webp` | Yo Soy | Interior |
+| `resurreccion/06-emaus.webp` | Resurrección | Paisaje |
+
+Prompts entregados al usuario para generación externa — ver mensaje de la conversación. Pendientes de recibir los 4 archivos generados para cargarlos en `_review/` y validar consistencia de estilo.
 
 **Total: 9 (Fase 1) + 33 (Fase 2) = 42 imágenes.**
 
