@@ -220,5 +220,33 @@ service cloud.firestore {
         request.resource.data.createdAt == request.time;
       allow update, delete: if false;
     }
+
+    // Donaciones ("invítame una manzana"): el cliente nunca escribe aquí
+    // directamente — solo el webhook de Stripe (Cloud Function con Admin
+    // SDK, que ignora estas reglas) crea/actualiza estos documentos.
+    match /donations/{donationId} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+
+    // Proyección pública del cuadro de honor de donadores (sin monto ni
+    // email). Escrita solo por el webhook.
+    match /donorWall/{entryId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Deduplicación de reintentos de webhooks de Stripe — uso interno del
+    // Admin SDK únicamente.
+    match /processedWebhookEvents/{eventId} {
+      allow read, write: if false;
+    }
+
+    // Índice stripeSubscriptionId -> donationId, para ubicar la donación
+    // mensual cuando llega un evento de actualización/cancelación de la
+    // suscripción. Uso interno del Admin SDK únicamente.
+    match /donations_bySubscription/{subscriptionId} {
+      allow read, write: if false;
+    }
   }
 }

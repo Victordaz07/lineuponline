@@ -5,11 +5,14 @@ import { getAuth, type DecodedIdToken } from 'firebase-admin/auth'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import OpenAI from 'openai'
 import Anthropic from '@anthropic-ai/sdk'
+import Stripe from 'stripe'
 
 if (getApps().length === 0) initializeApp()
 
 const openaiKey = defineSecret('OPENAI_API_KEY')
 const anthropicKey = defineSecret('ANTHROPIC_API_KEY')
+const stripeSecretKey = defineSecret('STRIPE_SECRET_KEY')
+const stripeWebhookSecret = defineSecret('STRIPE_WEBHOOK_SECRET')
 
 /** Misma allowlist que firestore.rules / src/config/admin.ts — Cloud Functions no tiene acceso directo a esas reglas. */
 const PRIMARY_ADMIN_UIDS = ['rrl3eojMMthlp6P6PjQDFIWo9Qg2', 'O2ttkJj8VlNLT26Z5OhTRwL8nqK2']
@@ -514,5 +517,264 @@ export const publishToYouTube = onRequest(
     res.status(501).json({
       error: 'publishToYouTube not implemented: missing YouTube Data API OAuth credentials',
     })
+  },
+)
+
+// --- Donaciones ("invítame una manzana") ---------------------------------
+// Checkout hosteado por Stripe: el cliente nunca carga Stripe.js, solo pide
+// una URL de sesión y redirige. El monto es elegido por el donador, así que
+// se usa price_data dinámico en vez de un Price ID fijo.
+
+const DONATION_MIN_CENTS = 50
+const DONATION_MAX_CENTS = 100_000_000
+
+function trimCap(value: unknown, max: number): string {
+  return typeof value === 'string' ? value.trim().slice(0, max) : ''
+}
+
+export const createDonationCheckoutSession = onRequest(
+  {
+    secrets: [stripeSecretKey],
+    cors: ALLOWED_ORIGINS,
+    invoker: 'public',
+    region: 'us-central1',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+  },
+  async (req, res) => {
+    if (req.method === 'OPTIONS') {
+      res.status(204).send('')
+      return
+    }
+    if (req.method !== 'POST') {
+      res.status(405).json({ error: 'Method not allowed' })
+      return
+    }
+
+    const body = req.body as {
+      amountCents?: number
+      frequency?: string
+      isAnonymous?: boolean
+      donorName?: string
+      donorCity?: string
+      donorState?: string
+      donorCountry?: string
+    }
+
+    const amountCents = Number(body.amountCents)
+    if (!Number.isInteger(amountCents) || amountCents < DONATION_MIN_CENTS || amountCents > DONATION_MAX_CENTS) {
+      res.status(400).json({ error: `amountCents debe ser un entero entre ${DONATION_MIN_CENTS} y ${DONATION_MAX_CENTS}` })
+      return
+    }
+
+    const frequency = body.frequency === 'monthly' ? 'monthly' : body.frequency === 'one_time' ? 'one_time' : null
+    if (!frequency) {
+      res.status(400).json({ error: 'frequency debe ser "one_time" o "monthly"' })
+      return
+    }
+
+    const isAnonymous = body.isAnonymous === true
+    const donorName = isAnonymous ? '' : trimCap(body.donorName, 120)
+    const donorCity = isAnonymous ? '' : trimCap(body.donorCity, 120)
+    const donorState = isAnonymous ? '' : trimCap(body.donorState, 120)
+    const donorCountry = isAnonymous ? '' : trimCap(body.donorCountry, 120)
+
+    const origin = req.headers.origin
+    const baseUrl = origin && ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0]
+    const metadata = { isAnonymous: String(isAnonymous), donorName, donorCity, donorState, donorCountry }
+
+    try {
+      const stripe = new Stripe(stripeSecretKey.value())
+
+      const session =
+        frequency === 'monthly'
+          ? await stripe.checkout.sessions.create({
+              mode: 'subscription',
+              line_items: [
+                {
+                  price_data: {
+                    currency: 'usd',
+                    unit_amount: amountCents,
+                    recurring: { interval: 'month' },
+                    product_data: { name: 'Donación mensual — Seeker Gospel' },
+                  },
+                  quantity: 1,
+                },
+              ],
+              success_url: `${baseUrl}/apoyanos?status=success`,
+              cancel_url: `${baseUrl}/apoyanos?status=canceled`,
+              metadata,
+            })
+          : await stripe.checkout.sessions.create({
+              mode: 'payment',
+              line_items: [
+                {
+                  price_data: {
+                    currency: 'usd',
+                    unit_amount: amountCents,
+                    product_data: { name: 'Donación — Seeker Gospel' },
+                  },
+                  quantity: 1,
+                },
+              ],
+              success_url: `${baseUrl}/apoyanos?status=success`,
+              cancel_url: `${baseUrl}/apoyanos?status=canceled`,
+              metadata,
+            })
+
+      if (!session.url) {
+        res.status(500).json({ error: 'Stripe no devolvió una URL de checkout' })
+        return
+      }
+      res.json({ url: session.url })
+    } catch (err) {
+      console.error('createDonationCheckoutSession error:', err)
+      res.status(500).json({ error: 'No se pudo crear la sesión de pago' })
+    }
+  },
+)
+
+function donorDisplayName(isAnonymous: boolean, donorName: string | null): string {
+  if (isAnonymous) return 'Anónimo'
+  return donorName?.trim() || 'Anónimo'
+}
+
+function donorLocationLabel(
+  isAnonymous: boolean,
+  city: string | null,
+  state: string | null,
+  country: string | null,
+): string | null {
+  if (isAnonymous) return null
+  const parts = [city, state, country].map((p) => p?.trim()).filter((p): p is string => Boolean(p))
+  return parts.length > 0 ? parts.join(', ') : null
+}
+
+async function handleCheckoutCompleted(
+  db: FirebaseFirestore.Firestore,
+  session: Stripe.Checkout.Session,
+): Promise<void> {
+  const metadata = session.metadata ?? {}
+  const isAnonymous = metadata.isAnonymous === 'true'
+  const donorName = metadata.donorName || null
+  const donorCity = metadata.donorCity || null
+  const donorState = metadata.donorState || null
+  const donorCountry = metadata.donorCountry || null
+  const frequency: 'one_time' | 'monthly' = session.mode === 'subscription' ? 'monthly' : 'one_time'
+  const subscriptionId = typeof session.subscription === 'string' ? session.subscription : null
+
+  const donationRef = db.collection('donations').doc()
+  await donationRef.set({
+    stripeCheckoutSessionId: session.id,
+    stripeCustomerId: typeof session.customer === 'string' ? session.customer : null,
+    stripeSubscriptionId: subscriptionId,
+    stripePaymentIntentId: typeof session.payment_intent === 'string' ? session.payment_intent : null,
+    frequency,
+    amountCents: session.amount_total ?? 0,
+    currency: 'usd',
+    status: 'completed',
+    isAnonymous,
+    donorName,
+    donorCity,
+    donorState,
+    donorCountry,
+    donorEmail: session.customer_details?.email ?? null,
+    createdAt: FieldValue.serverTimestamp(),
+    updatedAt: FieldValue.serverTimestamp(),
+  })
+
+  await db.collection('donorWall').doc(donationRef.id).set({
+    frequency,
+    isAnonymous,
+    displayName: donorDisplayName(isAnonymous, donorName),
+    location: donorLocationLabel(isAnonymous, donorCity, donorState, donorCountry),
+    status: 'completed',
+    createdAt: FieldValue.serverTimestamp(),
+  })
+
+  // Índice para poder ubicar la donación mensual cuando llegue un evento
+  // de actualización/cancelación de la suscripción (que solo trae el id
+  // de la suscripción, no el de la sesión de checkout original).
+  if (subscriptionId) {
+    await db.collection('donations_bySubscription').doc(subscriptionId).set({ donationId: donationRef.id })
+  }
+}
+
+async function handleSubscriptionChange(
+  db: FirebaseFirestore.Firestore,
+  subscription: Stripe.Subscription,
+): Promise<void> {
+  const indexSnap = await db.collection('donations_bySubscription').doc(subscription.id).get()
+  if (!indexSnap.exists) return
+  const donationId = indexSnap.data()?.donationId as string | undefined
+  if (!donationId) return
+
+  const status: 'completed' | 'canceled' | 'past_due' =
+    subscription.status === 'active' || subscription.status === 'trialing'
+      ? 'completed'
+      : subscription.status === 'past_due'
+        ? 'past_due'
+        : 'canceled'
+
+  await db.collection('donations').doc(donationId).update({ status, updatedAt: FieldValue.serverTimestamp() })
+  await db.collection('donorWall').doc(donationId).update({ status })
+}
+
+/** Webhook de Stripe — servidor a servidor, sin CORS. Nunca confiar en un
+ *  "pago exitoso" reportado por el cliente: la única fuente de verdad es
+ *  este evento con firma verificada. */
+export const stripeWebhook = onRequest(
+  {
+    secrets: [stripeSecretKey, stripeWebhookSecret],
+    invoker: 'public',
+    region: 'us-central1',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+  },
+  async (req, res) => {
+    if (req.method !== 'POST') {
+      res.status(405).send('Method not allowed')
+      return
+    }
+
+    const sig = req.headers['stripe-signature']
+    if (!sig || typeof sig !== 'string') {
+      res.status(400).send('Missing Stripe-Signature header')
+      return
+    }
+
+    const stripe = new Stripe(stripeSecretKey.value())
+    let event: Stripe.Event
+    try {
+      event = stripe.webhooks.constructEvent(req.rawBody, sig, stripeWebhookSecret.value())
+    } catch (err) {
+      console.error('Stripe webhook signature verification failed:', err)
+      res.status(400).send('Invalid signature')
+      return
+    }
+
+    const db = getFirestore()
+    const processedRef = db.collection('processedWebhookEvents').doc(event.id)
+    const processedSnap = await processedRef.get()
+    if (processedSnap.exists) {
+      // Stripe puede reenviar eventos — evita aplicar el efecto dos veces.
+      res.json({ received: true, deduped: true })
+      return
+    }
+
+    try {
+      if (event.type === 'checkout.session.completed') {
+        await handleCheckoutCompleted(db, event.data.object as Stripe.Checkout.Session)
+      } else if (event.type === 'customer.subscription.updated' || event.type === 'customer.subscription.deleted') {
+        await handleSubscriptionChange(db, event.data.object as Stripe.Subscription)
+      }
+      await processedRef.set({ processedAt: FieldValue.serverTimestamp(), type: event.type })
+    } catch (err) {
+      console.error('Stripe webhook handling error:', err)
+      res.status(500).send('Webhook handler failed')
+      return
+    }
+
+    res.json({ received: true })
   },
 )

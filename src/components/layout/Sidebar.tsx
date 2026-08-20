@@ -36,6 +36,12 @@ export function Sidebar() {
         >
           Descargables
         </NavLink>
+        <NavLink
+          to="/apoyanos"
+          className={({ isActive }) => `${linkBase} ${isActive ? 'bg-sg-gold/10 text-sg-gold-light' : ''}`}
+        >
+          Apóyanos 🍎
+        </NavLink>
       </nav>
     </aside>
   )

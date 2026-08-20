@@ -12,6 +12,7 @@ interface ImportMetaEnv {
   readonly VITE_TTS_FUNCTION_URL?: string
   readonly VITE_SQ_FUNCTION_URL?: string
   readonly VITE_ANTHROPIC_API_KEY?: string
+  readonly VITE_DONATION_CHECKOUT_FUNCTION_URL?: string
 }
 
 interface ImportMeta {

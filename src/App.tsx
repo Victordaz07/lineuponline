@@ -31,6 +31,7 @@ const MusicPage = lazy(() => import('@/pages/MusicPage'))
 const DescargablesPage = lazy(() => import('@/pages/DescargablesPage'))
 const DescargableDetailPage = lazy(() => import('@/pages/DescargableDetailPage'))
 const DescargablesAdminPage = lazy(() => import('@/pages/DescargablesAdminPage'))
+const ApoyanosPage = lazy(() => import('@/pages/ApoyanosPage'))
 
 // Música (álbumes + canciones de YouTube) — feature independiente del pipeline de IA de arriba
 const DiscographyPage = lazy(() => import('@/features/discography/pages/DiscographyPage'))
@@ -90,6 +91,7 @@ function AppRoutes() {
             <Route path="/descargables" element={<DescargablesPage />} />
             <Route path="/descargables/:id" element={<DescargableDetailPage />} />
             <Route path="/admin/descargables" element={<DescargablesAdminPage />} />
+            <Route path="/apoyanos" element={<ApoyanosPage />} />
 
             {/* Música — álbumes + canciones de YouTube */}
             <Route path="/musica" element={<DiscographyPage />} />

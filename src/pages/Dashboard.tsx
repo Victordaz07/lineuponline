@@ -178,6 +178,12 @@ export default function Dashboard() {
         >
           📄 Descargables
         </Link>
+        <Link
+          to="/apoyanos"
+          className="flex items-center gap-2 rounded-full border border-jade/40 bg-jade/15 px-4 py-2 font-ui text-sm font-semibold text-jade transition hover:bg-jade/25"
+        >
+          🍎 Apóyanos
+        </Link>
         {completedCount > 0 && nextLessonInfo && (
           <Link
             to={`/module/${nextLessonInfo.moduleId}`}
