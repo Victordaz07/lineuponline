@@ -2,26 +2,28 @@
 
 Imágenes generadas por IA que muestran el rostro de Jesucristo de forma realista y protagónica. Este documento es la fuente de verdad de qué imagen reemplaza a cuál, con qué estrategia y en qué estado está cada reemplazo. No reemplaza al catálogo de prompts original (no encontrado en este repositorio) — es una sección separada, específica de esta corrección de cumplimiento.
 
-**Estrategias de reemplazo:**
+**Estrategias de reemplazo (Fase 2 — set de 33, aún sin generar):**
 - **E1 — De espaldas / perfil lejano:** misma escena, cámara detrás o al lado de Cristo, foco en quienes lo escuchan/observan.
 - **E2 — Símbolo central:** reemplaza la figura de Cristo por el elemento simbólico de la escena, con las demás personas reaccionando hacia ese punto fuera de cuadro.
 - **E3 — Grupo sin protagonista dominante:** Cristo permanece en el grupo pero como una figura más, sin ser el punto focal.
 
+**Estrategia real usada en Fase 1 — E4 (cambio de estilo, no de composición):** en vez de evitar el protagonismo de Cristo (E1/E2/E3), las 9 imágenes de Fase 1 se generaron en **estilo low-poly/semi-toon** (facetado geométrico triangular aplicado también al rostro y la piel, no solo a ropa/fondo), apoyándose en el criterio de calibración del usuario: una imagen estilizada que no busca parecer una fotografía real no aplica al hallazgo #3, incluso si Cristo es protagonista con el rostro visible. Cada imagen fue verificada visualmente confirmando faceteado facial fuerte y consistente con el resto de la composición antes de aprobarse. Ver hilo de la conversación para el detalle de las iteraciones de prompt que llevaron a este criterio.
+
 **Estados posibles:** `pendiente` · `generada` · `aprobada` · `descartada`
 
-## Fase 1 — Máxima visibilidad (heroes + ícono de módulo)
+## Fase 1 — Máxima visibilidad (heroes + ícono de módulo) — ✅ generadas (E4, low-poly/semi-toon)
 
 | Archivo original | Estrategia | Concepto de reemplazo | Estado | Archivo nuevo |
 |---|---|---|---|---|
-| `modules/jesus/heroes/module-hero-jesus.webp` | E2 | Composición simbólica: mar de Galilea al atardecer, una barca, el camino — sin figura protagónica de Cristo; la multitud de discípulos como foco | pendiente | — |
-| `modules/jesus/heroes/lesson-hero-jesus-el-cristo.webp` | E1/E2 | Escena de perfil lejano o símbolo central (agua + luz) en vez de retrato | pendiente | — |
-| `modules/jesus/heroes/lesson-hero-jesus-el-hombre.webp` | E1 | Calle de Nazaret vista de espaldas/perfil, foco en la gente del pueblo | pendiente | — |
-| `modules/jesus/heroes/lesson-hero-resurreccion.webp` | E2 | Sepulcro vacío y flores como protagonistas, sin retrato | pendiente | — |
-| `modules/jesus/heroes/lesson-hero-yo-soy.webp` | E2 | Collage reconstruido con los símbolos (pan, puerta, lámpara, vid, oveja) sin el retrato central | pendiente | — |
-| `modules/jesus/heroes/lesson-hero-biblia-libro-mormon.webp` | E1 | Multitud americana vista de espaldas/perfil, templo/pirámide como fondo protagonista | pendiente | — |
-| `modules/jesus/heroes/lesson-hero-circulo-de-jesus.webp` | E3 | Círculo de discípulos visto desde atrás, sin retrato central | pendiente | — |
-| `modules/jesus/heroes/module-conclusion.webp` | E2 | Rediseñar el collage: sustituir el retrato central por un símbolo unificador (luz irradiando desde un punto, o el camino/sendero) | pendiente | — |
-| `modules/jesus/ui/module-icon-jesus.webp` | E2 | Ícono circular no figurativo: símbolo (cordero, luz, cruz vacía estilizada, corona de espinas, o elemento a tono con `module-pattern.webp`) — máxima prioridad por su alcance en navegación | pendiente | — |
+| `modules/jesus/heroes/module-hero-jesus.webp` | E4 | Jesús en la orilla del mar de Galilea al atardecer, protagonista, estilo low-poly con rostro faceteado; barca y discípulos al fondo | generada | `modules/jesus/_review/module-hero-jesus.webp` |
+| `modules/jesus/heroes/lesson-hero-jesus-el-cristo.webp` | E4 | Jesús de pie en sendero al amanecer, mano extendida, estilo low-poly con rostro faceteado; templo y río al fondo | generada | `modules/jesus/_review/lesson-hero-jesus-el-cristo.webp` |
+| `modules/jesus/heroes/lesson-hero-jesus-el-hombre.webp` | E4 | Jesús caminando por una calle de Nazaret saludando a un niño y vecinos, estilo low-poly con rostro faceteado | generada | `modules/jesus/_review/lesson-hero-jesus-el-hombre.webp` |
+| `modules/jesus/heroes/lesson-hero-resurreccion.webp` | E4 | Cristo resucitado junto al sepulcro abierto, hablando con discípulos y una mujer, estilo low-poly con rostro faceteado | generada | `modules/jesus/_review/lesson-hero-resurreccion.webp` |
+| `modules/jesus/heroes/lesson-hero-yo-soy.webp` | E4 | Collage circular de los 7 símbolos "Yo Soy" alrededor de Jesús protagonista, estilo low-poly con rostro faceteado (regenerada tras primer intento con rostro demasiado suave) | generada | `modules/jesus/_review/lesson-hero-yo-soy.webp` |
+| `modules/jesus/heroes/lesson-hero-biblia-libro-mormon.webp` | E4 | Jesús con brazos abiertos ante multitud americana, estilo low-poly con rostro faceteado; ciudad-templo mesoamericana al fondo | generada | `modules/jesus/_review/lesson-hero-biblia-libro-mormon.webp` |
+| `modules/jesus/heroes/lesson-hero-circulo-de-jesus.webp` | E4 | Jesús en el centro de un círculo de discípulos diversos, estilo low-poly con rostro faceteado | generada | `modules/jesus/_review/lesson-hero-circulo-de-jesus.webp` |
+| `modules/jesus/heroes/module-conclusion.webp` | E4 | Collage de cierre: Jesús protagonista centrado en luz radiante, con viñetas de familia/sepulcro/enseñanza/camino alrededor, estilo low-poly con rostro faceteado | generada | `modules/jesus/_review/module-conclusion.webp` |
+| `modules/jesus/ui/module-icon-jesus.webp` | E4 | Medallón circular con retrato de Jesús, mismo borde dorado que los íconos hermanos, estilo low-poly con rostro faceteado. **Nota de consistencia (no de cumplimiento):** los otros 6 íconos de lección son símbolos planos sin rostro humano (corona, sandalias, lámpara, libro, paloma, tumba) — este medallón-retrato es un salto de estilo dentro del mismo set, a evaluar antes de reemplazar el original. | generada | `modules/jesus/_review/module-icon-jesus.webp` |
 
 ## Fase 2 — Set de lecciones (`modules/jesus/lessons/**`, 33 imágenes)
 
