@@ -11,19 +11,21 @@ Imágenes generadas por IA que muestran el rostro de Jesucristo de forma realist
 
 **Estados posibles:** `pendiente` · `generada` · `aprobada` · `descartada`
 
-## Fase 1 — Máxima visibilidad (heroes + ícono de módulo) — ✅ generadas (E4, low-poly/semi-toon)
+## Fase 1 — Máxima visibilidad (heroes + ícono de módulo)
+
+Las 8 imágenes de heroes/collages quedaron **aprobadas por el usuario** (estilo E4, low-poly/semi-toon). El ícono de módulo fue **rechazado** en su primera versión (retrato) y regenerado como símbolo (cordero) — ver fila final.
 
 | Archivo original | Estrategia | Concepto de reemplazo | Estado | Archivo nuevo |
 |---|---|---|---|---|
-| `modules/jesus/heroes/module-hero-jesus.webp` | E4 | Jesús en la orilla del mar de Galilea al atardecer, protagonista, estilo low-poly con rostro faceteado; barca y discípulos al fondo | generada | `modules/jesus/_review/module-hero-jesus.webp` |
-| `modules/jesus/heroes/lesson-hero-jesus-el-cristo.webp` | E4 | Jesús de pie en sendero al amanecer, mano extendida, estilo low-poly con rostro faceteado; templo y río al fondo | generada | `modules/jesus/_review/lesson-hero-jesus-el-cristo.webp` |
-| `modules/jesus/heroes/lesson-hero-jesus-el-hombre.webp` | E4 | Jesús caminando por una calle de Nazaret saludando a un niño y vecinos, estilo low-poly con rostro faceteado | generada | `modules/jesus/_review/lesson-hero-jesus-el-hombre.webp` |
-| `modules/jesus/heroes/lesson-hero-resurreccion.webp` | E4 | Cristo resucitado junto al sepulcro abierto, hablando con discípulos y una mujer, estilo low-poly con rostro faceteado | generada | `modules/jesus/_review/lesson-hero-resurreccion.webp` |
-| `modules/jesus/heroes/lesson-hero-yo-soy.webp` | E4 | Collage circular de los 7 símbolos "Yo Soy" alrededor de Jesús protagonista, estilo low-poly con rostro faceteado (regenerada tras primer intento con rostro demasiado suave) | generada | `modules/jesus/_review/lesson-hero-yo-soy.webp` |
-| `modules/jesus/heroes/lesson-hero-biblia-libro-mormon.webp` | E4 | Jesús con brazos abiertos ante multitud americana, estilo low-poly con rostro faceteado; ciudad-templo mesoamericana al fondo | generada | `modules/jesus/_review/lesson-hero-biblia-libro-mormon.webp` |
-| `modules/jesus/heroes/lesson-hero-circulo-de-jesus.webp` | E4 | Jesús en el centro de un círculo de discípulos diversos, estilo low-poly con rostro faceteado | generada | `modules/jesus/_review/lesson-hero-circulo-de-jesus.webp` |
-| `modules/jesus/heroes/module-conclusion.webp` | E4 | Collage de cierre: Jesús protagonista centrado en luz radiante, con viñetas de familia/sepulcro/enseñanza/camino alrededor, estilo low-poly con rostro faceteado | generada | `modules/jesus/_review/module-conclusion.webp` |
-| `modules/jesus/ui/module-icon-jesus.webp` | E4 | Medallón circular con retrato de Jesús, mismo borde dorado que los íconos hermanos, estilo low-poly con rostro faceteado. **Nota de consistencia (no de cumplimiento):** los otros 6 íconos de lección son símbolos planos sin rostro humano (corona, sandalias, lámpara, libro, paloma, tumba) — este medallón-retrato es un salto de estilo dentro del mismo set, a evaluar antes de reemplazar el original. | generada | `modules/jesus/_review/module-icon-jesus.webp` |
+| `modules/jesus/heroes/module-hero-jesus.webp` | E4 | Jesús en la orilla del mar de Galilea al atardecer, protagonista, estilo low-poly con rostro faceteado; barca y discípulos al fondo | **aprobada** | `modules/jesus/_review/module-hero-jesus.webp` |
+| `modules/jesus/heroes/lesson-hero-jesus-el-cristo.webp` | E4 | Jesús de pie en sendero al amanecer, mano extendida, estilo low-poly con rostro faceteado; templo y río al fondo | **aprobada** | `modules/jesus/_review/lesson-hero-jesus-el-cristo.webp` |
+| `modules/jesus/heroes/lesson-hero-jesus-el-hombre.webp` | E4 | Jesús caminando por una calle de Nazaret saludando a un niño y vecinos, estilo low-poly con rostro faceteado | **aprobada** | `modules/jesus/_review/lesson-hero-jesus-el-hombre.webp` |
+| `modules/jesus/heroes/lesson-hero-resurreccion.webp` | E4 | Cristo resucitado junto al sepulcro abierto, hablando con discípulos y una mujer, estilo low-poly con rostro faceteado | **aprobada** | `modules/jesus/_review/lesson-hero-resurreccion.webp` |
+| `modules/jesus/heroes/lesson-hero-yo-soy.webp` | E4 | Collage circular de los 7 símbolos "Yo Soy" alrededor de Jesús protagonista, estilo low-poly con rostro faceteado (regenerada tras primer intento con rostro demasiado suave) | **aprobada** | `modules/jesus/_review/lesson-hero-yo-soy.webp` |
+| `modules/jesus/heroes/lesson-hero-biblia-libro-mormon.webp` | E4 | Jesús con brazos abiertos ante multitud americana, estilo low-poly con rostro faceteado; ciudad-templo mesoamericana al fondo | **aprobada** | `modules/jesus/_review/lesson-hero-biblia-libro-mormon.webp` |
+| `modules/jesus/heroes/lesson-hero-circulo-de-jesus.webp` | E4 | Jesús en el centro de un círculo de discípulos diversos, estilo low-poly con rostro faceteado | **aprobada** | `modules/jesus/_review/lesson-hero-circulo-de-jesus.webp` |
+| `modules/jesus/heroes/module-conclusion.webp` | E4 | Collage de cierre: Jesús protagonista centrado en luz radiante, con viñetas de familia/sepulcro/enseñanza/camino alrededor, estilo low-poly con rostro faceteado | **aprobada** | `modules/jesus/_review/module-conclusion.webp` |
+| `modules/jesus/ui/module-icon-jesus.webp` | E4 → **rediseñado** | ~~Medallón-retrato de Jesús, estilo low-poly con rostro faceteado~~ — **rechazado por el usuario**: rompía la consistencia del set (los 6 hermanos son símbolos planos sin rostro) y perdía legibilidad a tamaño de ícono de navegación (24-32px). Reemplazado por un **cordero** (símbolo distintivo de Cristo no usado por los 6 hermanos: corona, sandalias, lámpara, libro, paloma, tumba), mismo marco de soga dorada y fondo con destello radial, sin rostro ni figura humana | generada (pendiente confirmación final) | `modules/jesus/_review/module-icon-jesus.webp` |
 
 ## Fase 2 — Set de lecciones (`modules/jesus/lessons/**`, 33 imágenes)
 
