@@ -6,10 +6,11 @@ import { AdminStats } from '@/components/admin/AdminStats'
 import { MessageQueue } from '@/components/admin/MessageQueue'
 import { AnnouncementManager } from '@/components/admin/AnnouncementManager'
 import { AnalyticsDashboard } from '@/components/admin/AnalyticsDashboard'
+import { DownloadAnalyticsDashboard } from '@/components/admin/DownloadAnalyticsDashboard'
 import { subscribeAllMessages } from '@/services/community.service'
 import type { CommunityMessage } from '@/types/community'
 
-type TabId = 'messages' | 'announcements' | 'metrics'
+type TabId = 'messages' | 'announcements' | 'metrics' | 'downloads'
 
 export default function AdminPage() {
   const { user, authLoading } = useAuth()
@@ -33,6 +34,7 @@ export default function AdminPage() {
     { id: 'messages', label: `Mensajes (${messages.filter((m) => m.status === 'pending').length})` },
     { id: 'announcements', label: 'Anuncios' },
     { id: 'metrics', label: 'Métricas' },
+    { id: 'downloads', label: 'Descargas' },
   ]
 
   return (
@@ -68,6 +70,7 @@ export default function AdminPage() {
       {tab === 'messages' ? <MessageQueue messages={messages} /> : null}
       {tab === 'announcements' ? <AnnouncementManager /> : null}
       {tab === 'metrics' ? <AnalyticsDashboard /> : null}
+      {tab === 'downloads' ? <DownloadAnalyticsDashboard /> : null}
 
       {/* ── Tools ── */}
       <section className="overflow-hidden rounded-2xl border border-sg-gold/15 bg-navy-mid shadow-sm">

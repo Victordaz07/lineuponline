@@ -1,4 +1,5 @@
 import {
+  addDoc,
   collection,
   deleteDoc,
   doc,
@@ -14,7 +15,10 @@ import {
 } from 'firebase/firestore'
 import { deleteObject, getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { getDb, getFirebaseStorage } from '@/lib/firebase'
+import { inferCountryCode } from '@/lib/geoInference'
 import type { DownloadableResource } from '@/types/downloadable'
+
+const EVENTS_COLLECTION = 'downloadEvents'
 
 const COLLECTION = 'downloadableResources'
 
@@ -166,8 +170,9 @@ export async function deleteDownloadable(
   await deleteDoc(doc(getDb(), COLLECTION, id))
 }
 
-/** Registra una descarga: incrementa el contador del recurso. El evento
- *  detallado (para analítica por tema/país) se agrega en la Fase 2. */
+/** Registra una descarga: incrementa el contador del recurso y guarda un
+ *  evento detallado (tema, país aproximado) para la analítica de admin.
+ *  Nunca bloquea la descarga real si algo falla. */
 export async function registerDownload(resource: DownloadableResource): Promise<void> {
   try {
     await updateDoc(doc(getDb(), COLLECTION, resource.id), {
@@ -176,5 +181,20 @@ export async function registerDownload(resource: DownloadableResource): Promise<
     })
   } catch (err) {
     console.error('[downloadables] error registrando descarga:', err)
+  }
+
+  try {
+    const { countryCode, localeRegion, timeZone } = inferCountryCode()
+    await addDoc(collection(getDb(), EVENTS_COLLECTION), {
+      resourceId: resource.id,
+      resourceTitle: resource.title,
+      tags: resource.tags,
+      countryCode,
+      localeRegion,
+      timeZone,
+      createdAt: serverTimestamp(),
+    })
+  } catch (err) {
+    console.error('[downloadables] error registrando evento de descarga:', err)
   }
 }

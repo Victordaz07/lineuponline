@@ -203,5 +203,22 @@ service cloud.firestore {
         request.resource.data.downloadCount == resource.data.downloadCount + 1
       );
     }
+
+    // Eventos de descarga (analítica de Descargables): solo-creación desde el
+    // cliente público, sin lectura (evita exponer patrones de uso), tamaño y
+    // forma acotados para mitigar spam. Solo el admin puede leerlos.
+    match /downloadEvents/{eventId} {
+      allow read: if isAdmin();
+      allow create: if
+        request.resource.data.keys().hasOnly(['resourceId','resourceTitle','tags','countryCode','localeRegion','timeZone','createdAt']) &&
+        request.resource.data.resourceId is string && request.resource.data.resourceId.size() > 0 &&
+        request.resource.data.resourceId.size() < 200 &&
+        request.resource.data.resourceTitle is string && request.resource.data.resourceTitle.size() < 300 &&
+        request.resource.data.tags is list && request.resource.data.tags.size() < 20 &&
+        (request.resource.data.countryCode == null ||
+          (request.resource.data.countryCode is string && request.resource.data.countryCode.size() == 2)) &&
+        request.resource.data.createdAt == request.time;
+      allow update, delete: if false;
+    }
   }
 }
