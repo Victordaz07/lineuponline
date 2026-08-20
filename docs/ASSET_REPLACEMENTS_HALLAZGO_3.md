@@ -35,16 +35,16 @@ Las 8 imágenes de heroes/collages quedaron **aprobadas por el usuario** (estilo
 
 | Archivo original | Estrategia | Concepto de reemplazo (escena original, Cristo protagonista, estilo E4) | Estado | Archivo nuevo |
 |---|---|---|---|---|
-| `jesus-el-hombre/01-nazaret-taller.webp` | E4 | Jesús joven en el taller de carpintería de Nazaret, con José y María cerca | pendiente | — |
-| `jesus-el-hombre/02-pozo-jacob.webp` | E4 | Jesús conversando con la mujer samaritana junto al pozo de Jacob | pendiente | — |
-| `jesus-el-hombre/03-tormenta-barca.webp` | E4 | Jesús calmando la tormenta en la barca, junto a los discípulos | pendiente | — |
-| `jesus-el-hombre/04-llanto-lazaro.webp` | E4 | Jesús llorando ante la tumba de Lázaro, con Marta y María | pendiente | — |
+| `jesus-el-hombre/01-nazaret-taller.webp` | E4 | Jesús joven en el taller de carpintería de Nazaret, con José y María cerca | generada | `modules/jesus/_review/jesus-el-hombre/01-nazaret-taller.webp` |
+| `jesus-el-hombre/02-pozo-jacob.webp` | E4 | Jesús conversando con la mujer samaritana junto al pozo de Jacob | generada | `modules/jesus/_review/jesus-el-hombre/02-pozo-jacob.webp` |
+| `jesus-el-hombre/03-tormenta-barca.webp` | E4 | Jesús calmando la tormenta en la barca, junto a los discípulos | generada | `modules/jesus/_review/jesus-el-hombre/03-tormenta-barca.webp` |
+| `jesus-el-hombre/04-llanto-lazaro.webp` | E4 | Jesús llorando ante la tumba de Lázaro, con Marta y María | generada | `modules/jesus/_review/jesus-el-hombre/04-llanto-lazaro.webp` |
 | `jesus-el-hombre/05-getsemani.webp` | E4 | Jesús orando en el huerto de Getsemaní — **muestra piloto** (ver abajo) | generada | `modules/jesus/_review/jesus-el-hombre/05-getsemani.webp` |
 | `jesus-el-cristo/01-bautismo.webp` | E4 | El bautismo de Jesús por Juan el Bautista en el Jordán, paloma y luz descendiendo | pendiente | — |
-| `jesus-el-cristo/02-transfiguracion.webp` | E4 | La transfiguración de Jesús en el monte, ante Pedro, Santiago y Juan | pendiente | — |
-| `jesus-el-cristo/03-poder-sobre-muerte.webp` | E4 | Jesús mostrando poder sobre la muerte (resurrección de Lázaro) | pendiente | — |
-| `jesus-el-cristo/04-autoridad-ensenanza.webp` | E4 | Jesús enseñando con autoridad a la multitud | pendiente | — |
-| `jesus-el-cristo/05-confesion-testigos.webp` | E4 | Pedro confesando que Jesús es el Cristo | pendiente | — |
+| `jesus-el-cristo/02-transfiguracion.webp` | E4 | La transfiguración de Jesús en el monte, ante Pedro, Santiago y Juan | generada | `modules/jesus/_review/jesus-el-cristo/02-transfiguracion.webp` |
+| `jesus-el-cristo/03-poder-sobre-muerte.webp` | E4 | Jesús mostrando poder sobre la muerte (resurrección de Lázaro) | generada | `modules/jesus/_review/jesus-el-cristo/03-poder-sobre-muerte.webp` |
+| `jesus-el-cristo/04-autoridad-ensenanza.webp` | E4 | Jesús enseñando con autoridad a la multitud | generada | `modules/jesus/_review/jesus-el-cristo/04-autoridad-ensenanza.webp` |
+| `jesus-el-cristo/05-confesion-testigos.webp` | E4 | Pedro confesando que Jesús es el Cristo | generada | `modules/jesus/_review/jesus-el-cristo/05-confesion-testigos.webp` |
 | `biblia-libro-mormon/03-sermon-biblia.webp` | E4 | Jesús enseñando el Sermón del Monte | pendiente | — |
 | `biblia-libro-mormon/04-ensenanza-templo.webp` | E4 | Jesús enseñando a la multitud nefita en el templo americano — **muestra piloto** (ver abajo). Faceteado facial algo más suave que las otras 3 muestras (rostro pequeño en plano general, riesgo bajo) — revisar si se repite en el resto del lote. | generada | `modules/jesus/_review/biblia-libro-mormon/04-ensenanza-templo.webp` |
 | `biblia-libro-mormon/05-abundancia.webp` | E4 | Jesús bendiciendo y sanando en abundancia entre el pueblo nefita | pendiente | — |
